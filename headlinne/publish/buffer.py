@@ -48,6 +48,13 @@ def _immediate_due_at() -> str:
     when = datetime.now(timezone.utc) + timedelta(minutes=_IMMEDIATE_LEAD_MINUTES)
     return when.strftime("%Y-%m-%dT%H:%M:%S.000Z")
 
+
+def _error_detail(body) -> str:
+    """Pull a human-readable message out of a GraphQL error body, if present."""
+    if isinstance(body, dict) and body.get("errors"):
+        return "; ".join(e.get("message", str(e)) for e in body["errors"])
+    return ""
+
 _CREATE_POST = """
 mutation CreatePost($input: CreatePostInput!) {
   createPost(input: $input) {
@@ -88,22 +95,49 @@ class BufferClient:
             try:
                 resp = requests.post(self.endpoint, headers=self._headers(),
                                      data=payload, timeout=30)
-                # The API uses HTTP 200 for success; 429 means slow down.
-                if resp.status_code == 429:
-                    raise BufferError("rate limited (429)")
-                resp.raise_for_status()
-                body = resp.json()
-                if body.get("errors"):
-                    msg = "; ".join(e.get("message", str(e)) for e in body["errors"])
-                    raise BufferError(f"GraphQL errors: {msg}")
-                return body
-            except Exception as exc:  # noqa: BLE001
+            except requests.RequestException as exc:
+                # Network-level problem: transient, so retry with backoff.
                 last_err = exc
-                wait = min(2 ** attempt, 20)
-                log.warning("Buffer attempt %d/%d failed: %s (retry in %ss)",
-                            attempt, _MAX_RETRIES, exc, wait)
-                time.sleep(wait)
+                self._backoff(attempt, exc)
+                continue
+
+            # Parse the body even on an error status: GraphQL puts the real
+            # message (e.g. a missing required field) in the body of a 400.
+            try:
+                body = resp.json()
+            except ValueError:
+                body = None
+            detail = _error_detail(body) or (resp.text or "").strip()[:300]
+
+            if resp.status_code == 429:
+                last_err = BufferError("rate limited (429)")
+                self._backoff(attempt, last_err)
+                continue
+            if 400 <= resp.status_code < 500:
+                # Client error (bad request, auth, not found). This is
+                # deterministic, so do not retry, and surface Buffer's reason.
+                raise BufferError(f"HTTP {resp.status_code} from Buffer: "
+                                  f"{detail or 'no detail provided'}")
+            if resp.status_code >= 500:
+                last_err = BufferError(f"HTTP {resp.status_code} from Buffer: {detail}")
+                self._backoff(attempt, last_err)
+                continue
+
+            if body is None:
+                raise BufferError("empty or non-JSON response from Buffer")
+            if body.get("errors"):
+                raise BufferError(f"GraphQL errors: {_error_detail(body)}")
+            return body
         raise BufferError(f"Buffer request failed after {_MAX_RETRIES} attempts: {last_err}")
+
+    @staticmethod
+    def _backoff(attempt: int, exc: Exception) -> None:
+        if attempt >= _MAX_RETRIES:
+            return
+        wait = min(2 ** attempt, 20)
+        log.warning("Buffer attempt %d/%d failed: %s (retry in %ss)",
+                    attempt, _MAX_RETRIES, exc, wait)
+        time.sleep(wait)
 
     def create_post(self, *, channel_id: str, text: str,
                     image_urls: list[str] | None = None,
@@ -156,7 +190,9 @@ class BufferClient:
         the order given. Instagram allows 2 to 10 images in a carousel.
 
         Instagram requires a post type (post, story or reel); a feed carousel is
-        type "post", set via the channel-specific metadata field.
+        type "post". Buffer also requires shouldShareToFeed on Instagram posts,
+        which we set true so the carousel lands on the main profile feed. Both go
+        in the channel-specific metadata field.
         """
         if not image_urls:
             raise BufferError("Instagram post needs at least one image URL.")
@@ -165,7 +201,8 @@ class BufferClient:
         return self.create_post(channel_id=SECRETS.buffer_channel_instagram,
                                 text=caption, image_urls=image_urls,
                                 due_at_utc=due_at_utc,
-                                metadata={"instagram": {"type": "post"}})
+                                metadata={"instagram": {"type": "post",
+                                                        "shouldShareToFeed": True}})
 
 
 def build_caption(caption: str, hashtags: list[str]) -> str:
