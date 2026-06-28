@@ -15,11 +15,12 @@ loaded we fall back to a clean branded gradient so a slide is never empty.
 from __future__ import annotations
 
 import hashlib
+import re
 from io import BytesIO
 from pathlib import Path
 from typing import Callable, Optional
 
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageFilter
 
 from ..config import (CATEGORY_COLORS, LOGO_PATH, SLIDE_H, SLIDE_W, WEBSITE)
 from ..logging_setup import get_logger
@@ -52,38 +53,101 @@ def _scale(rgb: tuple[int, int, int], factor: float) -> tuple[int, int, int]:
 # --------------------------------------------------------------------------- #
 # Image loading
 # --------------------------------------------------------------------------- #
-def default_image_loader(src: Optional[str]) -> Optional[Image.Image]:
-    """Load a background from an http(s) URL or a local file path."""
-    if not src:
-        return None
+# A featured image whose smaller side is under this many pixels would look
+# blurry blown up to a full slide, so we use a clean gradient instead.
+_MIN_SOURCE_PX = 360
+
+# When fetching a remote background, ask the CDN for roughly this width. Most
+# news image hosts honour a size hint, which turns a small thumbnail into a
+# sharp full-size image. The original URL is used if the larger one fails.
+_UPGRADE_TARGET_W = 1600
+
+
+def _upgrade_image_url(url: str, target: int = _UPGRADE_TARGET_W) -> str:
+    """Best-effort rewrite of a thumbnail URL to a larger version.
+
+    Only touches well-known size hints, and the loader falls back to the
+    original if the upgraded URL fails, so an over-eager rewrite cannot lose an
+    image. Handles WordPress-style dimension suffixes, BBC ichef width segments,
+    and common width / resize query parameters.
+    """
+    if not url:
+        return url
+    u = url
+    # WordPress / many CMSs: "photo-1024x576.jpg" -> "photo.jpg" (the original).
+    u = re.sub(r"-\d{2,4}x\d{2,4}(?=\.(?:jpg|jpeg|png|webp)\b)", "", u, flags=re.I)
+    # BBC ichef: ".../news/240/cpsprodpb/..." -> bump the width segment.
+    u = re.sub(r"(/)(\d{2,4})(/cpsprodpb/)",
+               lambda m: m.group(1) + str(max(int(m.group(2)), target)) + m.group(3), u)
+    # Query width hints: width=, w=, maxwidth=
+    u = re.sub(r"(?i)([?&](?:width|w|maxwidth)=)(\d{2,4})",
+               lambda m: m.group(1) + str(max(int(m.group(2)), target)), u)
+
+    # resize=W,H or fit=W,H -> scale up keeping the aspect ratio.
+    def _pair(m):
+        w_, h_ = int(m.group(2)), int(m.group(3))
+        if w_ >= target:
+            return m.group(0)
+        return f"{m.group(1)}{target},{int(h_ * target / w_)}"
+
+    u = re.sub(r"(?i)([?&](?:resize|fit)=)(\d{2,4}),(\d{2,4})", _pair, u)
+    return u
+
+
+def _fetch_image(url: str) -> Optional[Image.Image]:
     try:
-        if src.startswith("http://") or src.startswith("https://"):
+        if url.startswith("http://") or url.startswith("https://"):
             import requests  # local import so tests do not need network
 
-            resp = requests.get(src, timeout=12, headers={"User-Agent": "Headlinne/1.0"})
+            resp = requests.get(url, timeout=12, headers={"User-Agent": "Headlinne/1.0"})
             resp.raise_for_status()
             return Image.open(BytesIO(resp.content)).convert("RGBA")
-        path = Path(src)
+        path = Path(url)
         if path.exists():
             return Image.open(path).convert("RGBA")
     except Exception as exc:  # pragma: no cover - network/IO best-effort
-        log.warning("Background load failed for %s: %s", str(src)[:80], exc)
+        log.warning("Background load failed for %s: %s", str(url)[:80], exc)
     return None
+
+
+def default_image_loader(src: Optional[str]) -> Optional[Image.Image]:
+    """Load a background from an http(s) URL or a local file path.
+
+    For remote images it first tries a higher-resolution variant of the URL and
+    falls back to the original if that fails, so backgrounds are as sharp as the
+    source allows.
+    """
+    if not src:
+        return None
+    if src.startswith("http://") or src.startswith("https://"):
+        upgraded = _upgrade_image_url(src)
+        if upgraded != src:
+            img = _fetch_image(upgraded)
+            if img is not None:
+                return img
+        return _fetch_image(src)
+    return _fetch_image(src)
 
 
 # --------------------------------------------------------------------------- #
 # Background builders
 # --------------------------------------------------------------------------- #
 def _cover_fit(img: Image.Image, w: int, h: int) -> Image.Image:
-    """Scale and centre-crop an image to exactly w x h (cover fit)."""
-    img = img.convert("RGBA")
+    """Scale and centre-crop an image to exactly w x h (cover fit), then sharpen
+    to counteract softness from scaling. Upscaled images get a firmer pass."""
+    img = img.convert("RGB")
     src_w, src_h = img.size
     scale = max(w / src_w, h / src_h)
     new = (max(1, int(src_w * scale)), max(1, int(src_h * scale)))
     img = img.resize(new, Image.LANCZOS)
     left = (img.width - w) // 2
     top = (img.height - h) // 2
-    return img.crop((left, top, left + w, top + h))
+    img = img.crop((left, top, left + w, top + h))
+    if scale > 1.05:  # had to enlarge: sharpen harder to recover crispness
+        img = img.filter(ImageFilter.UnsharpMask(radius=2.2, percent=135, threshold=2))
+    else:
+        img = img.filter(ImageFilter.UnsharpMask(radius=1.1, percent=75, threshold=3))
+    return img.convert("RGBA")
 
 
 def _vertical_gradient(w: int, h: int, top_rgb, bottom_rgb) -> Image.Image:
@@ -130,11 +194,14 @@ def _bottom_gradient(w: int, h: int, band_frac: float, max_alpha: int) -> Image.
 
 def _background_for(slide: Slide, category: str, loader: ImageLoader) -> Image.Image:
     img = loader(slide.image_url)
-    if img is not None:
+    if img is not None and min(img.size) >= _MIN_SOURCE_PX:
         try:
             return _cover_fit(img, SLIDE_W, SLIDE_H)
         except Exception as exc:  # pragma: no cover
             log.warning("cover-fit failed: %s", exc)
+    elif img is not None:
+        log.info("background %dx%d too small for a sharp slide, using gradient",
+                 img.size[0], img.size[1])
     return _fallback_bg(category, slide.headline or category)
 
 

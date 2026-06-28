@@ -34,31 +34,54 @@ def _looks_like_image(url: str | None) -> bool:
     return "image" in low or "img" in low or "/photo" in low or "media" in low
 
 
-def image_from_entry(entry) -> str | None:
-    # media_content / media_thumbnail (feedparser normalises these).
-    for key in ("media_content", "media_thumbnail"):
-        items = entry.get(key) or []
-        for it in items:
-            url = it.get("url")
-            if _looks_like_image(url):
-                return url
+def _int(v) -> int:
+    try:
+        return int(float(v))
+    except (TypeError, ValueError):
+        return 0
 
-    # enclosures
+
+def image_from_entry(entry) -> str | None:
+    """Pick the best featured-image URL the entry offers, preferring larger,
+    full-size images over small thumbnails.
+
+    This runs for every story, so it never makes an extra request when the feed
+    already provides an image. The article hero (og:image) is fetched only as a
+    last resort when the feed gives us nothing. The renderer upgrades whatever
+    URL we pick to a higher-resolution variant at draw time.
+    """
+    # (source_rank, width, url) - higher rank = more likely a full-size image.
+    candidates: list[tuple[int, int, str]] = []
+
+    for it in entry.get("media_content") or []:
+        if _looks_like_image(it.get("url")):
+            candidates.append((3, _int(it.get("width")), it["url"]))
+
     for enc in entry.get("enclosures", []) or []:
-        if str(enc.get("type", "")).startswith("image") and _looks_like_image(enc.get("href")):
-            return enc.get("href")
-        if _looks_like_image(enc.get("href")):
-            return enc.get("href")
+        href = enc.get("href")
+        if _looks_like_image(href):
+            is_img = str(enc.get("type", "")).startswith("image")
+            candidates.append((3 if is_img else 2, _int(enc.get("width")), href))
+
+    for it in entry.get("media_thumbnail") or []:
+        if _looks_like_image(it.get("url")):
+            candidates.append((1, _int(it.get("width")), it["url"]))
 
     # An <img> inside the summary/content HTML.
     html = entry.get("summary") or ""
     for blk in entry.get("content", []) or []:
         html += blk.get("value", "")
-    m = re.search(r'<img[^>]+src=["\']([^"\']+)["\']', html)
-    if m and _looks_like_image(m.group(1)):
-        return m.group(1)
+    for m in re.finditer(r'<img[^>]+src=["\']([^"\']+)["\']', html):
+        if _looks_like_image(m.group(1)):
+            candidates.append((1, 0, m.group(1)))
 
-    # Last resort: scrape the article's og:image.
+    # Prefer the more reliable source (full image over thumbnail), then the
+    # largest known width within that.
+    best = max(candidates, key=lambda c: (c[0], c[1]), default=None)
+    if best is not None:
+        return best[2]
+
+    # Nothing in the feed: fall back to the article's og:image (one request).
     link = entry.get("link")
     if link:
         og = _og_image(link)
