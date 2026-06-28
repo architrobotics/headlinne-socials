@@ -1,0 +1,21 @@
+# Secrets
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+
+# OS
+.DS_Store
+
+# Local preview output (committed content/ is intentional, this is just scratch)
+preview/
+
+# Note: content/ and state/ ARE committed by the generate workflow on purpose.
+# Instagram needs the rendered images to be publicly reachable, and the rolling
+# history lives in state/history.json.

@@ -1,0 +1,60 @@
+name: Generate daily content
+
+# Triggered once a day by cron-job.org via the workflow_dispatch REST API.
+# cron-job.org only fires this trigger (it returns instantly, well within its
+# 30 second limit). All the heavy work runs here on GitHub's runners.
+#
+# A schedule is included as a backup in case the external trigger ever misses.
+# Times are UTC. 00:30 UTC = 06:00 IST. Remove it if you only want cron-job.org.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "30 0 * * *"   # 06:00 IST backup run
+
+permissions:
+  contents: write          # needed to commit the generated content back
+
+concurrency:
+  group: headlinne-generate
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Generate content
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          BUFFER_ACCESS_TOKEN: ${{ secrets.BUFFER_ACCESS_TOKEN }}
+          BUFFER_CHANNEL_ID_X: ${{ secrets.BUFFER_CHANNEL_ID_X }}
+          BUFFER_CHANNEL_ID_LINKEDIN: ${{ secrets.BUFFER_CHANNEL_ID_LINKEDIN }}
+          BUFFER_CHANNEL_ID_INSTAGRAM: ${{ secrets.BUFFER_CHANNEL_ID_INSTAGRAM }}
+          BUFFER_SCHEDULING_MODE: ${{ vars.BUFFER_SCHEDULING_MODE }}
+          PUBLIC_IMAGE_BASE_URL: ${{ vars.PUBLIC_IMAGE_BASE_URL }}
+        run: |
+          python -m headlinne generate
+
+      - name: Commit generated content
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add content/ state/
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Daily content $(date -u +%Y-%m-%d)"
+            git push
+          fi
