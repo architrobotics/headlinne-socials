@@ -1,12 +1,16 @@
 """Publish X (Twitter), LinkedIn and Instagram through Buffer's GraphQL API.
 
 Buffer exposes a single GraphQL endpoint at https://api.buffer.com. We use the
-createPost mutation with a typed input. Two modes are used:
+createPost mutation with a typed input. Buffer has exactly two scheduling modes:
 
-  - customScheduled + dueAt  -> Buffer publishes the post at a specific UTC time
-                                (used when BUFFER_SCHEDULING_MODE == "scheduled").
-  - now                      -> Buffer publishes immediately (used when a
-                                cron-job.org trigger fires at the slot time).
+  - customScheduled + dueAt  -> Buffer publishes the post at a specific UTC time.
+  - addToQueue               -> Buffer drops it in the next free queue slot.
+
+There is no "publish now" mode. To publish immediately (when a cron-job.org
+trigger fires at the slot time, or in trigger mode), we therefore use
+customScheduled with a dueAt a couple of minutes in the future, which Buffer
+sends out right away. A small cushion avoids "time in the past" rejections from
+clock differences.
 
 Images (for Instagram carousels and any image post) are passed as an ordered
 `assets` list, each entry being `{ image: { url } }`. Buffer does not accept file
@@ -14,16 +18,17 @@ uploads, so every image URL must be publicly reachable. Several image URLs on on
 Instagram post become a carousel, in the order given. See publish.image_host for
 how the rendered slides are turned into public URLs.
 
-The API always returns HTTP 200 and signals problems with typed error objects, so
-we inspect the response body, not just the status code. Note: the Buffer API
-cannot edit or delete a post once created, so we only create when we intend to
-publish.
+The API returns HTTP 200 with typed error objects for most problems, but a
+malformed request (for example an unknown enum value) comes back as HTTP 400, so
+we surface both. Note: the Buffer API cannot edit or delete a post once created,
+so we only create when we intend to publish.
 """
 
 from __future__ import annotations
 
 import json
 import time
+from datetime import datetime, timedelta, timezone
 
 import requests
 
@@ -31,6 +36,17 @@ from ..config import BUFFER_API_URL, INSTAGRAM_CAPTION_LIMIT, SECRETS
 from ..logging_setup import get_logger
 
 log = get_logger("publish.buffer")
+
+# Buffer has no immediate-publish mode, so "now" posts are scheduled this many
+# minutes ahead with customScheduled. Small enough to feel immediate, large
+# enough to clear clock skew and any minimum lead time.
+_IMMEDIATE_LEAD_MINUTES = 2
+
+
+def _immediate_due_at() -> str:
+    """A dueAt a short moment from now, in Buffer's UTC format."""
+    when = datetime.now(timezone.utc) + timedelta(minutes=_IMMEDIATE_LEAD_MINUTES)
+    return when.strftime("%Y-%m-%dT%H:%M:%S.000Z")
 
 _CREATE_POST = """
 mutation CreatePost($input: CreatePostInput!) {
@@ -107,11 +123,10 @@ class BufferClient:
         }
         if image_urls:
             input_obj["assets"] = [{"image": {"url": u}} for u in image_urls if u]
-        if due_at_utc:
-            input_obj["mode"] = "customScheduled"
-            input_obj["dueAt"] = due_at_utc
-        else:
-            input_obj["mode"] = "now"
+        # Buffer has no "now" mode, so an immediate post is customScheduled a
+        # couple of minutes ahead. A given due time is used as-is.
+        input_obj["mode"] = "customScheduled"
+        input_obj["dueAt"] = due_at_utc or _immediate_due_at()
 
         body = self._graphql(_CREATE_POST, {"input": input_obj})
         result = body.get("data", {}).get("createPost", {})

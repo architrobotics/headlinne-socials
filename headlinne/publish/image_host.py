@@ -64,14 +64,22 @@ def get_image_host() -> ImageHost:
       1. PUBLIC_IMAGE_BASE_URL  -> CustomHost (works for private repos)
       2. GITHUB_REPOSITORY      -> GitHubRawHost (public repo, default in CI)
     """
-    if SECRETS.public_image_base_url:
-        log.info("Using custom image host: %s", SECRETS.public_image_base_url)
-        return CustomHost(SECRETS.public_image_base_url)
+    base = (SECRETS.public_image_base_url or "").strip()
+    if base:
+        if base.startswith("http://") or base.startswith("https://"):
+            log.info("Using custom image host: %s", base)
+            return CustomHost(base)
+        # A non-URL value (e.g. a leftover placeholder like "empty") would build
+        # broken image URLs, so ignore it and fall back instead of failing late.
+        log.warning("Ignoring PUBLIC_IMAGE_BASE_URL=%r (not an http(s) URL). "
+                    "Unset it to use the public GitHub repo, or set a real URL.",
+                    base)
     if SECRETS.github_repository:
         log.info("Using GitHub raw host for %s@%s",
                  SECRETS.github_repository, SECRETS.github_ref_name)
         return GitHubRawHost(SECRETS.github_repository, SECRETS.github_ref_name)
     raise RuntimeError(
-        "No public image host configured. Set PUBLIC_IMAGE_BASE_URL or run in "
-        "GitHub Actions where GITHUB_REPOSITORY is available (public repo)."
+        "No public image host configured. Set PUBLIC_IMAGE_BASE_URL to an "
+        "http(s) URL, or run in GitHub Actions where GITHUB_REPOSITORY is "
+        "available (public repo)."
     )
