@@ -1,0 +1,165 @@
+{
+  "day": "2026-06-28",
+  "is_promo_day": true,
+  "is_friday": false,
+  "twitter": [
+    {
+      "category": "Promo",
+      "post": "Ever read a headline and have follow-up questions? Our AI search lets you dig deeper. Ask anything about a story and get a clear answer with links to the original sources. It is a smarter way to stay informed. HEADLINNE.com #News #AI",
+      "hashtags": [
+        "News",
+        "AI"
+      ],
+      "scheduled_time": "2026-06-28T13:00:00+05:30",
+      "kind": "promo"
+    }
+  ],
+  "linkedin": {
+    "title": "The news shouldn't feel like a chore.",
+    "body": "We all want to stay informed, but the current state of digital news feels designed to exhaust us. It is constant, overwhelming, and often feels like it is built to compete for our attention rather than respect it. That is why we started thinking about a different way to build a news app.\n\nAt Headlinne, our philosophy is simple. We believe technology should act as a filter, not a megaphone. Instead of showing you everything at once, we use AI to help you find the stories that actually matter to your specific interests. It is about quiet signal in a very loud world.\n\nWe are not trying to replace the act of reading with a summary or a shortcut. We want to make the experience of catching up on the world feel calm, focused, and genuinely useful. It is about giving you back your time while keeping you informed.",
+    "cta": "If you are looking for a smarter way to read, you can see what we are building at HEADLINNE.com.",
+    "scheduled_time": "2026-06-28T18:00:00+05:30",
+    "kind": "product"
+  },
+  "instagram": [
+    {
+      "slot": "instagram_1",
+      "category": "Geopolitics",
+      "num_slides": 7,
+      "title": "Top 5 Geopolitics Headlines",
+      "slides": [
+        {
+          "role": "cover",
+          "headline": "Top 5 Geopolitics Headlines",
+          "explanation": "",
+          "image_url": "https://i.guim.co.uk/img/media/e4b1600890d37357e9d916f924bb6b1454ed1db8/746_319_4217_3373/master/4217.jpg?width=140&quality=85&auto=format&fit=max&s=a6411d3baba01e16f1f31d9e7a0f5e36",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-06-28/instagram/instagram_1/slide_1.png"
+        },
+        {
+          "role": "story",
+          "headline": "Australia's new social media crackdown",
+          "explanation": "Experts say Australia needs to get serious about enforcing its upcoming social media ban. Simply raising fines is not enough to make tech giants change how they handle content.",
+          "image_url": "https://i.guim.co.uk/img/media/e4b1600890d37357e9d916f924bb6b1454ed1db8/746_319_4217_3373/master/4217.jpg?width=140&quality=85&auto=format&fit=max&s=a6411d3baba01e16f1f31d9e7a0f5e36",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-06-28/instagram/instagram_1/slide_2.png"
+        },
+        {
+          "role": "story",
+          "headline": "US and Iran exchange strikes",
+          "explanation": "Tensions are rising as the US and Iran trade military strikes. Both sides blame each other for endangering a potential ceasefire and ongoing peace talks.",
+          "image_url": "https://i.guim.co.uk/img/media/7fd59a006d663d87b170b8963e1748fc05984884/1031_0_5304_4243/master/5304.jpg?width=140&quality=85&auto=format&fit=max&s=5fc09c4328664721cb8856b0e94be444",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-06-28/instagram/instagram_1/slide_3.png"
+        },
+        {
+          "role": "story",
+          "headline": "Regional impact of US-Iran conflict",
+          "explanation": "The conflict is spreading as Iran targets US infrastructure in Kuwait and Bahrain. This follows recent American strikes against various targets inside Iran.",
+          "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/38a0/live/7c4274f0-727b-11f1-8e1d-bbbb1017d210.jpg",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-06-28/instagram/instagram_1/slide_4.png"
+        },
+        {
+          "role": "story",
+          "headline": "Iran threatens to pause peace talks",
+          "explanation": "Following recent missile and drone attacks, Iran is now threatening to walk away from negotiations. This puts the delicate process to end the war at serious risk.",
+          "image_url": null,
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-06-28/instagram/instagram_1/slide_5.png"
+        },
+        {
+          "role": "story",
+          "headline": "Voting begins in New Caledonia",
+          "explanation": "People in New Caledonia are heading to the polls for the first time since 2019. These local elections will shape future political talks with France regarding the territory's status.",
+          "image_url": "https://i.guim.co.uk/img/media/ff287614cea1553699926ca5f016ad38aeea0765/258_0_4718_3774/master/4718.jpg?width=140&quality=85&auto=format&fit=max&s=4570b337cd83622ebeb2891fd6131f07",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-06-28/instagram/instagram_1/slide_6.png"
+        },
+        {
+          "role": "cta",
+          "headline": "Stay ahead with HEADLINNE.com",
+          "explanation": "",
+          "image_url": null,
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-06-28/instagram/instagram_1/slide_7.png"
+        }
+      ],
+      "caption": "From rising tensions in the Middle East to important elections in the Pacific, here is what you need to know about today's biggest global stories. Stay informed with Headlinne. We break down the news so you can understand the world around you. Read more on HEADLINNE.com.",
+      "hashtags": [
+        "WorldNews",
+        "Geopolitics",
+        "Politics",
+        "News",
+        "GlobalAffairs",
+        "CurrentEvents",
+        "Headlinne",
+        "InternationalNews"
+      ],
+      "scheduled_time": "2026-06-28T16:00:00+05:30"
+    },
+    {
+      "slot": "instagram_2",
+      "category": "Technology",
+      "num_slides": 7,
+      "title": "Top 5 Things In Tech Today",
+      "slides": [
+        {
+          "role": "cover",
+          "headline": "Top 5 Things In Tech Today",
+          "explanation": "",
+          "image_url": "https://techcrunch.com/wp-content/uploads/2023/06/Vision-Pro-IMG-3.jpeg?resize=1200,800",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-06-28/instagram/instagram_2/slide_1.png"
+        },
+        {
+          "role": "story",
+          "headline": "A top Apple leader is moving to OpenAI",
+          "explanation": "Paul Meade, the VP who led the Apple Vision Pro team, is reportedly leaving to join the hardware group at OpenAI. It is a significant shift for the AI company as it looks to build its own hardware.",
+          "image_url": "https://techcrunch.com/wp-content/uploads/2023/06/Vision-Pro-IMG-3.jpeg?resize=1200,800",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-06-28/instagram/instagram_2/slide_2.png"
+        },
+        {
+          "role": "story",
+          "headline": "Can Matter fix our smart home headaches?",
+          "explanation": "Four years ago, the industry launched the Matter standard to help different smart home gadgets work together. It is still a major focus today as companies try to make our connected homes less frustrating.",
+          "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/06/Unify-3E1A1400.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-06-28/instagram/instagram_2/slide_3.png"
+        },
+        {
+          "role": "story",
+          "headline": "Apple eyes chips from a blacklisted supplier",
+          "explanation": "Apple is reportedly asking for permission to buy memory chips from CXMT, a Chinese firm currently on a US blacklist. The company is dealing with rising costs for parts and is looking for ways to ease supply chain pressure.",
+          "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/12/STKS523_RAM_SHORTAGE_C.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-06-28/instagram/instagram_2/slide_4.png"
+        },
+        {
+          "role": "story",
+          "headline": "One journalist is holding onto his old phone",
+          "explanation": "Journalist Kai Wright is opting out of the constant cycle of buying new phones. His choice highlights a growing trend of people keeping their tech longer instead of upgrading every year.",
+          "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/06/KAI-FNL-0089-EV3-1.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-06-28/instagram/instagram_2/slide_5.png"
+        },
+        {
+          "role": "story",
+          "headline": "Fans are building their own Star Fox game",
+          "explanation": "Since a new Star Fox game hasn't arrived in a long time, indie developers are taking matters into their own hands. They are creating their own version to capture the nostalgia of the classic title.",
+          "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/06/ss_f13e94982ebee258e47fa7ae66350ed6270118d9.1920x1080.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-06-28/instagram/instagram_2/slide_6.png"
+        },
+        {
+          "role": "cta",
+          "headline": "Stay ahead with HEADLINNE.com",
+          "explanation": "",
+          "image_url": null,
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-06-28/instagram/instagram_2/slide_7.png"
+        }
+      ],
+      "caption": "From big tech hiring news to the latest on smart home standards, here is what is happening in the world of technology today. We are breaking down the stories that matter most. Check out the latest updates below. Read more on HEADLINNE.com.",
+      "hashtags": [
+        "Tech",
+        "TechNews",
+        "AI",
+        "Apple",
+        "OpenAI",
+        "SmartHome",
+        "Gaming",
+        "Gadgets",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-06-28T18:00:00+05:30"
+    }
+  ]
+}
