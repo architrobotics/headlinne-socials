@@ -107,7 +107,8 @@ class BufferClient:
 
     def create_post(self, *, channel_id: str, text: str,
                     image_urls: list[str] | None = None,
-                    due_at_utc: str | None = None) -> dict:
+                    due_at_utc: str | None = None,
+                    metadata: dict | None = None) -> dict:
         """Create a post on a channel.
 
         Pass image_urls to attach images (several become an Instagram carousel,
@@ -123,6 +124,8 @@ class BufferClient:
         }
         if image_urls:
             input_obj["assets"] = [{"image": {"url": u}} for u in image_urls if u]
+        if metadata:
+            input_obj["metadata"] = metadata
         # Buffer has no "now" mode, so an immediate post is customScheduled a
         # couple of minutes ahead. A given due time is used as-is.
         input_obj["mode"] = "customScheduled"
@@ -149,15 +152,20 @@ class BufferClient:
 
     def post_instagram(self, image_urls: list[str], caption: str,
                        due_at_utc: str | None = None) -> dict:
-        """Publish an Instagram post. Two or more images make a carousel, in the
-        order given. Instagram allows 2 to 10 images in a carousel."""
+        """Publish an Instagram feed post. Two or more images make a carousel, in
+        the order given. Instagram allows 2 to 10 images in a carousel.
+
+        Instagram requires a post type (post, story or reel); a feed carousel is
+        type "post", set via the channel-specific metadata field.
+        """
         if not image_urls:
             raise BufferError("Instagram post needs at least one image URL.")
         if len(image_urls) > 10:
             raise BufferError(f"Instagram carousel allows up to 10 images, got {len(image_urls)}.")
         return self.create_post(channel_id=SECRETS.buffer_channel_instagram,
                                 text=caption, image_urls=image_urls,
-                                due_at_utc=due_at_utc)
+                                due_at_utc=due_at_utc,
+                                metadata={"instagram": {"type": "post"}})
 
 
 def build_caption(caption: str, hashtags: list[str]) -> str:

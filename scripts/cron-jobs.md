@@ -19,7 +19,7 @@ All jobs call the GitHub "workflow dispatch" API.
 
 - Method: `POST`
 - Headers:
-  - `Authorization: Bearer YOUR_GITHUB_PAT`
+  - `Authorization: Bearer `
   - `Accept: application/vnd.github+json`
   - `X-GitHub-Api-Version: 2022-11-28`
   - `Content-Type: application/json`
