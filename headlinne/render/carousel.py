@@ -57,41 +57,50 @@ def _scale(rgb: tuple[int, int, int], factor: float) -> tuple[int, int, int]:
 # blurry blown up to a full slide, so we use a clean gradient instead.
 _MIN_SOURCE_PX = 360
 
-# When fetching a remote background, ask the CDN for roughly this width. Most
-# news image hosts honour a size hint, which turns a small thumbnail into a
-# sharp full-size image. The original URL is used if the larger one fails.
-_UPGRADE_TARGET_W = 1600
+# When fetching a remote background, ask the CDN for one of these widths in
+# order (largest first). Different hosts support different sizes, so trying a
+# ladder lands the biggest one a given host actually serves instead of 404ing on
+# a single guess. The original URL is the final fallback.
+_UPGRADE_WIDTHS = (2048, 1536, 1024)
 
 
-def _upgrade_image_url(url: str, target: int = _UPGRADE_TARGET_W) -> str:
-    """Best-effort rewrite of a thumbnail URL to a larger version.
+def _upgrade_candidates(url: str) -> list[str]:
+    """Ordered higher-resolution variants of a thumbnail URL, largest first.
 
-    Only touches well-known size hints, and the loader falls back to the
-    original if the upgraded URL fails, so an over-eager rewrite cannot lose an
-    image. Handles WordPress-style dimension suffixes, BBC ichef width segments,
-    and common width / resize query parameters.
+    Handles WordPress-style dimension suffixes, BBC ichef width segments, and
+    common width / resize query parameters. Returns only URLs that actually
+    differ from the original; the loader tries each and falls back to the
+    original, so an over-eager rewrite can never lose an image.
     """
     if not url:
-        return url
-    u = url
-    # WordPress / many CMSs: "photo-1024x576.jpg" -> "photo.jpg" (the original).
-    u = re.sub(r"-\d{2,4}x\d{2,4}(?=\.(?:jpg|jpeg|png|webp)\b)", "", u, flags=re.I)
-    # BBC ichef: ".../news/240/cpsprodpb/..." -> bump the width segment.
-    u = re.sub(r"(/)(\d{2,4})(/cpsprodpb/)",
-               lambda m: m.group(1) + str(max(int(m.group(2)), target)) + m.group(3), u)
-    # Query width hints: width=, w=, maxwidth=
-    u = re.sub(r"(?i)([?&](?:width|w|maxwidth)=)(\d{2,4})",
-               lambda m: m.group(1) + str(max(int(m.group(2)), target)), u)
+        return []
+    candidates: list[str] = []
+    # WordPress / many CMSs: "photo-1024x576.jpg" -> "photo.jpg" (the original,
+    # full-resolution file). Worth trying first when present.
+    stripped = re.sub(r"-\d{2,4}x\d{2,4}(?=\.(?:jpg|jpeg|png|webp)\b)", "", url, flags=re.I)
+    if stripped != url:
+        candidates.append(stripped)
 
-    # resize=W,H or fit=W,H -> scale up keeping the aspect ratio.
-    def _pair(m):
-        w_, h_ = int(m.group(2)), int(m.group(3))
-        if w_ >= target:
-            return m.group(0)
-        return f"{m.group(1)}{target},{int(h_ * target / w_)}"
+    for target in _UPGRADE_WIDTHS:
+        u = url
+        # BBC ichef: ".../news/240/cpsprodpb/..." -> bump the width segment.
+        u = re.sub(r"(/)(\d{2,4})(/cpsprodpb/)",
+                   lambda m, t=target: m.group(1) + str(max(int(m.group(2)), t)) + m.group(3), u)
+        # Query width hints: width=, w=, maxwidth=
+        u = re.sub(r"(?i)([?&](?:width|w|maxwidth)=)(\d{2,4})",
+                   lambda m, t=target: m.group(1) + str(max(int(m.group(2)), t)), u)
 
-    u = re.sub(r"(?i)([?&](?:resize|fit)=)(\d{2,4}),(\d{2,4})", _pair, u)
-    return u
+        # resize=W,H or fit=W,H -> scale up keeping the aspect ratio.
+        def _pair(m, t=target):
+            w_, h_ = int(m.group(2)), int(m.group(3))
+            if w_ >= t:
+                return m.group(0)
+            return f"{m.group(1)}{t},{int(h_ * t / w_)}"
+
+        u = re.sub(r"(?i)([?&](?:resize|fit)=)(\d{2,4}),(\d{2,4})", _pair, u)
+        if u != url and u not in candidates:
+            candidates.append(u)
+    return candidates
 
 
 def _fetch_image(url: str) -> Optional[Image.Image]:
@@ -113,16 +122,15 @@ def _fetch_image(url: str) -> Optional[Image.Image]:
 def default_image_loader(src: Optional[str]) -> Optional[Image.Image]:
     """Load a background from an http(s) URL or a local file path.
 
-    For remote images it first tries a higher-resolution variant of the URL and
-    falls back to the original if that fails, so backgrounds are as sharp as the
-    source allows.
+    For remote images it tries progressively-sized higher-resolution variants of
+    the URL (largest first) and falls back to the original, so backgrounds come
+    out as sharp as the source host allows.
     """
     if not src:
         return None
     if src.startswith("http://") or src.startswith("https://"):
-        upgraded = _upgrade_image_url(src)
-        if upgraded != src:
-            img = _fetch_image(upgraded)
+        for candidate in _upgrade_candidates(src):
+            img = _fetch_image(candidate)
             if img is not None:
                 return img
         return _fetch_image(src)

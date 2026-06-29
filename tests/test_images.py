@@ -1,49 +1,100 @@
-"""Background image quality helpers: choosing the best feed image and rewriting
-its URL to a higher-resolution variant. These are pure-string/logic tests."""
+"""Background image quality helpers: choosing the best feed image, fetching a
+higher-resolution article hero when needed, and rewriting URLs to larger
+variants. Pure-logic tests; the one network call is patched by hand so the
+suite runs with or without pytest."""
 
 from __future__ import annotations
 
-from headlinne.news.images import image_from_entry
-from headlinne.render.carousel import _upgrade_image_url
+from contextlib import contextmanager
+
+import headlinne.news.images as images
+from headlinne.news.images import _url_width_hint, best_story_image, image_from_entry
+from headlinne.render.carousel import _upgrade_candidates
+from headlinne.models import Story
 
 
-def test_upgrade_strips_wordpress_dimension_suffix():
-    out = _upgrade_image_url("https://site.com/wp/photo-1024x576.jpg")
-    assert out == "https://site.com/wp/photo.jpg"
-    # Keeps any query string intact.
-    out2 = _upgrade_image_url("https://site.com/a-300x200.jpg?x=1")
-    assert out2 == "https://site.com/a.jpg?x=1"
+@contextmanager
+def _og_returns(value):
+    """Temporarily replace the network og:image lookup with a stub."""
+    calls = {"n": 0}
+
+    def stub(url):
+        calls["n"] += 1
+        return value
+
+    original = images._og_image
+    images._og_image = stub
+    try:
+        yield calls
+    finally:
+        images._og_image = original
 
 
-def test_upgrade_bumps_bbc_ichef_width():
-    out = _upgrade_image_url("https://ichef.bbci.co.uk/news/240/cpsprodpb/abc/x.jpg")
-    assert "/1600/cpsprodpb/" in out
-    # An already-large width is left alone.
-    big = "https://ichef.bbci.co.uk/news/2048/cpsprodpb/abc/x.jpg"
-    assert _upgrade_image_url(big) == big
+def _story(image_url=None, url="https://news.example.com/article"):
+    return Story(title="t", summary="s", url=url, category="Geopolitics",
+                 source="BBC World", tier=1.4, published_iso="", image_url=image_url)
 
 
-def test_upgrade_bumps_width_query_params():
-    assert _upgrade_image_url("https://i.guim.co.uk/img/x?width=300&quality=85") \
-        == "https://i.guim.co.uk/img/x?width=1600&quality=85"
-    assert _upgrade_image_url("https://cdn.com/x?w=140&h=90") \
-        == "https://cdn.com/x?w=1600&h=90"
-    # Already large stays put.
-    assert _upgrade_image_url("https://cdn.com/x?width=2000") \
-        == "https://cdn.com/x?width=2000"
+# --- URL upgrade ladder ----------------------------------------------------- #
+def test_candidates_strip_wordpress_suffix_first():
+    cands = _upgrade_candidates("https://site.com/wp/photo-1024x576.jpg")
+    assert cands[0] == "https://site.com/wp/photo.jpg"
 
 
-def test_upgrade_scales_resize_pair_keeping_ratio():
-    out = _upgrade_image_url("https://cdn.com/x?resize=320,180")
-    assert out == "https://cdn.com/x?resize=1600,900"
+def test_candidates_ladder_bbc_widths_largest_first():
+    cands = _upgrade_candidates("https://ichef.bbci.co.uk/news/240/cpsprodpb/x.jpg")
+    assert "/2048/cpsprodpb/" in cands[0]
+    assert "/1536/cpsprodpb/" in cands[1]
+    assert "/1024/cpsprodpb/" in cands[2]
 
 
-def test_upgrade_leaves_plain_urls_untouched():
-    plain = "https://cdn.com/full/image.jpg"
-    assert _upgrade_image_url(plain) == plain
-    assert _upgrade_image_url("") == ""
+def test_candidates_bump_width_query():
+    cands = _upgrade_candidates("https://i.guim.co.uk/img/x?width=300&q=85")
+    assert cands[0] == "https://i.guim.co.uk/img/x?width=2048&q=85"
 
 
+def test_candidates_empty_for_plain_url():
+    assert _upgrade_candidates("https://cdn.com/full/image.jpg") == []
+    assert _upgrade_candidates("") == []
+
+
+# --- width hint parsing ----------------------------------------------------- #
+def test_width_hint_reads_common_patterns():
+    assert _url_width_hint("https://s/a-1024x576.jpg") == 1024
+    assert _url_width_hint("https://ichef.bbci.co.uk/news/240/cpsprodpb/x.jpg") == 240
+    assert _url_width_hint("https://s/x?width=1200") == 1200
+    assert _url_width_hint("https://s/x?resize=320,180") == 320
+    assert _url_width_hint("https://s/plain.jpg") == 0
+    assert _url_width_hint(None) == 0
+
+
+# --- best_story_image ------------------------------------------------------- #
+def test_keeps_large_feed_image_without_fetching():
+    with _og_returns("https://should.not/be-used.jpg") as calls:
+        s = _story(image_url="https://i.guim.co.uk/img/x?width=1200")
+        assert best_story_image(s) == "https://i.guim.co.uk/img/x?width=1200"
+        assert calls["n"] == 0  # large enough, no hero fetch
+
+
+def test_fetches_hero_for_small_thumbnail():
+    with _og_returns("https://ichef.bbci.co.uk/news/1024/branded/x.jpg"):
+        s = _story(image_url="https://ichef.bbci.co.uk/news/240/cpsprodpb/x.jpg")
+        assert best_story_image(s) == "https://ichef.bbci.co.uk/news/1024/branded/x.jpg"
+
+
+def test_uses_hero_when_feed_image_missing():
+    with _og_returns("https://cdn.aj.com/hero.jpg"):
+        s = _story(image_url=None)
+        assert best_story_image(s) == "https://cdn.aj.com/hero.jpg"
+
+
+def test_falls_back_to_feed_when_no_hero():
+    with _og_returns(None):
+        url = "https://ichef.bbci.co.uk/news/240/cpsprodpb/x.jpg"
+        assert best_story_image(_story(image_url=url)) == url
+
+
+# --- candidate selection from a feed entry ---------------------------------- #
 def test_image_from_entry_prefers_largest_width():
     entry = {
         "media_content": [
@@ -57,10 +108,9 @@ def test_image_from_entry_prefers_largest_width():
 
 def test_image_from_entry_prefers_full_image_over_thumbnail():
     entry = {
-        "media_content": [{"url": "https://c.com/main.jpg"}],   # no width given
+        "media_content": [{"url": "https://c.com/main.jpg"}],
         "media_thumbnail": [{"url": "https://c.com/thumb.jpg", "width": "100"}],
     }
-    # The full media_content image outranks a tiny thumbnail.
     assert image_from_entry(entry) == "https://c.com/main.jpg"
 
 

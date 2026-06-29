@@ -41,6 +41,60 @@ def _int(v) -> int:
         return 0
 
 
+# A feed image whose URL advertises at least this width is treated as good
+# enough that we do not spend a request fetching the article hero instead.
+_LARGE_ENOUGH = 800
+
+
+def _url_width_hint(url: str | None) -> int:
+    """Read an approximate width from common CDN URL patterns, else 0.
+
+    Lets us tell a 240px thumbnail URL from a 1200px one without downloading it.
+    """
+    if not url:
+        return 0
+    best = 0
+    # WordPress-style "-1024x576.jpg".
+    m = re.search(r"-(\d{2,4})x\d{2,4}(?=\.(?:jpg|jpeg|png|webp)\b)", url, re.I)
+    if m:
+        best = max(best, int(m.group(1)))
+    # BBC ichef "/240/cpsprodpb/".
+    m = re.search(r"/(\d{2,4})/cpsprodpb/", url)
+    if m:
+        best = max(best, int(m.group(1)))
+    # width= / w= / maxwidth= / resize=W,H / fit=W,H query hints.
+    for m in re.finditer(r"(?i)[?&](?:width|w|maxwidth)=(\d{2,4})", url):
+        best = max(best, int(m.group(1)))
+    for m in re.finditer(r"(?i)[?&](?:resize|fit)=(\d{2,4}),\d{2,4}", url):
+        best = max(best, int(m.group(1)))
+    return best
+
+
+def best_story_image(story) -> str | None:
+    """The highest-quality image URL for a story that is about to be rendered.
+
+    The cheap feed image is kept when it already looks large. Otherwise the
+    article's hero image (og:image) is fetched, since it is almost always bigger
+    than a feed thumbnail. This is meant to be called only for the handful of
+    stories that actually go into a carousel, so the extra request is bounded.
+    """
+    feed = getattr(story, "image_url", None)
+    if feed and _url_width_hint(feed) >= _LARGE_ENOUGH:
+        return feed
+
+    link = getattr(story, "url", "") or ""
+    og = _og_image(link) if link else None
+    if og and _looks_like_image(og):
+        if not feed:
+            return og
+        # Prefer whichever advertises the larger width. An unknown og width
+        # (0) still usually means a full hero image, so favour it.
+        og_hint = _url_width_hint(og)
+        if og_hint == 0 or og_hint >= _url_width_hint(feed):
+            return og
+    return feed
+
+
 def image_from_entry(entry) -> str | None:
     """Pick the best featured-image URL the entry offers, preferring larger,
     full-size images over small thumbnails.

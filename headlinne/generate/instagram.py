@@ -19,6 +19,7 @@ from ..gemini.client import GeminiClient
 from ..gemini.prompts import STYLE_GUIDE, instagram_prompt
 from ..logging_setup import get_logger
 from ..models import InstagramCarousel, NewsDigest, Slide, Story
+from ..news.images import best_story_image
 from ..quality.sanitize import sanitize
 from ..scheduling import slot_iso
 
@@ -92,8 +93,13 @@ def _carousel_for(client: GeminiClient, category: str, stories: list[Story],
     caption = sanitize(data.get("caption", ""))
     hashtags = _hashtags(category, data.get("hashtags", []))
 
+    # Resolve the best available image for each chosen story once (this may fetch
+    # the article hero for stories whose feed image is small or missing), then
+    # reuse it for both the cover and the story slide.
+    story_images = [best_story_image(s) for s in chosen]
+
     # Cover slide: title over the top story's featured image.
-    cover_image = next((s.image_url for s in chosen if s.image_url), None)
+    cover_image = next((img for img in story_images if img), None)
     title = _cover_title(category, n)
     slides: list[Slide] = [
         Slide(role="cover", headline=title, explanation="", image_url=cover_image)
@@ -110,7 +116,7 @@ def _carousel_for(client: GeminiClient, category: str, stories: list[Story],
                 role="story",
                 headline=headline,
                 explanation=explanation,
-                image_url=story.image_url,
+                image_url=story_images[i],
             )
         )
 
