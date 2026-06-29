@@ -5,29 +5,29 @@
   "twitter": [
     {
       "category": "Geopolitics",
-      "post": "Here is today's global news roundup.\n• Tensions rise as the US and Iran trade strikes near Hormuz\n• An Australian man faces murder charges after a death in Thailand\n• Australia is increasing penalties for social media ban breaches HEADLINNE.com #WorldNews #GlobalUpdate",
+      "post": "Here is the latest in world news.\n• Chipmaker stocks are soaring as demand for AI tech keeps growing\n• Pakistan launched airstrikes near the Afghan border\n• Casualties are reported after the cross-border military strikes HEADLINNE.com #Geopolitics #TechNews",
       "hashtags": [
-        "WorldNews",
-        "GlobalUpdate"
+        "Geopolitics",
+        "TechNews"
       ],
       "scheduled_time": "2026-06-29T13:00:00+05:30",
       "kind": "news"
     },
     {
       "category": "Tech",
-      "post": "Here is today's quick tech update.\n• Apple might bring touchscreens to MacBooks sooner than expected\n• A new Chinese AI model is showing promise in cybersecurity tasks\n• Suno is launching an incubator to help independent artists HEADLINNE.com #TechNews #AI",
+      "post": "Today's top tech stories in a nutshell.\n• China has built the world's fastest supercomputer again\n• Prosecutors used ChatGPT logs as evidence in an arson trial\n• Ford is bringing back veteran engineers after AI work fell short HEADLINNE.com #TechNews #Headlinne",
       "hashtags": [
         "TechNews",
-        "AI"
+        "Headlinne"
       ],
       "scheduled_time": "2026-06-29T17:00:00+05:30",
       "kind": "news"
     }
   ],
   "linkedin": {
-    "title": "I started building a news app when I was a teenager because I was tired of missing the stories that actually mattered to me.",
-    "body": "It felt like I had two choices back then. I could either scroll through endless social media feeds filled with noise, or I could try to keep up with traditional news sites that felt overwhelming and disconnected from my daily life. Neither option really worked.\n\nThat frustration is what led to the idea for Headlinne. I wanted to see if technology could act more like a personal editor rather than just an algorithm pushing whatever was trending at the moment. I wanted news that learned what I cared about without me having to do the heavy lifting of searching for it every single day.\n\nBuilding this as a teenager taught me a lot about how we consume information. It is not just about having access to data. It is about having the right context. We are building Headlinne to bridge that gap. We use AI to cut through the noise and deliver stories that are relevant to the individual reader, not just the masses.",
-    "cta": "If you are looking for a calmer, more relevant way to stay informed, you can see what we are building at HEADLINNE.com.",
+    "title": "I started building a news app when I was a teenager because I was tired of scrolling through noise.",
+    "body": "Most news apps felt like they were designed for someone else. They were either too cluttered, too biased, or just plain overwhelming. I wanted something that felt like a conversation, not a broadcast.\n\nBuilding Headlinne wasn't about trying to replace journalism. It was about solving a personal problem. I wanted a way to see the stories that actually mattered to me without having to dig through irrelevant headlines for twenty minutes every morning.\n\nWe used AI not to write the news, but to act as a filter. It helps us understand what you care about so the app can adapt to your interests. It is a tool to help you reclaim your time and stay informed on your own terms.\n\nThe goal has always been simple. We want to make the news feel personal again.",
+    "cta": "If you are curious about a better way to stay updated, you can see how it works at HEADLINNE.com.",
     "scheduled_time": "2026-06-29T18:00:00+05:30",
     "kind": "product"
   },
@@ -42,42 +42,42 @@
           "role": "cover",
           "headline": "Top 5 Geopolitics Headlines",
           "explanation": "",
-          "image_url": "https://i.guim.co.uk/img/media/5626b60b813dd1369a1a12b6f09ce10f63207e51/338_0_3380_2704/master/3380.jpg?width=140&quality=85&auto=format&fit=max&s=36c265fbf72b6e1071791481d718b390",
+          "image_url": "https://i.guim.co.uk/img/media/406c209aef3bb4248f6042a2c6d877c13a8037cb/249_0_2501_2001/master/2501.jpg?width=140&quality=85&auto=format&fit=max&s=cf6b27d662d36956f3500947a03c0e0c",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-06-29/instagram/instagram_1/slide_1.png"
         },
         {
           "role": "story",
-          "headline": "Tensions spike between US and Iran",
-          "explanation": "Donald Trump has issued a warning to Iran after a series of military strikes near the Strait of Hormuz. Both sides are accusing the other of breaking their ceasefire agreement.",
-          "image_url": "https://i.guim.co.uk/img/media/5626b60b813dd1369a1a12b6f09ce10f63207e51/338_0_3380_2704/master/3380.jpg?width=140&quality=85&auto=format&fit=max&s=36c265fbf72b6e1071791481d718b390",
+          "headline": "AI chipmakers see massive stock gains",
+          "explanation": "Stock prices for companies building AI hardware have tripled this year. Investors are betting big on the tech powering the current AI boom.",
+          "image_url": "https://i.guim.co.uk/img/media/406c209aef3bb4248f6042a2c6d877c13a8037cb/249_0_2501_2001/master/2501.jpg?width=140&quality=85&auto=format&fit=max&s=cf6b27d662d36956f3500947a03c0e0c",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-06-29/instagram/instagram_1/slide_2.png"
         },
         {
           "role": "story",
-          "headline": "Australian man charged in Thailand",
-          "explanation": "An Australian man is facing murder charges after the body of a 17-year-old girl was discovered in a suitcase near a railway track in Thailand.",
-          "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/99f8/live/50421640-72ed-11f1-8e1d-bbbb1017d210.jpg",
+          "headline": "Violence flares on Pakistan-Afghan border",
+          "explanation": "Pakistan launched airstrikes in eastern Afghanistan after claiming they were targeting militants. Dozens of casualties have been reported following the attacks.",
+          "image_url": "https://i.guim.co.uk/img/media/d7066a3e8dc56a2c55b9e4643c1828cd7066253a/0_0_4240_3392/master/4240.jpg?width=140&quality=85&auto=format&fit=max&s=38f1402f4dccc530c06e3c32daf33194",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-06-29/instagram/instagram_1/slide_3.png"
         },
         {
           "role": "story",
-          "headline": "Australia gets tougher on social media",
-          "explanation": "Australia is doubling the fines for social media companies that violate the country's ban on platforms for children under 16. This follows the ban that took effect in late 2025.",
-          "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/2ba8/live/f77e45a0-71d0-11f1-8281-1bc626104723.jpg",
+          "headline": "Pakistan cites terror attacks as strike reason",
+          "explanation": "Officials in Pakistan state these recent military strikes were a direct response to attacks against innocent people. Tensions between the two nations remain high.",
+          "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/89ac/live/71159fd0-7370-11f1-901e-634ba6f0a6ec.jpg",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-06-29/instagram/instagram_1/slide_4.png"
         },
         {
           "role": "story",
-          "headline": "New warning for US migrants",
-          "explanation": "The US Homeland Security secretary is telling migrants on temporary status to apply for permanent residency or prepare to leave. This follows a recent Supreme Court ruling regarding protected status.",
-          "image_url": "https://i.guim.co.uk/img/media/592db2feb7878684b57cc7a61d174f9d59d12e0a/647_0_6830_5464/master/6830.jpg?width=140&quality=85&auto=format&fit=max&s=e16e30b914ac91636cb96b4a3695a503",
+          "headline": "One Nation withdraws funding claims",
+          "explanation": "Pauline Hanson’s party pulled back over $800,000 in election spending claims. This follows questions from the Australian Electoral Commission about their funding.",
+          "image_url": "https://i.guim.co.uk/img/media/7a59a8dc707d0d1f9fe2be7619209f199f541cfc/688_0_6880_5504/master/6880.jpg?width=140&quality=85&auto=format&fit=max&s=87e83ab233ea3428b7e7db5738f60056",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-06-29/instagram/instagram_1/slide_5.png"
         },
         {
           "role": "story",
-          "headline": "Gulf peace deal under pressure",
-          "explanation": "New fighting in the Gulf shows that the recent US-Iran peace agreement might have been unclear. The two sides seem to have different views on what the deal actually promised.",
-          "image_url": "https://i.guim.co.uk/img/media/67176d5d07091c7ecdcb4cafd653f48b9be5a19d/0_179_1496_1197/master/1496.jpg?width=140&quality=85&auto=format&fit=max&s=eee3881c4afad1fc2278373daf62cb66",
+          "headline": "Victoria premier defends infrastructure costs",
+          "explanation": "Jacinta Allan is blaming inflation rather than corruption for rising costs on major projects. She is currently resisting calls for a royal commission investigation.",
+          "image_url": "https://i.guim.co.uk/img/media/b9e115ab91e10d67dee69cc5af33445263792750/1212_259_5871_4699/master/5871.jpg?width=140&quality=85&auto=format&fit=max&s=eb89bd079fb7c248f3a73eef777fba38",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-06-29/instagram/instagram_1/slide_6.png"
         },
         {
@@ -88,18 +88,19 @@
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-06-29/instagram/instagram_1/slide_7.png"
         }
       ],
-      "caption": "Here are the biggest stories making headlines around the world today. From shifting policies in the US and Australia to rising tensions in the Middle East, we are keeping you updated on what matters. Check out the slides for the full breakdown. Read more on HEADLINNE.com.",
+      "caption": "Stay up to date with today's top global stories in just a few minutes. From shifting markets to international conflicts and local politics, we have the facts you need. Check out our latest update to see what is happening around the world. Read more on HEADLINNE.com.",
       "hashtags": [
         "WorldNews",
         "Geopolitics",
         "Politics",
-        "news",
-        "breakingnews",
-        "currentaffairs",
-        "headlines",
-        "globalnews",
-        "dailyupdate",
-        "Headlinne"
+        "News",
+        "Tech",
+        "GlobalPolitics",
+        "Pakistan",
+        "Afghanistan",
+        "Australia",
+        "Headlinne",
+        "CurrentEvents"
       ],
       "scheduled_time": "2026-06-29T16:00:00+05:30"
     },
@@ -113,42 +114,42 @@
           "role": "cover",
           "headline": "Top 5 Things In Tech Today",
           "explanation": "",
-          "image_url": "https://www.engadget.com/img/gallery/apples-touchscreen-macbook-reportedly-wont-wait-for-the-m7-chips/l-intro-1782663379.jpg",
+          "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/06/gettyimages-2283018388.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-06-29/instagram/instagram_2/slide_1.png"
         },
         {
           "role": "story",
-          "headline": "A touchscreen MacBook is coming soon",
-          "explanation": "Reports say Apple plans to launch a touchscreen MacBook sooner than expected. It will likely run on the new M5 Pro and M5 Max chips.",
-          "image_url": "https://www.engadget.com/img/gallery/apples-touchscreen-macbook-reportedly-wont-wait-for-the-m7-chips/l-intro-1782663379.jpg",
+          "headline": "China takes back supercomputer crown",
+          "explanation": "Despite US trade restrictions on tech parts, China now holds the top spot on the TOP500 list again. This is the first time they have led since 2018, beating out the previous record holder.",
+          "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/06/gettyimages-2283018388.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-06-29/instagram/instagram_2/slide_2.png"
         },
         {
           "role": "story",
-          "headline": "China's new AI closes the gap",
-          "explanation": "Researchers say Zhipu AI's new model performs surprisingly well at cybersecurity tasks. It is starting to rival top models like Mythos for finding bugs.",
-          "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/STKS515_CYBER_WARFARE2_C.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
+          "headline": "ChatGPT logs used in arson trial",
+          "explanation": "Prosecutors in a major California wildfire case used AI chat history as evidence. Along with phone data and video footage, the logs helped build the case against the defendant.",
+          "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/22530766/1232927726.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-06-29/instagram/instagram_2/slide_3.png"
         },
         {
           "role": "story",
-          "headline": "Suno launches artist incubator",
-          "explanation": "The AI music platform Suno is starting a program to help independent musicians. It offers grants and support to unsigned artists who want to grow their careers.",
-          "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/01/STK467_AI_MUSIC_CVirginia_C.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
+          "headline": "Ford brings back veteran engineers",
+          "explanation": "Ford realized that relying too heavily on AI for product quality was a mistake. They are now rehiring experienced engineers to fix the gaps left by over-automation.",
+          "image_url": "https://techcrunch.com/wp-content/uploads/2026/06/GettyImages-2255983122.jpg?w=1024",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-06-29/instagram/instagram_2/slide_4.png"
         },
         {
           "role": "story",
-          "headline": "The future of Tesla's self-driving",
-          "explanation": "All eyes are on Tesla's Full Self-Driving technology right now. It remains a key focus for anyone watching how AI is changing the future of transport.",
-          "image_url": "https://techcrunch.com/wp-content/uploads/2026/06/tesla-fsd-GettyImages-2277686230.jpg?resize=1200,800",
+          "headline": "Is convenience ruining our lives?",
+          "explanation": "Writer Ian Bogost argues that Silicon Valley might be focusing on the wrong things. He suggests that embracing the small, manual tasks could help us reclaim our lives from too much tech.",
+          "image_url": "https://techcrunch.com/wp-content/uploads/2026/06/ian-bogost-headshot.jpg?resize=800,1200",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-06-29/instagram/instagram_2/slide_5.png"
         },
         {
           "role": "story",
-          "headline": "Is Micron the next Nvidia?",
-          "explanation": "Wall Street investors are looking for the next big AI stock. Many are now betting that the memory chip maker Micron could see similar success to Nvidia.",
-          "image_url": "https://techcrunch.com/wp-content/uploads/2026/06/micron-GettyImages-2225258783.jpg?resize=1200,800",
+          "headline": "A pricey new bike lock",
+          "explanation": "A company that usually secures bank ATMs is launching a premium bike lock for $280. While it is expensive, the makers hope the high quality and insurance benefits will justify the cost.",
+          "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/06/IMG_1827.jpeg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-06-29/instagram/instagram_2/slide_6.png"
         },
         {
@@ -159,18 +160,16 @@
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-06-29/instagram/instagram_2/slide_7.png"
         }
       ],
-      "caption": "Here are the top tech stories you need to know today. From Apple's hardware updates to the latest in AI competition, we have you covered. Stay informed with Headlinne. Read more on HEADLINNE.com.",
+      "caption": "From AI in the courtroom to the return of classic engineering, here is your tech news roundup for today. Swipe through to catch up on the stories everyone is talking about. Stay informed with Headlinne. Read more on HEADLINNE.com.",
       "hashtags": [
         "Tech",
         "TechNews",
         "AI",
-        "Apple",
-        "ArtificialIntelligence",
-        "Tesla",
-        "StockMarket",
+        "Supercomputer",
+        "Ford",
+        "Engineering",
         "Innovation",
-        "MusicTech",
-        "Cybersecurity",
+        "Cycling",
         "Headlinne"
       ],
       "scheduled_time": "2026-06-29T18:00:00+05:30"
