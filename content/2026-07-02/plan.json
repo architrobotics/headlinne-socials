@@ -5,69 +5,69 @@
   "twitter": [
     {
       "category": "Promo",
-      "post": "Ever wonder if a news story is leaning a certain way? We added a bias analysis tool to our app. It helps you spot different perspectives so you can get a clearer picture of what is actually happening in the world. HEADLINNE.com #News #MediaLiteracy",
+      "post": "It is easy to get stuck in a bubble when reading the news. Our bias analysis tool helps you spot the slant in a story so you can see the full picture. It is a simple way to stay informed without the noise. HEADLINNE.com #MediaLiteracy #NewsTips",
       "hashtags": [
-        "News",
-        "MediaLiteracy"
+        "MediaLiteracy",
+        "NewsTips"
       ],
       "scheduled_time": "2026-07-02T13:00:00+05:30",
       "kind": "promo"
     }
   ],
   "linkedin": {
-    "title": "Staying informed shouldn't feel like a full-time job.",
-    "body": "We are drowning in information, yet many of us feel less informed than ever. The problem is not a lack of news. It is the overwhelming volume of noise we have to sift through just to find the stories that actually impact our lives.\n\nMost people rely on algorithms designed to keep them clicking rather than understanding. This creates a cycle where we see the same sensational headlines repeatedly while important context gets buried. We end up with a fragmented view of the world.\n\nI believe the solution is personalization, but not in the way social media platforms do it. Real personalization means giving you control over what you see. It means cutting out the irrelevant noise so you can focus on the topics, industries, and perspectives that matter to you. When you clear the clutter, you gain the clarity needed to form your own opinions.\n\nTechnology should be a tool that helps us read better, not just faster. By using AI to filter and organize the daily news cycle, we can finally get back to the point of journalism: keeping us genuinely informed.",
-    "cta": "If you want a clearer way to keep up with the world, take a look at what we are building at HEADLINNE.com.",
+    "title": "Most of us are overwhelmed by the amount of news we see every day.",
+    "body": "It is easy to feel like you are falling behind. We scroll through endless feeds, but often end up knowing less about the things that actually impact our lives. The problem is not a lack of information. The problem is noise.\n\nTrue understanding requires focus. When you cut through the clutter and find news that connects to your specific interests and work, you stop just consuming headlines and start actually learning. Personalization is not about creating an echo chamber. It is about filtering out the noise so you can pay attention to what matters most to you.\n\nAI allows us to do this better than ever before. It can handle the heavy lifting of sorting through thousands of stories to find the ones that provide real value. This saves time and makes staying informed feel like a manageable part of your day rather than a chore.",
+    "cta": "You can see how we are approaching this at HEADLINNE.com.",
     "scheduled_time": "2026-07-02T18:00:00+05:30",
     "kind": "product"
   },
   "instagram": [
     {
       "slot": "instagram_1",
-      "category": "Finance",
+      "category": "Geopolitics",
       "num_slides": 7,
-      "title": "Top 5 Finance Stories Today",
+      "title": "Top 5 Geopolitics Headlines",
       "slides": [
         {
           "role": "cover",
-          "headline": "Top 5 Finance Stories Today",
+          "headline": "Top 5 Geopolitics Headlines",
           "explanation": "",
-          "image_url": "https://image.cnbcfm.com/api/v1/image/108329282-1782913164570-Screenshot-2026-07-01-at-93751_AM.jpg?v=1782913253&amp;w=1920&amp;h=1080",
+          "image_url": "https://dims.apnews.com/dims4/default/295c329/2147483647/strip/true/crop/675x450+12+0/resize/980x653!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2F90%2F29%2F4e3c1cc7446089a9101a7bdff4c8%2Fdefaultshareimage-copy.png",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-02/instagram/instagram_1/slide_1.png"
         },
         {
           "role": "story",
-          "headline": "Is inflation a choice?",
-          "explanation": "Kevin Warsh argues that inflation is partly a choice based on how we measure it. This perspective challenges how the Fed plans its next moves.",
-          "image_url": "https://image.cnbcfm.com/api/v1/image/108329282-1782913164570-Screenshot-2026-07-01-at-93751_AM.jpg?v=1782913253&amp;w=1920&amp;h=1080",
+          "headline": "The Onion buys Infowars",
+          "explanation": "The satirical site The Onion has purchased Infowars. Their first move was to hand over $100,000 to the families of Sandy Hook victims.",
+          "image_url": "https://dims.apnews.com/dims4/default/295c329/2147483647/strip/true/crop/675x450+12+0/resize/980x653!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2F90%2F29%2F4e3c1cc7446089a9101a7bdff4c8%2Fdefaultshareimage-copy.png",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-02/instagram/instagram_1/slide_2.png"
         },
         {
           "role": "story",
-          "headline": "Big tech stocks have a tough June",
-          "explanation": "The Magnificent 7 stocks lost about $2 trillion in value last month. This dip has put the group in the red for the year so far.",
-          "image_url": "https://image.cnbcfm.com/api/v1/image/108180544-1754063406073-IMG_8872.jpg?v=1754063887&amp;w=1920&amp;h=1080",
+          "headline": "Europe unites under pressure",
+          "explanation": "European leaders are standing together more closely as they face increasing criticism and pressure from U.S. President Donald Trump.",
+          "image_url": "https://dims.apnews.com/dims4/default/bcdd63c/2147483647/strip/true/crop/750x750+0+9/resize/100x100!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2Fe5%2Fa2%2Fffa8d7ea4df8b97fccd54cbe1970%2Fimg-6967-samuel-mcneil.jpeg",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-02/instagram/instagram_1/slide_3.png"
         },
         {
           "role": "story",
-          "headline": "North American trade deal changes",
-          "explanation": "The US has blocked a long-term renewal of the current trade deal. Instead, the agreement will now face annual reviews.",
-          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/a4da/live/64317d10-757e-11f1-b1b0-0d044d289b5c.jpg",
+          "headline": "New Jersey targets low wages",
+          "explanation": "New Jersey is planning to charge companies for employees who rely on Medicaid instead of employer insurance. Other states might adopt similar rules soon.",
+          "image_url": "https://dims.apnews.com/dims4/default/d7937f4/2147483647/strip/true/crop/1158x1158+0+216/resize/100x100!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2F23%2F48%2F51b9c6e34084b0eb9c667e70d921%2Fimg-6793-geoff-mulvihill.jpg",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-02/instagram/instagram_1/slide_4.png"
         },
         {
           "role": "story",
-          "headline": "Trump's finances revealed",
-          "explanation": "New documents show the President earned billions since returning to office. The income comes from a variety of sources including books and products.",
-          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/594f/live/8d250090-7572-11f1-9634-57b9e01d300c.jpg",
+          "headline": "Asset sales under fire in Australia",
+          "explanation": "The Australian government is questioning property sales by the Christian Brothers. Officials worry these transfers could stop abuse survivors from receiving compensation.",
+          "image_url": "https://i.guim.co.uk/img/media/8a72276b4ed3f81274ab1cc89a8dde031e0300da/0_1063_2163_1730/master/2163.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=99c7b781ddf9a95415ff027eafd2cf4c",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-02/instagram/instagram_1/slide_5.png"
         },
         {
           "role": "story",
-          "headline": "Rising cyber threats from China",
-          "explanation": "Analysts warn that China-linked cyberattacks are increasing. These threats are moving beyond just technology as the AI race speeds up.",
-          "image_url": "https://image.cnbcfm.com/api/v1/image/108328441-1782780337378-gettyimages-527099783-20141125034845_1245_IMG_4146JPG_149607.jpeg?v=1782781855&amp;w=1920&amp;h=1080",
+          "headline": "Amnesty report on Sudan violence",
+          "explanation": "A new report from Amnesty International says the RSF committed crimes against humanity in el-Fasher. The UN says the violence there has signs of genocide.",
+          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/e999/live/8b076ed0-7511-11f1-ab91-bba426c6e310.jpg",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-02/instagram/instagram_1/slide_6.png"
         },
         {
@@ -78,65 +78,65 @@
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-02/instagram/instagram_1/slide_7.png"
         }
       ],
-      "caption": "From shifting economic theories to major tech stock dips, here is what you need to know about the markets today. We are also tracking new trade updates and rising cyber security concerns. Stay informed with Headlinne. Read more on HEADLINNE.com.",
+      "caption": "Here is what you need to know about today's biggest global stories. From shifting political alliances in Europe to new developments in Sudan, we have the latest updates covered. Check out our carousel to catch up on the news that matters. Read more on HEADLINNE.com.",
       "hashtags": [
-        "Finance",
-        "Markets",
-        "Business",
-        "Economy",
-        "TechNews",
-        "Trade",
-        "Investing",
-        "Headlinne"
+        "WorldNews",
+        "Geopolitics",
+        "Politics",
+        "news",
+        "headlinne",
+        "dailyupdate",
+        "currentaffairs",
+        "globalnews"
       ],
       "scheduled_time": "2026-07-02T16:00:00+05:30"
     },
     {
       "slot": "instagram_2",
-      "category": "Technology",
+      "category": "Finance",
       "num_slides": 7,
-      "title": "Top 5 Things In Tech Today",
+      "title": "Top 5 Finance Stories Today",
       "slides": [
         {
           "role": "cover",
-          "headline": "Top 5 Things In Tech Today",
+          "headline": "Top 5 Finance Stories Today",
           "explanation": "",
-          "image_url": "https://techcrunch.com/wp-content/uploads/2025/08/GettyImages-2225880947.jpg?w=1024",
+          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/7d2a/live/fc9433c0-753a-11f1-8082-1b328ace839c.jpg",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-02/instagram/instagram_2/slide_1.png"
         },
         {
           "role": "story",
-          "headline": "Meta's new cloud business plan",
-          "explanation": "Meta is reportedly planning to sell its AI computing power and models to other companies. This would put them in direct competition with major cloud providers like Amazon and Microsoft.",
-          "image_url": "https://techcrunch.com/wp-content/uploads/2025/08/GettyImages-2225880947.jpg?w=1024",
+          "headline": "WHSmith store closures confirmed",
+          "explanation": "A court has approved a plan to close up to 150 WHSmith High Street locations. The company is also negotiating lower rent costs for the shops that will remain open.",
+          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/7d2a/live/fc9433c0-753a-11f1-8082-1b328ace839c.jpg",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-02/instagram/instagram_2/slide_2.png"
         },
         {
           "role": "story",
-          "headline": "Heatwaves threaten key tech",
-          "explanation": "Extreme heat is creating serious problems for critical infrastructure. Services like energy grids and train networks are particularly vulnerable when temperatures spike.",
-          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/7c04/live/aff4d6e0-7135-11f1-8e1d-bbbb1017d210.jpg",
+          "headline": "Meta shakes up cloud stocks",
+          "explanation": "Shares in CoreWeave and Nebius dropped after reports that Meta plans to monetize its own AI infrastructure. Investors are now worrying about the future of smaller cloud providers.",
+          "image_url": "https://images.mktw.net/im-53994474",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-02/instagram/instagram_2/slide_3.png"
         },
         {
           "role": "story",
-          "headline": "New Apple devices coming soon",
-          "explanation": "Reports suggest Apple is preparing to launch new iPad Pro tablets and a more affordable MacBook Pro early next year. It looks like a busy start to the year for their hardware team.",
-          "image_url": "https://techcrunch.com/wp-content/uploads/2024/10/CMC_8083.jpg?resize=1200,800",
+          "headline": "Are software stocks a bargain?",
+          "explanation": "A Guggenheim analyst believes the recent sell-off for Salesforce and ServiceNow went too far. They argue that while AI is a threat, these stocks are now undervalued.",
+          "image_url": "https://images.mktw.net/im-61344165",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-02/instagram/instagram_2/slide_4.png"
         },
         {
           "role": "story",
-          "headline": "Big changes ahead for Xbox",
-          "explanation": "Xbox leadership has announced a major reset for the company due to significant business challenges. This comes just months after new leadership took over at the gaming giant.",
-          "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/22012264/vpavic_4275_20201030_0082.jpg?quality=90&amp;strip=all&amp;crop=0%2C10.732984293194%2C100%2C78.534031413613&amp;w=1200",
+          "headline": "Apple's iPhone plans for 2027",
+          "explanation": "Reports suggest Apple is planning to release at least five new iPhone models over the next few years. This roadmap stretches out until early 2027.",
+          "image_url": "https://i-invdn-com.investing.com/news/LYNXNPEE1K1DD_M.jpg",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-02/instagram/instagram_2/slide_5.png"
         },
         {
           "role": "story",
-          "headline": "Why car trackers often fail",
-          "explanation": "Experts are warning that built-in vehicle trackers might not help you recover a stolen car. In the UK, for example, laws can prevent companies from live tracking vehicles for owners.",
-          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/9911/live/376d7550-75a5-11f1-8672-df1a6610885c.png",
+          "headline": "SoftBank eyes OpenAI loan",
+          "explanation": "SoftBank shares rose following news that the company is back in talks regarding a $10 billion loan. This deal is reportedly linked to OpenAI.",
+          "image_url": "https://i-invdn-com.investing.com/news/LYNXNPEC6H01W_M.jpg",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-02/instagram/instagram_2/slide_6.png"
         },
         {
@@ -147,18 +147,17 @@
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-02/instagram/instagram_2/slide_7.png"
         }
       ],
-      "caption": "From major shifts in the gaming industry to the hidden risks of extreme weather on our tech, here is what you need to know today. Stay informed with Headlinne. Which story caught your attention? Read more on HEADLINNE.com.",
+      "caption": "From retail restructuring to the shifting landscape of cloud computing, here are five finance stories you need to know today. Markets are moving fast, so we have broken down the headlines into simple, quick updates. Check out the slides to get up to speed. Read more on HEADLINNE.com.",
       "hashtags": [
+        "Finance",
+        "Markets",
+        "Business",
+        "Investing",
+        "MarketNews",
         "Tech",
-        "TechNews",
-        "AI",
-        "Meta",
-        "Apple",
-        "Xbox",
-        "ClimateChange",
-        "CarSafety",
-        "Headlinne",
-        "DailyUpdate"
+        "Economy",
+        "Stocks",
+        "Headlinne"
       ],
       "scheduled_time": "2026-07-02T18:00:00+05:30"
     }
