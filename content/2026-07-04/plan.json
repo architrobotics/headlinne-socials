@@ -1,0 +1,168 @@
+{
+  "day": "2026-07-04",
+  "is_promo_day": true,
+  "is_friday": false,
+  "twitter": [
+    {
+      "category": "Promo",
+      "post": "Ever read a headline and wonder why it actually affects you? We added a 'Why It Matters' section to every story on Headlinne to help you cut through the noise and get the context you need. HEADLINNE.com #news #journalism",
+      "hashtags": [
+        "news",
+        "journalism"
+      ],
+      "scheduled_time": "2026-07-04T13:00:00+05:30",
+      "kind": "promo"
+    }
+  ],
+  "linkedin": {
+    "title": "We are moving away from searching for links and toward searching for answers.",
+    "body": "For years, reading the news meant scrolling through search results and hopping between different sites to piece together a story. You had to do the heavy lifting to figure out which sources were reliable and what the full context actually was.\n\nAI is changing that process. Instead of giving you a list of blue links, technology can now synthesize facts from across the web to give you a direct, neutral summary. It means less time digging and more time actually understanding what is happening in the world.\n\nBut there is a catch. The convenience of an instant answer shouldn't come at the cost of accuracy or nuance. We believe the future of news isn't just getting an answer quickly. It is getting an answer that is personalized to your interests, sourced from quality journalism, and presented in a way that respects your time.",
+    "cta": "If you want to see how we are rethinking the way people catch up on the day, take a look at HEADLINNE.com.",
+    "scheduled_time": "2026-07-04T18:00:00+05:30",
+    "kind": "product"
+  },
+  "instagram": [
+    {
+      "slot": "instagram_1",
+      "category": "Geopolitics",
+      "num_slides": 7,
+      "title": "Top 5 Geopolitics Headlines",
+      "slides": [
+        {
+          "role": "cover",
+          "headline": "Top 5 Geopolitics Headlines",
+          "explanation": "",
+          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/1cef/live/163753a0-74c5-11f1-b3a4-17c48cb4ee82.jpg",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-04/instagram/instagram_1/slide_1.png"
+        },
+        {
+          "role": "story",
+          "headline": "Election tension in Brazil",
+          "explanation": "President Lula and rival Flávio Bolsonaro are facing off over a new proposal for US tariffs. This clash highlights the heated political climate as the election approaches.",
+          "image_url": null,
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-04/instagram/instagram_1/slide_2.png"
+        },
+        {
+          "role": "story",
+          "headline": "NASA's space rescue mission",
+          "explanation": "A NASA-funded robot has launched to save a falling space telescope. The mission aims to catch the telescope in orbit before it burns up in the atmosphere.",
+          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/1cef/live/163753a0-74c5-11f1-b3a4-17c48cb4ee82.jpg",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-04/instagram/instagram_1/slide_3.png"
+        },
+        {
+          "role": "story",
+          "headline": "Tensions rise at Strait of Hormuz",
+          "explanation": "Iran wants to start charging a toll for ships passing through the Strait of Hormuz. This is a major sticking point in ongoing discussions related to the US-Iran war.",
+          "image_url": "https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-5879278",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-04/instagram/instagram_1/slide_4.png"
+        },
+        {
+          "role": "story",
+          "headline": "New support for assault survivors",
+          "explanation": "A new international support network for survivors of drug-facilitated rape has gained hundreds of members. It was started by two women who experienced these crimes personally.",
+          "image_url": "https://i.guim.co.uk/img/media/d353a5319e56867744149a784d4a0e308a299a6d/0_0_5000_4000/master/5000.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=4b6a7821e43045a247c8ca1257b89dea",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-04/instagram/instagram_1/slide_5.png"
+        },
+        {
+          "role": "story",
+          "headline": "Right-wing alliance grows in Spain",
+          "explanation": "Spain's conservative People's party and the far-right Vox party have formed a new coalition in Andalucía. This move suggests a potential partnership on a national level.",
+          "image_url": "https://i.guim.co.uk/img/media/305ae688f225a5d7e8273a4677d28b6763f974bf/14_350_1092_874/master/1092.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=2fe5f337419581d71ac64a0a573ef1ea",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-04/instagram/instagram_1/slide_6.png"
+        },
+        {
+          "role": "cta",
+          "headline": "Stay ahead with HEADLINNE.com",
+          "explanation": "",
+          "image_url": null,
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-04/instagram/instagram_1/slide_7.png"
+        }
+      ],
+      "caption": "Stay up to date with the top stories from around the globe. From space missions to international politics, here is what you need to know today. Download the Headlinne app for more. Read more on HEADLINNE.com.",
+      "hashtags": [
+        "WorldNews",
+        "Geopolitics",
+        "Politics",
+        "news",
+        "currentaffairs",
+        "brazil",
+        "nasa",
+        "spain",
+        "headlines",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-07-04T16:00:00+05:30"
+    },
+    {
+      "slot": "instagram_2",
+      "category": "Technology",
+      "num_slides": 7,
+      "title": "Top 5 Things In Tech Today",
+      "slides": [
+        {
+          "role": "cover",
+          "headline": "Top 5 Things In Tech Today",
+          "explanation": "",
+          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/fef8/live/2a1f8cf0-76f2-11f1-b9cc-bd5880081b3f.jpg",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-04/instagram/instagram_2/slide_1.png"
+        },
+        {
+          "role": "story",
+          "headline": "A warning on sharing kids' photos",
+          "explanation": "The National Crime Agency is warning parents about sharing photos of their children online. They say AI is being used to create harmful content from these public images.",
+          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/fef8/live/2a1f8cf0-76f2-11f1-b9cc-bd5880081b3f.jpg",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-04/instagram/instagram_2/slide_2.png"
+        },
+        {
+          "role": "story",
+          "headline": "Amazon quietly updates Fire HD 10",
+          "explanation": "Amazon has given its 2023 Fire HD 10 tablet a small performance boost. The 32GB model now comes with 4GB of RAM instead of 3GB.",
+          "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/07/amazonfirehd.jpg?quality=90&amp;strip=all&amp;crop=0%2C10.704591657108%2C100%2C78.590816685784&amp;w=1200",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-04/instagram/instagram_2/slide_3.png"
+        },
+        {
+          "role": "story",
+          "headline": "Looking beyond Chrome and Safari",
+          "explanation": "Chrome and Safari still dominate, but new browsers are trying to change that. We are taking a look at the best alternatives available right now.",
+          "image_url": "https://techcrunch.com/wp-content/uploads/2024/08/search-engine.jpg?resize=1200,700",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-04/instagram/instagram_2/slide_4.png"
+        },
+        {
+          "role": "story",
+          "headline": "Anthropic moves into drug research",
+          "explanation": "The AI company Anthropic just launched Claude Science. It is a new workbench designed to help scientists manage data and create visuals for their research.",
+          "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/07/STKB364_CLAUDE_2_A_3800fc-1.jpg?quality=90&amp;strip=all&amp;crop=0%2C10.732984293194%2C100%2C78.534031413613&amp;w=1200",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-04/instagram/instagram_2/slide_5.png"
+        },
+        {
+          "role": "story",
+          "headline": "Updates from the space industry",
+          "explanation": "NASA has signed a deal with Rocket Lab for three new launches. Meanwhile, other companies are hitting major milestones in space travel.",
+          "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/07/HMLfHqEbUAA-kFk-1152x648.jpg",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-04/instagram/instagram_2/slide_6.png"
+        },
+        {
+          "role": "cta",
+          "headline": "Stay ahead with HEADLINNE.com",
+          "explanation": "",
+          "image_url": null,
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-04/instagram/instagram_2/slide_7.png"
+        }
+      ],
+      "caption": "From new AI tools for science to important online safety warnings, here is your quick tech update for the day. Tap through to see what is happening in the world of technology right now. Stay informed with Headlinne. Read more on HEADLINNE.com.",
+      "hashtags": [
+        "Tech",
+        "TechNews",
+        "AI",
+        "news",
+        "space",
+        "privacy",
+        "gadgets",
+        "science",
+        "internet",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-07-04T18:00:00+05:30"
+    }
+  ]
+}
