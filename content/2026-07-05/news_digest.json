@@ -1,74 +1,14 @@
 {
   "day": "2026-07-05",
   "category_weights": {
-    "Technology": 0.323,
-    "Finance": 0.306,
-    "Geopolitics": 0.372
+    "Technology": 0.326,
+    "Finance": 0.312,
+    "Geopolitics": 0.363
   },
   "dominant_category": "Geopolitics",
   "breaking": null,
   "by_category": {
     "Technology": [
-      {
-        "title": "Midjourney wants the Hollywood studios that sued it to show the court how they use AI",
-        "summary": "Midjourney is asking the court to get Disney, Warner Bros. and Universal to submit information on their AI use.",
-        "url": "https://www.engadget.com/2207936/midjourney-wants-studios-that-sued-show-court-ai-use/",
-        "category": "Technology",
-        "source": "Engadget",
-        "tier": 0.9,
-        "published_iso": "2026-07-04T11:33:18+00:00",
-        "image_url": "https://www.engadget.com/img/gallery/midjourney-wants-the-studios-that-sued-it-to-show-the-court-how-they-use-ai/l-intro-1783164583.jpg",
-        "corroborating_sources": [],
-        "score": 7.827
-      },
-      {
-        "title": "New Google commercial imagines a Declaration of Independence written with help from AI",
-        "summary": "Two hundred and fifty years after the signing of the Declaration of Independence, a new commercial asks: What if the Founding Fathers had access to Google Workspace?",
-        "url": "https://techcrunch.com/2026/07/04/new-google-commercial-imagines-a-declaration-of-independence-written-with-help-from-ai/",
-        "category": "Technology",
-        "source": "TechCrunch",
-        "tier": 1.0,
-        "published_iso": "2026-07-04T20:55:25+00:00",
-        "image_url": "https://techcrunch.com/wp-content/uploads/2026/07/google-declaration-of-independence.jpg?w=1200",
-        "corroborating_sources": [],
-        "score": 7.419
-      },
-      {
-        "title": "The fanfiction community is at war with AI — and itself",
-        "summary": "Over the past week, a new fanworks movement has kicked off, with the aim to root out authors using generative AI. But the detection methods being implemented are questionable, and any fanfic writer could be caught in the crossfire. Broad distaste around the use of Claude, ChatGPT, and other AI tools has long been a [&#8230;]",
-        "url": "https://www.theverge.com/tech/960854/ai-fanfiction-ao3-claude-detector",
-        "category": "Technology",
-        "source": "The Verge",
-        "tier": 1.1,
-        "published_iso": "2026-07-04T12:00:00+00:00",
-        "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/08/AI_Hands_A_Bernis_02.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
-        "corroborating_sources": [],
-        "score": 7.259
-      },
-      {
-        "title": "What is Mistral AI? Everything to know about the OpenAI competitor",
-        "summary": "Mistral AI, which offers some open source AI models, has raised significant funding since its creation in 2023, with the ambition to “put frontier AI in the hands of everyone.”",
-        "url": "https://techcrunch.com/2026/07/04/what-is-mistral-ai-everything-to-know-about-the-openai-competitor/",
-        "category": "Technology",
-        "source": "TechCrunch",
-        "tier": 1.0,
-        "published_iso": "2026-07-04T15:51:32+00:00",
-        "image_url": "https://techcrunch.com/wp-content/uploads/2025/07/GettyImages-2219786590.jpg?w=1024",
-        "corroborating_sources": [],
-        "score": 7.218
-      },
-      {
-        "title": "How your smartwatch and AI might detect early signs of illness",
-        "summary": "Wearables are best at noticing breaks from your body's usual patterns. Those outliers can hint that something warrants further investigation with your doctor.",
-        "url": "https://www.engadget.com/2206130/how-smartwatch-use-ai-to-detect-sickness/",
-        "category": "Technology",
-        "source": "Engadget",
-        "tier": 0.9,
-        "published_iso": "2026-07-04T18:30:00+00:00",
-        "image_url": "https://www.engadget.com/img/gallery/how-your-smartwatch-and-ai-can-detect-early-signs-of-illness/l-intro-1782925052.jpg",
-        "corroborating_sources": [],
-        "score": 7.156
-      },
       {
         "title": "Security Roundup: Apple’s Hide My Email Service Fails to Hide Your Email",
         "summary": "Plus: Alleged Scattered Spider hacking member extradited, dozens of license plate reader errors, and Indian officials are concerned about WhatsApp’s username rollout.",
@@ -79,7 +19,7 @@
         "published_iso": "2026-07-04T10:30:00+00:00",
         "image_url": "https://media.wired.com/photos/6a459c14043fba997ea26852/master/pass/security_roudnup_GettyImages-1157988186.jpg",
         "corroborating_sources": [],
-        "score": 7.059
+        "score": 6.965
       },
       {
         "title": "Only these iPhone models are getting the new Siri AI this fall",
@@ -91,7 +31,7 @@
         "published_iso": "2026-07-04T15:30:00+00:00",
         "image_url": "https://www.engadget.com/img/gallery/only-these-iphone-models-are-getting-the-new-siri-ai-this-fall/l-intro-1782923551.jpg",
         "corroborating_sources": [],
-        "score": 7.046
+        "score": 6.922
       },
       {
         "title": "NASA launched an emergency mission to stop the Swift Observatory from crashing to Earth",
@@ -103,7 +43,7 @@
         "published_iso": "2026-07-04T19:06:27+00:00",
         "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/07/Testing-Link-Vibration-tests-2_4000x2600.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
         "corroborating_sources": [],
-        "score": 6.6
+        "score": 6.449
       },
       {
         "title": "White House deletes thousands of web pages about energy conservation as heatwave slams US",
@@ -115,7 +55,7 @@
         "published_iso": "2026-07-04T16:19:06+00:00",
         "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/25739860/1998630585.jpg?quality=90&#038;strip=all&#038;crop=0,0,100.51963048499,100.51966048848",
         "corroborating_sources": [],
-        "score": 6.494
+        "score": 6.364
       },
       {
         "title": "Matic’s robot vacuum is getting a $250 price hike in September",
@@ -127,7 +67,7 @@
         "published_iso": "2026-07-04T16:00:00+00:00",
         "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/10/258028_Matic_Robot_Vacuum_JTuohy_0009.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
         "corroborating_sources": [],
-        "score": 6.483
+        "score": 6.355
       },
       {
         "title": "Midjourney wants Hollywood studios to reveal the details of their AI usage",
@@ -139,19 +79,7 @@
         "published_iso": "2026-07-04T18:00:05+00:00",
         "image_url": "https://techcrunch.com/wp-content/uploads/2025/10/GettyImages-1387623215.jpg?resize=1200,900",
         "corroborating_sources": [],
-        "score": 6.396
-      },
-      {
-        "title": "Alibaba reportedly bans employees from using Claude Code",
-        "summary": "Alibaba has reportedly classified Claude Code as high-risk software.",
-        "url": "https://techcrunch.com/2026/07/04/alibaba-reportedly-bans-employees-from-using-claude-code/",
-        "category": "Technology",
-        "source": "TechCrunch",
-        "tier": 1.0,
-        "published_iso": "2026-07-04T16:32:08+00:00",
-        "image_url": "https://techcrunch.com/wp-content/uploads/2026/04/GettyImages-2269811684.jpg?w=1024",
-        "corroborating_sources": [],
-        "score": 6.342
+        "score": 6.253
       },
       {
         "title": "When the ability to smell goes away",
@@ -163,7 +91,7 @@
         "published_iso": "2026-07-04T11:04:31+00:00",
         "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2024/04/GettyImages-1302713332-1152x648.jpg",
         "corroborating_sources": [],
-        "score": 6.334
+        "score": 6.237
       },
       {
         "title": "A martian rock has lots of carbon on it, and it's not clear why",
@@ -175,7 +103,19 @@
         "published_iso": "2026-07-04T11:00:41+00:00",
         "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/07/image-1152x648.png",
         "corroborating_sources": [],
-        "score": 6.332
+        "score": 6.235
+      },
+      {
+        "title": "Alibaba reportedly bans employees from using Claude Code",
+        "summary": "Alibaba has reportedly classified Claude Code as high-risk software.",
+        "url": "https://techcrunch.com/2026/07/04/alibaba-reportedly-bans-employees-from-using-claude-code/",
+        "category": "Technology",
+        "source": "TechCrunch",
+        "tier": 1.0,
+        "published_iso": "2026-07-04T16:32:08+00:00",
+        "image_url": "https://techcrunch.com/wp-content/uploads/2026/04/GettyImages-2269811684.jpg?w=1024",
+        "corroborating_sources": [],
+        "score": 6.21
       },
       {
         "title": "Tesla expands robotaxi service to small section of Miami",
@@ -187,19 +127,7 @@
         "published_iso": "2026-07-04T17:30:00+00:00",
         "image_url": "https://www.engadget.com/img/gallery/tesla-expands-robotaxi-service-to-small-section-of-miami/l-intro-1783184696.jpg",
         "corroborating_sources": [],
-        "score": 6.217
-      },
-      {
-        "title": "NASA mission to rescue the falling Swift observatory has launched",
-        "summary": "NASA has made contact with LINK, the robotic spacecraft made for the Swift Boost mission.",
-        "url": "https://www.engadget.com/2207959/nasa-boost-mission-rescue-falling-swift-observatory-launched/",
-        "category": "Technology",
-        "source": "Engadget",
-        "tier": 0.9,
-        "published_iso": "2026-07-04T16:00:37+00:00",
-        "image_url": "https://www.engadget.com/img/gallery/nasa-mission-to-rescue-the-falling-swift-observatory-has-launched/l-intro-1783180769.jpg",
-        "corroborating_sources": [],
-        "score": 6.163
+        "score": 6.078
       },
       {
         "title": "This Buried Apple Feature Turns an iPhone Into the Perfect Kids’ Dumb Phone",
@@ -211,7 +139,19 @@
         "published_iso": "2026-07-04T10:30:00+00:00",
         "image_url": "https://media.wired.com/photos/6a464811cdac8962d86f5c0f/master/pass/070226_iPhone-Dum-Phone-GIF.gif",
         "corroborating_sources": [],
-        "score": 6.159
+        "score": 6.065
+      },
+      {
+        "title": "NASA mission to rescue the falling Swift observatory has launched",
+        "summary": "NASA has made contact with LINK, the robotic spacecraft made for the Swift Boost mission.",
+        "url": "https://www.engadget.com/2207959/nasa-boost-mission-rescue-falling-swift-observatory-launched/",
+        "category": "Technology",
+        "source": "Engadget",
+        "tier": 0.9,
+        "published_iso": "2026-07-04T16:00:37+00:00",
+        "image_url": "https://www.engadget.com/img/gallery/nasa-mission-to-rescue-the-falling-swift-observatory-has-launched/l-intro-1783180769.jpg",
+        "corroborating_sources": [],
+        "score": 6.035
       },
       {
         "title": "Tesla driver charged with manslaughter for Texas crash that killed a woman in her home",
@@ -223,7 +163,7 @@
         "published_iso": "2026-07-04T15:47:31+00:00",
         "image_url": "https://www.engadget.com/img/gallery/tesla-driver-charged-with-manslaughter-for-texas-crash-that-killed-a-woman-in-her-home/l-intro-1783179817.jpg",
         "corroborating_sources": [],
-        "score": 6.156
+        "score": 6.03
       },
       {
         "title": "Router brands could be misleading you with that Wi-Fi 7 label",
@@ -235,19 +175,7 @@
         "published_iso": "2026-07-04T13:30:00+00:00",
         "image_url": "https://www.engadget.com/img/gallery/router-brands-could-be-misleading-you-with-that-wi-fi-7-label/l-intro-1782921555.jpg",
         "corroborating_sources": [],
-        "score": 6.082
-      },
-      {
-        "title": "The only AI glossary you’ll need this year",
-        "summary": "The rise of AI has brought an avalanche of new terms and slang. Here is a glossary with definitions of some of the most important words and phrases you might encounter.",
-        "url": "https://techcrunch.com/2026/07/03/artificial-intelligence-definition-glossary-hallucinations-guide-to-common-ai-terms/",
-        "category": "Technology",
-        "source": "TechCrunch",
-        "tier": 1.0,
-        "published_iso": "2026-07-03T21:20:00+00:00",
-        "image_url": "https://techcrunch.com/wp-content/uploads/2025/03/GettyImages-ai-generated-eb728837-4a65-4ce4-b814-abd0c140d20c.jpg?w=1024",
-        "corroborating_sources": [],
-        "score": 5.921
+        "score": 5.971
       },
       {
         "title": "Review: Supergirl is not the disaster its low box office suggests",
@@ -259,7 +187,7 @@
         "published_iso": "2026-07-04T16:49:14+00:00",
         "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/03/supergirl1-1152x648.jpg",
         "corroborating_sources": [],
-        "score": 5.612
+        "score": 5.478
       },
       {
         "title": "Flatbush Zombies’ Erick the Architect misses his BlackBerry keyboard",
@@ -271,7 +199,7 @@
         "published_iso": "2026-07-04T15:00:00+00:00",
         "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/07/Erick_Press_Photos4063.jpeg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
         "corroborating_sources": [],
-        "score": 5.549
+        "score": 5.428
       },
       {
         "title": "Hey number pad lovers, this is a keyboard we can finally agree on",
@@ -283,7 +211,7 @@
         "published_iso": "2026-07-04T14:00:00+00:00",
         "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/07/268621_Epomaker_RT98_mechanical_keyboard_review_ADiBenedetto_0049.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
         "corroborating_sources": [],
-        "score": 5.517
+        "score": 5.403
       },
       {
         "title": "The square-ish phone that I wanted to love",
@@ -295,7 +223,7 @@
         "published_iso": "2026-07-04T13:00:00+00:00",
         "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/07/268620_ikko_MindOne_Pro_AJohnson_0003.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
         "corroborating_sources": [],
-        "score": 5.487
+        "score": 5.379
       },
       {
         "title": "Submit Your Questions: Inside The World of Online Romance Scams",
@@ -307,19 +235,7 @@
         "published_iso": "2026-07-04T16:00:00+00:00",
         "image_url": "https://media.wired.com/photos/6a46ad6eddd659cd42168382/master/pass/Livestream%20Top%20Art%20-%20Yahoo%20Boys.jpg",
         "corroborating_sources": [],
-        "score": 5.423
-      },
-      {
-        "title": "A 10-year sky survey begins filming a 'cosmic movie,' cyborg cockroaches go for a dive and more science stories",
-        "summary": "This week's science news.",
-        "url": "https://www.engadget.com/2207998/vera-c-rubin-observatory-begins-cyborg-cockroaches-nasa-clps-moon-base-missions/",
-        "category": "Technology",
-        "source": "Engadget",
-        "tier": 0.9,
-        "published_iso": "2026-07-04T19:45:00+00:00",
-        "image_url": "https://www.engadget.com/img/gallery/a-10-year-sky-survey-begins-filming-a-cosmic-movie-cyborg-cockroaches-go-for-a-dive-and-more-science-stories/l-intro-1783193642.jpg",
-        "corroborating_sources": [],
-        "score": 5.407
+        "score": 5.295
       },
       {
         "title": "Qi fan fan",
@@ -331,7 +247,19 @@
         "published_iso": "2026-07-04T07:00:00+00:00",
         "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/07/IMG20260703155425.jpeg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
         "corroborating_sources": [],
-        "score": 5.338
+        "score": 5.26
+      },
+      {
+        "title": "A 10-year sky survey begins filming a 'cosmic movie,' cyborg cockroaches go for a dive and more science stories",
+        "summary": "This week's science news.",
+        "url": "https://www.engadget.com/2207998/vera-c-rubin-observatory-begins-cyborg-cockroaches-nasa-clps-moon-base-missions/",
+        "category": "Technology",
+        "source": "Engadget",
+        "tier": 0.9,
+        "published_iso": "2026-07-04T19:45:00+00:00",
+        "image_url": "https://www.engadget.com/img/gallery/a-10-year-sky-survey-begins-filming-a-cosmic-movie-cyborg-cockroaches-go-for-a-dive-and-more-science-stories/l-intro-1783193642.jpg",
+        "corroborating_sources": [],
+        "score": 5.25
       },
       {
         "title": "15 Best MagSafe Wireless Chargers (2026): Power Banks, Stands, Pads, and Travel Chargers",
@@ -343,7 +271,7 @@
         "published_iso": "2026-07-04T11:30:00+00:00",
         "image_url": "https://media.wired.com/photos/685ab0fbecbfc34a8f85ebcc/master/pass/MagSafe%20Chargers%20Reviewer%20Collage_Source_Amazon.png",
         "corroborating_sources": [],
-        "score": 5.285
+        "score": 5.186
       },
       {
         "title": "Where NASA Posts Its Best Space Photos, and How to Find Them",
@@ -355,7 +283,7 @@
         "published_iso": "2026-07-04T11:00:00+00:00",
         "image_url": "https://media.wired.com/photos/6a453f6f8f445966503e6c40/master/pass/GettyImages-458097145.jpg",
         "corroborating_sources": [],
-        "score": 5.272
+        "score": 5.175
       },
       {
         "title": "Food Preservatives May Increase the Risk of High Blood Pressure and Cardiovascular Disease",
@@ -367,7 +295,7 @@
         "published_iso": "2026-07-04T09:30:00+00:00",
         "image_url": "https://media.wired.com/photos/6a4570f1dae48c15b88ce83f/master/pass/2269394826",
         "corroborating_sources": [],
-        "score": 5.234
+        "score": 5.145
       },
       {
         "title": "The Best Fourth of July Mattress Sales on Beds We Actually Sleep On (2026)",
@@ -379,7 +307,7 @@
         "published_iso": "2026-07-04T09:08:00+00:00",
         "image_url": "https://media.wired.com/photos/6a469972cb22d2a872419b3a/master/pass/The-Best-Fourth-of-July-Mattress-Deals,-According-to-WIRED-Testers-(2026).jpg",
         "corroborating_sources": [],
-        "score": 5.225
+        "score": 5.138
       },
       {
         "title": "Scientists Have Identified a New Fossil Species of Axolotl in Mexico",
@@ -391,22 +319,22 @@
         "published_iso": "2026-07-04T09:00:00+00:00",
         "image_url": "https://media.wired.com/photos/6a456825f7e1e70ee2698ec3/master/pass/ajolote%20nueva%20especie%20M%C3%A9xico%202235919867.jpg",
         "corroborating_sources": [],
-        "score": 5.222
-      },
-      {
-        "title": "The Space Shuttle Endeavour goes on public display later this year",
-        "summary": "The spacecraft has been in LA since 2012, but now it's moving to a new permanent home at the California Science Center.",
-        "url": "https://www.engadget.com/2207813/space-shuttle-endeavour-goes-on-public-display-later-this-year/",
-        "category": "Technology",
-        "source": "Engadget",
-        "tier": 0.9,
-        "published_iso": "2026-07-03T19:41:47+00:00",
-        "image_url": "https://www.engadget.com/img/gallery/the-space-shuttle-endeavour-goes-on-public-display-later-this-year/l-intro-1783107534.jpg",
-        "corroborating_sources": [],
-        "score": 4.842
+        "score": 5.136
       }
     ],
     "Finance": [
+      {
+        "title": "Fed's Warsh vows to 'disappoint' anyone who thinks he will tolerate inflation above 2%",
+        "summary": "",
+        "url": "https://finance.yahoo.com/economy/policy/articles/warsh-hits-international-stage-peers-101241127.html",
+        "category": "Finance",
+        "source": "Yahoo Finance",
+        "tier": 0.9,
+        "published_iso": "2026-07-03T23:26:39+00:00",
+        "image_url": "https://media.zenfs.com/en/reuters.com/4006838caef525ab3a56cb3b37fbe8c8",
+        "corroborating_sources": [],
+        "score": 7.537
+      },
       {
         "title": "Insurers shifted roof-replacement costs onto homeowners thanks to a new federal rule — just in time for hail and hurricane season",
         "summary": "Those who find extensive damage to their roofs might be stuck between two options: File an insurance claim, which could trigger a premium increase, or cough up the cash for the necessary repairs or replacement.",
@@ -417,19 +345,7 @@
         "published_iso": "2026-07-04T18:19:00+00:00",
         "image_url": "https://images.mktw.net/im-98341065",
         "corroborating_sources": [],
-        "score": 7.468
-      },
-      {
-        "title": "Security staff strikes averted at Aberdeen Airport",
-        "summary": "The strikes, involving baggage screening staff, were due begin on Monday with the Unite union warning of \"significant delays\".",
-        "url": "https://www.bbc.co.uk/news/articles/c39y3expgk3o?at_medium=RSS&at_campaign=rss",
-        "category": "Finance",
-        "source": "BBC Business",
-        "tier": 1.4,
-        "published_iso": "2026-07-03T20:51:58+00:00",
-        "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/b5d5/live/a1d42ce0-6a79-11f1-8e56-530bbb41ec43.jpg",
-        "corroborating_sources": [],
-        "score": 7.455
+        "score": 7.323
       },
       {
         "title": "Is AI inflation transitory?",
@@ -441,7 +357,19 @@
         "published_iso": "2026-07-04T14:23:27+00:00",
         "image_url": null,
         "corroborating_sources": [],
-        "score": 6.85
+        "score": 6.733
+      },
+      {
+        "title": "How Dell Technologies Inc.’s (DELL) AI Server Guidance Reset Is Driving Its Earnings Estimate Momentum",
+        "summary": "",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/dell-technologies-inc-dell-ai-233035592.html",
+        "category": "Finance",
+        "source": "Yahoo Finance",
+        "tier": 0.9,
+        "published_iso": "2026-07-03T23:30:35+00:00",
+        "image_url": "https://media.zenfs.com/en/insidermonkey.com/3ce896db267814e242ffb81416b4ea6f",
+        "corroborating_sources": [],
+        "score": 6.638
       },
       {
         "title": "Here’s what’s worth streaming in July 2026 on Netflix, Hulu, HBO Max and more",
@@ -453,7 +381,7 @@
         "published_iso": "2026-07-04T19:01:00+00:00",
         "image_url": "https://images.mktw.net/im-00397585",
         "corroborating_sources": [],
-        "score": 6.596
+        "score": 6.446
       },
       {
         "title": "Why June’s jobs and inflation data are bullish for bonds",
@@ -465,7 +393,19 @@
         "published_iso": "2026-07-04T18:37:00+00:00",
         "image_url": "https://images.mktw.net/im-48594608",
         "corroborating_sources": [],
-        "score": 6.58
+        "score": 6.433
+      },
+      {
+        "title": "India regains favor as investors seek shelter from AI-driven market swings",
+        "summary": "",
+        "url": "https://www.investing.com/news/stock-market-news/india-regains-favor-as-investors-seek-shelter-from-aidriven-market-swings-4775395",
+        "category": "Finance",
+        "source": "Investing.com",
+        "tier": 0.8,
+        "published_iso": "2026-07-05T02:43:43+00:00",
+        "image_url": "https://i-invdn-com.investing.com/news/Mumbai_India_M_1440056043.jpg",
+        "corroborating_sources": [],
+        "score": 6.279
       },
       {
         "title": "European earnings season preview: Watch these 3 things, analyst says",
@@ -477,7 +417,7 @@
         "published_iso": "2026-07-04T20:29:39+00:00",
         "image_url": "https://i-invdn-com.investing.com/news/LYNXMPEM3718V_M.jpg",
         "corroborating_sources": [],
-        "score": 6.179
+        "score": 6.016
       },
       {
         "title": "Iran conflict strengthens case for power, metals over oil: strategist",
@@ -489,7 +429,7 @@
         "published_iso": "2026-07-04T12:07:22+00:00",
         "image_url": "https://i-invdn-com.investing.com/news/LYNXMPEM18123_M.jpg",
         "corroborating_sources": [],
-        "score": 5.882
+        "score": 5.779
       },
       {
         "title": "Gamer trades in $1,000 of physical discs at GameStop, days after Sony announces end of disc era",
@@ -501,7 +441,7 @@
         "published_iso": "2026-07-04T21:40:00+00:00",
         "image_url": "https://images.mktw.net/im-25562075",
         "corroborating_sources": [],
-        "score": 5.813
+        "score": 5.638
       },
       {
         "title": "‘She wants him gone’: My friend took in a homeless man as a caretaker. After 10 years, how can she evict him?",
@@ -513,7 +453,7 @@
         "published_iso": "2026-07-04T20:56:00+00:00",
         "image_url": "https://images.mktw.net/im-23187684",
         "corroborating_sources": [],
-        "score": 5.779
+        "score": 5.611
       },
       {
         "title": "Why a founder at age 50 is twice as likely to find success as one at age 30",
@@ -525,31 +465,7 @@
         "published_iso": "2026-07-04T18:56:00+00:00",
         "image_url": "https://images.mktw.net/im-70153674",
         "corroborating_sources": [],
-        "score": 5.693
-      },
-      {
-        "title": "Where can I invest my kid’s ‘Trump account’ money? The Treasury Department just answered that question.",
-        "summary": "The money in “Trump accounts” has to be invested in low-cost index funds — and now parents and investors are learning which funds they can actually use.",
-        "url": "https://www.marketwatch.com/story/where-can-i-invest-my-kids-trump-account-money-the-treasury-department-just-answered-that-question-4f656574?mod=mw_rss_topstories",
-        "category": "Finance",
-        "source": "MarketWatch Top",
-        "tier": 1.1,
-        "published_iso": "2026-07-04T17:59:00+00:00",
-        "image_url": "https://images.mktw.net/im-90183715",
-        "corroborating_sources": [],
-        "score": 5.655
-      },
-      {
-        "title": "Jelly Roll’s ex-wife Bunnie Xo says he gave her their $6 million Tennessee estate in divorce",
-        "summary": "Country singer Jelly Roll’s ex-wife, Bunnie Xo, has revealed that she will take full ownership of the former couple’s Tennessee compound as part of their divorce settlement.",
-        "url": "https://www.marketwatch.com/story/jelly-rolls-ex-wife-bunnie-xo-says-he-gave-her-their-6-million-tennessee-estate-in-divorce-97a6c910?mod=mw_rss_topstories",
-        "category": "Finance",
-        "source": "MarketWatch Top",
-        "tier": 1.1,
-        "published_iso": "2026-07-04T17:57:00+00:00",
-        "image_url": "https://images.mktw.net/im-78907106",
-        "corroborating_sources": [],
-        "score": 5.654
+        "score": 5.543
       },
       {
         "title": "The World Cup sends prediction market volumes soaring to record highs",
@@ -561,7 +477,31 @@
         "published_iso": "2026-07-04T12:54:04+00:00",
         "image_url": "https://image.cnbcfm.com/api/v1/image/108270194-1772061798995-gettyimages-2263571474-l1049595_copy_qr8q5yqa.jpeg?v=1776174259&amp;w=1920&amp;h=1080",
         "corroborating_sources": [],
-        "score": 5.644
+        "score": 5.537
+      },
+      {
+        "title": "Where can I invest my kid’s ‘Trump account’ money? The Treasury Department just answered that question.",
+        "summary": "The money in “Trump accounts” has to be invested in low-cost index funds — and now parents and investors are learning which funds they can actually use.",
+        "url": "https://www.marketwatch.com/story/where-can-i-invest-my-kids-trump-account-money-the-treasury-department-just-answered-that-question-4f656574?mod=mw_rss_topstories",
+        "category": "Finance",
+        "source": "MarketWatch Top",
+        "tier": 1.1,
+        "published_iso": "2026-07-04T17:59:00+00:00",
+        "image_url": "https://images.mktw.net/im-90183715",
+        "corroborating_sources": [],
+        "score": 5.513
+      },
+      {
+        "title": "Jelly Roll’s ex-wife Bunnie Xo says he gave her their $6 million Tennessee estate in divorce",
+        "summary": "Country singer Jelly Roll’s ex-wife, Bunnie Xo, has revealed that she will take full ownership of the former couple’s Tennessee compound as part of their divorce settlement.",
+        "url": "https://www.marketwatch.com/story/jelly-rolls-ex-wife-bunnie-xo-says-he-gave-her-their-6-million-tennessee-estate-in-divorce-97a6c910?mod=mw_rss_topstories",
+        "category": "Finance",
+        "source": "MarketWatch Top",
+        "tier": 1.1,
+        "published_iso": "2026-07-04T17:57:00+00:00",
+        "image_url": "https://images.mktw.net/im-78907106",
+        "corroborating_sources": [],
+        "score": 5.512
       },
       {
         "title": "Want to live longer in retirement? This one money move could add years to your life.",
@@ -573,7 +513,7 @@
         "published_iso": "2026-07-04T17:38:00+00:00",
         "image_url": "https://images.mktw.net/im-345319",
         "corroborating_sources": [],
-        "score": 5.642
+        "score": 5.502
       },
       {
         "title": "I have no kids. Will I cause family drama by leaving different amounts to my nieces and nephews?",
@@ -585,7 +525,19 @@
         "published_iso": "2026-07-04T17:30:00+00:00",
         "image_url": "https://images.mktw.net/im-54995728",
         "corroborating_sources": [],
-        "score": 5.637
+        "score": 5.498
+      },
+      {
+        "title": "Uber pauses Europe food delivery expansion as it pursues Delivery Hero deal, FT reports",
+        "summary": "",
+        "url": "https://www.investing.com/news/stock-market-news/uber-pauses-europe-food-delivery-expansion-as-it-pursues-delivery-hero-deal-ft-reports-4775399",
+        "category": "Finance",
+        "source": "Investing.com",
+        "tier": 0.8,
+        "published_iso": "2026-07-05T04:36:33+00:00",
+        "image_url": "https://i-invdn-com.investing.com/trkd-images/LYNXMPEM6402T_L.jpg",
+        "corroborating_sources": [],
+        "score": 5.478
       },
       {
         "title": "Russia stocks lower at close of trade; MOEX Russia Index unchanged",
@@ -597,7 +549,7 @@
         "published_iso": "2026-07-04T21:20:03+00:00",
         "image_url": "https://i-invdn-com.investing.com/news/LYNXNPEC602WR_M.jpg",
         "corroborating_sources": [],
-        "score": 5.318
+        "score": 5.146
       },
       {
         "title": "Trump Accounts to debut as US kicks off 250th Independence Day celebrations",
@@ -609,7 +561,7 @@
         "published_iso": "2026-07-04T16:06:26+00:00",
         "image_url": "https://i-invdn-com.investing.com/trkd-images/LYNXMPEM6309F_L.jpg",
         "corroborating_sources": [],
-        "score": 5.107
+        "score": 4.978
       },
       {
         "title": "UK’s Next plans takeover bid for Harvey Nichols, Sky News reports",
@@ -621,7 +573,7 @@
         "published_iso": "2026-07-04T11:42:24+00:00",
         "image_url": "https://i-invdn-com.investing.com/trkd-images/LYNXMPEM6308H_L.jpg",
         "corroborating_sources": [],
-        "score": 4.971
+        "score": 4.87
       },
       {
         "title": "Korea’s KOSPI P/E valuation falls to lowest since global financial crisis",
@@ -633,19 +585,43 @@
         "published_iso": "2026-07-04T10:44:40+00:00",
         "image_url": "https://i-invdn-com.investing.com/news/LYNXNPEF2O0MA_M.jpg",
         "corroborating_sources": [],
-        "score": 4.945
+        "score": 4.85
       },
       {
-        "title": "Morgan Stanley shifts to defensive European energy stocks, upgrades Galp",
+        "title": "Is Figure Technology Solutions, Inc. (FIGR) A Good Stock To Buy Now?",
         "summary": "",
-        "url": "https://www.investing.com/news/stock-market-news/morgan-stanley-shifts-to-defensive-european-energy-stocks-upgrades-galp-4775214",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/figure-technology-solutions-inc-figr-232855950.html",
         "category": "Finance",
-        "source": "Investing.com",
-        "tier": 0.8,
-        "published_iso": "2026-07-04T09:55:52+00:00",
-        "image_url": "https://i-invdn-com.investing.com/news/LYNXNPEC6J0XD_M.jpg",
+        "source": "Yahoo Finance",
+        "tier": 0.9,
+        "published_iso": "2026-07-03T23:28:55+00:00",
+        "image_url": "https://media.zenfs.com/en/insidermonkey.com/55dbabc7749eae7fbd68aac865dd0173",
         "corroborating_sources": [],
-        "score": 4.925
+        "score": 4.838
+      },
+      {
+        "title": "Is Emerson Electric Co. (EMR) A Good Stock To Buy Now?",
+        "summary": "",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/emerson-electric-co-emr-good-232910495.html",
+        "category": "Finance",
+        "source": "Yahoo Finance",
+        "tier": 0.9,
+        "published_iso": "2026-07-03T23:29:10+00:00",
+        "image_url": "https://media.zenfs.com/en/insidermonkey.com/4d5ac6bf83e7432df79b4964bfaaa02c",
+        "corroborating_sources": [],
+        "score": 4.838
+      },
+      {
+        "title": "Is ABIVAX Société Anonyme (ABVX) A Good Stock To Buy Now?",
+        "summary": "",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/abivax-soci-t-anonyme-abvx-233227743.html",
+        "category": "Finance",
+        "source": "Yahoo Finance",
+        "tier": 0.9,
+        "published_iso": "2026-07-03T23:32:27+00:00",
+        "image_url": "https://media.zenfs.com/en/insidermonkey.com/ed108786017b741846b88d950d2a8b6b",
+        "corroborating_sources": [],
+        "score": 4.838
       },
       {
         "title": "Continental sells ContiTech to Lone Star Funds for €4 bln",
@@ -654,101 +630,147 @@
         "category": "Finance",
         "source": "Investing.com",
         "tier": 0.8,
-        "published_iso": "2026-07-04T09:54:45+00:00",
-        "image_url": "https://i-invdn-com.investing.com/trkd-images/LYNXMPEM6308J_L.jpg",
+        "published_iso": "2026-07-04T10:03:32+00:00",
+        "image_url": null,
         "corroborating_sources": [],
-        "score": 4.924
+        "score": 4.836
+      },
+      {
+        "title": "Weekly Wrap: Crypto Recovers To Start Third Quarter",
+        "summary": "",
+        "url": "https://finance.yahoo.com/markets/crypto/articles/weekly-wrap-crypto-recovers-start-230600183.html",
+        "category": "Finance",
+        "source": "Yahoo Finance",
+        "tier": 0.9,
+        "published_iso": "2026-07-03T23:06:00+00:00",
+        "image_url": "https://media.zenfs.com/en/cryptoprowl_304/5117fcd560f778bae09043088b6d1377",
+        "corroborating_sources": [],
+        "score": 4.834
+      },
+      {
+        "title": "Colombia's Oil and Gas Reserves Keep Shrinking",
+        "summary": "",
+        "url": "https://finance.yahoo.com/energy/articles/colombias-oil-gas-reserves-keep-230000417.html",
+        "category": "Finance",
+        "source": "Yahoo Finance",
+        "tier": 0.9,
+        "published_iso": "2026-07-03T23:00:00+00:00",
+        "image_url": "https://media.zenfs.com/en/oilprice.com/55ac403d632b966861242fd1734666d5",
+        "corroborating_sources": [],
+        "score": 4.833
+      },
+      {
+        "title": "Cisco Is Up 46% and Oracle Is Down 25% in 2026. The Better Dividend Buy Might Surprise You.",
+        "summary": "",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/cisco-46-oracle-down-25-230002737.html",
+        "category": "Finance",
+        "source": "Yahoo Finance",
+        "tier": 0.9,
+        "published_iso": "2026-07-03T23:00:02+00:00",
+        "image_url": "https://media.zenfs.com/en/barchart_com_477/21b3e121a99cb25406bfa2657ca87846",
+        "corroborating_sources": [],
+        "score": 4.833
+      },
+      {
+        "title": "Is DaVita Inc. (DVA) A Good Stock To Buy Now?",
+        "summary": "",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/davita-inc-dva-good-stock-230046340.html",
+        "category": "Finance",
+        "source": "Yahoo Finance",
+        "tier": 0.9,
+        "published_iso": "2026-07-03T23:00:46+00:00",
+        "image_url": "https://media.zenfs.com/en/insidermonkey.com/228d6ca892b36b280dd45bf0499333ff",
+        "corroborating_sources": [],
+        "score": 4.833
+      },
+      {
+        "title": "Is Bank of America Corporation (BAC) A Good Stock To Buy Now?",
+        "summary": "",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/bank-america-corporation-bac-good-230121999.html",
+        "category": "Finance",
+        "source": "Yahoo Finance",
+        "tier": 0.9,
+        "published_iso": "2026-07-03T23:01:21+00:00",
+        "image_url": "https://media.zenfs.com/en/insidermonkey.com/a0b0030c46e3758bf44d38357bdc6789",
+        "corroborating_sources": [],
+        "score": 4.833
+      },
+      {
+        "title": "Investor Cathie Wood Bought The Dip In Crypto Stocks",
+        "summary": "",
+        "url": "https://finance.yahoo.com/markets/crypto/articles/investor-cathie-wood-bought-dip-230500637.html",
+        "category": "Finance",
+        "source": "Yahoo Finance",
+        "tier": 0.9,
+        "published_iso": "2026-07-03T23:05:00+00:00",
+        "image_url": "https://media.zenfs.com/en/cryptoprowl_304/3ee3e70b2771f8ca9e23716c37e72ecd",
+        "corroborating_sources": [],
+        "score": 4.833
       }
     ],
     "Geopolitics": [
       {
-        "title": "Female American rower completes record-breaking solo journey from California to Hawaii",
-        "summary": "2026-07-04T19:30:24Z HONOLULU (AP) — A Grand Canyon river rafting guide who aimed to become the first American woman to row across the mid-Pacific solo has completed a record-breaking journey from California to Hawaii. Hundreds gathered to cheer on Kelsey Pfendler as she pulled into a Honolulu harbor Friday night on her 21-foot row boat, Lily, after nearly a month and a half at sea, local media reported . Pfendler, who launched from Monterey, California, in May, set out to become the first American woman, youngest woman and fastest woman to make the more than 2,400-mile journey solo, according",
-        "url": "https://apnews.com/article/kelsey-pfendler-solo-row-california-hawaii-record-82d4db8a951cee5538ccec269283cda7",
+        "title": "Prosecutors to lay out their case against the man accused of killing Charlie Kirk",
+        "summary": "A well-wisher places flowers at a makeshift memorial set up for Charlie Kirk at Turning Point USA headquarters, Sept. 11, 2025, in Phoenix. (AP Photo/Ross D. Franklin, File) 2026-07-05T04:03:27Z SALT LAKE CITY (AP) — Charlie Kirk’s widow and parents are expected this week in a Utah court where prosecutors seeking the death penalty will argue that the man charged with killing the conservative activist should stand trial for murder. The five-day preliminary hearing that starts Monday will be the first time members of Kirk’s family are in the Utah courtroom with defendant Tyler Robinson . The hea",
+        "url": "https://apnews.com/article/charlie-kirk-tyler-robinson-preliminary-hearing-91606ff42da6695c4fd482bc3c459493",
         "category": "Geopolitics",
         "source": "AP Top News",
         "tier": 1.2,
-        "published_iso": "2026-07-04T19:53:01+00:00",
-        "image_url": "https://dims.apnews.com/dims4/default/295c329/2147483647/strip/true/crop/675x450+12+0/resize/980x653!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2F90%2F29%2F4e3c1cc7446089a9101a7bdff4c8%2Fdefaultshareimage-copy.png",
-        "corroborating_sources": [
-          "Guardian World"
-        ],
-        "score": 9.565
-      },
-      {
-        "title": "Doctors’ soaring use of AI scribes prompts Australian government warning over privacy",
-        "summary": "Exclusive: With the technology fast becoming popular in GP surgeries, regulators are monitoring its implementation and potential pitfalls Get our breaking news email , free app or daily news podcast The federal health department has raised concerns about the use of AI scribes by doctors as the health regulator considers the need for safeguards around the technology. AI scribe tools record, transcribe and summarise conversations between doctors and patients for medical notes, and have boomed in popularity in the past 18 months. Continue reading...",
-        "url": "https://www.theguardian.com/australia-news/2026/jul/05/doctors-ai-scribes-australia-government-privacy-warning",
-        "category": "Geopolitics",
-        "source": "Guardian World",
-        "tier": 1.1,
-        "published_iso": "2026-07-04T20:00:07+00:00",
-        "image_url": "https://i.guim.co.uk/img/media/5338cbc67f70b23a5fdf94db237441d2c238cdfb/724_0_7240_5792/master/7240.jpg?width=700&quality=85&auto=format&fit=max&s=7424e4e6cbdd20282a089e9f45e4e378",
-        "corroborating_sources": [],
-        "score": 8.438
-      },
-      {
-        "title": "In a pickle: US pickle company pulls out of DC fair over Confederate flag",
-        "summary": "Mt Olive Pickle Company says it was unaware image of flag was included in exhibit, and cites value of ‘human dignity’ A leading vendor of the US delicacy that is the pickle has withdrawn from the Great American State Fair in Washington DC after North Carolina’s booth displayed a video containing a Confederate flag. The Mt Olive Pickle Company, which is located in eastern North Carolina and bills itself as the “#1 bestselling brand of pickles, peppers and relishes in the US”, told local news station WNCT it had been unaware that an image of the flag would be included in a video as part of the s",
-        "url": "https://www.theguardian.com/us-news/2026/jul/04/dc-state-fair-pickle-company-withdrawal",
-        "category": "Geopolitics",
-        "source": "Guardian World",
-        "tier": 1.1,
-        "published_iso": "2026-07-04T17:21:24+00:00",
-        "image_url": "https://i.guim.co.uk/img/media/46576c06058ef568db216e369992e4440f9972c8/75_0_4716_3772/master/4716.jpg?width=700&quality=85&auto=format&fit=max&s=fd216bc716ae1c0aca0e0caadad9eefc",
-        "corroborating_sources": [],
-        "score": 8.332
-      },
-      {
-        "title": "Crowds gather as six-day funeral for former Iranian supreme leader begins",
-        "summary": "Up to 30 million people expected to attend delayed events for Ali Khamenei, killed at start of war with US and Israel Huge crowds have gathered at the funeral of the former Iranian supreme leader after the gates of the sprawling Grand Mosalla mosque in central Tehran let in thousands of mourners who had been waiting through the night to enter the grounds. Iran is staging mass funeral processions for Ali Khamenei – whose ⁠37-year reign was brought ⁠to an ​end in February by the first airstrike of the war launched by the US and Israel. By 5.30am, the Tehran streets surrounding the mosque were al",
-        "url": "https://www.theguardian.com/world/2026/jul/04/crowds-gather-six-day-funeral-former-iranian-supreme-leader-ali-khamenei",
-        "category": "Geopolitics",
-        "source": "Guardian World",
-        "tier": 1.1,
-        "published_iso": "2026-07-04T12:51:41+00:00",
-        "image_url": "https://i.guim.co.uk/img/media/b7656d9f5aa7d6100afbfbcd2b6d706803f78c39/1248_0_6241_4993/master/6241.jpg?width=700&quality=85&auto=format&fit=max&s=1cba784ee613935ef087fab5d53c271b",
-        "corroborating_sources": [],
-        "score": 8.183
-      },
-      {
-        "title": "Ukraine hits major oil terminal in Russia's St Petersburg",
-        "summary": "Ukrainian President Volodymyr Zelensky says the target is key infrastructure \"that generates revenue for Russia's war\".",
-        "url": "https://www.bbc.co.uk/news/articles/c8j2vmzxezro?at_medium=RSS&at_campaign=rss",
-        "category": "Geopolitics",
-        "source": "BBC World",
-        "tier": 1.4,
-        "published_iso": "2026-07-04T18:41:25+00:00",
-        "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/737c/live/fec2f110-779f-11f1-90c7-73fde41eb72e.png",
-        "corroborating_sources": [],
-        "score": 7.963
-      },
-      {
-        "title": "Prosecutors argue the man accused of killing Charlie Kirk should stand trial",
-        "summary": "Tyler Robinson, who is accused of fatally shooting Charlie Kirk, appears during a hearing in Fourth District Court in Provo, Utah, on Dec. 11, 2025. (Rick Egan/The Salt Lake Tribune via AP, Pool, File) 2026-07-04T23:56:36Z PROVO, Utah (AP) — A key hearing kicks off Monday in Charlie Kirk’s murder case in Utah, where prosecutors aim to convince a judge they have enough evidence to try his accused killer and seek the death penalty. The five-day preliminary hearing will mark the most significant presentation of evidence in the case so far — and the first time that Kirk’s parents and widow will be",
-        "url": "https://apnews.com/article/charlie-kirk-tyler-robinson-hearing-d453bfde98fa88afc21bb3e3d6d04f1b",
-        "category": "Geopolitics",
-        "source": "AP Top News",
-        "tier": 1.2,
-        "published_iso": "2026-07-05T00:23:03+00:00",
+        "published_iso": "2026-07-05T04:23:03+00:00",
         "image_url": "https://dims.apnews.com/dims4/default/c0d31cb/2147483647/strip/true/crop/1280x1280+0+0/resize/100x100!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2Fb8%2F6d%2Fc6ee60b34127a0bec6be290f10be%2Fimage-from-ios.jpg",
         "corroborating_sources": [],
-        "score": 7.912
+        "score": 7.905
       },
       {
-        "title": "Kylian Mbappé scores again and France reaches World Cup quarterfinals with 1-0 win over Paraguay",
-        "summary": "France&#x27;s Kylian Mbappe celebrates after scoring from the penalty spot the opening goal during the World Cup round of 16 soccer match between Paraguay and France in Philadelphia, Saturday, July 4, 2026. (AP Photo/Matt Slocum) 2026-07-04T23:08:23Z PHILADELPHIA (AP) — Kylian Mbappé scored his 19th career World Cup goal, and France survived stifling heat to beat Paraguay 1-0 on Saturday, sending Les Bleus into the quarterfinals for the fourth straight time. France advanced to play Morocco on Thursday in Foxborough, Massachusetts. With an extreme heat warning in effect throughout the match as ",
-        "url": "https://apnews.com/article/paraguay-france-world-cup-score-aa910eff4ccd515d390f90f7b537c94b",
+        "title": "A timeline of Charlie Kirk’s assassination and the arrest of Tyler Robinson",
+        "summary": "Charlie Kirk hands out hats before speaking at Utah Valley University in Orem, Utah, Sept. 10, 2025. (Tess Crowley/The Deseret News via AP, File) 2026-07-05T04:06:58Z SALT LAKE CITY (AP) — The 23-year-old man accused of assassinating Charlie Kirk during an event at Utah Valley University will be in court this week for the most substantial hearing so far in his murder case. Prosecutors will lay out their evidence against Tyler Robinson in a five-day preliminary hearing. When it is over, the judge will decide whether the case will proceed to trial, with the death penalty as a possible punishment",
+        "url": "https://apnews.com/article/charlie-kirk-robinson-utah-assassination-turning-point-e51d87aa5ca7a6b8888664793b7ceffe",
         "category": "Geopolitics",
         "source": "AP Top News",
         "tier": 1.2,
-        "published_iso": "2026-07-04T23:23:02+00:00",
-        "image_url": "https://dims.apnews.com/dims4/default/4f9de8c/2147483647/strip/true/crop/692x692+0+141/resize/100x100!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2Fb8%2F56%2F5c266c9f4210b3a22cbf9645a290%2Fimg-7006.jpg",
+        "published_iso": "2026-07-05T04:23:02+00:00",
+        "image_url": "https://dims.apnews.com/dims4/default/c0d31cb/2147483647/strip/true/crop/1280x1280+0+0/resize/100x100!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2Fb8%2F6d%2Fc6ee60b34127a0bec6be290f10be%2Fimage-from-ios.jpg",
         "corroborating_sources": [],
-        "score": 7.859
+        "score": 7.905
       },
       {
-        "title": "Iran war live: Huge crowds mourn Khamenei, Trump vows calm during funeral",
+        "title": "As war grinds on, Ukrainian climbers build a new outdoor culture inspired by Yosemite",
+        "summary": "A man climbs on a cliff during the Stoned Climbers festival near Denyshi, Zhytomyr region, Ukraine, Saturday, June 27, 2026. (AP Photo/Evgeniy Maloletka) 2026-07-05T04:16:01Z DENYSHI, Ukraine (AP) — Atop a steep granite cliff overlooking a river about two hours’ drive west of Kyiv, hundreds of people pitched tents on a festival camping ground. By day, they climbed the rock face, swam in a nearby reservoir or enjoyed stand-up paddling. As evening fell, live bands and DJs took over the stage as rock and electronic music drifted through the forest. The Stoned Climbers festival, which took place l",
+        "url": "https://apnews.com/article/russia-ukraine-war-climbing-festival-23a07df09cc72ebba4fd1e60fe3adfcb",
+        "category": "Geopolitics",
+        "source": "AP Top News",
+        "tier": 1.2,
+        "published_iso": "2026-07-05T04:23:02+00:00",
+        "image_url": null,
+        "corroborating_sources": [],
+        "score": 7.905
+      },
+      {
+        "title": "Skenes, Misiorowski, Ohtani all could miss All-Star mound appearances. 4 Dodgers elected to start",
+        "summary": "Pittsburgh Pirates pitcher Paul Skenes collects himself on the mound during the second inning of a baseball game against the Cincinnati Reds in Pittsburgh, Friday, June 26, 2026. (AP Photo/Gene J. Puskar) 2026-07-04T23:59:28Z Pittsburgh’s Paul Skenes, Milwaukee’s Jacob Misiorowski and the Dodgers’ two-way star Shohei Ohtani all could miss All-Star mound appearances because of starts next weekend, while four players from the World Series champion Dodgers were voted to the National League’s starting lineup. Los Angeles Angels outfielder Mike Trout earned his 12th All-Star selection and first sin",
+        "url": "https://apnews.com/article/mlb-all-star-game-17c7df9f1d6199883298db444b10eb4c",
+        "category": "Geopolitics",
+        "source": "AP Top News",
+        "tier": 1.2,
+        "published_iso": "2026-07-05T02:23:01+00:00",
+        "image_url": null,
+        "corroborating_sources": [],
+        "score": 7.802
+      },
+      {
+        "title": "NSW Labor to adopt tougher pokies stance as Sydney inner west mayor says ‘momentum for real reform unstoppable’",
+        "summary": "State Labor conference expected to pass a motion which would commit to 50% of machines being removed from operation in next 10 years Get our breaking news email , free app or daily news podcast New South Wales premier Chris Minns will take a tougher stance on poker machines to the next election after being pushed to adopt the approach by the party’s left. A motion expected to pass the NSW Labor conference with unanimous support on Sunday afternoon will add a plan to take “decisive action” on problem gambling and the growing use of poker machines to its policy platform, amid surging profits for",
+        "url": "https://www.theguardian.com/australia-news/2026/jul/05/nsw-labor-to-adopt-tougher-pokies-stance-as-sydney-inner-west-mayor-says-momentum-for-real-reform-unstoppable",
+        "category": "Geopolitics",
+        "source": "Guardian World",
+        "tier": 1.1,
+        "published_iso": "2026-07-05T04:12:31+00:00",
+        "image_url": "https://i.guim.co.uk/img/media/904ec6763444d0e3730fae2ca4cb5642223b2ffe/666_0_4000_3200/master/4000.jpg?width=700&quality=85&auto=format&fit=max&s=eb758c25710e0010cdf277f51dd3c7a7",
+        "corroborating_sources": [],
+        "score": 7.736
+      },
+      {
+        "title": "Iran war live: Huge crowds mourn Khamenei, Trump vows to hold fire",
         "summary": "Iran&#039;s late Supreme Leader Ali Khamenei and members of his family were killed in a US-Israeli air strike in February.",
         "url": "https://www.aljazeera.com/news/liveblog/2026/7/5/iran-war-live-huge-crowds-mourn-khamenei-trump-vows-calm-during-funeral?traffic_source=rss",
         "category": "Geopolitics",
@@ -757,11 +779,11 @@
         "published_iso": "2026-07-05T00:00:00+00:00",
         "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/2026-07-04T111953Z_235225091_RC2V6MACKBEJ_RTRMADP_3_IRAN-CRISIS-KHAMENEI-1783207596.jpg?resize=1920%2C1440",
         "corroborating_sources": [],
-        "score": 7.731
+        "score": 7.532
       },
       {
         "title": "Norfolk Island’s unique corals under triple threat from disease, El Niño and now government-approved dredging",
-        "summary": "Exclusive: Most of the island’s corals are likely to be species that have not been formally described by science, researcher says Get our breaking news email , free app or daily news podcast Scientists fear unique corals that fringe Australia’s remote Norfolk Island could disappear because of a triple threat of disease, El Niño and a federal government plan to dredge a neighbouring shipping channel. A failure to manage sediment and pollution washing into bays from cattle farming, cleared land along with wastewater has been blamed for widespread disease and outbreaks of algae over the corals. C",
+        "summary": "Exclusive: Most of the island’s corals are likely to be species that have not been formally described by science, researcher says Follow our Australia news live blog for latest updates Get our breaking news email , free app or daily news podcast Scientists fear unique corals that fringe Australia’s remote Norfolk Island could disappear because of a triple threat of disease, El Niño and a federal government plan to dredge a neighbouring shipping channel. A failure to manage sediment and pollution washing into bays from cattle farming, cleared land along with wastewater has been blamed for wides",
         "url": "https://www.theguardian.com/australia-news/2026/jul/05/norfolk-islands-unique-corals-under-triple-threat-from-disease-el-nino-and-now-government-approved-dredging",
         "category": "Geopolitics",
         "source": "Guardian World",
@@ -769,7 +791,7 @@
         "published_iso": "2026-07-04T20:00:07+00:00",
         "image_url": "https://i.guim.co.uk/img/media/7ecbaea2a2abc0f96830f76a790d63fcd56a5a36/93_0_5000_4000/master/5000.jpg?width=700&quality=85&auto=format&fit=max&s=738387b519694876d30120169e760871",
         "corroborating_sources": [],
-        "score": 7.538
+        "score": 7.379
       },
       {
         "title": "Neo-fascist group Patriot Front parades Confederate flag in Washington DC on Fourth of July",
@@ -781,7 +803,7 @@
         "published_iso": "2026-07-04T19:47:24+00:00",
         "image_url": "https://i.guim.co.uk/img/media/e075691306395586c49495f543e0fba6a326874c/500_0_5000_4000/master/5000.jpg?width=700&quality=85&auto=format&fit=max&s=e572cf90d046e3a205cb6f50085bf344",
         "corroborating_sources": [],
-        "score": 7.529
+        "score": 7.371
       },
       {
         "title": "Will economic pressure move the Kremlin towards talks with Kyiv?",
@@ -793,7 +815,7 @@
         "published_iso": "2026-07-04T19:19:18+00:00",
         "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/image-1783190434.jpg?resize=1920%2C1080&amp;quality=80",
         "corroborating_sources": [],
-        "score": 7.509
+        "score": 7.356
       },
       {
         "title": "Ukrainian drones hit St Petersburg oil terminal and nearby port",
@@ -805,7 +827,7 @@
         "published_iso": "2026-07-04T19:09:06+00:00",
         "image_url": "https://i.guim.co.uk/img/media/60ab448bfd1d6333266d1ae57bfaf59c47db7f6d/0_320_563_450/master/563.jpg?width=700&quality=85&auto=format&fit=max&s=a2bac32ce65f0fa05905eb422fc3beca",
         "corroborating_sources": [],
-        "score": 7.502
+        "score": 7.35
       },
       {
         "title": "A new phase in the war in Ukraine",
@@ -817,7 +839,7 @@
         "published_iso": "2026-07-04T21:03:51+00:00",
         "image_url": "https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-5879372",
         "corroborating_sources": [],
-        "score": 7.425
+        "score": 7.256
       },
       {
         "title": "‘The situation is terrible’: aid workers on life in Sudanese city pummelled by drone strikes",
@@ -829,7 +851,7 @@
         "published_iso": "2026-07-04T15:14:18+00:00",
         "image_url": "https://i.guim.co.uk/img/media/44e2787e66b60b8c57b8311b2fe08158f3630873/289_0_4923_3939/master/4923.jpg?width=700&quality=85&auto=format&fit=max&s=06ae2aa7575b4cf36588b0f7ffaaaaf9",
         "corroborating_sources": [],
-        "score": 7.357
+        "score": 7.235
       },
       {
         "title": "Elon Musk posted twice as often on UK race and immigration as about SpaceX in IPO run-up",
@@ -841,7 +863,7 @@
         "published_iso": "2026-07-04T15:00:01+00:00",
         "image_url": "https://i.guim.co.uk/img/media/78db83223c87d7f52d5b73180281491643fc0eac/418_0_4180_3344/master/4180.jpg?width=700&quality=85&auto=format&fit=max&s=d91a1c6c85a445891965be94bf5d1c11",
         "corroborating_sources": [],
-        "score": 7.349
+        "score": 7.228
       },
       {
         "title": "Trump issues 11 pardons on eve of country’s Fourth of July celebrations",
@@ -853,7 +875,7 @@
         "published_iso": "2026-07-04T14:13:50+00:00",
         "image_url": "https://i.guim.co.uk/img/media/f061cf0686485560574b845c14f05581d6e18079/0_0_4415_3535/master/4415.jpg?width=700&quality=85&auto=format&fit=max&s=c58be6c77ce4a4338bf0c3819e966bd2",
         "corroborating_sources": [],
-        "score": 7.324
+        "score": 7.209
       },
       {
         "title": "Pope praises US history of welcoming migrants in implicit rebuke to Trump",
@@ -865,31 +887,79 @@
         "published_iso": "2026-07-04T11:09:52+00:00",
         "image_url": "https://i.guim.co.uk/img/media/ed2884d55e646de8408862ed0e2501458ae55cf8/293_0_5906_4725/master/5906.jpg?width=700&quality=85&auto=format&fit=max&s=5f64a7cdee02b75345155fb43d009b40",
         "corroborating_sources": [],
-        "score": 7.236
+        "score": 7.139
       },
       {
-        "title": "Sydney records hottest June since 1859 as expert warns new high a ‘signature’ of global warming",
-        "summary": "Bureau of Meteorology says city’s mean temperature reached 16.1C, surpassing the previous record of 15.7C set in 1991 Get our breaking news email , free app or daily news podcast Sydney has officially experienced its hottest June since records began, after a winter month of spring-like warmth. While early weather data suggested the month was merely among the warmest, the Bureau of Meteorology confirmed on Friday that June 2026 broke the all-time mean temperature record at Observatory Hill, where tracking first began in 1859. Continue reading...",
-        "url": "https://www.theguardian.com/australia-news/2026/jul/04/sydney-records-hottest-june-since-1859-as-expert-warns-new-high-a-signature-of-global-warming",
-        "category": "Geopolitics",
-        "source": "Guardian World",
-        "tier": 1.1,
-        "published_iso": "2026-07-04T04:37:24+00:00",
-        "image_url": "https://i.guim.co.uk/img/media/030313d854e863a3e2b36e98c19b45c6fca555ab/553_0_6611_5289/master/6611.jpg?width=700&quality=85&auto=format&fit=max&s=2bb029767b5a00b85ef3ab674de8ecc6",
-        "corroborating_sources": [],
-        "score": 7.091
-      },
-      {
-        "title": "150 people from 50 countries become US citizens at Mount Vernon on America’s 250th birthday",
-        "summary": "New U.S. citizen and twice-deployed U.S. Marine Sgt. Diakaria Sangare, from Guinea, poses for a portrait following the naturalization ceremony on Independence Day at George Washington&#x27;s Mount Vernon, Saturday, July 4, 2026, in Alexandria, Va. (AP Photo/Rod Lamkey, Jr.) 2026-07-04T23:03:02Z MOUNT VERNON, Va. (AP) — The people who were about to become United States citizens sat in folding chairs on George Washington’s lawn at Mount Vernon on Saturday, 250 years after the Declaration of Independence. The sun beat down and the well-dressed crowd was a flutter of paddle fans stamped with Ameri",
-        "url": "https://apnews.com/article/america-250-citizenship-george-washington-july-4-c47432ca8830be379c0a07bb6e0df4f7",
+        "title": "Cubs fans sing `Take Me Home, Country Roads’ during fog delay at Wrigley Field",
+        "summary": "Chicago Cubs pitcher Shota Imanaga stands amidst smoke after fireworks before a baseball game against the St. Louis Cardinals, Saturday, July 4, 2026, in Chicago. (AP Photo/David Banks) 2026-07-05T03:27:49Z CHICAGO (AP) — The St. Louis Cardinals and Chicago Cubs were delayed by fog at Wrigley Field for 15 minutes after the sixth inning Saturday night. The Cardinals led 2-0 when play was stopped. The crowd of 38,872 joined in singing John Denver’s “Take Me Home, Country Roads” as the delay began. The song has emerged during the World Cup soccer tournament, with U.S. players joining tens of thou",
+        "url": "https://apnews.com/article/fog-wrigley-chicago-cubs-cardinals-232b5ff553cd899a27ce8c5fd159ff86",
         "category": "Geopolitics",
         "source": "AP Top News",
         "tier": 1.2,
-        "published_iso": "2026-07-04T23:23:02+00:00",
+        "published_iso": "2026-07-05T03:53:02+00:00",
         "image_url": null,
         "corroborating_sources": [],
-        "score": 6.959
+        "score": 6.978
+      },
+      {
+        "title": "England returns to Estadio Azteca but isn’t seeking revenge over Maradona in 1986",
+        "summary": "England head coach Thomas Tuchel during a training session ahead of his team&#x27;s World Cup round of 16 soccer match against Mexico, in Mexico City, Saturday, July 4, 2026. (AP Photo/Eduardo Verdugo) 2026-07-05T02:46:17Z MEXICO CITY (AP) — England’s last memory of a competitive match at Estadio Azteca is not a pleasant one. On June 22, 1986, during the quarterfinals of the World Cup , Argentina defeated England 2-1 en route to lifting the trophy. That match remains etched in the memory of soccer fans worldwide, defined by the late Diego Maradona scoring two of the most famous — and contrasti",
+        "url": "https://apnews.com/article/england-mexico-world-cup-maradona-hand-of-god-6e158b6cd9684a5bb921497856405556",
+        "category": "Geopolitics",
+        "source": "AP Top News",
+        "tier": 1.2,
+        "published_iso": "2026-07-05T03:53:02+00:00",
+        "image_url": null,
+        "corroborating_sources": [],
+        "score": 6.978
+      },
+      {
+        "title": "Performer calls for Trump’s death at funeral for Iran’s late supreme leader",
+        "summary": "Mourners gather beneath a portrait of the late Iranian Supreme Leader Ayatollah Ali Khamenei during the funeral ceremonies for Khamenei and members of his family at the Imam Khomeini Mosalla Grand Mosque in Tehran, Iran, Saturday, July 4, 2026. (AP Photo/Altaf Qadri) 2026-07-05T03:47:41Z TEHRAN, Iran (AP) — A performer at the funeral for Iran’s late Supreme Leader Ayatollah Ali Khamenei called for the death of U.S. President Donald Trump before a crowd of hundreds of thousands of people Sunday in the capital, Tehran. Mohammad Rasouli, a poet, drew calls of “Death to America!” and “Death to Isr",
+        "url": "https://apnews.com/article/khamenei-funeral-supreme-leader-iran-us-war-july-5-2026-9c2641e5bc540e5943dd39b95d4f02f8",
+        "category": "Geopolitics",
+        "source": "AP Top News",
+        "tier": 1.2,
+        "published_iso": "2026-07-05T03:53:02+00:00",
+        "image_url": null,
+        "corroborating_sources": [],
+        "score": 6.978
+      },
+      {
+        "title": "Fire breaks out on Brooklyn Bridge during New York’s fireworks show",
+        "summary": "In this image taken from video, a fire breaks out on the Brooklyn Bridge in New York during the city&#x27;s fireworks celebration on Saturday, July 4, 2026. (AP Photo/Aron Ranen) 2026-07-05T03:08:15Z NEW YORK (AP) — A fire broke out on the Brooklyn Bridge in New York during the city’s July Fourth fireworks show, spreading flames and setting off a plume of smoke before firefighters extinguished the blaze. No injuries were reported. Two fire engines were used to put out the blaze, the city’s fire department said. Firefighters were seen dousing the flames shortly before 10 p.m. on the bridge, whi",
+        "url": "https://apnews.com/article/fireworks-brooklyn-bridge-b33731a50f23433644bd8a879dcffc75",
+        "category": "Geopolitics",
+        "source": "AP Top News",
+        "tier": 1.2,
+        "published_iso": "2026-07-05T03:23:03+00:00",
+        "image_url": null,
+        "corroborating_sources": [],
+        "score": 6.952
+      },
+      {
+        "title": "Pastor freed from prison in China weeks after Trump requested his release",
+        "summary": "United States men&#x27;s national soccer team head coach Mauricio Pochettino walks out to throw out the ceremonial first pitch before a baseball game between the Seattle Mariners and the Toronto Blue Jays, Friday, July 3, 2026, in Seattle. (AP Photo/Lindsey Wasson) 2026-07-05T02:43:05Z WASHINGTON (AP) — A pastor of a prominent underground church who was detained in China in October has been released, less than two months after U.S. President Donald Trump brought up his case when meeting Chinese leader Xi Jinping in Beijing, according to rights advocates. Pastor Ezra Jin Mingri, of the undergro",
+        "url": "https://apnews.com/article/china-trump-pastor-released-zion-church-46cb17fba23c35fad6d46ef6950d1ac5",
+        "category": "Geopolitics",
+        "source": "AP Top News",
+        "tier": 1.2,
+        "published_iso": "2026-07-05T02:53:05+00:00",
+        "image_url": null,
+        "corroborating_sources": [],
+        "score": 6.927
+      },
+      {
+        "title": "US players and coach Mauricio Pochettino represent the diversity of America on July Fourth",
+        "summary": "United States men&#x27;s national soccer team head coach Mauricio Pochettino walks out to throw out the ceremonial first pitch before a baseball game between the Seattle Mariners and the Toronto Blue Jays, Friday, July 3, 2026, in Seattle. (AP Photo/Lindsey Wasson) 2026-07-04T22:32:06Z SEATTLE (AP) — Less than 24 hours removed from throwing out the first pitch at a Seattle Mariners game alongside his team, U.S. coach Mauricio Pochettino extended some unexpected birthday wishes. They were not directed toward forward Folarin Balogun , who turned 25 on Friday, but rather the country the two are r",
+        "url": "https://apnews.com/article/world-cup-united-states-pochettino-belgium-fourth-of-july-80cda0754e78282460680f6f9ce09d32",
+        "category": "Geopolitics",
+        "source": "AP Top News",
+        "tier": 1.2,
+        "published_iso": "2026-07-05T02:53:04+00:00",
+        "image_url": null,
+        "corroborating_sources": [],
+        "score": 6.927
       },
       {
         "title": "Dayslong funeral for slain Supreme Leader Ayatollah Ali Khamenei begins in Tehran",
@@ -901,91 +971,67 @@
         "published_iso": "2026-07-04T05:04:16+00:00",
         "image_url": "https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-5882083",
         "corroborating_sources": [],
-        "score": 6.939
+        "score": 6.87
       },
       {
-        "title": "Kylian Mbappé of France scores 19th career World Cup goal, 1 behind Golden Boot rival Messi",
-        "summary": "France&#x27;s Kylian Mbappe (10) celebrates after scoring from a penalty kick the opening goal during the World Cup round of 16 soccer match between Paraguay and France in Philadelphia, Saturday, July 4, 2026. (AP Photo/Martin Meissner) 2026-07-04T22:50:36Z PHILADELPHIA (AP) — Kylian Mbappé of France scored his 19th career World Cup goal, finding the net on a penalty kick in the Round of 16 against Paraguay on Saturday and moving within one of record holder Lionel Messi of Argentina. Mbappé stutter-stepped on his way to his 19th goal in 19 World Cup appearances, beating Paraguay goalkeeper Orl",
-        "url": "https://apnews.com/article/kylian-mbappe-france-world-cup-goal-messi-de578e2297fec01dae610a31ad70dd94",
+        "title": "A name, a document, a future: Cameroon’s fight to register every child",
+        "summary": "Efforts to expand birth registration in Cameroon are gaining ground, but millions of children remain undocumented.",
+        "url": "https://www.aljazeera.com/news/2026/7/5/a-name-a-document-a-future-cameroons-fight-to-register-every-child?traffic_source=rss",
         "category": "Geopolitics",
-        "source": "AP Top News",
-        "tier": 1.2,
-        "published_iso": "2026-07-04T22:53:03+00:00",
-        "image_url": "https://dims.apnews.com/dims4/default/4f9de8c/2147483647/strip/true/crop/692x692+0+141/resize/100x100!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2Fb8%2F56%2F5c266c9f4210b3a22cbf9645a290%2Fimg-7006.jpg",
+        "source": "Al Jazeera",
+        "tier": 1.1,
+        "published_iso": "2026-07-05T03:55:54+00:00",
+        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/06/s1-1782791881.jpg?resize=1920%2C1440",
         "corroborating_sources": [],
-        "score": 6.933
+        "score": 6.821
       },
       {
-        "title": "Paul Pelosi in hit-and-run in Napa County wine country, car left with major damage, authorities say",
-        "summary": "Rep. Nancy Pelosi, D-Calif., and her husband Paul arrive at the funeral services for Clive Davis at Central Synagogue in New York, Monday, June 29, 2026. (AP Photo/Adam Gray) 2026-07-04T21:33:50Z LOS ANGELES (AP) — Former House Speaker Nancy Pelosi ‘s husband was involved in a hit and run on Friday in California’s wine country that left one car with “major damage,” according to local authorities, who said that the 86-year-old could face misdemeanor charges for the collision. Paul Pelosi was driving his brown convertible in Yountville, a small town in the heart of wine country in Napa County, w",
-        "url": "https://apnews.com/article/paul-pelosi-hit-run-napa-county-nancy-03222e98042228c070971a4d13f8a861",
-        "category": "Geopolitics",
-        "source": "AP Top News",
-        "tier": 1.2,
-        "published_iso": "2026-07-04T21:53:02+00:00",
-        "image_url": null,
-        "corroborating_sources": [],
-        "score": 6.884
-      },
-      {
-        "title": "A fast-moving wildfire near Greece’s Thessaloniki sparks evacuations as smoke blankets suburbs",
-        "summary": "Idina Menzel sings the U.S. national anthem ahead of the World Cup round of 16 soccer between Paraguay and France match in Philadelphia, Saturday, July 4, 2026. (AP Photo/Matt Slocum) 2026-07-04T21:22:35Z THESSALONIKI, Greece (AP) — A fast-moving wildfire broke out Saturday evening near the suburbs of Thessaloniki, Greece’s second largest city, the country’s Fire Service said, and residents of three small suburbs north of the city were told to evacuate. The fire ignited in a ravine in a mountainous area around 8:30 p.m. (1730 GMT) and spread quickly, the Fire Service said. It spread to the pla",
-        "url": "https://apnews.com/article/thessaloniki-suburbs-wildfire-businesses-damage-smoke-f2e971b7605a26205dbc20535c3a2ad7",
-        "category": "Geopolitics",
-        "source": "AP Top News",
-        "tier": 1.2,
-        "published_iso": "2026-07-04T21:23:03+00:00",
-        "image_url": null,
-        "corroborating_sources": [],
-        "score": 6.86
-      },
-      {
-        "title": "World Cup fans celebrate America’s 250th birthday in Philadelphia and Houston",
-        "summary": "Idina Menzel sings the U.S. national anthem ahead of the World Cup round of 16 soccer between Paraguay and France match in Philadelphia, Saturday, July 4, 2026. (AP Photo/Matt Slocum) 2026-07-04T21:20:56Z PHILADELPHIA (AP) — Fireworks crackled and jets roared ahead of the France-Paraguay World Cup game in Philadelphia on Saturday as fans celebrated the double joy of soccer’s biggest tournament on home soil and the 250th anniversary of American independence in the nation’s birthplace. A pregame show celebrating the city’s history included Tony Award winner Idina Menzel singing “The Star-Spangle",
-        "url": "https://apnews.com/article/world-cup-philadelphia-july-fourth-france-paraguay-4cb69429672dc546496a81aeae80d7d2",
-        "category": "Geopolitics",
-        "source": "AP Top News",
-        "tier": 1.2,
-        "published_iso": "2026-07-04T21:23:02+00:00",
-        "image_url": null,
-        "corroborating_sources": [],
-        "score": 6.86
-      },
-      {
-        "title": "Australia news live: Dan Tehan says Liberals ‘not entertaining’ idea of coalition with One Nation; first east coast bird flu case confirmed",
-        "summary": "Follow the day’s news live Get our breaking news email , free app or daily news podcast Government must report back on Great Barrier Reef in two years, Unesco recommends United Nations advisors have expressed “utmost concern” about the future of the Great Barrier Reef and said the government’s climate targets fall short of being aligned to 1.5C of global heating. Whilst the resilience of the Reef remains evident, its capacity to tolerate and recover from such events is increasingly compromised, and this is of utmost concern. Australia is doing more than ever to better protect and manage the Ou",
+        "title": "Coalition criticises Labor over electricity prices as Bowen rejects ‘hypocrisy’ – as it happened",
+        "summary": "This blog is now closed. Get our breaking news email , free app or daily news podcast The Australian Space Agency has confirmed that “suspected space debris” thought to contain hazardous chemicals has been located north of Townsville. Queensland police said four objects were located on Friday and Saturday in the Forrest beach area and 50-metre exclusion zones had been enforced around each object. Continue reading...",
         "url": "https://www.theguardian.com/australia-news/live/2026/jul/05/australia-news-live-albanese-labor-nsw-h5-bird-flu-angus-taylor-liberal-coalition-pauline-hanson-ntwnfb",
         "category": "Geopolitics",
         "source": "Guardian World",
         "tier": 1.1,
-        "published_iso": "2026-07-05T00:10:21+00:00",
-        "image_url": "https://i.guim.co.uk/img/media/ca9e18aa01860403e1969d948ade490aa9214d21/583_204_2260_1808/master/2260.jpg?width=700&quality=85&auto=format&fit=max&s=50bb565a4f49ed1fd01d6d5d7ae0bfdb",
+        "published_iso": "2026-07-05T03:15:21+00:00",
+        "image_url": "https://i.guim.co.uk/img/media/76466ceac29e62fd0690fdbfa9402fa33d82336d/254_0_5313_4252/master/5313.jpg?width=700&quality=85&auto=format&fit=max&s=7b5eaa9155a6415dd882ee48a6030f34",
         "corroborating_sources": [],
-        "score": 6.841
+        "score": 6.785
       },
       {
-        "title": "White nationalists march in Washington, DC, area during July 4 festivities",
-        "summary": "Donald Trump has faced condemnation for failing to forcefully reject white nationalists during his presidency.",
-        "url": "https://www.aljazeera.com/news/2026/7/4/white-nationalists-march-in-washington-dc-area-during-july-4-festivities?traffic_source=rss",
+        "title": "Founder of prominent underground church released from prison in China",
+        "summary": "Ezra Jin, founder of Zion Church, lands in the US and reunites with family who are ‘overwhelmed with joy’ The founder of one of China’s most prominent underground churches has been released from prison and reunited with his family in the United States. Ezra Jin, the founder of Zion Church, landed in the US on Friday evening. He was one of dozens of church members who were detained in a sweeping crackdown on Christians in October . Continue reading...",
+        "url": "https://www.theguardian.com/world/2026/jul/05/founder-of-prominent-underground-church-released-from-prison-in-china",
         "category": "Geopolitics",
-        "source": "Al Jazeera",
+        "source": "Guardian World",
         "tier": 1.1,
-        "published_iso": "2026-07-04T23:57:52+00:00",
-        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/reuters_6a498796-1783203734.jpg?resize=1920%2C1440",
+        "published_iso": "2026-07-05T01:40:15+00:00",
+        "image_url": "https://i.guim.co.uk/img/media/50e10a77d9b79b23bad025794b01db3ca3db88f5/173_149_666_533/master/666.jpg?width=700&quality=85&auto=format&fit=max&s=50901de740afed769f2d42865f44be7f",
         "corroborating_sources": [],
-        "score": 6.829
+        "score": 6.707
       },
       {
         "title": "Woman charged with murder after body of four-year-old boy found in Central Coast home",
-        "summary": "Police are investigating what happened to a boy who was found with significant arm injuries Follow our Australia news live blog for latest updates Get our breaking news email , free app or daily news podcast A woman has been charged with murder after police found the body of a pre-schooler at a home on the New South Wales Central Coast. Police rushed to the home at Wyong after a 32-year-old woman presented to the local police station on Saturday. Continue reading...",
+        "summary": "Police are investigating what happened to a boy who was found with significant arm injuries Follow our Australia news live blog for latest updates Get our breaking news email , free app or daily news podcast A woman has been charged with murder after police found the body of a preschooler at a home on the New South Wales Central Coast. Police rushed to the home at Wyong after a 32-year-old woman presented to the local police station on Saturday. Continue reading...",
         "url": "https://www.theguardian.com/australia-news/2026/jul/05/woman-arrested-after-body-of-four-year-old-boy-found-wyong-central-coast-ntwnfb",
         "category": "Geopolitics",
         "source": "Guardian World",
         "tier": 1.1,
-        "published_iso": "2026-07-04T23:50:49+00:00",
+        "published_iso": "2026-07-05T00:53:03+00:00",
         "image_url": "https://i.guim.co.uk/img/media/0dd8d500bb82d23f4f62b813daf1d506d5751ec9/335_0_2155_1724/master/2155.jpg?width=700&quality=85&auto=format&fit=max&s=2084820b1b2928f3123a46dec5c7b796",
         "corroborating_sources": [],
-        "score": 6.823
+        "score": 6.671
+      },
+      {
+        "title": "This immigrant served in the US military. Now he faces deportation",
+        "summary": "Benito Miranda Hernandez completed three tours during the Iraq war but now faces removal from the US to Mexico.",
+        "url": "https://www.aljazeera.com/news/longform/2026/7/5/this-immigrant-served-in-the-us-military-now-he-faces-deportation?traffic_source=rss",
+        "category": "Geopolitics",
+        "source": "Al Jazeera",
+        "tier": 1.1,
+        "published_iso": "2026-07-05T00:49:14+00:00",
+        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/IMG_5365-1783201841.jpeg?resize=1920%2C1440",
+        "corroborating_sources": [],
+        "score": 6.668
       },
       {
         "title": "Keiko Fujimori declared winner of Peru's presidential election weeks after vote",
@@ -997,43 +1043,19 @@
         "published_iso": "2026-07-04T07:52:55+00:00",
         "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/8ad4/live/e811c470-777a-11f1-bfcd-0551ebb03f4c.jpg",
         "corroborating_sources": [],
-        "score": 6.737
+        "score": 6.655
       },
       {
-        "title": "Archaeologists uncover ancient Byzantine city in Egypt’s western desert",
-        "summary": "Well-preserved fourth-century quarters reveal details of daily life, urban development and economic activities Archaeologists in Egypt have uncovered a well-preserved Byzantine-era city in the western desert. The fourth-century quarters had residential and religious structures, including a basilica-style church in the Dakhla oasis. Archaeologists also found coins, pottery fragments and tools. Continue reading...",
-        "url": "https://www.theguardian.com/world/2026/jul/04/archaeologists-uncover-ancient-byzantine-city-in-egypts-western-desert",
-        "category": "Geopolitics",
-        "source": "Guardian World",
-        "tier": 1.1,
-        "published_iso": "2026-07-04T20:32:52+00:00",
-        "image_url": "https://i.guim.co.uk/img/media/143b8d47a8a54be65405a4fe6d0bb23cf02fe1f2/146_0_716_573/master/716.jpg?width=700&quality=85&auto=format&fit=max&s=4588c19ae26dccc2ca59dde3c6a49b7f",
-        "corroborating_sources": [],
-        "score": 6.662
-      },
-      {
-        "title": "America’s Indigenous Legacy",
-        "summary": "The Potomac isn&#039;t just the name of a river, it&#039;s part of a much older story. Al Jazeera&#039;s Emma Withrow explains.",
-        "url": "https://www.aljazeera.com/video/newsfeed/2026/7/4/americas-indigenous-legacy?traffic_source=rss",
+        "title": "White nationalists march in Washington, DC, area during July 4 festivities",
+        "summary": "Donald Trump has faced condemnation for failing to forcefully reject white nationalists during his presidency.",
+        "url": "https://www.aljazeera.com/news/2026/7/4/white-nationalists-march-in-washington-dc-area-during-july-4-festivities?traffic_source=rss",
         "category": "Geopolitics",
         "source": "Al Jazeera",
         "tier": 1.1,
-        "published_iso": "2026-07-04T19:32:43+00:00",
-        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/image-1783193538.jpg?resize=1920%2C1080&amp;quality=80",
+        "published_iso": "2026-07-04T23:57:52+00:00",
+        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/reuters_6a498796-1783203734.jpg?resize=1920%2C1440",
         "corroborating_sources": [],
-        "score": 6.618
-      },
-      {
-        "title": "Has the US reckoned with its own history?",
-        "summary": "Marc Lamont Hill speaks to scholar Kimberle Crenshaw on whether the US is sliding backwards on civil rights.",
-        "url": "https://www.aljazeera.com/video/upfront/2026/7/4/has-the-us-reckoned-with-its-own-history?traffic_source=rss",
-        "category": "Geopolitics",
-        "source": "Al Jazeera",
-        "tier": 1.1,
-        "published_iso": "2026-07-04T19:30:00+00:00",
-        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/image-1783190496.jpg?resize=1920%2C1080&amp;quality=80",
-        "corroborating_sources": [],
-        "score": 6.616
+        "score": 6.631
       },
       {
         "title": "'Hotter and hotter and hotter' - Europe's new climate in seven charts",
@@ -1045,7 +1067,55 @@
         "published_iso": "2026-07-04T00:57:05+00:00",
         "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/d7eb/live/2c0dd520-7702-11f1-9510-1546718f668b.jpg",
         "corroborating_sources": [],
-        "score": 6.61
+        "score": 6.555
+      },
+      {
+        "title": "Female US rower completes historic solo journey from California to Hawaii",
+        "summary": "Kelsey Pfendler set out to become first US woman, youngest woman and fastest woman to solo over 2,400-mile journey A Grand Canyon river-rafting guide who aimed to become the first US woman to row solo across the mid-Pacific has completed a record-breaking journey from California to Hawaii . Hundreds of people gathered to cheer on Kelsey Pfendler as she pulled into a Honolulu harbor on Friday night on her 21ft rowboat, Lily, after nearly a month-and-a-half at sea, local media reported. Guardian staff contributed Continue reading...",
+        "url": "https://www.theguardian.com/us-news/2026/jul/04/california-hawaii-rowing-solo-journey",
+        "category": "Geopolitics",
+        "source": "Guardian World",
+        "tier": 1.1,
+        "published_iso": "2026-07-04T21:06:56+00:00",
+        "image_url": "https://i.guim.co.uk/img/media/76e6d41e9793d20f38e9c89b53fa8b8b1ba200bd/0_0_2626_2102/master/2626.jpg?width=700&quality=85&auto=format&fit=max&s=e56b60963d6b673847265a1ec08d0579",
+        "corroborating_sources": [],
+        "score": 6.518
+      },
+      {
+        "title": "Archaeologists uncover ancient Byzantine city in Egypt’s western desert",
+        "summary": "Well-preserved fourth-century quarters reveal details of daily life, urban development and economic activities Archaeologists in Egypt have uncovered a well-preserved Byzantine-era city in the western desert. The fourth-century quarters had residential and religious structures, including a basilica-style church in the Dakhla oasis. Archaeologists also found coins, pottery fragments and tools. Continue reading...",
+        "url": "https://www.theguardian.com/world/2026/jul/04/archaeologists-uncover-ancient-byzantine-city-in-egypts-western-desert",
+        "category": "Geopolitics",
+        "source": "Guardian World",
+        "tier": 1.1,
+        "published_iso": "2026-07-04T20:32:52+00:00",
+        "image_url": "https://i.guim.co.uk/img/media/143b8d47a8a54be65405a4fe6d0bb23cf02fe1f2/146_0_716_573/master/716.jpg?width=700&quality=85&auto=format&fit=max&s=4588c19ae26dccc2ca59dde3c6a49b7f",
+        "corroborating_sources": [],
+        "score": 6.498
+      },
+      {
+        "title": "America’s Indigenous Legacy",
+        "summary": "The Potomac isn&#039;t just the name of a river, it&#039;s part of a much older story. Al Jazeera&#039;s Emma Withrow explains.",
+        "url": "https://www.aljazeera.com/video/newsfeed/2026/7/4/americas-indigenous-legacy?traffic_source=rss",
+        "category": "Geopolitics",
+        "source": "Al Jazeera",
+        "tier": 1.1,
+        "published_iso": "2026-07-04T19:32:43+00:00",
+        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/image-1783193538.jpg?resize=1920%2C1080&amp;quality=80",
+        "corroborating_sources": [],
+        "score": 6.463
+      },
+      {
+        "title": "Has the US reckoned with its own history?",
+        "summary": "Marc Lamont Hill speaks to scholar Kimberle Crenshaw on whether the US is sliding backwards on civil rights.",
+        "url": "https://www.aljazeera.com/video/upfront/2026/7/4/has-the-us-reckoned-with-its-own-history?traffic_source=rss",
+        "category": "Geopolitics",
+        "source": "Al Jazeera",
+        "tier": 1.1,
+        "published_iso": "2026-07-04T19:30:00+00:00",
+        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/image-1783190496.jpg?resize=1920%2C1080&amp;quality=80",
+        "corroborating_sources": [],
+        "score": 6.462
       },
       {
         "title": "Russia’s Medvedev says Strait of Hormuz is Iran’s ‘nuclear weapon’",
@@ -1057,19 +1127,7 @@
         "published_iso": "2026-07-04T18:46:13+00:00",
         "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/2026-07-04T042750Z_1885983414_RC2S6MAUP53E_RTRMADP_3_IRAN-CRISIS-KHAMENEI-1783190412.jpg?resize=1920%2C1440",
         "corroborating_sources": [],
-        "score": 6.586
-      },
-      {
-        "title": "Iran begins week of funeral celebrations for Khamenei",
-        "summary": "Foreign dignitaries are gathering in Iran for a week of funeral ceremonies for Ayatollah Ali Khamenei, more than four months after he was killed in U.S.-Israeli airstrikes.",
-        "url": "https://www.npr.org/2026/07/04/nx-s1-5877738/iran-begins-week-of-funeral-celebrations-for-khamenei",
-        "category": "Geopolitics",
-        "source": "NPR World",
-        "tier": 1.0,
-        "published_iso": "2026-07-04T21:03:46+00:00",
-        "image_url": "https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-5877738",
-        "corroborating_sources": [],
-        "score": 6.525
+        "score": 6.438
       },
       {
         "title": "FIFA World Cup 2026: Best Round of 16 knockout matches to watch",
@@ -1081,7 +1139,7 @@
         "published_iso": "2026-07-04T16:51:20+00:00",
         "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/AP25159684840458-1783177290_d3df46-1783177689.jpg?resize=1200%2C630&amp;quality=80",
         "corroborating_sources": [],
-        "score": 6.513
+        "score": 6.379
       },
       {
         "title": "Three children dead after boat capsizes during storm in Wisconsin",
@@ -1093,19 +1151,19 @@
         "published_iso": "2026-07-04T16:04:01+00:00",
         "image_url": "https://i.guim.co.uk/img/media/c5ab4d5b295e7cfd5be11f966d66ed08ff837ea6/1616_0_7724_6183/master/7724.jpg?width=700&quality=85&auto=format&fit=max&s=dd02d32762a804979bf95c5ae3fd024f",
         "corroborating_sources": [],
-        "score": 6.485
+        "score": 6.357
       },
       {
-        "title": "Russian attacks leave trail of destruction across Ukraine",
-        "summary": "Russian attacks leave trail of destruction across Ukraine",
-        "url": "https://www.aljazeera.com/video/newsfeed/2026/7/4/russian-attacks-leave-trail-of-destruction-across-ukraine?traffic_source=rss",
+        "title": "Iran begins week of funeral celebrations for Khamenei",
+        "summary": "Foreign dignitaries are gathering in Iran for a week of funeral ceremonies for Ayatollah Ali Khamenei, more than four months after he was killed in U.S.-Israeli airstrikes.",
+        "url": "https://www.npr.org/2026/07/04/nx-s1-5877738/iran-begins-week-of-funeral-celebrations-for-khamenei",
         "category": "Geopolitics",
-        "source": "Al Jazeera",
-        "tier": 1.1,
-        "published_iso": "2026-07-04T15:46:35+00:00",
-        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/image-1783179986.jpg?resize=1920%2C1080&amp;quality=80",
+        "source": "NPR World",
+        "tier": 1.0,
+        "published_iso": "2026-07-04T21:03:46+00:00",
+        "image_url": "https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-5877738",
         "corroborating_sources": [],
-        "score": 6.475
+        "score": 6.356
       },
       {
         "title": "UK woman, 21, arrested in Thailand after allegedly stabbing boyfriend to death",
@@ -1117,7 +1175,7 @@
         "published_iso": "2026-07-04T14:51:46+00:00",
         "image_url": "https://i.guim.co.uk/img/media/ee017f23a70de974e754ae80ccc4fdfa7d0e06e7/20_0_5000_4000/master/5000.jpg?width=700&quality=85&auto=format&fit=max&s=7410dfca4caf4455b1f45b6589c356d0",
         "corroborating_sources": [],
-        "score": 6.445
+        "score": 6.325
       },
       {
         "title": "What impact will Andy Burnham have on Zack Polanski and the Greens?",
@@ -1129,19 +1187,7 @@
         "published_iso": "2026-07-04T14:45:31+00:00",
         "image_url": "https://i.guim.co.uk/img/media/bf01f3f5eb1e54c5b68e422e2b46b603bb238726/1480_383_3992_3193/master/3992.jpg?width=700&quality=85&auto=format&fit=max&s=71ccac3eba4884497229c22f3dcabd24",
         "corroborating_sources": [],
-        "score": 6.441
-      },
-      {
-        "title": "Brain drain leaves Yemen’s health sector in tatters and millions helpless",
-        "summary": "Yemen&#039;s health professionals have been leaving the country in search of higher income and a safer working environment.",
-        "url": "https://www.aljazeera.com/features/2026/7/4/brain-drain-leaves-yemens-health-sector-in-tatters-and-millions-helpless?traffic_source=rss",
-        "category": "Geopolitics",
-        "source": "Al Jazeera",
-        "tier": 1.1,
-        "published_iso": "2026-07-04T13:38:32+00:00",
-        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/8-1783167324.jpg?resize=1920%2C1440",
-        "corroborating_sources": [],
-        "score": 6.406
+        "score": 6.322
       },
       {
         "title": "German riot police clash with protesters hoping to block far-right AfD conference",
@@ -1153,7 +1199,7 @@
         "published_iso": "2026-07-04T13:17:50+00:00",
         "image_url": "https://i.guim.co.uk/img/media/a71ec38d3b30a97c4eed9682737ae9562c7a20e1/239_0_3824_3060/master/3824.jpg?width=700&quality=85&auto=format&fit=max&s=8969869a7b6a67b4b287759ea8a051fb",
         "corroborating_sources": [],
-        "score": 6.396
+        "score": 6.286
       },
       {
         "title": "How the 1986 Mexico World Cup was almost cancelled after a devastating earthquake",
@@ -1165,19 +1211,7 @@
         "published_iso": "2026-07-04T11:40:31+00:00",
         "image_url": "https://i.guim.co.uk/img/media/e1aaede31dec3f22e9f284dc77dc5ca56b6dbb3e/107_9_1027_821/master/1027.jpg?width=700&quality=85&auto=format&fit=max&s=b1e0ccbec2fbe71294947a12c0439324",
         "corroborating_sources": [],
-        "score": 6.35
-      },
-      {
-        "title": "Funeral of Iran's former supreme leader 'intensely political moment'",
-        "summary": "Authorities expect up to 20 million people to attend ceremonies across Iran and Iraq over the coming days.",
-        "url": "https://www.bbc.co.uk/news/videos/c23y22z4ppxo?at_medium=RSS&at_campaign=rss",
-        "category": "Geopolitics",
-        "source": "BBC World",
-        "tier": 1.4,
-        "published_iso": "2026-07-04T21:46:43+00:00",
-        "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/2a2f/live/7e277ba0-77ec-11f1-9510-1546718f668b.jpg",
-        "corroborating_sources": [],
-        "score": 6.299
+        "score": 6.249
       },
       {
         "title": "Overseas education project for women and girls axed by UK after two years",
@@ -1189,19 +1223,7 @@
         "published_iso": "2026-07-04T08:00:08+00:00",
         "image_url": "https://i.guim.co.uk/img/media/8fe3bfd9209ce4fc803c25bb4ed0fe3aa3314837/0_0_2497_1996/master/2497.jpg?width=700&quality=85&auto=format&fit=max&s=f54c2f8cb12d7155798704567efebfa9",
         "corroborating_sources": [],
-        "score": 6.259
-      },
-      {
-        "title": "Eala wins 'for all the girls with ruffled socks and chubby cheeks'",
-        "summary": "Alexandra Eala dedicates her stunning win over defending Wimbledon champion Iga Swiatek to \"all the girls with ruffled socks and chubby cheeks\".",
-        "url": "https://www.bbc.co.uk/sport/tennis/articles/cjwgpz3wj69o?at_medium=RSS&at_campaign=rss",
-        "category": "Geopolitics",
-        "source": "BBC World",
-        "tier": 1.4,
-        "published_iso": "2026-07-04T20:19:11+00:00",
-        "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/a602/live/96aa5aa0-77c7-11f1-a627-714adb4eed6e.jpg",
-        "corroborating_sources": [],
-        "score": 6.232
+        "score": 6.178
       },
       {
         "title": "Celtic nations begin to plan for breakup of UK in event of Reform election win",
@@ -1213,7 +1235,31 @@
         "published_iso": "2026-07-04T06:00:05+00:00",
         "image_url": "https://i.guim.co.uk/img/media/c44c25d3eac243b52fc213e417bc26b9bb6db791/1221_8_5911_4730/master/5911.jpg?width=700&quality=85&auto=format&fit=max&s=816a74c055af670a10fcf80e35e0dfd4",
         "corroborating_sources": [],
-        "score": 6.217
+        "score": 6.144
+      },
+      {
+        "title": "Funeral of Iran's former supreme leader 'intensely political moment'",
+        "summary": "Authorities expect up to 20 million people to attend ceremonies across Iran and Iraq over the coming days.",
+        "url": "https://www.bbc.co.uk/news/videos/c23y22z4ppxo?at_medium=RSS&at_campaign=rss",
+        "category": "Geopolitics",
+        "source": "BBC World",
+        "tier": 1.4,
+        "published_iso": "2026-07-04T21:46:43+00:00",
+        "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/2a2f/live/7e277ba0-77ec-11f1-9510-1546718f668b.jpg",
+        "corroborating_sources": [],
+        "score": 6.123
+      },
+      {
+        "title": "Eala wins 'for all the girls with ruffled socks and chubby cheeks'",
+        "summary": "Alexandra Eala dedicates her stunning win over defending Wimbledon champion Iga Swiatek to \"all the girls with ruffled socks and chubby cheeks\".",
+        "url": "https://www.bbc.co.uk/sport/tennis/articles/cjwgpz3wj69o?at_medium=RSS&at_campaign=rss",
+        "category": "Geopolitics",
+        "source": "BBC World",
+        "tier": 1.4,
+        "published_iso": "2026-07-04T20:19:11+00:00",
+        "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/a602/live/96aa5aa0-77c7-11f1-a627-714adb4eed6e.jpg",
+        "corroborating_sources": [],
+        "score": 6.07
       },
       {
         "title": "Dior dress, Adam Sandler and a man of honour: What we know about Taylor and Travis's wedding",
@@ -1225,7 +1271,7 @@
         "published_iso": "2026-07-04T17:51:04+00:00",
         "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/9c6f/live/aa7b3860-77a4-11f1-a627-714adb4eed6e.jpg",
         "corroborating_sources": [],
-        "score": 6.13
+        "score": 5.989
       },
       {
         "title": "Injury ends Williams' Wimbledon comeback",
@@ -1237,7 +1283,7 @@
         "published_iso": "2026-07-04T17:22:46+00:00",
         "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/afa6/live/b2249b20-77b7-11f1-a777-2740d50846c8.jpg",
         "corroborating_sources": [],
-        "score": 6.112
+        "score": 5.975
       },
       {
         "title": "BBC in Tehran as mourners gather for former supreme leader's funeral",
@@ -1249,7 +1295,7 @@
         "published_iso": "2026-07-04T16:49:36+00:00",
         "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/6f6e/live/e254b5d0-77be-11f1-b976-0b9c15b0ccfc.jpg",
         "corroborating_sources": [],
-        "score": 6.092
+        "score": 5.958
       },
       {
         "title": "Former chess champion Kramnik banned over cheating remarks",
@@ -1261,31 +1307,31 @@
         "published_iso": "2026-07-04T15:45:15+00:00",
         "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/9ffb/live/51aa3090-77b5-11f1-b976-0b9c15b0ccfc.jpg",
         "corroborating_sources": [],
-        "score": 6.054
+        "score": 5.928
       },
       {
-        "title": "Brazil is still favored vs. Norway at the World Cup, yet an upset wouldn’t rival 1998",
-        "summary": "Norway&#x27;s Kjetil Rekdal, right, scores the 2-1 with a penalty kick for his team Brazil&#x27;s goalie Taffarel during the Brazil vs. Norway, Group A, World Cup 98, soccer match at the Velodrome stadium in Marseille, France, on Tuesday, June 23, 1998. (AP Photo/Michel Euler, File) 2026-07-04T21:01:52Z EAST RUTHERFORD, N.J. (AP) — Ståle Solbakken knows all about Norway’s stunning upset of Brazil during the 1998 World Cup. He was a reserve and watched from the sideline in Marseille as his teammates delivered arguably the biggest victory in men’s soccer in the Scandinavian country’s history. No",
-        "url": "https://apnews.com/article/brazil-vs-norway-world-cup-18480794f7f1dbd595fff5d7b4af5282",
-        "category": "Geopolitics",
-        "source": "AP Top News",
-        "tier": 1.2,
-        "published_iso": "2026-07-04T21:53:02+00:00",
-        "image_url": null,
-        "corroborating_sources": [],
-        "score": 5.984
-      },
-      {
-        "title": "White nationalists march on Washington DC ahead of Freedom 250 celebrations",
-        "summary": "Hundreds of masked white nationalists marched on Washington DC ahead of Freedom 250.",
-        "url": "https://www.aljazeera.com/video/newsfeed/2026/7/5/aje-onl-nf_white-nationalists-march-ahead-of-freedom-250-040726?traffic_source=rss",
+        "title": "Fireworks light up New York City to mark 250 years of US independence",
+        "summary": "Fireworks lit up the New York City skyline as America marked its 250th anniversary.",
+        "url": "https://www.aljazeera.com/video/newsfeed/2026/7/5/aje-onl-nf_fireworks-light-up-new-york-city-to-mark-250-years-040726?traffic_source=rss",
         "category": "Geopolitics",
         "source": "Al Jazeera",
         "tier": 1.1,
-        "published_iso": "2026-07-05T00:08:47+00:00",
-        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/image-1783210140.jpg?resize=1620%2C1080&amp;quality=80",
+        "published_iso": "2026-07-05T02:55:06+00:00",
+        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/2026-07-05T013846Z_926732426_RC2D7MAE47JP_RTRMADP_3_USA-250-NEW-YORK-1783220007.jpeg?resize=1920%2C1440",
         "corroborating_sources": [],
-        "score": 5.939
+        "score": 5.868
+      },
+      {
+        "title": "Severe weather disrupts US’s 250th celebrations",
+        "summary": "Trump says he will still speak in Washington, DC, after a thunderstorm delayed celebrations in the US capital.",
+        "url": "https://www.aljazeera.com/news/2026/7/5/severe-weather-disrupts-uss-250th-celebrations?traffic_source=rss",
+        "category": "Geopolitics",
+        "source": "Al Jazeera",
+        "tier": 1.1,
+        "published_iso": "2026-07-05T02:54:05+00:00",
+        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/2026-07-05T005750Z_781777392_RC2B7MA1VG93_RTRMADP_3_USA-250-1783219880.jpg?resize=1920%2C1440",
+        "corroborating_sources": [],
+        "score": 5.867
       },
       {
         "title": "Pope urges Europe to do more for migrants as he visits gateway island",
@@ -1297,55 +1343,7 @@
         "published_iso": "2026-07-04T11:25:57+00:00",
         "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/0f69/live/f6627020-7788-11f1-a627-714adb4eed6e.jpg",
         "corroborating_sources": [],
-        "score": 5.923
-      },
-      {
-        "title": "Conquered heroes: For Cape Verde, a World Cup run means many things will change",
-        "summary": "Cape Verde goalkeeper Vozinha (1) applauds the crowd as he leaves after the World Cup round of 32 soccer match between Argentina and Cape Verde in Miami Gardens, Fla., Friday, July 3, 2026. (AP Photo/Lynne Sladky) 2026-07-04T20:08:51Z MIAMI GARDENS, Fla. (AP) — Cape Verde’s World Cup team walked into its Miami hotel after getting eliminated from the tournament, almost in disbelief at the scene in the lobby. Dozens of people were there, cheering for them. After a loss, no less. Let that be the first sign of how things are going to be very different in many respects for the team, at least for th",
-        "url": "https://apnews.com/article/cape-verde-world-cup-ce59d3bee9d28c15e1c834785f37bb6e",
-        "category": "Geopolitics",
-        "source": "AP Top News",
-        "tier": 1.2,
-        "published_iso": "2026-07-04T20:23:03+00:00",
-        "image_url": null,
-        "corroborating_sources": [],
-        "score": 5.915
-      },
-      {
-        "title": "Ticket prices plunge for USA-Belgium World Cup last-16 match",
-        "summary": "The price for the final 2026 World ⁠Cup match in Seattle hit nearly $4,000 but dipped as low as $1,549 ⁠on Tuesday.",
-        "url": "https://www.aljazeera.com/sports/2026/7/4/ticket-prices-plunge-for-us-belgium-world-cup-last-16-match?traffic_source=rss",
-        "category": "Geopolitics",
-        "source": "Al Jazeera",
-        "tier": 1.1,
-        "published_iso": "2026-07-04T23:36:37+00:00",
-        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/2026-07-01T211139Z_1444087196_UP1EM711MVDGR_RTRMADP_3_SOCCER-WORLDCUP-BEL-SEN-1783207089.jpg?resize=1920%2C1440",
-        "corroborating_sources": [],
-        "score": 5.911
-      },
-      {
-        "title": "Iran plans dayslong funeral for Supreme Leader Khamenei after war death",
-        "summary": "The country's theocracy hopes to see millions flood the streets of the capital beginning Saturday in scenes reminiscent to the burial of the late Supreme Leader Ayatollah Ruhollah Khomeini in 1989.",
-        "url": "https://www.npr.org/2026/07/03/g-s1-131963/iran-plans-dayslong-funeral-for-supreme-leader-khamenei-after-war-death",
-        "category": "Geopolitics",
-        "source": "NPR World",
-        "tier": 1.0,
-        "published_iso": "2026-07-03T19:45:24+00:00",
-        "image_url": "https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=g-s1-131963",
-        "corroborating_sources": [],
-        "score": 5.902
-      },
-      {
-        "title": "Mbappe draws level with Messi as France beat Paraguay to set up Morocco tie",
-        "summary": "Kylian Mbappe moves level with Lionel Messi on seven goals at World Cup 2026 as France beat Paraguay 1-0 in last 16.",
-        "url": "https://www.aljazeera.com/sports/2026/7/4/mbappe-draws-level-with-messi-as-france-beat-paraguay-to-set-up-morocco-tie?traffic_source=rss",
-        "category": "Geopolitics",
-        "source": "Al Jazeera",
-        "tier": 1.1,
-        "published_iso": "2026-07-04T23:25:33+00:00",
-        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/2026-07-04T225353Z_247283624_UP1EM741RAK3W_RTRMADP_3_SOCCER-WORLDCUP-PRY-FRA-1783206022.jpg?resize=1920%2C1440",
-        "corroborating_sources": [],
-        "score": 5.901
+        "score": 5.824
       },
       {
         "title": "Large crowds gather in Tehran on first day of Ayatollah Khamenei's funeral",
@@ -1357,19 +1355,7 @@
         "published_iso": "2026-07-04T09:45:55+00:00",
         "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/7c6f/live/071927b0-7789-11f1-a146-99f41269c606.jpg",
         "corroborating_sources": [],
-        "score": 5.88
-      },
-      {
-        "title": "Cow corner: cricket match abandoned after runaway bull stops play",
-        "summary": "Match at Burnopfield near Newcastle called off after 800kg young bull escaped from farm and stormed playing field A cricket match had to be abandoned after a runaway bull stormed the playing field and charged at players. The North East Premier League fixture at Burnopfield Cricket Club near Newcastle was called off on Saturday evening despite efforts to remove the animal from the ground. Continue reading...",
-        "url": "https://www.theguardian.com/world/2026/jul/04/cricket-match-abandoned-after-charging-bull-stops-play",
-        "category": "Geopolitics",
-        "source": "Guardian World",
-        "tier": 1.1,
-        "published_iso": "2026-07-04T22:25:08+00:00",
-        "image_url": "https://i.guim.co.uk/img/media/b65ce61243d5656834a1a7c217199432ab574e81/0_0_2148_1719/master/2148.jpg?width=700&quality=85&auto=format&fit=max&s=e7cce7b936021165a2434edcea355408",
-        "corroborating_sources": [],
-        "score": 5.85
+        "score": 5.79
       },
       {
         "title": "In pictures: Stars and fans celebrate Taylor Swift and Travis Kelce's wedding",
@@ -1381,31 +1367,43 @@
         "published_iso": "2026-07-04T08:24:17+00:00",
         "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/010f/live/2953a370-778c-11f1-a146-99f41269c606.jpg",
         "corroborating_sources": [],
-        "score": 5.848
+        "score": 5.765
       },
       {
-        "title": "US influence challenged by changing global order: Paolo von Schirach",
-        "summary": "US influence challenged by changing global order: Paolo von Schirach",
-        "url": "https://www.aljazeera.com/video/newsfeed/2026/7/4/us-influence-challenged-by-changing-global-order-paolo-von-schirach?traffic_source=rss",
+        "title": "White nationalists march on Washington DC ahead of Freedom 250 celebrations",
+        "summary": "Hundreds of masked white nationalists marched on Washington DC ahead of Freedom 250.",
+        "url": "https://www.aljazeera.com/video/newsfeed/2026/7/5/aje-onl-nf_white-nationalists-march-ahead-of-freedom-250-040726?traffic_source=rss",
         "category": "Geopolitics",
         "source": "Al Jazeera",
         "tier": 1.1,
-        "published_iso": "2026-07-04T22:10:39+00:00",
-        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/image-1783202988.jpg?resize=1920%2C1080&amp;quality=80",
+        "published_iso": "2026-07-05T00:08:47+00:00",
+        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/image-1783210140.jpg?resize=1620%2C1080&amp;quality=80",
         "corroborating_sources": [],
-        "score": 5.838
+        "score": 5.739
       },
       {
-        "title": "Masses of Iranians defy heatwave on second day of Khamenei’s funeral",
-        "summary": "Iran has marked the second day of funeral processions for its late Supreme Leader Ali Khamenei.",
-        "url": "https://www.aljazeera.com/video/newsfeed/2026/7/4/masses-of-iranians-defy-heatwave-on-second-day-of-khameneis-funeral?traffic_source=rss",
+        "title": "Ticket prices plunge for USA-Belgium World Cup last-16 match",
+        "summary": "The price for the final 2026 World ⁠Cup match in Seattle hit nearly $4,000 but dipped as low as $1,549 ⁠on Tuesday.",
+        "url": "https://www.aljazeera.com/sports/2026/7/4/ticket-prices-plunge-for-us-belgium-world-cup-last-16-match?traffic_source=rss",
         "category": "Geopolitics",
         "source": "Al Jazeera",
         "tier": 1.1,
-        "published_iso": "2026-07-04T21:08:18+00:00",
-        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/image-1783199228.jpg?resize=1920%2C1080&amp;quality=80",
+        "published_iso": "2026-07-04T23:36:37+00:00",
+        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/2026-07-01T211139Z_1444087196_UP1EM711MVDGR_RTRMADP_3_SOCCER-WORLDCUP-BEL-SEN-1783207089.jpg?resize=1920%2C1440",
         "corroborating_sources": [],
-        "score": 5.789
+        "score": 5.716
+      },
+      {
+        "title": "Mbappe draws level with Messi as France beat Paraguay to set up Morocco tie",
+        "summary": "Kylian Mbappe moves level with Lionel Messi on seven goals at World Cup 2026 as France beat Paraguay 1-0 in last 16.",
+        "url": "https://www.aljazeera.com/sports/2026/7/4/mbappe-draws-level-with-messi-as-france-beat-paraguay-to-set-up-morocco-tie?traffic_source=rss",
+        "category": "Geopolitics",
+        "source": "Al Jazeera",
+        "tier": 1.1,
+        "published_iso": "2026-07-04T23:25:33+00:00",
+        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/2026-07-04T225353Z_247283624_UP1EM741RAK3W_RTRMADP_3_SOCCER-WORLDCUP-PRY-FRA-1783206022.jpg?resize=1920%2C1440",
+        "corroborating_sources": [],
+        "score": 5.708
       },
       {
         "title": "Watch: Taylor Swift and Travis Kelce wed in NYC - here's how the day unfolded",
@@ -1417,19 +1415,7 @@
         "published_iso": "2026-07-04T04:50:06+00:00",
         "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/5bc4/live/028631e0-7764-11f1-a3d8-7ddc16337a2d.jpg",
         "corroborating_sources": [],
-        "score": 5.775
-      },
-      {
-        "title": "Lebanon’s Aoun calls on US to keep ‘always standing beside’ his country",
-        "summary": "In a congratulatory message on US Independence Day, Aoun says he hopes Lebanon can &#039;open a new page of hope&#039;.",
-        "url": "https://www.aljazeera.com/news/2026/7/4/lebanons-aoun-calls-on-us-to-keep-always-standing-beside-his-country?traffic_source=rss",
-        "category": "Geopolitics",
-        "source": "Al Jazeera",
-        "tier": 1.1,
-        "published_iso": "2026-07-04T20:06:41+00:00",
-        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/ap_6a4952731b912-1783190131.jpg?resize=1920%2C1440",
-        "corroborating_sources": [],
-        "score": 5.743
+        "score": 5.706
       },
       {
         "title": "Brutal heat cancels Fourth of July events, from DC to Philadelphia",
@@ -1441,19 +1427,7 @@
         "published_iso": "2026-07-04T02:57:48+00:00",
         "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/8188/live/f848ea30-7716-11f1-8716-9bf866a7588e.jpg",
         "corroborating_sources": [],
-        "score": 5.742
-      },
-      {
-        "title": "Ounahi fires Morocco into World Cup quarterfinals with 3-0 win over Canada",
-        "summary": "Azzedine Ounahi scored two of three second-half goals as Morocco ended cohosts run to reach last eight.",
-        "url": "https://www.aljazeera.com/sports/2026/7/4/ounahi-fires-morocco-into-world-cup-quarterfinals-with-3-0-win-over-canada?traffic_source=rss",
-        "category": "Geopolitics",
-        "source": "Al Jazeera",
-        "tier": 1.1,
-        "published_iso": "2026-07-04T20:03:15+00:00",
-        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/2026-07-04T181626Z_31507559_UP1EM741ERDFZ_RTRMADP_3_SOCCER-WORLDCUP-CAN-MAR-1783189179.jpg?resize=1920%2C1265",
-        "corroborating_sources": [],
-        "score": 5.74
+        "score": 5.68
       },
       {
         "title": "Taylor Swift marries Travis Kelce in NYC ceremony officiated by Adam Sandler",
@@ -1465,19 +1439,31 @@
         "published_iso": "2026-07-04T02:26:54+00:00",
         "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/235b/live/db5aaa10-77a4-11f1-b976-0b9c15b0ccfc.jpg",
         "corroborating_sources": [],
-        "score": 5.733
+        "score": 5.673
       },
       {
-        "title": "A politically charged holiday: The US celebrates its 250th anniversary",
-        "summary": "The semiquincentennial has been meet with controversy, as President Trump seeks to exert influence over the celebration.",
-        "url": "https://www.aljazeera.com/gallery/2026/7/4/a-politically-charged-holiday-the-us-celebrates-its-250th-anniversary?traffic_source=rss",
+        "title": "Cow corner: cricket match abandoned after runaway bull stops play",
+        "summary": "Match at Burnopfield near Newcastle called off after 800kg young bull escaped from farm and stormed playing field A cricket match had to be abandoned after a runaway bull stormed the playing field and charged at players. The North East Premier League fixture at Burnopfield Cricket Club near Newcastle was called off on Saturday evening despite efforts to remove the animal from the ground. Continue reading...",
+        "url": "https://www.theguardian.com/world/2026/jul/04/cricket-match-abandoned-after-charging-bull-stops-play",
+        "category": "Geopolitics",
+        "source": "Guardian World",
+        "tier": 1.1,
+        "published_iso": "2026-07-04T22:25:08+00:00",
+        "image_url": "https://i.guim.co.uk/img/media/b65ce61243d5656834a1a7c217199432ab574e81/0_0_2148_1719/master/2148.jpg?width=700&quality=85&auto=format&fit=max&s=e7cce7b936021165a2434edcea355408",
+        "corroborating_sources": [],
+        "score": 5.667
+      },
+      {
+        "title": "US influence challenged by changing global order: Paolo von Schirach",
+        "summary": "US influence challenged by changing global order: Paolo von Schirach",
+        "url": "https://www.aljazeera.com/video/newsfeed/2026/7/4/us-influence-challenged-by-changing-global-order-paolo-von-schirach?traffic_source=rss",
         "category": "Geopolitics",
         "source": "Al Jazeera",
         "tier": 1.1,
-        "published_iso": "2026-07-04T19:43:18+00:00",
-        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/ap_6a493a1801001-1783183896.jpg?resize=1920%2C1440",
+        "published_iso": "2026-07-04T22:10:39+00:00",
+        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/image-1783202988.jpg?resize=1920%2C1080&amp;quality=80",
         "corroborating_sources": [],
-        "score": 5.726
+        "score": 5.658
       },
       {
         "title": "Row after Indian state drops eggs from school lunch menu",
@@ -1489,7 +1475,7 @@
         "published_iso": "2026-07-04T00:55:10+00:00",
         "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/a638/live/5cb62200-75d5-11f1-b2ef-f150187f763a.jpg",
         "corroborating_sources": [],
-        "score": 5.709
+        "score": 5.654
       },
       {
         "title": "More cows than pupils - what is behind mass school closures in rural Kenya?",
@@ -1501,7 +1487,55 @@
         "published_iso": "2026-07-04T00:51:44+00:00",
         "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/0042/live/3a021450-76e1-11f1-9510-1546718f668b.jpg",
         "corroborating_sources": [],
-        "score": 5.709
+        "score": 5.654
+      },
+      {
+        "title": "Masses of Iranians defy heatwave on second day of Khamenei’s funeral",
+        "summary": "Iran has marked the second day of funeral processions for its late Supreme Leader Ali Khamenei.",
+        "url": "https://www.aljazeera.com/video/newsfeed/2026/7/4/masses-of-iranians-defy-heatwave-on-second-day-of-khameneis-funeral?traffic_source=rss",
+        "category": "Geopolitics",
+        "source": "Al Jazeera",
+        "tier": 1.1,
+        "published_iso": "2026-07-04T21:08:18+00:00",
+        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/image-1783199228.jpg?resize=1920%2C1080&amp;quality=80",
+        "corroborating_sources": [],
+        "score": 5.619
+      },
+      {
+        "title": "Lebanon’s Aoun calls on US to keep ‘always standing beside’ his country",
+        "summary": "In a congratulatory message on US Independence Day, Aoun says he hopes Lebanon can &#039;open a new page of hope&#039;.",
+        "url": "https://www.aljazeera.com/news/2026/7/4/lebanons-aoun-calls-on-us-to-keep-always-standing-beside-his-country?traffic_source=rss",
+        "category": "Geopolitics",
+        "source": "Al Jazeera",
+        "tier": 1.1,
+        "published_iso": "2026-07-04T20:06:41+00:00",
+        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/ap_6a4952731b912-1783190131.jpg?resize=1920%2C1440",
+        "corroborating_sources": [],
+        "score": 5.582
+      },
+      {
+        "title": "Ounahi fires Morocco into World Cup quarterfinals with 3-0 win over Canada",
+        "summary": "Azzedine Ounahi scored two of three second-half goals as Morocco ended cohosts run to reach last eight.",
+        "url": "https://www.aljazeera.com/sports/2026/7/4/ounahi-fires-morocco-into-world-cup-quarterfinals-with-3-0-win-over-canada?traffic_source=rss",
+        "category": "Geopolitics",
+        "source": "Al Jazeera",
+        "tier": 1.1,
+        "published_iso": "2026-07-04T20:03:15+00:00",
+        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/2026-07-04T181626Z_31507559_UP1EM741ERDFZ_RTRMADP_3_SOCCER-WORLDCUP-CAN-MAR-1783189179.jpg?resize=1920%2C1265",
+        "corroborating_sources": [],
+        "score": 5.58
+      },
+      {
+        "title": "A politically charged holiday: The US celebrates its 250th anniversary",
+        "summary": "The semiquincentennial has been meet with controversy, as President Trump seeks to exert influence over the celebration.",
+        "url": "https://www.aljazeera.com/gallery/2026/7/4/a-politically-charged-holiday-the-us-celebrates-its-250th-anniversary?traffic_source=rss",
+        "category": "Geopolitics",
+        "source": "Al Jazeera",
+        "tier": 1.1,
+        "published_iso": "2026-07-04T19:43:18+00:00",
+        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/ap_6a493a1801001-1783183896.jpg?resize=1920%2C1440",
+        "corroborating_sources": [],
+        "score": 5.569
       },
       {
         "title": "At least 20 drown as boat carrying students after exams sinks in DR Congo",
@@ -1513,7 +1547,7 @@
         "published_iso": "2026-07-04T19:16:17+00:00",
         "image_url": "https://www.aljazeera.com/wp-content/uploads/2025/09/AP24284236107695-1757710188.jpg?resize=1920%2C1125",
         "corroborating_sources": [],
-        "score": 5.707
+        "score": 5.554
       },
       {
         "title": "Trump hints Israel’s Benjamin Netanyahu may visit US as early as next week",
@@ -1525,7 +1559,7 @@
         "published_iso": "2026-07-04T18:17:58+00:00",
         "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/reuters_6a494196-1783185814.jpg?resize=1920%2C1440",
         "corroborating_sources": [],
-        "score": 5.668
+        "score": 5.523
       },
       {
         "title": "Turkiye’s Erdogan says Israel must not be able to ‘dynamite’ US-Iran deal",
@@ -1537,7 +1571,7 @@
         "published_iso": "2026-07-04T18:09:20+00:00",
         "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/reuters_6a4933b3-1783182259.jpg?resize=1920%2C1440",
         "corroborating_sources": [],
-        "score": 5.662
+        "score": 5.518
       },
       {
         "title": "Tens of thousands march in London for annual Pride parade",
@@ -1549,31 +1583,19 @@
         "published_iso": "2026-07-04T18:06:08+00:00",
         "image_url": "https://i.guim.co.uk/img/media/4618756e96b1d1996e3fe7bed3d0b3911688294b/194_0_3628_2902/master/3628.jpg?width=700&quality=85&auto=format&fit=max&s=f57ae7bd5b5bd69fb7f5a9d2cde15da0",
         "corroborating_sources": [],
-        "score": 5.66
+        "score": 5.517
       },
       {
-        "title": "Anguished families left to identify Venezuela quake victims at makeshift morgue",
-        "summary": "The disaster has overwhelmed local services, with bodies put outside or in tents for identification.",
-        "url": "https://www.bbc.co.uk/news/articles/c20y2p9qqqko?at_medium=RSS&at_campaign=rss",
+        "title": "Paraguay 0-1 France: FIFA World Cup 2026 last 16 – as it happened",
+        "summary": "All the updates from our live coverage and text commentary stream as Mbappe&#039;s France beat Paraguay 1-0 in last 16.",
+        "url": "https://www.aljazeera.com/sports/liveblog/2026/7/4/france-vs-paraguay-live-fifa-world-cup-2026?traffic_source=rss",
         "category": "Geopolitics",
-        "source": "BBC World",
-        "tier": 1.4,
-        "published_iso": "2026-07-03T21:00:53+00:00",
-        "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/0d94/live/7466db40-7721-11f1-aedc-e7917f776e03.jpg",
+        "source": "Al Jazeera",
+        "tier": 1.1,
+        "published_iso": "2026-07-04T17:51:21+00:00",
+        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/AFP__20260704__B9AD2EQ__v1__MidRes__FblWc2026Match89ParFra-1783204650.jpg?resize=1200%2C630",
         "corroborating_sources": [],
-        "score": 5.657
-      },
-      {
-        "title": "'It's so hot' - Dangerous hot weather grips parts of the US",
-        "summary": "More than 165 million people were sweltering on Friday under record temperatures along the US East Coast and Midwest, according to the US National Weather Service.",
-        "url": "https://www.bbc.co.uk/news/videos/cd0mpgvzzy5o?at_medium=RSS&at_campaign=rss",
-        "category": "Geopolitics",
-        "source": "BBC World",
-        "tier": 1.4,
-        "published_iso": "2026-07-03T20:30:12+00:00",
-        "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/e2e1/live/9ae830d0-7716-11f1-a627-714adb4eed6e.jpg",
-        "corroborating_sources": [],
-        "score": 5.651
+        "score": 5.509
       },
       {
         "title": "Police clash with protesters outside AfD meeting",
@@ -1585,19 +1607,7 @@
         "published_iso": "2026-07-04T17:13:01+00:00",
         "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/image-1783185131.jpg?resize=1920%2C1080&amp;quality=80",
         "corroborating_sources": [],
-        "score": 5.626
-      },
-      {
-        "title": "Pope Leo visits Lampedusa to spotlight missing migrants",
-        "summary": "Pope Leo XIV will spend July 4th in Lampedusa, Italy, one of Europe's busiest migrant landing points. He will pray with migrants and honor those who died trying to cross the Mediterranean to Europe.",
-        "url": "https://www.npr.org/2026/07/04/nx-s1-5879160/pope-leo-visits-lampedusa-to-spotlight-missing-migrants",
-        "category": "Geopolitics",
-        "source": "NPR World",
-        "tier": 1.0,
-        "published_iso": "2026-07-04T21:03:49+00:00",
-        "image_url": "https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-5879160",
-        "corroborating_sources": [],
-        "score": 5.625
+        "score": 5.49
       },
       {
         "title": "At least 7 Palestinians killed by Israeli forces over past 48 hours in Gaza",
@@ -1609,19 +1619,19 @@
         "published_iso": "2026-07-04T16:23:48+00:00",
         "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/AP26185443994538-1783180714.jpg?resize=1920%2C1440",
         "corroborating_sources": [],
-        "score": 5.597
+        "score": 5.466
       },
       {
-        "title": "Iran promotes message of continuity and revenge at Khamenei commemoration",
-        "summary": "Iran will be shut down on Sunday and Monday to encourage more mourners to join funeral procession.",
-        "url": "https://www.aljazeera.com/news/2026/7/4/iran-promotes-message-of-continuity-and-revenge-at-khamenei-commemoration?traffic_source=rss",
+        "title": "Pope Leo visits Lampedusa to spotlight missing migrants",
+        "summary": "Pope Leo XIV will spend July 4th in Lampedusa, Italy, one of Europe's busiest migrant landing points. He will pray with migrants and honor those who died trying to cross the Mediterranean to Europe.",
+        "url": "https://www.npr.org/2026/07/04/nx-s1-5879160/pope-leo-visits-lampedusa-to-spotlight-missing-migrants",
         "category": "Geopolitics",
-        "source": "Al Jazeera",
-        "tier": 1.1,
-        "published_iso": "2026-07-04T15:49:39+00:00",
-        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/2-1783177152.jpg?resize=1920%2C1440",
+        "source": "NPR World",
+        "tier": 1.0,
+        "published_iso": "2026-07-04T21:03:49+00:00",
+        "image_url": "https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-5879160",
         "corroborating_sources": [],
-        "score": 5.577
+        "score": 5.456
       },
       {
         "title": "Week-long heatwave due in England with 34C peak in south-east",
@@ -1633,19 +1643,7 @@
         "published_iso": "2026-07-04T14:40:42+00:00",
         "image_url": "https://i.guim.co.uk/img/media/fdf469e511208c60a85e4e9924fdf20aed8a76d3/271_0_2708_2167/master/2708.jpg?width=700&quality=85&auto=format&fit=max&s=f8d0efa68000552fea0cd1cc69f75fb3",
         "corroborating_sources": [],
-        "score": 5.539
-      },
-      {
-        "title": "Paraguay 0-1 France: FIFA World Cup 2026 last 16 – as it happened",
-        "summary": "All the updates from our live coverage and text commentary stream as Mbappe&#039;s France beat Paraguay 1-0 in last 16.",
-        "url": "https://www.aljazeera.com/sports/liveblog/2026/7/4/france-vs-paraguay-live-fifa-world-cup-2026?traffic_source=rss",
-        "category": "Geopolitics",
-        "source": "Al Jazeera",
-        "tier": 1.1,
-        "published_iso": "2026-07-04T14:00:00+00:00",
-        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/AFP__20260704__B9AD2EQ__v1__MidRes__FblWc2026Match89ParFra-1783204650.jpg?resize=1200%2C630",
-        "corroborating_sources": [],
-        "score": 5.517
+        "score": 5.42
       },
       {
         "title": "China's military promotes 2 new generals after anti-corruption purge thins ranks",
@@ -1657,7 +1655,7 @@
         "published_iso": "2026-07-04T14:07:57+00:00",
         "image_url": "https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=g-s1-131994",
         "corroborating_sources": [],
-        "score": 5.361
+        "score": 5.246
       },
       {
         "title": "Brexit rule change means British teens in EU face soaring student fees for UK degrees",
@@ -1669,7 +1667,7 @@
         "published_iso": "2026-07-04T06:00:06+00:00",
         "image_url": "https://i.guim.co.uk/img/media/70dff9605ffb9e61de238a594d74d9034904ae45/305_0_1350_1080/master/1350.jpg?width=700&quality=85&auto=format&fit=max&s=65487a76e63b257f78457164efcc0a0b",
         "corroborating_sources": [],
-        "score": 5.317
+        "score": 5.244
       },
       {
         "title": "Cape Verde's historic World Cup ride ends after pushing Argentina to the brink",
@@ -1681,7 +1679,7 @@
         "published_iso": "2026-07-04T05:44:19+00:00",
         "image_url": "https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-5882086",
         "corroborating_sources": [],
-        "score": 5.152
+        "score": 5.08
       }
     ]
   }
