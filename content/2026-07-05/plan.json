@@ -1,0 +1,177 @@
+{
+  "day": "2026-07-05",
+  "is_promo_day": false,
+  "is_friday": false,
+  "twitter": [
+    {
+      "category": "Geopolitics",
+      "post": "Here is what is making news today.\n• A rower just set a record crossing from California to Hawaii\n• Australia is reviewing privacy risks of AI tools in doctors' offices\n• A US pickle brand left a DC fair over a Confederate flag display HEADLINNE.com #News #Updates",
+      "hashtags": [
+        "News",
+        "Updates"
+      ],
+      "scheduled_time": "2026-07-05T13:00:00+05:30",
+      "kind": "news"
+    },
+    {
+      "category": "Tech",
+      "post": "Here is today's top tech news.\n• Midjourney wants Hollywood studios to disclose their own AI use\n• Google's new ad imagines AI helping write the Declaration\n• Fanfic writers are fighting over the use of AI tools HEADLINNE.com #TechNews #AI",
+      "hashtags": [
+        "TechNews",
+        "AI"
+      ],
+      "scheduled_time": "2026-07-05T17:00:00+05:30",
+      "kind": "news"
+    }
+  ],
+  "linkedin": {
+    "title": "Most news apps are designed to keep you scrolling, not thinking.",
+    "body": "It is easy to get overwhelmed by the sheer volume of information hitting our screens every day. We often skim headlines and read the first few sentences of a dozen stories, but we rarely walk away feeling like we actually understand what is happening.\n\nThat is why we built Deep Dive Mode at Headlinne. We wanted to move beyond the surface level.\n\nInstead of just giving you the latest update, this feature connects the dots. It pulls in relevant context and background information so you can see the bigger picture. It is about slowing down the news cycle just enough to let the important details sink in.\n\nTechnology should help us make sense of the world, not just keep us busy. When you understand the context behind a story, you can form your own perspective rather than just reacting to a notification.",
+    "cta": "If you are tired of skimming and ready to start understanding, you can see how it works at HEADLINNE.com.",
+    "scheduled_time": "2026-07-05T18:00:00+05:30",
+    "kind": "product"
+  },
+  "instagram": [
+    {
+      "slot": "instagram_1",
+      "category": "Geopolitics",
+      "num_slides": 7,
+      "title": "Top 5 Geopolitics Headlines",
+      "slides": [
+        {
+          "role": "cover",
+          "headline": "Top 5 Geopolitics Headlines",
+          "explanation": "",
+          "image_url": "https://dims.apnews.com/dims4/default/295c329/2147483647/strip/true/crop/675x450+12+0/resize/980x653!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2F90%2F29%2F4e3c1cc7446089a9101a7bdff4c8%2Fdefaultshareimage-copy.png",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-05/instagram/instagram_1/slide_1.png"
+        },
+        {
+          "role": "story",
+          "headline": "Record-breaking solo row to Hawaii",
+          "explanation": "Kelsey Pfendler just became the first American woman to row solo from California to Hawaii. She was greeted by huge crowds in Honolulu after completing her incredible journey.",
+          "image_url": "https://dims.apnews.com/dims4/default/295c329/2147483647/strip/true/crop/675x450+12+0/resize/980x653!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2F90%2F29%2F4e3c1cc7446089a9101a7bdff4c8%2Fdefaultshareimage-copy.png",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-05/instagram/instagram_1/slide_2.png"
+        },
+        {
+          "role": "story",
+          "headline": "Australia warns doctors on AI tools",
+          "explanation": "Australian health officials are worried about privacy as doctors start using AI to transcribe patient visits. The government is now keeping a close watch on how these tools are being used.",
+          "image_url": "https://i.guim.co.uk/img/media/5338cbc67f70b23a5fdf94db237441d2c238cdfb/724_0_7240_5792/master/7240.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=e5b6119492132aec2e920203da117f20",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-05/instagram/instagram_1/slide_3.png"
+        },
+        {
+          "role": "story",
+          "headline": "Pickle company quits DC fair",
+          "explanation": "Mt Olive Pickle Company pulled out of a Washington DC fair this week. They left after seeing a Confederate flag displayed at a state booth, citing their commitment to human dignity.",
+          "image_url": "https://i.guim.co.uk/img/media/46576c06058ef568db216e369992e4440f9972c8/75_0_4716_3772/master/4716.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=ba369abe7b8c639b2ff8ade9c1a635e6",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-05/instagram/instagram_1/slide_4.png"
+        },
+        {
+          "role": "story",
+          "headline": "Massive crowds at funeral in Iran",
+          "explanation": "Millions are expected in Tehran for the funeral of former Iranian leader Ali Khamenei. Mourners have gathered at the Grand Mosalla mosque following his death.",
+          "image_url": "https://i.guim.co.uk/img/media/b7656d9f5aa7d6100afbfbcd2b6d706803f78c39/1248_0_6241_4993/master/6241.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=f62b75e1faec0ca260d8e675a078c378",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-05/instagram/instagram_1/slide_5.png"
+        },
+        {
+          "role": "story",
+          "headline": "Ukraine strikes Russian oil site",
+          "explanation": "Ukraine has targeted a major oil terminal in St Petersburg. President Zelensky says the attack aims to cut off a key source of funding for the war.",
+          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/737c/live/fec2f110-779f-11f1-90c7-73fde41eb72e.png",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-05/instagram/instagram_1/slide_6.png"
+        },
+        {
+          "role": "cta",
+          "headline": "Stay ahead with HEADLINNE.com",
+          "explanation": "",
+          "image_url": null,
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-05/instagram/instagram_1/slide_7.png"
+        }
+      ],
+      "caption": "From a historic solo journey across the Pacific to major updates on the war in Ukraine and the funeral of Iran's former leader, here are today's top stories. Stay informed with Headlinne. Download our app for more. Read more on HEADLINNE.com.",
+      "hashtags": [
+        "WorldNews",
+        "Geopolitics",
+        "Politics",
+        "news",
+        "headlines",
+        "currentaffairs",
+        "dailyupdate",
+        "globalnews",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-07-05T16:00:00+05:30"
+    },
+    {
+      "slot": "instagram_2",
+      "category": "Technology",
+      "num_slides": 7,
+      "title": "Top 5 Things In Tech Today",
+      "slides": [
+        {
+          "role": "cover",
+          "headline": "Top 5 Things In Tech Today",
+          "explanation": "",
+          "image_url": "https://www.engadget.com/img/gallery/midjourney-wants-the-studios-that-sued-it-to-show-the-court-how-they-use-ai/l-intro-1783164583.jpg",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-05/instagram/instagram_2/slide_1.png"
+        },
+        {
+          "role": "story",
+          "headline": "Midjourney fights back in court",
+          "explanation": "Midjourney is asking the court to make Disney, Warner Bros, and Universal share how they use AI. This follows a lawsuit those studios filed against the AI company.",
+          "image_url": "https://www.engadget.com/img/gallery/midjourney-wants-the-studios-that-sued-it-to-show-the-court-how-they-use-ai/l-intro-1783164583.jpg",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-05/instagram/instagram_2/slide_2.png"
+        },
+        {
+          "role": "story",
+          "headline": "Google's new AI ad sparks debate",
+          "explanation": "A new Google commercial imagines what the Declaration of Independence might look like if the Founding Fathers used AI tools. It is a creative look at how history and technology intersect.",
+          "image_url": "https://techcrunch.com/wp-content/uploads/2026/07/google-declaration-of-independence.jpg?w=1200",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-05/instagram/instagram_2/slide_3.png"
+        },
+        {
+          "role": "story",
+          "headline": "Fanfiction writers clash over AI",
+          "explanation": "A new movement in the fanfiction community is trying to ban authors who use AI tools. However, the methods they are using are causing confusion and might unfairly target innocent writers.",
+          "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/08/AI_Hands_A_Bernis_02.jpg?quality=90&amp;strip=all&amp;crop=0%2C10.732984293194%2C100%2C78.534031413613&amp;w=1200",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-05/instagram/instagram_2/slide_4.png"
+        },
+        {
+          "role": "story",
+          "headline": "Meet the AI rival aiming for open source",
+          "explanation": "Mistral AI is gaining attention as a competitor to OpenAI. Since launching in 2023, they have raised a lot of money with the goal of making advanced AI available to everyone.",
+          "image_url": "https://techcrunch.com/wp-content/uploads/2025/07/GettyImages-2219786590.jpg?w=1024",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-05/instagram/instagram_2/slide_5.png"
+        },
+        {
+          "role": "story",
+          "headline": "Can your watch predict illness?",
+          "explanation": "Smartwatches are getting better at spotting changes in your body's patterns. These small changes might help you realize when it is time to check in with your doctor.",
+          "image_url": "https://www.engadget.com/img/gallery/how-your-smartwatch-and-ai-can-detect-early-signs-of-illness/l-intro-1782925052.jpg",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-05/instagram/instagram_2/slide_6.png"
+        },
+        {
+          "role": "cta",
+          "headline": "Stay ahead with HEADLINNE.com",
+          "explanation": "",
+          "image_url": null,
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-05/instagram/instagram_2/slide_7.png"
+        }
+      ],
+      "caption": "From Hollywood lawsuits to the future of fanfiction, AI is making waves everywhere this week. Check out the top tech stories you need to know today. Swipe through for the full breakdown. Read more on HEADLINNE.com.",
+      "hashtags": [
+        "Tech",
+        "TechNews",
+        "AI",
+        "news",
+        "google",
+        "midjourney",
+        "fanfiction",
+        "wearables",
+        "innovation",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-07-05T18:00:00+05:30"
+    }
+  ]
+}
