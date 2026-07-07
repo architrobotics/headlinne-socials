@@ -1,82 +1,14 @@
 {
   "day": "2026-07-07",
   "category_weights": {
-    "Technology": 0.344,
-    "Finance": 0.312,
-    "Geopolitics": 0.344
+    "Technology": 0.329,
+    "Finance": 0.333,
+    "Geopolitics": 0.339
   },
-  "dominant_category": "Technology",
+  "dominant_category": "Geopolitics",
   "breaking": null,
   "by_category": {
     "Technology": [
-      {
-        "title": "AI chip boom lifts Samsung profits by 1,800%",
-        "summary": "It comes as demand for semiconductors continues to outstrip supplies, which has pushed up prices.",
-        "url": "https://www.bbc.co.uk/news/articles/c1kyy8yrpxdo?at_medium=RSS&at_campaign=rss",
-        "category": "Technology",
-        "source": "BBC Technology",
-        "tier": 1.4,
-        "published_iso": "2026-07-07T00:06:50+00:00",
-        "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/63fa/live/777f2260-78cf-11f1-99f6-757fc101c54a.jpg",
-        "corroborating_sources": [
-          "BBC Business"
-        ],
-        "score": 10.989
-      },
-      {
-        "title": "Robots available for rent: But what can they do?",
-        "summary": "Robotics tech is changing fast, so for many it makes sense to rent a robot.",
-        "url": "https://www.bbc.co.uk/news/articles/c4gymkg9lr2o?at_medium=RSS&at_campaign=rss",
-        "category": "Technology",
-        "source": "BBC Technology",
-        "tier": 1.4,
-        "published_iso": "2026-07-06T23:48:55+00:00",
-        "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/d48c/live/eaf47f10-6ed4-11f1-b1db-af71d47507d6.jpg",
-        "corroborating_sources": [
-          "BBC Business"
-        ],
-        "score": 9.173
-      },
-      {
-        "title": "Microsoft cuts 4,800 jobs and shrinks Xbox in 'significant restructure'",
-        "summary": "The sweeping layoffs equate to 2.1% of Microsoft's workforce, with 1,600 immediate job losses at Xbox.",
-        "url": "https://www.bbc.co.uk/news/articles/c36yy27rnpeo?at_medium=RSS&at_campaign=rss",
-        "category": "Technology",
-        "source": "BBC Technology",
-        "tier": 1.4,
-        "published_iso": "2026-07-06T15:18:53+00:00",
-        "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/cc35/live/26aac8a0-794f-11f1-bfee-d367081f1131.jpg",
-        "corroborating_sources": [
-          "BBC Business"
-        ],
-        "score": 8.811
-      },
-      {
-        "title": "Nintendo will stop selling the original Switch in Europe next year",
-        "summary": "Nintendo is making a new version of the Switch 2 with a replaceable battery in Europe - but its predecessor has a very different future. As part of an updated FAQ about revisions to Nintendo hardware in Europe, the company confirmed that it will stop selling all iterations of the original Switch on the continent [&#8230;]",
-        "url": "https://www.theverge.com/games/961632/nintendo-switch-europe-discontinued",
-        "category": "Technology",
-        "source": "The Verge",
-        "tier": 1.1,
-        "published_iso": "2026-07-06T14:15:48+00:00",
-        "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/09/jbareham_180301_2346_nintendo_switch_0094.webp?quality=90&#038;strip=all&#038;crop=0,0,100,100",
-        "corroborating_sources": [
-          "Engadget"
-        ],
-        "score": 8.297
-      },
-      {
-        "title": "The ‘first’ AI-run ransomware attack still needed a human",
-        "summary": "An AI agent carried out the technical execution of a real-world ransomware attack for the first known time, but new details show a human still chose the victim, set up the infrastructure, and supplied stolen credentials — meaning it wasn't quite the fully autonomous cybercrime debut that last week's headlines suggested.",
-        "url": "https://techcrunch.com/2026/07/06/the-first-ai-run-ransomware-attack-still-needed-a-human/",
-        "category": "Technology",
-        "source": "TechCrunch",
-        "tier": 1.0,
-        "published_iso": "2026-07-06T23:56:14+00:00",
-        "image_url": "https://techcrunch.com/wp-content/uploads/2026/07/Ransomware-attack.png?resize=1200,686",
-        "corroborating_sources": [],
-        "score": 7.568
-      },
       {
         "title": "Hoto&#8217;s PixelDrive screwdriver is down to $60, matching its best price",
         "summary": "If your Prime Day purchases included a new desk, TV stand, bookshelf, or other furniture you still haven&#8217;t assembled, Hoto&#8217;s PixelDrive cordless screwdriver can help speed up the process. It&#8217;s currently on sale for $59.99 ($20 off) at Amazon, matching its best price to date.&#160; From tightening loose screws on furniture to repairing electronics, the [&#8230;]",
@@ -87,19 +19,7 @@
         "published_iso": "2026-07-06T20:24:28+00:00",
         "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/10/hoto1.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
         "corroborating_sources": [],
-        "score": 7.555
-      },
-      {
-        "title": "US investors will soon get access to SK Hynix, another memory maker riding the AI boom",
-        "summary": "SK Hynix is experiencing a boom credited to AI. It will ride that to a multibillion-dollar U.S. IPO, expected to take place on Friday.",
-        "url": "https://techcrunch.com/2026/07/06/us-investors-will-soon-get-access-to-sk-hynix-another-memory-maker-riding-the-ai-boom/",
-        "category": "Technology",
-        "source": "TechCrunch",
-        "tier": 1.0,
-        "published_iso": "2026-07-06T23:21:03+00:00",
-        "image_url": "https://techcrunch.com/wp-content/uploads/2026/06/Chip-chips-dollar-signs-money.png?resize=1200,960",
-        "corroborating_sources": [],
-        "score": 7.537
+        "score": 7.397
       },
       {
         "title": "What is the oldest American object ever launched into space?",
@@ -111,7 +31,19 @@
         "published_iso": "2026-07-06T19:57:56+00:00",
         "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/07/news-070326a-lg-1152x648.jpg",
         "corroborating_sources": [],
-        "score": 7.536
+        "score": 7.381
+      },
+      {
+        "title": "US investors will soon get access to SK Hynix, another memory maker riding the AI boom",
+        "summary": "SK Hynix is experiencing a boom credited to AI. It will ride that to a multibillion-dollar U.S. IPO, expected to take place on Friday.",
+        "url": "https://techcrunch.com/2026/07/06/us-investors-will-soon-get-access-to-sk-hynix-another-memory-maker-riding-the-ai-boom/",
+        "category": "Technology",
+        "source": "TechCrunch",
+        "tier": 1.0,
+        "published_iso": "2026-07-06T23:21:03+00:00",
+        "image_url": "https://techcrunch.com/wp-content/uploads/2026/06/Chip-chips-dollar-signs-money.png?resize=1200,960",
+        "corroborating_sources": [],
+        "score": 7.35
       },
       {
         "title": "F1 in Britain: Automated software to blame for crushing expectations",
@@ -123,31 +55,7 @@
         "published_iso": "2026-07-06T15:45:55+00:00",
         "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/07/GettyImages-2284281371-1152x648.jpg",
         "corroborating_sources": [],
-        "score": 7.375
-      },
-      {
-        "title": "You can now customize Siri’s pace and expressivity in the latest iOS 27 beta",
-        "summary": "The update is part of Apple's broader effort to make Siri feel more natural and personal, as it rebuilds the assistant around generative AI.",
-        "url": "https://techcrunch.com/2026/07/06/you-can-now-customize-siris-pace-and-expressivity-in-the-latest-ios-27-beta/",
-        "category": "Technology",
-        "source": "TechCrunch",
-        "tier": 1.0,
-        "published_iso": "2026-07-06T19:01:59+00:00",
-        "image_url": "https://techcrunch.com/wp-content/uploads/2024/10/apple-siri-header.jpg?resize=1200,800",
-        "corroborating_sources": [],
-        "score": 7.337
-      },
-      {
-        "title": "UK regulator warns of \"arms race\" to keep up with AI use in financial services",
-        "summary": "FCA official makes case for greater powers for watchdog as millions use technology for personal finance decisions.",
-        "url": "https://arstechnica.com/ai/2026/07/uk-regulator-warns-of-arms-race-to-keep-up-with-ai-use-in-financial-services/",
-        "category": "Technology",
-        "source": "Ars Technica",
-        "tier": 1.1,
-        "published_iso": "2026-07-06T14:17:42+00:00",
-        "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/07/ftcms_90ad2b22-0222-4d93-ab0a-6c1af73b39fc-1-1152x648.jpeg",
-        "corroborating_sources": [],
-        "score": 7.326
+        "score": 7.252
       },
       {
         "title": "Bentley teases its first EV, the Torcal",
@@ -161,19 +69,31 @@
         "corroborating_sources": [
           "Engadget"
         ],
-        "score": 7.317
+        "score": 7.22
       },
       {
-        "title": "Google will now count all Android backup data toward your storage cap",
-        "summary": "Fortunately, it shouldn't take too much extra space.",
-        "url": "https://www.engadget.com/2209189/google-will-now-count-all-android-backup-data-toward-your-storage-cap/",
+        "title": "UK regulator warns of \"arms race\" to keep up with AI use in financial services",
+        "summary": "FCA official makes case for greater powers for watchdog as millions use technology for personal finance decisions.",
+        "url": "https://arstechnica.com/ai/2026/07/uk-regulator-warns-of-arms-race-to-keep-up-with-ai-use-in-financial-services/",
         "category": "Technology",
-        "source": "Engadget",
-        "tier": 0.9,
-        "published_iso": "2026-07-06T22:09:56+00:00",
-        "image_url": "https://www.engadget.com/img/gallery/google-will-now-count-all-android-backup-data-toward-your-storage-cap/l-intro-1783375302.jpg",
+        "source": "Ars Technica",
+        "tier": 1.1,
+        "published_iso": "2026-07-06T14:17:42+00:00",
+        "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/07/ftcms_90ad2b22-0222-4d93-ab0a-6c1af73b39fc-1-1152x648.jpeg",
         "corroborating_sources": [],
-        "score": 7.317
+        "score": 7.213
+      },
+      {
+        "title": "You can now customize Siri’s pace and expressivity in the latest iOS 27 beta",
+        "summary": "The update is part of Apple's broader effort to make Siri feel more natural and personal, as it rebuilds the assistant around generative AI.",
+        "url": "https://techcrunch.com/2026/07/06/you-can-now-customize-siris-pace-and-expressivity-in-the-latest-ios-27-beta/",
+        "category": "Technology",
+        "source": "TechCrunch",
+        "tier": 1.0,
+        "published_iso": "2026-07-06T19:01:59+00:00",
+        "image_url": "https://techcrunch.com/wp-content/uploads/2024/10/apple-siri-header.jpg?resize=1200,800",
+        "corroborating_sources": [],
+        "score": 7.19
       },
       {
         "title": "Amazon competitor Bookshop.org says Kobo eReader support will happen this year after all",
@@ -185,7 +105,19 @@
         "published_iso": "2026-07-06T18:12:01+00:00",
         "image_url": "https://techcrunch.com/wp-content/uploads/2026/03/s.jpg?resize=1200,840",
         "corroborating_sources": [],
-        "score": 7.304
+        "score": 7.163
+      },
+      {
+        "title": "Google will now count all Android backup data toward your storage cap",
+        "summary": "Fortunately, it shouldn't take too much extra space.",
+        "url": "https://www.engadget.com/2209189/google-will-now-count-all-android-backup-data-toward-your-storage-cap/",
+        "category": "Technology",
+        "source": "Engadget",
+        "tier": 0.9,
+        "published_iso": "2026-07-06T22:09:56+00:00",
+        "image_url": "https://www.engadget.com/img/gallery/google-will-now-count-all-android-backup-data-toward-your-storage-cap/l-intro-1783375302.jpg",
+        "corroborating_sources": [],
+        "score": 7.142
       },
       {
         "title": "If you use Google, you’re training its AI. Here’s how to opt out.",
@@ -197,7 +129,7 @@
         "published_iso": "2026-07-06T17:04:58+00:00",
         "image_url": "https://techcrunch.com/wp-content/uploads/2019/10/google-search-app-ios.jpg?resize=1200,644",
         "corroborating_sources": [],
-        "score": 7.261
+        "score": 7.129
       },
       {
         "title": "Microsoft lays off nearly 5,000 employees across Xbox, commercial sales",
@@ -209,7 +141,7 @@
         "published_iso": "2026-07-06T15:32:43+00:00",
         "image_url": "https://techcrunch.com/wp-content/uploads/2026/05/microsoft-logo.jpg?resize=1200,800",
         "corroborating_sources": [],
-        "score": 7.207
+        "score": 7.086
       },
       {
         "title": "Google now uses your uploaded search media to train AI",
@@ -221,7 +153,7 @@
         "published_iso": "2026-07-06T19:13:52+00:00",
         "image_url": "https://www.engadget.com/img/gallery/google-now-uses-your-uploaded-media-to-train-ai-so-heres-how-to-fix-that/l-intro-1783364935.jpg",
         "corroborating_sources": [],
-        "score": 7.185
+        "score": 7.037
       },
       {
         "title": "Station F ramps up as a launchpad for Europe’s hottest AI startups",
@@ -233,7 +165,7 @@
         "published_iso": "2026-07-06T13:00:00+00:00",
         "image_url": "https://techcrunch.com/wp-content/uploads/2026/07/STATION-F-Master-stage-_-Credits-Patrick-Tourneboeuf.jpg?resize=1200,800",
         "corroborating_sources": [],
-        "score": 7.127
+        "score": 7.022
       },
       {
         "title": "Smart glasses maker Even Realities hits $1B valuation with $150M funding led by Meituan, Tencent",
@@ -245,7 +177,7 @@
         "published_iso": "2026-07-06T09:00:00+00:00",
         "image_url": "https://techcrunch.com/wp-content/uploads/2026/07/Even-G2-and-R1-with-HUD.jpeg?resize=1200,675",
         "corroborating_sources": [],
-        "score": 7.022
+        "score": 6.938
       },
       {
         "title": "Apple's foldable iPhone may be in short supply after it launches",
@@ -257,7 +189,7 @@
         "published_iso": "2026-07-06T08:11:10+00:00",
         "image_url": "https://www.engadget.com/img/gallery/apple-foldable-iphone-may-be-in-short-supply-after-it-launches/l-intro-1783326180.jpg",
         "corroborating_sources": [],
-        "score": 6.843
+        "score": 6.763
       },
       {
         "title": "America’s greatest idea is still under threat",
@@ -269,7 +201,7 @@
         "published_iso": "2026-07-06T18:36:33+00:00",
         "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/07/gettyimages-2284040155.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
         "corroborating_sources": [],
-        "score": 6.58
+        "score": 6.436
       },
       {
         "title": "Five questions for Dr. Rubin, who’s armed with a mic and a bowtie",
@@ -281,7 +213,7 @@
         "published_iso": "2026-07-06T17:15:29+00:00",
         "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/07/rbn.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
         "corroborating_sources": [],
-        "score": 6.528
+        "score": 6.395
       },
       {
         "title": "Former Xbox studios Double Fine and Compulsion will keep games after going indie",
@@ -293,7 +225,7 @@
         "published_iso": "2026-07-06T16:22:34+00:00",
         "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/07/ss_d78da4dbc35620193f7c14e0e5e68f7020adfd43.1920x1080.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
         "corroborating_sources": [],
-        "score": 6.496
+        "score": 6.369
       },
       {
         "title": "The DJI Osmo Pocket 3 lookalike is down to $329",
@@ -305,7 +237,7 @@
         "published_iso": "2026-07-06T15:09:18+00:00",
         "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/07/xtramuselead.png?quality=90&#038;strip=all&#038;crop=0,0,100,100",
         "corroborating_sources": [],
-        "score": 6.454
+        "score": 6.336
       },
       {
         "title": "Inside the big business of the creator economy, with the agents making it happen",
@@ -317,19 +249,7 @@
         "published_iso": "2026-07-06T14:30:00+00:00",
         "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/07/VRG-DCD-20260706-RainaPenchansky-AliBerman-Art-v01-KM.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
         "corroborating_sources": [],
-        "score": 6.433
-      },
-      {
-        "title": "Every major tech layoff in 2026 that has name-checked AI",
-        "summary": "A running look — in reverse chronological order — at the bigger tech companies that have announced significant layoffs this year with AI as a stated factor.",
-        "url": "https://techcrunch.com/2026/07/06/the-running-list-major-tech-layoffs-in-2026-where-employers-cited-ai/",
-        "category": "Technology",
-        "source": "TechCrunch",
-        "tier": 1.0,
-        "published_iso": "2026-07-06T18:35:00+00:00",
-        "image_url": "https://techcrunch.com/wp-content/uploads/2026/06/AI-layoffs-picture.png?resize=1200,800",
-        "corroborating_sources": [],
-        "score": 6.419
+        "score": 6.319
       },
       {
         "title": "Microsoft is selling off four Xbox studios as part of significant gaming cuts",
@@ -341,7 +261,19 @@
         "published_iso": "2026-07-06T13:31:24+00:00",
         "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/07/gettyimages-2279118333.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
         "corroborating_sources": [],
-        "score": 6.403
+        "score": 6.294
+      },
+      {
+        "title": "Every major tech layoff in 2026 that has name-checked AI",
+        "summary": "A running look — in reverse chronological order — at the bigger tech companies that have announced significant layoffs this year with AI as a stated factor.",
+        "url": "https://techcrunch.com/2026/07/06/the-running-list-major-tech-layoffs-in-2026-where-employers-cited-ai/",
+        "category": "Technology",
+        "source": "TechCrunch",
+        "tier": 1.0,
+        "published_iso": "2026-07-06T18:35:00+00:00",
+        "image_url": "https://techcrunch.com/wp-content/uploads/2026/06/AI-layoffs-picture.png?resize=1200,800",
+        "corroborating_sources": [],
+        "score": 6.275
       },
       {
         "title": "Apple brings back card payments for Apple Account purchases in India after a four-year hiatus",
@@ -353,7 +285,7 @@
         "published_iso": "2026-07-06T16:21:03+00:00",
         "image_url": "https://techcrunch.com/wp-content/uploads/2025/04/apple-logo-pedestrian.jpg?resize=1200,798",
         "corroborating_sources": [],
-        "score": 6.335
+        "score": 6.208
       },
       {
         "title": "Reddit is using LLMs to solve a problem LLMs largely created",
@@ -365,7 +297,7 @@
         "published_iso": "2026-07-06T15:22:08+00:00",
         "image_url": "https://techcrunch.com/wp-content/uploads/2023/06/reddit-glitch-1.jpg?resize=1200,675",
         "corroborating_sources": [],
-        "score": 6.301
+        "score": 6.181
       },
       {
         "title": "Canadian spy agency says it hacked drug traffickers, extremists, and a ransomware gang last year",
@@ -377,7 +309,7 @@
         "published_iso": "2026-07-06T14:43:59+00:00",
         "image_url": "https://techcrunch.com/wp-content/uploads/2021/09/epik-hack-1.jpg?resize=1200,724",
         "corroborating_sources": [],
-        "score": 6.28
+        "score": 6.165
       },
       {
         "title": "Why are people ditching wireless earbuds, and are wired headphones really making a comeback?",
@@ -389,7 +321,7 @@
         "published_iso": "2026-07-06T18:30:00+00:00",
         "image_url": "https://www.engadget.com/img/gallery/why-are-people-ditching-wireless-earbuds-and-are-wired-headphones-really-making-a-comeback/l-intro-1783010048.jpg",
         "corroborating_sources": [],
-        "score": 6.255
+        "score": 6.113
       },
       {
         "title": "Microsoft's layoffs extend beyond Xbox",
@@ -401,7 +333,7 @@
         "published_iso": "2026-07-06T17:50:59+00:00",
         "image_url": "https://www.engadget.com/img/gallery/microsofts-layoffs-extend-beyond-xbox/l-intro-1783360140.jpg",
         "corroborating_sources": [],
-        "score": 6.23
+        "score": 6.092
       },
       {
         "title": "Bentley Torcal EV: Price, Specs, Availability",
@@ -413,19 +345,7 @@
         "published_iso": "2026-07-06T11:30:00+00:00",
         "image_url": "https://media.wired.com/photos/6a4680acadcc41d8f6434aee/master/pass/Bentley%20Torcal.jpg",
         "corroborating_sources": [],
-        "score": 6.185
-      },
-      {
-        "title": "AI golem Tilly Norwood is reportedly 'starring' in a feature-length movie",
-        "summary": "Get excited for a feature film starring an AI character that doesn't exist in any real way.",
-        "url": "https://www.engadget.com/2208729/ai-golem-tilly-norwood-is-reportedly-starring-in-a-feature-length-movie/",
-        "category": "Technology",
-        "source": "Engadget",
-        "tier": 0.9,
-        "published_iso": "2026-07-06T16:28:38+00:00",
-        "image_url": "https://www.engadget.com/img/gallery/ai-golem-tilly-norwood-is-reportedly-starring-in-a-feature-length-movie/l-intro-1783355190.jpg",
-        "corroborating_sources": [],
-        "score": 6.179
+        "score": 6.088
       },
       {
         "title": "Good News! Turns Out the Earth Will Never Be Swallowed by the Sun",
@@ -437,19 +357,7 @@
         "published_iso": "2026-07-06T10:30:00+00:00",
         "image_url": "https://media.wired.com/photos/6a456710bc6a7b7d7a89d017/master/pass/1220609813",
         "corroborating_sources": [],
-        "score": 6.159
-      },
-      {
-        "title": "Reddit to combat AI with more AI",
-        "summary": "Reddit to combat AI with more AI",
-        "url": "https://www.engadget.com/2208616/reddit-to-combat-ai-with-more-ai/",
-        "category": "Technology",
-        "source": "Engadget",
-        "tier": 0.9,
-        "published_iso": "2026-07-06T15:32:39+00:00",
-        "image_url": "https://www.engadget.com/img/gallery/reddit-to-combat-ai-with-more-ai/l-intro-1783351885.jpg",
-        "corroborating_sources": [],
-        "score": 6.147
+        "score": 6.067
       },
       {
         "title": "ICE’s Internal Watchdog Is Now Investigating Online Critics",
@@ -461,7 +369,19 @@
         "published_iso": "2026-07-06T10:00:00+00:00",
         "image_url": "https://media.wired.com/photos/6a4685ebdae48c15b88cf0e2/master/pass/070226-ice-internal-watchdog-online%20critics.jpg",
         "corroborating_sources": [],
-        "score": 6.146
+        "score": 6.057
+      },
+      {
+        "title": "AI golem Tilly Norwood is reportedly 'starring' in a feature-length movie",
+        "summary": "Get excited for a feature film starring an AI character that doesn't exist in any real way.",
+        "url": "https://www.engadget.com/2208729/ai-golem-tilly-norwood-is-reportedly-starring-in-a-feature-length-movie/",
+        "category": "Technology",
+        "source": "Engadget",
+        "tier": 0.9,
+        "published_iso": "2026-07-06T16:28:38+00:00",
+        "image_url": "https://www.engadget.com/img/gallery/ai-golem-tilly-norwood-is-reportedly-starring-in-a-feature-length-movie/l-intro-1783355190.jpg",
+        "corroborating_sources": [],
+        "score": 6.052
       },
       {
         "title": "What if the Universe Isn’t as Uniform as Scientists Think?",
@@ -473,19 +393,19 @@
         "published_iso": "2026-07-06T09:30:00+00:00",
         "image_url": "https://media.wired.com/photos/6a456905f3e5961ebd730c4b/master/pass/DESI-Y3P-Datapoints-Flat-Still-blue_small.png",
         "corroborating_sources": [],
-        "score": 6.134
+        "score": 6.047
       },
       {
-        "title": "Uber’s European expansion plans may have hit a speed bump",
-        "summary": "Back in February, Uber announced ambitious plans to launch in seven new European markets in 2026 — but now five of those launches are reportedly on hold.",
-        "url": "https://techcrunch.com/2026/07/05/ubers-european-expansion-plans-may-have-hit-a-speed-bump/",
+        "title": "Reddit to combat AI with more AI",
+        "summary": "Reddit to combat AI with more AI",
+        "url": "https://www.engadget.com/2208616/reddit-to-combat-ai-with-more-ai/",
         "category": "Technology",
-        "source": "TechCrunch",
-        "tier": 1.0,
-        "published_iso": "2026-07-05T21:35:17+00:00",
-        "image_url": "https://techcrunch.com/wp-content/uploads/2021/07/GettyImages-1232204732.jpg?w=1024",
+        "source": "Engadget",
+        "tier": 0.9,
+        "published_iso": "2026-07-06T15:32:39+00:00",
+        "image_url": "https://www.engadget.com/img/gallery/reddit-to-combat-ai-with-more-ai/l-intro-1783351885.jpg",
         "corroborating_sources": [],
-        "score": 5.924
+        "score": 6.026
       },
       {
         "title": "FCC to end Biden-era rule that forces ISPs to list all their fees",
@@ -497,7 +417,7 @@
         "published_iso": "2026-07-06T21:13:37+00:00",
         "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/07/online-bill-1152x648-1783369462.jpg",
         "corroborating_sources": [],
-        "score": 5.792
+        "score": 5.626
       },
       {
         "title": "Kremlin suspected of flying drones over Europe using Russian shadow fleet",
@@ -509,7 +429,19 @@
         "published_iso": "2026-07-06T20:52:42+00:00",
         "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/07/GettyImages-2238288864-1152x648.jpg",
         "corroborating_sources": [],
-        "score": 5.776
+        "score": 5.614
+      },
+      {
+        "title": "Netflix invented binge-watching. Now it may have outgrown it.",
+        "summary": "A new report suggests Netflix viewers aren’t sticking around for Season 2. The bigger issue may be that binge-watching itself is no longer the advantage it once was.",
+        "url": "https://techcrunch.com/2026/07/06/netflix-invented-binge-watching-now-it-may-have-outgrown-it/",
+        "category": "Technology",
+        "source": "TechCrunch",
+        "tier": 1.0,
+        "published_iso": "2026-07-07T00:47:33+00:00",
+        "image_url": "https://techcrunch.com/wp-content/uploads/2023/02/GettyImages-1240099721.jpeg?resize=1200,800",
+        "corroborating_sources": [],
+        "score": 5.613
       },
       {
         "title": "NRC is (sort of) getting rid of \"as low as reasonably achievable\" standard",
@@ -521,7 +453,7 @@
         "published_iso": "2026-07-06T17:48:45+00:00",
         "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/07/GettyImages-2283985401-1024x648.jpg",
         "corroborating_sources": [],
-        "score": 5.649
+        "score": 5.511
       },
       {
         "title": "Katalyst's satellite rescue mission is now in pursuit of NASA's Swift",
@@ -533,7 +465,7 @@
         "published_iso": "2026-07-06T17:14:09+00:00",
         "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/07/Pegasus-Image-2-resized-1000x648.jpg",
         "corroborating_sources": [],
-        "score": 5.627
+        "score": 5.494
       },
       {
         "title": "Secret Claude tracker shocks users after Anthropic’s anti-surveillance stance",
@@ -545,19 +477,7 @@
         "published_iso": "2026-07-06T16:44:18+00:00",
         "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/07/GettyImages-2277613277-1024x648.jpg",
         "corroborating_sources": [],
-        "score": 5.609
-      },
-      {
-        "title": "The incredible shrinking Xbox: Five studios, 3,200 employees let go",
-        "summary": "Move affects ~20% of the gaming division, which will refocus on its biggest franchises.",
-        "url": "https://arstechnica.com/gaming/2026/07/the-incredible-shrinking-xbox-five-studios-3200-employees-let-go/",
-        "category": "Technology",
-        "source": "Ars Technica",
-        "tier": 1.1,
-        "published_iso": "2026-07-06T16:01:54+00:00",
-        "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2024/02/xbox-dominoes-1152x648.jpg",
-        "corroborating_sources": [],
-        "score": 5.584
+        "score": 5.479
       },
       {
         "title": "I spy",
@@ -569,19 +489,19 @@
         "published_iso": "2026-07-06T16:00:00+00:00",
         "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/10/257980_Meta_Ray-Ban_Display_AKrales_0111.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
         "corroborating_sources": [],
-        "score": 5.583
+        "score": 5.459
       },
       {
-        "title": "Vercel CEO Guillermo Rauch on the fight to split off models from agents",
-        "summary": "\"The reality is, when you're optimizing for production, you start looking at a price/performance,\" Guillermo Rauch tells TechCrunch.",
-        "url": "https://techcrunch.com/2026/07/06/vercel-ceo-guillermo-rauch-on-the-fight-to-split-off-models-from-agents/",
+        "title": "The incredible shrinking Xbox: Five studios, 3,200 employees let go",
+        "summary": "Move affects ~20% of the gaming division, which will refocus on its biggest franchises.",
+        "url": "https://arstechnica.com/gaming/2026/07/the-incredible-shrinking-xbox-five-studios-3200-employees-let-go/",
         "category": "Technology",
-        "source": "TechCrunch",
-        "tier": 1.0,
-        "published_iso": "2026-07-06T19:49:10+00:00",
-        "image_url": "https://techcrunch.com/wp-content/uploads/2026/07/PHB_1846_16507246419711358101.jpeg?resize=1200,800",
+        "source": "Ars Technica",
+        "tier": 1.1,
+        "published_iso": "2026-07-06T16:01:54+00:00",
+        "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2024/02/xbox-dominoes-1152x648.jpg",
         "corroborating_sources": [],
-        "score": 5.57
+        "score": 5.459
       },
       {
         "title": "There were not one, but two asteroid encounters this weekend",
@@ -593,7 +513,19 @@
         "published_iso": "2026-07-06T15:15:30+00:00",
         "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/07/20260706-3-01-1152x648.png",
         "corroborating_sources": [],
-        "score": 5.558
+        "score": 5.438
+      },
+      {
+        "title": "Vercel CEO Guillermo Rauch on the fight to split off models from agents",
+        "summary": "\"The reality is, when you're optimizing for production, you start looking at a price/performance,\" Guillermo Rauch tells TechCrunch.",
+        "url": "https://techcrunch.com/2026/07/06/vercel-ceo-guillermo-rauch-on-the-fight-to-split-off-models-from-agents/",
+        "category": "Technology",
+        "source": "TechCrunch",
+        "tier": 1.0,
+        "published_iso": "2026-07-06T19:49:10+00:00",
+        "image_url": "https://techcrunch.com/wp-content/uploads/2026/07/PHB_1846_16507246419711358101.jpeg?resize=1200,800",
+        "corroborating_sources": [],
+        "score": 5.416
       },
       {
         "title": "Can Partiful keep the party going?",
@@ -605,7 +537,7 @@
         "published_iso": "2026-07-06T14:00:00+00:00",
         "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/07/268619_partiful_CVirginia_STILL0.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
         "corroborating_sources": [],
-        "score": 5.517
+        "score": 5.406
       },
       {
         "title": "The Czinger 21C might be the wildest car we drive all year",
@@ -617,7 +549,7 @@
         "published_iso": "2026-07-06T11:00:14+00:00",
         "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/06/DSC_8270-1-1152x648.jpg",
         "corroborating_sources": [],
-        "score": 5.432
+        "score": 5.338
       },
       {
         "title": "The Science Behind Why Soccer Players at the 2026 World Cup Are Cutting Their Socks",
@@ -629,7 +561,7 @@
         "published_iso": "2026-07-06T14:50:52+00:00",
         "image_url": "https://media.wired.com/photos/6a4bb2899a04d6f37d84ef36/master/pass/GettyImages-2166320719.jpg",
         "corroborating_sources": [],
-        "score": 5.384
+        "score": 5.268
       },
       {
         "title": "How to reserve and change your WhatsApp username",
@@ -641,7 +573,7 @@
         "published_iso": "2026-07-06T14:15:30+00:00",
         "image_url": "https://techcrunch.com/wp-content/uploads/2026/06/whatsapp-meta-logo.jpg?resize=1200,800",
         "corroborating_sources": [],
-        "score": 5.365
+        "score": 5.253
       },
       {
         "title": "9 Best Keyboards (2025), Tested and Reviewed",
@@ -653,7 +585,7 @@
         "published_iso": "2026-07-06T11:00:00+00:00",
         "image_url": "https://media.wired.com/photos/68a91b1c8930cbd96bd0da81/master/pass/The%20Best%20Keyboards%20for%20Work%20and%20Play.png",
         "corroborating_sources": [],
-        "score": 5.272
+        "score": 5.178
       },
       {
         "title": "Sony Bravia 7 Mark II: Midrange but Priced High (2026)",
@@ -665,19 +597,7 @@
         "published_iso": "2026-07-06T10:31:00+00:00",
         "image_url": "https://media.wired.com/photos/6a473d862194c5deed8a476d/master/pass/Review--Sony-Bravia-7-Mark-II.jpg",
         "corroborating_sources": [],
-        "score": 5.259
-      },
-      {
-        "title": "A USB-C port isn't a guarantee of high speeds: here's why",
-        "summary": "USB-C promised simplicity, but has turned into a mystery box of different specs.",
-        "url": "https://www.engadget.com/2207881/usb-c-port-cable-types-explained/",
-        "category": "Technology",
-        "source": "Engadget",
-        "tier": 0.9,
-        "published_iso": "2026-07-06T15:30:00+00:00",
-        "image_url": "https://www.engadget.com/img/gallery/a-usb-c-port-isnt-a-guarantee-of-high-speeds-heres-why/l-intro-1783119283.jpg",
-        "corroborating_sources": [],
-        "score": 5.246
+        "score": 5.168
       },
       {
         "title": "How Palestinians Are Building a Digital Archive That Can’t Be Erased",
@@ -689,7 +609,19 @@
         "published_iso": "2026-07-06T09:00:00+00:00",
         "image_url": "https://media.wired.com/photos/6a457277f3e5961ebd730c51/master/pass/Palestine_lead.jpg",
         "corroborating_sources": [],
-        "score": 5.222
+        "score": 5.138
+      },
+      {
+        "title": "A USB-C port isn't a guarantee of high speeds: here's why",
+        "summary": "USB-C promised simplicity, but has turned into a mystery box of different specs.",
+        "url": "https://www.engadget.com/2207881/usb-c-port-cable-types-explained/",
+        "category": "Technology",
+        "source": "Engadget",
+        "tier": 0.9,
+        "published_iso": "2026-07-06T15:30:00+00:00",
+        "image_url": "https://www.engadget.com/img/gallery/a-usb-c-port-isnt-a-guarantee-of-high-speeds-heres-why/l-intro-1783119283.jpg",
+        "corroborating_sources": [],
+        "score": 5.125
       },
       {
         "title": "Xbox confirms plans to cut 3,200 jobs over the next year",
@@ -701,19 +633,7 @@
         "published_iso": "2026-07-06T14:15:47+00:00",
         "image_url": "https://www.engadget.com/img/gallery/xbox-confirms-plans-to-lay-off-3200-workers-over-the-next-year/l-intro-1783361693.jpg",
         "corroborating_sources": [],
-        "score": 5.205
-      },
-      {
-        "title": "USB4 cables: When and why it's worth paying more",
-        "summary": "They're for more than just fast charging.",
-        "url": "https://www.engadget.com/2207394/usb4-cables-when-why-pay-more/",
-        "category": "Technology",
-        "source": "Engadget",
-        "tier": 0.9,
-        "published_iso": "2026-07-06T13:30:00+00:00",
-        "image_url": "https://www.engadget.com/img/gallery/usb4-cables-when-and-why-its-worth-paying-more/l-intro-1783029640.jpg",
-        "corroborating_sources": [],
-        "score": 5.182
+        "score": 5.093
       },
       {
         "title": "This humanoid robotics company is going public, but its CEO isn’t promising a robot in your home anytime soon",
@@ -725,7 +645,19 @@
         "published_iso": "2026-07-06T06:05:29+00:00",
         "image_url": "https://techcrunch.com/wp-content/uploads/2026/07/Peggy-Johnson.jpg?w=1024",
         "corroborating_sources": [],
-        "score": 5.159
+        "score": 5.087
+      },
+      {
+        "title": "USB4 cables: When and why it's worth paying more",
+        "summary": "They're for more than just fast charging.",
+        "url": "https://www.engadget.com/2207394/usb4-cables-when-why-pay-more/",
+        "category": "Technology",
+        "source": "Engadget",
+        "tier": 0.9,
+        "published_iso": "2026-07-06T13:30:00+00:00",
+        "image_url": "https://www.engadget.com/img/gallery/usb4-cables-when-and-why-its-worth-paying-more/l-intro-1783029640.jpg",
+        "corroborating_sources": [],
+        "score": 5.074
       },
       {
         "title": "Comcast buys the UK's biggest commercial broadcaster, ITV",
@@ -737,7 +669,7 @@
         "published_iso": "2026-07-06T12:21:23+00:00",
         "image_url": "https://www.engadget.com/img/gallery/comcast-to-buy-the-uks-biggest-commercial-broadcaster-itv/l-intro-1783340450.jpg",
         "corroborating_sources": [],
-        "score": 5.149
+        "score": 5.047
       },
       {
         "title": "Alibaba gets a reprieve from US Chinese military ban",
@@ -749,19 +681,7 @@
         "published_iso": "2026-07-06T10:09:41+00:00",
         "image_url": "https://www.engadget.com/img/gallery/alibaba-gets-a-reprieve-from-us-chinese-military-ban/l-intro-1783331939.jpg",
         "corroborating_sources": [],
-        "score": 5.09
-      },
-      {
-        "title": "Trump memecoin investors lost $3.8 billion, analysis finds",
-        "summary": "Nearly 1 million people have lost a total of $3.8 billion after buying President Donald Trump’s $TRUMP memecoin, while Trump made $636 million.",
-        "url": "https://techcrunch.com/2026/07/05/trump-memecoin-investors-lost-3-8-billion-analysis-finds/",
-        "category": "Technology",
-        "source": "TechCrunch",
-        "tier": 1.0,
-        "published_iso": "2026-07-05T20:29:05+00:00",
-        "image_url": "https://techcrunch.com/wp-content/uploads/2026/05/donald-trump-cellphone.jpg?resize=1200,800",
-        "corroborating_sources": [],
-        "score": 5.011
+        "score": 5.0
       }
     ],
     "Finance": [
@@ -775,7 +695,7 @@
         "published_iso": "2026-07-06T20:33:00+00:00",
         "image_url": "https://images.mktw.net/im-63116555",
         "corroborating_sources": [],
-        "score": 9.362
+        "score": 9.202
       },
       {
         "title": "Can China repeat its EV success with robotaxis?",
@@ -789,7 +709,7 @@
         "corroborating_sources": [
           "BBC World"
         ],
-        "score": 9.082
+        "score": 8.908
       },
       {
         "title": "Trump calls Walmart ‘patriotic’ for cutting beef prices — in a stark change of tune",
@@ -801,7 +721,19 @@
         "published_iso": "2026-07-07T00:15:00+00:00",
         "image_url": "https://images.mktw.net/im-56384586",
         "corroborating_sources": [],
-        "score": 7.745
+        "score": 7.548
+      },
+      {
+        "title": "Asia stocks fall as AI valuation fears overshadow Samsung’s blockbuster earnings",
+        "summary": "",
+        "url": "https://www.investing.com/news/stock-market-news/asia-stocks-fall-as-ai-valuation-fears-overshadow-samsungs-blockbuster-earnings-4778205",
+        "category": "Finance",
+        "source": "Investing.com",
+        "tier": 0.8,
+        "published_iso": "2026-07-07T03:57:19+00:00",
+        "image_url": "https://i-invdn-com.investing.com/news/LYNXNPEB810CQ_M.jpg",
+        "corroborating_sources": [],
+        "score": 7.249
       },
       {
         "title": "Amazon bars breastfeeding boss from business course",
@@ -813,7 +745,7 @@
         "published_iso": "2026-07-06T23:31:21+00:00",
         "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/94fe/live/0f15c2b0-798d-11f1-97bb-1f6a9ee67044.jpg",
         "corroborating_sources": [],
-        "score": 7.286
+        "score": 7.097
       },
       {
         "title": "Banks accused of failing most vulnerable customers",
@@ -825,7 +757,19 @@
         "published_iso": "2026-07-06T23:29:34+00:00",
         "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/89f4/live/6a2491e0-7942-11f1-bfee-d367081f1131.jpg",
         "corroborating_sources": [],
-        "score": 7.284
+        "score": 7.096
+      },
+      {
+        "title": "BlackRock says the China AI play is stock-specific, not a regional trade",
+        "summary": "BlackRock Investment Institute laid out its views Monday on the AI bubble debate.",
+        "url": "https://www.cnbc.com/2026/07/07/china-ai-play-is-stock-specific-not-a-regional-trade-blackrock.html",
+        "category": "Finance",
+        "source": "CNBC Finance",
+        "tier": 1.2,
+        "published_iso": "2026-07-07T02:57:48+00:00",
+        "image_url": "https://image.cnbcfm.com/api/v1/image/108331192-1783386579045-gettyimages-2277818220-vcg111643346746.jpeg?v=1783386624&amp;w=1920&amp;h=1080",
+        "corroborating_sources": [],
+        "score": 6.937
       },
       {
         "title": "ITV hits such as I'm a Celebrity to stay free to watch after Sky takeover",
@@ -837,31 +781,7 @@
         "published_iso": "2026-07-06T14:40:04+00:00",
         "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/519d/live/2e5fcf80-7933-11f1-a627-714adb4eed6e.jpg",
         "corroborating_sources": [],
-        "score": 6.918
-      },
-      {
-        "title": "Your data built the AI boom — but Big Tech is pocketing 100% of the equity",
-        "summary": "Your share of the AI wealth is a right — not a handout. Here is how we claw back our money.",
-        "url": "https://www.marketwatch.com/story/your-share-of-the-ai-wealth-is-a-right-not-a-handout-here-is-how-we-claw-back-our-money-7454b0e0?mod=mw_rss_topstories",
-        "category": "Finance",
-        "source": "MarketWatch Top",
-        "tier": 1.1,
-        "published_iso": "2026-07-06T21:36:00+00:00",
-        "image_url": "https://images.mktw.net/im-97773361",
-        "corroborating_sources": [],
-        "score": 6.71
-      },
-      {
-        "title": "Stocks rally when Congress goes on summer break. Here’s why.",
-        "summary": "Stock prices face greater volatility when lawmakers are active, driven entirely by the regulatory uncertainty they create.",
-        "url": "https://www.marketwatch.com/story/stocks-rally-when-congress-goes-on-summer-break-here-is-the-hidden-reason-e70a6be3?mod=mw_rss_topstories",
-        "category": "Finance",
-        "source": "MarketWatch Top",
-        "tier": 1.1,
-        "published_iso": "2026-07-06T21:18:00+00:00",
-        "image_url": "https://images.mktw.net/im-04688764",
-        "corroborating_sources": [],
-        "score": 6.696
+        "score": 6.803
       },
       {
         "title": "Bitcoin rebounds after Trump says he's become 'a big crypto guy'",
@@ -873,19 +793,19 @@
         "published_iso": "2026-07-06T17:24:42+00:00",
         "image_url": "https://image.cnbcfm.com/api/v1/image/108330806-17833447562026-07-06t133139z_1071467692_rc2d8manj25y_rtrmadp_0_usa-trump.jpeg?v=1783344775&amp;w=1920&amp;h=1080",
         "corroborating_sources": [],
-        "score": 6.693
+        "score": 6.559
       },
       {
-        "title": "If the stock market’s double bubble bursts, it could usher in the next crash",
-        "summary": "While valuations still look extreme relative to history, the recent pace of corporate earnings growth has also meaningfully diverged from the long-term trend.",
-        "url": "https://www.marketwatch.com/story/if-the-stock-markets-double-bubble-bursts-it-could-usher-in-the-next-crash-de54c1b2?mod=mw_rss_topstories",
+        "title": "Your data built the AI boom — but Big Tech is pocketing 100% of the equity",
+        "summary": "Your share of the AI wealth is a right — not a handout. Here is how we claw back our money.",
+        "url": "https://www.marketwatch.com/story/your-share-of-the-ai-wealth-is-a-right-not-a-handout-here-is-how-we-claw-back-our-money-7454b0e0?mod=mw_rss_topstories",
         "category": "Finance",
         "source": "MarketWatch Top",
         "tier": 1.1,
-        "published_iso": "2026-07-06T21:11:00+00:00",
-        "image_url": "https://images.mktw.net/im-22809025",
+        "published_iso": "2026-07-06T21:36:00+00:00",
+        "image_url": "https://images.mktw.net/im-97773361",
         "corroborating_sources": [],
-        "score": 6.69
+        "score": 6.54
       },
       {
         "title": "Trump Accounts boost? Here's how much money will flow into stock market from the new program",
@@ -897,7 +817,67 @@
         "published_iso": "2026-07-06T16:34:18+00:00",
         "image_url": "https://image.cnbcfm.com/api/v1/image/108330856-1783348200577-gettyimages-2284334393-AFP_B9DX2ZF.jpeg?v=1783348222&amp;w=1920&amp;h=1080",
         "corroborating_sources": [],
-        "score": 6.663
+        "score": 6.535
+      },
+      {
+        "title": "Stocks rally when Congress goes on summer break. Here’s why.",
+        "summary": "Stock prices face greater volatility when lawmakers are active, driven entirely by the regulatory uncertainty they create.",
+        "url": "https://www.marketwatch.com/story/stocks-rally-when-congress-goes-on-summer-break-here-is-the-hidden-reason-e70a6be3?mod=mw_rss_topstories",
+        "category": "Finance",
+        "source": "MarketWatch Top",
+        "tier": 1.1,
+        "published_iso": "2026-07-06T21:18:00+00:00",
+        "image_url": "https://images.mktw.net/im-04688764",
+        "corroborating_sources": [],
+        "score": 6.529
+      },
+      {
+        "title": "If the stock market’s double bubble bursts, it could usher in the next crash",
+        "summary": "While valuations still look extreme relative to history, the recent pace of corporate earnings growth has also meaningfully diverged from the long-term trend.",
+        "url": "https://www.marketwatch.com/story/if-the-stock-markets-double-bubble-bursts-it-could-usher-in-the-next-crash-de54c1b2?mod=mw_rss_topstories",
+        "category": "Finance",
+        "source": "MarketWatch Top",
+        "tier": 1.1,
+        "published_iso": "2026-07-06T21:11:00+00:00",
+        "image_url": "https://images.mktw.net/im-22809025",
+        "corroborating_sources": [],
+        "score": 6.525
+      },
+      {
+        "title": "Meta says US states are seeking $1.4 trillion in penalties in August youth safety trial",
+        "summary": "",
+        "url": "https://www.investing.com/news/stock-market-news/meta-says-us-states-are-seeking-14-trillion-in-penalties-in-august-youth-safety-trial-4778202",
+        "category": "Finance",
+        "source": "Investing.com",
+        "tier": 0.8,
+        "published_iso": "2026-07-07T03:48:49+00:00",
+        "image_url": "https://i-invdn-com.investing.com/trkd-images/LYNXMPEM66058_L.jpg",
+        "corroborating_sources": [],
+        "score": 6.341
+      },
+      {
+        "title": "Samsung flags 19-fold jump in profit, but shares slump on jitters AI boom may stall",
+        "summary": "",
+        "url": "https://www.investing.com/news/stock-market-news/samsung-estimates-19fold-rise-in-q2-operating-profit-beating-expectations-4777937",
+        "category": "Finance",
+        "source": "Investing.com",
+        "tier": 0.8,
+        "published_iso": "2026-07-07T03:24:46+00:00",
+        "image_url": "https://i-invdn-com.investing.com/trkd-images/LYNXMPEM651LU_L.jpg",
+        "corroborating_sources": [],
+        "score": 6.32
+      },
+      {
+        "title": "Iran fires missiles at commercial ships in Strait of Hormuz, Axios reports",
+        "summary": "",
+        "url": "https://www.investing.com/news/stock-market-news/iran-fires-missiles-at-commercial-ships-in-strait-of-hormuz-axios-reports-4778198",
+        "category": "Finance",
+        "source": "Investing.com",
+        "tier": 0.8,
+        "published_iso": "2026-07-07T02:24:26+00:00",
+        "image_url": "https://i-invdn-com.investing.com/trkd-images/LYNXMPEM6602Z_L.jpg",
+        "corroborating_sources": [],
+        "score": 6.269
       },
       {
         "title": "'I wear it on my middle finger': The rise of the defiant divorce ring",
@@ -909,7 +889,7 @@
         "published_iso": "2026-07-06T23:30:40+00:00",
         "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/9890/live/d3c50240-7624-11f1-ac11-19a4319081d7.jpg",
         "corroborating_sources": [],
-        "score": 6.385
+        "score": 6.197
       },
       {
         "title": "Phone contract comparisons 'amounted to mis-selling' student loans, MPs say",
@@ -921,19 +901,7 @@
         "published_iso": "2026-07-06T23:08:51+00:00",
         "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/caee/live/a28950a0-7962-11f1-9ade-614b823fa1e3.jpg",
         "corroborating_sources": [],
-        "score": 6.366
-      },
-      {
-        "title": "Ukrainian drones hit Russia’s largest refinery, in one of deepest strikes yet",
-        "summary": "",
-        "url": "https://www.investing.com/news/stock-market-news/ukrainian-drones-hit-russias-largest-refinery-in-one-of-deepest-strikes-yet-4777668",
-        "category": "Finance",
-        "source": "Investing.com",
-        "tier": 0.8,
-        "published_iso": "2026-07-06T21:13:03+00:00",
-        "image_url": "https://i-invdn-com.investing.com/trkd-images/LYNXMPEM651HD_L.jpg",
-        "corroborating_sources": [],
-        "score": 6.212
+        "score": 6.182
       },
       {
         "title": "Shoppers hit by hidden fees",
@@ -945,31 +913,7 @@
         "published_iso": "2026-07-06T10:30:54+00:00",
         "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/108b/live/2ac8f580-7925-11f1-a627-714adb4eed6e.png",
         "corroborating_sources": [],
-        "score": 5.899
-      },
-      {
-        "title": "The Nasdaq-100 has been far more volatile than the S&P 500. Now add SpaceX to the mix.",
-        "summary": "While SpaceX is due to join the Nasdaq-100 on Tuesday, it won’t become part of the S P 500 for at least another year — likely furthering the volatility spread between those two indexes.",
-        "url": "https://www.marketwatch.com/story/the-nasdaq-100-has-been-far-more-volatile-than-the-s-p-500-now-add-spacex-to-the-mix-cd397c36?mod=mw_rss_topstories",
-        "category": "Finance",
-        "source": "MarketWatch Top",
-        "tier": 1.1,
-        "published_iso": "2026-07-06T22:39:00+00:00",
-        "image_url": "https://images.mktw.net/im-68235461",
-        "corroborating_sources": [],
-        "score": 5.861
-      },
-      {
-        "title": "U.S.-Belgium match could draw record TV audience amid the Trump World Cup controversy",
-        "summary": "Some industry experts are predicting all-time viewing records for a U.S. soccer game",
-        "url": "https://www.marketwatch.com/story/u-s-belgium-match-could-draw-record-tv-audience-amid-the-trump-world-cup-controversy-52783b8f?mod=mw_rss_topstories",
-        "category": "Finance",
-        "source": "MarketWatch Top",
-        "tier": 1.1,
-        "published_iso": "2026-07-06T22:17:00+00:00",
-        "image_url": "https://images.mktw.net/im-55702753",
-        "corroborating_sources": [],
-        "score": 5.843
+        "score": 5.808
       },
       {
         "title": "What Sky buying ITV could mean for your favourite shows",
@@ -981,31 +925,7 @@
         "published_iso": "2026-07-06T06:20:38+00:00",
         "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/e7d9/live/21b014a0-779b-11f1-a02d-cbd2f4813818.png",
         "corroborating_sources": [],
-        "score": 5.804
-      },
-      {
-        "title": "Your investing expectations are more than double the reality. Here is the tough truth.",
-        "summary": "Long-term real returns above 10% annualized are exceedingly rare.",
-        "url": "https://www.marketwatch.com/story/your-investing-expectations-are-more-than-double-the-reality-here-is-the-tough-truth-dea61820?mod=mw_rss_topstories",
-        "category": "Finance",
-        "source": "MarketWatch Top",
-        "tier": 1.1,
-        "published_iso": "2026-07-06T21:19:00+00:00",
-        "image_url": "https://images.mktw.net/im-839207",
-        "corroborating_sources": [],
-        "score": 5.797
-      },
-      {
-        "title": "You want a portfolio that matches your morals. Your retirement plan might disagree.",
-        "summary": "More investors want their money to reflect their values. It feels righteous — but the reality is a lot messier.",
-        "url": "https://www.marketwatch.com/story/you-want-a-portfolio-that-matches-your-morals-but-that-could-sink-your-retirement-plans-0b6fb5bf?mod=mw_rss_topstories",
-        "category": "Finance",
-        "source": "MarketWatch Top",
-        "tier": 1.1,
-        "published_iso": "2026-07-06T21:16:00+00:00",
-        "image_url": "https://images.mktw.net/im-60464887",
-        "corroborating_sources": [],
-        "score": 5.794
+        "score": 5.732
       },
       {
         "title": "Fuel providers hopeful of more price reductions",
@@ -1017,7 +937,55 @@
         "published_iso": "2026-07-06T05:09:19+00:00",
         "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/08dd/live/ea9de8a0-76ed-11f1-a691-bbfab7f76614.png",
         "corroborating_sources": [],
-        "score": 5.781
+        "score": 5.713
+      },
+      {
+        "title": "The Nasdaq-100 has been far more volatile than the S&P 500. Now add SpaceX to the mix.",
+        "summary": "While SpaceX is due to join the Nasdaq-100 on Tuesday, it won’t become part of the S P 500 for at least another year — likely furthering the volatility spread between those two indexes.",
+        "url": "https://www.marketwatch.com/story/the-nasdaq-100-has-been-far-more-volatile-than-the-s-p-500-now-add-spacex-to-the-mix-cd397c36?mod=mw_rss_topstories",
+        "category": "Finance",
+        "source": "MarketWatch Top",
+        "tier": 1.1,
+        "published_iso": "2026-07-06T22:39:00+00:00",
+        "image_url": "https://images.mktw.net/im-68235461",
+        "corroborating_sources": [],
+        "score": 5.681
+      },
+      {
+        "title": "U.S.-Belgium match could draw record TV audience amid the Trump World Cup controversy",
+        "summary": "Some industry experts are predicting all-time viewing records for a U.S. soccer game",
+        "url": "https://www.marketwatch.com/story/u-s-belgium-match-could-draw-record-tv-audience-amid-the-trump-world-cup-controversy-52783b8f?mod=mw_rss_topstories",
+        "category": "Finance",
+        "source": "MarketWatch Top",
+        "tier": 1.1,
+        "published_iso": "2026-07-06T22:17:00+00:00",
+        "image_url": "https://images.mktw.net/im-55702753",
+        "corroborating_sources": [],
+        "score": 5.667
+      },
+      {
+        "title": "Your investing expectations are more than double the reality. Here is the tough truth.",
+        "summary": "Long-term real returns above 10% annualized are exceedingly rare.",
+        "url": "https://www.marketwatch.com/story/your-investing-expectations-are-more-than-double-the-reality-here-is-the-tough-truth-dea61820?mod=mw_rss_topstories",
+        "category": "Finance",
+        "source": "MarketWatch Top",
+        "tier": 1.1,
+        "published_iso": "2026-07-06T21:19:00+00:00",
+        "image_url": "https://images.mktw.net/im-839207",
+        "corroborating_sources": [],
+        "score": 5.63
+      },
+      {
+        "title": "You want a portfolio that matches your morals. Your retirement plan might disagree.",
+        "summary": "More investors want their money to reflect their values. It feels righteous — but the reality is a lot messier.",
+        "url": "https://www.marketwatch.com/story/you-want-a-portfolio-that-matches-your-morals-but-that-could-sink-your-retirement-plans-0b6fb5bf?mod=mw_rss_topstories",
+        "category": "Finance",
+        "source": "MarketWatch Top",
+        "tier": 1.1,
+        "published_iso": "2026-07-06T21:16:00+00:00",
+        "image_url": "https://images.mktw.net/im-60464887",
+        "corroborating_sources": [],
+        "score": 5.628
       },
       {
         "title": "Your 5 biggest ‘Trump account’ questions, answered",
@@ -1029,7 +997,7 @@
         "published_iso": "2026-07-06T20:53:00+00:00",
         "image_url": "https://images.mktw.net/im-24785909",
         "corroborating_sources": [],
-        "score": 5.777
+        "score": 5.614
       },
       {
         "title": "Klarna seeks U.S. bank charter in latest push beyond buy now, pay later",
@@ -1041,7 +1009,7 @@
         "published_iso": "2026-07-06T15:36:23+00:00",
         "image_url": "https://image.cnbcfm.com/api/v1/image/108196993-17575237122025-09-10t162504z_731787026_rc22pgainw7b_rtrmadp_0_klarna-ipo.jpeg?v=1783351856&amp;w=1920&amp;h=1080",
         "corroborating_sources": [],
-        "score": 5.729
+        "score": 5.608
       },
       {
         "title": "Stocks making the biggest moves premarket: Lam Research, Intel, Datadog & more",
@@ -1053,91 +1021,79 @@
         "published_iso": "2026-07-06T13:22:20+00:00",
         "image_url": "https://image.cnbcfm.com/api/v1/image/108167361-1751494714941-gettyimages-2152606581-jung-awssummi240516_nps7g.jpeg?v=1751494762&amp;w=1920&amp;h=1080",
         "corroborating_sources": [],
-        "score": 5.658
+        "score": 5.551
       },
       {
-        "title": "Rivian forecasts quarterly revenue above estimates",
+        "title": "China smartphone sales drop 13% during 618 festival as memory costs limit discounts",
         "summary": "",
-        "url": "https://www.investing.com/news/stock-market-news/rivian-forecasts-quarterly-revenue-above-estimates-4777728",
+        "url": "https://www.investing.com/news/stock-market-news/china-smartphone-sales-drop-13-during-618-festival-as-memory-costs-limit-discounts-4778203",
         "category": "Finance",
         "source": "Investing.com",
         "tier": 0.8,
-        "published_iso": "2026-07-06T21:30:41+00:00",
-        "image_url": "https://i-invdn-com.investing.com/trkd-images/LYNXMPEM651J1_L.jpg",
+        "published_iso": "2026-07-07T03:48:28+00:00",
+        "image_url": "https://i-invdn-com.investing.com/trkd-images/LYNXMPEM6605F_L.jpg",
         "corroborating_sources": [],
-        "score": 5.326
+        "score": 5.441
       },
       {
-        "title": "Mexico stocks higher at close of trade; S&P/BMV IPC up 0.61%",
+        "title": "Why is Nextage stock tumbling today?",
         "summary": "",
-        "url": "https://www.investing.com/news/stock-market-news/mexico-stocks-higher-at-close-of-trade-spbmv-ipc-up-061-4777725",
+        "url": "https://www.investing.com/news/stock-market-news/why-is-nextage-stock-tumbling-today-93CH-4778200",
         "category": "Finance",
         "source": "Investing.com",
         "tier": 0.8,
-        "published_iso": "2026-07-06T21:30:03+00:00",
-        "image_url": "https://i-invdn-com.investing.com/news/LYNXNPED8P25V_M.jpg",
-        "corroborating_sources": [],
-        "score": 5.325
-      },
-      {
-        "title": "Rivian stock tumbles on 75 million share offering announcement",
-        "summary": "",
-        "url": "https://www.investing.com/news/stock-market-news/rivian-stock-tumbles-on-75-million-share-offering-announcement-93CH-4777724",
-        "category": "Finance",
-        "source": "Investing.com",
-        "tier": 0.8,
-        "published_iso": "2026-07-06T21:29:38+00:00",
+        "published_iso": "2026-07-07T03:33:24+00:00",
         "image_url": "https://i-invdn-com.investing.com/news/world_news_2_108x81.jpg",
         "corroborating_sources": [],
-        "score": 5.325
+        "score": 5.427
       },
       {
-        "title": "Lockheed Martin stock wins $203M in defense contracts from U.S.",
+        "title": "Fiserv exploring sale of debit card network to big US banks, source says",
         "summary": "",
-        "url": "https://www.investing.com/news/stock-market-news/lockheed-martin-stock-wins-203m-in-defense-contracts-from-us-93CH-4777702",
+        "url": "https://www.investing.com/news/stock-market-news/big-us-banks-explore-fiserv-network-deal-wsj-reports-4778029",
         "category": "Finance",
         "source": "Investing.com",
         "tier": 0.8,
-        "published_iso": "2026-07-06T21:21:51+00:00",
+        "published_iso": "2026-07-07T02:18:37+00:00",
+        "image_url": "https://i-invdn-com.investing.com/trkd-images/LYNXMPEM651O5_L.jpg",
+        "corroborating_sources": [],
+        "score": 5.364
+      },
+      {
+        "title": "Stocks ease despite upbeat Samsung forecast, yen languishes",
+        "summary": "",
+        "url": "https://www.investing.com/news/stock-market-news/stocks-ease-despite-upbeat-samsung-forecast-yen-languishes-4778193",
+        "category": "Finance",
+        "source": "Investing.com",
+        "tier": 0.8,
+        "published_iso": "2026-07-07T02:06:28+00:00",
+        "image_url": "https://i-invdn-com.investing.com/trkd-images/LYNXMPEM6602Y_L.jpg",
+        "corroborating_sources": [],
+        "score": 5.354
+      },
+      {
+        "title": "Wall Street banks explore payments network deal to bypass fee caps: WSJ",
+        "summary": "",
+        "url": "https://www.investing.com/news/stock-market-news/wall-street-banks-explore-payments-network-deal-to-bypass-fee-caps-wsj-4778192",
+        "category": "Finance",
+        "source": "Investing.com",
+        "tier": 0.8,
+        "published_iso": "2026-07-07T02:00:22+00:00",
+        "image_url": null,
+        "corroborating_sources": [],
+        "score": 5.349
+      },
+      {
+        "title": "Why is Wisetech Global stock surging today?",
+        "summary": "",
+        "url": "https://www.investing.com/news/stock-market-news/why-is-wisetech-global-stock-surging-today-93CH-4778189",
+        "category": "Finance",
+        "source": "Investing.com",
+        "tier": 0.8,
+        "published_iso": "2026-07-07T01:55:24+00:00",
         "image_url": "https://i-invdn-com.investing.com/news/world_news_2_108x81.jpg",
         "corroborating_sources": [],
-        "score": 5.319
-      },
-      {
-        "title": "L3Harris wins $499.6M defense contract",
-        "summary": "",
-        "url": "https://www.investing.com/news/stock-market-news/l3harris-wins-4996m-defense-contract-93CH-4777700",
-        "category": "Finance",
-        "source": "Investing.com",
-        "tier": 0.8,
-        "published_iso": "2026-07-06T21:21:22+00:00",
-        "image_url": "https://i-invdn-com.investing.com/news/world_news_2_108x81.jpg",
-        "corroborating_sources": [],
-        "score": 5.318
-      },
-      {
-        "title": "Colombia stocks lower at close of trade; COLCAP down 0.00%",
-        "summary": "",
-        "url": "https://www.investing.com/news/stock-market-news/colombia-stocks-lower-at-close-of-trade-colcap-down-000-4777709",
-        "category": "Finance",
-        "source": "Investing.com",
-        "tier": 0.8,
-        "published_iso": "2026-07-06T21:20:04+00:00",
-        "image_url": "https://i-invdn-com.investing.com/news/Colombian_Securities_Exchange_M_1440056298.jpg",
-        "corroborating_sources": [],
-        "score": 5.317
-      },
-      {
-        "title": "Walmart cuts prices on summer items across US stores",
-        "summary": "",
-        "url": "https://www.investing.com/news/stock-market-news/walmart-cuts-prices-on-summer-items-across-us-stores-93CH-4777670",
-        "category": "Finance",
-        "source": "Investing.com",
-        "tier": 0.8,
-        "published_iso": "2026-07-06T21:14:58+00:00",
-        "image_url": "https://i-invdn-com.investing.com/news/world_news_2_108x81.jpg",
-        "corroborating_sources": [],
-        "score": 5.313
+        "score": 5.345
       },
       {
         "title": "Bitcoin and ethereum prices today, Monday, July 6, 2026: Prices falling after last week's rebound",
@@ -1149,7 +1105,7 @@
         "published_iso": "2026-07-06T13:13:07+00:00",
         "image_url": "https://s.yimg.com/uu/api/res/1.2/8IgKHs0.oTwPcn40eBVnmg--~B/aD00MDg7dz02MTI7YXBwaWQ9eXRhY2h5b24-/https://d29szjachogqwa.cloudfront.net/images/user-uploaded/bitcoin_1_3688.jpg",
         "corroborating_sources": [],
-        "score": 5.174
+        "score": 5.067
       },
       {
         "title": "Silver prices today, Monday, July 6, 2026: Silver prices find room to rise following June jobs report",
@@ -1161,7 +1117,7 @@
         "published_iso": "2026-07-06T12:42:26+00:00",
         "image_url": "https://s.yimg.com/os/creatr-uploaded-images/2024-04/21b3a190-027e-11ef-bbb5-a0f6297c401d",
         "corroborating_sources": [],
-        "score": 5.159
+        "score": 5.055
       },
       {
         "title": "Gold prices today, Monday, July 6: Higher prices following Thursday's jobs report",
@@ -1173,7 +1129,7 @@
         "published_iso": "2026-07-06T12:13:21+00:00",
         "image_url": "https://s.yimg.com/uu/api/res/1.2/zXVwgsaFyGNgvrXU6TElCg--~B/aD0xMDgwO3c9MTkyMDthcHBpZD15dGFjaHlvbg--/https://d29szjachogqwa.cloudfront.net/images/user-uploaded/monday.png",
         "corroborating_sources": [],
-        "score": 5.145
+        "score": 5.044
       },
       {
         "title": "Best CD rates today, Monday, July 6, 2026: Lock in up to 4.2% APY",
@@ -1185,83 +1141,21 @@
         "published_iso": "2026-07-06T10:00:00+00:00",
         "image_url": "https://s.yimg.com/os/creatr-uploaded-images/2024-07/c47b17e1-4f64-11ef-bcf5-d7c22925c744",
         "corroborating_sources": [],
-        "score": 5.086
+        "score": 4.997
       }
     ],
     "Geopolitics": [
       {
-        "title": "Trump says Walmart cut prices at his request, but Walmart statement omits administration’s role",
-        "summary": "President Donald Trump speaks at a lunch in the White House Rose Garden, Monday, July 6, 2026, in Washington. (AP Photo/Julia Demaree Nikhinson) 2026-07-06T22:48:35Z WASHINGTON (AP) — President Donald Trump on Monday sought to take credit for recent price cuts by Walmart, but a statement by the retailer made no mention of the administration’s involvement in its decision. The president has faced public backlash over inflation rising during his watch, as prices climbed initially in the aftermath of his tariffs and later with the start of the Iran war in late February. Trump described a recent bi",
-        "url": "https://apnews.com/article/trump-walmart-inflation-beef-prices-ffc6faf84b68a0a5c5389217b77021ae",
-        "category": "Geopolitics",
-        "source": "AP Top News",
-        "tier": 1.2,
-        "published_iso": "2026-07-06T22:53:03+00:00",
-        "image_url": null,
-        "corroborating_sources": [],
-        "score": 9.633
-      },
-      {
-        "title": "Middle East crisis: Funeral procession for supreme leader Ali Khamenei begins in Iran – as it happened",
-        "summary": "Millions join funeral procession in capital of Tehran to mourn Khamenei who was kiled in US-Israel airstrikes in February Lebanese state media said an Israeli strike on a car in the country’s south on Monday killed four people, including three women, despite a fragile ceasefire between Israel and Hezbollah. Lebanon’s official National News Agency (NNA) said a school principal, her mother, a foreign female domestic worker and a male Syrian worker were killed when “an Israeli drone targeted the car” they were travelling in as they returned from inspecting their family home in Nabatieh al-Fawqa. ",
-        "url": "https://www.theguardian.com/world/live/2026/jul/06/iran-middle-east-crisis-funeral-supreme-leader-ali-khamenei-tehran-latest-news-updates",
+        "title": "Marine Le Pen’s political future at stake with ruling on electoral ban imminent",
+        "summary": "Leader of France’s far-right National Rally and a contender for the presidency set to hear appeal decision on Tuesday Marine Le Pen, France’s far-right figurehead and a leading contender for its presidency, will learn on Tuesday whether she can run in next year’s election when a Paris appeals court rules on her attempt to overturn a ban on holding elected office . The ruling will determine whether the far-right National Rally (RN) will be led by Le Pen, 57, or her young protege, Jordan Bardella, 30 in next year’s general elections. Continue reading...",
+        "url": "https://www.theguardian.com/world/2026/jul/07/marine-le-pen-political-future-waits-electoral-ban-upheld",
         "category": "Geopolitics",
         "source": "Guardian World",
         "tier": 1.1,
-        "published_iso": "2026-07-06T08:16:36+00:00",
-        "image_url": "https://i.guim.co.uk/img/media/1f9581f0a6402e1827a05f15c4bd4167805c55e7/55_0_1881_1504/master/1881.jpg?width=700&quality=85&auto=format&fit=max&s=80268286612d5447c38088171cfa01d3",
-        "corroborating_sources": [
-          "NPR World"
-        ],
-        "score": 9.037
-      },
-      {
-        "title": "Ex-civil rights agency commissioner fired by Trump drops lawsuit in wake of Supreme Court ruling",
-        "summary": "Jocelyn Samuels speaks in Seattle, Feb. 4, 2014. (AP Photo/Elaine Thompson, File) 2026-07-06T22:51:50Z NEW YORK (AP) — A former Democratic commissioner of one of the country’s top civil rights agencies dropped a lawsuit Monday challenging her dismissal by President Donald Trump, citing a recent Supreme Court ruling that dramatically enhanced the president’s power over independent agencies. Trump’s unprecedented dismissal of Jocelyn Samuels and another Democrat from the Equal Employment Opportunity Commission cleared the way for his shake-up of civil rights enforcement, which has prioritized ro",
-        "url": "https://apnews.com/article/equal-employment-commissioner-fired-lawsuit-5fae543c35a27467a99a8b20c8291207",
-        "category": "Geopolitics",
-        "source": "AP Top News",
-        "tier": 1.2,
-        "published_iso": "2026-07-06T23:23:02+00:00",
-        "image_url": null,
+        "published_iso": "2026-07-07T04:00:29+00:00",
+        "image_url": "https://i.guim.co.uk/img/media/3f6e82b55ab1c867e7c62711f411ead18ccebfca/267_0_2664_2132/master/2664.jpg?width=700&quality=85&auto=format&fit=max&s=9a5757006f5266a6114319ab7d730a1b",
         "corroborating_sources": [],
-        "score": 8.758
-      },
-      {
-        "title": "Scott Dixon and Felix Rosenqvist sign multiyear deals to begin racing for Arrow McLaren in 2027",
-        "summary": "Scott Dixon, left, stands next to Chip Ganassi before the start an IndyCar auto race at World Wide Technology Raceway on Aug. 21, 2021, in Madison, Ill. (AP Photo/Jeff Roberson, File) 2026-07-06T19:57:06Z Six-time IndyCar Series champion Scott Dixon and reigning Indianapolis 500 winner Felix Rosenqvist are joining the Arrow McLaren racing team next season after agreeing to multiyear deals. They will be part of the team’s three-car full-season lineup that also includes Pato O’Ward. And Ryan Hunter-Reay, the 2014 Indy 500 winner, will be in the driver’s seat again in its fourth entry in the 111t",
-        "url": "https://apnews.com/article/indy-car-mclaren-dixon-3d42bdc36ce6ab9136137795b77ac101",
-        "category": "Geopolitics",
-        "source": "AP Top News",
-        "tier": 1.2,
-        "published_iso": "2026-07-06T22:53:03+00:00",
-        "image_url": null,
-        "corroborating_sources": [],
-        "score": 8.733
-      },
-      {
-        "title": "Arthur Fery becomes 1st British wild card to reach Wimbledon quarterfinals in professional era",
-        "summary": "Arthur Fery of Britain celebrates winning the men&#x27;s singles fourth round match against Grigor Dimitrov of Bulgaria at the Wimbledon Tennis Championships in London, Monday, July 6, 2026.(AP Photo/Kirsty Wigglesworth) 2026-07-06T20:48:42Z LONDON (AP) — Arthur Fery used to come to Wimbledon when he was a kid to watch Roger Federer on Centre Court. He grew up only five minutes away from the All England Club. On Monday, the tables were turned when Federer was in attendance watching Fery on the sport’s most famous court as he became the first British wild card to reach the quarterfinals at a Gr",
-        "url": "https://apnews.com/article/arthur-fery-wimbledon-3291b9a50933119f0e94f257b50ff645",
-        "category": "Geopolitics",
-        "source": "AP Top News",
-        "tier": 1.2,
-        "published_iso": "2026-07-06T22:53:03+00:00",
-        "image_url": null,
-        "corroborating_sources": [],
-        "score": 8.733
-      },
-      {
-        "title": "US prosecutors credit gold trader in Iran sanctions case with key help ahead of sentencing",
-        "summary": "In this Tuesday, Dec. 17, 2013 photo, Turkish-Iranian businessman Reza Zarrab, who is charged currently in the U.S. for evading sanctions on Iran, is surrounded by the media members as he arrives at a courthouse in Istanbul, in a separate case against him. (Depo Photos via AP, File) 2026-07-06T21:56:46Z NEW YORK (AP) — U.S. prosecutors are seeking leniency at next-week’s sentencing of a Turkish-Iranian businessman who admitted to helping Iranians and their government evade sanctions and who provided key testimony at a 2017 corruption trial that strained relations between the U.S. and Turkey. T",
-        "url": "https://apnews.com/article/iran-sanctions-reza-zarrab-24d598beef98080ccd1b63b676a2555b",
-        "category": "Geopolitics",
-        "source": "AP Top News",
-        "tier": 1.2,
-        "published_iso": "2026-07-06T22:23:02+00:00",
-        "image_url": null,
-        "corroborating_sources": [],
-        "score": 8.708
+        "score": 8.631
       },
       {
         "title": "Canada to buy 12 hi-tech German submarines after bidding war",
@@ -1273,7 +1167,7 @@
         "published_iso": "2026-07-06T16:41:47+00:00",
         "image_url": "https://i.guim.co.uk/img/media/ac2227e977f1fe31de4cb26ab33a750970eb0e42/405_0_2250_1800/master/2250.jpg?width=700&quality=85&auto=format&fit=max&s=2d28b6ea91b63af568cadf13b2ac50ab",
         "corroborating_sources": [],
-        "score": 8.307
+        "score": 8.178
       },
       {
         "title": "Russia-Ukraine war escalates before NATO summit",
@@ -1285,31 +1179,43 @@
         "published_iso": "2026-07-06T20:37:06+00:00",
         "image_url": "https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-5883752",
         "corroborating_sources": [],
-        "score": 8.305
+        "score": 8.144
       },
       {
-        "title": "Zelenskyy calls for ‘strong decisions’ at Nato summit as Russia kills 21 in overnight strikes on Kyiv – as it happened",
-        "summary": "Ukraine’s president makes plea ahead of summit this week in Ankara where he is due to meet Trump on the sidelines Meanwhile, the UK has just sanctioned Russian actors involved in researching, developing and producing the novichok nerve agent and the lethal toxic Epibatidine, used in the Salisbury attack and the poisoning of Alexei Navalny. Among those sanctions are SC Signal, a Russian state scientific research institute, as well as three individuals researching novichok and Epibatidine. “Russia’s repeated use of chemical weapons is a sickening violation of international law and a direct threa",
-        "url": "https://www.theguardian.com/world/live/2026/jul/06/ukraine-russia-zelenskyy-nato-summit-strikes-kyiv-europe-latest-news-updates",
+        "title": "More video expected during hearing in case against man accused of killing Charlie Kirk",
+        "summary": "A well-wisher places flowers at a makeshift memorial set up for Charlie Kirk at Turning Point USA headquarters, Sept. 11, 2025, in Phoenix. (AP Photo/Ross D. Franklin, File) 2026-07-07T04:02:00Z PROVO, Utah (AP) — Prosecutors seeking to convince a Utah judge to put the man accused of killing Charlie Kirk on trial are expected to present more law enforcement video and a recorded statement from the defendant’s roommate as a weeklong preliminary hearing continues Tuesday. The court proceedings began Monday and so far have produced no major revelations but marked the most significant presentation ",
+        "url": "https://apnews.com/article/charlie-kirk-trial-tyler-robinson-06e3bb2f1112f45e1b9205270d718eb4",
         "category": "Geopolitics",
-        "source": "Guardian World",
-        "tier": 1.1,
-        "published_iso": "2026-07-06T16:04:29+00:00",
-        "image_url": "https://i.guim.co.uk/img/media/dda6b6ad43c3a9538c23cc5361ec5470592085dd/381_0_4166_3334/master/4166.jpg?width=700&quality=85&auto=format&fit=max&s=94aab6b79e3870166e8e590915dc19fc",
+        "source": "AP Top News",
+        "tier": 1.2,
+        "published_iso": "2026-07-07T04:23:03+00:00",
+        "image_url": "https://dims.apnews.com/dims4/default/c0d31cb/2147483647/strip/true/crop/1280x1280+0+0/resize/100x100!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2Fb8%2F6d%2Fc6ee60b34127a0bec6be290f10be%2Fimage-from-ios.jpg",
         "corroborating_sources": [],
-        "score": 8.285
+        "score": 7.912
       },
       {
-        "title": "Ukraine warns of interceptor missile shortage as 23 killed in Kyiv region",
-        "summary": "President Zelensky says Sunday's \"massive Russian attack\" on Kyiv consisted of 68 missiles and 351 strike drones.",
-        "url": "https://www.bbc.co.uk/news/articles/cewqqnd7zdwo?at_medium=RSS&at_campaign=rss",
+        "title": "US airlines chase profits in premium cabins, deepening a fare class divide on flights",
+        "summary": "A bartender pours a glass of sparkling wine at the United Club lounge, Monday, June 29, 2026, in Minneapolis, Minn. (AP Photo/Chris Carlson) 2026-07-07T04:05:06Z They may arrive at the same destination, but two passengers on the same flight can have strikingly different travel experiences. One traveler breezes through a priority security lane and heads straight to an invite-only lounge for craft cocktails and a chef-prepared meal before boarding early. A flight attendant offering a glass of champagne and a warm hand towel welcomes the passenger to a spacious seat at the front of the plane . Th",
+        "url": "https://apnews.com/article/airlines-premium-passengers-economy-flights-b1ac3b9c05ca942dec213679ab21a62b",
         "category": "Geopolitics",
-        "source": "BBC World",
-        "tier": 1.4,
-        "published_iso": "2026-07-06T21:02:37+00:00",
-        "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/c163/live/a90f6680-791c-11f1-9510-1546718f668b.jpg",
+        "source": "AP Top News",
+        "tier": 1.2,
+        "published_iso": "2026-07-07T04:23:02+00:00",
+        "image_url": null,
         "corroborating_sources": [],
-        "score": 8.064
+        "score": 7.912
+      },
+      {
+        "title": "It’s decision day in Prince Harry’s final privacy suit against British tabloids",
+        "summary": "Britain&#x27;s Prince Harry arrives at London&#x27;s High Court to lead a group, including Elton John and Elizabeth Hurley, accusing the Daily Mail&#x27;s publisher of privacy invasion through unlawful tactics in a trial that is part of a wider phone hacking scandal in London, on Jan. 21, 2026. (AP Photo/Kirsty Wigglesworth, File) 2026-07-07T04:07:22Z LONDON (AP) — Prince Harry ′s longtime battle with the British tabloids reaches its climax Tuesday. A judge in London’s High Court will rule on the Duke of Sussex’s privacy invasion lawsuit against the publisher of the Daily Mail, ending a trio o",
+        "url": "https://apnews.com/article/prince-harry-lawsuit-daily-mail-charles-elton-2ada29f1fc84ade5d414c3b49ac47ac6",
+        "category": "Geopolitics",
+        "source": "AP Top News",
+        "tier": 1.2,
+        "published_iso": "2026-07-07T04:23:02+00:00",
+        "image_url": null,
+        "corroborating_sources": [],
+        "score": 7.912
       },
       {
         "title": "Ex-Syrian intelligence chief found guilty of torture and sexual abuse by Austrian court",
@@ -1321,43 +1227,67 @@
         "published_iso": "2026-07-06T17:22:38+00:00",
         "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/aa16/live/efc9a000-7957-11f1-9988-0351319ba973.jpg",
         "corroborating_sources": [],
-        "score": 7.912
+        "score": 7.778
       },
       {
-        "title": "Alaska’s persistently high SNAP payment errors top nation for fourth consecutive year",
-        "summary": "2026-07-07T00:19:17Z Alaska’s food assistance program had the highest payment error rate in the country for a fourth straight year last year, according to rankings put out by the Agriculture Department late last month . During the last federal fiscal year, which ended in September 2025, 23% of Supplemental Nutrition Assistance Program recipients in Alaska ended up with significantly more or significantly less in benefits than they should have, according to the federal report. The national average was 11%. Alaska’s 2025 rate is down slightly from the 25% error rate in 2024 and down sharply from",
-        "url": "https://apnews.com/article/alaska-snap-food-assistance-program-errors-overpayments-2025-rate-b6c472fb3877ec2cd304373b7b162ce5",
+        "title": "Tanker set ablaze after being struck by projectile in the Strait of Hormuz off the coast of Oman",
+        "summary": "This is a locator map for the Gulf Cooperation Council member states: Saudi Arabia, Bahrain, Qatar, Oman, Kuwait and United Arab Emirates. (AP Photo) 2026-07-07T01:12:41Z DUBAI, United Arab Emirates (AP) — A tanker traveling off the coast of Oman in the Strait of Hormuz caught on fire early Tuesday morning after being struck by a projectile, the British military said. The United Kingdom Maritime Trade Operations center said the tanker had been hit near Limah, Oman, in the strait. It said the projectile hit the port side of the vessel while trying to traveling south out of the strait toward the",
+        "url": "https://apnews.com/article/iran-us-israel-war-oil-4732228810c9839a1258309ad43b8289",
         "category": "Geopolitics",
         "source": "AP Top News",
         "tier": 1.2,
-        "published_iso": "2026-07-07T00:23:03+00:00",
-        "image_url": "https://dims.apnews.com/dims4/default/295c329/2147483647/strip/true/crop/675x450+12+0/resize/980x653!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2F90%2F29%2F4e3c1cc7446089a9101a7bdff4c8%2Fdefaultshareimage-copy.png",
+        "published_iso": "2026-07-07T01:23:03+00:00",
+        "image_url": null,
         "corroborating_sources": [],
-        "score": 7.912
+        "score": 7.76
       },
       {
-        "title": "News live: Conroy says China missile launch ‘more likely to be a coincidence’ than linked to new Australia-Fiji pact",
-        "summary": "Wong says missile test in Pacific a ‘destabilising act’ that could ‘lead to miscalculation’. Follow today’s news live Get our breaking news email , free app or daily news podcast Marles said he doubts China tested the long-range weapon yesterday in response to Anthony Albanese being in the Pacific to sign a new defence alliance with Fiji, but said Australia remains deeply concerned by the development. He told ABC News: At the end of the day, what we’re seeing here is a long-range missile test from China, which China itself has said is nuclear capable … This is China demonstrating a much greate",
+        "title": "Australia news live: China missile test ‘not something a friend does’, Solomon Islands PM says in joint appearance with Albanese",
+        "summary": "Albanese says work on comprehensive treaty advancing as new health and education funding from Australia is announced. Follow today’s news live Get our breaking news email , free app or daily news podcast Richard Marles said he doubted China tested the long-range weapon yesterday in response to Anthony Albanese being in the Pacific to sign a new defence alliance with Fiji but said Australia remained deeply concerned by the development. He told ABC News: At the end of the day, what we’re seeing here is a long-range missile test from China, which China itself has said is nuclear-capable … This is",
         "url": "https://www.theguardian.com/australia-news/live/2026/jul/07/australia-news-live-penny-wong-china-missile-test-pacific-anthony-albanese-solomon-islands-defence-royal-commission-antisemitism-meta-ntwnfb",
         "category": "Geopolitics",
         "source": "Guardian World",
         "tier": 1.1,
-        "published_iso": "2026-07-07T00:18:54+00:00",
-        "image_url": "https://i.guim.co.uk/img/media/eb62fd438a63ba5f189cafa57f0e1e6778ee8022/117_0_2108_1687/master/2108.jpg?width=700&quality=85&auto=format&fit=max&s=ace1d425cbc4d376c16ec13d2c77f868",
+        "published_iso": "2026-07-07T04:17:01+00:00",
+        "image_url": "https://i.guim.co.uk/img/media/f3a7f69225f6c48d239393a08ff40c973729b5f0/2293_604_2562_2049/master/2562.jpg?width=700&quality=85&auto=format&fit=max&s=94b075de4487f7a61d3c1292af149b58",
         "corroborating_sources": [],
-        "score": 7.748
+        "score": 7.746
       },
       {
-        "title": "Democrats begin withdrawing endorsements of Graham Platner after Senate candidate is accused of sexual assault – live",
-        "summary": "Democrats call allegation against the Maine US Senate candidate ‘serious and credible’ and ‘troubling’; Democratic nominee to ‘reflect’ on ‘best path forward’ Woman accuses Maine Senate candidate Graham Platner of sexual assault Sign up for the Breaking News US email Cruz just thanked Donald Trump for “getting rid of that ridiculous red card” – apparently in reference to Folarin Balogun . The US striker received a straight red card from referee Raphael Claus after a video review, but Fifa have now lifted Bolagun’s one-match ban, making him now available to play for the USA in their knockout ma",
-        "url": "https://www.theguardian.com/us-news/live/2026/jul/06/donald-trump-democrats-michigan-mallory-mcmorrow-us-politics-latest-news-updates",
+        "title": "Tanker on fire off coast of Oman after being hit by projectile",
+        "summary": "Iran&#039;s state TV claims the tanker ignored warnings, but no direct responsibility for the attack has been declared.",
+        "url": "https://www.aljazeera.com/news/2026/7/7/tanker-on-fire-off-coast-of-oman-after-being-hit-by-projectile?traffic_source=rss",
+        "category": "Geopolitics",
+        "source": "Al Jazeera",
+        "tier": 1.1,
+        "published_iso": "2026-07-07T04:06:03+00:00",
+        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/ap_6a48491c701c5-1783122204.jpg?resize=1920%2C1440",
+        "corroborating_sources": [],
+        "score": 7.736
+      },
+      {
+        "title": "Europe faces up to prospect US may be unable to arm Nato allies",
+        "summary": "Wars in Iran and Ukraine have expended stockpiles of sought-after missiles, leaving gap in military resources There are growing concerns in Europe that the US defence industrial base is no longer providing the weapons pledged to Nato allies with US stockpiles depleted owing to the conflicts in Ukraine and Iran, leaving allies to consider new avenues to arm and defend themselves. As Nato leaders including the US president, Donald Trump, convene in Ankara , Turkey, the US plans to address European defence spending and concerns over the Trump administration’s future commitment to the military all",
+        "url": "https://www.theguardian.com/world/2026/jul/07/europe-faces-up-to-prospect-us-may-be-unable-to-arm-nato-allies",
         "category": "Geopolitics",
         "source": "Guardian World",
         "tier": 1.1,
-        "published_iso": "2026-07-07T00:07:23+00:00",
-        "image_url": "https://i.guim.co.uk/img/media/aa141a99030d322e668093e567b496f60873e57b/981_0_4532_3628/master/4532.jpg?width=700&quality=85&auto=format&fit=max&s=687f04184af56048d4a728e0c4bf7423",
+        "published_iso": "2026-07-07T04:00:30+00:00",
+        "image_url": "https://i.guim.co.uk/img/media/fe4037b7eb76b2a96cfeb0339cf0bf96602fab15/245_0_3541_2833/master/3541.jpg?width=700&quality=85&auto=format&fit=max&s=fc1bca1847118dcb827dd2e8acbcc726",
         "corroborating_sources": [],
-        "score": 7.738
+        "score": 7.731
+      },
+      {
+        "title": "Anyone who doesn’t feel for Palestinians is not human: Egypt coach Hassan",
+        "summary": "Hossam Hassan uses his FIFA World Cup news conference to raise awareness about the plight of Palestinians in Gaza.",
+        "url": "https://www.aljazeera.com/sports/2026/7/7/anyone-who-doesnt-feel-for-palestinians-is-not-human-egypt-coach-hassan?traffic_source=rss",
+        "category": "Geopolitics",
+        "source": "Al Jazeera",
+        "tier": 1.1,
+        "published_iso": "2026-07-07T03:02:23+00:00",
+        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/AFP__20260706__2284381850__v1__HighRes__EgyptPressConferenceFifaWorldCup2026-1783391586.jpg?resize=1920%2C1440",
+        "corroborating_sources": [],
+        "score": 7.681
       },
       {
         "title": "Prison education cuts driving drug use, self-harm and violence, says watchdog",
@@ -1369,7 +1299,7 @@
         "published_iso": "2026-07-06T23:01:23+00:00",
         "image_url": "https://i.guim.co.uk/img/media/ecff802e26783a1a24654e85eb23c20624e8fd90/474_0_4151_3322/master/4151.jpg?width=700&quality=85&auto=format&fit=max&s=ff94a56911a1e36368a200353480bb1a",
         "corroborating_sources": [],
-        "score": 7.68
+        "score": 7.496
       },
       {
         "title": "Starmer to rally European allies at Nato summit amid concerns over US stance",
@@ -1381,7 +1311,7 @@
         "published_iso": "2026-07-06T21:30:21+00:00",
         "image_url": "https://i.guim.co.uk/img/media/e4a3f7978290f432b905e05cbbf2d3ca730d254c/130_0_4818_3854/master/4818.jpg?width=700&quality=85&auto=format&fit=max&s=b4792ad7628d57dda61a11ce7470b546",
         "corroborating_sources": [],
-        "score": 7.605
+        "score": 7.437
       },
       {
         "title": "‘Living like this is agony’: Cuba suffers third nationwide blackout in six months",
@@ -1393,7 +1323,7 @@
         "published_iso": "2026-07-06T19:30:09+00:00",
         "image_url": "https://i.guim.co.uk/img/media/79fa1d2bff3f98bf33c1be74269065d0bbbfb006/350_0_4080_3264/master/4080.jpg?width=700&quality=85&auto=format&fit=max&s=c527e41d8ff3b768ccec53d6792d34aa",
         "corroborating_sources": [],
-        "score": 7.516
+        "score": 7.366
       },
       {
         "title": "Do bees have inner lives? Slow-motion video reveals bumblebee behaviour similar to ‘liking’ or ‘disliking’",
@@ -1405,19 +1335,19 @@
         "published_iso": "2026-07-06T19:00:18+00:00",
         "image_url": "https://i.guim.co.uk/img/media/edfeb35da745c692d066f60b16be0486230be906/8_0_3121_2498/master/3121.jpg?width=700&quality=85&auto=format&fit=max&s=da2887dfa387020fc5424c8074088e7c",
         "corroborating_sources": [],
-        "score": 7.496
+        "score": 7.349
       },
       {
-        "title": "Fraudster George Cottrell seen at numerous Reform events despite ‘no formal role’ in party",
-        "summary": "Nigel Farage urged to clarify ‘dependence’ on Cottrell, who also joined Reform leader in Abu Dhabi in December Nigel Farage has been accompanied by his friend George Cottrell, a convicted fraudster, to numerous Reform events and fundraisers and on a trip to Abu Dhabi, raising questions about the claim that he has no official role in the party. Labour has called on Farage to clarify his “personal and financial dependence” on Cottrell, who has also been supporting the politician’s lifestyle through accommodation and security before the election. Continue reading...",
-        "url": "https://www.theguardian.com/politics/2026/jul/06/reform-uk-nigel-farage-george-cottrell",
+        "title": "Zelensky to press Nato for air defence systems after intense Russian strikes",
+        "summary": "The Ukrainian president will use the Nato meeting in Turkey to argue he needs more interceptor missiles.",
+        "url": "https://www.bbc.co.uk/news/articles/c9d227e5zj6o?at_medium=RSS&at_campaign=rss",
         "category": "Geopolitics",
-        "source": "Guardian World",
-        "tier": 1.1,
-        "published_iso": "2026-07-06T18:26:31+00:00",
-        "image_url": "https://i.guim.co.uk/img/media/6504876f5591c52544310b10cbbd98c1301de664/117_0_3177_2543/master/3177.jpg?width=700&quality=85&auto=format&fit=max&s=17636ac30e31190d7f92df6926a4bccb",
+        "source": "BBC World",
+        "tier": 1.4,
+        "published_iso": "2026-07-07T04:18:19+00:00",
+        "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/4c1b/live/497d1190-7994-11f1-af9a-8160843a772b.jpg",
         "corroborating_sources": [],
-        "score": 7.473
+        "score": 7.328
       },
       {
         "title": "Typhoon Maysak kills two and forces thousands to evacuate in China",
@@ -1429,19 +1359,7 @@
         "published_iso": "2026-07-06T17:50:08+00:00",
         "image_url": "https://i.guim.co.uk/img/media/1dee08ef98db9936c02d788de83d276436c0f355/125_0_3750_3000/master/3750.jpg?width=700&quality=85&auto=format&fit=max&s=349397321972f666f39332d8274fe84f",
         "corroborating_sources": [],
-        "score": 7.45
-      },
-      {
-        "title": "Keir Starmer intervened to oppose Fifa’s plan to move England kick-off time",
-        "summary": "PM stepped in over proposal to shift World Cup match to an earlier time, amid concerns it would benefit Mexico Keir Starmer intervened through diplomatic channels to oppose Fifa’s plan to bring forward England’s World Cup game against Mexico, amid concerns the change would hand the hosts an unfair advantage, it is understood. The prime minister instructed officials to argue against proposals to move the kick-off from 1am UK time (6pm local time) to earlier after being alerted by the Football Association that it would reduce England’s time to acclimatise to the high altitude in Mexico City. Con",
-        "url": "https://www.theguardian.com/politics/2026/jul/06/keir-starmer-intervened-oppose-fifa-plan-move-england-kick-off-time",
-        "category": "Geopolitics",
-        "source": "Guardian World",
-        "tier": 1.1,
-        "published_iso": "2026-07-06T17:18:10+00:00",
-        "image_url": "https://i.guim.co.uk/img/media/f62b2db02c2a3d79ff02acfce7b260eb06c00552/554_0_4998_4000/master/4998.jpg?width=700&quality=85&auto=format&fit=max&s=43a6e4bf1f159cc9356f58e33bc276ff",
-        "corroborating_sources": [],
-        "score": 7.429
+        "score": 7.312
       },
       {
         "title": "Cuban zoo celebrates birth of Bengal tigers amid energy crisis",
@@ -1453,22 +1371,10 @@
         "published_iso": "2026-07-06T15:58:26+00:00",
         "image_url": "https://i.guim.co.uk/img/media/bf5ccc2961674dbec76fb95a086adcf8bba4e830/0_0_5000_4000/master/5000.jpg?width=700&quality=85&auto=format&fit=max&s=a9acd74445662b6a86bac810b4a6d897",
         "corroborating_sources": [],
-        "score": 7.382
+        "score": 7.258
       },
       {
-        "title": "Wildfires rage across southern Europe, forcing thousands to flee homes",
-        "summary": "Tour de France spectator ban as country along with Spain, Portugal and Greece faces ‘powder keg’ after heatwave Europe live – latest updates Wildfires raging across southern Europe have forced thousands to flee their homes and prompted officials to ban spectators from a stage of the Tour de France, amid warnings of “powder keg” conditions after a record-breaking early summer heatwave. Hundreds of firefighters are tackling blazes that have burned through almost 20,000 hectares (49,500 acres) in Portugal, Spain, France and Greece. Strong winds are forecast to fan the flames and temperatures are ",
-        "url": "https://www.theguardian.com/world/2026/jul/06/wildfires-southern-europe-evacuations-tour-de-france-portugal-spain-greece-heatwave",
-        "category": "Geopolitics",
-        "source": "Guardian World",
-        "tier": 1.1,
-        "published_iso": "2026-07-06T15:32:52+00:00",
-        "image_url": "https://i.guim.co.uk/img/media/f1af44395682889c834753284802322041382037/500_0_5000_4000/master/5000.jpg?width=700&quality=85&auto=format&fit=max&s=20257175b5686cb1d787ced5be225b00",
-        "corroborating_sources": [],
-        "score": 7.367
-      },
-      {
-        "title": "Higher-earning Australians flocking to 5% first home deposit scheme with some borrowers earning over $200,000",
+        "title": "Higher-earning Australians flocking to 5% first home deposit scheme, with some borrowers earning over $200,000",
         "summary": "Exclusive: Economists warn Labor’s removal of caps could be pushing up prices as support flows to people in better financial positions Follow our Australia news live blog for latest updates Get our breaking news email , free app or daily news podcast Most Australian first home buyers are using the government’s 5% deposit scheme, with one in three new participants earning more than the scheme’s previous cap for high-income earners. The influx of high-income earners into the first home guarantee program, economists warn, has pushed up property prices by increasing buying capacity for people who ",
         "url": "https://www.theguardian.com/australia-news/2026/jul/07/first-home-buyers-guarantee-scheme-attracting-high-earners-raising-prices",
         "category": "Geopolitics",
@@ -1477,43 +1383,19 @@
         "published_iso": "2026-07-06T15:00:15+00:00",
         "image_url": "https://i.guim.co.uk/img/media/7e4611bb64060170e069c900b82d92d77bf625b5/674_237_2619_2096/master/2619.jpg?width=700&quality=85&auto=format&fit=max&s=9c44cd14ab4bd3c5866365b36273e7a6",
         "corroborating_sources": [],
-        "score": 7.349
+        "score": 7.232
       },
       {
-        "title": "Extreme high temperatures double young people’s risk of mental health admissions, Australian research shows",
-        "summary": "Exclusive University of Sydney study finds heat-related hospital admissions to increase by at least 6% by the end of the century Follow our Australia news live blog for latest updates Get our breaking news email , free app or daily news podcast Extreme high temperatures in warmer months double the risk of young people being admitted to hospital for a mental health condition, according to research. The analysis, which looked at 720,000 New South Wales hospital admissions of young people aged up to 24, suggested the climate crisis would aggravate the already declining mental health of young peop",
-        "url": "https://www.theguardian.com/australia-news/2026/jul/07/extreme-high-temperatures-young-people-mental-health-hospital-admission",
-        "category": "Geopolitics",
-        "source": "Guardian World",
-        "tier": 1.1,
-        "published_iso": "2026-07-06T15:00:15+00:00",
-        "image_url": "https://i.guim.co.uk/img/media/88212a6302045118a4298c2c7f8beb70b6ef57e0/1109_0_4363_3491/master/4363.jpg?width=700&quality=85&auto=format&fit=max&s=ee277324060bda9a1456008df1f98178",
-        "corroborating_sources": [],
-        "score": 7.349
-      },
-      {
-        "title": "Jailers and officials at Russia's 'torture prisons' in Ukraine exposed by BBC",
-        "summary": "Former prisoners accuse the men of abuse in detention centres and want to see them brought to trial.",
-        "url": "https://www.bbc.co.uk/news/articles/cx2kkrx8jeno?at_medium=RSS&at_campaign=rss",
+        "title": "Why some African nations are turning down Trump aid money",
+        "summary": "The Trump administration sees the aid as more transactional - but some say it is not a fair trade.",
+        "url": "https://www.bbc.co.uk/news/articles/ckg0921y8kdo?at_medium=RSS&at_campaign=rss",
         "category": "Geopolitics",
         "source": "BBC World",
         "tier": 1.4,
-        "published_iso": "2026-07-06T23:55:53+00:00",
-        "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/6c01/live/455b3470-76fb-11f1-a627-714adb4eed6e.jpg",
+        "published_iso": "2026-07-07T00:49:08+00:00",
+        "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/934d/live/e2f21850-763f-11f1-b976-0b9c15b0ccfc.jpg",
         "corroborating_sources": [],
-        "score": 7.307
-      },
-      {
-        "title": "Why a Diljit Dosanjh film vanished from streaming after two days",
-        "summary": "The film's troubled journey spans years of censorship disputes, court battles and an unexpected release on a streaming platform.",
-        "url": "https://www.bbc.co.uk/news/articles/cly99z1w4gdo?at_medium=RSS&at_campaign=rss",
-        "category": "Geopolitics",
-        "source": "BBC World",
-        "tier": 1.4,
-        "published_iso": "2026-07-06T22:06:29+00:00",
-        "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/5716/live/e8afe800-7921-11f1-ad80-cd26c37678cb.jpg",
-        "corroborating_sources": [],
-        "score": 7.214
+        "score": 7.154
       },
       {
         "title": "China tests long-range missile in South Pacific in move Australia condemns as ‘destabilising to region’",
@@ -1525,7 +1407,19 @@
         "published_iso": "2026-07-06T10:15:35+00:00",
         "image_url": "https://i.guim.co.uk/img/media/fbc1020b66fdc8b6ae41024c02d573489bf5b47c/483_154_1226_981/master/1226.jpg?width=700&quality=85&auto=format&fit=max&s=adb5d238ff37a1e81a5f3e6838ac45ce",
         "corroborating_sources": [],
-        "score": 7.213
+        "score": 7.122
+      },
+      {
+        "title": "Jailers and officials at Russia's 'torture prisons' in Ukraine exposed by BBC",
+        "summary": "Former prisoners accuse the men of abuse in detention centres and want to see them brought to trial.",
+        "url": "https://www.bbc.co.uk/news/articles/cx2kkrx8jeno?at_medium=RSS&at_campaign=rss",
+        "category": "Geopolitics",
+        "source": "BBC World",
+        "tier": 1.4,
+        "published_iso": "2026-07-06T23:55:53+00:00",
+        "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/6c01/live/455b3470-76fb-11f1-a627-714adb4eed6e.jpg",
+        "corroborating_sources": [],
+        "score": 7.115
       },
       {
         "title": "Israeli command system identified 850,000 targets in Gaza and Lebanon wars, says supplier",
@@ -1537,43 +1431,79 @@
         "published_iso": "2026-07-06T08:00:05+00:00",
         "image_url": "https://i.guim.co.uk/img/media/5fcefd1a19f2dffa3e92d12c559d03ff16be7ef1/460_0_2500_2000/master/2500.jpg?width=700&quality=85&auto=format&fit=max&s=351c4d8042697722b30523ddbbbb1911",
         "corroborating_sources": [],
-        "score": 7.159
+        "score": 7.08
       },
       {
-        "title": "Huge crowds fill Tehran streets for Khamenei's funeral procession",
-        "summary": "Many people were waving Iranian flags and red banners symbolising vengeance for the former supreme leader's war death.",
-        "url": "https://www.bbc.co.uk/news/articles/cdejj44kl70o?at_medium=RSS&at_campaign=rss",
+        "title": "Why a Diljit Dosanjh film vanished from streaming after two days",
+        "summary": "The film's troubled journey spans years of censorship disputes, court battles and an unexpected release on a streaming platform.",
+        "url": "https://www.bbc.co.uk/news/articles/cly99z1w4gdo?at_medium=RSS&at_campaign=rss",
         "category": "Geopolitics",
         "source": "BBC World",
         "tier": 1.4,
-        "published_iso": "2026-07-06T18:50:44+00:00",
-        "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/8ab4/live/9aa22f20-792f-11f1-b976-0b9c15b0ccfc.jpg",
+        "published_iso": "2026-07-06T22:06:29+00:00",
+        "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/5716/live/e8afe800-7921-11f1-ad80-cd26c37678cb.jpg",
         "corroborating_sources": [],
-        "score": 7.069
+        "score": 7.04
       },
       {
-        "title": "A stoic Cristiano Ronaldo exits last World Cup with ‘clear conscience’ after Portugal loses to Spain",
-        "summary": "Portugal&#x27;s Cristiano Ronaldo (7) reacts after the World Cup round of 16 soccer match between Portugal and Spain in Arlington, Texas, near Dallas, Monday, July 6, 2026. (AP Photo/Gareth Patterson) 2026-07-06T22:05:08Z ARLINGTON, Texas (AP) — Cristiano Ronaldo walked off the pitch after his final World Cup match for Portugal with a stoic look on his face and only the slightest hint of emotion. There was a brief wave to acknowledge cheering fans, and the same feeling he has had after past losses. “Sad — it’s normal after being eliminated like this,” said Ronaldo, who briefly shielded his eye",
-        "url": "https://apnews.com/article/cristiano-ronaldo-portugal-world-cup-dc855181172eb35c5a1ca4e8820f35b4",
+        "title": "World Cup what to know: Argentina’s Lionel Messi faces Egypt’s Mohamed Salah for spot in quarters",
+        "summary": "Argentina&#x27;s Lionel Messi (10) applauds the crowd after the World Cup round of 32 soccer match against Cape Verde in Miami Gardens, Fla., Friday, July 3, 2026. (AP Photo/Rebecca Blackwell) 2026-07-06T23:28:17Z Kylian Mbappé pushed France through to the World Cup quarterfinals. Erling Haaland and Norway will be there, too. So will Harry Kane after England’s epic 3-2 win over Mexico . The stars are shining in this World Cup and it’s about to get brighter, even after Portugal’s Cristiano Ronaldo bowed out for the last time. The last two round of 16 games are Tuesday, including Switzerland aga",
+        "url": "https://apnews.com/article/world-cup-schedule-scores-news-8923141383a922cff1cd2823ea0ef5c3",
         "category": "Geopolitics",
         "source": "AP Top News",
         "tier": 1.2,
-        "published_iso": "2026-07-07T00:23:03+00:00",
+        "published_iso": "2026-07-07T03:23:02+00:00",
         "image_url": null,
         "corroborating_sources": [],
-        "score": 7.012
+        "score": 6.958
       },
       {
-        "title": "Jokic reaffirms desire to stay with Nuggets for entire career, plans on waiting to sign extension",
-        "summary": "Serbia&#x27;s Nikola Jokic tries to score as Bosnia&#x27;s Luka Garza blocks him during their FIBA Basketball World Cup 2027 European qualifiers match between Serbia and Bosnia, in Belgrade, Serbia, Monday, July 6, 2026. (AP Photo/Darko Vojinovic) 2026-07-06T23:59:50Z DENVER (AP) — Nikola Jokic reiterated his hope Monday to remain with the Denver Nuggets for the rest of his career. His plan, though, is to hold off on signing his contract extension until next summer. The three-time NBA MVP spoke to reporters after helping Serbia to a win over Bosnia-Herzegovina during a FIBA World Cup qualifyin",
-        "url": "https://apnews.com/article/nikola-jokic-nuggets-nba-c2ef2a7af64bb28294dbded6bbffa35e",
+        "title": "After his suspension was lifted in scrutinized move, Balogun has little impact in US World Cup loss",
+        "summary": "United States&#x27; Folarin Balogun (20) and Belgium&#x27;s Brandon Mechele (4) battle for the ball during the World Cup round of 16 soccer match between the United States and Belgium in Seattle, Monday, July 6, 2026. (AP Photo/Lindsey Wasson) 2026-07-07T02:06:00Z SEATTLE (AP) — Folarin Balogun’s presence on the field for the United States against Belgium had a seismic impact on the world of soccer, but he ultimately played a forgettable role in the Americans’ 4-1 loss in the World Cup round of 16 on Monday. The 25-year-old striker, who had three goals in this World Cup, was shown a red card d",
+        "url": "https://apnews.com/article/world-cup-balogun-united-states-belgium-4e92a390a67533702744fed9796489bf",
         "category": "Geopolitics",
         "source": "AP Top News",
         "tier": 1.2,
-        "published_iso": "2026-07-07T00:23:03+00:00",
+        "published_iso": "2026-07-07T02:23:02+00:00",
         "image_url": null,
         "corroborating_sources": [],
-        "score": 7.012
+        "score": 6.908
+      },
+      {
+        "title": "Virtual taekwondo is on the rise as it makes its debut at Asian Games",
+        "summary": "A virtual taekwondo athlete practices at a training center in Puchong, on the outskirts of Kuala Lumpur, Malaysia, Thursday, April 23, 2026. (AP Photo/Vincent Thian) 2026-07-07T02:06:02Z KUALA LUMPUR, Malaysia (AP) — When Vietnamese athlete Nguyen Thanh Hien Linh stepped into her first virtual taekwondo competition in Singapore in 2024, she had little idea what she was doing. “I was just kicking into the air,” recalled the 21-year-old. Despite her background as an elite national taekwondo champion, she struggled in the virtual arena with no clue on strategy, skills or how the technology worked",
+        "url": "https://apnews.com/article/malaysia-virtual-taekwondo-asia-games-esport-martial-9275d33dfbde7fc5c5b0817b4f080701",
+        "category": "Geopolitics",
+        "source": "AP Top News",
+        "tier": 1.2,
+        "published_iso": "2026-07-07T02:23:02+00:00",
+        "image_url": null,
+        "corroborating_sources": [],
+        "score": 6.908
+      },
+      {
+        "title": "What to know about NATO’s summit in Turkey as America steps back from its defense of Europe",
+        "summary": "Police patrol in front of a banner ahead of the NATO Summit in Ankara, Turkey, Sunday, July 5, 2026. (AP Photo/Riza Ozel) 2026-07-07T01:30:38Z ANKARA, Turkey (AP) — U.S. President Donald Trump and his NATO counterparts are gathering in Turkey on Tuesday for a two-day summit that comes at a turning point in the organization’s history as the United States steps back from its traditional security role in Europe. Ahead of the meeting in Ankara, Trump has insisted on “loyalty” after some NATO countries balked at allowing U.S. forces to use their bases for attacks on Iran. He listed big European mem",
+        "url": "https://apnews.com/article/nato-summit-turkey-trump-spending-forces-iran-1be2097870a203c28469246077da4fd1",
+        "category": "Geopolitics",
+        "source": "AP Top News",
+        "tier": 1.2,
+        "published_iso": "2026-07-07T01:53:02+00:00",
+        "image_url": null,
+        "corroborating_sources": [],
+        "score": 6.883
+      },
+      {
+        "title": "Former coach at Bucknell University charged in death of freshman football player",
+        "summary": "2026-07-07T01:38:16Z LEWISBURG, Pa. (AP) — A former strength and conditioning coach at Bucknell University was charged Monday in the death of a football player who collapsed during training, according to the Pennsylvania Attorney General’s office. Calvin “CJ” Dickey Jr. was a freshman training in July 2024 at the university in Pennsylvania when Mark Kulbis told him and other football players to do 100 “up-downs” along with some full-body plank drills, according to the attorney general’s office. Dickey had sickle-cell trait, a medical condition that can increase the risk of serious injury or de",
+        "url": "https://apnews.com/article/bucknell-university-football-death-a85d7da8dad351fe562b271ce7e7d762",
+        "category": "Geopolitics",
+        "source": "AP Top News",
+        "tier": 1.2,
+        "published_iso": "2026-07-07T01:53:02+00:00",
+        "image_url": "https://dims.apnews.com/dims4/default/295c329/2147483647/strip/true/crop/675x450+12+0/resize/980x653!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2F90%2F29%2F4e3c1cc7446089a9101a7bdff4c8%2Fdefaultshareimage-copy.png",
+        "corroborating_sources": [],
+        "score": 6.883
       },
       {
         "title": "Super Typhoon Bavi strikes US Pacific islands with pummeling winds",
@@ -1585,7 +1515,7 @@
         "published_iso": "2026-07-06T16:44:54+00:00",
         "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/b57b/live/5de56ea0-7914-11f1-9510-1546718f668b.jpg",
         "corroborating_sources": [],
-        "score": 6.989
+        "score": 6.86
       },
       {
         "title": "'It's a very sad day' - Mexican fans react to loss to England",
@@ -1597,31 +1527,67 @@
         "published_iso": "2026-07-06T16:43:51+00:00",
         "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/77e0/live/32c60570-7957-11f1-b976-0b9c15b0ccfc.jpg",
         "corroborating_sources": [],
-        "score": 6.988
+        "score": 6.859
       },
       {
-        "title": "Back for another season, Alex Ovechkin is noncommittal on whether this will be his last",
-        "summary": "Washington Capitals left wing Alex Ovechkin (8) skates in the third period of an NHL hockey game against the Columbus Blue Jackets on April 14, 2026, in Columbus, Ohio. (AP Photo/Sue Ogrocki, File) 2026-07-06T20:40:51Z WASHINGTON (AP) — Alex Ovechkin is returning for a 22nd season with the Washington Capitals. Will this be the final act of his illustrious career? “I don’t know,” he said. “We’ll see.” The NHL’s career leader in goals didn’t formally commit to returning in 2026-27 until last week, so it was perhaps no surprise that Ovechkin remained noncommittal on whether this is going to be hi",
-        "url": "https://apnews.com/article/washington-capitals-alex-ovechkin-3e13a8926076d2e6bb9de649008d2b58",
+        "title": "Rapid endometriosis tests to be made available on NHS in England and Wales",
+        "summary": "Saliva and gut sensor-based tests hailed as ‘gamechanger’ for millions of women who can wait years for diagnosis Two tests that can dramatically speed up diagnosis of endometriosis are to be made available on the NHS in England and Wales, in a move hailed as a “gamechanger” for millions of women. One in 10 women of reproductive age are affected by the condition, where tissue similar to that found in the womb lining grows elsewhere, such as the ovaries and fallopian tubes. Symptoms include painful periods, painful bowel movements, pain when urinating and pain during or after sex. Continue readi",
+        "url": "https://www.theguardian.com/society/2026/jul/07/rapid-endometriosis-tests-to-be-made-available-on-nhs-in-england-and-wales",
         "category": "Geopolitics",
-        "source": "AP Top News",
-        "tier": 1.2,
-        "published_iso": "2026-07-06T23:23:03+00:00",
-        "image_url": null,
+        "source": "Guardian World",
+        "tier": 1.1,
+        "published_iso": "2026-07-07T04:01:28+00:00",
+        "image_url": "https://i.guim.co.uk/img/media/41e566c2989d63a34bb98f7ddc7a50d69bfc144c/315_0_4793_3834/master/4793.jpg?width=700&quality=85&auto=format&fit=max&s=df9f2b7c689898e4e3c5faa50e459af5",
         "corroborating_sources": [],
-        "score": 6.958
+        "score": 6.832
       },
       {
-        "title": "Balogun starts for US against Belgium after suspension lifted following call by Trump to FIFA",
-        "summary": "United States&#x27; Folarin Balogun (20) attends a training session ahead of their World Cup round of 16 soccer match against Belgium in Seattle, Sunday, July 5, 2026. (AP Photo/Manu Fernandez) 2026-07-06T22:39:06Z SEATTLE (AP) — Folarin Balogun is in the United States’ starting lineup for Monday’s World Cup round of 16 match against Belgium after his red-card suspension was lifted by FIFA in a decision that sparked an uproar across the sport. Balogun’s red card was assessed by Brazilian referee Raphael Claus for stepping on an opponent’s ankle last Wednesday during the Americans’ 2-0 win over",
-        "url": "https://apnews.com/article/world-cup-united-states-belgium-score-0325e8102be7a88e852079deffd70ca0",
+        "title": "Nato braces for difficult summit as Trump puts pressure on spending",
+        "summary": "Meeting of 32 member states comes at crucial time for alliance after tensions with US over Iran and Greenland Nato leaders will gather in Ankara on Tuesday after a turbulent six months. And as the US continues to pressure its allies to increase defence spending , the other 31 members of the alliance will be hoping to mollify an unpredictable Donald Trump. On Monday, Mark Rutte, Nato’s secretary general, called for the allies to present “clear, concrete and credible plans” to reach the organisation’s spending targets. “President Trump fully expects that all allies will step up immediately and g",
+        "url": "https://www.theguardian.com/world/2026/jul/07/nato-braces-for-difficult-summit-as-trump-puts-pressure-on-spending",
         "category": "Geopolitics",
-        "source": "AP Top News",
-        "tier": 1.2,
-        "published_iso": "2026-07-06T22:53:03+00:00",
-        "image_url": null,
+        "source": "Guardian World",
+        "tier": 1.1,
+        "published_iso": "2026-07-07T04:00:31+00:00",
+        "image_url": "https://i.guim.co.uk/img/media/8219d980eabb44a8f50df2012072b9ae0c398fbd/407_0_4670_3736/master/4670.jpg?width=700&quality=85&auto=format&fit=max&s=dd314d929d1d973af5d453a0de2af29d",
         "corroborating_sources": [],
-        "score": 6.933
+        "score": 6.831
+      },
+      {
+        "title": "Student loan promotion in England and Wales amounted to mis-selling, MPs say",
+        "summary": "Treasury select committee also says ministers have moral obligation to reverse last year’s repayment threshold freeze Slideshows that compared student loan repayments with the cost of a mobile phone contract, and YouTube videos that did not mention the fact that loan terms could change amounted to mis-selling by the government, MPs have said. The chancellor, Rachel Reeves, caused a furore last year when she announced that the repayment threshold on plan 2 student loans would be frozen at £29,385 for three years from April 2027. Continue reading...",
+        "url": "https://www.theguardian.com/money/2026/jul/07/promotion-student-loans-england-wales-mis-selling",
+        "category": "Geopolitics",
+        "source": "Guardian World",
+        "tier": 1.1,
+        "published_iso": "2026-07-07T04:00:31+00:00",
+        "image_url": "https://i.guim.co.uk/img/media/2cf0d3ec0b2cefe4fb80276ea2e357385fe1cfcb/1127_0_7200_5760/master/7200.jpg?width=700&quality=85&auto=format&fit=max&s=eec575b8d86386204bc4e36f8221c075",
+        "corroborating_sources": [],
+        "score": 6.831
+      },
+      {
+        "title": "‘Overturn this’: victorious Belgium throw barb after Balogun red-card controversy",
+        "summary": "Red Devils beat USA to advance to World Cup last-eight Team had been angered by suspension of red card For Belgium, Monday’s 4-1 victory over the United States was doubly sweet. They advanced to the World Cup quarter-finals, as well as overcoming what they saw as injustice off the field. The buildup to the match had been tinged with controversy after Fifa had suspended the red card US striker Folarin Balogun was given in the last 32 against Bosnia and Herzegovina. That meant Balogun was free to play against Belgium instead of serving a one-match ban. When it emerged that Donald Trump had lobbi",
+        "url": "https://www.theguardian.com/football/2026/jul/06/belgium-reaction-victory-usa-world-cup-red-card",
+        "category": "Geopolitics",
+        "source": "Guardian World",
+        "tier": 1.1,
+        "published_iso": "2026-07-07T03:10:44+00:00",
+        "image_url": "https://i.guim.co.uk/img/media/0a09bccd205333c7fade35b3c96d413d43bfc166/347_0_2439_1952/master/2439.jpg?width=700&quality=85&auto=format&fit=max&s=328d3b6adb46cec41a7f7ab5eb8bc195",
+        "corroborating_sources": [],
+        "score": 6.788
+      },
+      {
+        "title": "Pam the Bird: arrest ends hours-long standoff after graffiti painted on Melbourne’s 120m Bolte Bridge tower",
+        "summary": "Man on bridge allegedly refused to come down after allegedly posting tax complaint on social media Follow our Australia news live blog for latest updates Get our breaking news email , free app or daily news podcast Victoria police have arrested a man who allegedly scaled the top of a major inner-city bridge and painted the well-known Pam the Bird graffiti tag, before bringing traffic to a crawl. The arrest came after an hours-long standoff with authorities, which began when emergency services were called to the Bolte Bridge about 3am on Tuesday after reports a man had climbed one of the bridge",
+        "url": "https://www.theguardian.com/australia-news/2026/jul/07/melbourne-bolte-bridge-pam-the-bird-graffiti-police-ntwnfb",
+        "category": "Geopolitics",
+        "source": "Guardian World",
+        "tier": 1.1,
+        "published_iso": "2026-07-07T02:46:15+00:00",
+        "image_url": "https://i.guim.co.uk/img/media/d2ab92736c9fce67dfd10e2f9a49d36646db6a31/569_0_5660_4531/master/5660.jpg?width=700&quality=85&auto=format&fit=max&s=52201abb6fad5909d48746e0070ea1f1",
+        "corroborating_sources": [],
+        "score": 6.767
       },
       {
         "title": "Watch: Russian attack leaves gaping hole in Kyiv residential building",
@@ -1633,31 +1599,31 @@
         "published_iso": "2026-07-06T13:07:23+00:00",
         "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/6ea8/live/011d81c0-7933-11f1-a627-714adb4eed6e.jpg",
         "corroborating_sources": [],
-        "score": 6.871
+        "score": 6.765
       },
       {
-        "title": "Calls grow for Graham Platner to drop out after sexual assault allegation",
-        "summary": "Several top Democratic figures call on beleaguered Maine Senate candidate, who denies accusation, to step down Calls for Graham Platner, the Democratic candidate for US Senate in Maine, to withdraw his candidacy intensified Monday after a woman accused him of sexual assault in an exclusive report by Politico. While Platner denied the claims, many top Democratic figures quickly called on the beleaguered nominee to step down. Continue reading...",
-        "url": "https://www.theguardian.com/us-news/2026/jul/06/graham-platner-assault-allegation",
-        "category": "Geopolitics",
-        "source": "Guardian World",
-        "tier": 1.1,
-        "published_iso": "2026-07-07T00:12:19+00:00",
-        "image_url": "https://i.guim.co.uk/img/media/e37cde65a2c57fac6faa28e3967319a49e95b788/250_0_2500_2000/master/2500.jpg?width=700&quality=85&auto=format&fit=max&s=c48d61b4cb2ae0ec569cbcb4956d5bc6",
-        "corroborating_sources": [],
-        "score": 6.842
-      },
-      {
-        "title": "Iran war live: Khamenei’s body arrives in Qom; Hamas cedes Gaza governance",
-        "summary": "Hamas dissolves its governing body in Gaza, paving the way for a technocratic committee to take over.",
-        "url": "https://www.aljazeera.com/news/liveblog/2026/7/7/iran-war-live-khameneis-body-arrives-in-qom-hamas-cedes-gaza-governance?traffic_source=rss",
+        "title": "Balogun reprieve in vain as Belgium beat USA to set up Spain quarterfinal",
+        "summary": "Folarin Balogun&#039;s starting place, after a suspended red card, unable to influence USA, who succumb to superior Belgium.",
+        "url": "https://www.aljazeera.com/sports/2026/7/7/usa-cant-make-most-of-balogun-reprieve-as-belgium-set-up-spain-quaterfinal?traffic_source=rss",
         "category": "Geopolitics",
         "source": "Al Jazeera",
         "tier": 1.1,
-        "published_iso": "2026-07-07T00:00:00+00:00",
-        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/2026-07-06T110414Z_210138204_RC278MAGOI2F_RTRMADP_3_ISRAEL-PALESTINIANS-GAZA-1783382205.jpg?resize=1920%2C1440",
+        "published_iso": "2026-07-07T02:15:36+00:00",
+        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/AFP__20260707__2284972421__v2__MidRes__UsaVBelgiumRoundOf16FifaWorldCup2026-1783388487.jpg?resize=1200%2C675",
         "corroborating_sources": [],
-        "score": 6.831
+        "score": 6.742
+      },
+      {
+        "title": "Democrats begin withdrawing endorsements of Graham Platner after Senate candidate is accused of sexual assault – as it happened",
+        "summary": "This live blog is now closed. Woman accuses Maine Senate candidate Graham Platner of sexual assault Sign up for the Breaking News US email Cruz just thanked Donald Trump for “getting rid of that ridiculous red card” – apparently in reference to Folarin Balogun . The US striker received a straight red card from referee Raphael Claus after a video review, but Fifa have now lifted Bolagun’s one-match ban, making him now available to play for the USA in their knockout match against Belgium on Monday. As my colleagues covering the World Cup note, despite the move being considered excessively harsh,",
+        "url": "https://www.theguardian.com/us-news/live/2026/jul/06/donald-trump-democrats-michigan-mallory-mcmorrow-us-politics-latest-news-updates",
+        "category": "Geopolitics",
+        "source": "Guardian World",
+        "tier": 1.1,
+        "published_iso": "2026-07-07T02:11:51+00:00",
+        "image_url": "https://i.guim.co.uk/img/media/aa141a99030d322e668093e567b496f60873e57b/981_0_4532_3628/master/4532.jpg?width=700&quality=85&auto=format&fit=max&s=687f04184af56048d4a728e0c4bf7423",
+        "corroborating_sources": [],
+        "score": 6.738
       },
       {
         "title": "Is this a breakthrough moment for soccer in the US?",
@@ -1669,139 +1635,127 @@
         "published_iso": "2026-07-06T11:19:47+00:00",
         "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/8287/live/6ebd9a70-7920-11f1-9510-1546718f668b.jpg",
         "corroborating_sources": [],
-        "score": 6.82
+        "score": 6.725
       },
       {
-        "title": "NATO leaders look for unity as Trump attends annual summit",
-        "summary": "As NATO leaders gather for this week's summit in Turkey, Europe is preparing to shoulder more of its own defense. David M. Cattler of the Center for European Policy Analysis explains why.",
-        "url": "https://www.npr.org/2026/07/05/nx-s1-5877610/nato-leaders-look-for-unity-as-trump-attends-annual-summit",
-        "category": "Geopolitics",
-        "source": "NPR World",
-        "tier": 1.0,
-        "published_iso": "2026-07-05T21:03:40+00:00",
-        "image_url": "https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-5877610",
-        "corroborating_sources": [],
-        "score": 6.817
-      },
-      {
-        "title": "Ronaldo says his last World Cup is over but Portugal decision can wait",
-        "summary": "Portugal captain admits his team&#039;s last-16 match against Spain was his final outing in the World Cup.",
-        "url": "https://www.aljazeera.com/sports/2026/7/6/ronaldo-says-his-last-world-cup-is-over-but-portugal-decision-can-wait?traffic_source=rss",
+        "title": "Venezuela earthquakes death toll jumps to more than 3,500",
+        "summary": "Experts warn of an impending health crisis, with thousands sleeping in crowded temporary shelters.",
+        "url": "https://www.aljazeera.com/news/2026/7/7/venezuela-earthquakes-death-toll-jumps-to-more-than-3500?traffic_source=rss",
         "category": "Geopolitics",
         "source": "Al Jazeera",
         "tier": 1.1,
-        "published_iso": "2026-07-06T23:41:50+00:00",
-        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/AFP__20260706__B9FD7PW__v1__HighRes__FblWc2026Match93PorEsp-1783380752.jpg?resize=1920%2C1440",
+        "published_iso": "2026-07-07T01:50:44+00:00",
+        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/2026-07-06T233936Z_543060115_RC2F8MAKXYB0_RTRMADP_3_VENEZUELA-QUAKE-1783384075.jpg?resize=1920%2C1440",
         "corroborating_sources": [],
-        "score": 6.815
+        "score": 6.721
       },
       {
-        "title": "Chinese government tells critics not to ‘overinterpret’ missile test in Pacific as criticism grows",
-        "summary": "The Australian government says there was ‘insufficient notice’ as details of missile path are released by Taiwan government China’s missile test in the Pacific did not comply with international law and was conducted with “insufficient notice” to nearby countries, official in the US and Australia have said, amid growing international condemnation. But a Chinese government spokesperson claimed the test was “safe” and part of “routine” military training, telling critics to “not over-interpret it.” Continue reading...",
-        "url": "https://www.theguardian.com/world/2026/jul/07/chinese-government-tells-critics-not-to-overinterpret-missile-test-in-pacific-as-criticism-grows",
-        "category": "Geopolitics",
-        "source": "Guardian World",
-        "tier": 1.1,
-        "published_iso": "2026-07-06T23:33:52+00:00",
-        "image_url": "https://i.guim.co.uk/img/media/eb62fd438a63ba5f189cafa57f0e1e6778ee8022/117_0_2108_1687/master/2108.jpg?width=700&quality=85&auto=format&fit=max&s=ace1d425cbc4d376c16ec13d2c77f868",
-        "corroborating_sources": [],
-        "score": 6.808
-      },
-      {
-        "title": "Leading US Democrats withdraw support for Platner after assault allegations",
-        "summary": "Monday&#039;s accusations are the latest in a long string of controversies surrounding the Maine Democratic Senate candidate.",
-        "url": "https://www.aljazeera.com/news/2026/7/6/leading-us-democrats-withdraw-support-for-platner-after-assault-allegations?traffic_source=rss",
+        "title": "‘MAGA agenda on display’: FIFA, Trump slammed amid Balogun red card row",
+        "summary": "Football experts, officials warn of &#039;dangerous precedent&#039; set by FIFA after U-turn on red card for USA forward Balogun.",
+        "url": "https://www.aljazeera.com/sports/2026/7/7/maga-agenda-on-display-fifa-trump-slammed-amid-balogun-red-card-row?traffic_source=rss",
         "category": "Geopolitics",
         "source": "Al Jazeera",
         "tier": 1.1,
-        "published_iso": "2026-07-06T23:10:41+00:00",
-        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/AP26161067852261-1783375452.jpg?resize=1920%2C1440",
+        "published_iso": "2026-07-07T01:42:29+00:00",
+        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/reuters_6a4c0d2c-1783369004_50f053-1783371614.jpg?resize=1200%2C630&amp;quality=80",
         "corroborating_sources": [],
-        "score": 6.788
+        "score": 6.715
       },
       {
-        "title": "All to know about Ronaldo’s World Cup career as it ends in Spain loss",
-        "summary": "The Portuguese captain became the only player to score in six World Cups after his brace against Uzbekistan.",
-        "url": "https://www.aljazeera.com/sports/2026/7/6/all-to-know-about-ronaldos-world-cup-career-as-it-ends-in-spain-loss?traffic_source=rss",
+        "title": "Mbappe calls Paraguayan lawmaker ‘despicable’ over racist attack",
+        "summary": "France captain Kylian Mbappe has condemned racist comments from a Paraguayan senator.",
+        "url": "https://www.aljazeera.com/video/newsfeed/2026/7/7/mbappe-calls-paraguayan-lawmaker-despicable-over-racist-attack?traffic_source=rss",
         "category": "Geopolitics",
         "source": "Al Jazeera",
         "tier": 1.1,
-        "published_iso": "2026-07-06T23:08:13+00:00",
-        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/AFP__20260706__B9FD7QZ__v1__HighRes__FblWc2026Match93PorEsp-1783377520.jpg?resize=1920%2C1440",
+        "published_iso": "2026-07-07T01:41:20+00:00",
+        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/image-1783388382.jpg?resize=1620%2C1080&amp;quality=80",
         "corroborating_sources": [],
-        "score": 6.786
+        "score": 6.714
       },
       {
-        "title": "Scotland could freeze datacentre projects in challenge to UK’s AI strategy",
-        "summary": "Scottish government to consider SNP national council motion for moratorium on all new datacentres The Scottish government is about to consider a sweeping moratorium on building new datacentres, putting a key plank of the UK’s AI strategy at risk. Last Sunday the Scottish National party (SNP)’s national council passed a motion to freeze all new datacentres in Scotland. That motion has been sent to the Scottish government to consider. Continue reading...",
-        "url": "https://www.theguardian.com/uk-news/2026/jul/07/scotland-could-freeze-datacentre-projects-in-challenge-to-uks-ai-strategy",
+        "title": "Tributes flow for ‘deeply loved’ Melbourne teacher who died after a head clash during Australian football game",
+        "summary": "Mernda school community in mourning after Nathan Fitzgerald, 27, dies in hospital Follow our Australia news live blog for latest updates Get our breaking news email , free app or daily news podcast A Melbourne teacher who died after a horror head clash during an Australian football game has been remembered for the ways he touched the lives of his loved ones. Nathan Fitzgerald, 27, was taken to the Royal Melbourne hospital after he fell to the ground and hit his head on a covered cricket pitch during an Australian rules football game in Lalor in Melbourne’s north on Saturday. Continue reading..",
+        "url": "https://www.theguardian.com/australia-news/2026/jul/07/nathan-fitzgerald-melbourne-teacher-death-australian-football-head-clash-tributes",
         "category": "Geopolitics",
         "source": "Guardian World",
         "tier": 1.1,
-        "published_iso": "2026-07-06T23:01:23+00:00",
-        "image_url": "https://i.guim.co.uk/img/media/94c2721f70fe3370bfe6f5d678b2fee7ccf4eff3/675_0_5033_4024/master/5033.jpg?width=700&quality=85&auto=format&fit=max&s=e7d42803319d3110e2a80e1f3864f0b6",
+        "published_iso": "2026-07-07T01:23:55+00:00",
+        "image_url": "https://i.guim.co.uk/img/media/ab963cd36283ab9614d621db5f54493ae24c93f2/156_0_3331_2666/master/3331.jpg?width=700&quality=85&auto=format&fit=max&s=62bd1cb757786994c15335e5746ab1d2",
         "corroborating_sources": [],
-        "score": 6.78
+        "score": 6.7
       },
       {
-        "title": "UK abuse scandal ‘ignored because victims were working-class boys from north’, minister says",
-        "summary": "Jake Richards announces measures to prevent abuse like that at Medomsley detention centre in County Durham One of the UK’s most horrific and shocking child custody scandals was collectively ignored for decades because the victims were working-class boys from the north of England, a government minister has said. The sentencing and youth justice minister, Jake Richards, has announced he is implementing a number of recommendations to prevent abuse such as that which took place between 1961 and 1987 at Medomsley detention centre in County Durham from ever happening again. Continue reading...",
-        "url": "https://www.theguardian.com/uk-news/2026/jul/07/uk-abuse-scandal-ignored-victims-working-class-boys-north-minister",
+        "title": "Details scarce as Mitch McConnell ‘continues recovery’ in hospital",
+        "summary": "Staff decline to give updates on senator’s health and whether he will be at Capitol when Senate returns Staff for Mitch McConnell said last week that the Kentucky senator was “continuing his recovery” in a hospital while the Senate is out of session. But his office has released no details about the former Republican leader’s condition during his weeks-long hospitalization or whether he will be at the Capitol when the Senate returns next week. McConnell was admitted to the hospital on 14 June, according to a statement from his office that only said he was “receiving excellent care”. A statement",
+        "url": "https://www.theguardian.com/us-news/2026/jul/06/mitch-mcconnell-health",
         "category": "Geopolitics",
         "source": "Guardian World",
         "tier": 1.1,
-        "published_iso": "2026-07-06T23:01:22+00:00",
-        "image_url": "https://i.guim.co.uk/img/media/ceee2f34ea62d29d77ad108e3be037933e8c59ca/184_0_3273_2618/master/3273.jpg?width=700&quality=85&auto=format&fit=max&s=5a676b346c8bf91b09bbf17b9fb7289a",
+        "published_iso": "2026-07-07T01:09:26+00:00",
+        "image_url": "https://i.guim.co.uk/img/media/a3f788f9a672530918fca39d8b3a3a2216401bbe/110_0_4541_3635/master/4541.jpg?width=700&quality=85&auto=format&fit=max&s=9c2343d5edbc738059f86d76b02e4521",
         "corroborating_sources": [],
-        "score": 6.78
+        "score": 6.689
       },
       {
-        "title": "Melbourne police in standoff with graffiti artist perched above Pam the Bird tag on Bolte Bridge tower",
-        "summary": "Man on bridge refuses to come down after posting tax complaint on social media Follow our Australia news live blog for latest updates Get our breaking news email , free app or daily news podcast Police in Melbourne are stuck in a standoff with a man on top of a major inner-city bridge after a dangerous graffiti stunt. Emergency services were called to the Bolte Bridge at 3am on Tuesday over reports a graffiti artist had climbed up one of the bridge’s 120-metre high pillars. Continue reading...",
-        "url": "https://www.theguardian.com/australia-news/2026/jul/07/melbourne-bolte-bridge-pam-the-bird-graffiti-police-ntwnfb",
-        "category": "Geopolitics",
-        "source": "Guardian World",
-        "tier": 1.1,
-        "published_iso": "2026-07-06T22:24:29+00:00",
-        "image_url": "https://i.guim.co.uk/img/media/d2ab92736c9fce67dfd10e2f9a49d36646db6a31/569_0_5660_4531/master/5660.jpg?width=700&quality=85&auto=format&fit=max&s=52201abb6fad5909d48746e0070ea1f1",
-        "corroborating_sources": [],
-        "score": 6.749
-      },
-      {
-        "title": "Late Spain goal eliminates Portugal, ends Ronaldo’s international career?",
-        "summary": "Sub Mikel Merino scores in stoppage time to give Spain a 1-0 win over Portugal in the last 16.",
-        "url": "https://www.aljazeera.com/sports/2026/7/6/late-spain-goal-eliminates-portugal-ends-ronaldos-international-career?traffic_source=rss",
+        "title": "Why el-Obeid matters as Sudan’s war enters a new phase",
+        "summary": "How fighting for el-Obeid could shape both Sudan&#039;s war and its humanitarian crisis.",
+        "url": "https://www.aljazeera.com/news/2026/7/7/why-el-obeid-matters-as-sudans-war-enters-a-new-phase?traffic_source=rss",
         "category": "Geopolitics",
         "source": "Al Jazeera",
         "tier": 1.1,
-        "published_iso": "2026-07-06T22:20:29+00:00",
-        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/2026-07-06T210153Z_765836598_UP1EM761MF4LL_RTRMADP_3_SOCCER-WORLDCUP-POR-ESP-1783371940.jpg?resize=1920%2C1440",
+        "published_iso": "2026-07-07T00:34:41+00:00",
+        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/AFP__20260629__B8NF8G3__v1__HighRes__SudanConflictRsfArmyElObeid-1783076077.jpg?resize=1920%2C1440",
         "corroborating_sources": [],
-        "score": 6.746
+        "score": 6.663
       },
       {
-        "title": "‘If you win, it’s a stain’: Americans react to FIFA-Balogun controversy",
-        "summary": "USA supporters divided on Trump&#039;s intervention and FIFA&#039;s decision to suspend striker&#039;s ban in Belgium World Cup match.",
-        "url": "https://www.aljazeera.com/sports/2026/7/6/usa-fans-mamdani-experts-react-to-fifa-trump-balogun-red-card-controversy?traffic_source=rss",
-        "category": "Geopolitics",
-        "source": "Al Jazeera",
-        "tier": 1.1,
-        "published_iso": "2026-07-06T22:11:32+00:00",
-        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/2026-07-02T225332Z_491552034_MT1USATODAY29317119_RTRMADP_3_SOCCER-FIFA-WORLD-CUP-2026-UNITED-STATES-TEAM-TRAINING-1783373710.jpg?resize=1920%2C1440",
-        "corroborating_sources": [],
-        "score": 6.738
-      },
-      {
-        "title": "UK charity funding school at heart of illegal Israeli settlement expansion",
-        "summary": "Friends of Yeshivat Shavei Hevron sent nearly £200,000 to school in Hebron – where Israel has been accused of imposing apartheid – between 2019 and 2024 A British charity is funding a religious school at the heart of expansion plans for the illegal Israeli settlement in the Palestinian city of Hebron. Friends of Yeshivat Shavei Hevron sent nearly £200,000 to the school between 2019 and 2024, the last year for which accounts are publicly available on the website of the Charity Commission, the charity regulator for England and Wales. Continue reading...",
-        "url": "https://www.theguardian.com/world/2026/jul/06/british-charity-friends-of-yeshivat-shavei-illegal-settlement-hebron",
+        "title": "Sri Lanka prison riot kills 26, with more than 100 others wounded",
+        "summary": "Victims with cuts and gunshot injuries rushed to hospital after fighting between prisoners from two drug gangs Clashes at a Sri Lankan jail have killed 26 people, including seven guards, and wounded more than 100 in the country’s deadliest prison riot in years, officials said. Victims with cuts and gunshot injuries were rushed to Negombo hospital, north of the capital Colombo after overnight fighting between prisoners from two drug gangs, police said on Monday. Continue reading...",
+        "url": "https://www.theguardian.com/world/2026/jul/07/sri-lanka-prison-riot-death-toll-injuries",
         "category": "Geopolitics",
         "source": "Guardian World",
         "tier": 1.1,
-        "published_iso": "2026-07-06T21:37:11+00:00",
-        "image_url": "https://i.guim.co.uk/img/media/1dd31bdba0cd22f4fef18ae96cde7d115b614c85/0_0_2937_2350/master/2937.jpg?width=700&quality=85&auto=format&fit=max&s=5092562a857704d1a799039a6fa8eed8",
+        "published_iso": "2026-07-07T00:35:19+00:00",
+        "image_url": "https://i.guim.co.uk/img/media/6e967c0d7b1053f54545f2f5f7d9fb61e874dc0f/156_0_4453_3563/master/4453.jpg?width=700&quality=85&auto=format&fit=max&s=8c2a6831317493a35f6c6478294fd980",
         "corroborating_sources": [],
-        "score": 6.711
+        "score": 6.663
+      },
+      {
+        "title": "Gambian mothers fear for their daughters as court weighs FGM ban",
+        "summary": "As The Gambia&#039;s Supreme Court prepares to rule on the FGM ban, mothers fear the law could be weakened.",
+        "url": "https://www.aljazeera.com/news/2026/7/7/gambian-mothers-fear-for-their-daughters-as-court-weighs-fgm-ban?traffic_source=rss",
+        "category": "Geopolitics",
+        "source": "Al Jazeera",
+        "tier": 1.1,
+        "published_iso": "2026-07-07T00:20:34+00:00",
+        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/Binta-30-with-her-seven-year-old-daughter-whom-she-is-determined-to-protect-from-FGM.-1783263927.jpg?resize=1200%2C675",
+        "corroborating_sources": [],
+        "score": 6.652
+      },
+      {
+        "title": "Calls grow for Graham Platner to drop out after sexual assault allegation",
+        "summary": "Several top Democratic figures call on beleaguered Maine Senate candidate, who denies accusation, to step down Calls for Graham Platner, the Democratic candidate for US Senate in Maine, to withdraw his candidacy intensified Monday after a woman accused him of sexual assault in an exclusive report by Politico. While Platner denied the claims, many top Democratic figures quickly called on the beleaguered nominee to step down. Continue reading...",
+        "url": "https://www.theguardian.com/us-news/2026/jul/06/graham-platner-assault-allegation",
+        "category": "Geopolitics",
+        "source": "Guardian World",
+        "tier": 1.1,
+        "published_iso": "2026-07-07T00:12:19+00:00",
+        "image_url": "https://i.guim.co.uk/img/media/e37cde65a2c57fac6faa28e3967319a49e95b788/250_0_2500_2000/master/2500.jpg?width=700&quality=85&auto=format&fit=max&s=c48d61b4cb2ae0ec569cbcb4956d5bc6",
+        "corroborating_sources": [],
+        "score": 6.646
+      },
+      {
+        "title": "Iran war live: Khamenei’s funeral under way in Qom; ship attacked in Hormuz",
+        "summary": "The UK&#039;s maritime agency says an &#039;unknown projectile&#039; has hit a tanker off the coast of Oman, causing a fire.",
+        "url": "https://www.aljazeera.com/news/liveblog/2026/7/7/iran-war-live-khameneis-body-arrives-in-qom-hamas-cedes-gaza-governance?traffic_source=rss",
+        "category": "Geopolitics",
+        "source": "Al Jazeera",
+        "tier": 1.1,
+        "published_iso": "2026-07-07T00:00:00+00:00",
+        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/2026-07-06T121705Z_2125303097_RC2A8MAKJWYW_RTRMADP_3_IRAN-CRISIS-KHAMENEI-1783386609.jpg?resize=1920%2C1440",
+        "corroborating_sources": [],
+        "score": 6.638
       },
       {
         "title": "Why Ukrainian strikes on annexed Crimea are a blow to Putin",
@@ -1813,79 +1767,79 @@
         "published_iso": "2026-07-06T06:00:05+00:00",
         "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/9a10/live/c7cbf380-77c9-11f1-b976-0b9c15b0ccfc.jpg",
         "corroborating_sources": [],
-        "score": 6.697
+        "score": 6.626
       },
       {
-        "title": "Survivors and bodies still being pulled from rubble days after twin quakes",
-        "summary": "International aid teams have played a key part in Venezuela’s ‘miracle rescues’, days after twin earthquakes struck.",
-        "url": "https://www.aljazeera.com/video/newsfeed/2026/7/6/survivors-and-bodies-still-being-pulled-from-rubble-days-after-twin-quakes?traffic_source=rss",
+        "title": "Ronaldo says his last World Cup is over but Portugal decision can wait",
+        "summary": "Portugal captain admits his team&#039;s last-16 match against Spain was his final outing in the World Cup.",
+        "url": "https://www.aljazeera.com/sports/2026/7/6/ronaldo-says-his-last-world-cup-is-over-but-portugal-decision-can-wait?traffic_source=rss",
         "category": "Geopolitics",
         "source": "Al Jazeera",
         "tier": 1.1,
-        "published_iso": "2026-07-06T21:11:07+00:00",
-        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/image-1783372244.jpg?resize=1919%2C1080&amp;quality=80",
+        "published_iso": "2026-07-06T23:41:50+00:00",
+        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/AFP__20260706__B9FD7PW__v1__HighRes__FblWc2026Match93PorEsp-1783380752.jpg?resize=1920%2C1440",
         "corroborating_sources": [],
-        "score": 6.691
+        "score": 6.625
       },
       {
-        "title": "Macron arrives in Syria for talks ahead of NATO summit in Turkiye",
-        "summary": "The French president is the first leader from western Europe to visit Syria since the overthrow of Bashar al-Assad.",
-        "url": "https://www.aljazeera.com/news/2026/7/6/macron-arrives-in-syria-for-talks-ahead-of-nato-summit-in-turkiye?traffic_source=rss",
+        "title": "Chinese government tells critics not to ‘overinterpret’ missile test in Pacific as criticism grows",
+        "summary": "The Australian government says there was ‘insufficient notice’ as details of missile path are released by Taiwan government China’s missile test in the Pacific did not comply with international law and was conducted with “insufficient notice” to nearby countries, officials in the US and Australia have said, amid growing international condemnation. But a Chinese government spokesperson claimed the test was “safe” and part of “routine” military training, telling critics to “not over-interpret it.” Continue reading...",
+        "url": "https://www.theguardian.com/world/2026/jul/07/chinese-government-tells-critics-not-to-overinterpret-missile-test-in-pacific-as-criticism-grows",
+        "category": "Geopolitics",
+        "source": "Guardian World",
+        "tier": 1.1,
+        "published_iso": "2026-07-06T23:33:52+00:00",
+        "image_url": "https://i.guim.co.uk/img/media/eb62fd438a63ba5f189cafa57f0e1e6778ee8022/117_0_2108_1687/master/2108.jpg?width=700&quality=85&auto=format&fit=max&s=ace1d425cbc4d376c16ec13d2c77f868",
+        "corroborating_sources": [],
+        "score": 6.619
+      },
+      {
+        "title": "Leading US Democrats withdraw support for Platner after assault allegations",
+        "summary": "Monday&#039;s accusations are the latest in a long string of controversies surrounding the Maine Democratic Senate candidate.",
+        "url": "https://www.aljazeera.com/news/2026/7/6/leading-us-democrats-withdraw-support-for-platner-after-assault-allegations?traffic_source=rss",
         "category": "Geopolitics",
         "source": "Al Jazeera",
         "tier": 1.1,
-        "published_iso": "2026-07-06T20:50:13+00:00",
-        "image_url": "https://www.aljazeera.com/wp-content/uploads/2025/05/doc-44v96yf-1746645427.jpg?resize=1920%2C1440",
+        "published_iso": "2026-07-06T23:10:41+00:00",
+        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/AP26161067852261-1783375452.jpg?resize=1920%2C1440",
         "corroborating_sources": [],
-        "score": 6.675
+        "score": 6.603
       },
       {
-        "title": "LIVE: USA vs Belgium – FIFA World Cup 2026 round of 16",
-        "summary": "Live coverage and text updates of USA against Belgium in last-16 game, overshadowed by Balogun suspension row.",
-        "url": "https://www.aljazeera.com/sports/liveblog/2026/7/6/usa-belgium-live-fifa-world-cup-2026-round-of-16?traffic_source=rss",
+        "title": "All to know about Ronaldo’s World Cup career as it ends in Spain loss",
+        "summary": "The Portuguese captain became the only player to score in six World Cups after his brace against Uzbekistan.",
+        "url": "https://www.aljazeera.com/sports/2026/7/6/all-to-know-about-ronaldos-world-cup-career-as-it-ends-in-spain-loss?traffic_source=rss",
         "category": "Geopolitics",
         "source": "Al Jazeera",
         "tier": 1.1,
-        "published_iso": "2026-07-06T20:46:34+00:00",
-        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/2026-07-03T223918Z_629347606_MT1USATODAY29321051_RTRMADP_3_SOCCER-FIFA-WORLD-CUP-2026-ROUND-OF-32-UNITED-STATES-V-BOSNIA-AND-HERZEGOVINA-1783373865_2b7490-1783374825.jpg?resize=1200%2C630&amp;quality=80",
+        "published_iso": "2026-07-06T23:08:13+00:00",
+        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/AFP__20260706__B9FD7QZ__v1__HighRes__FblWc2026Match93PorEsp-1783377520.jpg?resize=1920%2C1440",
         "corroborating_sources": [],
-        "score": 6.672
+        "score": 6.601
       },
       {
-        "title": "Crowds hold ‘destroy Israel’ banner at Spain’s Pamplona bull run",
-        "summary": "A giant banner reading ‘Destroy Israel’ was unfurled as thousands gathered for the San Fermin bull run festival.",
-        "url": "https://www.aljazeera.com/video/newsfeed/2026/7/6/crowds-hold-destroy-israel-banner-at-spains-pamplona-bull-run?traffic_source=rss",
+        "title": "Scotland could freeze datacentre projects in challenge to UK’s AI strategy",
+        "summary": "Scottish government to consider SNP national council motion for moratorium on all new datacentres The Scottish government is about to consider a sweeping moratorium on building new datacentres, putting a key plank of the UK’s AI strategy at risk. Last Sunday the Scottish National party (SNP)’s national council passed a motion to freeze all new datacentres in Scotland. That motion has been sent to the Scottish government to consider. Continue reading...",
+        "url": "https://www.theguardian.com/uk-news/2026/jul/07/scotland-could-freeze-datacentre-projects-in-challenge-to-uks-ai-strategy",
         "category": "Geopolitics",
-        "source": "Al Jazeera",
+        "source": "Guardian World",
         "tier": 1.1,
-        "published_iso": "2026-07-06T20:33:30+00:00",
-        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/WIDE-THUMB-San-Fermin-bull-run-destroy-Israel-banner-1783369874.png?resize=1920%2C1440",
+        "published_iso": "2026-07-06T23:01:23+00:00",
+        "image_url": "https://i.guim.co.uk/img/media/94c2721f70fe3370bfe6f5d678b2fee7ccf4eff3/675_0_5033_4024/master/5033.jpg?width=700&quality=85&auto=format&fit=max&s=e7d42803319d3110e2a80e1f3864f0b6",
         "corroborating_sources": [],
-        "score": 6.662
+        "score": 6.596
       },
       {
-        "title": "Prosecutors in US lay out case against alleged killer of Charlie Kirk",
-        "summary": "Judge to decide whether there&#039;s enough evidence to bring Tyler Robinson to trial for conservative activist&#039;s killing.",
-        "url": "https://www.aljazeera.com/news/2026/7/6/prosecutors-in-us-lay-out-case-against-alleged-killer-of-charlie-kirk?traffic_source=rss",
+        "title": "UK abuse scandal ‘ignored because victims were working-class boys from north’, minister says",
+        "summary": "Jake Richards announces measures to prevent abuse like that at Medomsley detention centre in County Durham One of the UK’s most horrific and shocking child custody scandals was collectively ignored for decades because the victims were working-class boys from the north of England, a government minister has said. The sentencing and youth justice minister, Jake Richards, has announced he is implementing a number of recommendations to prevent abuse such as that which took place between 1961 and 1987 at Medomsley detention centre in County Durham from ever happening again. Continue reading...",
+        "url": "https://www.theguardian.com/uk-news/2026/jul/07/uk-abuse-scandal-ignored-victims-working-class-boys-north-minister",
         "category": "Geopolitics",
-        "source": "Al Jazeera",
+        "source": "Guardian World",
         "tier": 1.1,
-        "published_iso": "2026-07-06T20:19:00+00:00",
-        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/reuters_6a4c0519-1783366937.jpg?resize=1920%2C1440",
+        "published_iso": "2026-07-06T23:01:22+00:00",
+        "image_url": "https://i.guim.co.uk/img/media/ceee2f34ea62d29d77ad108e3be037933e8c59ca/184_0_3273_2618/master/3273.jpg?width=700&quality=85&auto=format&fit=max&s=5a676b346c8bf91b09bbf17b9fb7289a",
         "corroborating_sources": [],
-        "score": 6.651
-      },
-      {
-        "title": "US Supreme Court clears path for Texas to enforce app age verification law",
-        "summary": "Parents must approve app downloads for minors as legal fight over Texas age verification law continues.",
-        "url": "https://www.aljazeera.com/news/2026/7/6/us-supreme-court-clears-path-for-texas-to-enforce-app-age-verification-law?traffic_source=rss",
-        "category": "Geopolitics",
-        "source": "Al Jazeera",
-        "tier": 1.1,
-        "published_iso": "2026-07-06T20:06:22+00:00",
-        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/getty_6a4bff1870-1783365400.jpg?resize=1920%2C1440",
-        "corroborating_sources": [],
-        "score": 6.642
+        "score": 6.596
       },
       {
         "title": "Australia space agency has found 'likely source' of mystery space balls",
@@ -1897,67 +1851,43 @@
         "published_iso": "2026-07-06T02:49:15+00:00",
         "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/cc2d/live/4062f360-7866-11f1-ab53-3dbca6ef5ee1.jpg",
         "corroborating_sources": [],
-        "score": 6.639
+        "score": 6.58
       },
       {
-        "title": "Body of Iran’s slain Supreme Leader Ali Khamenei arrives in Qom",
-        "summary": "Ayatollah Ali Khamenei’s body arrives in Qom as millions of mourners honour his leadership over past three days.",
-        "url": "https://www.aljazeera.com/news/2026/7/6/body-of-irans-slain-supreme-leader-ali-khamenei-arrives-in-qom?traffic_source=rss",
+        "title": "Late Spain goal eliminates Portugal, ends Ronaldo’s international career?",
+        "summary": "Sub Mikel Merino scores in stoppage time to give Spain a 1-0 win over Portugal in the last 16.",
+        "url": "https://www.aljazeera.com/sports/2026/7/6/late-spain-goal-eliminates-portugal-ends-ronaldos-international-career?traffic_source=rss",
         "category": "Geopolitics",
         "source": "Al Jazeera",
         "tier": 1.1,
-        "published_iso": "2026-07-06T19:56:09+00:00",
-        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/afp_6a4be00d2aa2-1783357453.jpg?resize=1920%2C1440",
+        "published_iso": "2026-07-06T22:20:29+00:00",
+        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/2026-07-06T210153Z_765836598_UP1EM761MF4LL_RTRMADP_3_SOCCER-WORLDCUP-POR-ESP-1783371940.jpg?resize=1920%2C1440",
         "corroborating_sources": [],
-        "score": 6.635
+        "score": 6.569
       },
       {
-        "title": "NATO urges members to deliver plans for reaching defence spending targets",
-        "summary": "US warns of consequences for NATO members without clear spending plans, signalling high expectations from allies.",
-        "url": "https://www.aljazeera.com/news/2026/7/6/nato-urges-members-to-deliver-plans-for-reaching-defence-spending-targets?traffic_source=rss",
+        "title": "‘If you win, it’s a stain’: Americans react to FIFA-Balogun controversy",
+        "summary": "USA supporters divided on Trump&#039;s intervention and FIFA&#039;s decision to suspend striker&#039;s ban in Belgium World Cup match.",
+        "url": "https://www.aljazeera.com/sports/2026/7/6/usa-fans-mamdani-experts-react-to-fifa-trump-balogun-red-card-controversy?traffic_source=rss",
         "category": "Geopolitics",
         "source": "Al Jazeera",
         "tier": 1.1,
-        "published_iso": "2026-07-06T19:35:56+00:00",
-        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/getty_6a4bec125f-1783360530.jpg?resize=1920%2C1440",
+        "published_iso": "2026-07-06T22:11:32+00:00",
+        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/2026-07-02T225332Z_491552034_MT1USATODAY29317119_RTRMADP_3_SOCCER-FIFA-WORLD-CUP-2026-UNITED-STATES-TEAM-TRAINING-1783373710.jpg?resize=1920%2C1440",
         "corroborating_sources": [],
-        "score": 6.62
+        "score": 6.563
       },
       {
-        "title": "Idaho woman who said infant twins died from vaccines charged with murder",
-        "summary": "Andrea Shaw and husband appeared on RFK Jr-linked podcast after deaths in May last year of 18-month-olds An Idaho mother who said her 18-month-old twins died last year after receiving three vaccines has been charged with murder in their deaths, officials said last week. Andrea Shaw, 23, was indicted on two counts of first-degree murder in the deaths of her toddlers, Tyson and Dallas, who were found dead in a shared bed on 1 May last year. Continue reading...",
-        "url": "https://www.theguardian.com/us-news/2026/jul/06/idaho-woman-deaths-children",
+        "title": "UK charity funding school at heart of illegal Israeli settlement expansion",
+        "summary": "Friends of Yeshivat Shavei Hevron sent nearly £200,000 to school in Hebron – where Israel has been accused of imposing apartheid – between 2019 and 2024 A British charity is funding a religious school at the heart of expansion plans for the illegal Israeli settlement in the Palestinian city of Hebron. Friends of Yeshivat Shavei Hevron sent nearly £200,000 to the school between 2019 and 2024, the last year for which accounts are publicly available on the website of the Charity Commission, the charity regulator for England and Wales. Continue reading...",
+        "url": "https://www.theguardian.com/world/2026/jul/06/british-charity-friends-of-yeshivat-shavei-illegal-settlement-hebron",
         "category": "Geopolitics",
         "source": "Guardian World",
         "tier": 1.1,
-        "published_iso": "2026-07-06T19:35:45+00:00",
-        "image_url": "https://i.guim.co.uk/img/media/974e6c968630181e15a99fe9541508c9bdec01be/316_0_1450_1160/master/1450.jpg?width=700&quality=85&auto=format&fit=max&s=e5d0c7c22c1ee07138106f13ce75e8d3",
+        "published_iso": "2026-07-06T21:37:11+00:00",
+        "image_url": "https://i.guim.co.uk/img/media/1dd31bdba0cd22f4fef18ae96cde7d115b614c85/0_0_2937_2350/master/2937.jpg?width=700&quality=85&auto=format&fit=max&s=5092562a857704d1a799039a6fa8eed8",
         "corroborating_sources": [],
-        "score": 6.62
-      },
-      {
-        "title": "Pro-Palestine protesters rally for ‘Filton 25’ activists at UK court",
-        "summary": "Pro-Palestine protesters rally for &#039;Filton 25’ activists at UK court.",
-        "url": "https://www.aljazeera.com/video/newsfeed/2026/7/6/pro-palestine-protesters-rally-for-filton-25-activists-at-uk-court?traffic_source=rss",
-        "category": "Geopolitics",
-        "source": "Al Jazeera",
-        "tier": 1.1,
-        "published_iso": "2026-07-06T19:29:00+00:00",
-        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/wide-thumb-filton-25-rally-1783366074.png?resize=1920%2C1080&amp;quality=80",
-        "corroborating_sources": [],
-        "score": 6.616
-      },
-      {
-        "title": "NATO chief calls for ‘credible plans’ to reach defence spending goals",
-        "summary": "NATO Secretary General Mark Rutte said members are now spending around 4% of GDP on defence.",
-        "url": "https://www.aljazeera.com/video/newsfeed/2026/7/6/nato-chief-calls-for-credible-plans-to-reach-defence-spending-goals?traffic_source=rss",
-        "category": "Geopolitics",
-        "source": "Al Jazeera",
-        "tier": 1.1,
-        "published_iso": "2026-07-06T19:21:28+00:00",
-        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/image-1783365669.jpg?resize=1920%2C1061&amp;quality=80",
-        "corroborating_sources": [],
-        "score": 6.61
+        "score": 6.541
       },
       {
         "title": "Marine Le Pen appeal verdict: Why this moment matters for France",
@@ -1969,31 +1899,43 @@
         "published_iso": "2026-07-05T23:31:04+00:00",
         "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/1ae5/live/6c2d8350-7868-11f1-ab53-3dbca6ef5ee1.jpg",
         "corroborating_sources": [],
-        "score": 6.589
+        "score": 6.54
       },
       {
-        "title": "Fourth of July weekend marked by dozens of US deaths from gun violence",
-        "summary": "At least 43 killed and many wounded, including woman and child hurt at World Cup gathering in Los Angeles A weekend of celebrations as the US marked its semiquincentennial was marred by outbreaks of gun violence that claimed dozens of lives and left multiple other people wounded. Those hurt included a woman and a child among four shot during a gathering of Mexico soccer supporters in Los Angeles following their team’s World Cup elimination on Sunday night. Continue reading...",
-        "url": "https://www.theguardian.com/us-news/2026/jul/06/shootings-fourth-of-july-weekend",
+        "title": "Survivors and bodies still being pulled from rubble days after twin quakes",
+        "summary": "International aid teams have played a key part in Venezuela’s ‘miracle rescues’, days after twin earthquakes struck.",
+        "url": "https://www.aljazeera.com/video/newsfeed/2026/7/6/survivors-and-bodies-still-being-pulled-from-rubble-days-after-twin-quakes?traffic_source=rss",
+        "category": "Geopolitics",
+        "source": "Al Jazeera",
+        "tier": 1.1,
+        "published_iso": "2026-07-06T21:11:07+00:00",
+        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/image-1783372244.jpg?resize=1919%2C1080&amp;quality=80",
+        "corroborating_sources": [],
+        "score": 6.525
+      },
+      {
+        "title": "Idaho woman who said infant twins died from vaccines charged with murder",
+        "summary": "Andrea Shaw and husband appeared on RFK Jr-linked podcast after deaths in May last year of 18-month-olds An Idaho mother who said her 18-month-old twins died last year after receiving three vaccines has been charged with murder in their deaths, officials said last week. Andrea Shaw, 23, was indicted on two counts of first-degree murder in the deaths of her toddlers, Tyson and Dallas, who were found dead in a shared bed on 1 May last year. Continue reading...",
+        "url": "https://www.theguardian.com/us-news/2026/jul/06/idaho-woman-deaths-children",
         "category": "Geopolitics",
         "source": "Guardian World",
         "tier": 1.1,
-        "published_iso": "2026-07-06T17:55:57+00:00",
-        "image_url": "https://i.guim.co.uk/img/media/9f8cd4a7ee33b2ab633ce2ce133da50bd0d04b4c/779_0_4569_3656/master/4569.jpg?width=700&quality=85&auto=format&fit=max&s=cbd6328be7e37cfc8c5b70b01733b693",
+        "published_iso": "2026-07-06T19:35:45+00:00",
+        "image_url": "https://i.guim.co.uk/img/media/974e6c968630181e15a99fe9541508c9bdec01be/316_0_1450_1160/master/1450.jpg?width=700&quality=85&auto=format&fit=max&s=e5d0c7c22c1ee07138106f13ce75e8d3",
         "corroborating_sources": [],
-        "score": 6.553
+        "score": 6.469
       },
       {
-        "title": "Italy ordered to compensate woman after allegations of rape by partner dismissed as ‘normal’",
-        "summary": "ECHR rules that prosecutor’s remarks perpetuated ‘sexist stereotypes’ and downplayed gender violence The European court of human rights has ordered the Italian state to pay compensation to a woman whose allegations of repeated rape by her partner were dismissed by a prosecutor as “normal” for men who struggle to overcome resistance from “tired” women. The court ruled that the remarks perpetuated “sexist stereotypes” and downplayed gender violence, resulting in the woman being subjected to further victimisation. Continue reading...",
-        "url": "https://www.theguardian.com/world/2026/jul/06/italy-ordered-compensate-woman-rape-allegations-echr",
+        "title": "Charlie Kirk's family attends hearing for suspect charged with his murder",
+        "summary": "The hearing will decide whether Tyler Robinson will stand trial in the shooting death of Kirk, a key Trump ally.",
+        "url": "https://www.bbc.co.uk/news/articles/c1myyyyjvx5o?at_medium=RSS&at_campaign=rss",
         "category": "Geopolitics",
-        "source": "Guardian World",
-        "tier": 1.1,
-        "published_iso": "2026-07-06T15:25:45+00:00",
-        "image_url": "https://i.guim.co.uk/img/media/590cfd7314912033a3a2bbc4eca561db20dcc51b/229_0_4640_3712/master/4640.jpg?width=700&quality=85&auto=format&fit=max&s=fc63ed7f13cc4ded8019b57973cd973e",
+        "source": "BBC World",
+        "tier": 1.4,
+        "published_iso": "2026-07-07T02:33:18+00:00",
+        "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/3925/live/36a0dc60-795c-11f1-9510-1546718f668b.jpg",
         "corroborating_sources": [],
-        "score": 6.463
+        "score": 6.336
       },
       {
         "title": "Detained Gaza doctor almost unrecognisable after injuries in Israeli jail, lawyer says",
@@ -2005,7 +1947,43 @@
         "published_iso": "2026-07-06T13:33:38+00:00",
         "image_url": "https://i.guim.co.uk/img/media/7af74fd6f9c7f36522507ad320292bc08e61e4e0/844_474_3187_2550/master/3187.jpg?width=700&quality=85&auto=format&fit=max&s=f53cfb5bfb447b2af289e0c67cf28279",
         "corroborating_sources": [],
-        "score": 6.404
+        "score": 6.295
+      },
+      {
+        "title": "Fatal Typhoon Maysak floods burst dam wall in China",
+        "summary": "At least two have been killed by flooding due to Maysak, while another 480,000 have been evacuated across the southern Guangxi province.",
+        "url": "https://www.bbc.co.uk/news/videos/c1eyyevn5j7o?at_medium=RSS&at_campaign=rss",
+        "category": "Geopolitics",
+        "source": "BBC World",
+        "tier": 1.4,
+        "published_iso": "2026-07-07T00:58:22+00:00",
+        "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/d9a3/live/90030330-79a4-11f1-b976-0b9c15b0ccfc.jpg",
+        "corroborating_sources": [],
+        "score": 6.261
+      },
+      {
+        "title": "Resistance and revenge - Iran wanted to send a message with its farewell to Khamenei",
+        "summary": "Three days of public mourning in Tehran was a political spectacle Iran's leaders wanted the world to see, writes the BBC's international correspondent Lyse Doucet.",
+        "url": "https://www.bbc.co.uk/news/articles/c07yy3j3nljo?at_medium=RSS&at_campaign=rss",
+        "category": "Geopolitics",
+        "source": "BBC World",
+        "tier": 1.4,
+        "published_iso": "2026-07-07T00:46:03+00:00",
+        "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/91be/live/fc88efc0-7985-11f1-9510-1546718f668b.jpg",
+        "corroborating_sources": [],
+        "score": 6.251
+      },
+      {
+        "title": "The calm before (and during) the storm: When tornadoes near, Nashville turns to informed volunteers",
+        "summary": "Andrew Leeper, left, Will Minkoff and Tom Johnstone, right, of Nashville Severe Weather, look over weather data Monday, April 20, 2026, in Nashville, Tenn. (AP Photo/George Walker IV) 2026-07-07T04:03:01Z NASHVILLE, Tenn. (AP) — Anyone who has watched an episode of “9-1-1: Nashville” could be forgiven for thinking the city is constantly beset by tornados that turn outdoor concerts into scenes of carnage and blow scooter-riding tourists onto the tops of water towers. That may be a TV exaggeration, but tornados and other dangerous storms do hit the city regularly. When they do, many people here ",
+        "url": "https://apnews.com/article/nashville-severe-weather-tornado-cdd367d8b7ae96e117951f9bf0001574",
+        "category": "Geopolitics",
+        "source": "AP Top News",
+        "tier": 1.2,
+        "published_iso": "2026-07-07T04:23:02+00:00",
+        "image_url": null,
+        "corroborating_sources": [],
+        "score": 6.112
       },
       {
         "title": "Trump confirms he asked Fifa to review Balogun ban",
@@ -2017,31 +1995,7 @@
         "published_iso": "2026-07-06T19:06:34+00:00",
         "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/f002/live/3fd125b0-794d-11f1-9510-1546718f668b.jpg",
         "corroborating_sources": [],
-        "score": 6.18
-      },
-      {
-        "title": "Charlie Kirk's family attends hearing for suspect charged with his murder",
-        "summary": "Tyler Robinson, 23, is accused of murdering Kirk, a key Trump ally and founder of youth organisation Turning Point USA.",
-        "url": "https://www.bbc.co.uk/news/articles/c1myyyyjvx5o?at_medium=RSS&at_campaign=rss",
-        "category": "Geopolitics",
-        "source": "BBC World",
-        "tier": 1.4,
-        "published_iso": "2026-07-06T19:06:26+00:00",
-        "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/3925/live/36a0dc60-795c-11f1-9510-1546718f668b.jpg",
-        "corroborating_sources": [],
-        "score": 6.18
-      },
-      {
-        "title": "More than 1,000 arrested as part of global human trafficking crackdown",
-        "summary": "Interpol says the vast majority of the 2,070 victims or potential victims identified were women being trafficked for sex.",
-        "url": "https://www.bbc.co.uk/news/articles/c5yzzzdwqjko?at_medium=RSS&at_campaign=rss",
-        "category": "Geopolitics",
-        "source": "BBC World",
-        "tier": 1.4,
-        "published_iso": "2026-07-06T17:24:31+00:00",
-        "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/0319/live/92f4cc90-794f-11f1-a46d-874d2eff79fe.jpg",
-        "corroborating_sources": [],
-        "score": 6.113
+        "score": 6.033
       },
       {
         "title": "Russia's missile and drone attacks on Ukraine kill at least 22",
@@ -2053,19 +2007,7 @@
         "published_iso": "2026-07-06T07:41:08+00:00",
         "image_url": "https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=g-s1-132088",
         "corroborating_sources": [],
-        "score": 6.092
-      },
-      {
-        "title": "'The spectacle Iran wants the world to see': Lyse Doucet in Tehran",
-        "summary": "Huge crowds have lined the streets of Tehran for the funeral procession of Iran's late supreme leader, Ayatollah Ali Khamenei.",
-        "url": "https://www.bbc.co.uk/news/videos/c78yyyl2ev4o?at_medium=RSS&at_campaign=rss",
-        "category": "Geopolitics",
-        "source": "BBC World",
-        "tier": 1.4,
-        "published_iso": "2026-07-06T16:23:44+00:00",
-        "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/0495/live/a81438a0-7953-11f1-9510-1546718f668b.jpg",
-        "corroborating_sources": [],
-        "score": 6.076
+        "score": 6.014
       },
       {
         "title": "Trump won spending promises from NATO last year. This week, he'll try to enforce them",
@@ -2077,7 +2019,55 @@
         "published_iso": "2026-07-06T06:06:17+00:00",
         "image_url": "https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=g-s1-132082",
         "corroborating_sources": [],
-        "score": 6.059
+        "score": 5.988
+      },
+      {
+        "title": "More than 1,000 arrested as part of global human trafficking crackdown",
+        "summary": "Interpol says the vast majority of the 2,070 victims or potential victims identified were women being trafficked for sex.",
+        "url": "https://www.bbc.co.uk/news/articles/c5yzzzdwqjko?at_medium=RSS&at_campaign=rss",
+        "category": "Geopolitics",
+        "source": "BBC World",
+        "tier": 1.4,
+        "published_iso": "2026-07-06T17:24:31+00:00",
+        "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/0319/live/92f4cc90-794f-11f1-a46d-874d2eff79fe.jpg",
+        "corroborating_sources": [],
+        "score": 5.979
+      },
+      {
+        "title": "'The spectacle Iran wants the world to see': Lyse Doucet in Tehran",
+        "summary": "Huge crowds have lined the streets of Tehran for the funeral procession of Iran's late supreme leader, Ayatollah Ali Khamenei.",
+        "url": "https://www.bbc.co.uk/news/videos/c78yyyl2ev4o?at_medium=RSS&at_campaign=rss",
+        "category": "Geopolitics",
+        "source": "BBC World",
+        "tier": 1.4,
+        "published_iso": "2026-07-06T16:23:44+00:00",
+        "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/0495/live/a81438a0-7953-11f1-9510-1546718f668b.jpg",
+        "corroborating_sources": [],
+        "score": 5.95
+      },
+      {
+        "title": "Dowry murders in India no longer spark public anger or debate, study finds",
+        "summary": "Thousands of women are killed in dowry disputes each year, despite the practice being banned in 1961 Dowry deaths in India no longer provoke the public anger they once did, despite thousands of women’s lives still being lost every year, according to new research. The killings – women who are murdered or driven to suicide following dowry disputes between families – have also faded from political debate, despite an increase in cases. Continue reading...",
+        "url": "https://www.theguardian.com/global-development/2026/jul/07/dowry-murders-in-india-no-longer-spark-public-anger-or-debate-study-finds",
+        "category": "Geopolitics",
+        "source": "Guardian World",
+        "tier": 1.1,
+        "published_iso": "2026-07-07T04:00:29+00:00",
+        "image_url": "https://i.guim.co.uk/img/media/a0c302606fadafc7ac47853562cf67058c9736fb/146_0_2061_1648/master/2061.jpg?width=700&quality=85&auto=format&fit=max&s=7257c24b6a8c8b01b61a5997eaef63af",
+        "corroborating_sources": [],
+        "score": 5.931
+      },
+      {
+        "title": "Hamas dissolves civilian governing body in Gaza after 20 years",
+        "summary": "Hamas has announced the dissolution of its civilian governing body in Gaza after nearly 20 years of administration.",
+        "url": "https://www.aljazeera.com/video/newsfeed/2026/7/7/hamas-dissolves-civilian-governing-body-in-gaza-after-20-years?traffic_source=rss",
+        "category": "Geopolitics",
+        "source": "Al Jazeera",
+        "tier": 1.1,
+        "published_iso": "2026-07-07T03:25:11+00:00",
+        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/image-1783394629.jpg?resize=1920%2C1080&amp;quality=80",
+        "corroborating_sources": [],
+        "score": 5.9
       },
       {
         "title": "Sri Lanka prison riots leave 26 dead and more than 100 injured",
@@ -2089,7 +2079,7 @@
         "published_iso": "2026-07-06T14:19:26+00:00",
         "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/0fe2/live/d9f66230-7930-11f1-84e1-059650f3613e.jpg",
         "corroborating_sources": [],
-        "score": 6.007
+        "score": 5.894
       },
       {
         "title": "Wildfire in southern France forces evacuation of 10,000 people",
@@ -2101,31 +2091,43 @@
         "published_iso": "2026-07-06T13:08:23+00:00",
         "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/e4df/live/4ab81620-7932-11f1-9510-1546718f668b.jpg",
         "corroborating_sources": [],
-        "score": 5.971
+        "score": 5.865
       },
       {
-        "title": "Trevor Noah mocks Trump-FIFA World Cup red card controversy",
-        "summary": "Comedian Trevor Noah joked that Trump’s intervention in Folarin Balogun’s red card saga was “government interference.",
-        "url": "https://www.aljazeera.com/video/newsfeed/2026/7/7/trevor-noah-mocks-trump-fifa-world-cup-red-card-controversy?traffic_source=rss",
+        "title": "Cuba sees nationwide power blackout for third time in six months",
+        "summary": "People in Cuba already faced an ongoing economic and humanitarian crisis, largely due to a US blockade.",
+        "url": "https://www.aljazeera.com/news/2026/7/7/cuba-sees-nationwide-power-blackout-for-third-time-in-six-months?traffic_source=rss",
         "category": "Geopolitics",
         "source": "Al Jazeera",
         "tier": 1.1,
-        "published_iso": "2026-07-07T00:07:07+00:00",
-        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/image-1783382797.jpg?resize=1920%2C1080&amp;quality=80",
+        "published_iso": "2026-07-07T02:29:45+00:00",
+        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/afp_6a4c4d2623df-1783385382.jpg?resize=1920%2C1440",
         "corroborating_sources": [],
-        "score": 5.938
+        "score": 5.853
       },
       {
-        "title": "Over 5,500 children displaced by fighting in Sudan’s el-Obeid, charity says",
-        "summary": "Save the Children says families in and around the city of el-Obeid are facing increasingly difficult conditions.",
-        "url": "https://www.aljazeera.com/news/2026/7/6/over-5500-children-displaced-by-fighting-in-sudans-el-obeid-charity-says?traffic_source=rss",
+        "title": "Russia sends weapons to help Mali’s government hold off rebel siege",
+        "summary": "The Russian navy is carrying a shipment of weapons to help Mali’s government hold off a rebel advance.",
+        "url": "https://www.aljazeera.com/video/newsfeed/2026/7/7/aje-onl-nf_russia-sends-weapons-to-mali-hold-off-rebel-siege-060726?traffic_source=rss",
         "category": "Geopolitics",
         "source": "Al Jazeera",
         "tier": 1.1,
-        "published_iso": "2026-07-06T23:28:56+00:00",
-        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/afp_6a4bf3496129-1783362377.jpg?resize=1920%2C1440",
+        "published_iso": "2026-07-07T02:25:09+00:00",
+        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/image-1783391096.jpg?resize=1920%2C1080&amp;quality=80",
         "corroborating_sources": [],
-        "score": 5.904
+        "score": 5.849
+      },
+      {
+        "title": "FIFA defends Balogun red card referee after Trump calls him ‘a bit suspect’",
+        "summary": "Raphael Claus is &#039;one of the world&#039;s leading professional referees&#039;, FIFA says, following Trump&#039;s comments.",
+        "url": "https://www.aljazeera.com/sports/2026/7/7/fifa-defends-balogun-red-card-referee-after-trump-calls-him-a-bit-suspect?traffic_source=rss",
+        "category": "Geopolitics",
+        "source": "Al Jazeera",
+        "tier": 1.1,
+        "published_iso": "2026-07-07T02:23:55+00:00",
+        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/AFP__20260702__2284250723__v1__HighRes__UsaVBosniaAndHerzegovinaRoundOf32FifaWorldCu-1783386519.jpg?resize=1920%2C1440",
+        "corroborating_sources": [],
+        "score": 5.848
       },
       {
         "title": "Watch: Why Australia's PM apologised for 'inappropriate' Kylie comments",
@@ -2137,31 +2139,7 @@
         "published_iso": "2026-07-06T10:00:08+00:00",
         "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/0a51/live/79986900-791d-11f1-b976-0b9c15b0ccfc.jpg",
         "corroborating_sources": [],
-        "score": 5.886
-      },
-      {
-        "title": "Canada picks Germany’s TKMS for new submarines",
-        "summary": "The German-owned naval shipbuilder made the bid with NATO ally Norway, beating out South Korea&#039;s Hanwha Ocean.",
-        "url": "https://www.aljazeera.com/economy/2026/7/6/canada-picks-germanys-tkms-for-new-submarines?traffic_source=rss",
-        "category": "Geopolitics",
-        "source": "Al Jazeera",
-        "tier": 1.1,
-        "published_iso": "2026-07-06T22:13:46+00:00",
-        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/afp_6a4a313b51ae-1783247163.jpg?resize=1920%2C1440",
-        "corroborating_sources": [],
-        "score": 5.84
-      },
-      {
-        "title": "One Phone Call, One Vanishing Red Card — The Balogun Scandal",
-        "summary": "Al Jazeera&#039;s Basel Ghazoghli (@baselgazi) breaks down how the White House helped Folarin Balogun stay in the World Cup.",
-        "url": "https://www.aljazeera.com/video/newsfeed/2026/7/6/aje-onl-nf_the-balogun-scandal-060726?traffic_source=rss",
-        "category": "Geopolitics",
-        "source": "Al Jazeera",
-        "tier": 1.1,
-        "published_iso": "2026-07-06T22:00:08+00:00",
-        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/image-1783375151.jpg?resize=1920%2C1080&amp;quality=80",
-        "corroborating_sources": [],
-        "score": 5.829
+        "score": 5.797
       },
       {
         "title": "Girl trapped in Venezuela quake 'survived on ketchup and cheese'",
@@ -2173,31 +2151,31 @@
         "published_iso": "2026-07-06T07:17:57+00:00",
         "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/b351/live/062281a0-7908-11f1-9510-1546718f668b.jpg",
         "corroborating_sources": [],
-        "score": 5.824
+        "score": 5.747
       },
       {
-        "title": "Morocco says it has dismantled ISIL-linked cell planning attack",
-        "summary": "Police arrest 10 suspects, seizing bladed weapons, military-style clothes and bomb‑making instructions.",
-        "url": "https://www.aljazeera.com/news/2026/7/6/morocco-says-it-has-dismantled-isil-linked-cell-planning-attack?traffic_source=rss",
+        "title": "Trevor Noah mocks Trump-FIFA World Cup red card controversy",
+        "summary": "Comedian Trevor Noah joked that Trump’s intervention in Folarin Balogun’s red card saga was “government interference.",
+        "url": "https://www.aljazeera.com/video/newsfeed/2026/7/7/trevor-noah-mocks-trump-fifa-world-cup-red-card-controversy?traffic_source=rss",
         "category": "Geopolitics",
         "source": "Al Jazeera",
         "tier": 1.1,
-        "published_iso": "2026-07-06T21:51:23+00:00",
-        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/ap_6a4bf2bf4936a-1783362239.jpg?resize=1920%2C1440",
+        "published_iso": "2026-07-07T00:07:07+00:00",
+        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/image-1783382797.jpg?resize=1920%2C1080&amp;quality=80",
         "corroborating_sources": [],
-        "score": 5.822
+        "score": 5.743
       },
       {
-        "title": "Influencers say they’re ‘honoured’ to attend Khamenei funeral",
-        "summary": "Several social media influencers travelled to Iran for the state funeral of Supreme Leader Ali Khamenei.",
-        "url": "https://www.aljazeera.com/video/newsfeed/2026/7/6/influencers-say-theyre-honoured-to-attend-khamenei-funeral?traffic_source=rss",
+        "title": "Over 5,500 children displaced by fighting in Sudan’s el-Obeid, charity says",
+        "summary": "Save the Children says families in and around the city of el-Obeid are facing increasingly difficult conditions.",
+        "url": "https://www.aljazeera.com/news/2026/7/6/over-5500-children-displaced-by-fighting-in-sudans-el-obeid-charity-says?traffic_source=rss",
         "category": "Geopolitics",
         "source": "Al Jazeera",
         "tier": 1.1,
-        "published_iso": "2026-07-06T21:29:37+00:00",
-        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/image-1783373366.jpg?resize=1920%2C1080&amp;quality=80",
+        "published_iso": "2026-07-06T23:28:56+00:00",
+        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/afp_6a4bf3496129-1783362377.jpg?resize=1920%2C1440",
         "corroborating_sources": [],
-        "score": 5.805
+        "score": 5.715
       },
       {
         "title": "'I ate ketchup and cheese,' says Venezuelan girl trapped under quake rubble for 32 hours",
@@ -2209,43 +2187,7 @@
         "published_iso": "2026-07-06T05:04:28+00:00",
         "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/13aa/live/5063fad0-78fb-11f1-9510-1546718f668b.jpg",
         "corroborating_sources": [],
-        "score": 5.779
-      },
-      {
-        "title": "Mbappe, FFF hit back at Paraguayan senator Amarilla over racist tirade",
-        "summary": "Amarilla called Mbappe a &#039;colonised Cameroonian&#039; after his penalty helped France knock Paraguay out of the World Cup.",
-        "url": "https://www.aljazeera.com/sports/2026/7/6/mbappe-fff-hit-back-at-paraguayan-senator-amarilla-over-racist-tirade?traffic_source=rss",
-        "category": "Geopolitics",
-        "source": "Al Jazeera",
-        "tier": 1.1,
-        "published_iso": "2026-07-06T20:49:48+00:00",
-        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/AFP__20260630__2284079172__v1__HighRes__FranceVSwedenRoundOf32FifaWorldCup2026-1783370084.jpg?resize=1920%2C1440",
-        "corroborating_sources": [],
-        "score": 5.774
-      },
-      {
-        "title": "US judge tosses out Musk’s bid to void Twitter fraud verdict",
-        "summary": "Jurors had found owner Elon Musk liable for tweets questioning whether Twitter was overrun by fake and spam accounts.",
-        "url": "https://www.aljazeera.com/economy/2026/7/6/us-judge-tosses-out-musks-bid-to-void-twitter-fraud-verdict?traffic_source=rss",
-        "category": "Geopolitics",
-        "source": "Al Jazeera",
-        "tier": 1.1,
-        "published_iso": "2026-07-06T20:37:33+00:00",
-        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/02/2026-02-03T102636Z_752840012_RC29EJARMIQO_RTRMADP_3_FRANCE-COURT-X-1770140745.jpg?resize=1920%2C1440",
-        "corroborating_sources": [],
-        "score": 5.765
-      },
-      {
-        "title": "What is the fallout of the increasing violence in Mali?",
-        "summary": "Coalition of rebels and armed groups carries out another series of attacks.",
-        "url": "https://www.aljazeera.com/video/inside-story/2026/7/6/what-is-the-fallout-of-the-increasing-violence-in-mali?traffic_source=rss",
-        "category": "Geopolitics",
-        "source": "Al Jazeera",
-        "tier": 1.1,
-        "published_iso": "2026-07-06T20:11:31+00:00",
-        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/image-1783364064.jpg?resize=1920%2C1061&amp;quality=80",
-        "corroborating_sources": [],
-        "score": 5.746
+        "score": 5.712
       },
       {
         "title": "Australian PM apologises for 'inappropriate' comments about Kylie Minogue",
@@ -2257,7 +2199,19 @@
         "published_iso": "2026-07-06T01:46:29+00:00",
         "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/24a6/live/f1f7cd70-7911-11f1-9510-1546718f668b.jpg",
         "corroborating_sources": [],
-        "score": 5.723
+        "score": 5.666
+      },
+      {
+        "title": "Canada picks Germany’s TKMS for new submarines",
+        "summary": "The German-owned naval shipbuilder made the bid with NATO ally Norway, beating out South Korea&#039;s Hanwha Ocean.",
+        "url": "https://www.aljazeera.com/economy/2026/7/6/canada-picks-germanys-tkms-for-new-submarines?traffic_source=rss",
+        "category": "Geopolitics",
+        "source": "Al Jazeera",
+        "tier": 1.1,
+        "published_iso": "2026-07-06T22:13:46+00:00",
+        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/afp_6a4a313b51ae-1783247163.jpg?resize=1920%2C1440",
+        "corroborating_sources": [],
+        "score": 5.665
       },
       {
         "title": "From 'a beautiful night' to 'world's greatest hangover', guests react to Taylor and Travis's wedding",
@@ -2269,7 +2223,43 @@
         "published_iso": "2026-07-06T01:20:47+00:00",
         "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/ec55/live/3525a160-7888-11f1-a627-714adb4eed6e.jpg",
         "corroborating_sources": [],
-        "score": 5.716
+        "score": 5.661
+      },
+      {
+        "title": "One Phone Call, One Vanishing Red Card — The Balogun Scandal",
+        "summary": "Al Jazeera&#039;s Basel Ghazoghli (@baselgazi) breaks down how the White House helped Folarin Balogun stay in the World Cup.",
+        "url": "https://www.aljazeera.com/video/newsfeed/2026/7/6/aje-onl-nf_the-balogun-scandal-060726?traffic_source=rss",
+        "category": "Geopolitics",
+        "source": "Al Jazeera",
+        "tier": 1.1,
+        "published_iso": "2026-07-06T22:00:08+00:00",
+        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/image-1783375151.jpg?resize=1920%2C1080&amp;quality=80",
+        "corroborating_sources": [],
+        "score": 5.656
+      },
+      {
+        "title": "Morocco says it has dismantled ISIL-linked cell planning attack",
+        "summary": "Police arrest 10 suspects, seizing bladed weapons, military-style clothes and bomb‑making instructions.",
+        "url": "https://www.aljazeera.com/news/2026/7/6/morocco-says-it-has-dismantled-isil-linked-cell-planning-attack?traffic_source=rss",
+        "category": "Geopolitics",
+        "source": "Al Jazeera",
+        "tier": 1.1,
+        "published_iso": "2026-07-06T21:51:23+00:00",
+        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/ap_6a4bf2bf4936a-1783362239.jpg?resize=1920%2C1440",
+        "corroborating_sources": [],
+        "score": 5.65
+      },
+      {
+        "title": "Influencers say they’re ‘honoured’ to attend Khamenei funeral",
+        "summary": "Several social media influencers travelled to Iran for the state funeral of Supreme Leader Ali Khamenei.",
+        "url": "https://www.aljazeera.com/video/newsfeed/2026/7/6/influencers-say-theyre-honoured-to-attend-khamenei-funeral?traffic_source=rss",
+        "category": "Geopolitics",
+        "source": "Al Jazeera",
+        "tier": 1.1,
+        "published_iso": "2026-07-06T21:29:37+00:00",
+        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/image-1783373366.jpg?resize=1920%2C1080&amp;quality=80",
+        "corroborating_sources": [],
+        "score": 5.636
       },
       {
         "title": "Lauren Bennett, singer on LMFAO’s Party Rock Anthem, dies aged 37",
@@ -2281,19 +2271,7 @@
         "published_iso": "2026-07-06T19:27:44+00:00",
         "image_url": "https://i.guim.co.uk/img/media/28e1a514a148037040193adf5deefba41c92f3af/344_0_3436_2749/master/3436.jpg?width=700&quality=85&auto=format&fit=max&s=5d27da8681899250a8183e6aa81a66ca",
         "corroborating_sources": [],
-        "score": 5.715
-      },
-      {
-        "title": "A global hub for fake luxury goods, Vietnam cracks down on its black market",
-        "summary": "The Trump administration wants Vietnam to stamp out its booming counterfeit industry. Locals are divided.",
-        "url": "https://www.bbc.co.uk/news/articles/cdx7zzywz7wo?at_medium=RSS&at_campaign=rss",
-        "category": "Geopolitics",
-        "source": "BBC World",
-        "tier": 1.4,
-        "published_iso": "2026-07-05T22:01:43+00:00",
-        "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/b0a6/live/d2d3d720-76b6-11f1-925a-557464d48d36.jpg",
-        "corroborating_sources": [],
-        "score": 5.669
+        "score": 5.564
       },
       {
         "title": "Trump, Mamdani give contrasting July 4th speeches. And, U.S. faces Belgium in World Cup",
@@ -2305,55 +2283,7 @@
         "published_iso": "2026-07-06T11:46:36+00:00",
         "image_url": "https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=g-s1-132097",
         "corroborating_sources": [],
-        "score": 5.292
-      },
-      {
-        "title": "Rodríguez defends Venezuela’s emergency earthquake response as number of bodies expected to soar",
-        "summary": "Interim president says unrest will not break out despite anger at official response to the 24 June disaster Venezuela’s interim president has defended her country’s emergency response to the twin earthquakes that have killed more than 3,000 people, vowing the country would not descend into social unrest. Many Venezuelans have expressed anger at what they see as the US-backed government’s inadequate response to the 24 June disaster before international teams arrived. Continue reading...",
-        "url": "https://www.theguardian.com/world/2026/jul/05/rodriguez-defends-venezuelas-emergency-earthquake-response-as-bodies-expected-to-soar",
-        "category": "Geopolitics",
-        "source": "Guardian World",
-        "tier": 1.1,
-        "published_iso": "2026-07-05T21:50:42+00:00",
-        "image_url": "https://i.guim.co.uk/img/media/8484070a522057b1eb049841190d3af484688d7c/453_0_4854_3884/master/4854.jpg?width=700&quality=85&auto=format&fit=max&s=7ee4e38dd1171ed502ecc15ff9400239",
-        "corroborating_sources": [],
-        "score": 5.187
-      },
-      {
-        "title": "Y si sí: the phrase uniting Mexico during the World Cup",
-        "summary": "Mexico's World Cup run has inspired a phrase heard across the country: \"Y si sí.\" Or in English: \"What if we can?\" Anamaria Sayre reports from Mexico City.",
-        "url": "https://www.npr.org/2026/07/05/nx-s1-5881076/y-si-si-the-phrase-uniting-mexicos-world-cup-fans",
-        "category": "Geopolitics",
-        "source": "NPR World",
-        "tier": 1.0,
-        "published_iso": "2026-07-05T21:03:43+00:00",
-        "image_url": "https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-5881076",
-        "corroborating_sources": [],
-        "score": 5.017
-      },
-      {
-        "title": "Hong Kong's 'sound of silence': 6 years under the national security law",
-        "summary": "Six years after Beijing imposed its National Security Law, many of Hong Kong's opposition voices have gone silent. Danny Vincent looks at what's changed.",
-        "url": "https://www.npr.org/2026/07/05/nx-s1-5876545/hong-kongs-sound-of-silence-6-years-under-the-national-security-law",
-        "category": "Geopolitics",
-        "source": "NPR World",
-        "tier": 1.0,
-        "published_iso": "2026-07-05T21:03:38+00:00",
-        "image_url": "https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-5876545",
-        "corroborating_sources": [],
-        "score": 5.017
-      },
-      {
-        "title": "Folarin Balogun's ban is lifted by FIFA, allowing U.S. striker to play Belgium",
-        "summary": "In an unusual move, FIFA's Disciplinary Committee announced that it would delay Folarin Balogun's one-game red card ban. It came after President Trump spoke to FIFA President Gianni Infantino.",
-        "url": "https://www.npr.org/2026/07/05/g-s1-132061/folarin-balogun-soccer-reinstated-ban-suspended-fifa-belgium",
-        "category": "Geopolitics",
-        "source": "NPR World",
-        "tier": 1.0,
-        "published_iso": "2026-07-05T18:37:19+00:00",
-        "image_url": "https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=g-s1-132061",
-        "corroborating_sources": [],
-        "score": 4.99
+        "score": 5.194
       }
     ]
   }
