@@ -5,69 +5,69 @@
   "twitter": [
     {
       "category": "Promo",
-      "post": "Tired of scrolling through endless articles to find one specific answer? You can ask our AI search anything about the news and get a direct answer with links to the sources. It is a much faster way to stay informed. HEADLINNE.com #news #tech",
+      "post": "Ever find yourself deep in a news story but still have questions? Our AI search lets you ask specific things and gives you answers with links to the sources. It is a much faster way to get the full picture. HEADLINNE.com #news #AI",
       "hashtags": [
         "news",
-        "tech"
+        "AI"
       ],
       "scheduled_time": "2026-07-12T13:00:00+05:30",
       "kind": "promo"
     }
   ],
   "linkedin": {
-    "title": "Algorithms get a bad reputation for just showing us more of the same.",
-    "body": "It is a common frustration. You click on one article about electric cars and suddenly your feed is nothing but car reviews for weeks. That is not personalization. That is just repeating the last thing you did.\n\nWe think a good news engine should do the opposite. It should treat your interests like a conversation, not a search history. When we built the technology behind Headlinne, we focused on how people actually read. You might be interested in climate change, but you also want to know about local politics and the latest tech trends. Your curiosity is broad, and your news feed should reflect that.\n\nInstead of guessing what you want based on a single click, our system looks for the nuance in what you actually engage with over time. It learns that you might like deep dives on weekends but prefer quick summaries on Tuesday mornings. It is about respecting your time and your intelligence.\n\nTechnology is at its best when it gets out of the way and helps you discover something new, rather than trapping you in a bubble.",
-    "cta": "You can see how we are rethinking the news feed at HEADLINNE.com.",
+    "title": "Most news feeds are broken because they treat everyone the same.",
+    "body": "It is frustrating to open a news app and see headlines that have nothing to do with your life or your interests. The standard approach is to guess what you might like based on broad categories. But human curiosity is much more specific than a category like technology or politics.\n\nWe built Headlinne to change that. Instead of guessing, our recommendation engine works by paying attention to what you actually engage with over time. It learns from your habits. If you read a piece about urban planning in your city, it understands you are interested in local policy, not just generic city news. It is about nuance.\n\nThis is not about trapping you in a bubble. It is about cutting through the noise so you can find the stories that matter to you. When the technology works well, it feels less like an algorithm and more like a helpful editor who knows what you like to read.\n\nWe believe technology should save you time, not waste it.",
+    "cta": "You can see how it works for yourself at HEADLINNE.com.",
     "scheduled_time": "2026-07-12T18:00:00+05:30",
     "kind": "product"
   },
   "instagram": [
     {
       "slot": "instagram_1",
-      "category": "Technology",
+      "category": "Geopolitics",
       "num_slides": 7,
-      "title": "Top 5 Things In Tech Today",
+      "title": "Top 5 Geopolitics Headlines",
       "slides": [
         {
           "role": "cover",
-          "headline": "Top 5 Things In Tech Today",
+          "headline": "Top 5 Geopolitics Headlines",
           "explanation": "",
-          "image_url": "https://media.wired.com/photos/6a518d0cb6767a97076bfe9e/191:100/w_1280,c_limit/GettyImages-2283356667.jpg",
+          "image_url": "https://i.guim.co.uk/img/media/f3e8aba656383bc135a5716a54f2a47f8f38afc3/688_0_6880_5504/master/6880.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=ced81992e2679601f78eee944a96a955",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-12/instagram/instagram_1/slide_1.png"
         },
         {
           "role": "story",
-          "headline": "OpenAI safety lead steps down",
-          "explanation": "Johannes Heidecke is leaving OpenAI. This change happens as the company works to combine its research and safety teams more closely.",
-          "image_url": "https://media.wired.com/photos/6a518d0cb6767a97076bfe9e/191:100/w_1280,c_limit/GettyImages-2283356667.jpg",
+          "headline": "Pauline Hanson's economic strategy",
+          "explanation": "One Nation is gaining traction by linking high housing costs directly to immigration levels. It is a simple message that is finding an audience among Australians worried about the economy.",
+          "image_url": "https://i.guim.co.uk/img/media/f3e8aba656383bc135a5716a54f2a47f8f38afc3/688_0_6880_5504/master/6880.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=ced81992e2679601f78eee944a96a955",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-12/instagram/instagram_1/slide_2.png"
         },
         {
           "role": "story",
-          "headline": "Apple takes OpenAI to court",
-          "explanation": "Apple claims OpenAI stole hardware secrets. They allege that former employees were encouraged to take confidential presentations and prototypes to their new jobs.",
-          "image_url": "https://media.wired.com/photos/6a51395dba309b253cb3d458/191:100/w_1280,c_limit/GettyImages-2233062347.jpg",
+          "headline": "AI vs. clean energy",
+          "explanation": "The massive energy needs of AI data centers are leading to more fossil fuel use. Now, renewable energy advocates are pushing to ensure these power-hungry facilities use cleaner sources instead.",
+          "image_url": null,
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-12/instagram/instagram_1/slide_3.png"
         },
         {
           "role": "story",
-          "headline": "Paramount and Warner Bros. deal moves forward",
-          "explanation": "Oregon's Attorney General dropped his request to pause the merger. He had previously asked for a delay to review documents related to the takeover.",
-          "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/02/STKB385_PARAMOUNT_D.jpg?quality=90&amp;strip=all&amp;crop=0%2C10.728364100735%2C100%2C78.54327179853&amp;w=1200",
+          "headline": "US strikes follow Strait of Hormuz closure",
+          "explanation": "The US has launched new military strikes after Iran blocked the vital Strait of Hormuz. This follows a recent attack on a ship passing through the area.",
+          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/6961/live/7bbcded0-7d7f-11f1-b976-0b9c15b0ccfc.jpg",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-12/instagram/instagram_1/slide_4.png"
         },
         {
           "role": "story",
-          "headline": "New scrutiny for Homeland Security",
-          "explanation": "Federal agents under the current administration are facing criticism. Recent reports highlight questions about the use of force and how agents conduct home visits.",
-          "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/07/gettyimages-2252426003.jpg?quality=90&amp;strip=all&amp;crop=0%2C10.740836125969%2C100%2C78.518327748063&amp;w=1200",
+          "headline": "Suspect released in Widdecombe case",
+          "explanation": "UK police have released a 26-year-old man who was arrested following the death of former politician Ann Widdecombe. She was found dead in her home earlier this week.",
+          "image_url": "https://i.guim.co.uk/img/media/77d0774277e1990ff2c89876612555c02f5140ad/573_0_4580_3664/master/4580.jpg?width=700&quality=85&auto=format&fit=max&s=3a4fdd3a0b9aa3cb5d8dd2b9beb41fdc",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-12/instagram/instagram_1/slide_5.png"
         },
         {
           "role": "story",
-          "headline": "ChatGPT wants to join your family",
-          "explanation": "OpenAI is hiring a manager to build tools for families and older adults. They want to make the app more useful for people at home.",
-          "image_url": "https://techcrunch.com/wp-content/uploads/2025/01/GettyImages-2170386424.jpg?w=1024",
+          "headline": "Poland plans WW2 memorial",
+          "explanation": "The Polish Prime Minister has promised a new memorial for victims of World War Two mass killings. This move addresses a long-standing point of tension between Warsaw and Kyiv.",
+          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/50bb/live/5cc44ba0-7d50-11f1-926f-c90d1bcfbc84.jpg",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-12/instagram/instagram_1/slide_6.png"
         },
         {
@@ -78,66 +78,66 @@
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-12/instagram/instagram_1/slide_7.png"
         }
       ],
-      "caption": "It is a busy day in tech with major leadership changes, legal battles, and shifting strategies for AI. We are breaking down the biggest headlines you need to know right now. Tap through to catch up on the stories that matter. Read more on HEADLINNE.com.",
+      "caption": "Stay informed with today's top global stories. From energy debates to international tensions, we are breaking down the news you need to know. Download Headlinne to get the full picture every day. Read more on HEADLINNE.com.",
       "hashtags": [
-        "Tech",
-        "TechNews",
-        "AI",
+        "WorldNews",
+        "Geopolitics",
+        "Politics",
         "news",
-        "openai",
-        "apple",
-        "business",
-        "headlinne",
-        "updates"
+        "australia",
+        "energy",
+        "uknews",
+        "poland",
+        "headlinne"
       ],
       "scheduled_time": "2026-07-12T16:00:00+05:30"
     },
     {
       "slot": "instagram_2",
-      "category": "Geopolitics",
+      "category": "Technology",
       "num_slides": 7,
-      "title": "Top 5 Geopolitics Headlines",
+      "title": "Top 5 Things In Tech Today",
       "slides": [
         {
           "role": "cover",
-          "headline": "Top 5 Geopolitics Headlines",
+          "headline": "Top 5 Things In Tech Today",
           "explanation": "",
-          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/a1ec/live/f2614840-7d30-11f1-8f06-e145dd803033.jpg",
+          "image_url": "https://media.wired.com/photos/6a4f18114c236782d71359fd/191:100/w_1280,c_limit/The-Best-Hiking-Boots-and-Shoes-for-Any-Adventure-2.jpg",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-12/instagram/instagram_2/slide_1.png"
         },
         {
           "role": "story",
-          "headline": "Trump admin subpoenas NYT reporters",
-          "explanation": "Journalists are facing legal action after reporting on security concerns regarding the new Air Force One. The plane was a gift from Qatar.",
-          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/a1ec/live/f2614840-7d30-11f1-8f06-e145dd803033.jpg",
+          "headline": "Top hiking boots for your next trip",
+          "explanation": "If you are planning to hit the trails, Wired has put together a guide on the best boots for everything from park walks to serious mountain climbs.",
+          "image_url": "https://media.wired.com/photos/6a4f18114c236782d71359fd/191:100/w_1280,c_limit/The-Best-Hiking-Boots-and-Shoes-for-Any-Adventure-2.jpg",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-12/instagram/instagram_2/slide_2.png"
         },
         {
           "role": "story",
-          "headline": "Hunter Biden wins defamation lawsuit",
-          "explanation": "A judge ordered former Overstock CEO Patrick Byrne to pay $1.7 million. Byrne had falsely claimed Biden sought a bribe to influence policy on Iran assets.",
-          "image_url": "https://i.guim.co.uk/img/media/810cc2e6ffdff3499a548650441f06aef6a75183/29_0_1666_1333/master/1666.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=e18fa7ea8ae2bb2a2f1f7ec9e557b74e",
+          "headline": "Meta pulls back on Instagram AI tool",
+          "explanation": "Meta is removing an AI feature from Instagram after users complained. The company admitted the tool missed the mark and decided to take it down.",
+          "image_url": "https://techcrunch.com/wp-content/uploads/2026/05/instagram-header.jpg?resize=1200,800",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-12/instagram/instagram_2/slide_3.png"
         },
         {
           "role": "story",
-          "headline": "Boat accident in Vietnam leaves 15 dead",
-          "explanation": "A speedboat capsized in rough seas near a southern Vietnam island. While 15 people died, local reports confirm 21 others were rescued.",
-          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/ff78/live/f1159af0-7d1b-11f1-b61e-1b6852ddc42f.jpg",
+          "headline": "Instagram blocks AI deepfake tool",
+          "explanation": "Meta has officially deactivated a feature that let users create AI images of public Instagram accounts. This follows concerns about how the tool was being used.",
+          "image_url": "https://www.engadget.com/img/gallery/meta-deactivates-feature-that-let-you-generate-ai-images-of-any-public-instagram-account/l-intro-1783733594.jpg",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-12/instagram/instagram_2/slide_4.png"
         },
         {
           "role": "story",
-          "headline": "Neon picks up OpenAI-focused film",
-          "explanation": "The film Artificial, which focuses on OpenAI CEO Sam Altman, has a new distributor. Amazon previously dropped the project, but now Neon will release it.",
-          "image_url": null,
+          "headline": "Is the new Black Flag remake any good?",
+          "explanation": "Fans have waited 13 years for this, and now the Assassin's Creed Black Flag remake is finally here. The BBC took a look to see if it lives up to the hype.",
+          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/1de2/live/a36e0e60-7aee-11f1-94d8-c95634a95d3e.jpg",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-12/instagram/instagram_2/slide_5.png"
         },
         {
           "role": "story",
-          "headline": "Pianist loses case against Melbourne orchestra",
-          "explanation": "A federal court ruled against Jayson Gillham in his unfair dismissal case. The court found the orchestra did not fire him unfairly over his comments about the war in Gaza.",
-          "image_url": "https://i.guim.co.uk/img/media/2bb66ff7a81feb40fb72572ee05aebbb1209ac9b/0_0_3458_2767/master/3458.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=a85d61767b097b985edaec93096ccd85",
+          "headline": "The viral Nopia synth is almost here",
+          "explanation": "After gaining massive attention online in 2023, the Nopia synthesizer is nearly ready for release. The creators recently showed off the finished product.",
+          "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/07/maxresdefault_503c4e.jpg?quality=90&amp;strip=all&amp;crop=0%2C3.4613147178592%2C100%2C93.077370564282&amp;w=1200",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-12/instagram/instagram_2/slide_6.png"
         },
         {
@@ -148,16 +148,17 @@
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-12/instagram/instagram_2/slide_7.png"
         }
       ],
-      "caption": "Catch up on today's top stories from around the globe. From major legal battles to tragic accidents, we have the facts you need to stay informed. Tap through to see what is happening in the world today. Read more on HEADLINNE.com.",
+      "caption": "From major tech updates at Meta to long-awaited game remakes, here is the tech news you need to know today. Swipe through for the latest headlines. Stay informed with Headlinne. Read more on HEADLINNE.com.",
       "hashtags": [
-        "WorldNews",
-        "Geopolitics",
-        "Politics",
+        "Tech",
+        "TechNews",
+        "AI",
         "news",
-        "today",
-        "currentaffairs",
-        "headlines",
-        "dailyupdate",
+        "meta",
+        "instagram",
+        "gaming",
+        "musictech",
+        "hiking",
         "Headlinne"
       ],
       "scheduled_time": "2026-07-12T18:00:00+05:30"
