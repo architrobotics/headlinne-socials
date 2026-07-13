@@ -1,76 +1,28 @@
 {
   "day": "2026-07-13",
   "category_weights": {
-    "Technology": 0.329,
-    "Finance": 0.325,
-    "Geopolitics": 0.346
+    "Technology": 0.33,
+    "Finance": 0.323,
+    "Geopolitics": 0.347
   },
   "dominant_category": "Geopolitics",
-  "breaking": null,
+  "breaking": {
+    "title": "10 years of Pokémon Go and the millions still trying to catch 'em all",
+    "summary": "Michael Steranka, vice president at the mobile game's owner Scopely, says it has always been about bringing people together.",
+    "url": "https://www.bbc.co.uk/news/articles/cevlwk4nrm7o?at_medium=RSS&at_campaign=rss",
+    "category": "Technology",
+    "source": "BBC Technology",
+    "tier": 1.4,
+    "published_iso": "2026-07-13T00:07:00+00:00",
+    "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/c312/live/88ec5440-7be6-11f1-9010-bd4e2d0a26e0.png",
+    "corroborating_sources": [
+      "BBC Business",
+      "BBC World"
+    ],
+    "score": 9.44
+  },
   "by_category": {
     "Technology": [
-      {
-        "title": "Apple’s failed self-driving car program left a legacy of powerful AI chips",
-        "summary": "Apple's self-driving car program never really got off the ground, but it may have been what made the company's chips the powerful AI performers they are. Early in the development of the self-driving platform, Apple realized that it would need powerful on-device AI processing. While the car processor was never finished, as Mark Gurman details [&#8230;]",
-        "url": "https://www.theverge.com/tech/964519/apple-silicon-self-driving-car-ai-m7-ultra",
-        "category": "Technology",
-        "source": "The Verge",
-        "tier": 1.1,
-        "published_iso": "2026-07-12T16:27:06+00:00",
-        "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/apple_chips.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
-        "corroborating_sources": [],
-        "score": 8.299
-      },
-      {
-        "title": "10 years of Pokémon Go and the millions still trying to catch 'em all",
-        "summary": "Michael Steranka, vice president at the mobile game's owner Scopely, says it has always been about bringing people together.",
-        "url": "https://www.bbc.co.uk/news/articles/cevlwk4nrm7o?at_medium=RSS&at_campaign=rss",
-        "category": "Technology",
-        "source": "BBC Technology",
-        "tier": 1.4,
-        "published_iso": "2026-07-13T00:07:00+00:00",
-        "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/c312/live/88ec5440-7be6-11f1-9010-bd4e2d0a26e0.png",
-        "corroborating_sources": [
-          "BBC World"
-        ],
-        "score": 8.289
-      },
-      {
-        "title": "Lorde says Ray-Ban Meta AI glasses are ‘not sexy’",
-        "summary": "Lorde was performing at the Real Cool Festival in Madrid on Thursday and took some time during her set to speak out against AI glasses. While she didn't specify any brands in particular, it's likely she was taking a shot at festival sponsor Ray-Ban, which has collaborated with Meta on a pair of AI smartglasses. [&#8230;]",
-        "url": "https://www.theverge.com/ai-artificial-intelligence/964539/lorde-says-ray-ban-meta-ai-glasses-are-not-sexy",
-        "category": "Technology",
-        "source": "The Verge",
-        "tier": 1.1,
-        "published_iso": "2026-07-12T20:10:19+00:00",
-        "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/07/gettyimages-2279420244.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
-        "corroborating_sources": [],
-        "score": 7.545
-      },
-      {
-        "title": "Blue Prince became a bonding — and learning — experience for my family",
-        "summary": "I've always been the gamer in the family. When my son was born nearly 11 years ago, gaming was one of the things I looked forward to sharing with him. Pulling up a chair next to me, he would watch as I played Sea of Thieves with friends, often wearing the too-big-for-his-head headset to talk [&#8230;]",
-        "url": "https://www.theverge.com/games/964262/blue-prince-family-bonding",
-        "category": "Technology",
-        "source": "The Verge",
-        "tier": 1.1,
-        "published_iso": "2026-07-12T13:00:00+00:00",
-        "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/07/blue-prince-hallway.png?quality=90&#038;strip=all&#038;crop=0,0,100,100",
-        "corroborating_sources": [],
-        "score": 7.287
-      },
-      {
-        "title": "Xbox gamer wins lawsuit against Microsoft to restore account and digital library",
-        "summary": "Microsoft also has to pay roughly $400 in damages to the user.",
-        "url": "https://www.engadget.com/2213111/xbox-gamer-wins-lawsuit-against-microsoft-to-restore-account-and-digital-library/",
-        "category": "Technology",
-        "source": "Engadget",
-        "tier": 0.9,
-        "published_iso": "2026-07-12T18:39:58+00:00",
-        "image_url": "https://www.engadget.com/img/gallery/xbox-gamer-wins-lawsuit-against-microsoft-to-restore-account-and-digital-library/l-intro-1783880837.jpg",
-        "corroborating_sources": [],
-        "score": 7.162
-      },
       {
         "title": "Refreshed Apple Pencils may arrive next year with improved repairability",
         "summary": "Thanks to upcoming EU regulations, the next Apple Pencil could feature replaceable batteries.",
@@ -81,7 +33,7 @@
         "published_iso": "2026-07-12T17:42:48+00:00",
         "image_url": "https://www.engadget.com/img/gallery/the-refreshed-apple-pencils-may-arrive-next-year-with-improved-repairability/l-intro-1783877811.jpg",
         "corroborating_sources": [],
-        "score": 7.125
+        "score": 7.0
       },
       {
         "title": "One of SteelSeries&#8217; best gaming headsets is over $100 off",
@@ -93,19 +45,7 @@
         "published_iso": "2026-07-12T15:00:00+00:00",
         "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/25360143/akrales_220510_5209_0005.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
         "corroborating_sources": [],
-        "score": 6.449
-      },
-      {
-        "title": "Summer Games Done Quick once again raises over $2 million for Doctors Without Borders",
-        "summary": "The annual speedrunning marathon event ran from July 5-11.",
-        "url": "https://www.engadget.com/2213171/summer-games-done-quick-raises-over-2-million-for-doctors-without-borders/",
-        "category": "Technology",
-        "source": "Engadget",
-        "tier": 0.9,
-        "published_iso": "2026-07-12T21:25:14+00:00",
-        "image_url": "https://www.engadget.com/img/gallery/summer-games-done-quick-once-again-raises-over-2-million-for-doctors-without-borders/l-intro-1783891210.jpg",
-        "corroborating_sources": [],
-        "score": 6.382
+        "score": 6.342
       },
       {
         "title": "The fight against AI data centers is just beginning",
@@ -117,19 +57,7 @@
         "published_iso": "2026-07-12T12:00:00+00:00",
         "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/07/gettyimages-2282688394.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
         "corroborating_sources": [],
-        "score": 6.359
-      },
-      {
-        "title": "What are your plans for AI Appreciation Day?",
-        "summary": "The best way to celebrate AI Appreciation Day is to not.",
-        "url": "https://www.engadget.com/2213147/what-are-your-plans-for-ai-appreciation-day/",
-        "category": "Technology",
-        "source": "Engadget",
-        "tier": 0.9,
-        "published_iso": "2026-07-12T20:30:53+00:00",
-        "image_url": "https://www.engadget.com/img/gallery/what-are-your-plans-for-ai-appreciation-day/l-intro-1783886916.jpg",
-        "corroborating_sources": [],
-        "score": 6.34
+        "score": 6.268
       },
       {
         "title": "The real mystery behind Moana: After 1,700 years, why did Polynesians suddenly sail east?",
@@ -141,7 +69,19 @@
         "published_iso": "2026-07-12T11:12:19+00:00",
         "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/07/GettyImages-2285149590-1152x648.jpg",
         "corroborating_sources": [],
-        "score": 6.337
+        "score": 6.25
+      },
+      {
+        "title": "Summer Games Done Quick once again raises over $2 million for Doctors Without Borders",
+        "summary": "The annual speedrunning marathon event ran from July 5-11.",
+        "url": "https://www.engadget.com/2213171/summer-games-done-quick-raises-over-2-million-for-doctors-without-borders/",
+        "category": "Technology",
+        "source": "Engadget",
+        "tier": 0.9,
+        "published_iso": "2026-07-12T21:25:14+00:00",
+        "image_url": "https://www.engadget.com/img/gallery/summer-games-done-quick-once-again-raises-over-2-million-for-doctors-without-borders/l-intro-1783891210.jpg",
+        "corroborating_sources": [],
+        "score": 6.228
       },
       {
         "title": "TechCrunch Mobility: A robotaxi ultimatum",
@@ -153,7 +93,19 @@
         "published_iso": "2026-07-12T16:07:00+00:00",
         "image_url": "https://techcrunch.com/wp-content/uploads/2026/07/waymo-SF-getty.jpg?resize=1200,800",
         "corroborating_sources": [],
-        "score": 6.327
+        "score": 6.213
+      },
+      {
+        "title": "What are your plans for AI Appreciation Day?",
+        "summary": "The best way to celebrate AI Appreciation Day is to not.",
+        "url": "https://www.engadget.com/2213147/what-are-your-plans-for-ai-appreciation-day/",
+        "category": "Technology",
+        "source": "Engadget",
+        "tier": 0.9,
+        "published_iso": "2026-07-12T20:30:53+00:00",
+        "image_url": "https://www.engadget.com/img/gallery/what-are-your-plans-for-ai-appreciation-day/l-intro-1783886916.jpg",
+        "corroborating_sources": [],
+        "score": 6.195
       },
       {
         "title": "The Best Robotic Pool Cleaners of 2026: Beatbot, iGarden, Dreame",
@@ -165,7 +117,7 @@
         "published_iso": "2026-07-12T11:09:00+00:00",
         "image_url": "https://media.wired.com/photos/69e95b2c9a0a1ec843ac2661/master/pass/The-Best-Pool-Cleaning-Robots-of-2026.jpg",
         "corroborating_sources": [],
-        "score": 6.176
+        "score": 6.089
       },
       {
         "title": "Here’s How Apple Is Updating Its Child Safety Features in iOS 27",
@@ -177,7 +129,7 @@
         "published_iso": "2026-07-12T10:30:00+00:00",
         "image_url": "https://media.wired.com/photos/6a50fccd66a07c1d2b746b98/master/pass/Gear_Here%E2%80%99s%20How%20Apple%20Is%20Updating%20Its%20Child%20Safety%20Features%20in%20iOS%2027_v3.jpg",
         "corroborating_sources": [],
-        "score": 6.159
+        "score": 6.075
       },
       {
         "title": "Scientists’ Side Hustle? Using AI and Quantum Computing to Generate New Peptides",
@@ -189,7 +141,7 @@
         "published_iso": "2026-07-12T10:00:00+00:00",
         "image_url": "https://media.wired.com/photos/6a50c6b5d12b964679cc91a9/master/pass/Quantum%20Computing.jpg",
         "corroborating_sources": [],
-        "score": 6.146
+        "score": 6.065
       },
       {
         "title": "Reed Jobs would rather talk about curing cancer than his last name",
@@ -201,19 +153,7 @@
         "published_iso": "2026-07-12T00:16:06+00:00",
         "image_url": "https://techcrunch.com/wp-content/uploads/2026/07/Screenshot-2026-07-11-at-5.04.51-PM.png?w=1094",
         "corroborating_sources": [],
-        "score": 5.96
-      },
-      {
-        "title": "Phoebe Gates' AI shopping app Phia reportedly claimed unearned affiliate sales through fake clicks",
-        "summary": "Gates, who is Bill Gates' daughter, founded the app alongside Sophia Kianni.",
-        "url": "https://www.engadget.com/2212973/phoebe-gates-ai-shopping-app-phia-affiliate-sales-fake-clicks/",
-        "category": "Technology",
-        "source": "Engadget",
-        "tier": 0.9,
-        "published_iso": "2026-07-11T20:29:36+00:00",
-        "image_url": "https://www.engadget.com/img/gallery/phoebe-gates-ai-shopping-app-phia-reportedly-claimed-unearned-affiliate-sales-through-fake-clicks/l-intro-1783801413.jpg",
-        "corroborating_sources": [],
-        "score": 5.751
+        "score": 5.913
       },
       {
         "title": "Shall We Go On Sinning So That Grace May Increase? is hypnotic, healing, and hopeful",
@@ -225,7 +165,7 @@
         "published_iso": "2026-07-12T19:40:00+00:00",
         "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/07/soft-pink-truth.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
         "corroborating_sources": [],
-        "score": 5.723
+        "score": 5.584
       },
       {
         "title": "Uber’s Autonomous Vehicle Strategy: Slow Their Adoption",
@@ -237,7 +177,7 @@
         "published_iso": "2026-07-12T19:55:37+00:00",
         "image_url": "https://media.wired.com/photos/6a5397ed87a24ef3942fc9ff/master/pass/GettyImages-2267121351.jpg",
         "corroborating_sources": [],
-        "score": 5.575
+        "score": 5.434
       },
       {
         "title": "How Philips Hue got the smart home right",
@@ -249,7 +189,7 @@
         "published_iso": "2026-07-12T14:38:01+00:00",
         "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/07/VRH_Hue_Site.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
         "corroborating_sources": [],
-        "score": 5.537
+        "score": 5.432
       },
       {
         "title": "Less is more with the Oura Ring 5",
@@ -261,7 +201,7 @@
         "published_iso": "2026-07-12T14:00:00+00:00",
         "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/06/268600_oura_ring_5_AKrales_0125.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
         "corroborating_sources": [],
-        "score": 5.517
+        "score": 5.416
       },
       {
         "title": "Pentagon releases new batch of UFO files, China's Tianwen-2 reaches its asteroid target, and more science stories",
@@ -273,7 +213,7 @@
         "published_iso": "2026-07-12T19:58:35+00:00",
         "image_url": "https://www.engadget.com/img/gallery/pentagon-releases-new-batch-of-ufo-files-chinas-tianwen-2-reaches-its-asteroid-target-and-more-science-stories/l-intro-1783885763.jpg",
         "corroborating_sources": [],
-        "score": 5.417
+        "score": 5.275
       },
       {
         "title": "Why GameCube games are so expensive (and why they're rarely sold at retro stores)",
@@ -285,7 +225,7 @@
         "published_iso": "2026-07-12T18:30:00+00:00",
         "image_url": "https://www.engadget.com/img/gallery/why-gamecube-games-are-so-expensive-and-why-theyre-rarely-sold-at-retro-stores/l-intro-1783515961.jpg",
         "corroborating_sources": [],
-        "score": 5.356
+        "score": 5.225
       },
       {
         "title": "28 Best STEM Toys for Kids (2026): Learning Made Fun",
@@ -297,19 +237,7 @@
         "published_iso": "2026-07-12T10:30:00+00:00",
         "image_url": "https://media.wired.com/photos/691bfbe9632b8d38670cc04a/master/pass/33%20Smart%20STEM%20Toys%20for%20the%20Techie%20Kids%20in%20Your%20Life.png",
         "corroborating_sources": [],
-        "score": 5.259
-      },
-      {
-        "title": "Why Xiaomi phones aren't banned, but are rarely sold in the US",
-        "summary": "The Chinese company is allowed to sell its impressive phones in the States, but it doesn't. Here's why.",
-        "url": "https://www.engadget.com/2210461/why-xiaomi-not-banned-rarely-sold-usa/",
-        "category": "Technology",
-        "source": "Engadget",
-        "tier": 0.9,
-        "published_iso": "2026-07-12T15:30:00+00:00",
-        "image_url": "https://www.engadget.com/img/gallery/why-xiaomi-phones-arent-banned-but-are-rarely-sold-in-the-us/l-intro-1783518849.jpg",
-        "corroborating_sources": [],
-        "score": 5.246
+        "score": 5.175
       },
       {
         "title": "Best External Hard Drives (2026): SSD to Store Data, Video, and More",
@@ -321,7 +249,7 @@
         "published_iso": "2026-07-12T09:33:00+00:00",
         "image_url": "https://media.wired.com/photos/68d1a8a2627fe89f30b86df5/master/pass/The%20Best%20External%20Hard%20Drives.png",
         "corroborating_sources": [],
-        "score": 5.235
+        "score": 5.156
       },
       {
         "title": "The 10 Best Pet Cameras of 2026: Furbo, Petcube, and Enabot",
@@ -333,7 +261,19 @@
         "published_iso": "2026-07-12T09:05:00+00:00",
         "image_url": "https://media.wired.com/photos/69e2d81939c62e0b45b3e304/master/pass/The-Best-Pet-Cameras-of-2026.jpg",
         "corroborating_sources": [],
-        "score": 5.224
+        "score": 5.147
+      },
+      {
+        "title": "Why Xiaomi phones aren't banned, but are rarely sold in the US",
+        "summary": "The Chinese company is allowed to sell its impressive phones in the States, but it doesn't. Here's why.",
+        "url": "https://www.engadget.com/2210461/why-xiaomi-not-banned-rarely-sold-usa/",
+        "category": "Technology",
+        "source": "Engadget",
+        "tier": 0.9,
+        "published_iso": "2026-07-12T15:30:00+00:00",
+        "image_url": "https://www.engadget.com/img/gallery/why-xiaomi-phones-arent-banned-but-are-rarely-sold-in-the-us/l-intro-1783518849.jpg",
+        "corroborating_sources": [],
+        "score": 5.135
       },
       {
         "title": "The correct way to position your router's antennas depends on your home",
@@ -345,19 +285,7 @@
         "published_iso": "2026-07-12T13:30:00+00:00",
         "image_url": "https://www.engadget.com/img/gallery/the-correct-way-to-position-your-routers-antennas-depends-on-your-home/l-intro-1783518346.jpg",
         "corroborating_sources": [],
-        "score": 5.182
-      },
-      {
-        "title": "This slushie machine was a lifesaver during NYC’s heat wave",
-        "summary": "Ninja's latest slushie machine builds on the popularity of the original Slushi, but with a big upgrade.",
-        "url": "https://techcrunch.com/2026/07/11/this-slushie-machine-was-a-lifesaver-during-nycs-heat-wave/",
-        "category": "Technology",
-        "source": "TechCrunch",
-        "tier": 1.0,
-        "published_iso": "2026-07-11T22:00:00+00:00",
-        "image_url": "https://techcrunch.com/wp-content/uploads/2026/07/Ninja-Slushi-Twist.jpg?w=1200",
-        "corroborating_sources": [],
-        "score": 5.029
+        "score": 5.083
       }
     ],
     "Finance": [
@@ -373,7 +301,7 @@
         "corroborating_sources": [
           "BBC World"
         ],
-        "score": 9.156
+        "score": 8.984
       },
       {
         "title": "Meta to put AI chip into production in September as it looks to double computing capacity, memo shows",
@@ -385,7 +313,7 @@
         "published_iso": "2026-07-12T19:00:28+00:00",
         "image_url": "https://i-invdn-com.investing.com/trkd-images/LYNXMPEM680OF_L.jpg",
         "corroborating_sources": [],
-        "score": 7.916
+        "score": 7.782
       },
       {
         "title": "How Aldi is taking on US supermarkets with its $4 almond butter",
@@ -399,7 +327,7 @@
         "corroborating_sources": [
           "BBC World"
         ],
-        "score": 7.65
+        "score": 7.588
       },
       {
         "title": "The stock-market rally now hinges more on AI than oil",
@@ -411,7 +339,7 @@
         "published_iso": "2026-07-12T13:00:00+00:00",
         "image_url": "https://images.mktw.net/im-06225241",
         "corroborating_sources": [],
-        "score": 7.287
+        "score": 7.191
       },
       {
         "title": "Oil prices rise, stock futures dip after latest flare-up of strikes between U.S. and Iran",
@@ -420,10 +348,10 @@
         "category": "Finance",
         "source": "MarketWatch Top",
         "tier": 1.1,
-        "published_iso": "2026-07-12T23:52:00+00:00",
+        "published_iso": "2026-07-13T03:03:00+00:00",
         "image_url": "https://images.mktw.net/im-00964245",
         "corroborating_sources": [],
-        "score": 6.824
+        "score": 6.801
       },
       {
         "title": "Why Citigroup is the one to watch when banks report earnings this week",
@@ -435,7 +363,7 @@
         "published_iso": "2026-07-12T19:31:00+00:00",
         "image_url": "https://images.mktw.net/im-74725908",
         "corroborating_sources": [],
-        "score": 6.617
+        "score": 6.479
       },
       {
         "title": "Goldman Sachs picks its favorite Chinese AI models",
@@ -447,7 +375,7 @@
         "published_iso": "2026-07-12T12:03:29+00:00",
         "image_url": "https://image.cnbcfm.com/api/v1/image/108093378-17380715992025-01-28t124016z_475207047_rc20jcav8tsk_rtrmadp_0_deepseek-markets.jpeg?v=1738079688&amp;w=1920&amp;h=1080",
         "corroborating_sources": [],
-        "score": 6.52
+        "score": 6.429
       },
       {
         "title": "Earnings estimates have been following an unusual pattern this time around",
@@ -459,7 +387,7 @@
         "published_iso": "2026-07-12T14:00:00+00:00",
         "image_url": "https://images.mktw.net/im-85790238",
         "corroborating_sources": [],
-        "score": 6.417
+        "score": 6.316
       },
       {
         "title": "Why switching to save money is easier than you might think",
@@ -471,7 +399,7 @@
         "published_iso": "2026-07-12T23:28:01+00:00",
         "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/c16a/live/a606cc70-7c74-11f1-917a-91e958a7e786.png",
         "corroborating_sources": [],
-        "score": 6.383
+        "score": 6.211
       },
       {
         "title": "US stock futures fall amid more Iran strikes; Q2 earnings on tap",
@@ -483,7 +411,7 @@
         "published_iso": "2026-07-13T00:11:07+00:00",
         "image_url": "https://i-invdn-com.investing.com/news/LYNXMPEM5L113_M.jpg",
         "corroborating_sources": [],
-        "score": 6.361
+        "score": 6.183
       },
       {
         "title": "What’s driving the sell-off in AI-related stocks?",
@@ -495,43 +423,31 @@
         "published_iso": "2026-07-12T21:58:52+00:00",
         "image_url": null,
         "corroborating_sources": [],
-        "score": 6.248
+        "score": 6.09
       },
       {
-        "title": "My insurance company said my roof lost a few tiles. Loss adjusters found $10,000 in storm damage. How could this happen?",
-        "summary": "“My house shook violently from the wind.”",
-        "url": "https://www.marketwatch.com/story/my-insurance-company-said-my-roof-lost-a-few-tiles-loss-adjusters-found-10-000-in-storm-damage-how-could-this-happen-8e1cb8bf?mod=mw_rss_topstories",
+        "title": "Mark Cuban has strong words on AI companies and job losses",
+        "summary": "",
+        "url": "https://finance.yahoo.com/technology/ai/articles/mark-cuban-strong-words-ai-140700495.html",
         "category": "Finance",
-        "source": "MarketWatch Top",
-        "tier": 1.1,
-        "published_iso": "2026-07-11T21:45:00+00:00",
-        "image_url": "https://images.mktw.net/im-77476305",
+        "source": "Yahoo Finance",
+        "tier": 0.9,
+        "published_iso": "2026-07-12T14:07:00+00:00",
+        "image_url": "https://media.zenfs.com/en/thestreet_881/f3b9183208dfd1354ac0c0a462c3aa5a",
         "corroborating_sources": [],
-        "score": 6.086
+        "score": 5.999
       },
       {
-        "title": "‘I get $1,460 in Social Security’: My millionaire ex-husband, 74, refuses to pay alimony. What can I do?",
-        "summary": "“I have very little money, while my ex’s financial statements show assets in the millions.”",
-        "url": "https://www.marketwatch.com/story/i-get-1-460-in-social-security-my-millionaire-ex-husband-74-refuses-to-pay-alimony-what-can-i-do-c5e60824?mod=mw_rss_topstories",
+        "title": "Mortgage and refinance interest rates today, Sunday, July 12, 2026: Mostly down from last week",
+        "summary": "",
+        "url": "https://finance.yahoo.com/personal-finance/mortgages/article/mortgage-and-refinance-interest-rates-today-sunday-july-12-2026-mostly-down-from-last-week-100000227.html",
         "category": "Finance",
-        "source": "MarketWatch Top",
-        "tier": 1.1,
-        "published_iso": "2026-07-11T19:00:00+00:00",
-        "image_url": "https://images.mktw.net/im-22299025",
+        "source": "Yahoo Finance",
+        "tier": 0.9,
+        "published_iso": "2026-07-12T10:00:00+00:00",
+        "image_url": "https://s.yimg.com/os/creatr-uploaded-images/2024-04/6f016ae0-03e6-11ef-97ff-13785de87be3",
         "corroborating_sources": [],
-        "score": 6.054
-      },
-      {
-        "title": "‘It’s heartbreaking’: My brother claimed Social Security at 70. He died from cancer after one payment. Why wait to claim?",
-        "summary": "“I’ve always been a little skeptical of the government’s encouragement to delay claiming benefits.”",
-        "url": "https://www.marketwatch.com/story/its-heartbreaking-my-brother-claimed-social-security-at-70-he-died-from-cancer-after-one-payment-why-wait-to-claim-491669b6?mod=mw_rss_topstories",
-        "category": "Finance",
-        "source": "MarketWatch Top",
-        "tier": 1.1,
-        "published_iso": "2026-07-11T18:46:00+00:00",
-        "image_url": "https://images.mktw.net/im-87957694",
-        "corroborating_sources": [],
-        "score": 6.051
+        "score": 5.905
       },
       {
         "title": "Goldman discusses what the Fed policy outlook means for equities",
@@ -543,7 +459,7 @@
         "published_iso": "2026-07-12T15:25:31+00:00",
         "image_url": null,
         "corroborating_sources": [],
-        "score": 5.983
+        "score": 5.873
       },
       {
         "title": "Analyst flags key investor questions on Nvidia stock",
@@ -555,7 +471,19 @@
         "published_iso": "2026-07-12T14:12:24+00:00",
         "image_url": null,
         "corroborating_sources": [],
-        "score": 5.944
+        "score": 5.841
+      },
+      {
+        "title": "‘Trump accounts’ are great — if you’re already rich",
+        "summary": "They’re a poor deal for most other people.",
+        "url": "https://www.marketwatch.com/story/trump-accounts-are-great-if-youre-already-rich-0bfe5227?mod=mw_rss_topstories",
+        "category": "Finance",
+        "source": "MarketWatch Top",
+        "tier": 1.1,
+        "published_iso": "2026-07-13T01:04:00+00:00",
+        "image_url": "https://images.mktw.net/im-23372864",
+        "corroborating_sources": [],
+        "score": 5.803
       },
       {
         "title": "Pizza chain closing up to 50 locations after years of declines",
@@ -567,7 +495,7 @@
         "published_iso": "2026-07-12T02:33:00+00:00",
         "image_url": "https://media.zenfs.com/en/thestreet_881/04a4716c6b752bfd9ed4c37e27f0558c",
         "corroborating_sources": [],
-        "score": 5.835
+        "score": 5.781
       },
       {
         "title": "Londoners face hidden poverty premium, study says",
@@ -579,7 +507,7 @@
         "published_iso": "2026-07-12T07:02:17+00:00",
         "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/e2c8/live/f3ecabd0-7c83-11f1-bee8-53ce494e1abc.jpg",
         "corroborating_sources": [],
-        "score": 5.819
+        "score": 5.75
       },
       {
         "title": "You don’t have to be rich to be financially independent. Here’s how to take control of your money.",
@@ -591,7 +519,7 @@
         "published_iso": "2026-07-12T19:27:00+00:00",
         "image_url": "https://images.mktw.net/im-14240846",
         "corroborating_sources": [],
-        "score": 5.714
+        "score": 5.577
       },
       {
         "title": "The No. 1 decision for aging retirees: Stay at home or move into a senior community?",
@@ -603,7 +531,7 @@
         "published_iso": "2026-07-12T13:30:00+00:00",
         "image_url": "https://images.mktw.net/im-60271425",
         "corroborating_sources": [],
-        "score": 5.502
+        "score": 5.403
       },
       {
         "title": "NZ’s Fonterra trims top end of annual milk price forecast on weak demand",
@@ -615,7 +543,7 @@
         "published_iso": "2026-07-12T22:30:32+00:00",
         "image_url": "https://i-invdn-com.investing.com/trkd-images/LYNXMPEM6B0FJ_L.jpg",
         "corroborating_sources": [],
-        "score": 5.374
+        "score": 5.211
       },
       {
         "title": "What do investors need to be watching in DC in 2026H2?",
@@ -627,7 +555,7 @@
         "published_iso": "2026-07-12T22:03:26+00:00",
         "image_url": "https://i-invdn-com.investing.com/news/LYNXMPED0205U_M.jpg",
         "corroborating_sources": [],
-        "score": 5.352
+        "score": 5.193
       },
       {
         "title": "Russia stocks lower at close of trade; MOEX Russia Index unchanged",
@@ -639,7 +567,31 @@
         "published_iso": "2026-07-12T21:20:04+00:00",
         "image_url": "https://i-invdn-com.investing.com/news/LYNXNPEC5E0JS_M.jpg",
         "corroborating_sources": [],
-        "score": 5.318
+        "score": 5.165
+      },
+      {
+        "title": "Spectrum makes significant decision as customer losses mount",
+        "summary": "",
+        "url": "https://finance.yahoo.com/technology/articles/spectrum-makes-significant-decision-customer-141700401.html",
+        "category": "Finance",
+        "source": "Yahoo Finance",
+        "tier": 0.9,
+        "published_iso": "2026-07-12T14:17:00+00:00",
+        "image_url": "https://media.zenfs.com/en/thestreet_881/89208d0e3ed46b5c77970b3053a060f9",
+        "corroborating_sources": [],
+        "score": 5.103
+      },
+      {
+        "title": "Best CD rates today, Sunday, July 12, 2026: Lock in up to 4.10% APY",
+        "summary": "",
+        "url": "https://finance.yahoo.com/personal-finance/banking/article/best-cd-rates-today-sunday-july-12-2026-lock-in-up-to-410-apy-100000577.html",
+        "category": "Finance",
+        "source": "Yahoo Finance",
+        "tier": 0.9,
+        "published_iso": "2026-07-12T10:00:00+00:00",
+        "image_url": "https://s.yimg.com/os/creatr-uploaded-images/2024-07/c47b17e0-4f64-11ef-afb3-0ed5867646a0",
+        "corroborating_sources": [],
+        "score": 5.005
       },
       {
         "title": "Why UBS says the bull market can survive higher rates?",
@@ -651,7 +603,7 @@
         "published_iso": "2026-07-12T14:28:36+00:00",
         "image_url": null,
         "corroborating_sources": [],
-        "score": 5.052
+        "score": 4.948
       },
       {
         "title": "Saudi Arabia stocks higher at close of trade; Tadawul All Share up 0.10%",
@@ -663,7 +615,7 @@
         "published_iso": "2026-07-12T12:45:03+00:00",
         "image_url": "https://i-invdn-com.investing.com/news/LYNXNPEC470BW_M.jpg",
         "corroborating_sources": [],
-        "score": 5.0
+        "score": 4.905
       },
       {
         "title": "Leading energy company files for bankruptcy",
@@ -675,7 +627,7 @@
         "published_iso": "2026-07-12T00:37:00+00:00",
         "image_url": "https://media.zenfs.com/en/thestreet_881/9b096ebac8574d375cd6afdf5f701cec",
         "corroborating_sources": [],
-        "score": 4.905
+        "score": 4.857
       },
       {
         "title": "Costco and Walmart capture grocery-store crowns",
@@ -687,75 +639,63 @@
         "published_iso": "2026-07-11T22:15:34+00:00",
         "image_url": "https://media.zenfs.com/en/thestreet_881/e6e4c8bf8b6e4e408e81089db0679c52",
         "corroborating_sources": [],
-        "score": 4.872
+        "score": 4.83
       }
     ],
     "Geopolitics": [
       {
-        "title": "Middle East crisis live: US launches new wave of strikes on Iran; Tehran says attacks render diplomacy ‘futile’",
-        "summary": "Iran has sought to establish a permanent system for collecting fees in the strait of Hormuz and warned vessels not to sail without its authorisation Oil prices opened sharply higher on Monday after the United States launched a wave of attacks on Iran and as Tehran announced it would close the strait of Hormuz. A barrel of international benchmark Brent crude for September delivery rose 3.75% to $78.86 at around 2210 GMT on Sunday. Continue reading...",
-        "url": "https://www.theguardian.com/world/live/2026/jul/13/middle-east-crisis-live-us-launches-new-wave-of-strikes-on-iran-tehran-says-attacks-render-diplomacy-futile",
-        "category": "Geopolitics",
-        "source": "Guardian World",
-        "tier": 1.1,
-        "published_iso": "2026-07-13T00:21:36+00:00",
-        "image_url": "https://i.guim.co.uk/img/media/0b8cf49a0160ddf1f85e423260216a183df6a248/1040_0_5200_4160/master/5200.jpg?width=700&quality=85&auto=format&fit=max&s=cac923db3366cebb0ae2d46c4f82a737",
-        "corroborating_sources": [],
-        "score": 8.651
-      },
-      {
-        "title": "US launches new wave of strikes against Iran, aimed at ‘degrading’ military",
-        "summary": "Sunday&#039;s attacks follow three previous days of tit-for-tat strikes between Iran and US as a June ceasefire deal frays.",
-        "url": "https://www.aljazeera.com/news/2026/7/12/us-launches-new-wave-of-strikes-against-iran-aimed-at-degrading-military?traffic_source=rss",
-        "category": "Geopolitics",
-        "source": "Al Jazeera",
-        "tier": 1.1,
-        "published_iso": "2026-07-12T23:03:32+00:00",
-        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/afp_6a541be74e05-1783897063.jpg?resize=1920%2C1440",
-        "corroborating_sources": [],
-        "score": 8.582
-      },
-      {
-        "title": "US senator and close Trump ally Lindsey Graham dies after 'brief and sudden illness'",
-        "summary": "A spokesman for the 71-year-old South Carolina senator says initial findings suggest Graham's cause of death was related to his heart.",
-        "url": "https://www.bbc.co.uk/news/articles/cvgj25j6nmeo?at_medium=RSS&at_campaign=rss",
+        "title": "At least 27 killed, eight critically injured in Bangkok bar fire",
+        "summary": "Firefighters arrived at the scene in the Chatuchak district to find patrons running through flames to escape.",
+        "url": "https://www.bbc.co.uk/news/articles/c24yev53q06o?at_medium=RSS&at_campaign=rss",
         "category": "Geopolitics",
         "source": "BBC World",
         "tier": 1.4,
-        "published_iso": "2026-07-12T21:48:38+00:00",
-        "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/8847/live/fa519f30-7e2c-11f1-91a9-7f19a8ed5bed.jpg",
+        "published_iso": "2026-07-13T01:09:58+00:00",
+        "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/9aa1/live/ac026a50-7e57-11f1-926f-c90d1bcfbc84.jpg",
         "corroborating_sources": [
           "Guardian World"
         ],
-        "score": 8.172
+        "score": 8.16
       },
       {
-        "title": "U.S. launches fresh strikes on Iran as Tehran says it has closed Strait of Hormuz",
-        "summary": "The U.S. and Iran have been exchanging strikes, with the U.S. military saying it hit 140 targets in Iran, while Iran said it responded with fire toward Jordan and other Gulf states.",
-        "url": "https://www.npr.org/2026/07/11/g-s1-133212/us-iran-vessel-attack-strait-hormuz-gulf",
+        "title": "Australia news live: UNSW tutor tells antisemitism royal commission that students performed Nazi salutes towards him in class",
+        "summary": "Tutor and PhD candidate says he was ‘incredibly shocked, and offended and threatened’ by the display. Follow today’s news live Get our breaking news email , free app or daily news podcast Support for Hanson’s One Nation slips in new poll Pauline Hanson and One Nation’s popularity have slipped since her controversial Press Club speech with support shifting to the Coalition, according to new polling. Continue reading...",
+        "url": "https://www.theguardian.com/australia-news/live/2026/jul/13/australia-news-live-auction-clearances-property-market-richard-scolyer-state-memorial-royal-commission-antisemitism-university-albanese-labor-coalition-ntwnfb",
         "category": "Geopolitics",
-        "source": "NPR World",
-        "tier": 1.0,
-        "published_iso": "2026-07-12T01:32:36+00:00",
-        "image_url": "https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=g-s1-133212",
-        "corroborating_sources": [],
-        "score": 7.779
-      },
-      {
-        "title": "US launches more strikes on Iran as Strait of Hormuz standoff deepens",
-        "summary": "The US has launched a new wave of strikes on Iran targeting Tehran&#039;s ability to threaten shipping in the strait.",
-        "url": "https://www.aljazeera.com/video/newsfeed/2026/7/13/aje-onl-nf_us-launches-more-strikes-on-iran-120726?traffic_source=rss",
-        "category": "Geopolitics",
-        "source": "Al Jazeera",
+        "source": "Guardian World",
         "tier": 1.1,
-        "published_iso": "2026-07-13T00:22:10+00:00",
-        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/image-1783902097.jpg?resize=1920%2C1080&amp;quality=80",
+        "published_iso": "2026-07-13T03:54:30+00:00",
+        "image_url": "https://i.guim.co.uk/img/media/cfcef4b6ea4315414bfcc9229a94f3f9bc9b226e/250_0_5028_4025/master/5028.jpg?width=700&quality=85&auto=format&fit=max&s=168138114cf5ac87dbc9da4fcf74c899",
         "corroborating_sources": [],
-        "score": 7.751
+        "score": 7.747
       },
       {
-        "title": "Iran war live: US bombs Iranian cities again as Hormuz standoff intensifies",
-        "summary": "Iranian state media report explosions in port cities pof Bandar Abbas, Sirik and Jask, as well as Qeshm Island.",
+        "title": "Jana Armstrong’s former partner appears in court charged with murder after body found near Toowoomba",
+        "summary": "Dharminder Singh ‘asserts his innocence’, lawyer tells reporters, amid outpouring of grief for young mother in Queensland city Follow our Australia news live blog for latest updates Get our breaking news email , free app or daily news podcast The former partner of a woman whose body was found near Toowoomba at the weekend has appeared in court for the first time after being charged with her murder. Dharminder Singh covered his face and appeared to sob as he appeared in Toowoomba magistrates court via video link, charged with the murder of 30-year-old Jana Armstrong. Continue reading...",
+        "url": "https://www.theguardian.com/australia-news/2026/jul/13/jana-armstrong-former-partner-court-murder-charge-toowoomba-ntwnfb",
+        "category": "Geopolitics",
+        "source": "Guardian World",
+        "tier": 1.1,
+        "published_iso": "2026-07-13T03:26:45+00:00",
+        "image_url": "https://i.guim.co.uk/img/media/2da4f42e5fd1b33ec974d662e32c83976686cf3f/1752_479_1238_990/master/1238.jpg?width=700&quality=85&auto=format&fit=max&s=19af4637b70da7ee6b1dcc699ac7da4b",
+        "corroborating_sources": [],
+        "score": 7.722
+      },
+      {
+        "title": "US launches new wave of strikes against Iran as Tehran says diplomacy has proven ‘futile’",
+        "summary": "American and Iranian forces exchange heavy missile and drone attacks over control of strait of Hormuz, increasing pressure on truce The US military has launched a new wave of attacks against Iran amid the escalating standoff over the strait of Hormuz, with Tehran saying the latest strikes had “rendered futile” all the diplomatic efforts of the past few months. The US military began launching more strikes against Iran at 9pm GMT on Sunday, US Central Command (Centcom) said on X, “to continue degrading their ability to attack civilian mariners and commercial ships freely transiting the Strait of",
+        "url": "https://www.theguardian.com/world/2026/jul/13/us-iran-war-missile-strikes-news-attacks-strait-of-hormuz",
+        "category": "Geopolitics",
+        "source": "Guardian World",
+        "tier": 1.1,
+        "published_iso": "2026-07-13T02:39:58+00:00",
+        "image_url": "https://i.guim.co.uk/img/media/24a849281bd522626438449d6a19220df6baeac2/198_0_1000_800/master/1000.jpg?width=700&quality=85&auto=format&fit=max&s=863fdc5f2d69d594b35c25a6cc051c3c",
+        "corroborating_sources": [],
+        "score": 7.681
+      },
+      {
+        "title": "Iran war live: Tehran attacks Bahrain, Kuwait, Jordan after US bombings",
+        "summary": "Iranian state media report explosions in port cities of Bandar Abbas, Sirik and Jask, as well as Qeshm Island.",
         "url": "https://www.aljazeera.com/news/liveblog/2026/7/13/iran-war-live-us-bombs-iranian-cities-again-as-hormuz-standoff-intensifies?traffic_source=rss",
         "category": "Geopolitics",
         "source": "Al Jazeera",
@@ -763,7 +703,7 @@
         "published_iso": "2026-07-13T00:00:00+00:00",
         "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/2026-07-12T083107Z_212065747_RC25CMA1A4YX_RTRMADP_3_IRAN-CRISIS-1783900012_b5c21a-1783900133.jpg?resize=1200%2C630&amp;quality=80",
         "corroborating_sources": [],
-        "score": 7.731
+        "score": 7.554
       },
       {
         "title": "Israel to hold national elections on October 27, parliament says",
@@ -775,7 +715,7 @@
         "published_iso": "2026-07-12T21:26:28+00:00",
         "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/afp_6a53d9755257-1783880053.jpg?resize=1920%2C1440",
         "corroborating_sources": [],
-        "score": 7.603
+        "score": 7.449
       },
       {
         "title": "Police warn Widdecombe murder speculation is ‘unhelpful and distressing’",
@@ -787,7 +727,7 @@
         "published_iso": "2026-07-12T20:07:42+00:00",
         "image_url": "https://i.guim.co.uk/img/media/4812a0914fec38114a4cc3ebd29d40b6da73f173/756_0_4560_3648/master/4560.jpg?width=700&quality=85&auto=format&fit=max&s=5c848e5f106a51b297fb685f9bd146d1",
         "corroborating_sources": [],
-        "score": 7.543
+        "score": 7.401
       },
       {
         "title": "Lindsey Graham’s sudden death sends shockwaves through Congress as politicians mourn and mull his replacement – as it happened",
@@ -799,7 +739,7 @@
         "published_iso": "2026-07-12T19:48:36+00:00",
         "image_url": "https://i.guim.co.uk/img/media/0efe72f19d9f9b3069b1b545c785b173a2203db5/223_0_4375_3498/master/4375.jpg?width=700&quality=85&auto=format&fit=max&s=45ee25c097cc9b46d59eaa31ad95d671",
         "corroborating_sources": [],
-        "score": 7.53
+        "score": 7.389
       },
       {
         "title": "Trump rejects Iran’s strait of Hormuz closure claim as fight for control goes on",
@@ -811,7 +751,7 @@
         "published_iso": "2026-07-12T18:49:08+00:00",
         "image_url": "https://i.guim.co.uk/img/media/1d5ae5f7e9cd17db1393a67cbf0caebef1ff3f54/0_0_2501_2001/master/2501.jpg?width=700&quality=85&auto=format&fit=max&s=e2b900492cbf88ed1ee61fed8f07bf96",
         "corroborating_sources": [],
-        "score": 7.488
+        "score": 7.356
       },
       {
         "title": "One Nation’s rise puts the next election in ‘unknown territory’ – but does Pauline Hanson really have a path to government?",
@@ -823,7 +763,7 @@
         "published_iso": "2026-07-12T15:00:21+00:00",
         "image_url": "https://i.guim.co.uk/img/media/00fcfd71010e8ecc87bcb22bd2dc48e8b34119e6/607_62_6803_5442/master/6803.jpg?width=700&quality=85&auto=format&fit=max&s=d0250c61dcc7e04c20478a42f8a13c17",
         "corroborating_sources": [],
-        "score": 7.349
+        "score": 7.242
       },
       {
         "title": "How Indian scientists are mapping the brain's last frontier",
@@ -835,19 +775,7 @@
         "published_iso": "2026-07-13T00:08:11+00:00",
         "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/8230/live/dff3e310-79da-11f1-a400-b302bc872d47.jpg",
         "corroborating_sources": [],
-        "score": 7.319
-      },
-      {
-        "title": "Australian universities will be required to adopt definitions of antisemitism and Islamophobia",
-        "summary": "Higher education chiefs, academics and students to give evidence this week at royal commission Follow our Australia news live blog for latest updates Get our breaking news email , free app or daily news podcast Australian universities will be required to adopt definitions on antisemitism, Islamophobia and racism towards Aboriginal and Torres Strait Islander people from next year, under a legally enforceable standard designed to stamp out discrimination on campuses. Details of the anti-racism standard will be published on Monday as university bosses, students and academics prepare to appear at ",
-        "url": "https://www.theguardian.com/australia-news/2026/jul/12/new-anti-racism-standard-will-force-australian-universities-to-use-definitions-of-antisemitism-and-islamophobia-ntwnfb",
-        "category": "Geopolitics",
-        "source": "Guardian World",
-        "tier": 1.1,
-        "published_iso": "2026-07-12T12:00:18+00:00",
-        "image_url": "https://i.guim.co.uk/img/media/f8487587c11deca942b03ead203dbfc64a67817b/52_0_3333_2667/master/3333.jpg?width=700&quality=85&auto=format&fit=max&s=8be57b5eb98ef0620c693444cbc3f4a6",
-        "corroborating_sources": [],
-        "score": 7.259
+        "score": 7.141
       },
       {
         "title": "Toronto shooting: two dead and four injured at Salsa on St Clair street festival",
@@ -859,7 +787,7 @@
         "published_iso": "2026-07-12T04:00:31+00:00",
         "image_url": "https://i.guim.co.uk/img/media/03ea8ebd47324289b87f52874c1ce05a57e91f67/249_0_3780_3024/master/3780.jpg?width=700&quality=85&auto=format&fit=max&s=fdde3d8dac3234a7e801ab161869e9b9",
         "corroborating_sources": [],
-        "score": 7.08
+        "score": 7.022
       },
       {
         "title": "South Africa says more than 53,000 foreigners deported in migration campaign",
@@ -871,7 +799,7 @@
         "published_iso": "2026-07-12T18:57:17+00:00",
         "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/95a2/live/dc811170-7e22-11f1-a1b8-3d436696a874.jpg",
         "corroborating_sources": [],
-        "score": 7.074
+        "score": 6.94
       },
       {
         "title": "Former Emir of Qatar Sheikh Hamad bin Khalifa Al Thani dies aged 74",
@@ -883,7 +811,7 @@
         "published_iso": "2026-07-12T16:35:50+00:00",
         "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/d015/live/7ee2a4e0-7df8-11f1-9800-45cddfec00b9.jpg",
         "corroborating_sources": [],
-        "score": 6.984
+        "score": 6.867
       },
       {
         "title": "'This landscape is completely charred': Inside the village at epicentre of Spain's wildfires",
@@ -895,7 +823,31 @@
         "published_iso": "2026-07-12T15:33:27+00:00",
         "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/b3a2/live/9e0d2b10-7e07-11f1-afb0-9dae682daff3.jpg",
         "corroborating_sources": [],
-        "score": 6.948
+        "score": 6.837
+      },
+      {
+        "title": "Oil prices jump as US and Iran trade attacks over Strait of Hormuz",
+        "summary": "Brent crude climbs more than 4 percent as Washington and Tehran clash over control of critical waterway.",
+        "url": "https://www.aljazeera.com/economy/2026/7/13/oil-prices-jump-as-us-and-iran-trade-attacks-over-strait-of-hormuz?traffic_source=rss",
+        "category": "Geopolitics",
+        "source": "Al Jazeera",
+        "tier": 1.1,
+        "published_iso": "2026-07-13T02:58:05+00:00",
+        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/2026-07-10T130543Z_1345548046_RC25AMATSFKG_RTRMADP_3_IRAN-CRISIS-SHIPPING-UN-1783908334.jpg?resize=1920%2C1440",
+        "corroborating_sources": [],
+        "score": 6.797
+      },
+      {
+        "title": "Fire bomber planes battle Fontainebleau forest blaze near Paris",
+        "summary": "Wildfire quickly burnt more than 800 hectares, with villages evacuated, highway partly closed and high-speed rail disrupted French officials rushed two firefighting planes to the Paris region on Sunday after a “very virulent” fire of “exceptional scale” erupted in the sprawling Fontainebleau forest about 60km (40 miles) south-east of the capital. The fire began late afternoon in the one-time royal hunting preserve that today is dotted with quiet villages. It raced across 800 hectares (2,000 acres) and was still spreading early on Monday, officials said, causing the partial closure of the A6 hi",
+        "url": "https://www.theguardian.com/world/2026/jul/13/france-fires-wildfires-fointaineblue-forest-paris",
+        "category": "Geopolitics",
+        "source": "Guardian World",
+        "tier": 1.1,
+        "published_iso": "2026-07-13T02:57:39+00:00",
+        "image_url": "https://i.guim.co.uk/img/media/e105656f719505f66fe3bdd8593167d49cf3bd5b/0_0_3600_2880/master/3600.jpg?width=700&quality=85&auto=format&fit=max&s=7bad429d13c055325038f8b102814a69",
+        "corroborating_sources": [],
+        "score": 6.797
       },
       {
         "title": "Badly burned British couple rescued from ravine during Spain wildfires, reports say",
@@ -907,55 +859,7 @@
         "published_iso": "2026-07-12T13:35:01+00:00",
         "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/586b/live/21e5a140-7df6-11f1-a2c7-db8990d0c651.jpg",
         "corroborating_sources": [],
-        "score": 6.885
-      },
-      {
-        "title": "News live: Leeser accuses ‘spineless’ university vice-chancellors of failures on antisemitism; Dfat checking if Australians caught in Bangkok fire",
-        "summary": "Higher education chiefs, academics and students to give evidence at latest block of hearings at royal commission on antisemitism and social cohesion. Follow today’s news live Get our breaking news email , free app or daily news podcast Support for Hanson’s One Nation slips in new poll Pauline Hanson and One Nation’s popularity have slipped since her controversial Press Club speech with support shifting to the Coalition, according to new polling. Continue reading...",
-        "url": "https://www.theguardian.com/australia-news/live/2026/jul/13/australia-news-live-auction-clearances-property-market-richard-scolyer-state-memorial-royal-commission-antisemitism-university-albanese-labor-coalition-ntwnfb",
-        "category": "Geopolitics",
-        "source": "Guardian World",
-        "tier": 1.1,
-        "published_iso": "2026-07-13T00:15:50+00:00",
-        "image_url": "https://i.guim.co.uk/img/media/6d7935de0f58b044568550d49be74849628be4f4/160_149_2697_2158/master/2697.jpg?width=700&quality=85&auto=format&fit=max&s=b7335b0585f2e8ce0eff26f461eba043",
-        "corroborating_sources": [],
-        "score": 6.846
-      },
-      {
-        "title": "At least 27 killed in fire at Bangkok pub with another 22 critically injured",
-        "summary": "The fire is one of the deadliest such incidents in the popular tourist destination in ⁠recent years A fire at a popular pub in Thailand’s ⁠capital, Bangkok, has killed 27 ⁠people, with another 22 ​in critical condition, officials said on Monday, in one of the deadliest such incidents in the tourism hub in recent years. The prime minister, Anutin Charnvirakul, ‌who visited the site of the fire in the early hours of Monday, told reporters that based on survivor accounts, the pub rapidly filled with smoke after a fire broke out, forcing ‌many to run to the back of the venue near the bathrooms. Co",
-        "url": "https://www.theguardian.com/world/2026/jul/12/at-least-27-killed-in-blaze-at-bangkok-pub-thai-officials-say",
-        "category": "Geopolitics",
-        "source": "Guardian World",
-        "tier": 1.1,
-        "published_iso": "2026-07-12T23:35:15+00:00",
-        "image_url": "https://i.guim.co.uk/img/media/151eab3b0c4e453c8afb3ae48f3b11c81b30689a/0_0_4680_3744/master/4680.jpg?width=700&quality=85&auto=format&fit=max&s=37c81e62be2643a5f0fc877ba10c6869",
-        "corroborating_sources": [],
-        "score": 6.809
-      },
-      {
-        "title": "Mitch McConnell releases health update, says he is ‘regaining’ strength",
-        "summary": "The US Republican senator has been absent from Congress during a weeks-long hospitalisation, spurring party concern.",
-        "url": "https://www.aljazeera.com/news/2026/7/12/mitch-mcconnell-releases-health-update-says-he-is-regaining-strength?traffic_source=rss",
-        "category": "Geopolitics",
-        "source": "Al Jazeera",
-        "tier": 1.1,
-        "published_iso": "2026-07-12T23:29:33+00:00",
-        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/reuters_6a5421f2-1783898610.jpg?resize=1920%2C1440",
-        "corroborating_sources": [],
-        "score": 6.804
-      },
-      {
-        "title": "Disney’s live-action Moana fails to make a splash at box office with underwhelming opening",
-        "summary": "Latest film in franchise takes just $43m in North America and $95m globally, against a $250m budget The Walt Disney Company’s live-action remake of Moana may be the No 1 movie at the North American box office but it did not make a big splash in its first weekend in theaters. The movie, which cost a reported $250m (£187m, A$360m) to produce, earned just $43m from ticket sales in the US and Canada, according to studio estimates on Sunday. Continue reading...",
-        "url": "https://www.theguardian.com/film/2026/jul/13/disneys-live-action-moana-fails-to-make-a-splash-at-box-office-with-underwhelming-opening",
-        "category": "Geopolitics",
-        "source": "Guardian World",
-        "tier": 1.1,
-        "published_iso": "2026-07-12T23:23:17+00:00",
-        "image_url": "https://i.guim.co.uk/img/media/01f1cc0cf42881cedca02bea5c36a1cbb61b7629/296_0_1568_1256/master/1568.jpg?width=700&quality=85&auto=format&fit=max&s=038d6227fde97ff564ba07e6d4f9afad",
-        "corroborating_sources": [],
-        "score": 6.799
+        "score": 6.785
       },
       {
         "title": "People flee as Russian strike hits near Ukraine coffee shop",
@@ -967,7 +871,31 @@
         "published_iso": "2026-07-12T09:03:17+00:00",
         "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/3dbc/live/992be8d0-7dcf-11f1-b976-0b9c15b0ccfc.jpg",
         "corroborating_sources": [],
-        "score": 6.763
+        "score": 6.686
+      },
+      {
+        "title": "Mitch McConnell releases health update, says he is ‘regaining’ strength",
+        "summary": "The US Republican senator has been absent from Congress during a weeks-long hospitalisation, spurring party concern.",
+        "url": "https://www.aljazeera.com/news/2026/7/12/mitch-mcconnell-releases-health-update-says-he-is-regaining-strength?traffic_source=rss",
+        "category": "Geopolitics",
+        "source": "Al Jazeera",
+        "tier": 1.1,
+        "published_iso": "2026-07-12T23:29:33+00:00",
+        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/reuters_6a5421f2-1783898610.jpg?resize=1920%2C1440",
+        "corroborating_sources": [],
+        "score": 6.632
+      },
+      {
+        "title": "Disney’s live-action Moana fails to make a splash at box office with underwhelming opening",
+        "summary": "Latest film in franchise takes just $43m in North America and $95m globally, against a $250m budget The Walt Disney Company’s live-action remake of Moana may be the No 1 movie at the North American box office but it did not make a big splash in its first weekend in theaters. The movie, which cost a reported $250m (£187m, A$360m) to produce, earned just $43m from ticket sales in the US and Canada, according to studio estimates on Sunday. Continue reading...",
+        "url": "https://www.theguardian.com/film/2026/jul/13/disneys-live-action-moana-fails-to-make-a-splash-at-box-office-with-underwhelming-opening",
+        "category": "Geopolitics",
+        "source": "Guardian World",
+        "tier": 1.1,
+        "published_iso": "2026-07-12T23:23:17+00:00",
+        "image_url": "https://i.guim.co.uk/img/media/01f1cc0cf42881cedca02bea5c36a1cbb61b7629/296_0_1568_1256/master/1568.jpg?width=700&quality=85&auto=format&fit=max&s=038d6227fde97ff564ba07e6d4f9afad",
+        "corroborating_sources": [],
+        "score": 6.628
       },
       {
         "title": "Lindsey Graham tributes from Israel and Ukraine point to complicated, often bloody legacy",
@@ -977,9 +905,9 @@
         "source": "Guardian World",
         "tier": 1.1,
         "published_iso": "2026-07-12T22:36:33+00:00",
-        "image_url": "https://i.guim.co.uk/img/media/315cc70758c3aef7d7c9a765b9e074074599110b/936_0_4840_3872/master/4840.jpg?width=700&quality=85&auto=format&fit=max&s=16a8b5aface1f22804d25c7f0bdbeff8",
+        "image_url": "https://i.guim.co.uk/img/media/315cc70758c3aef7d7c9a765b9e074074599110b/1080_561_4138_3311/master/4138.jpg?width=700&quality=85&auto=format&fit=max&s=5bb01b7bcaa7077d787112bccbf51018",
         "corroborating_sources": [],
-        "score": 6.759
+        "score": 6.595
       },
       {
         "title": "Homes evacuated as firefighters tackle railway embankment blaze in east London",
@@ -991,7 +919,7 @@
         "published_iso": "2026-07-12T22:34:10+00:00",
         "image_url": "https://i.guim.co.uk/img/media/13d0a7c0aa0e6037aa7f7071e31a53937da09f76/1125_0_6829_5464/master/6829.jpg?width=700&quality=85&auto=format&fit=max&s=c91137fcd538369369fc5889b581db47",
         "corroborating_sources": [],
-        "score": 6.757
+        "score": 6.594
       },
       {
         "title": "Mitch McConnell reveals fall led to hospitalization after weeks of silence",
@@ -1003,7 +931,7 @@
         "published_iso": "2026-07-12T22:11:09+00:00",
         "image_url": "https://i.guim.co.uk/img/media/22f1f98161ac082e257697ba97c064be66e567cf/0_33_713_570/master/713.jpg?width=700&quality=85&auto=format&fit=max&s=31505e4a715d148f02da317bf3bc7e8e",
         "corroborating_sources": [],
-        "score": 6.738
+        "score": 6.578
       },
       {
         "title": "Detained by settlers, US Democrat Ro Khanna now faces pro-Israel attacks",
@@ -1015,7 +943,7 @@
         "published_iso": "2026-07-12T21:59:36+00:00",
         "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/2026-07-11T111536Z_1746176356_RC26AMAEG0Q6_RTRMADP_3_ISRAEL-PALESTINIANS-WEST-BANK-KHANNA-1783889253.jpg?resize=1920%2C1440",
         "corroborating_sources": [],
-        "score": 6.729
+        "score": 6.571
       },
       {
         "title": "Lindsey Graham, hardline backer of US-Israeli wars, dies aged 71",
@@ -1027,7 +955,7 @@
         "published_iso": "2026-07-12T21:12:54+00:00",
         "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/image-1783890759.jpg?resize=1918%2C1080&amp;quality=80",
         "corroborating_sources": [],
-        "score": 6.692
+        "score": 6.541
       },
       {
         "title": "‘His blood is on Trump’s hands’: man killed by ICE in Texas mourned at vigil",
@@ -1039,7 +967,7 @@
         "published_iso": "2026-07-12T21:03:40+00:00",
         "image_url": "https://i.guim.co.uk/img/media/31f843643cda3d925f36d2342fd1330264efc6f4/0_0_4773_3821/master/4773.jpg?width=700&quality=85&auto=format&fit=max&s=dfb8abb536731b9e0dda499a819ad6b6",
         "corroborating_sources": [],
-        "score": 6.685
+        "score": 6.535
       },
       {
         "title": "UK couple found burned and semi-conscious in Almería amid Spanish wildfires",
@@ -1051,7 +979,7 @@
         "published_iso": "2026-07-12T20:30:54+00:00",
         "image_url": "https://i.guim.co.uk/img/media/461f851385f42bc8d8626f25f81067bba8254a4b/292_0_4876_3901/master/4876.jpg?width=700&quality=85&auto=format&fit=max&s=7c2e5884a5097aafb5acef62dcd00074",
         "corroborating_sources": [],
-        "score": 6.66
+        "score": 6.515
       },
       {
         "title": "Sinner beats Zverev to defend Wimbledon men’s singles tennis title",
@@ -1063,7 +991,7 @@
         "published_iso": "2026-07-12T20:20:37+00:00",
         "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/AFP__20260712__B9YY3YU__v1__MidRes__TennisGbrWimbledon-1783884507.jpg?resize=1200%2C630",
         "corroborating_sources": [],
-        "score": 6.653
+        "score": 6.508
       },
       {
         "title": "Former Spain PM criticised for ‘xenophobic’ remark on French World Cup team",
@@ -1075,7 +1003,7 @@
         "published_iso": "2026-07-12T20:09:58+00:00",
         "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/2018-06-01T110337Z_166464584_RC11AC9DAE40_RTRMADP_3_SPAIN-POLITICS-1783885222.jpg?resize=1920%2C1440",
         "corroborating_sources": [],
-        "score": 6.645
+        "score": 6.502
       },
       {
         "title": "Two men die after going into sea to rescue children at County Durham beach",
@@ -1087,7 +1015,7 @@
         "published_iso": "2026-07-12T20:01:32+00:00",
         "image_url": "https://i.guim.co.uk/img/media/8fa284e5f2a80dc31e9874504b36aa2a0f3d7c03/2137_535_2662_2130/master/2662.jpg?width=700&quality=85&auto=format&fit=max&s=3f24f1f49c743e72c50faa7a91622711",
         "corroborating_sources": [],
-        "score": 6.639
+        "score": 6.497
       },
       {
         "title": "Nine dead as Russia and Ukraine trade drone and missile salvos",
@@ -1099,19 +1027,7 @@
         "published_iso": "2026-07-12T19:53:03+00:00",
         "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/afp_6a53c2afdc27-1783874223.jpg?resize=1920%2C1440",
         "corroborating_sources": [],
-        "score": 6.633
-      },
-      {
-        "title": "Why the Iran-US ceasefire is falling apart",
-        "summary": "Iran, US resumed fighting because they don’t see each other as ‘reliable negotiating partners’, says analyst Ali Vaez.",
-        "url": "https://www.aljazeera.com/video/the-bottom-line/2026/7/12/why-the-iran-us-ceasefire-is-falling-apart?traffic_source=rss",
-        "category": "Geopolitics",
-        "source": "Al Jazeera",
-        "tier": 1.1,
-        "published_iso": "2026-07-12T19:27:34+00:00",
-        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/image-1783884431.jpg?resize=1920%2C1080&amp;quality=80",
-        "corroborating_sources": [],
-        "score": 6.615
+        "score": 6.492
       },
       {
         "title": "Reform UK would lose 85% of funding under proposed donation cap, analysis shows",
@@ -1123,7 +1039,7 @@
         "published_iso": "2026-07-12T18:44:38+00:00",
         "image_url": "https://i.guim.co.uk/img/media/efc522c53c4bb80ab579618b69a34114ad935fc0/311_26_2960_2369/master/2960.jpg?width=700&quality=85&auto=format&fit=max&s=07d892af0dabc42b004d3e9c32d2578b",
         "corroborating_sources": [],
-        "score": 6.585
+        "score": 6.453
       },
       {
         "title": "Former Spanish PM accused of racism in remarks about French football team",
@@ -1135,19 +1051,7 @@
         "published_iso": "2026-07-12T17:39:13+00:00",
         "image_url": "https://i.guim.co.uk/img/media/22c50184e3df5265ffcd5e38826eed3bd83fa59e/8_462_4951_3959/master/4951.jpg?width=700&quality=85&auto=format&fit=max&s=2a1e6218e205ea0de902069aeacd5df6",
         "corroborating_sources": [],
-        "score": 6.543
-      },
-      {
-        "title": "What would it mean for Ukraine if it actually starts producing Patriot missiles?",
-        "summary": "NPR's Don Gonyea speaks with Seth Jones from the Center for Strategic and International Studies about President Trump granting Ukraine permission to produce Patriot missiles.",
-        "url": "https://www.npr.org/2026/07/12/nx-s1-5887435/what-would-it-mean-for-ukraine-if-it-actually-starts-producing-patriot-missiles",
-        "category": "Geopolitics",
-        "source": "NPR World",
-        "tier": 1.0,
-        "published_iso": "2026-07-12T21:08:18+00:00",
-        "image_url": "https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-5887435",
-        "corroborating_sources": [],
-        "score": 6.528
+        "score": 6.418
       },
       {
         "title": "Labrador rescued after ‘eating discarded cannabis’ on Ben Nevis hike",
@@ -1159,19 +1063,19 @@
         "published_iso": "2026-07-12T17:02:46+00:00",
         "image_url": "https://i.guim.co.uk/img/media/c861d1e1c2204211c2e811b82bf855fc86813d90/77_363_1310_1048/master/1310.jpg?width=700&quality=85&auto=format&fit=max&s=bf18b0a506e258de89034e445735cd03",
         "corroborating_sources": [],
-        "score": 6.52
+        "score": 6.4
       },
       {
-        "title": "Fire breaks out at a pub in Bangkok, killing at least 27 people, officials say",
-        "summary": "Footage shared online by first responders shows a huge blaze raging and plumes coming out of the front door of the pub in the northern part of the Thai capital.",
-        "url": "https://www.npr.org/2026/07/12/g-s1-133238/fire-breaks-out-at-a-pub-in-bangkok-killing-at-least-27-people-officials-say",
+        "title": "What would it mean for Ukraine if it actually starts producing Patriot missiles?",
+        "summary": "NPR's Don Gonyea speaks with Seth Jones from the Center for Strategic and International Studies about President Trump granting Ukraine permission to produce Patriot missiles.",
+        "url": "https://www.npr.org/2026/07/12/nx-s1-5887435/what-would-it-mean-for-ukraine-if-it-actually-starts-producing-patriot-missiles",
         "category": "Geopolitics",
         "source": "NPR World",
         "tier": 1.0,
-        "published_iso": "2026-07-12T19:53:24+00:00",
-        "image_url": "https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=g-s1-133238",
+        "published_iso": "2026-07-12T21:08:18+00:00",
+        "image_url": "https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-5887435",
         "corroborating_sources": [],
-        "score": 6.473
+        "score": 6.378
       },
       {
         "title": "Germany records nearly 100 drowning deaths, many of them young men, in June heatwave",
@@ -1183,19 +1087,7 @@
         "published_iso": "2026-07-12T15:19:05+00:00",
         "image_url": "https://i.guim.co.uk/img/media/9d2d8cd776f68e36eb6dff63715fbb48e47f11ab/534_128_6415_5130/master/6415.jpg?width=700&quality=85&auto=format&fit=max&s=a4ebfe38f333563561757d01e46f9c3b",
         "corroborating_sources": [],
-        "score": 6.46
-      },
-      {
-        "title": "Dorothy’s aged care home charged $52 a day for Foxtel, wine and newspapers that were no use to her. She wasn’t alone",
-        "summary": "Exclusive : Many aged care residents in Australia are charged for services they can’t use or understand, prompting an investigation from the regulator Follow our Australia news live blog for latest updates Get our breaking news email , free app or daily news podcast Jeff Gilling was surprised when he looked at the contract for the aged care home his mother, Dorothy, was about to enter. Contained within it was a $52 daily fee for Foxtel, outings, newspapers and a choice of wines. Continue reading...",
-        "url": "https://www.theguardian.com/australia-news/2026/jul/13/aged-care-charges-services-regulator-investigation",
-        "category": "Geopolitics",
-        "source": "Guardian World",
-        "tier": 1.1,
-        "published_iso": "2026-07-12T15:00:22+00:00",
-        "image_url": "https://i.guim.co.uk/img/media/9df24f5e0da15c22dd8da156a6d06ccb7ec7c5bd/0_0_1320_1055/master/1320.jpg?width=700&quality=85&auto=format&fit=max&s=f9d20df7cc5c100b814d86840023a969",
-        "corroborating_sources": [],
-        "score": 6.449
+        "score": 6.35
       },
       {
         "title": "Australia to ditch paper arrival cards for incoming travellers",
@@ -1207,19 +1099,31 @@
         "published_iso": "2026-07-12T15:00:22+00:00",
         "image_url": "https://i.guim.co.uk/img/media/a3d2dc8087d61bfc24e1a1f3799ef6b7d60ae1d6/298_116_1917_1533/master/1917.jpg?width=700&quality=85&auto=format&fit=max&s=56345086e6777c76acb8ec3a73b2b72e",
         "corroborating_sources": [],
-        "score": 6.449
+        "score": 6.342
       },
       {
-        "title": "Ukrainian drone strikes force Russia to suspend shipping in Sea of Azov",
-        "summary": "Vital maritime corridor closes after 90 vessels – including shadow fleet oil tankers – are attacked in under a week Russia has been forced to suspend shipping in the Sea of Azov after 90 vessels were targeted by Ukrainian drones in less than a week. Ukraine’s drone forces chief, Robert Brovdi, said on Sunday that his units had hit 10 tankers and four ferries overnight, as well as a major oil refinery in the city of Syzran. There had been several strikes on electricity substations in occupied Crimea, he added. Continue reading...",
-        "url": "https://www.theguardian.com/world/2026/jul/12/ukrainian-drone-strikes-force-russia-to-suspend-shipping-in-sea-of-azov",
+        "title": "Dorothy’s aged care home charged $52 a day for Foxtel, wine and newspapers that were no use to her. She wasn’t alone",
+        "summary": "Exclusive : Many aged care residents in Australia are charged for services they can’t use or understand, prompting an investigation from the regulator Follow our Australia news live blog for latest updates Get our breaking news email , free app or daily news podcast Jeff Gilling was surprised when he looked at the contract for the aged care home his mother, Dorothy, was about to enter. Contained within it was a $52 daily fee for Foxtel, outings, newspapers and a choice of wines. Continue reading...",
+        "url": "https://www.theguardian.com/australia-news/2026/jul/13/aged-care-charges-services-regulator-investigation",
         "category": "Geopolitics",
         "source": "Guardian World",
         "tier": 1.1,
-        "published_iso": "2026-07-12T14:19:45+00:00",
-        "image_url": "https://i.guim.co.uk/img/media/2ce56c05beb6647f5680103cfa4d5498c6e9efd0/523_0_2700_2160/master/2700.jpg?width=700&quality=85&auto=format&fit=max&s=895641c8c88bc52ece1eb81623978848",
+        "published_iso": "2026-07-12T15:00:22+00:00",
+        "image_url": "https://i.guim.co.uk/img/media/9df24f5e0da15c22dd8da156a6d06ccb7ec7c5bd/0_0_1320_1055/master/1320.jpg?width=700&quality=85&auto=format&fit=max&s=f9d20df7cc5c100b814d86840023a969",
         "corroborating_sources": [],
-        "score": 6.428
+        "score": 6.342
+      },
+      {
+        "title": "Fire breaks out at a pub in Bangkok, killing at least 27 people, officials say",
+        "summary": "Footage shared online by first responders shows a huge blaze raging and plumes coming out of the front door of the pub in the northern part of the Thai capital.",
+        "url": "https://www.npr.org/2026/07/12/g-s1-133238/fire-breaks-out-at-a-pub-in-bangkok-killing-at-least-27-people-officials-say",
+        "category": "Geopolitics",
+        "source": "NPR World",
+        "tier": 1.0,
+        "published_iso": "2026-07-12T19:53:24+00:00",
+        "image_url": "https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=g-s1-133238",
+        "corroborating_sources": [],
+        "score": 6.332
       },
       {
         "title": "The Chinese graduate accused of being Mexico's 'fentanyl king'",
@@ -1231,19 +1135,7 @@
         "published_iso": "2026-07-13T00:05:46+00:00",
         "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/4005/live/916366b0-7b8a-11f1-bee8-53ce494e1abc.jpg",
         "corroborating_sources": [],
-        "score": 6.416
-      },
-      {
-        "title": "At least 27 killed in Bangkok bar fire",
-        "summary": "Firefighters arrived at the scene in the Chatuchak district to find patrons running through flames to escape.",
-        "url": "https://www.bbc.co.uk/news/articles/c24yev53q06o?at_medium=RSS&at_campaign=rss",
-        "category": "Geopolitics",
-        "source": "BBC World",
-        "tier": 1.4,
-        "published_iso": "2026-07-12T23:40:50+00:00",
-        "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/9b80/live/97127080-7e44-11f1-b976-0b9c15b0ccfc.jpg",
-        "corroborating_sources": [],
-        "score": 6.394
+        "score": 6.239
       },
       {
         "title": "US Senator Mitch McConnell says absence due to fall and pneumonia",
@@ -1255,7 +1147,7 @@
         "published_iso": "2026-07-12T23:41:00+00:00",
         "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/ea8b/live/f2b1e0f0-7e3b-11f1-bc25-ef36095a5e54.jpg",
         "corroborating_sources": [],
-        "score": 6.394
+        "score": 6.221
       },
       {
         "title": "First patients enrolled in record-breaking Ebola treatment trial in DRC",
@@ -1267,7 +1159,7 @@
         "published_iso": "2026-07-12T08:00:12+00:00",
         "image_url": "https://i.guim.co.uk/img/media/b5a234cedfbdf2689683190861251d50d942e050/416_0_6091_4873/master/6091.jpg?width=700&quality=85&auto=format&fit=max&s=8f9aebc449e05a0381d7485ef4558d76",
         "corroborating_sources": [],
-        "score": 6.259
+        "score": 6.187
       },
       {
         "title": "Anthony Zurcher: From Trump critic to ally, Lindsey Graham was a political survivor of the Maga era",
@@ -1279,19 +1171,7 @@
         "published_iso": "2026-07-12T19:42:26+00:00",
         "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/dc5d/live/bd733900-7e29-11f1-bee8-53ce494e1abc.jpg",
         "corroborating_sources": [],
-        "score": 6.205
-      },
-      {
-        "title": "David Willey, esteemed BBC Vatican correspondent, dies aged 93",
-        "summary": "One of the BBC's longest-serving foreign correspondents, he reported on five popes during his career.",
-        "url": "https://www.bbc.co.uk/news/articles/cn9403518jro?at_medium=RSS&at_campaign=rss",
-        "category": "Geopolitics",
-        "source": "BBC World",
-        "tier": 1.4,
-        "published_iso": "2026-07-12T15:22:52+00:00",
-        "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/0c5d/live/b0df0c60-7e05-11f1-afb0-9dae682daff3.jpg",
-        "corroborating_sources": [],
-        "score": 6.042
+        "score": 6.066
       },
       {
         "title": "Alvarez's 112th-minute goal helps lift Argentina past Switzerland 3-1 and into World Cup semifinals",
@@ -1303,19 +1183,79 @@
         "published_iso": "2026-07-12T04:10:30+00:00",
         "image_url": "https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-5890774",
         "corroborating_sources": [],
-        "score": 6.023
+        "score": 5.964
       },
       {
-        "title": "Palestinian aid worker who organized World Cup screenings killed in Israeli strike",
-        "summary": "Palestinians are mourning Mohammed al-Wahidi, a beloved aid worker in Gaza. He was killed by as Israeli airstrike while en route to a World Cup screening which he organized.",
-        "url": "https://www.npr.org/2026/07/11/nx-s1-5890044/palestinian-aid-worker-who-organized-world-cup-screenings-killed-in-israeli-strike",
+        "title": "David Willey, esteemed BBC Vatican correspondent, dies aged 93",
+        "summary": "One of the BBC's longest-serving foreign correspondents, he reported on five popes during his career.",
+        "url": "https://www.bbc.co.uk/news/articles/cn9403518jro?at_medium=RSS&at_campaign=rss",
         "category": "Geopolitics",
-        "source": "NPR World",
-        "tier": 1.0,
-        "published_iso": "2026-07-11T21:09:56+00:00",
-        "image_url": "https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-5890044",
+        "source": "BBC World",
+        "tier": 1.4,
+        "published_iso": "2026-07-12T15:22:52+00:00",
+        "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/0c5d/live/b0df0c60-7e05-11f1-afb0-9dae682daff3.jpg",
         "corroborating_sources": [],
-        "score": 5.919
+        "score": 5.932
+      },
+      {
+        "title": "Deadly Bangkok pub blaze revives concerns over fire safety lapses",
+        "summary": "Al Jazeera&#039;s Tony Cheng reports from the site where a deadly fire tore through a Bangkok pub around midnight on Monday.",
+        "url": "https://www.aljazeera.com/video/newsfeed/2026/7/13/deadly-bangkok-pub-blaze-revives-concerns-over-fire-safety-lapses?traffic_source=rss",
+        "category": "Geopolitics",
+        "source": "Al Jazeera",
+        "tier": 1.1,
+        "published_iso": "2026-07-13T03:24:24+00:00",
+        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/v2-TONY-WIDE-THUMB-1783913010.jpg?resize=1920%2C1268",
+        "corroborating_sources": [],
+        "score": 5.92
+      },
+      {
+        "title": "Israel releases video of hidden tunnels below Lebanon’s Beaufort Castle",
+        "summary": "The Israeli Army has released footage of what it says are hidden tunnels under Lebanon’s historic Beaufort Castle.",
+        "url": "https://www.aljazeera.com/video/newsfeed/2026/7/13/israel-releases-video-of-hidden-tunnels-below-lebanons-beaufort-castle?traffic_source=rss",
+        "category": "Geopolitics",
+        "source": "Al Jazeera",
+        "tier": 1.1,
+        "published_iso": "2026-07-13T02:10:10+00:00",
+        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/image-1783908367.jpg?resize=1541%2C1080&amp;quality=80",
+        "corroborating_sources": [],
+        "score": 5.856
+      },
+      {
+        "title": "At least 27 dead as fire engulfs popular Bangkok pub near Chatuchak market",
+        "summary": "At least 27 people were killed and 63 injured, many critically, after a fire ripped through a popular pub in Bangkok.",
+        "url": "https://www.aljazeera.com/video/newsfeed/2026/7/13/at-least-27-dead-as-fire-engulfs-popular-bangkok-pub-near-chatuchak-market?traffic_source=rss",
+        "category": "Geopolitics",
+        "source": "Al Jazeera",
+        "tier": 1.1,
+        "published_iso": "2026-07-13T01:27:30+00:00",
+        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/wide-thumb-bangkok-bar-1783905971.png?resize=1920%2C1080&amp;quality=80",
+        "corroborating_sources": [],
+        "score": 5.822
+      },
+      {
+        "title": "Japan’s pet care industry booms as ‘fur babies’ outnumber infants",
+        "summary": "Japanese baby product manufacturers turn their attention to the pet market amid collapsing birthrate.",
+        "url": "https://www.aljazeera.com/economy/2026/7/13/japans-pet-care-industry-booms-as-fur-babies-outnumber-infants?traffic_source=rss",
+        "category": "Geopolitics",
+        "source": "Al Jazeera",
+        "tier": 1.1,
+        "published_iso": "2026-07-13T01:20:33+00:00",
+        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/IMG_1927-1783563506_726989-1783582892_cdefd9-1783905750.jpeg?resize=1200%2C630&amp;quality=80",
+        "corroborating_sources": [],
+        "score": 5.816
+      },
+      {
+        "title": "Can Nigeria’s drone industry deliver Africa’s defence sovereignty",
+        "summary": "Military manufacturing may be growing, but defence sovereignty depends on far more than production.",
+        "url": "https://www.aljazeera.com/news/2026/7/13/can-nigerias-drone-industry-deliver-africas-defence-sovereignty?traffic_source=rss",
+        "category": "Geopolitics",
+        "source": "Al Jazeera",
+        "tier": 1.1,
+        "published_iso": "2026-07-13T00:54:53+00:00",
+        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/IMG_4127-1783618126.jpeg?resize=1920%2C1440",
+        "corroborating_sources": [],
+        "score": 5.796
       },
       {
         "title": "China evacuates nearly two million people as powerful typhoon makes landfall",
@@ -1327,67 +1267,7 @@
         "published_iso": "2026-07-12T07:39:45+00:00",
         "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/e90d/live/996516b0-7dce-11f1-b976-0b9c15b0ccfc.jpg",
         "corroborating_sources": [],
-        "score": 5.832
-      },
-      {
-        "title": "Israel releases video of huge detonations in Lebanon",
-        "summary": "The Israeli military has released video showing huge explosions and detonations in villages in southern Lebanon.",
-        "url": "https://www.aljazeera.com/video/newsfeed/2026/7/12/israel-releases-video-of-huge-detonations-in-lebanon?traffic_source=rss",
-        "category": "Geopolitics",
-        "source": "Al Jazeera",
-        "tier": 1.1,
-        "published_iso": "2026-07-12T21:50:28+00:00",
-        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/image-1783892961.jpg?resize=1920%2C1080&amp;quality=80",
-        "corroborating_sources": [],
-        "score": 5.821
-      },
-      {
-        "title": "Deadly Israeli strikes pound Gaza",
-        "summary": "Israel’s military has attacked several places across Gaza.",
-        "url": "https://www.aljazeera.com/video/newsfeed/2026/7/12/deadly-israeli-strikes-pound-gaza?traffic_source=rss",
-        "category": "Geopolitics",
-        "source": "Al Jazeera",
-        "tier": 1.1,
-        "published_iso": "2026-07-12T21:33:10+00:00",
-        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/image-1783891930.jpg?resize=1920%2C1080&amp;quality=80",
-        "corroborating_sources": [],
-        "score": 5.808
-      },
-      {
-        "title": "Protest on London’s Tower Bridge demands release of Dr Hussam Abu Safia",
-        "summary": "Pro-Palestine activists unfurled a giant Palestinian flag and a banner on London&#039;s Tower Bridge.",
-        "url": "https://www.aljazeera.com/video/newsfeed/2026/7/12/protest-on-londons-tower-bridge-demands-release-of-dr-hussam-abu-safia?traffic_source=rss",
-        "category": "Geopolitics",
-        "source": "Al Jazeera",
-        "tier": 1.1,
-        "published_iso": "2026-07-12T21:21:27+00:00",
-        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/WIDE-THUMB-1783891146.png?resize=1920%2C1440",
-        "corroborating_sources": [],
-        "score": 5.799
-      },
-      {
-        "title": "The man who changed the Arab world",
-        "summary": "Former Emir of Qatar Sheikh Hamad bin Khalifa Al Thani has died at age 74.",
-        "url": "https://www.aljazeera.com/video/newsfeed/2026/7/12/the-man-who-changed-the-arab-world?traffic_source=rss",
-        "category": "Geopolitics",
-        "source": "Al Jazeera",
-        "tier": 1.1,
-        "published_iso": "2026-07-12T21:09:03+00:00",
-        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/image-1783890500.jpg?resize=1920%2C1080&amp;quality=80",
-        "corroborating_sources": [],
-        "score": 5.789
-      },
-      {
-        "title": "Fire engulfs popular Bangkok pub, killing 27 people and injuring 63",
-        "summary": "Footage shared online by first responders showed a huge blaze raging in the Na Ladprao pub.",
-        "url": "https://www.aljazeera.com/news/2026/7/12/fire-engulfs-popular-bangkok-pub-killing-27-people-and-injuring-63?traffic_source=rss",
-        "category": "Geopolitics",
-        "source": "Al Jazeera",
-        "tier": 1.1,
-        "published_iso": "2026-07-12T20:48:37+00:00",
-        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/reuters_6a53f684-1783887492.jpg?resize=1920%2C1440",
-        "corroborating_sources": [],
-        "score": 5.774
+        "score": 5.761
       },
       {
         "title": "At least two killed in Toronto street festival shooting",
@@ -1399,103 +1279,19 @@
         "published_iso": "2026-07-12T03:56:02+00:00",
         "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/94a2/live/bfc51ee0-7d92-11f1-b0c0-b9b367ec5905.jpg",
         "corroborating_sources": [],
-        "score": 5.759
+        "score": 5.701
       },
       {
-        "title": "US congressman says ‘IDF is lying’ about his detention by settlers and soldiers",
-        "summary": "Israeli ambassador to US accuses Ro Khanna of political stunt to distract from support for Graham Platner Ro Khanna accused the Israeli government and military of “lying” on Sunday about the US congressman’s detention by armed settlers and Israeli soldiers during a recent visit to the Israeli-occupied West Bank. Khanna – a California Democrat – had posted video evidence on social media of Israeli settlers and soldiers blocking the path of his convoy on Wednesday in the South Hebron hills, near the village of Zanuta, where Israelis have driven Palestinians from their homes in what Amnesty Inter",
-        "url": "https://www.theguardian.com/us-news/2026/jul/12/ro-khanna-israel-detention-reaction",
-        "category": "Geopolitics",
-        "source": "Guardian World",
-        "tier": 1.1,
-        "published_iso": "2026-07-12T20:25:43+00:00",
-        "image_url": "https://i.guim.co.uk/img/media/e01053124788d2b4852f5672553dd27144e0e80a/352_0_3517_2813/master/3517.jpg?width=700&quality=85&auto=format&fit=max&s=93af3677a068151a9269aee1d8a32499",
-        "corroborating_sources": [],
-        "score": 5.756
-      },
-      {
-        "title": "Qatar’s former emir remembered as ‘a man of vision and courage’",
-        "summary": "US diplomat Adam Ereli remembers Qatar’s former Emir Sheikh as a personable and charismatic leader.",
-        "url": "https://www.aljazeera.com/video/newsfeed/2026/7/12/qatars-former-emir-remembered-as-a-man-of-vision-and?traffic_source=rss",
+        "title": "Israel releases video of huge detonations in Lebanon",
+        "summary": "The Israeli military has released video showing huge explosions and detonations in villages in southern Lebanon.",
+        "url": "https://www.aljazeera.com/video/newsfeed/2026/7/12/israel-releases-video-of-huge-detonations-in-lebanon?traffic_source=rss",
         "category": "Geopolitics",
         "source": "Al Jazeera",
         "tier": 1.1,
-        "published_iso": "2026-07-12T20:14:43+00:00",
-        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/image-1783887246.jpg?resize=1920%2C1080&amp;quality=80",
+        "published_iso": "2026-07-12T21:50:28+00:00",
+        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/image-1783892961.jpg?resize=1920%2C1080&amp;quality=80",
         "corroborating_sources": [],
-        "score": 5.748
-      },
-      {
-        "title": "How will Qatar’s Father Emir be remembered?",
-        "summary": "Former Emir Sheikh Hamad Bin Khalifa Al Thani has died",
-        "url": "https://www.aljazeera.com/video/inside-story/2026/7/12/how-will-qatars-father-emir-be-remembered?traffic_source=rss",
-        "category": "Geopolitics",
-        "source": "Al Jazeera",
-        "tier": 1.1,
-        "published_iso": "2026-07-12T20:14:13+00:00",
-        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/image-1783883834.jpg?resize=1920%2C1061&amp;quality=80",
-        "corroborating_sources": [],
-        "score": 5.748
-      },
-      {
-        "title": "Iran says almost a dozen ‘enemy projectiles’ targeted Qeshm Island",
-        "summary": "New explosions have been heard in Bandar Abbas and Qeshm Island.",
-        "url": "https://www.aljazeera.com/video/newsfeed/2026/7/12/iran-says-almost-a-dozen-enemy-projectiles-targeted-qeshm-island?traffic_source=rss",
-        "category": "Geopolitics",
-        "source": "Al Jazeera",
-        "tier": 1.1,
-        "published_iso": "2026-07-12T19:56:26+00:00",
-        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/WIDE-THUMB-1783886023.png?resize=1920%2C1440",
-        "corroborating_sources": [],
-        "score": 5.735
-      },
-      {
-        "title": "Iraqi PM to meet US President Trump in Washington to deepen strategic ties",
-        "summary": "Oil and gas deals are expected ⁠to be signed as part of a broader push ​for economic, trade and investment cooperation.",
-        "url": "https://www.aljazeera.com/news/2026/7/12/iraqi-pm-to-meet-us-president-trump-in-washington-to-deepen-strategic-ties?traffic_source=rss",
-        "category": "Geopolitics",
-        "source": "Al Jazeera",
-        "tier": 1.1,
-        "published_iso": "2026-07-12T19:48:00+00:00",
-        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/06/reuters_6a3c3f22-1782333218.jpg?resize=1920%2C1440",
-        "corroborating_sources": [],
-        "score": 5.729
-      },
-      {
-        "title": "England vs Argentina: Greatest moments before FIFA World Cup semifinal",
-        "summary": "England and Argentina renew their longstanding football rivalry with a World Cup final place at stake.",
-        "url": "https://www.aljazeera.com/sports/2026/7/12/fifa-world-cup-england-vs-argentina-historic-rivalry-greatest-moments-semifinal?traffic_source=rss",
-        "category": "Geopolitics",
-        "source": "Al Jazeera",
-        "tier": 1.1,
-        "published_iso": "2026-07-12T19:31:20+00:00",
-        "image_url": "https://www.aljazeera.com/wp-content/uploads/2025/08/GettyImages-52952754-1755679888.jpg?resize=1200%2C675",
-        "corroborating_sources": [],
-        "score": 5.717
-      },
-      {
-        "title": "Anti-migrant display set alight in Northern Ireland bonfire",
-        "summary": "The flags of Palestine, Syria, Sudan and Somalia were draped over a huge bonfire tower before it was set alight.",
-        "url": "https://www.aljazeera.com/video/newsfeed/2026/7/12/anti-migrant-display-set-alight-in-northern-ireland-bonfire?traffic_source=rss",
-        "category": "Geopolitics",
-        "source": "Al Jazeera",
-        "tier": 1.1,
-        "published_iso": "2026-07-12T19:21:17+00:00",
-        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/image-1783884054.jpg?resize=1920%2C1080&amp;quality=80",
-        "corroborating_sources": [],
-        "score": 5.71
-      },
-      {
-        "title": "Friends turned foes: The split reshaping Senegal",
-        "summary": "Ousmane Sonko reveals what ended his political partnership with the president, sparking a constitutional standoff.",
-        "url": "https://www.aljazeera.com/video/talk-to-al-jazeera/2026/7/12/friends-turned-foes-the-split-reshaping-senegal?traffic_source=rss",
-        "category": "Geopolitics",
-        "source": "Al Jazeera",
-        "tier": 1.1,
-        "published_iso": "2026-07-12T19:21:00+00:00",
-        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/image-1783864279.jpg?resize=1920%2C1080&amp;quality=80",
-        "corroborating_sources": [],
-        "score": 5.71
+        "score": 5.665
       },
       {
         "title": "Muslim judge in India faces death threats after convicting 'cow vigilantes'",
@@ -1507,19 +1303,19 @@
         "published_iso": "2026-07-12T00:49:24+00:00",
         "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/9b9e/live/2a507da0-7bf8-11f1-b447-c332f78126d1.jpg",
         "corroborating_sources": [],
-        "score": 5.708
+        "score": 5.659
       },
       {
-        "title": "Some 30 Malian soldiers killed during Anefis retaking, says army chief",
-        "summary": "General Jean Elysee Dao says 60 others also wounded as army retakes key town after nearly a week of fighting.",
-        "url": "https://www.aljazeera.com/news/2026/7/12/some-30-malian-soldiers-killed-during-anefis-retaking-says-army-chief?traffic_source=rss",
+        "title": "Deadly Israeli strikes pound Gaza",
+        "summary": "Israel’s military has attacked several places across Gaza.",
+        "url": "https://www.aljazeera.com/video/newsfeed/2026/7/12/deadly-israeli-strikes-pound-gaza?traffic_source=rss",
         "category": "Geopolitics",
         "source": "Al Jazeera",
         "tier": 1.1,
-        "published_iso": "2026-07-12T19:01:40+00:00",
-        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/afp_6a53b24d52df-1783870029.jpg?resize=1920%2C1440",
+        "published_iso": "2026-07-12T21:33:10+00:00",
+        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/image-1783891930.jpg?resize=1920%2C1080&amp;quality=80",
         "corroborating_sources": [],
-        "score": 5.697
+        "score": 5.653
       },
       {
         "title": "T. rex could become most expensive fossil ever - but it's a ​problem for scientists",
@@ -1531,7 +1327,19 @@
         "published_iso": "2026-07-11T23:58:40+00:00",
         "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/6771/live/98eee880-7c5e-11f1-bee8-53ce494e1abc.jpg",
         "corroborating_sources": [],
-        "score": 5.696
+        "score": 5.649
+      },
+      {
+        "title": "Protest on London’s Tower Bridge demands release of Dr Hussam Abu Safia",
+        "summary": "Pro-Palestine activists unfurled a giant Palestinian flag and a banner on London&#039;s Tower Bridge.",
+        "url": "https://www.aljazeera.com/video/newsfeed/2026/7/12/protest-on-londons-tower-bridge-demands-release-of-dr-hussam-abu-safia?traffic_source=rss",
+        "category": "Geopolitics",
+        "source": "Al Jazeera",
+        "tier": 1.1,
+        "published_iso": "2026-07-12T21:21:27+00:00",
+        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/WIDE-THUMB-1783891146.png?resize=1920%2C1440",
+        "corroborating_sources": [],
+        "score": 5.646
       },
       {
         "title": "How men with female surnames are standing up to ridicule in Kenya",
@@ -1543,31 +1351,91 @@
         "published_iso": "2026-07-11T23:27:45+00:00",
         "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/c98c/live/d92be410-7b92-11f1-881d-8fcf7e2296a7.jpg",
         "corroborating_sources": [],
-        "score": 5.688
+        "score": 5.643
       },
       {
-        "title": "Thousands gather to bid farewell to Qatar’s Father Emir Sheikh Hamad",
-        "summary": "Thousands gathered in Doha to bid farewell to Qatar&#039;s Father Emir, Sheikh Hamad bin Khalifa Al Thani.",
-        "url": "https://www.aljazeera.com/video/newsfeed/2026/7/12/thousands-gather-to-bid-farewell-to-qatars-father-emir-sheikh-hamad?traffic_source=rss",
+        "title": "The man who changed the Arab world",
+        "summary": "Former Emir of Qatar Sheikh Hamad bin Khalifa Al Thani has died at age 74.",
+        "url": "https://www.aljazeera.com/video/newsfeed/2026/7/12/the-man-who-changed-the-arab-world?traffic_source=rss",
         "category": "Geopolitics",
         "source": "Al Jazeera",
         "tier": 1.1,
-        "published_iso": "2026-07-12T18:24:30+00:00",
-        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/image-1783880607.jpg?resize=1891%2C1080&amp;quality=80",
+        "published_iso": "2026-07-12T21:09:03+00:00",
+        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/image-1783890500.jpg?resize=1920%2C1080&amp;quality=80",
         "corroborating_sources": [],
-        "score": 5.672
+        "score": 5.638
       },
       {
-        "title": "How a viral seal called Neil caused mayhem in Australia",
-        "summary": "The five-year-old elephant seal attracted global attention during his recent time ashore in southern Tasmania.",
-        "url": "https://www.bbc.co.uk/news/videos/c05yr465yyro?at_medium=RSS&at_campaign=rss",
+        "title": "Fire engulfs popular Bangkok pub, killing 27 people and injuring 63",
+        "summary": "Footage shared online by first responders showed a huge blaze raging in the Na Ladprao pub.",
+        "url": "https://www.aljazeera.com/news/2026/7/12/fire-engulfs-popular-bangkok-pub-killing-27-people-and-injuring-63?traffic_source=rss",
         "category": "Geopolitics",
-        "source": "BBC World",
-        "tier": 1.4,
-        "published_iso": "2026-07-11T21:19:05+00:00",
-        "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/da0a/live/fbebf200-7c2e-11f1-bee8-53ce494e1abc.jpg",
+        "source": "Al Jazeera",
+        "tier": 1.1,
+        "published_iso": "2026-07-12T20:48:37+00:00",
+        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/reuters_6a53f684-1783887492.jpg?resize=1920%2C1440",
         "corroborating_sources": [],
-        "score": 5.661
+        "score": 5.625
+      },
+      {
+        "title": "US congressman says ‘IDF is lying’ about his detention by settlers and soldiers",
+        "summary": "Israeli ambassador to US accuses Ro Khanna of political stunt to distract from support for Graham Platner Ro Khanna accused the Israeli government and military of “lying” on Sunday about the US congressman’s detention by armed settlers and Israeli soldiers during a recent visit to the Israeli-occupied West Bank. Khanna – a California Democrat – had posted video evidence on social media of Israeli settlers and soldiers blocking the path of his convoy on Wednesday in the South Hebron hills, near the village of Zanuta, where Israelis have driven Palestinians from their homes in what Amnesty Inter",
+        "url": "https://www.theguardian.com/us-news/2026/jul/12/ro-khanna-israel-detention-reaction",
+        "category": "Geopolitics",
+        "source": "Guardian World",
+        "tier": 1.1,
+        "published_iso": "2026-07-12T20:25:43+00:00",
+        "image_url": "https://i.guim.co.uk/img/media/e01053124788d2b4852f5672553dd27144e0e80a/352_0_3517_2813/master/3517.jpg?width=700&quality=85&auto=format&fit=max&s=93af3677a068151a9269aee1d8a32499",
+        "corroborating_sources": [],
+        "score": 5.611
+      },
+      {
+        "title": "Qatar’s former emir remembered as ‘a man of vision and courage’",
+        "summary": "US diplomat Adam Ereli remembers Qatar’s former Emir Sheikh as a personable and charismatic leader.",
+        "url": "https://www.aljazeera.com/video/newsfeed/2026/7/12/qatars-former-emir-remembered-as-a-man-of-vision-and?traffic_source=rss",
+        "category": "Geopolitics",
+        "source": "Al Jazeera",
+        "tier": 1.1,
+        "published_iso": "2026-07-12T20:14:43+00:00",
+        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/image-1783887246.jpg?resize=1920%2C1080&amp;quality=80",
+        "corroborating_sources": [],
+        "score": 5.605
+      },
+      {
+        "title": "How will Qatar’s Father Emir be remembered?",
+        "summary": "Former Emir Sheikh Hamad Bin Khalifa Al Thani has died",
+        "url": "https://www.aljazeera.com/video/inside-story/2026/7/12/how-will-qatars-father-emir-be-remembered?traffic_source=rss",
+        "category": "Geopolitics",
+        "source": "Al Jazeera",
+        "tier": 1.1,
+        "published_iso": "2026-07-12T20:14:13+00:00",
+        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/image-1783883834.jpg?resize=1920%2C1061&amp;quality=80",
+        "corroborating_sources": [],
+        "score": 5.605
+      },
+      {
+        "title": "Iran says almost a dozen ‘enemy projectiles’ targeted Qeshm Island",
+        "summary": "New explosions have been heard in Bandar Abbas and Qeshm Island.",
+        "url": "https://www.aljazeera.com/video/newsfeed/2026/7/12/iran-says-almost-a-dozen-enemy-projectiles-targeted-qeshm-island?traffic_source=rss",
+        "category": "Geopolitics",
+        "source": "Al Jazeera",
+        "tier": 1.1,
+        "published_iso": "2026-07-12T19:56:26+00:00",
+        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/WIDE-THUMB-1783886023.png?resize=1920%2C1440",
+        "corroborating_sources": [],
+        "score": 5.594
+      },
+      {
+        "title": "Iraqi PM to meet US President Trump in Washington to deepen strategic ties",
+        "summary": "Oil and gas deals are expected ⁠to be signed as part of a broader push ​for economic, trade and investment cooperation.",
+        "url": "https://www.aljazeera.com/news/2026/7/12/iraqi-pm-to-meet-us-president-trump-in-washington-to-deepen-strategic-ties?traffic_source=rss",
+        "category": "Geopolitics",
+        "source": "Al Jazeera",
+        "tier": 1.1,
+        "published_iso": "2026-07-12T19:48:00+00:00",
+        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/06/reuters_6a3c3f22-1782333218.jpg?resize=1920%2C1440",
+        "corroborating_sources": [],
+        "score": 5.589
       },
       {
         "title": "Toronto police looking for suspects after deadly shooting at festival",
@@ -1579,7 +1447,7 @@
         "published_iso": "2026-07-12T17:22:29+00:00",
         "image_url": "https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=g-s1-133229",
         "corroborating_sources": [],
-        "score": 5.472
+        "score": 5.35
       },
       {
         "title": "A revolution in ruins: fury amid the rubble of a housing project in quake-hit Venezuela",
@@ -1591,19 +1459,7 @@
         "published_iso": "2026-07-12T05:00:09+00:00",
         "image_url": "https://i.guim.co.uk/img/media/8837b4351cdfd5cbb0e4ffb5b1620d1b8acfdc52/0_0_5840_4672/master/5840.jpg?width=700&quality=85&auto=format&fit=max&s=e6780a2ea33d488f48b5270f99fa5d03",
         "corroborating_sources": [],
-        "score": 5.298
-      },
-      {
-        "title": "A veteran foreign correspondent looks back on a career covering conflicts",
-        "summary": "For Reporter's Notebook we hear about what it takes to cover conflict over a decades-long career as a foreign correspondent.",
-        "url": "https://www.npr.org/2026/07/11/nx-s1-5866592/a-veteran-foreign-correspondent-looks-back-on-a-career-covering-conflicts",
-        "category": "Geopolitics",
-        "source": "NPR World",
-        "tier": 1.0,
-        "published_iso": "2026-07-11T21:08:23+00:00",
-        "image_url": "https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-5866592",
-        "corroborating_sources": [],
-        "score": 5.018
+        "score": 5.237
       }
     ]
   }
