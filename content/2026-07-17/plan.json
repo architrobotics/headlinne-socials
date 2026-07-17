@@ -4,21 +4,21 @@
   "is_friday": true,
   "twitter": [
     {
-      "category": "Tech",
-      "post": "Here is the latest in tech today.\n• Google is rebranding its NotebookLM app to Gemini Notebook\n• Trump Media is selling early post access to Wall Street traders\n• Wired looks at OpenAI's ongoing legal and reputational hurdles HEADLINNE.com #TechNews #Google",
+      "category": "Finance",
+      "post": "Here is today's top finance news.\n• Chipotle is expanding south of the border with its first Mexico shop\n• GE stock dipped as the company's rapid order growth finally slows\n• Short sellers are betting against SpaceX as the stock price slides HEADLINNE.com #Finance #Business",
       "hashtags": [
-        "TechNews",
-        "Google"
+        "Finance",
+        "Business"
       ],
       "scheduled_time": "2026-07-17T13:00:00+05:30",
       "kind": "news"
     },
     {
-      "category": "Finance",
-      "post": "Here is today's top finance news\n• TSMC is investing $100bn more to grow its US chip production\n• A Fed official says rates might need to rise a bit more\n• A staffer allegedly bet on Trump speeches using inside info HEADLINNE.com #Finance #Economy",
+      "category": "Tech",
+      "post": "Your tech update for today\n• Ofcom is investigating TikTok over its child safety checks\n• Fortnite is adding new AI characters for game creators\n• The EU is forcing Google to open up its Android search data HEADLINNE.com #TechNews #Headlinne",
       "hashtags": [
-        "Finance",
-        "Economy"
+        "TechNews",
+        "Headlinne"
       ],
       "scheduled_time": "2026-07-17T17:00:00+05:30",
       "kind": "news"
@@ -26,7 +26,7 @@
   ],
   "linkedin": {
     "title": "This Week in Finance & Tech",
-    "body": "It has been a busy week for major tech companies. Meta shares climbed on Thursday after the company announced a new AI model and made progress on its custom chip development. Meanwhile, OpenAI is in the headlines for two reasons. The company released a new keyboard designed for its coding app, but it is also facing a lawsuit from Apple. Apple alleges that OpenAI and a hardware firm led by Jony Ive were involved in trade secret theft, describing the business as rotten to its core.\n\nIn the semiconductor world, SK Hynix is making waves. The chip giant raised 26.5 billion dollars in a massive US share sale. The shares are scheduled to begin trading on the Nasdaq this Friday, marking the largest debut ever for a foreign company.\n\nElsewhere in business news, Chipotle is taking a bold step by opening its first restaurant in Mexico. It will be interesting to see how they perform, as other American fast food chains have found it difficult to succeed in the countries where their cuisine originated. In Europe, Gibraltar is entering a new era as 118-year-old border controls with Spain are finally removed. This change is expected to boost the local economy by allowing free movement.\n\nFinally, a word of caution on consumer trends. The advertising watchdog has warned about portable air conditioners that claim to cool rooms in 90 seconds. These ads are misleading, and the devices do not perform as promised. On a more serious note, officials are investigating a frightening incident on a Ryanair flight where a passenger was nearly pulled out of a window mid-air. Fortunately, his wife was able to hold onto him until the situation was under control.",
+    "body": "It has been a busy week across the markets and the tech sector. Here is a quick look at the stories that mattered most.\n\nIn the tech world, Meta saw its stock price climb on Thursday. Investors seem more confident after the company launched a new AI model and shared progress on its custom chip development. Meanwhile, OpenAI is making waves in the hardware space with a new $230 keyboard designed for its coding app. This move comes as the company faces a lawsuit from Apple, which has accused OpenAI of trade secret theft involving hardware designs.\n\nIn the financial markets, SK Hynix is making history. The chip giant raised $26.5 billion in a US share sale. The stock is set to debut on the Nasdaq this Friday, marking the largest ever launch for a foreign company on that exchange.\n\nElsewhere, we are seeing some interesting business shifts. Chipotle is expanding its footprint by opening its first restaurant in Mexico. This is a notable test for the brand, as many other US fast food chains have found it difficult to succeed in the countries that inspired their menus.\n\nOn the international front, Gibraltar is entering a new era. The territory has removed border controls with Spain that had been in place for 118 years. The hope is that this change will boost the local economy by allowing for freer movement.\n\nFinally, a few cautionary notes. The Advertising Standards Authority has warned consumers about portable air conditioners that claim to cool rooms in 90 seconds. The agency says these claims are misleading. Also, there was a frightening incident on a Ryanair flight where a passenger had to be held by his wife for several minutes after a window issue occurred mid-air.",
     "cta": "Get the full picture on the stories that matter to you at HEADLINNE.com.",
     "scheduled_time": "2026-07-17T18:00:00+05:30",
     "kind": "weekly_roundup"
@@ -34,50 +34,50 @@
   "instagram": [
     {
       "slot": "instagram_1",
-      "category": "Technology",
+      "category": "Finance",
       "num_slides": 7,
-      "title": "Top 5 Things In Tech Today",
+      "title": "Top 5 Finance Stories Today",
       "slides": [
         {
           "role": "cover",
-          "headline": "Top 5 Things In Tech Today",
+          "headline": "Top 5 Finance Stories Today",
           "explanation": "",
-          "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/07/gemininotebook.png?quality=90&amp;strip=all&amp;crop=0%2C3.479841264548%2C100%2C93.040317470904&amp;w=1200",
+          "image_url": "https://i-invdn-com.investing.com/news/LYNXNPEC0Q0MJ_M.jpg",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-17/instagram/instagram_1/slide_1.png"
         },
         {
           "role": "story",
-          "headline": "A new name for Google's note app",
-          "explanation": "Google is rebranding its NotebookLM tool to Gemini Notebook. While the name is changing, it will still function as a standalone app while working more closely with other Google services.",
-          "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/07/gemininotebook.png?quality=90&amp;strip=all&amp;crop=0%2C3.479841264548%2C100%2C93.040317470904&amp;w=1200",
+          "headline": "Chipotle heads to Mexico",
+          "explanation": "The popular U.S. burrito chain is expanding its reach by opening its very first location in Mexico.",
+          "image_url": "https://i-invdn-com.investing.com/news/LYNXNPEC0Q0MJ_M.jpg",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-17/instagram/instagram_1/slide_2.png"
         },
         {
           "role": "story",
-          "headline": "Trump Media's new paid feed",
-          "explanation": "Trump Media is introducing a paid feed that gives Wall Street traders early access to key posts. This move aims to deliver influential updates faster to investors.",
-          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/63f7/live/d8fe9a00-815a-11f1-926f-c90d1bcfbc84.jpg",
+          "headline": "GE stock dips despite better outlook",
+          "explanation": "GE Aerospace raised its profit forecast but investors were disappointed by slower growth in new orders. The stock price fell as a result.",
+          "image_url": "https://images.mktw.net/im-22191410",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-17/instagram/instagram_1/slide_3.png"
         },
         {
           "role": "story",
-          "headline": "OpenAI's latest legal troubles",
-          "explanation": "Wired takes a deep dive into OpenAI's ongoing legal and reputation issues. The discussion focuses on how these challenges might impact the company's competition with Anthropic.",
-          "image_url": "https://media.wired.com/photos/6a581351c2deddeba2cfe152/191:100/w_1280,c_limit/Uncanny-Valley-OpenAI-Hectic-Week-2282053697.jpg",
+          "headline": "Short sellers target SpaceX",
+          "explanation": "Investors are betting against SpaceX as its stock price dips below its IPO level. About 29 percent of available shares are now being shorted.",
+          "image_url": "https://image.cnbcfm.com/api/v1/image/108321157-17812776602026-06-12t144016z_756326809_rc2dslammudl_rtrmadp_0_spacex-ipo.jpeg?v=1781277686&amp;w=1920&amp;h=1080",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-17/instagram/instagram_1/slide_4.png"
         },
         {
           "role": "story",
-          "headline": "EU ruling on Google and Android",
-          "explanation": "The European Union has told Google to give AI competitors more access to its Android system. While it seems like a loss for Google, some analysts see it as a strategic win for the tech giant.",
-          "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/07/gettyimages-2276602257.jpg?quality=90&amp;strip=all&amp;crop=0%2C10.723165084465%2C100%2C78.55366983107&amp;w=1200",
+          "headline": "Tim Draper on the next big bets",
+          "explanation": "The famous venture capitalist is sharing his thoughts on the current AI market and the big opportunities he regrets missing.",
+          "image_url": "https://images.mktw.net/im-648540",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-17/instagram/instagram_1/slide_5.png"
         },
         {
           "role": "story",
-          "headline": "Wait, a ChatGPT basketball?",
-          "explanation": "OpenAI has released its first piece of physical hardware this week. Surprisingly, it is a basketball branded with ChatGPT, which has caught many people off guard.",
-          "image_url": "https://techcrunch.com/wp-content/uploads/2026/07/chatgpt-basketball.jpg?resize=1200,675",
+          "headline": "Alphabet shares slide amid AI concerns",
+          "explanation": "Google parent Alphabet saw its stock drop over 4 percent. Investors worry the company is falling behind in the competitive AI race.",
+          "image_url": "https://images.mktw.net/im-53771500",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-17/instagram/instagram_1/slide_6.png"
         },
         {
@@ -88,66 +88,67 @@
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-17/instagram/instagram_1/slide_7.png"
         }
       ],
-      "caption": "From rebranding apps to unexpected new hardware, it has been a busy week in the tech world. Swipe through to catch up on the five biggest stories you need to know today. Stay informed with Headlinne. Read more on HEADLINNE.com.",
+      "caption": "It is a busy day in the markets with tech giants and global brands making headlines. From SpaceX short sellers to Chipotle's big expansion, we have the latest updates you need to know. Swipe through for the full rundown. Read more on HEADLINNE.com.",
       "hashtags": [
-        "Tech",
-        "TechNews",
-        "AI",
-        "Google",
-        "OpenAI",
-        "Android",
-        "TechUpdates",
-        "BusinessNews",
-        "Headlinne"
+        "Finance",
+        "Markets",
+        "Business",
+        "investing",
+        "stocks",
+        "businessnews",
+        "marketupdate",
+        "tech",
+        "money",
+        "headlinne"
       ],
       "scheduled_time": "2026-07-17T16:00:00+05:30"
     },
     {
       "slot": "instagram_2",
-      "category": "Finance",
+      "category": "Technology",
       "num_slides": 7,
-      "title": "Top 5 Finance Stories Today",
+      "title": "Top 5 Things In Tech Today",
       "slides": [
         {
           "role": "cover",
-          "headline": "Top 5 Finance Stories Today",
+          "headline": "Top 5 Things In Tech Today",
           "explanation": "",
-          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/0874/live/d7c92fe0-80ad-11f1-ba1f-795e92f7cb6e.jpg",
+          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/c060/live/299cb270-80e4-11f1-a5c2-db1656c1a0a8.jpg",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-17/instagram/instagram_2/slide_1.png"
         },
         {
           "role": "story",
-          "headline": "TSMC boosts US investment to $265 billion",
-          "explanation": "The chipmaker is committing another $100 billion to expand its American operations. They say this move will lead to more high-paying jobs in the tech sector.",
-          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/0874/live/d7c92fe0-80ad-11f1-ba1f-795e92f7cb6e.jpg",
+          "headline": "TikTok under investigation for child safety",
+          "explanation": "Regulators in the UK are looking into how TikTok verifies the age of its younger users. This follows a review earlier this year that found the app was not doing enough to keep children safe.",
+          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/c060/live/299cb270-80e4-11f1-a5c2-db1656c1a0a8.jpg",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-17/instagram/instagram_2/slide_2.png"
         },
         {
           "role": "story",
-          "headline": "Fed official hints at more rate hikes",
-          "explanation": "Dallas Fed President Lorie Logan says recent inflation data is not enough to stop interest rate increases. She believes rates should rise slightly to keep things in check.",
-          "image_url": "https://image.cnbcfm.com/api/v1/image/108220137-1761932739662-gettyimages-2243837870-DALLAS_FED_SPEAK.jpeg?v=1761932781&amp;w=1920&amp;h=1080",
+          "headline": "AI characters are coming to Fortnite",
+          "explanation": "Epic Games is introducing 36 new AI-powered characters to Fortnite. Creators will be able to use these NPCs, which have their own consistent voices and personalities, starting on July 30th.",
+          "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/07/uefn-conversations-blog-header-opt-02.jpeg?quality=90&amp;strip=all&amp;crop=0%2C3.4613147178592%2C100%2C93.077370564282&amp;w=1200",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-17/instagram/instagram_2/slide_3.png"
         },
         {
           "role": "story",
-          "headline": "White House staffer probed over betting claims",
-          "explanation": "A staffer is accused of using insider knowledge about presidential speeches to win nearly $100,000 in bets. The allegations involve trades made on the betting platform Kalshi.",
-          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/4840/live/ba1cb390-8161-11f1-bee8-53ce494e1abc.jpg",
+          "headline": "EU requires Google to open up Android data",
+          "explanation": "New rules in the European Union will force Google to share search data and open up its AI features on Android. Google has warned that these changes could create risks for user privacy and security.",
+          "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2024/03/europe-flag-digital-1152x648-1742412347.jpg",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-17/instagram/instagram_2/slide_4.png"
         },
         {
           "role": "story",
-          "headline": "Cybersecurity demand boosts Palo Alto stock",
-          "explanation": "Palo Alto Networks shares have doubled in three months. Investors are betting that the rise of AI will drive even more demand for the company's security products.",
-          "image_url": "https://images.mktw.net/im-787371",
+          "headline": "Netflix used AI on 300 shows",
+          "explanation": "Netflix revealed that generative AI was used in about 300 of its titles. Most of this work happened during the post-production phase to help improve quality and speed up the process.",
+          "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/07/american-experiment.jpg?quality=90&amp;strip=all&amp;crop=10.208333333333,0,79.583333333333,100",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-17/instagram/instagram_2/slide_5.png"
         },
         {
           "role": "story",
-          "headline": "SpaceX faces big test after stock dip",
-          "explanation": "SpaceX stock just closed below its IPO price for the first time. All eyes are now on an upcoming rocket launch, which analysts say is the company's most important event right now.",
-          "image_url": "https://images.mktw.net/im-39196089",
+          "headline": "Trump teleprompter operator accused of betting scam",
+          "explanation": "Federal investigators claim Donald Trump's longtime teleprompter operator used inside information to place bets on Kalshi. The operator allegedly bet on what the former president would say during his speeches.",
+          "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/02/STKB383_KALSHI_A.jpg?quality=90&amp;strip=all&amp;crop=0%2C10.728364100735%2C100%2C78.54327179853&amp;w=1200",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-17/instagram/instagram_2/slide_6.png"
         },
         {
@@ -158,18 +159,17 @@
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-17/instagram/instagram_2/slide_7.png"
         }
       ],
-      "caption": "From major chip investments to shifting market trends, here is what you need to know in finance today. Stay updated with the biggest business headlines in just a few swipes. Get the full story on the Headlinne app. Read more on HEADLINNE.com.",
+      "caption": "From AI characters in your favourite games to new rules for Google in Europe, there is a lot happening in tech today. We have rounded up the biggest stories you need to know. Swipe through for your quick daily update. Read more on HEADLINNE.com.",
       "hashtags": [
-        "Finance",
-        "Markets",
-        "Business",
-        "businessnews",
-        "investing",
-        "economy",
-        "tech",
-        "stocks",
-        "money",
-        "Headlinne"
+        "Tech",
+        "TechNews",
+        "AI",
+        "Headlinne",
+        "TikTok",
+        "Fortnite",
+        "Google",
+        "Netflix",
+        "DailyUpdate"
       ],
       "scheduled_time": "2026-07-17T18:00:00+05:30"
     }
