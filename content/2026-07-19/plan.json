@@ -1,0 +1,178 @@
+{
+  "day": "2026-07-19",
+  "is_promo_day": false,
+  "is_friday": false,
+  "twitter": [
+    {
+      "category": "Geopolitics",
+      "post": "Here is today's global news roundup.\n• Andrew and Tristan Tate arrested in Miami facing UK extradition\n• Gaza attacks continue despite hopes for a lasting ceasefire\n• Russian citizens shift to cash as their wartime economy slows HEADLINNE.com #Geopolitics #News",
+      "hashtags": [
+        "Geopolitics",
+        "News"
+      ],
+      "scheduled_time": "2026-07-19T13:00:00+05:30",
+      "kind": "news"
+    },
+    {
+      "category": "Finance",
+      "post": "Here is what is moving markets today.\n• Wealthy buyers are pushing up rent prices in Bozeman, Montana\n• Wall Street is using AI to decode shifts in Fed communication\n• Investors are demanding more professionalism from their advisers HEADLINNE.com #Finance #Economy",
+      "hashtags": [
+        "Finance",
+        "Economy"
+      ],
+      "scheduled_time": "2026-07-19T17:00:00+05:30",
+      "kind": "news"
+    }
+  ],
+  "linkedin": {
+    "title": "The future of news is not about showing you more, but showing you better.",
+    "body": "We have spent the last few years drowning in information. The problem with most news feeds today is that they treat every reader the same. They rely on broad algorithms that prioritize volume over value. You get a firehose of content, and it is up to you to filter through the noise to find what actually matters to your life.\n\nAt Headlinne, we are building something different. We believe the next step for personalized news is true relevance. It is not about guessing what you might click on next. It is about understanding the context of your day and delivering the stories that help you make better decisions. We are moving away from engagement metrics and toward genuine utility.\n\nOur roadmap is focused on deepening that understanding. We want to ensure that when you open our app, you are not just scrolling to kill time. You are catching up on the specific topics that impact your work, your interests, and your community. It is a shift from passive consumption to active, informed reading.\n\nThis is a challenging path because it requires trusting the user to define their own interests rather than forcing them into a pre-made box. But it is the only way to make news feel like a tool again rather than a distraction.",
+    "cta": "If you are curious about a more thoughtful way to stay informed, you can see what we are building at HEADLINNE.com.",
+    "scheduled_time": "2026-07-19T18:00:00+05:30",
+    "kind": "product"
+  },
+  "instagram": [
+    {
+      "slot": "instagram_1",
+      "category": "Geopolitics",
+      "num_slides": 7,
+      "title": "Top 5 Geopolitics Headlines",
+      "slides": [
+        {
+          "role": "cover",
+          "headline": "Top 5 Geopolitics Headlines",
+          "explanation": "",
+          "image_url": "https://i.guim.co.uk/img/media/5bc43ac38509c467eaf9f4acd704430f22967dcc/324_0_3288_2632/master/3288.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=c65a7017e3d737165516f12c5dcd54a4",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-19/instagram/instagram_1/slide_1.png"
+        },
+        {
+          "role": "story",
+          "headline": "Tate brothers arrested in Miami",
+          "explanation": "US authorities have arrested influencers Andrew and Tristan Tate. The UK is now seeking their extradition on serious charges including sexual exploitation and assault.",
+          "image_url": "https://i.guim.co.uk/img/media/5bc43ac38509c467eaf9f4acd704430f22967dcc/324_0_3288_2632/master/3288.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=c65a7017e3d737165516f12c5dcd54a4",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-19/instagram/instagram_1/slide_2.png"
+        },
+        {
+          "role": "story",
+          "headline": "Gaza attacks continue despite ceasefire",
+          "explanation": "Palestinians in Gaza are still facing military strikes. This raises questions about why the current ceasefire has not been able to halt the ongoing violence.",
+          "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/image-1784403287.jpg?resize=1920%2C1080&amp;quality=80",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-19/instagram/instagram_1/slide_3.png"
+        },
+        {
+          "role": "story",
+          "headline": "Russia's economy feels the strain",
+          "explanation": "Russian citizens are shifting back to using cash as the country deals with internet outages and economic pressure. This comes as the long conflict with Ukraine continues to impact daily life.",
+          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/c416/live/685838d0-81b2-11f1-bc34-d11e2a8fe857.jpg",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-19/instagram/instagram_1/slide_4.png"
+        },
+        {
+          "role": "story",
+          "headline": "US troops killed in Jordan attack",
+          "explanation": "Two American soldiers were killed and one is missing following an attack in Jordan. This incident marks an escalation in hostilities between US and Iranian forces in the region.",
+          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/bb90/live/f934e660-82d3-11f1-a42c-29abcdb2a052.jpg",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-19/instagram/instagram_1/slide_5.png"
+        },
+        {
+          "role": "story",
+          "headline": "Trump resumes strikes on Iran",
+          "explanation": "Donald Trump has restarted military strikes on Iran shortly after a ceasefire was announced. Analysts suggest this risky move could impact the upcoming midterm elections.",
+          "image_url": "https://i.guim.co.uk/img/media/4bc10d92ee5f8365eb68e10fd5612beb021b9182/560_0_5600_4480/master/5600.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=536c35ef5e356cc3c2c91e4db8ca8870",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-19/instagram/instagram_1/slide_6.png"
+        },
+        {
+          "role": "cta",
+          "headline": "Stay ahead with HEADLINNE.com",
+          "explanation": "",
+          "image_url": null,
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-19/instagram/instagram_1/slide_7.png"
+        }
+      ],
+      "caption": "Here are five major global stories you should know about today. From international conflicts to major legal developments, we are breaking down the latest headlines so you can stay informed. Swipe through to catch up on what is happening in the world right now. Read more on HEADLINNE.com.",
+      "hashtags": [
+        "WorldNews",
+        "Geopolitics",
+        "Politics",
+        "CurrentEvents",
+        "GlobalPolitics",
+        "DailyBrief",
+        "Headlinne",
+        "NewsUpdate",
+        "StayInformed"
+      ],
+      "scheduled_time": "2026-07-19T16:00:00+05:30"
+    },
+    {
+      "slot": "instagram_2",
+      "category": "Finance",
+      "num_slides": 7,
+      "title": "Top 5 Finance Stories Today",
+      "slides": [
+        {
+          "role": "cover",
+          "headline": "Top 5 Finance Stories Today",
+          "explanation": "",
+          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/9d56/live/76383b00-8205-11f1-9155-3fc9a8287ebe.jpg",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-19/instagram/instagram_2/slide_1.png"
+        },
+        {
+          "role": "story",
+          "headline": "Montana rents are soaring",
+          "explanation": "Wealthy visitors are moving to Bozeman to enjoy the area. This has caused local rents to jump, making it hard for residents to afford housing.",
+          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/9d56/live/76383b00-8205-11f1-9155-3fc9a8287ebe.jpg",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-19/instagram/instagram_2/slide_2.png"
+        },
+        {
+          "role": "story",
+          "headline": "Wall Street turns to AI",
+          "explanation": "Investment firms are using AI to help them navigate changes in how the Federal Reserve communicates. They need new tools since public comments are becoming less frequent.",
+          "image_url": "https://image.cnbcfm.com/api/v1/image/108336764-1784310010871-260727_mg_31_Illo_WarshGPT_Fv2.png?v=1784321519&amp;w=1920&amp;h=1080",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-19/instagram/instagram_2/slide_3.png"
+        },
+        {
+          "role": "story",
+          "headline": "What makes a good advisor?",
+          "explanation": "One couple walked away from a financial meeting because they felt the representative lacked basic professional knowledge. It shows how much trust matters when managing your money.",
+          "image_url": "https://images.mktw.net/im-60496419",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-19/instagram/instagram_2/slide_4.png"
+        },
+        {
+          "role": "story",
+          "headline": "Childcare refund issues",
+          "explanation": "Families are running into trouble trying to get money back through a new pilot scheme. Many are finding it difficult to navigate the process.",
+          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/d4a3/live/ea129810-81ef-11f1-b6ff-e9b8db4416d1.jpg",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-19/instagram/instagram_2/slide_5.png"
+        },
+        {
+          "role": "story",
+          "headline": "Why are scammers targeting empty accounts?",
+          "explanation": "A user is dealing with constant attempts to hack their empty Robinhood account. It is a reminder to stay alert even if you think your account has nothing in it.",
+          "image_url": "https://images.mktw.net/im-92483775",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-19/instagram/instagram_2/slide_6.png"
+        },
+        {
+          "role": "cta",
+          "headline": "Stay ahead with HEADLINNE.com",
+          "explanation": "",
+          "image_url": null,
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-19/instagram/instagram_2/slide_7.png"
+        }
+      ],
+      "caption": "From the housing crisis in Montana to the tech changing how Wall Street works, here is your daily finance update. We also look at the importance of trust in financial advice and common scams to watch out for. Stay informed with Headlinne. Read more on HEADLINNE.com.",
+      "hashtags": [
+        "Finance",
+        "Markets",
+        "Business",
+        "Money",
+        "News",
+        "Economy",
+        "Investing",
+        "Bozeman",
+        "Tech",
+        "Scams",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-07-19T18:00:00+05:30"
+    }
+  ]
+}
