@@ -5,7 +5,8 @@ strength is computed correctly."""
 
 from __future__ import annotations
 
-from headlinne.news.ranking import _cluster, _merge, rank, strongest_categories
+from headlinne.news.ranking import (_cluster, _low_value_penalty, _merge, _score,
+                                     rank, strongest_categories)
 from tests.helpers import make_story
 
 
@@ -81,3 +82,28 @@ def test_rank_handles_empty_input():
     digest = rank([])
     assert digest.dominant_category in ("Technology", "Finance", "Geopolitics")
     assert all(v == [] for v in digest.by_category.values())
+
+
+def test_low_value_content_is_penalised():
+    # An opinion/live-blog headline scores lower than a straight news headline
+    # about an equally-sourced event, so genuine news leads the carousel.
+    hard_news = make_story("Central bank raises interest rates", source="BBC", tier=1.4)
+    soft = make_story("Opinion: live updates on why the rate move is wrong",
+                      source="BBC", tier=1.4)
+    assert _score(hard_news) > _score(soft)
+    assert _low_value_penalty("opinion: live updates here") > 0
+    assert _low_value_penalty("a normal news headline") == 0
+
+
+def test_breadth_bonus_favours_well_verified_big_stories():
+    # Same three-source coverage, but the reputable-outlet version earns the
+    # breadth bonus and ranks above a lower-tier trio.
+    trusted = [make_story("A major treaty is signed today", source=s, tier=1.4,
+                          category="Geopolitics")
+               for s in ("BBC", "Reuters", "AP")]
+    scrappy = [make_story("A minor local dispute continues", source=s, tier=0.9,
+                          category="Geopolitics")
+               for s in ("BlogA", "BlogB", "BlogC")]
+    digest = rank(trusted + scrappy)
+    geo = digest.by_category["Geopolitics"]
+    assert geo[0].title == "A major treaty is signed today"

@@ -36,9 +36,22 @@ _SOURCE_WEIGHT = 3.2           # weight on (verified) cross-source coverage
 _TIER_WEIGHT = 1.6             # weight on best source reputability
 _KEYWORD_WEIGHT = 0.9          # weight per importance keyword (capped)
 _RECENCY_WEIGHT = 1.0          # small recency nudge
+_BREADTH_BONUS = 0.7           # bonus for a big story verified by trusted outlets
+_LOW_VALUE_PENALTY = 1.15      # docked per soft/low-value marker (capped)
 _BREAKING_MIN_SOURCES = 3
 _BREAKING_AGE_HOURS = 8
 _CATEGORY_TOPK = 5             # clusters per category that count toward weight
+
+# Markers of low-signal content we would rather not lead a carousel with:
+# opinion, live blogs, video/photo galleries, listicles, deals, sponsored posts.
+# A soft, capped penalty nudges genuine news above these without hard-dropping.
+_LOW_VALUE_MARKERS = (
+    "opinion", "comment is free", "editorial", "live:", "live updates",
+    "as it happened", "watch:", "video:", "in pictures", "in photos",
+    "recap", "best deals", "deal of the day", "discount", "how to",
+    "review:", "sponsored", "advertisement", "paid post", "horoscope",
+    "quiz", "explainer", "podcast", "listen:",
+)
 
 _STOP = {
     "the", "a", "an", "and", "or", "of", "to", "in", "on", "for", "with", "at",
@@ -130,6 +143,12 @@ def _majority_category(members: list[Story]) -> str:
     return max(counts, key=counts.get)
 
 
+def _low_value_penalty(text: str) -> float:
+    """Soft, capped penalty for opinion / live / gallery / deal / listicle copy."""
+    hits = sum(1 for m in _LOW_VALUE_MARKERS if m in text)
+    return _LOW_VALUE_PENALTY * min(hits, 2)
+
+
 def _score(story: Story) -> float:
     sources = story.source_count
     verification = _SOURCE_WEIGHT * math.log2(sources + 1)
@@ -142,7 +161,14 @@ def _score(story: Story) -> float:
     age = _hours_old(story)
     recency = _RECENCY_WEIGHT * math.exp(-age / 18.0)  # gentle decay
 
-    return verification + reputability + keywords + recency
+    # Reward the sweet spot: a story that is both widely covered and carried by
+    # a reputable outlet is the kind of significant, verified news we want to
+    # lead with (this is a proxy for genuine importance, not just volume).
+    breadth = _BREADTH_BONUS if (sources >= 3 and story.tier >= 1.2) else 0.0
+
+    penalty = _low_value_penalty(text)
+
+    return verification + reputability + keywords + recency + breadth - penalty
 
 
 def rank(stories: list[Story]) -> NewsDigest:

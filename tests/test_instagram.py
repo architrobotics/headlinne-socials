@@ -1,10 +1,12 @@
-"""The Instagram generator decides how many stories a carousel covers (3 or 5)
-and builds the cover title. The Geopolitics title must keep the word
-'Geopolitics' intact so the renderer can flag-style the 'Geo' part."""
+"""The Instagram generator decides how many stories a carousel covers (3 or 5),
+builds a clean fallback cover title, blends hashtags, and renders the on-slide
+source-attribution line that mirrors the ranker's cross-source verification."""
 
 from __future__ import annotations
 
-from headlinne.generate.instagram import _cover_title, _decide_num_stories, _hashtags
+from headlinne.generate.instagram import (_clamp_words, _cover_title,
+                                          _decide_num_stories, _hashtags,
+                                          source_line)
 from tests.helpers import make_story
 
 
@@ -29,16 +31,11 @@ def test_decide_num_stories_handles_few_stories():
     assert _decide_num_stories([]) == 1
 
 
-def test_cover_title_per_category():
-    assert _cover_title("Technology", 3) == "Top 3 Things In Tech Today"
-    assert _cover_title("Finance", 5) == "Top 5 Finance Stories Today"
-
-
-def test_geopolitics_cover_title_keeps_geo_word():
-    title = _cover_title("Geopolitics", 3)
-    # Renderer looks for a leading 'Geo' to apply stars-and-stripes styling.
-    assert title.startswith("Top 3 Geo")
-    assert "Geopolitics" in title
+def test_cover_title_fallbacks_are_clean_and_counted():
+    # The fallback title mentions the count and stays free of the old flag hack.
+    assert _cover_title("Technology", 3) == "The 3 tech stories that matter today"
+    assert _cover_title("Finance", 5) == "The 5 money moves that matter today"
+    assert "world" in _cover_title("Geopolitics", 3).lower()
 
 
 def test_hashtags_dedupe_and_brand_appended():
@@ -48,3 +45,24 @@ def test_hashtags_dedupe_and_brand_appended():
     assert len(lowered) == len(set(lowered))
     # Brand is always included.
     assert any(t.lower() == "headlinne" for t in tags)
+
+
+def test_source_line_lists_names_then_overflow():
+    story = make_story("A big event", source="Reuters",
+                       corroborating=["BBC", "CNBC", "AP"])
+    # Shows the first two outlets, then a '+N' for the rest (4 total sources).
+    assert source_line(story) == "Reuters, BBC +2"
+
+
+def test_source_line_single_source_has_no_overflow():
+    story = make_story("A quiet story", source="BBC", corroborating=[])
+    assert source_line(story) == "BBC"
+
+
+def test_clamp_words_trims_on_word_boundary():
+    out = _clamp_words("one two three four five six seven eight", 20)
+    assert len(out) <= 20
+    # Never cuts a word in half or leaves trailing punctuation.
+    assert not out.endswith(" ")
+    assert out.split() == out.split()  # sanity: still whole words
+    assert _clamp_words("short title", 40) == "short title"

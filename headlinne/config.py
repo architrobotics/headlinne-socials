@@ -48,13 +48,46 @@ CATEGORY_LABELS = {
     "Geopolitics": "Geopolitics",
 }
 
-# Carousel cover colours per the brief.
-#   Tech -> Red, Finance -> Green, Geopolitics -> "Geo" stars-and-stripes + white.
-CATEGORY_COLORS = {
-    "Technology": "#E5484D",   # red
-    "Finance": "#30A46C",      # green
-    "Geopolitics": "#FFFFFF",  # white (the flag styling is applied to "Geo")
+# Uppercase labels used on the small category pill in the carousel furniture.
+CATEGORY_PILL = {
+    "Technology": "TECHNOLOGY",
+    "Finance": "FINANCE",
+    "Geopolitics": "WORLD",
 }
+
+# --------------------------------------------------------------------------- #
+# Brand + design system
+# --------------------------------------------------------------------------- #
+# The whole visual identity is anchored on the terracotta logo. Every carousel
+# slide is built from these tokens so covers, story slides and the CTA read as
+# one designed system rather than three loosely-related layouts.
+BRAND_TERRACOTTA = "#C76A44"    # the logo colour, primary brand accent
+BRAND_TERRACOTTA_HI = "#E08A5F"  # a lighter tint for glows / hov(text) states
+
+INK = "#141210"                 # warm near-black, base for panels and the CTA
+INK_SOFT = "#1F1A16"            # a touch lighter, for layering
+TEXT_PRIMARY = "#F6F1EA"        # warm off-white for headlines
+TEXT_SECONDARY = "#C7BCB0"      # warm grey for body / secondary copy
+TEXT_MUTED = "#8B8177"          # dim warm grey for furniture / captions
+
+# Per-category accent colours. Refined into one warm editorial family that sits
+# well on the dark ink base and complements the terracotta brand: a coral for
+# Technology, an emerald for Finance and a gold for Geopolitics (which replaces
+# the old US-flag "Geo" treatment with a globally-neutral, on-brand colour).
+CATEGORY_COLORS = {
+    "Technology": "#F0553A",   # coral / vermilion
+    "Finance": "#22B07D",      # emerald
+    "Geopolitics": "#E3A63A",  # amber / gold
+}
+
+# Public social handle, shown in the slide furniture and CTA.
+INSTAGRAM_HANDLE = "@headlinne"
+
+# The old stars-and-stripes styling on the word "Geo" is retired by default in
+# favour of the clean amber accent above (it read as US-centric for global news
+# and rendered poorly at small sizes). The renderer still supports it, so flip
+# this to True to bring it back.
+GEO_USE_FLAG = False
 
 
 # --------------------------------------------------------------------------- #
@@ -101,10 +134,16 @@ MAX_STORY_AGE_HOURS = 30
 # Keywords that signal a story is broadly important. Used as one ranking signal.
 # These are intentionally generic; the ranker also rewards cross-source coverage.
 HIGH_INTEREST_KEYWORDS = (
+    # Tech
     "apple", "google", "microsoft", "amazon", "meta", "openai", "nvidia", "tesla",
+    "ai", "chip", "semiconductor", "breach", "cyberattack", "outage", "launch",
+    "robot", "quantum", "startup", "acquisition", "funding round",
+    # Finance / economy
+    "fed", "central bank", "interest rate", "inflation", "recession", "earnings",
+    "ipo", "merger", "layoffs", "stocks", "bond", "oil", "trade deal", "default",
+    # Geopolitics / world
     "election", "war", "ceasefire", "sanctions", "summit", "treaty", "tariff",
-    "fed", "interest rate", "inflation", "recession", "earnings", "ipo", "merger",
-    "ai", "chip", "semiconductor", "breach", "outage", "launch", "ruling", "court",
+    "ruling", "court", "protest", "strike", "coup", "nuclear", "border",
 )
 
 
@@ -173,6 +212,13 @@ BUFFER_SCHEDULING_MODE = os.getenv("BUFFER_SCHEDULING_MODE", "scheduled")
 
 BUFFER_API_URL = "https://api.buffer.com"
 
+# Meta Graph API (the alternative, direct Instagram publisher in
+# headlinne/publish/meta.py). The active pipeline publishes Instagram through
+# Buffer, but this path is fully supported for anyone who prefers to publish
+# carousels straight to Meta with the secrets from setup steps 4 and 5.
+META_GRAPH_URL = "https://graph.facebook.com"
+META_GRAPH_VERSION = os.getenv("META_GRAPH_VERSION", "v21.0")
+
 
 @dataclass(frozen=True)
 class Secrets:
@@ -185,6 +231,10 @@ class Secrets:
     buffer_channel_x: str = field(default_factory=lambda: os.getenv("BUFFER_CHANNEL_ID_X", ""))
     buffer_channel_linkedin: str = field(default_factory=lambda: os.getenv("BUFFER_CHANNEL_ID_LINKEDIN", ""))
     buffer_channel_instagram: str = field(default_factory=lambda: os.getenv("BUFFER_CHANNEL_ID_INSTAGRAM", ""))
+
+    # Meta Graph API (direct Instagram publishing, see publish/meta.py).
+    meta_token: str = field(default_factory=lambda: os.getenv("META_ACCESS_TOKEN", ""))
+    ig_user_id: str = field(default_factory=lambda: os.getenv("IG_USER_ID", ""))
 
     # Where rendered carousel images are publicly served from.
     # For a public GitHub repo this is filled automatically in CI from

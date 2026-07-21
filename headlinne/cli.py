@@ -47,29 +47,36 @@ def _cmd_preview(args: argparse.Namespace) -> int:
 
     out_root = Path(args.out or "preview")
     samples = {
-        "Technology": "Top 3 Things In Tech Today",
-        "Geopolitics": "Top 3 Geopolitics Headlines",
+        "Technology": ("The AI chip race just moved on-device",
+                       "Three shifts that change what your phone can do without the cloud."),
+        "Geopolitics": ("A tense week reshapes three borders",
+                        "What actually happened, and why it matters beyond the headlines."),
     }
     mock_stories = [
         ("A major phone maker shows a new AI chip",
-         "It promises faster on-device features while using less battery. More AI could now run without the cloud."),
+         "It promises faster on-device features while using less battery. More AI could now run without the cloud.",
+         "Reuters, BBC +2"),
         ("A big cloud outage briefly hit popular apps",
-         "Several services went dark for a few hours. It is a reminder of how much the internet leans on a few providers."),
+         "Several services went dark for a few hours. It is a reminder of how much the internet leans on a few providers.",
+         "The Verge, AP"),
         ("Fresh rules are proposed for AI labelling",
-         "Regulators want clearer tags on AI made content. Platforms will need to adjust how features ship."),
+         "Regulators want clearer tags on AI made content. Platforms will need to adjust how features ship.",
+         "Guardian +3"),
     ]
 
     produced = []
-    for cat, title in samples.items():
-        slides = [Slide(role="cover", headline=title, image_url=None)]
-        for h, e in mock_stories:
-            slides.append(Slide(role="story", headline=h, explanation=e, image_url=None))
-        slides.append(Slide(role="cta", headline="Stay ahead with HEADLINNE.com"))
+    for cat, (title, hook) in samples.items():
+        slides = [Slide(role="cover", headline=title, subtitle=hook, image_url=None)]
+        for i, (h, e, src) in enumerate(mock_stories, 1):
+            slides.append(Slide(role="story", headline=h, explanation=e,
+                                sources=src, index=i, image_url=None))
+        slides.append(Slide(role="cta", headline="That's your brief for today.",
+                            subtitle="Personalised news, minus the noise."))
         carousel = InstagramCarousel(
             slot="instagram_1", category=cat, num_slides=len(slides),
             title=title, slides=slides,
             caption="A quick look at today's biggest stories. Read more on HEADLINNE.com.",
-            hashtags=["News", "Headlinne"], scheduled_time="",
+            hashtags=["News", "Headlinne"], scheduled_time="2026-07-21T16:00:00+05:30",
         )
         out_dir = out_root / cat.lower()
         paths = render_carousel(carousel, out_dir)

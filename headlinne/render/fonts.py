@@ -21,6 +21,7 @@ log = get_logger("render.fonts")
 
 ANTON_PATH = FONTS_DIR / "Anton-Regular.ttf"
 INTER_PATH = FONTS_DIR / "Inter-Variable.ttf"
+MANROPE_PATH = FONTS_DIR / "Manrope-Variable.ttf"
 
 # System fallbacks (present on the GitHub Ubuntu runners and in this sandbox).
 _DEJAVU_BOLD = Path("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf")
@@ -29,6 +30,8 @@ _DEJAVU = Path("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf")
 # Inter variable axis ranges (verified): opsz 14..32, wght 100..900.
 _OPSZ_MIN, _OPSZ_MAX = 14.0, 32.0
 _WGHT_MIN, _WGHT_MAX = 100.0, 900.0
+# Manrope variable weight axis: 200..800.
+_MANROPE_WGHT_MIN, _MANROPE_WGHT_MAX = 200.0, 800.0
 
 
 def _clamp(value: float, lo: float, hi: float) -> float:
@@ -68,9 +71,54 @@ def body_font(size: int, weight: int = 400) -> ImageFont.FreeTypeFont:
     return ImageFont.truetype(str(_DEJAVU), size)
 
 
+@lru_cache(maxsize=512)
+def label_font(size: int, weight: int = 700) -> ImageFont.FreeTypeFont:
+    """Manrope variable at a given size and weight (falls back to DejaVu Bold).
+
+    Used for the UI furniture: the wordmark, category pills, eyebrows, source
+    lines and page numbers. Its geometric, slightly rounded shapes pair cleanly
+    with the condensed Anton display face without competing with it.
+    """
+    try:
+        if MANROPE_PATH.exists():
+            font = ImageFont.truetype(str(MANROPE_PATH), size)
+            wght = _clamp(float(weight), _MANROPE_WGHT_MIN, _MANROPE_WGHT_MAX)
+            try:
+                font.set_variation_by_axes([wght])
+            except Exception as exc:  # pragma: no cover
+                log.warning("Manrope axis set failed (%s), using default instance.", exc)
+            return font
+    except Exception as exc:  # pragma: no cover
+        log.warning("Manrope load failed (%s), using DejaVu Bold.", exc)
+    return ImageFont.truetype(str(_DEJAVU_BOLD), size)
+
+
 def text_width(font: ImageFont.FreeTypeFont, text: str) -> int:
     bbox = font.getbbox(text)
     return bbox[2] - bbox[0]
+
+
+def tracked_width(font: ImageFont.FreeTypeFont, text: str, tracking: float) -> int:
+    """Width of `text` when drawn with `tracking` extra pixels between glyphs."""
+    if not text:
+        return 0
+    return sum(text_width(font, ch) for ch in text) + int(tracking * (len(text) - 1))
+
+
+def draw_tracked(draw: ImageDraw.ImageDraw, xy, text: str, font, fill,
+                 tracking: float = 0.0) -> int:
+    """Draw `text` with letter spacing (tracking), returning the x advance.
+
+    Pillow has no native letter-spacing, so we place glyphs one at a time. Used
+    for the wordmark and small uppercase labels, where tracking is what makes
+    them read as designed type rather than default runs.
+    """
+    x, y = xy
+    start = x
+    for ch in text:
+        draw.text((x, y), ch, font=font, fill=fill)
+        x += text_width(font, ch) + tracking
+    return int(x - tracking - start) if text else 0
 
 
 def line_height(font: ImageFont.FreeTypeFont) -> int:

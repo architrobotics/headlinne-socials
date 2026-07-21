@@ -81,20 +81,31 @@ buzzwords, no hashtags, with a light invitation to visit the site.
 
 **Instagram: 2 carousels a day.** One for each of the two strongest categories,
 at 4 PM and 6 PM IST. Each carousel covers the top 3 or top 5 stories (the system
-decides based on how strong the deeper stories are). The design follows a fixed
-template:
+decides based on how strong the deeper stories are). Every slide is built from a
+shared design system (`headlinne/render/theme.py`) so the whole set reads as one
+polished, editorial template:
 
-- **Cover slide:** the lead story's image as the background, a dark gradient along
-  the bottom, and a large bold title. Technology titles are red, Finance titles
-  are green, and Geopolitics renders the word "Geo" in a stars-and-stripes style
-  with the rest in white.
-- **Story slides:** the article image as the background with a gradient, a large
-  headline, and a short explanation of what happened and why it matters.
-- **Final slide:** a black background with the Headlinne logo and the call to
-  action, "Stay ahead with HEADLINNE.com".
+- **Brand furniture on every slide.** The `h` logo mark and the `HEADLINNE`
+  wordmark sit top-left, a category pill (colour-coded) sits top-right, and a row
+  of page-progress pips shows how far through the set you are. Because carousels
+  get screenshotted and reshared, the brand travels with every slide.
+- **Cover slide:** a full-bleed photo under a cinematic scrim, a dateline eyebrow
+  ("Your daily brief · Tue, 21 Jul"), a large curiosity-driven title written by
+  the model, a one-line hook, and a "Swipe" affordance to pull people in.
+- **Story slides:** the article photo with the same furniture, a large ghosted
+  index number ("01"), an accent rule, the headline, a short "what happened and
+  why it matters", and a **Sources** line naming the outlets that corroborated
+  the story. That trust line is the audience-facing side of the cross-source
+  verification the ranker already does.
+- **Final slide:** a warm branded sign-off with the logo, a "Follow" and a "Save"
+  call to action (the two actions Instagram rewards most), and the website.
 
-The model never generates images. It only produces the text that fills the
-template. The renderer draws everything.
+Colours are one warm family anchored on the terracotta logo: a coral accent for
+Technology, emerald for Finance and amber for Geopolitics. When a story has no
+usable photo, the renderer draws a designed, category-tinted brand background
+instead of a flat block, so a slide is never empty. The model never generates
+images. It only produces the text that fills the template. The renderer draws
+everything.
 
 ---
 
@@ -107,6 +118,13 @@ Every post follows the same voice, enforced in code:
   deterministically, so even if the model slips, the published text is clean.
 - Friendly, modern and trustworthy. No clickbait, no hype, no invented numbers.
 - Original wording, never copied from the source articles.
+
+The shared style guide also pushes for **honest hooks** (lead with the most
+interesting concrete fact, create curiosity through substance rather than
+withholding), **engagement** (captions end with a genuine question, carousels
+invite a follow and a save) and **accuracy** (only claim what the sources
+support, never overstate certainty). Impressions are earned by being genuinely
+interesting and correct, not by hyping.
 
 These guarantees are covered by the test suite (see
 [Running and testing locally](#running-and-testing-locally)).
@@ -322,6 +340,9 @@ headlinne-social/
 │   ├── gemini/              Gemini client and the prompts
 │   ├── generate/            Builds X, LinkedIn and Instagram content
 │   ├── render/              Draws the carousel slides with Pillow
+│   │   ├── theme.py         The design system: palette, furniture, fallbacks
+│   │   ├── fonts.py         Display / body / label font loading and fitting
+│   │   └── carousel.py      Cover, story and CTA slide layouts
 │   ├── publish/             Buffer, Meta Graph API, image hosting
 │   └── quality/             Sanitiser, quality gate, de-duplication
 ├── tests/                   Offline test suite (python -m tests)
@@ -351,8 +372,14 @@ Almost everything you might want to change lives in `headlinne/config.py`:
 - **Schedule.** Change the slot times in `SCHEDULE_IST`.
 - **Promo rotation.** Move `PROMO_ANCHOR_DATE` to shift which days are promo days
   on X.
-- **Categories and colours.** `CATEGORIES`, `CATEGORY_LABELS` and
-  `CATEGORY_COLORS`.
+- **Categories and colours.** `CATEGORIES`, `CATEGORY_LABELS`, `CATEGORY_PILL`
+  and `CATEGORY_COLORS`.
+- **Design tokens.** The whole carousel identity lives in the "Brand + design
+  system" block: `BRAND_TERRACOTTA`, `INK`, the text colours, the per-category
+  accents and `INSTAGRAM_HANDLE`. Set `GEO_USE_FLAG = True` to bring back the old
+  stars-and-stripes "Geo" cover treatment. The drawing primitives that use these
+  tokens (top bar, pills, progress pips, scrims, fallback backgrounds) live in
+  `headlinne/render/theme.py`.
 - **Limits.** Character limits, hashtag counts and the carousel canvas size.
 - **Model.** `GEMINI_MODEL`, `GEMINI_THINKING_LEVEL` and `GEMINI_TEMPERATURE`.
 

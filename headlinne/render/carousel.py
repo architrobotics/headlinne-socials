@@ -1,96 +1,69 @@
 """Render Instagram carousel slides to PNG files with Pillow.
 
-Three slide kinds:
-  - cover: article image background, dark gradient rising from the bottom, a big
-    Anton title in the category colour. For Geopolitics the word "Geo" is painted
-    with a US-flag pattern and the rest stays white.
-  - story: article image background, gradient up the lower part, a bold headline
-    and a shorter explanation.
-  - cta: black background, the Headlinne logo, and a large call to action.
+The layouts are built from the shared design system in ``render.theme`` so all
+three slide kinds read as one template:
 
-Backgrounds come from the article image URL when available. If an image cannot be
-loaded we fall back to a clean branded gradient so a slide is never empty.
+  - cover: a full-bleed article photo (or a designed brand fallback) under a
+    cinematic scrim, with the brand bar, a dateline eyebrow, a big Anton title,
+    a one-line hook, page-progress pips and a SWIPE affordance.
+  - story: the article photo with the same brand bar, a large ghosted index
+    number, an accent rule, the headline, a short "what happened + why", and a
+    SOURCES trust line naming the outlets that corroborated the story.
+  - cta: a warm ink slide with the logo, a sign-off, follow / save engagement
+    pills and the website.
+
+Backgrounds come from the article image URL when available. If an image cannot
+be loaded (or is too small to look sharp) we fall back to a designed,
+category-tinted brand background so a slide is never flat or empty.
 """
 
 from __future__ import annotations
 
-import hashlib
 import re
+from datetime import date, datetime
 from io import BytesIO
 from pathlib import Path
 from typing import Callable, Optional
 
 from PIL import Image, ImageDraw, ImageFilter
 
-from ..config import (CATEGORY_COLORS, LOGO_PATH, SLIDE_H, SLIDE_W, WEBSITE)
+from ..config import (GEO_USE_FLAG, INSTAGRAM_HANDLE, SLIDE_H, SLIDE_W, WEBSITE)
 from ..logging_setup import get_logger
 from ..models import InstagramCarousel, Slide
-from . import fonts
+from . import fonts, theme
 from .flag_text import render_flag_text
 
 log = get_logger("render.carousel")
 
 ImageLoader = Callable[[Optional[str]], Optional[Image.Image]]
 
-MARGIN = 72
-BOTTOM_MARGIN = 96
-BRAND_TERRACOTTA = (199, 106, 68)
-WHITE = (255, 255, 255, 255)
+MARGIN = theme.MARGIN
+BOTTOM_ANCHOR = 1180            # text blocks sit above this; furniture sits below
 
 
 # --------------------------------------------------------------------------- #
-# Colour helpers
+# Image loading (unchanged behaviour: upgrade thumbnails, cover-fit, sharpen)
 # --------------------------------------------------------------------------- #
-def _hex_to_rgb(value: str) -> tuple[int, int, int]:
-    value = value.lstrip("#")
-    return tuple(int(value[i:i + 2], 16) for i in (0, 2, 4))  # type: ignore[return-value]
-
-
-def _scale(rgb: tuple[int, int, int], factor: float) -> tuple[int, int, int]:
-    return tuple(max(0, min(255, int(c * factor))) for c in rgb)  # type: ignore[return-value]
-
-
-# --------------------------------------------------------------------------- #
-# Image loading
-# --------------------------------------------------------------------------- #
-# A featured image whose smaller side is under this many pixels would look
-# blurry blown up to a full slide, so we use a clean gradient instead.
 _MIN_SOURCE_PX = 360
-
-# When fetching a remote background, ask the CDN for one of these widths in
-# order (largest first). Different hosts support different sizes, so trying a
-# ladder lands the biggest one a given host actually serves instead of 404ing on
-# a single guess. The original URL is the final fallback.
 _UPGRADE_WIDTHS = (2048, 1536, 1024)
 
 
 def _upgrade_candidates(url: str) -> list[str]:
-    """Ordered higher-resolution variants of a thumbnail URL, largest first.
-
-    Handles WordPress-style dimension suffixes, BBC ichef width segments, and
-    common width / resize query parameters. Returns only URLs that actually
-    differ from the original; the loader tries each and falls back to the
-    original, so an over-eager rewrite can never lose an image.
-    """
+    """Ordered higher-resolution variants of a thumbnail URL, largest first."""
     if not url:
         return []
     candidates: list[str] = []
-    # WordPress / many CMSs: "photo-1024x576.jpg" -> "photo.jpg" (the original,
-    # full-resolution file). Worth trying first when present.
     stripped = re.sub(r"-\d{2,4}x\d{2,4}(?=\.(?:jpg|jpeg|png|webp)\b)", "", url, flags=re.I)
     if stripped != url:
         candidates.append(stripped)
 
     for target in _UPGRADE_WIDTHS:
         u = url
-        # BBC ichef: ".../news/240/cpsprodpb/..." -> bump the width segment.
         u = re.sub(r"(/)(\d{2,4})(/cpsprodpb/)",
                    lambda m, t=target: m.group(1) + str(max(int(m.group(2)), t)) + m.group(3), u)
-        # Query width hints: width=, w=, maxwidth=
         u = re.sub(r"(?i)([?&](?:width|w|maxwidth)=)(\d{2,4})",
                    lambda m, t=target: m.group(1) + str(max(int(m.group(2)), t)), u)
 
-        # resize=W,H or fit=W,H -> scale up keeping the aspect ratio.
         def _pair(m, t=target):
             w_, h_ = int(m.group(2)), int(m.group(3))
             if w_ >= t:
@@ -120,12 +93,7 @@ def _fetch_image(url: str) -> Optional[Image.Image]:
 
 
 def default_image_loader(src: Optional[str]) -> Optional[Image.Image]:
-    """Load a background from an http(s) URL or a local file path.
-
-    For remote images it tries progressively-sized higher-resolution variants of
-    the URL (largest first) and falls back to the original, so backgrounds come
-    out as sharp as the source host allows.
-    """
+    """Load a background from an http(s) URL or a local file path."""
     if not src:
         return None
     if src.startswith("http://") or src.startswith("https://"):
@@ -137,12 +105,8 @@ def default_image_loader(src: Optional[str]) -> Optional[Image.Image]:
     return _fetch_image(src)
 
 
-# --------------------------------------------------------------------------- #
-# Background builders
-# --------------------------------------------------------------------------- #
 def _cover_fit(img: Image.Image, w: int, h: int) -> Image.Image:
-    """Scale and centre-crop an image to exactly w x h (cover fit), then sharpen
-    to counteract softness from scaling. Upscaled images get a firmer pass."""
+    """Scale and centre-crop to exactly w x h, then sharpen."""
     img = img.convert("RGB")
     src_w, src_h = img.size
     scale = max(w / src_w, h / src_h)
@@ -151,56 +115,15 @@ def _cover_fit(img: Image.Image, w: int, h: int) -> Image.Image:
     left = (img.width - w) // 2
     top = (img.height - h) // 2
     img = img.crop((left, top, left + w, top + h))
-    if scale > 1.05:  # had to enlarge: sharpen harder to recover crispness
+    if scale > 1.05:
         img = img.filter(ImageFilter.UnsharpMask(radius=2.2, percent=135, threshold=2))
     else:
         img = img.filter(ImageFilter.UnsharpMask(radius=1.1, percent=75, threshold=3))
     return img.convert("RGBA")
 
 
-def _vertical_gradient(w: int, h: int, top_rgb, bottom_rgb) -> Image.Image:
-    """A full-size vertical gradient between two RGB colours."""
-    col = Image.new("RGB", (1, h))
-    for y in range(h):
-        t = y / max(1, h - 1)
-        r = int(top_rgb[0] + (bottom_rgb[0] - top_rgb[0]) * t)
-        g = int(top_rgb[1] + (bottom_rgb[1] - top_rgb[1]) * t)
-        b = int(top_rgb[2] + (bottom_rgb[2] - top_rgb[2]) * t)
-        col.putpixel((0, y), (r, g, b))
-    return col.resize((w, h)).convert("RGBA")
-
-
-def _fallback_bg(category: str, seed: str) -> Image.Image:
-    """A branded gradient used when no article image is available."""
-    base = _hex_to_rgb(CATEGORY_COLORS.get(category, "#333333"))
-    if category == "Geopolitics":  # white category colour, pick a neutral slate
-        base = (70, 84, 110)
-    # Slight per-slide variation so consecutive fallbacks are not identical.
-    jitter = (int(hashlib.md5(seed.encode()).hexdigest(), 16) % 16) - 8
-    top = _scale(base, 0.42)
-    top = tuple(max(0, min(255, c + jitter)) for c in top)
-    bottom = _scale(base, 0.12)
-    return _vertical_gradient(SLIDE_W, SLIDE_H, top, bottom)
-
-
-def _bottom_gradient(w: int, h: int, band_frac: float, max_alpha: int) -> Image.Image:
-    """Black overlay whose alpha ramps from max_alpha at the bottom to 0 at the
-    top of a band covering `band_frac` of the height."""
-    band = max(1, int(h * band_frac))
-    alpha = Image.new("L", (1, h), 0)
-    for y in range(h):
-        dist_from_bottom = h - 1 - y
-        if dist_from_bottom <= band:
-            a = int(max_alpha * (1 - dist_from_bottom / band))
-        else:
-            a = 0
-        alpha.putpixel((0, y), a)
-    overlay = Image.new("RGBA", (w, h), (0, 0, 0, 255))
-    overlay.putalpha(alpha.resize((w, h)))
-    return overlay
-
-
-def _background_for(slide: Slide, category: str, loader: ImageLoader) -> Image.Image:
+def _photo_or_fallback(slide: Slide, category: str, loader: ImageLoader) -> Image.Image:
+    """A full-canvas photo background, or the designed brand fallback."""
     img = loader(slide.image_url)
     if img is not None and min(img.size) >= _MIN_SOURCE_PX:
         try:
@@ -208,146 +131,306 @@ def _background_for(slide: Slide, category: str, loader: ImageLoader) -> Image.I
         except Exception as exc:  # pragma: no cover
             log.warning("cover-fit failed: %s", exc)
     elif img is not None:
-        log.info("background %dx%d too small for a sharp slide, using gradient",
+        log.info("background %dx%d too small for a sharp slide, using fallback",
                  img.size[0], img.size[1])
-    return _fallback_bg(category, slide.headline or category)
+    return theme.brand_fallback(SLIDE_W, SLIDE_H, category,
+                                slide.headline or category)
 
 
 # --------------------------------------------------------------------------- #
-# Slide renderers
+# Text helpers
 # --------------------------------------------------------------------------- #
-def _render_cover(slide: Slide, category: str, loader: ImageLoader) -> Image.Image:
-    canvas = _background_for(slide, category, loader)
-    canvas.alpha_composite(_bottom_gradient(SLIDE_W, SLIDE_H, 0.62, 238))
+def _draw_block_with_shadow(canvas: Image.Image, lines: list[str], font, *,
+                            x: int, y: int, fill, line_spacing: float,
+                            shadow_alpha: int = 150) -> int:
+    """Draw wrapped lines with a soft drop shadow (keeps type legible on bright
+    photos). Returns the y below the block."""
+    lh = int(fonts.line_height(font) * line_spacing)
+    if shadow_alpha:
+        shadow = Image.new("RGBA", canvas.size, (0, 0, 0, 0))
+        sdraw = ImageDraw.Draw(shadow)
+        cy = y
+        for line in lines:
+            sdraw.text((x, cy), line, font=font, fill=(0, 0, 0, shadow_alpha))
+            cy += lh
+        shadow = shadow.filter(ImageFilter.GaussianBlur(6))
+        canvas.alpha_composite(shadow)
     draw = ImageDraw.Draw(canvas)
+    cy = y
+    for line in lines:
+        draw.text((x, cy), line, font=font, fill=fill)
+        cy += lh
+    return cy
+
+
+def _dateline(carousel_time: str) -> str:
+    """A human dateline like 'MON, 21 JUL' derived from the slot time."""
+    try:
+        d = datetime.fromisoformat(carousel_time).date()
+    except (ValueError, TypeError):
+        d = date.today()
+    return d.strftime("%a, %d %b").upper()
+
+
+# --------------------------------------------------------------------------- #
+# Cover slide
+# --------------------------------------------------------------------------- #
+def _render_cover(slide: Slide, category: str, loader: ImageLoader,
+                  *, total: int, dateline: str) -> Image.Image:
+    canvas = _photo_or_fallback(slide, category, loader)
+    canvas.alpha_composite(theme.cinematic_scrim(SLIDE_W, SLIDE_H))
+    draw = ImageDraw.Draw(canvas)
+    accent = theme.accent_for(category)
+
+    theme.draw_top_bar(canvas, draw, category)
 
     max_w = SLIDE_W - 2 * MARGIN
-    max_h = int(SLIDE_H * 0.42)
-    font, lines, total_h = fonts.fit_block(
+
+    # Title (the model's engaging hook, white for legibility on any photo).
+    title_font, title_lines, title_h = fonts.fit_block(
         fonts.title_font, slide.headline,
-        max_width=max_w, max_height=max_h, start_size=128, min_size=64,
+        max_width=max_w, max_height=int(SLIDE_H * 0.40), start_size=136, min_size=72,
     )
 
-    colour = _hex_to_rgb(CATEGORY_COLORS.get(category, "#FFFFFF"))
-    is_geo = category == "Geopolitics"
-    y = SLIDE_H - BOTTOM_MARGIN - total_h
-    lh = int(fonts.line_height(font) * 1.12)
+    # Optional one-line hook under the title.
+    sub_lines: list[str] = []
+    sub_font = fonts.body_font(40, weight=500)
+    sub_h = 0
+    if slide.subtitle:
+        sub_font, sub_lines, sub_h = fonts.fit_block(
+            fonts.body_font, slide.subtitle,
+            max_width=max_w, max_height=int(SLIDE_H * 0.12), start_size=42,
+            min_size=30, weight=500,
+        )
 
-    for line in lines:
-        if is_geo and "Geo" in line:
-            _draw_geo_line(canvas, draw, line, font, MARGIN, y)
-        else:
-            draw.text((MARGIN, y), line, font=font, fill=colour + (255,))
-        y += lh
+    eyebrow_font = fonts.label_font(27, weight=800)
+    eyebrow = f"YOUR DAILY BRIEF  ·  {dateline}"
+    eyebrow_h = fonts.line_height(eyebrow_font)
+    rule_gap = 26
+    rule_h = 7
+    eb_gap = 30
+    sub_gap = 26 if sub_lines else 0
+
+    block_h = eyebrow_h + eb_gap + rule_h + rule_gap + title_h + (sub_gap + sub_h)
+    y = BOTTOM_ANCHOR - block_h
+
+    # Eyebrow (dateline), with a soft shadow so the accent colour holds up on
+    # bright photos.
+    theme.draw_tracked_shadowed(canvas, (MARGIN, y), eyebrow, eyebrow_font,
+                                fill=theme.rgba(accent), tracking=2.2, shadow_alpha=150)
+    y += eyebrow_h + eb_gap
+    # Accent rule.
+    theme.draw_accent_rule(draw, MARGIN, y, accent, width=104, thickness=rule_h)
+    y += rule_h + rule_gap
+    # Title.
+    if GEO_USE_FLAG and category == "Geopolitics":
+        y = _draw_flag_title(canvas, title_lines, title_font, x=MARGIN, y=y)
+    else:
+        y = _draw_block_with_shadow(canvas, title_lines, title_font, x=MARGIN, y=y,
+                                    fill=theme.rgba(theme.TEXT_PRIMARY),
+                                    line_spacing=1.06, shadow_alpha=160)
+    # Hook.
+    if sub_lines:
+        y += sub_gap - int(fonts.line_height(title_font) * 0.0)
+        _draw_block_with_shadow(canvas, sub_lines, sub_font, x=MARGIN, y=y,
+                                fill=theme.rgba(theme.TEXT_SECONDARY),
+                                line_spacing=1.2, shadow_alpha=120)
+
+    theme.draw_progress(canvas, draw, total=total, active=0, accent=accent)
+    theme.draw_swipe_hint(draw, accent, y=theme.BOTTOM_BAR_Y - 12)
     return canvas
 
 
-def _draw_geo_line(canvas: Image.Image, draw: ImageDraw.ImageDraw, line: str,
-                   font, x: int, y: int) -> None:
-    """Draw a cover line where the substring 'Geo' is flag-filled and the rest
-    is white."""
-    # Whole line white first.
-    draw.text((x, y), line, font=font, fill=WHITE)
-    idx = line.find("Geo")
-    if idx < 0:
-        return
-    prefix = line[:idx]
-    x_geo = x + fonts.text_width(font, prefix) if prefix else x
-    geo_bbox = font.getbbox("Geo")
-    flag_img = render_flag_text("Geo", font, pad=6)
-    paste_x = int(x_geo + geo_bbox[0] - 6)
-    paste_y = int(y + geo_bbox[1] - 6)
-    canvas.alpha_composite(flag_img, (max(0, paste_x), max(0, paste_y)))
-
-
-def _render_story(slide: Slide, category: str, loader: ImageLoader) -> Image.Image:
-    canvas = _background_for(slide, category, loader)
-    canvas.alpha_composite(_bottom_gradient(SLIDE_W, SLIDE_H, 0.58, 242))
+def _draw_flag_title(canvas: Image.Image, lines: list[str], font, *,
+                     x: int, y: int) -> int:
+    """Legacy stars-and-stripes 'Geo' treatment (opt-in via GEO_USE_FLAG)."""
     draw = ImageDraw.Draw(canvas)
+    lh = int(fonts.line_height(font) * 1.06)
+    white = theme.rgba(theme.TEXT_PRIMARY)
+    for line in lines:
+        if "Geo" in line:
+            draw.text((x, y), line, font=font, fill=white)
+            idx = line.find("Geo")
+            prefix = line[:idx]
+            x_geo = x + fonts.text_width(font, prefix) if prefix else x
+            geo_bbox = font.getbbox("Geo")
+            flag_img = render_flag_text("Geo", font, pad=6)
+            canvas.alpha_composite(flag_img, (max(0, int(x_geo + geo_bbox[0] - 6)),
+                                              max(0, int(y + geo_bbox[1] - 6))))
+        else:
+            draw.text((x, y), line, font=font, fill=white)
+        y += lh
+    return y
+
+
+# --------------------------------------------------------------------------- #
+# Story slide
+# --------------------------------------------------------------------------- #
+def _render_story(slide: Slide, category: str, loader: ImageLoader,
+                  *, position: int, total: int) -> Image.Image:
+    canvas = _photo_or_fallback(slide, category, loader)
+    canvas.alpha_composite(theme.cinematic_scrim(SLIDE_W, SLIDE_H))
+    draw = ImageDraw.Draw(canvas)
+    accent = theme.accent_for(category)
+
+    theme.draw_top_bar(canvas, draw, category)
+    _draw_ghost_index(canvas, slide.index, accent)
 
     max_w = SLIDE_W - 2 * MARGIN
-    accent = _hex_to_rgb(CATEGORY_COLORS.get(category, "#FFFFFF"))
 
     head_font, head_lines, head_h = fonts.fit_block(
         fonts.title_font, slide.headline,
-        max_width=max_w, max_height=int(SLIDE_H * 0.30), start_size=96, min_size=52,
+        max_width=max_w, max_height=int(SLIDE_H * 0.30), start_size=104, min_size=58,
     )
     exp_font, exp_lines, exp_h = fonts.fit_block(
         fonts.body_font, slide.explanation or "",
-        max_width=max_w, max_height=int(SLIDE_H * 0.24),
-        start_size=46, min_size=30, weight=400,
+        max_width=max_w, max_height=int(SLIDE_H * 0.22),
+        start_size=44, min_size=30, weight=400,
     )
+    has_exp = bool(exp_lines and exp_lines != [""])
 
-    gap = 26
-    accent_h = 8
-    accent_gap = 22
-    total = accent_h + accent_gap + head_h + (gap + exp_h if exp_lines and exp_lines != [""] else 0)
-    start_y = SLIDE_H - BOTTOM_MARGIN - total
+    rule_h = 7
+    rule_gap = 30
+    head_gap = 28
+    src_gap = 34
+    src_h = fonts.line_height(fonts.label_font(24, weight=600)) if slide.sources else 0
 
-    # Category accent bar.
-    if category == "Geopolitics":
-        accent = (220, 60, 60)  # readable bar instead of white-on-light
-    draw.rectangle([MARGIN, start_y, MARGIN + 84, start_y + accent_h], fill=accent + (255,))
-    y = start_y + accent_h + accent_gap
+    block_h = (rule_h + rule_gap + head_h
+               + (head_gap + exp_h if has_exp else 0)
+               + (src_gap + src_h if slide.sources else 0))
+    y = BOTTOM_ANCHOR - block_h
 
-    y = fonts.draw_lines(draw, head_lines, head_font, x=MARGIN, y=y, fill=WHITE,
-                         line_spacing=1.08)
-    if exp_lines and exp_lines != [""]:
-        y += gap - int(fonts.line_height(head_font) * 0.0)
-        fonts.draw_lines(draw, exp_lines, exp_font, x=MARGIN, y=y,
-                         fill=(235, 235, 235, 255), line_spacing=1.16)
+    theme.draw_accent_rule(draw, MARGIN, y, accent, width=92, thickness=rule_h)
+    y += rule_h + rule_gap
+    y = _draw_block_with_shadow(canvas, head_lines, head_font, x=MARGIN, y=y,
+                                fill=theme.rgba(theme.TEXT_PRIMARY),
+                                line_spacing=1.05, shadow_alpha=160)
+    if has_exp:
+        y += head_gap
+        y = _draw_block_with_shadow(canvas, exp_lines, exp_font, x=MARGIN, y=y,
+                                    fill=theme.rgba(theme.TEXT_SECONDARY),
+                                    line_spacing=1.2, shadow_alpha=120)
+    if slide.sources:
+        y += src_gap
+        theme.draw_source_line(draw, slide.sources, accent, x=MARGIN + 6, y=y)
+
+    theme.draw_progress(canvas, draw, total=total, active=position, accent=accent)
+    theme.draw_handle(draw, WEBSITE)
     return canvas
 
 
-def _render_cta(slide: Slide) -> Image.Image:
-    canvas = Image.new("RGBA", (SLIDE_W, SLIDE_H), (0, 0, 0, 255))
+def _draw_ghost_index(canvas: Image.Image, index: int, accent) -> None:
+    """A large, low-opacity index number ('01') in the upper-right, as an
+    editorial anchor that also signals 'story N of the set'."""
+    if not index:
+        return
+    label = f"{index:02d}"
+    font = fonts.title_font(300)
+    layer = Image.new("RGBA", canvas.size, (0, 0, 0, 0))
+    ldraw = ImageDraw.Draw(layer)
+    bbox = font.getbbox(label)
+    tw = bbox[2] - bbox[0]
+    x = SLIDE_W - MARGIN - tw
+    y = int(SLIDE_H * 0.19)
+    ldraw.text((x - bbox[0], y - bbox[1]), label, font=font, fill=theme.rgba(accent, 46))
+    canvas.alpha_composite(layer)
+
+
+# --------------------------------------------------------------------------- #
+# CTA slide
+# --------------------------------------------------------------------------- #
+def _render_cta(slide: Slide, category: str, *, total: int) -> Image.Image:
+    canvas = theme.panel_gradient(SLIDE_W, SLIDE_H, theme.INK)
+    # Soft terracotta glow behind the logo.
+    glow = Image.new("RGBA", (SLIDE_W, SLIDE_H), (0, 0, 0, 0))
+    gmask = Image.new("L", (SLIDE_W, SLIDE_H), 0)
+    gdraw = ImageDraw.Draw(gmask)
+    cx, cy = SLIDE_W // 2, int(SLIDE_H * 0.34)
+    r = int(SLIDE_W * 0.5)
+    gdraw.ellipse([cx - r, cy - r, cx + r, cy + r], fill=120)
+    gmask = gmask.filter(ImageFilter.GaussianBlur(150))
+    glow_col = theme.mix(theme.hex_to_rgb(theme.INK), theme.hex_to_rgb(theme.BRAND_TERRACOTTA), 0.6)
+    glow = Image.new("RGBA", (SLIDE_W, SLIDE_H), theme.rgba(glow_col))
+    glow.putalpha(gmask)
+    canvas = Image.alpha_composite(canvas, glow)
     draw = ImageDraw.Draw(canvas)
 
-    # Logo, centred in the upper-middle.
-    logo_bottom = int(SLIDE_H * 0.46)
-    try:
-        if LOGO_PATH.exists():
-            logo = Image.open(LOGO_PATH).convert("RGBA")
-            target = 360
-            logo = logo.resize((target, target), Image.LANCZOS)
-            lx = (SLIDE_W - target) // 2
-            ly = int(SLIDE_H * 0.20)
-            canvas.alpha_composite(logo, (lx, ly))
-            logo_bottom = ly + target
-    except Exception as exc:  # pragma: no cover
-        log.warning("logo render failed: %s", exc)
+    # Logo mark, centred upper third.
+    mark = theme.logo_mark(224)
+    logo_bottom = int(SLIDE_H * 0.20)
+    if mark is not None:
+        lx = (SLIDE_W - 224) // 2
+        ly = int(SLIDE_H * 0.17)
+        canvas.alpha_composite(mark, (lx, ly))
+        logo_bottom = ly + 224
 
-    # CTA text, centred below the logo.
-    text = slide.headline or f"Stay ahead with {WEBSITE}"
     max_w = SLIDE_W - 2 * MARGIN
-    font, lines, total_h = fonts.fit_block(
-        fonts.title_font, text,
-        max_width=max_w, max_height=int(SLIDE_H * 0.26), start_size=92, min_size=52,
+
+    # Sign-off headline.
+    head = slide.headline or "That's your brief for today."
+    head_font, head_lines, head_h = fonts.fit_block(
+        fonts.title_font, head,
+        max_width=max_w, max_height=int(SLIDE_H * 0.20), start_size=92, min_size=52,
     )
-    y = logo_bottom + 90
-    lh = int(fonts.line_height(font) * 1.1)
-    for line in lines:
-        # Colour the website part in brand terracotta where it appears.
-        _draw_centered_with_brand(draw, line, font, y, max_w)
+    y = logo_bottom + 82
+    lh = int(fonts.line_height(head_font) * 1.06)
+    for line in head_lines:
+        w = fonts.text_width(head_font, line)
+        draw.text((MARGIN + (max_w - w) // 2, y), line, font=head_font,
+                  fill=theme.rgba(theme.TEXT_PRIMARY))
         y += lh
+
+    # Sub-line.
+    sub = slide.subtitle or "Personalised news, minus the noise."
+    sub_font = fonts.body_font(40, weight=500)
+    sub_lines = fonts.wrap_text(sub_font, sub, max_w)
+    y += 18
+    slh = int(fonts.line_height(sub_font) * 1.2)
+    for line in sub_lines:
+        w = fonts.text_width(sub_font, line)
+        draw.text((MARGIN + (max_w - w) // 2, y), line, font=sub_font,
+                  fill=theme.rgba(theme.TEXT_SECONDARY))
+        y += slh
+
+    # Engagement pills: FOLLOW (solid) + SAVE (outline), centred as a pair.
+    y += 60
+    _draw_cta_pills(draw, y)
+
+    # Website, terracotta, near the bottom.
+    web_font = fonts.title_font(72)
+    ww = fonts.text_width(web_font, WEBSITE)
+    draw.text((MARGIN + (max_w - ww) // 2, int(SLIDE_H * 0.82)), WEBSITE,
+              font=web_font, fill=theme.rgba(theme.BRAND_TERRACOTTA))
     return canvas
 
 
-def _draw_centered_with_brand(draw: ImageDraw.ImageDraw, line: str, font, y: int,
-                              max_w: int) -> None:
-    """Centre a line, painting any occurrence of the website in brand colour."""
-    full_w = fonts.text_width(font, line)
-    x = MARGIN + (max_w - full_w) // 2
-    token = WEBSITE
-    if token in line:
-        before, after = line.split(token, 1)
-        draw.text((x, y), before, font=font, fill=WHITE)
-        x += fonts.text_width(font, before)
-        draw.text((x, y), token, font=font, fill=BRAND_TERRACOTTA + (255,))
-        x += fonts.text_width(font, token)
-        draw.text((x, y), after, font=font, fill=WHITE)
-    else:
-        draw.text((x, y), line, font=font, fill=WHITE)
+def _draw_cta_pills(draw: ImageDraw.ImageDraw, y: int) -> None:
+    terra = theme.hex_to_rgb(theme.BRAND_TERRACOTTA)
+    follow_label = f"FOLLOW {INSTAGRAM_HANDLE}"
+    save_label = "SAVE THIS"
+    font = fonts.label_font(26, weight=800)
+    tr = 1.4
+    pad_x, pad_y = 34, 20
+    fh = fonts.line_height(font)
+
+    fw = fonts.tracked_width(font, follow_label, tr) + pad_x * 2
+    sw = fonts.tracked_width(font, save_label, tr) + pad_x * 2
+    h = fh + pad_y * 2
+    gap = 24
+    total_w = fw + gap + sw
+    x0 = (SLIDE_W - total_w) // 2
+
+    # Follow (solid terracotta, dark text).
+    draw.rounded_rectangle([x0, y, x0 + fw, y + h], radius=h // 2, fill=theme.rgba(terra))
+    ty = y + pad_y - font.getbbox(follow_label)[1]
+    fonts.draw_tracked(draw, (x0 + pad_x, ty), follow_label, font,
+                       fill=theme.rgba(theme.INK), tracking=tr)
+    # Save (outline).
+    sx = x0 + fw + gap
+    draw.rounded_rectangle([sx, y, sx + sw, y + h], radius=h // 2,
+                           outline=theme.rgba(theme.TEXT_SECONDARY), width=3)
+    fonts.draw_tracked(draw, (sx + pad_x, ty), save_label, font,
+                       fill=theme.rgba(theme.TEXT_SECONDARY), tracking=tr)
 
 
 # --------------------------------------------------------------------------- #
@@ -355,24 +438,22 @@ def _draw_centered_with_brand(draw: ImageDraw.ImageDraw, line: str, font, y: int
 # --------------------------------------------------------------------------- #
 def render_carousel(carousel: InstagramCarousel, out_dir: Path,
                     image_loader: ImageLoader | None = None) -> list[Path]:
-    """Render every slide to a PNG, returning the file paths in order.
-
-    `out_dir` is created if needed. File names are slide_1.png, slide_2.png, ...
-    and each slide's `image_file` is set to the path relative to the day folder's
-    parent (so it can be committed and later turned into a public URL).
-    """
+    """Render every slide to a PNG, returning the file paths in order."""
     loader = image_loader or default_image_loader
     out_dir.mkdir(parents=True, exist_ok=True)
     paths: list[Path] = []
     category = carousel.category
+    total = len(carousel.slides)
+    dateline = _dateline(carousel.scheduled_time)
 
     for i, slide in enumerate(carousel.slides, 1):
+        position = i - 1
         if slide.role == "cover":
-            img = _render_cover(slide, category, loader)
+            img = _render_cover(slide, category, loader, total=total, dateline=dateline)
         elif slide.role == "cta":
-            img = _render_cta(slide)
+            img = _render_cta(slide, category, total=total)
         else:
-            img = _render_story(slide, category, loader)
+            img = _render_story(slide, category, loader, position=position, total=total)
 
         path = out_dir / f"slide_{i}.png"
         img.convert("RGB").save(path, "PNG")

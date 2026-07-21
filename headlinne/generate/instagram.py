@@ -14,7 +14,8 @@ from __future__ import annotations
 
 from datetime import date
 
-from ..config import (BRAND, CATEGORY_LABELS, INSTAGRAM_MAX_HASHTAGS, WEBSITE)
+from ..config import (BRAND, CATEGORY_LABELS, INSTAGRAM_HANDLE,
+                      INSTAGRAM_MAX_HASHTAGS, WEBSITE)
 from ..gemini.client import GeminiClient
 from ..gemini.prompts import STYLE_GUIDE, instagram_prompt
 from ..logging_setup import get_logger
@@ -25,15 +26,44 @@ from ..scheduling import slot_iso
 
 log = get_logger("generate.instagram")
 
-# CTA slide copy (kept simple and clean per the brief).
-CTA_PRIMARY = f"Stay ahead with {WEBSITE}"
+# CTA slide copy.
+CTA_HEADLINE = "That's your brief for today."
+CTA_SUBTITLE = "Personalised news, minus the noise."
 
-# Default hashtags blended in per category so posts stay on-brand.
+# Default hashtags blended in per category so posts stay on-brand. A short reach
+# set plus a couple of niche tags; the model adds more topical ones on top.
 _BASE_TAGS = {
-    "Technology": ["Tech", "TechNews", "AI"],
-    "Finance": ["Finance", "Markets", "Business"],
-    "Geopolitics": ["WorldNews", "Geopolitics", "Politics"],
+    "Technology": ["Tech", "TechNews", "AI", "Innovation"],
+    "Finance": ["Finance", "Markets", "Business", "Economy"],
+    "Geopolitics": ["WorldNews", "Geopolitics", "GlobalNews", "Politics"],
 }
+
+
+def source_line(story: Story) -> str:
+    """A compact attribution line for a story slide, e.g. 'Reuters, BBC +2'.
+
+    This is the audience-facing trust signal that mirrors the cross-source
+    verification the ranker already does. Shows up to two outlet names, then a
+    '+N' for the rest, so a well-corroborated story visibly reads as verified.
+    """
+    names = [n for n in ([story.source] + list(story.corroborating_sources)) if n]
+    if not names:
+        return ""
+    shown = names[:2]
+    extra = len(names) - len(shown)
+    line = ", ".join(shown)
+    if extra > 0:
+        line += f" +{extra}"
+    return line
+
+
+def _clamp_words(text: str, max_chars: int) -> str:
+    """Trim to a word boundary under max_chars (keeps cover titles tidy)."""
+    text = text.strip()
+    if len(text) <= max_chars:
+        return text
+    cut = text[:max_chars].rsplit(" ", 1)[0]
+    return cut.rstrip(",.:;- ").strip() or text[:max_chars]
 
 
 def _decide_num_stories(stories: list[Story]) -> int:
@@ -55,15 +85,14 @@ def _decide_num_stories(stories: list[Story]) -> int:
 
 
 def _cover_title(category: str, n: int) -> str:
-    """Cover headline. Keeps the word 'Geopolitics' intact so the renderer can
-    apply the flag styling to the 'Geo' part."""
-    label = CATEGORY_LABELS[category]
+    """Deterministic fallback cover headline, used only if the model does not
+    return a usable title. Clean and on-brand across categories."""
     if category == "Technology":
-        return f"Top {n} Things In Tech Today"
+        return f"The {n} tech stories that matter today"
     if category == "Finance":
-        return f"Top {n} Finance Stories Today"
+        return f"The {n} money moves that matter today"
     # Geopolitics
-    return f"Top {n} Geopolitics Headlines"
+    return f"The {n} world stories that matter today"
 
 
 def _hashtags(category: str, model_tags: list[str]) -> list[str]:
@@ -93,20 +122,25 @@ def _carousel_for(client: GeminiClient, category: str, stories: list[Story],
     caption = sanitize(data.get("caption", ""))
     hashtags = _hashtags(category, data.get("hashtags", []))
 
+    # Cover title + hook (model-written, sanitised and length-clamped, with a
+    # clean deterministic fallback so the cover is never empty or over-long).
+    title = _clamp_words(sanitize(data.get("cover_title", "")), 52) or _cover_title(category, n)
+    hook = _clamp_words(sanitize(data.get("cover_hook", "")), 96)
+
     # Resolve the best available image for each chosen story once (this may fetch
     # the article hero for stories whose feed image is small or missing), then
     # reuse it for both the cover and the story slide.
     story_images = [best_story_image(s) for s in chosen]
 
-    # Cover slide: title over the top story's featured image.
+    # Cover slide: title + hook over the top story's featured image.
     cover_image = next((img for img in story_images if img), None)
-    title = _cover_title(category, n)
     slides: list[Slide] = [
-        Slide(role="cover", headline=title, explanation="", image_url=cover_image)
+        Slide(role="cover", headline=title, subtitle=hook, image_url=cover_image)
     ]
 
     # One slide per story. Use the model's text where present, else a safe
-    # fallback drawn from the story itself.
+    # fallback drawn from the story itself. Each slide carries its 1-based index
+    # and a source-attribution line for the on-slide trust signal.
     for i, story in enumerate(chosen):
         sd = slide_data[i] if i < len(slide_data) else {}
         headline = sanitize(sd.get("headline", "")) or sanitize(story.title)
@@ -117,17 +151,21 @@ def _carousel_for(client: GeminiClient, category: str, stories: list[Story],
                 headline=headline,
                 explanation=explanation,
                 image_url=story_images[i],
+                sources=source_line(story),
+                index=i + 1,
             )
         )
 
-    # Final CTA slide (black background + logo, rendered later).
-    slides.append(Slide(role="cta", headline=CTA_PRIMARY, explanation=""))
+    # Final CTA slide (rendered later with the brand background + engagement).
+    slides.append(Slide(role="cta", headline=CTA_HEADLINE, subtitle=CTA_SUBTITLE))
 
-    # Caption fallback and website mention.
+    # Caption fallback, engagement nudge and website mention.
     if not caption:
-        caption = f"Today's biggest {label} stories, in one quick scroll."
+        caption = (f"Today's biggest {label} stories, in one quick scroll. "
+                   f"Which one caught you off guard?")
+    caption = f"{caption}\n\nFollow {INSTAGRAM_HANDLE} for a daily brief."
     if WEBSITE.lower() not in caption.lower():
-        caption = f"{caption} Read more on {WEBSITE}."
+        caption = f"{caption} More at {WEBSITE}."
 
     carousel = InstagramCarousel(
         slot=slot,

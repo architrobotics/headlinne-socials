@@ -118,6 +118,11 @@ class Slide:
     image_url: Optional[str] = None # source-article image used as background
     image_file: Optional[str] = None  # rendered slide PNG, relative to day folder
 
+    # Richer furniture used by the renderer.
+    subtitle: str = ""              # cover hook line / CTA sub-line
+    sources: str = ""               # attribution line, e.g. "Reuters, BBC +2"
+    index: int = 0                  # 1-based story number for the "01" device
+
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
 
@@ -127,7 +132,7 @@ class InstagramCarousel:
     slot: str                       # "instagram_1" | "instagram_2"
     category: str                   # "Technology" / "Finance" / "Geopolitics"
     num_slides: int
-    title: str                      # cover title, e.g. "Top 3 Things In Tech Today"
+    title: str                      # cover title, e.g. "AI just moved onto your phone"
     slides: list[Slide]
     caption: str
     hashtags: list[str]

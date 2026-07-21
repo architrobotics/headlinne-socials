@@ -21,19 +21,33 @@ from ..models import Story
 # --------------------------------------------------------------------------- #
 STYLE_GUIDE = f"""
 You write social media copy for {BRAND}, an AI-powered personalised news app
-({WEBSITE}). You are an experienced human news editor. Your writing must:
+({WEBSITE}). You are an experienced human news editor with a sharp eye for what
+makes people stop scrolling. Your writing must:
 
-- Sound like a real person wrote it. Never robotic, never obviously AI.
-- Use simple, conversational English. Short, readable sentences.
-- Avoid technical jargon and fancy vocabulary. Write for a broad audience.
+VOICE
+- Sound like a real, smart person wrote it. Never robotic, never obviously AI.
+- Use simple, conversational English. Short, punchy, readable sentences.
+- Avoid jargon and fancy vocabulary. Write for a broad, curious audience.
 - NEVER use em dashes. NEVER use semicolons.
 - Be friendly, modern, informative and trustworthy.
-- Never use clickbait. Never exaggerate. Never overhype.
-- Never invent facts, numbers, names, quotes or statistics. Use ONLY what is in
-  the supplied story material. If a detail is not given, stay general rather
-  than guessing.
+
+HOOKS AND ENGAGEMENT (this is how we earn attention honestly)
+- Lead with the single most interesting, concrete fact. Specifics beat vague
+  teasers. "A phone that runs AI without the internet" beats "You won't believe
+  this phone."
+- Create curiosity through real substance, never through withholding or hype.
+- Always answer "why should someone care?" in plain terms.
+- No clickbait, no exaggeration, no fake urgency, no invented drama, no
+  exclamation spam.
+
+ACCURACY (non-negotiable, it is the whole brand)
+- Never invent facts, numbers, names, quotes, dates or statistics. Use ONLY what
+  is in the supplied story material. If a detail is not given, stay general
+  rather than guessing.
+- Do not overstate certainty. If sources say something "may" happen, do not say
+  it "will".
 - Rewrite everything in your own original words. Do not copy headlines verbatim.
-- Stay factual and accurate. Accuracy matters more than flair.
+- When in doubt, be precise and modest. Accuracy matters more than flair.
 
 Return ONLY the JSON described in the user message. No extra text, no markdown.
 """.strip()
@@ -49,6 +63,8 @@ def stories_block(stories: list[Story]) -> str:
         srcs = s.source
         if s.corroborating_sources:
             srcs += " + " + ", ".join(s.corroborating_sources[:4])
+        verified = (f"  Verified across {s.source_count} independent sources"
+                    if s.source_count >= 2 else "")
         summary = (s.summary or "").strip()
         if len(summary) > 320:
             summary = summary[:320].rsplit(" ", 1)[0] + "..."
@@ -56,7 +72,7 @@ def stories_block(stories: list[Story]) -> str:
             f"STORY {i}\n"
             f"  Headline: {s.title}\n"
             f"  Detail: {summary or '(no extra detail provided)'}\n"
-            f"  Reported by: {srcs}"
+            f"  Reported by: {srcs}" + (f"\n{verified}" if verified else "")
         )
     return "\n".join(lines)
 
@@ -167,24 +183,38 @@ Return JSON exactly like this:
 # --------------------------------------------------------------------------- #
 def instagram_prompt(category_label: str, stories: list[Story], num_stories: int) -> str:
     return f"""
-Create the text for an Instagram carousel summarising today's top
-{num_stories} {category_label} stories, using the material below. There is one
-slide per story.
+Create the text for an Instagram carousel covering today's top {num_stories}
+{category_label} stories, using the material below. There is one slide per story,
+plus a cover.
 
 {stories_block(stories[:num_stories])}
 
-For each story slide write:
-- "headline": a short, punchy, human headline (under 60 characters). Original
-  wording, not a copy of the source headline.
-- "explanation": 1 to 2 short sentences covering what happened and why it
-  matters. Conversational and clear. No jargon, no hype, no invented facts.
+COVER (the first thing people see, it decides whether they swipe):
+- "cover_title": a short, magnetic title for the whole set (aim for 4 to 7 words,
+  under 46 characters). Spark genuine curiosity with a concrete angle drawn from
+  the stories. No clickbait, no hype, no "you won't believe". Original wording,
+  not a copy of any source headline.
+- "cover_hook": one short sentence (under 90 characters) teasing the value of
+  swiping through, in plain language.
 
-Also write:
-- "caption": a brief, engaging overall summary for the post (2 to 4 sentences).
-- "hashtags": 6 to 10 short relevant hashtag words (no # symbol, no spaces).
+For EACH story slide:
+- "headline": a short, punchy, human headline (under 58 characters). Original
+  wording, not a copy of the source headline.
+- "explanation": 2 short sentences. The first says what happened, the second says
+  why it matters to an ordinary reader. Conversational and clear. No jargon, no
+  hype, no invented facts, no numbers that are not in the material.
+
+FOR THE POST:
+- "caption": 2 to 4 engaging sentences that summarise the set and make people
+  want to read. End with ONE natural question that invites a comment (for
+  example, which story surprised them). Do not stuff hashtags into the caption.
+- "hashtags": 8 to 12 relevant hashtag words (no # symbol, no spaces). Mix a few
+  broad-reach tags with a few specific, niche ones for the topic.
 
 Return JSON exactly like this:
 {{
+  "cover_title": "...",
+  "cover_hook": "...",
   "slides": [
     {{"headline": "...", "explanation": "..."}}
   ],
