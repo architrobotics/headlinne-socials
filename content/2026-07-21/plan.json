@@ -1,0 +1,176 @@
+{
+  "day": "2026-07-21",
+  "is_promo_day": false,
+  "is_friday": false,
+  "twitter": [
+    {
+      "category": "Tech",
+      "post": "Here is today's big tech news.\n• A judge blocked the Paramount and Warner Bros. merger for now\n• EU regulators fined AliExpress €550m for selling illegal goods\n• Companies are teaching workers a mix of old and new skills HEADLINNE.com #TechNews #Business",
+      "hashtags": [
+        "TechNews",
+        "Business"
+      ],
+      "scheduled_time": "2026-07-21T13:00:00+05:30",
+      "kind": "news"
+    },
+    {
+      "category": "Geopolitics",
+      "post": "Here is what is happening around the globe.\n• A judge blocked the Paramount and Warner Bros merger for now\n• The US struck Iran to stop attacks on ships in the Strait\n• New PM Andy Burnham is forming his cabinet to restore hope HEADLINNE.com #Geopolitics #News",
+      "hashtags": [
+        "Geopolitics",
+        "News"
+      ],
+      "scheduled_time": "2026-07-21T17:00:00+05:30",
+      "kind": "news"
+    }
+  ],
+  "linkedin": {
+    "title": "Most news apps treat everyone the same, but that doesn't make sense.",
+    "body": "When we built Headlinne, we wanted to solve a specific problem. Most readers are tired of scrolling through endless feeds of news that just does not matter to them. We realized that personalization is not about guessing what you want based on vague demographics. It is about understanding what you actually read.\n\nOur recommendation engine works by paying attention to your habits. It learns from the topics you engage with and the stories you finish. Instead of pushing generic headlines, it starts to prioritize the subjects you follow closely. Over time, it gets better at filtering out the noise so you only see what is relevant to your interests.\n\nWe believe technology should work for you, not the other way around. It is not about keeping you glued to a screen for hours. It is about helping you stay informed in a way that feels efficient and personal.",
+    "cta": "If you want to see how this approach changes your daily reading, you can try it out at HEADLINNE.com.",
+    "scheduled_time": "2026-07-21T18:00:00+05:30",
+    "kind": "product"
+  },
+  "instagram": [
+    {
+      "slot": "instagram_1",
+      "category": "Technology",
+      "num_slides": 7,
+      "title": "Top 5 Things In Tech Today",
+      "slides": [
+        {
+          "role": "cover",
+          "headline": "Top 5 Things In Tech Today",
+          "explanation": "",
+          "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/02/STKB385_PARAMOUNT_D.jpg?quality=90&amp;strip=all&amp;crop=0%2C10.728364100735%2C100%2C78.54327179853&amp;w=1200",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-21/instagram/instagram_1/slide_1.png"
+        },
+        {
+          "role": "story",
+          "headline": "Paramount and Warner Bros merger on hold",
+          "explanation": "A judge has temporarily paused the massive $110 billion deal between these two media giants. It comes after state attorneys general raised concerns about the new company's market dominance.",
+          "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/02/STKB385_PARAMOUNT_D.jpg?quality=90&amp;strip=all&amp;crop=0%2C10.728364100735%2C100%2C78.54327179853&amp;w=1200",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-21/instagram/instagram_1/slide_2.png"
+        },
+        {
+          "role": "story",
+          "headline": "EU slaps record fine on AliExpress",
+          "explanation": "The European Union has fined the retailer 550 million euros. Officials say the platform failed to stop the sale of unsafe toys and counterfeit clothing.",
+          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/00ee/live/51afee90-843a-11f1-9dde-1165f12cfa4b.jpg",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-21/instagram/instagram_1/slide_3.png"
+        },
+        {
+          "role": "story",
+          "headline": "Blending old skills with new tech",
+          "explanation": "Companies are looking for new ways to train young workers. They are finding success by balancing modern technology skills with traditional, hands-on trades.",
+          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/c442/live/4bb808d0-7533-11f1-a627-714adb4eed6e.jpg",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-21/instagram/instagram_1/slide_4.png"
+        },
+        {
+          "role": "story",
+          "headline": "Could Apple stop OpenAI's hardware plans?",
+          "explanation": "There is a debate about whether a new lawsuit from Apple will disrupt OpenAI's future projects. People are watching to see if this affects their plans to build hardware.",
+          "image_url": "https://techcrunch.com/wp-content/uploads/2025/05/portrait.jpg?w=1000",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-21/instagram/instagram_1/slide_5.png"
+        },
+        {
+          "role": "story",
+          "headline": "Antitrust ruling blocks massive media deal",
+          "explanation": "A judge issued a restraining order to stop the Paramount and Warner Bros purchase for now. The court noted that the merger would likely break antitrust laws.",
+          "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/07/paramount-warner-bros-1152x648.jpg",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-21/instagram/instagram_1/slide_6.png"
+        },
+        {
+          "role": "cta",
+          "headline": "Stay ahead with HEADLINNE.com",
+          "explanation": "",
+          "image_url": null,
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-21/instagram/instagram_1/slide_7.png"
+        }
+      ],
+      "caption": "From major media mergers being paused to record-breaking fines in Europe, here is your tech news roundup for today. We are breaking down the biggest headlines you need to know. Swipe through to catch up on the latest developments. Read more on HEADLINNE.com.",
+      "hashtags": [
+        "Tech",
+        "TechNews",
+        "AI",
+        "Business",
+        "Media",
+        "Innovation",
+        "Law",
+        "EU",
+        "Headlinne",
+        "DailyBriefing"
+      ],
+      "scheduled_time": "2026-07-21T16:00:00+05:30"
+    },
+    {
+      "slot": "instagram_2",
+      "category": "Geopolitics",
+      "num_slides": 7,
+      "title": "Top 5 Geopolitics Headlines",
+      "slides": [
+        {
+          "role": "cover",
+          "headline": "Top 5 Geopolitics Headlines",
+          "explanation": "",
+          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/6662/live/88431510-846f-11f1-b286-f1d324aa6c22.jpg",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-21/instagram/instagram_2/slide_1.png"
+        },
+        {
+          "role": "story",
+          "headline": "Paramount and Warner Bros merger paused",
+          "explanation": "A US court has temporarily blocked the merger between Paramount and Warner Bros. This follows legal action taken by 12 states.",
+          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/6662/live/88431510-846f-11f1-b286-f1d324aa6c22.jpg",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-21/instagram/instagram_2/slide_2.png"
+        },
+        {
+          "role": "story",
+          "headline": "US strikes on Iran continue",
+          "explanation": "The US has launched new strikes against Iran. The goal is to stop Iran from attacking ships in the Strait of Hormuz.",
+          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/900b/live/19b1fef0-847d-11f1-8f17-6fca617ac634.jpg",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-21/instagram/instagram_2/slide_3.png"
+        },
+        {
+          "role": "story",
+          "headline": "Andy Burnham reveals new cabinet",
+          "explanation": "The new Prime Minister has announced his cabinet and appointed John Healey as chancellor. He promised a prudent approach to the economy while trying to bring hope back to the country.",
+          "image_url": "https://i.guim.co.uk/img/media/87d11ce35595cd450f22a0c40d4f3e988095b9ed/1118_0_5602_4480/master/5602.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=d6d1c3f2a63818c4db2e706a17e7c591",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-21/instagram/instagram_2/slide_4.png"
+        },
+        {
+          "role": "story",
+          "headline": "Democrats push to stop Iran conflict",
+          "explanation": "After three US soldiers died in Iranian strikes, Democrats are calling on President Trump to stop the war. Many are concerned about the rising tension and the loss of control.",
+          "image_url": "https://i.guim.co.uk/img/media/041613011733e2c6854a6d63bc5227b078950db8/458_0_4583_3667/master/4583.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=d6927a90455f773795bf6e89609dfbc3",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-21/instagram/instagram_2/slide_5.png"
+        },
+        {
+          "role": "story",
+          "headline": "Tensions rise as US hits Iran again",
+          "explanation": "The US military carried out its 10th round of strikes to try and reopen the Strait of Hormuz. Meanwhile, Iran has described the situation as a full-scale war.",
+          "image_url": "https://i.guim.co.uk/img/media/2d08b6761c977eac4129304423de26a9b65d0ea6/274_0_3164_2532/master/3164.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=ea58f5e5365c06838f34cd8344df1637",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-21/instagram/instagram_2/slide_6.png"
+        },
+        {
+          "role": "cta",
+          "headline": "Stay ahead with HEADLINNE.com",
+          "explanation": "",
+          "image_url": null,
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-21/instagram/instagram_2/slide_7.png"
+        }
+      ],
+      "caption": "From major legal hurdles in the corporate world to escalating tensions in the Middle East, here is what you need to know today. We are tracking the latest developments in politics and global security so you can stay informed. Swipe through for the full breakdown. Read more on HEADLINNE.com.",
+      "hashtags": [
+        "WorldNews",
+        "Geopolitics",
+        "Politics",
+        "News",
+        "CurrentEvents",
+        "USNews",
+        "GlobalAffairs",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-07-21T18:00:00+05:30"
+    }
+  ]
+}
