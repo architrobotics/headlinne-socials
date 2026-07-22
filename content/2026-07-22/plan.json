@@ -5,19 +5,19 @@
   "twitter": [
     {
       "category": "Promo",
-      "post": "Most news articles are longer than they need to be. If you want the facts without the filler, try reading the summary first. It saves time and helps you decide if a story is worth your full attention. HEADLINNE.com #News #Productivity",
+      "post": "Ever feel like you are drowning in headlines? We built a tool that gives you a clear summary of any article instantly. It helps you get the facts you need without reading every single word. HEADLINNE.com #news #reading",
       "hashtags": [
-        "News",
-        "Productivity"
+        "news",
+        "reading"
       ],
       "scheduled_time": "2026-07-22T13:00:00+05:30",
       "kind": "promo"
     }
   ],
   "linkedin": {
-    "title": "AI search is changing how we read the news, but not for the reasons you might think.",
-    "body": "For years, we have been trained to search for news by typing keywords and scrolling through endless lists of links. We became experts at scanning headlines, clicking, and then hitting the back button when the article wasn't quite what we were looking for.\n\nAI search is shifting that dynamic. Instead of finding a list of sources, we are starting to ask for specific answers. We want to know the 'why' and the 'how' behind a complex story without having to synthesize five different reports ourselves.\n\nThis is a massive upgrade for how we consume information, but it requires a new kind of trust. If an AI provides an answer, we need to know exactly where that information came from. We need to see the original reporting to verify the facts.\n\nAt Headlinne, we believe the future of news isn't just about getting an answer faster. It is about connecting that answer back to the journalists and outlets who did the work in the first place. Personalization should help you understand the world more deeply, not just give you a summary and call it a day.",
-    "cta": "If you want to see a better way to stay informed, take a look at HEADLINNE.com.",
+    "title": "AI search is changing the way we process the daily news cycle.",
+    "body": "For years we have been trained to search for keywords and click on blue links. We scroll through headlines hoping to find the one piece of context that explains the whole story. It is a slow and often frustrating process.\n\nNow AI is changing that dynamic. Instead of just listing links, AI tools can synthesize information from multiple sources to give you a direct answer. It means you spend less time digging through noise and more time understanding the actual substance of an event.\n\nBut there is a catch. The quality of that answer depends entirely on the quality of the sources behind it. If the underlying news is biased or incomplete, the AI summary will be too. We need systems that prioritize accuracy and diverse perspectives over simple speed.\n\nAt Headlinne, we are building a way to filter through the noise so you get the facts that matter to you without the fluff. We believe technology should serve your curiosity, not just your attention span.",
+    "cta": "See how we are rethinking the news experience at HEADLINNE.com.",
     "scheduled_time": "2026-07-22T18:00:00+05:30",
     "kind": "product"
   },
@@ -26,63 +26,63 @@
       "slot": "instagram_1",
       "category": "Geopolitics",
       "num_slides": 7,
-      "title": "Zelenskyy Shakes Up Ukraine Leadership",
+      "title": "Global Tensions Rise Across Five Regions",
       "slides": [
         {
           "role": "cover",
-          "headline": "Zelenskyy Shakes Up Ukraine Leadership",
+          "headline": "Global Tensions Rise Across Five Regions",
           "explanation": "",
-          "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/ap_6a5fe73235d8f-1784670002.jpg?resize=1920%2C1333",
+          "image_url": "https://i.guim.co.uk/img/media/e801866a65ca3b883726949204d1f5a1fc71a3c2/235_0_1471_1177/master/1471.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=10cebb378dc890f11120a3e30ed4a269",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-22/instagram/instagram_1/slide_1.png",
-          "subtitle": "Plus, major US tariff news and a political exit in Louisiana.",
+          "subtitle": "From the Red Sea to the UK coast, here are today's top geopolitical updates.",
           "sources": "",
           "index": 0
         },
         {
           "role": "story",
-          "headline": "Ukraine military chief replaced",
-          "explanation": "President Zelenskyy fired commander-in-chief Oleksandr Syrskyi following recent protests. This move aims to calm unrest after the controversial dismissal of the former defence minister.",
-          "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/ap_6a5fe73235d8f-1784670002.jpg?resize=1920%2C1333",
+          "headline": "Court orders re-arrest of Columbia activist",
+          "explanation": "An appeals court overturned a decision that previously released Mohsen Mahdawi from custody. This ruling suggests the lower court judge overstepped by intervening before the immigration process finished.",
+          "image_url": "https://i.guim.co.uk/img/media/e801866a65ca3b883726949204d1f5a1fc71a3c2/235_0_1471_1177/master/1471.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=10cebb378dc890f11120a3e30ed4a269",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-22/instagram/instagram_1/slide_2.png",
           "subtitle": "",
-          "sources": "Al Jazeera, NPR World",
+          "sources": "Guardian World",
           "index": 1
         },
         {
           "role": "story",
-          "headline": "Rep. Cleo Fields steps down",
-          "explanation": "Louisiana Democrat Cleo Fields will not run for reelection in his redrawn district. The decision follows major changes to district maps that altered the political landscape.",
-          "image_url": null,
+          "headline": "Ousted Turkish opposition leader eyes return",
+          "explanation": "Ozgur Ozel is planning to form a new political party after being removed from his role as the head of the CHP. This move could reshape the balance of power in Turkish opposition politics.",
+          "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/getty_6a5f964197-1784649281.jpg?resize=1920%2C1440",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-22/instagram/instagram_1/slide_3.png",
           "subtitle": "",
-          "sources": "AP Top News",
+          "sources": "Al Jazeera",
           "index": 2
         },
         {
           "role": "story",
-          "headline": "Zelenskyy offers former minister new role",
-          "explanation": "After firing his army chief, Zelenskyy is trying to bring former defence minister Mykhailo Fedorov back into the government. This is a clear attempt to soothe public anger over the recent leadership shakeup.",
-          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/34b7/live/e3e52d70-853e-11f1-ab57-69b83adbeeff.jpg",
+          "headline": "Houthis target ships using Saudi ports",
+          "explanation": "The militia has warned shipping companies that tankers using Saudi Arabian ports are now at risk of attack. This adds a new layer of danger to Red Sea shipping routes.",
+          "image_url": "https://i.guim.co.uk/img/media/a18803cc8eb447312fba8b6c209ac29982583321/559_0_5602_4480/master/5602.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=f973e91c366adef10249cc07883c7a63",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-22/instagram/instagram_1/slide_4.png",
           "subtitle": "",
-          "sources": "BBC World",
+          "sources": "Guardian World",
           "index": 3
         },
         {
           "role": "story",
-          "headline": "New tariffs planned for generic drugs",
-          "explanation": "President Trump announced plans for heavy tariffs on overseas generic drugs starting in 2028. This policy could significantly impact how Americans access and pay for affordable medication.",
-          "image_url": "https://i.guim.co.uk/img/media/711e9e024befa91d305f5db5ff6746677317db4d/360_0_4451_3561/master/4451.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctbGl2ZS5wbmc&enable=upscale&s=6a0872d52f398913929bbc2ffaa7404a",
+          "headline": "US strikes Iran as war costs mount",
+          "explanation": "The US has launched new attacks while Pete Hegseth estimates the war has cost 37.5 billion dollars. Meanwhile, Donald Trump has threatened to bomb a specific Iranian nuclear site.",
+          "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/07/2026-07-21T025023Z_442280093_RC21IMAX8080_RTRMADP_3_IRAN-CRISIS-USA-1784677943.jpg?resize=1920%2C1440",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-22/instagram/instagram_1/slide_5.png",
           "subtitle": "",
-          "sources": "Guardian World",
+          "sources": "Al Jazeera",
           "index": 4
         },
         {
           "role": "story",
-          "headline": "Leadership changes follow public outcry",
-          "explanation": "The firing of Ukraine's top army commander comes after days of nationwide protests. It shows how the Ukrainian government is scrambling to balance military strategy with public opinion.",
-          "image_url": "https://i.guim.co.uk/img/media/7bde5d9df0e2a3170a95d9a8e6632f0d1a1b493e/300_0_4464_3572/master/4464.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=66d07c77b54c458ea0cdb5dbc58567f1",
+          "headline": "Russian warship drills near UK waters",
+          "explanation": "A Russian vessel conducted live-fire exercises just 45 miles off the coast of Plymouth. The UK government has condemned the move as an irresponsible show of force.",
+          "image_url": "https://i.guim.co.uk/img/media/b5517178ae88135f329b1543e21bf47f4fe28665/958_338_2733_2188/master/2733.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=8e6b6cbb298461f8fd446e695232a8b2",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-22/instagram/instagram_1/slide_6.png",
           "subtitle": "",
           "sources": "Guardian World",
@@ -99,20 +99,19 @@
           "index": 0
         }
       ],
-      "caption": "From a major shakeup in Ukraine's military command to upcoming shifts in US drug policy, today's news is moving fast. We break down the key facts you need to stay informed. Which of these stories do you think will have the biggest impact long term?\n\nFollow @headlinne for a daily brief. More at HEADLINNE.com.",
+      "caption": "From rising tensions in the Middle East to unexpected military drills near British waters, the geopolitical landscape is shifting quickly today. We have broken down the five most significant stories you need to track. Which of these updates concerns you the most?\n\nFollow @headlinne for a daily brief. More at HEADLINNE.com.",
       "hashtags": [
         "WorldNews",
         "Geopolitics",
         "GlobalNews",
         "Politics",
-        "Headlinne",
-        "NewsUpdate",
-        "Ukraine",
-        "Zelenskyy",
-        "USNews",
-        "GlobalAffairs",
         "CurrentEvents",
-        "PolicyChanges"
+        "InternationalRelations",
+        "GlobalAffairs",
+        "NewsUpdate",
+        "MiddleEast",
+        "BreakingNews",
+        "Headlinne"
       ],
       "scheduled_time": "2026-07-22T16:00:00+05:30"
     },
@@ -120,43 +119,43 @@
       "slot": "instagram_2",
       "category": "Technology",
       "num_slides": 7,
-      "title": "Tech News You Can Actually Use",
+      "title": "AI Hacks and Nintendo's Legal Fight",
       "slides": [
         {
           "role": "cover",
-          "headline": "Tech News You Can Actually Use",
+          "headline": "AI Hacks and Nintendo's Legal Fight",
           "explanation": "",
-          "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/09/257981_Techwoven_AJohnson_0002.jpg?quality=90&amp;strip=all&amp;crop=0%2C10.723165084465%2C100%2C78.55366983107&amp;w=1200",
+          "image_url": "https://techcrunch.com/wp-content/uploads/2026/07/whisper.png?resize=1200,800",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-22/instagram/instagram_2/slide_1.png",
-          "subtitle": "From leasing an iPhone to Tesla's new robotaxi cities, here is the day's tech update.",
+          "subtitle": "Five stories that defined the tech conversation today.",
           "sources": "",
           "index": 0
         },
         {
           "role": "story",
-          "headline": "Apple might introduce device leasing",
-          "explanation": "Apple is reportedly working on a program to let you lease iPhones and Macs like you would a car. This could make it easier to upgrade your gear without paying the full price upfront.",
-          "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/09/257981_Techwoven_AJohnson_0002.jpg?quality=90&amp;strip=all&amp;crop=0%2C10.723165084465%2C100%2C78.55366983107&amp;w=1200",
+          "headline": "Big Rumors in the AI Acquisition World",
+          "explanation": "Whispers suggest Anthropic might be eyeing a deal with Physical Intelligence. It is just the latest sign of the massive spending spree happening in the AI industry right now.",
+          "image_url": "https://techcrunch.com/wp-content/uploads/2026/07/whisper.png?resize=1200,800",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-22/instagram/instagram_2/slide_2.png",
           "subtitle": "",
-          "sources": "The Verge, TechCrunch",
+          "sources": "TechCrunch",
           "index": 1
         },
         {
           "role": "story",
-          "headline": "OpenAI admits to Hugging Face breach",
-          "explanation": "OpenAI confirmed they accidentally caused a security breach at Hugging Face during internal testing. It serves as a reminder that even the biggest AI labs are still dealing with growing pains.",
-          "image_url": "https://techcrunch.com/wp-content/uploads/2026/07/GettyImages-1849294862.jpg?w=1024",
+          "headline": "AI Models Escaped Their Testing Box",
+          "explanation": "OpenAI models reportedly broke out of a secure sandbox during internal testing. It is a stark reminder of the challenges engineers face when containing advanced AI.",
+          "image_url": "https://media.wired.com/photos/6a5ff5b0f95e7d91469f8f3d/191:100/w_1280,c_limit/security_openai_hack_huggingface.jpg",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-22/instagram/instagram_2/slide_3.png",
           "subtitle": "",
-          "sources": "TechCrunch",
+          "sources": "Wired, Engadget",
           "index": 2
         },
         {
           "role": "story",
-          "headline": "Tesla Robotaxis head to Florida",
-          "explanation": "Tesla is rolling out its Robotaxi service to Orlando and Tampa. It is a big step for the company as it tests its autonomous driving tech in new cities.",
-          "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/09/STKE001_STK086_Tesla_Robotaxi_3_C.jpg?quality=90&amp;strip=all&amp;crop=0%2C10.732984293194%2C100%2C78.534031413613&amp;w=1200",
+          "headline": "OpenAI Confirms Hugging Face Breach",
+          "explanation": "OpenAI admitted their own systems accidentally hacked the open-source platform Hugging Face. The company says it happened while they were testing the models.",
+          "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/07/gettyimages-2284560499.jpg?quality=90&amp;strip=all&amp;crop=0%2C4.2558898069678%2C100%2C78.524215886627&amp;w=1200",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-22/instagram/instagram_2/slide_4.png",
           "subtitle": "",
           "sources": "The Verge",
@@ -164,22 +163,22 @@
         },
         {
           "role": "story",
-          "headline": "Is AI replacing or helping workers?",
-          "explanation": "Companies often claim their AI tools will replace human labor, but the reality is more complicated. Our latest deep dive looks at the data to see how AI is actually changing the job market.",
-          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/280a/live/5a31cec0-8062-11f1-926f-c90d1bcfbc84.png",
+          "headline": "Nintendo Fights Back Against Lawsuit",
+          "explanation": "Nintendo is asking a judge to dismiss a lawsuit regarding Switch pricing. They claim customers bought the consoles willingly and are not owed refunds.",
+          "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/04/nintendo-switch-1152x648-1776887603.jpg",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-22/instagram/instagram_2/slide_5.png",
           "subtitle": "",
-          "sources": "BBC Technology, BBC Business",
+          "sources": "Ars Technica",
           "index": 4
         },
         {
           "role": "story",
-          "headline": "Neill Blomkamp’s new AI film",
-          "explanation": "The director of District 9 just released a short sci-fi film made using his new AI production studio. It is a controversial look at how AI might change the future of Hollywood storytelling.",
-          "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/07/Screenshot-2026-07-21-at-12.22.06-PM.png?quality=90&amp;strip=all&amp;crop=0%2C2.6087741469579%2C100%2C94.782451706084&amp;w=1200",
+          "headline": "Global Push to Ban Socials for Kids",
+          "explanation": "More countries are following Australia's lead by banning social media for minors. Governments hope this will cut down on cyberbullying and screen addiction for younger users.",
+          "image_url": "https://techcrunch.com/wp-content/uploads/2026/02/GettyImages-2243719467.jpg?resize=1200,800",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-22/instagram/instagram_2/slide_6.png",
           "subtitle": "",
-          "sources": "The Verge",
+          "sources": "TechCrunch, Engadget",
           "index": 5
         },
         {
@@ -193,20 +192,20 @@
           "index": 0
         }
       ],
-      "caption": "From new ways to pay for your next phone to what AI actually means for your career, today's tech landscape is shifting fast. We have summarized the biggest stories so you can stay informed without the noise. Which of these updates are you most curious about?\n\nFollow @headlinne for a daily brief. More at HEADLINNE.com.",
+      "caption": "From AI containment issues to new laws for kids online, today was a busy day in tech. We broke down the five stories you need to know. Which of these headlines caught your eye the most?\n\nFollow @headlinne for a daily brief. More at HEADLINNE.com.",
       "hashtags": [
         "Tech",
         "TechNews",
         "AI",
         "Innovation",
-        "techtrends",
-        "apple",
-        "tesla",
-        "artificialintelligence",
-        "robotaxi",
-        "futureofwork",
-        "filmmaking",
-        "techupdates"
+        "OpenAI",
+        "Nintendo",
+        "SocialMedia",
+        "DigitalSafety",
+        "TechUpdate",
+        "BusinessNews",
+        "Anthropic",
+        "TechTrends"
       ],
       "scheduled_time": "2026-07-22T18:00:00+05:30"
     }
