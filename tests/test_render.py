@@ -76,3 +76,38 @@ def test_theme_accent_and_pill_helpers():
         assert isinstance(accent, tuple) and len(accent) == 3
         assert all(0 <= c <= 255 for c in accent)
         assert theme.pill_label(category).isupper()
+
+
+def test_twitter_news_card_renders_square_png():
+    from PIL import Image
+
+    from headlinne.models import TwitterPost
+    from headlinne.render.card import CARD, render_twitter_card
+
+    post = TwitterPost(
+        category="Tech", post="x", hashtags=["AI"],
+        scheduled_time="2026-07-21T13:00:00+05:30", kind="news",
+        lead="AI just moved onto your phone",
+        items=["A maker unveiled an on-device chip", "A cloud outage hit apps",
+               "New AI labelling rules proposed"],
+    )
+    with tempfile.TemporaryDirectory() as tmp:
+        out = render_twitter_card(post, Path(tmp) / "x_1.png")
+        assert out.exists() and out.stat().st_size > 8_000
+        with Image.open(out) as img:
+            assert img.size == (CARD, CARD)
+        assert post.image_file  # renderer records where it wrote
+
+
+def test_twitter_promo_card_renders():
+    from headlinne.models import TwitterPost
+    from headlinne.render.card import render_twitter_card
+
+    post = TwitterPost(
+        category="Promo", post="x", hashtags=["News"],
+        scheduled_time="2026-07-21T13:00:00+05:30", kind="promo",
+        lead="Ask the news a question, get answers with sources",
+    )
+    with tempfile.TemporaryDirectory() as tmp:
+        out = render_twitter_card(post, Path(tmp) / "x_1.png")
+        assert out.exists() and out.stat().st_size > 8_000

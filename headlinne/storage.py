@@ -44,6 +44,13 @@ def carousel_dir(day: date, slot: str) -> Path:
     return d
 
 
+def x_card_path(day: date, slot: str) -> Path:
+    """Path for a rendered X (Twitter) card, e.g. content/<day>/x/x_1.png."""
+    d = content_dir_for(day) / "x"
+    d.mkdir(parents=True, exist_ok=True)
+    return d / f"{slot}.png"
+
+
 def _write_json(path: Path, data) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(data, indent=2, ensure_ascii=False))

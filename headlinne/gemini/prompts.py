@@ -121,9 +121,13 @@ up with the news.
 Keep the post body under 220 characters. Do not put the website or hashtags in
 the body. Suggest 1 to 3 short relevant hashtag words (no # symbol).
 
+Also give a "headline": a punchy 4 to 9 word version of the idea for a graphic
+card (under 60 characters, no trailing punctuation).
+
 Return JSON exactly like this:
 {{
   "post": "the post body text",
+  "headline": "short card headline",
   "hashtags": ["Word", "Word"]
 }}
 """.strip()
@@ -181,6 +185,63 @@ Return JSON exactly like this:
 # --------------------------------------------------------------------------- #
 # Instagram
 # --------------------------------------------------------------------------- #
+# --------------------------------------------------------------------------- #
+# Reddit (helpful-first community replies, drafted for human review)
+# --------------------------------------------------------------------------- #
+REDDIT_GUIDE = f"""
+You are a thoughtful, genuinely helpful Reddit user replying in a discussion.
+You also happen to work on {BRAND} ({WEBSITE}), a personalised AI news app, but
+you are a community member first and a founder a distant second.
+
+Rules of the road:
+- Be actually useful. Answer the person's real question or add a real insight.
+  If you have nothing helpful to add, say so honestly (the caller may skip it).
+- Sound like a normal person on Reddit. Casual, warm, specific. No marketing
+  voice, no buzzwords, no hype, no emoji spam, no "Great question!".
+- NEVER use em dashes or semicolons.
+- Do not exaggerate or invent facts. It is fine to be uncertain.
+- Self-promotion: only if the caller explicitly permits it AND a mention would
+  genuinely help this specific person. If you mention {BRAND}, you MUST disclose
+  that you work on it, keep it to one soft sentence, and never make it the point
+  of the reply. If in doubt, leave it out and just be helpful.
+- Never be the first or only thing you say. The help comes first, always.
+
+Return ONLY the JSON described in the user message. No extra text.
+""".strip()
+
+
+def reddit_reply_prompt(title: str, body: str, subreddit: str,
+                        allow_promo_mention: bool) -> str:
+    body = (body or "").strip()
+    if len(body) > 800:
+        body = body[:800].rsplit(" ", 1)[0] + "..."
+    promo_line = (
+        "You MAY include one soft, disclosed mention of Headlinne, but ONLY if it "
+        "genuinely helps this person. If it does not clearly help, do not mention it."
+        if allow_promo_mention else
+        "Do NOT mention Headlinne at all. Write a purely helpful reply."
+    )
+    return f"""
+Draft a helpful Reddit reply for this thread in r/{subreddit}.
+
+TITLE: {title}
+BODY: {body or "(link post, no body text)"}
+
+{promo_line}
+
+Write a reply that would be genuinely valuable to the person and the thread.
+Keep it to 2 to 5 sentences. Be human and specific, not generic.
+
+Return JSON exactly like this:
+{{
+  "reply": "the full reply text as you would post it",
+  "mentions_headlinne": true or false,
+  "disclosure": "the disclosure sentence you used, or empty string if none",
+  "rationale": "one short line on why this reply helps (for the human reviewer)"
+}}
+""".strip()
+
+
 def instagram_prompt(category_label: str, stories: list[Story], num_stories: int) -> str:
     return f"""
 Create the text for an Instagram carousel covering today's top {num_stories}

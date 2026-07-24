@@ -92,6 +92,13 @@ class TwitterPost:
     scheduled_time: str      # ISO 8601, IST offset
     kind: str = "news"       # "news" | "promo"
 
+    # Structured pieces kept so the branded X card can be rendered from the same
+    # content the tweet text was assembled from (the flattened `post` is hard to
+    # lay out as a graphic, these are not).
+    lead: str = ""                          # headline / lead line for the card
+    items: list[str] = field(default_factory=list)  # story lines (news cards)
+    image_file: Optional[str] = None        # rendered card PNG, relative to day folder
+
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
 

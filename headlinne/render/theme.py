@@ -212,9 +212,11 @@ def brand_fallback(w: int, h: int, category: str, seed: str) -> Image.Image:
 # Furniture primitives
 # --------------------------------------------------------------------------- #
 def draw_top_bar(canvas: Image.Image, draw: ImageDraw.ImageDraw, category: str,
-                 *, show_pill: bool = True) -> None:
-    """The brand bar every photo slide carries: the logo mark + HEADLINNE
-    wordmark on the left, and the category pill on the right."""
+                 *, show_pill: bool = True, pill_text: str | None = None,
+                 pill_accent=None) -> None:
+    """The brand bar every slide / card carries: the logo mark + HEADLINNE
+    wordmark on the left, and a pill on the right. The pill defaults to the
+    category label in the category accent, but both can be overridden."""
     y = TOP_BAR_Y
     mark_size = 46
     mark = logo_mark(mark_size)
@@ -231,7 +233,8 @@ def draw_top_bar(canvas: Image.Image, draw: ImageDraw.ImageDraw, category: str,
                        fill=rgba(TEXT_PRIMARY), tracking=3.2)
 
     if show_pill:
-        draw_pill_right(draw, pill_label(category), accent_for(category),
+        draw_pill_right(draw, pill_text or pill_label(category),
+                        pill_accent or accent_for(category),
                         y_center=y - 2 + mark_size // 2)
 
 

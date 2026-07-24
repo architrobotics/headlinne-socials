@@ -18,7 +18,8 @@ on its own.
 1. [How it works](#how-it-works)
 2. [What it posts](#what-it-posts)
 3. [The writing style](#the-writing-style)
-4. [Prerequisites](#prerequisites)
+4. [Reddit engagement](#reddit-engagement-opportunity-finder-not-a-spam-bot)
+5. [Prerequisites](#prerequisites)
 5. [Setup](#setup)
    - [1. Create the repository](#1-create-the-repository)
    - [2. Get a Gemini API key](#2-get-a-gemini-api-key)
@@ -71,7 +72,11 @@ gathering, generating, rendering and publishing happens on GitHub's runners.
 that highlights a product feature in an educational, non-salesy way. On the other
 days there are two news posts covering two different categories. Each news post
 leads with a short line and lists the top stories with brief explanations. Posts
-stay within 280 characters with room reserved for the website and hashtags.
+stay within 280 characters with room reserved for the website and hashtags. Each
+post also gets a **branded image card** (rendered from the same design system as
+the carousels) attached automatically, which lifts reach in the timeline. The
+tweet text stays a valid standalone post, so the card is a bonus, not a
+dependency. Turn it off with the `X_ATTACH_CARD` variable.
 
 **LinkedIn: 1 post a day.** These build credibility: how the recommendation
 engine works, what AI Search changes, the product philosophy, the founder
@@ -128,6 +133,53 @@ interesting and correct, not by hyping.
 
 These guarantees are covered by the test suite (see
 [Running and testing locally](#running-and-testing-locally)).
+
+---
+
+## Reddit engagement (opportunity finder, not a spam bot)
+
+Reddit can be a great channel for a news app, but only if you engage like a real
+person. This tool is built for that, and it is deliberately **not** an autonomous
+mass-poster.
+
+**Why not a 100-comments-a-day bot?** Automated, unsolicited promotion violates
+Reddit's Content Policy and API Terms, and essentially every large subreddit bans
+it. A bot spraying promotional comments gets the account and the `headlinne.com`
+domain sitewide-shadowbanned, which is very hard to undo and kills the exact
+channel you are trying to open. It does not grow a product, it burns it.
+
+**What it does instead.** `python -m headlinne reddit find`:
+
+1. searches your target subreddits for threads where Headlinne is genuinely
+   on-topic (news overload, staying informed, media bias, personalised feeds),
+2. filters out threads that are locked, too old, too thin, or sensitive
+   (grief, medical, tragedy - those never get a promo angle),
+3. drafts a genuinely **helpful** reply with Gemini, in a normal-person Reddit
+   voice,
+4. honestly decides whether a *disclosed* Headlinne mention is even appropriate
+   (usually not, and never more than the 9:1 rule allows, only in communities
+   that welcome it),
+5. writes a **review queue** to `state/reddit_queue/<date>.json` and a readable
+   `.md` file.
+
+You read the queue and post the good ones yourself, or approve one at a time:
+
+```bash
+python -m headlinne reddit find                 # build today's review queue (never posts)
+python -m headlinne reddit post --id <THREAD_ID> --confirm   # post ONE reviewed draft
+```
+
+**Guardrails (in `headlinne/config.py`, enforced in code and tested):** a low
+daily cap with a hard maximum, a per-subreddit cooldown, de-duplication so no
+thread is engaged twice, the 9:1 helpful-to-promo ratio, and a sensitive-topic
+filter. There is no bulk or unattended posting path on purpose.
+
+**Credentials.** Reddit needs a *script app* (create one at
+`reddit.com/prefs/apps`), not a single token. Set `REDDIT_CLIENT_ID`,
+`REDDIT_CLIENT_SECRET`, `REDDIT_USERNAME`, `REDDIT_PASSWORD` and
+`REDDIT_USER_AGENT`. If someone hands you one long bearer string as a "Reddit
+key", it is almost certainly for another service (for example a Gemini token) and
+will not work here.
 
 ---
 
@@ -211,8 +263,12 @@ Add these as **secrets** (encrypted, never shown again):
 | `BUFFER_ACCESS_TOKEN` | Buffer personal access token |
 | `BUFFER_CHANNEL_ID_X` | Buffer channel ID for X |
 | `BUFFER_CHANNEL_ID_LINKEDIN` | Buffer channel ID for LinkedIn |
-| `META_ACCESS_TOKEN` | Long-lived Meta Graph API token |
-| `IG_USER_ID` | Instagram Business user ID |
+| `META_ACCESS_TOKEN` | Long-lived Meta Graph API token (only if publishing IG directly via Meta) |
+| `IG_USER_ID` | Instagram Business user ID (only if publishing IG directly via Meta) |
+| `REDDIT_CLIENT_ID` | Reddit script-app client id (only for the Reddit tool) |
+| `REDDIT_CLIENT_SECRET` | Reddit script-app secret (only for the Reddit tool) |
+| `REDDIT_USERNAME` | Reddit account the tool acts as (only for the Reddit tool) |
+| `REDDIT_PASSWORD` | That account's password (only for the Reddit tool) |
 
 Add these as **variables** (plain, non-secret):
 
@@ -220,6 +276,8 @@ Add these as **variables** (plain, non-secret):
 | --- | --- | --- |
 | `BUFFER_SCHEDULING_MODE` | `scheduled` | `scheduled` or `trigger`, see below |
 | `PUBLIC_IMAGE_BASE_URL` | empty | Only needed for a private repo (step 1) |
+| `X_ATTACH_CARD` | `true` | Attach the branded image card to X posts |
+| `REDDIT_ENGAGEMENT_CAP` | `12` | Max Reddit drafts per run (hard-capped at 25) |
 
 For local runs, copy `.env.example` to `.env` and fill in the same values. The
 `.env` file is git-ignored. Never commit real keys.
@@ -342,7 +400,14 @@ headlinne-social/
 │   ├── render/              Draws the carousel slides with Pillow
 │   │   ├── theme.py         The design system: palette, furniture, fallbacks
 │   │   ├── fonts.py         Display / body / label font loading and fitting
-│   │   └── carousel.py      Cover, story and CTA slide layouts
+│   │   ├── carousel.py      Cover, story and CTA slide layouts
+│   │   └── card.py          Branded square image card for X posts
+│   ├── reddit/              Reddit opportunity finder + human-review assistant
+│   │   ├── client.py        Reddit API (read + guarded single-comment submit)
+│   │   ├── relevance.py     Topic fit and sensitive-topic filtering
+│   │   ├── policy.py        Caps, cooldowns, de-dup, the 9:1 promo ratio
+│   │   ├── drafts.py        Gemini-drafted helpful replies
+│   │   └── pipeline.py      Build the review queue, guarded manual post
 │   ├── publish/             Buffer, Meta Graph API, image hosting
 │   └── quality/             Sanitiser, quality gate, de-duplication
 ├── tests/                   Offline test suite (python -m tests)

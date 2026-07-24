@@ -212,12 +212,104 @@ BUFFER_SCHEDULING_MODE = os.getenv("BUFFER_SCHEDULING_MODE", "scheduled")
 
 BUFFER_API_URL = "https://api.buffer.com"
 
+# Attach the rendered branded card image to X posts (lifts reach). The tweet text
+# stays a valid standalone post either way. Set to "false" to post text only.
+X_ATTACH_CARD = os.getenv("X_ATTACH_CARD", "true").strip().lower() in ("1", "true", "yes")
+
 # Meta Graph API (the alternative, direct Instagram publisher in
 # headlinne/publish/meta.py). The active pipeline publishes Instagram through
 # Buffer, but this path is fully supported for anyone who prefers to publish
 # carousels straight to Meta with the secrets from setup steps 4 and 5.
 META_GRAPH_URL = "https://graph.facebook.com"
 META_GRAPH_VERSION = os.getenv("META_GRAPH_VERSION", "v21.0")
+
+
+# --------------------------------------------------------------------------- #
+# Reddit engagement (opportunity finder + human-review assistant)
+# --------------------------------------------------------------------------- #
+# IMPORTANT, read this before touching the Reddit tooling:
+#
+# This is deliberately NOT an autonomous mass-poster. Reddit's Content Policy and
+# API Terms prohibit automated, unsolicited promotion, and every large subreddit
+# bans it. A bot dropping ~100 promo comments a day is textbook spam: it gets the
+# account and the headlinne.com domain sitewide-shadowbanned, which is very hard
+# to undo and poisons the exact channel you want to open. So the tool finds
+# relevant threads and drafts genuinely helpful replies for a human to review and
+# post. It is capped low, is helpful-first, and only ever suggests a Headlinne
+# mention where it is on-topic, allowed, and disclosed.
+
+REDDIT_USER_AGENT = os.getenv(
+    "REDDIT_USER_AGENT", "web:headlinne-assist:v1.0 (by /u/your_reddit_username)")
+
+# How many opportunities one `reddit find` run may surface / draft. Kept low on
+# purpose. The hard cap below cannot be exceeded even via the env var.
+REDDIT_ENGAGEMENT_CAP = int(os.getenv("REDDIT_ENGAGEMENT_CAP", "12"))
+REDDIT_ENGAGEMENT_HARD_MAX = 25
+
+# At most this share of surfaced replies may mention Headlinne (Reddit's informal
+# 9:1 rule: be a helpful community member ~10x more than you self-promote).
+REDDIT_PROMO_RATIO = 0.1
+
+# Do not touch the same subreddit more than once inside this window, and never
+# engage the same thread twice (tracked in state/reddit_state.json).
+REDDIT_SUBREDDIT_COOLDOWN_HOURS = 12
+
+# Only consider threads inside this age window with at least this much activity,
+# so replies land where people are actually reading and are still welcome.
+REDDIT_MIN_THREAD_AGE_HOURS = 1
+REDDIT_MAX_THREAD_AGE_HOURS = 20
+REDDIT_MIN_COMMENTS = 3
+
+
+@dataclass(frozen=True)
+class RedditTarget:
+    """A subreddit we may engage in. `allow_promo` gates whether a disclosed
+    Headlinne mention is ever permitted there (most communities: never)."""
+
+    name: str
+    category: str
+    allow_promo: bool = False
+
+
+# A realistic map. Promo is allowed ONLY in maker / show-your-project communities
+# that explicitly welcome it. Everywhere else the tool is help-only, because that
+# is what those subreddits' rules require.
+REDDIT_TARGETS: tuple[RedditTarget, ...] = (
+    # News / world (help-only, strict no-promo)
+    RedditTarget("technology", "Technology", False),
+    RedditTarget("tech", "Technology", False),
+    RedditTarget("artificial", "Technology", False),
+    RedditTarget("Futurology", "Technology", False),
+    RedditTarget("gadgets", "Technology", False),
+    RedditTarget("finance", "Finance", False),
+    RedditTarget("economics", "Finance", False),
+    RedditTarget("investing", "Finance", False),
+    RedditTarget("personalfinance", "Finance", False),
+    RedditTarget("worldnews", "Geopolitics", False),
+    RedditTarget("geopolitics", "Geopolitics", False),
+    RedditTarget("news", "Geopolitics", False),
+    # Maker / founder communities that welcome disclosed self-promotion
+    RedditTarget("SideProject", "Product", True),
+    RedditTarget("startups", "Product", True),
+    RedditTarget("alphaandbetausers", "Product", True),
+    RedditTarget("InternetIsBeautiful", "Product", True),
+)
+
+# Search terms used to find threads where Headlinne is genuinely on-topic.
+REDDIT_KEYWORDS = (
+    "personalised news", "personalized news", "news app", "news overload",
+    "information overload", "how do you keep up with the news", "unbiased news",
+    "news aggregator", "media bias", "ai news summary", "stay informed",
+    "too much news", "news fatigue", "best news app",
+)
+
+# Threads whose topic is sensitive: never attach any promotion, and skip them
+# unless a purely supportive, non-promotional reply is clearly warranted.
+REDDIT_SENSITIVE_MARKERS = (
+    "suicide", "self harm", "self-harm", "depress", "grief", "died", "death",
+    "passed away", "cancer", "diagnosis", "abuse", "assault", "war crime",
+    "shooting", "terror", "layoff", "fired", "medical advice", "lawsuit",
+)
 
 
 @dataclass(frozen=True)
@@ -235,6 +327,13 @@ class Secrets:
     # Meta Graph API (direct Instagram publishing, see publish/meta.py).
     meta_token: str = field(default_factory=lambda: os.getenv("META_ACCESS_TOKEN", ""))
     ig_user_id: str = field(default_factory=lambda: os.getenv("IG_USER_ID", ""))
+
+    # Reddit (script app: create one at reddit.com/prefs/apps). The tool reads
+    # these from the environment only. Never hardcode or commit a token.
+    reddit_client_id: str = field(default_factory=lambda: os.getenv("REDDIT_CLIENT_ID", ""))
+    reddit_client_secret: str = field(default_factory=lambda: os.getenv("REDDIT_CLIENT_SECRET", ""))
+    reddit_username: str = field(default_factory=lambda: os.getenv("REDDIT_USERNAME", ""))
+    reddit_password: str = field(default_factory=lambda: os.getenv("REDDIT_PASSWORD", ""))
 
     # Where rendered carousel images are publicly served from.
     # For a public GitHub repo this is filled automatically in CI from

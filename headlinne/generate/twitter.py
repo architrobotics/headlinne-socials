@@ -32,6 +32,9 @@ def _news_post(client: GeminiClient, category: str, stories: list[Story],
     items = [it.get("text", "") for it in data.get("items", [])]
     hashtags = data.get("hashtags", [label])
     post_text = assemble_news_post(lead, items, hashtags)
+    # Clean structured pieces kept for the branded card graphic.
+    card_lead = sanitize(lead).strip().rstrip(":")
+    card_items = [sanitize(it).strip().rstrip(".") for it in items if it and it.strip()][:3]
     log.info("X news [%s] %d chars", label, len(post_text))
     return TwitterPost(
         category=label,
@@ -39,6 +42,8 @@ def _news_post(client: GeminiClient, category: str, stories: list[Story],
         hashtags=[str(h).lstrip("#") for h in hashtags[:2]],
         scheduled_time=slot_iso(day, slot),
         kind="news",
+        lead=card_lead,
+        items=card_items,
     )
 
 
@@ -65,6 +70,8 @@ def generate_promo(client: GeminiClient, day: date) -> list[TwitterPost]:
     body = sanitize(data.get("post", ""))
     hashtags = data.get("hashtags", ["News"])
     post_text = fit_simple(body, hashtags)
+    # The card shows a short statement rather than the full tweet body.
+    card_lead = _card_statement(sanitize(data.get("headline", "")) or body)
     log.info("X promo (%s) %d chars", feature[:30], len(post_text))
     return [
         TwitterPost(
@@ -73,5 +80,19 @@ def generate_promo(client: GeminiClient, day: date) -> list[TwitterPost]:
             hashtags=[str(h).lstrip("#") for h in hashtags[:2]],
             scheduled_time=slot_iso(day, "x_1"),
             kind="promo",
+            lead=card_lead,
         )
     ]
+
+
+def _card_statement(text: str, max_chars: int = 90) -> str:
+    """First sentence (or a trimmed clause) of the promo body for the card."""
+    text = text.strip()
+    for sep in (". ", "! ", "? "):
+        if sep in text:
+            text = text.split(sep, 1)[0]
+            break
+    text = text.rstrip(".!? ")
+    if len(text) > max_chars:
+        text = text[:max_chars].rsplit(" ", 1)[0].rstrip(",.:;- ")
+    return text

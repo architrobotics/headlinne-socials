@@ -30,7 +30,7 @@ from .models import DayPlan, NewsDigest
 from .news import fetch_all, rank, strongest_categories
 from .quality import (History, check_instagram, check_linkedin, check_twitter)
 from .quality.dedup import History as _History  # noqa: F401  (re-export friendliness)
-from .render import render_carousel
+from .render import render_carousel, render_twitter_card
 from .scheduling import is_friday, is_promo_day, today_ist, upcoming_slot_passed
 
 log = get_logger("pipeline")
@@ -43,6 +43,25 @@ def _to_buffer_utc(iso_ist: str) -> str:
     """Convert an IST ISO timestamp to Buffer's UTC '...000Z' format."""
     dt = datetime.fromisoformat(iso_ist)
     return dt.astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S.000Z")
+
+
+def _x_card_urls(day: date, slot: str) -> list[str] | None:
+    """Public URL(s) for a slot's rendered X card, or None when disabled or the
+    card was not rendered. Kept best-effort so a missing card never blocks a post."""
+    from .config import X_ATTACH_CARD
+
+    if not X_ATTACH_CARD:
+        return None
+    path = storage.x_card_path(day, slot)
+    if not path.exists():
+        return None
+    try:
+        from .publish import get_image_host
+
+        return [get_image_host().url_for(path)]
+    except Exception as exc:  # pragma: no cover - host misconfig should not block text post
+        log.warning("could not build X card URL for %s: %s", slot, exc)
+        return None
 
 
 def _drop_seen(digest: NewsDigest, history: History) -> None:
@@ -113,6 +132,15 @@ def generate(day: date | None = None, *, render: bool = True,
     twitter_posts = _quality_filter_twitter(twitter_posts)
     _quality_check_linkedin(linkedin_post)
     _quality_check_instagram(carousels)
+
+    # 6b. Render the branded X cards for the surviving posts.
+    if render:
+        for i, post in enumerate(twitter_posts):
+            slot = "x_1" if i == 0 else "x_2"
+            try:
+                render_twitter_card(post, storage.x_card_path(day, slot))
+            except Exception as exc:  # pragma: no cover - never fail the run on a card
+                log.warning("X card render failed for %s: %s", slot, exc)
 
     plan = DayPlan(
         day=day.isoformat(),
@@ -195,9 +223,11 @@ def _schedule_buffer(day: date, plan: DayPlan) -> None:
     for i, post in enumerate(plan.twitter):
         slot = "x_1" if i == 0 else "x_2"
         due = None if upcoming_slot_passed(day, slot) else _to_buffer_utc(post.scheduled_time)
+        images = _x_card_urls(day, slot)
         try:
-            res = buffer.post_twitter(post.post, due_at_utc=due)
-            storage.mark_published(day, f"x_{i+1}", {"buffer": res, "scheduled": bool(due)})
+            res = buffer.post_twitter(post.post, due_at_utc=due, image_urls=images)
+            storage.mark_published(day, f"x_{i+1}", {"buffer": res, "scheduled": bool(due),
+                                                     "images": images})
         except BufferError as exc:
             log.error("Failed to schedule X post %d: %s", i + 1, exc)
 
@@ -254,8 +284,9 @@ def _publish_twitter(day: date, target: str) -> None:
         log.warning("No X post for slot %s today.", target)
         return
     post = posts[idx]
-    res = BufferClient().post_twitter(post.post)  # mode now
-    storage.mark_published(day, target, {"buffer": res})
+    images = _x_card_urls(day, target)
+    res = BufferClient().post_twitter(post.post, image_urls=images)  # mode now
+    storage.mark_published(day, target, {"buffer": res, "images": images})
 
 
 def _publish_linkedin(day: date) -> None:

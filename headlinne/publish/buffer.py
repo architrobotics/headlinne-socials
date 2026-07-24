@@ -176,9 +176,10 @@ class BufferClient:
         return post
 
     # -- convenience wrappers bound to the configured channels --
-    def post_twitter(self, text: str, due_at_utc: str | None = None) -> dict:
+    def post_twitter(self, text: str, due_at_utc: str | None = None,
+                     image_urls: list[str] | None = None) -> dict:
         return self.create_post(channel_id=SECRETS.buffer_channel_x, text=text,
-                                due_at_utc=due_at_utc)
+                                image_urls=image_urls, due_at_utc=due_at_utc)
 
     def post_linkedin(self, text: str, due_at_utc: str | None = None) -> dict:
         return self.create_post(channel_id=SECRETS.buffer_channel_linkedin, text=text,

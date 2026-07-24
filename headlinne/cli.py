@@ -36,14 +36,38 @@ def _cmd_publish(args: argparse.Namespace) -> int:
     return 0
 
 
+def _cmd_reddit(args: argparse.Namespace) -> int:
+    """Reddit opportunity finder (read-only) and guarded single post."""
+    from .reddit import find_opportunities, post_one
+
+    if args.reddit_command == "find":
+        opps = find_opportunities(limit=args.limit)
+        print(f"Surfaced {len(opps)} opportunities. "
+              f"Full review queue (JSON + Markdown) is in state/reddit_queue/.")
+        for o in opps:
+            tag = "PROMO" if o.mentions_headlinne else "help"
+            print(f"  [{tag:5}] r/{o.thread.subreddit:16} id={o.thread.id}  "
+                  f"{o.thread.title[:56]}")
+        if opps:
+            print("\nReview them, then post the good ones yourself, or with:\n"
+                  "  python -m headlinne reddit post --id <ID> --confirm")
+        return 0
+
+    if args.reddit_command == "post":
+        print(post_one(args.id, confirm=args.confirm))
+        return 0
+
+    return 1
+
+
 def _cmd_preview(args: argparse.Namespace) -> int:
     """Render a sample carousel with mock content so you can check the design.
 
     Works fully offline: no Gemini calls and no network image fetches (the
     renderer falls back to clean branded gradients when an image is missing).
     """
-    from .models import InstagramCarousel, Slide
-    from .render import render_carousel
+    from .models import InstagramCarousel, Slide, TwitterPost
+    from .render import render_carousel, render_twitter_card
 
     out_root = Path(args.out or "preview")
     samples = {
@@ -82,7 +106,22 @@ def _cmd_preview(args: argparse.Namespace) -> int:
         paths = render_carousel(carousel, out_dir)
         produced.extend(paths)
 
-    print("Rendered preview slides:")
+    # Sample X (Twitter) cards: one news roundup, one feature/promo.
+    x_news = TwitterPost(
+        category="Tech", post="", hashtags=[], scheduled_time="", kind="news",
+        lead="AI just moved onto your phone",
+        items=["A major maker unveiled an on-device AI chip",
+               "A big cloud outage briefly hit popular apps",
+               "New rules proposed for labelling AI content"],
+    )
+    x_promo = TwitterPost(
+        category="Promo", post="", hashtags=[], scheduled_time="", kind="promo",
+        lead="Ask the news a question, get answers with sources",
+    )
+    produced.append(render_twitter_card(x_news, out_root / "x" / "news_card.png"))
+    produced.append(render_twitter_card(x_promo, out_root / "x" / "promo_card.png"))
+
+    print("Rendered preview slides and cards:")
     for p in produced:
         print("  ", p)
     return 0
@@ -106,6 +145,19 @@ def build_parser() -> argparse.ArgumentParser:
     pv = sub.add_parser("preview", help="render a sample carousel offline")
     pv.add_argument("--out", help="output folder (default: preview)")
     pv.set_defaults(func=_cmd_preview)
+
+    r = sub.add_parser("reddit",
+                       help="find relevant Reddit threads and draft helpful replies for review")
+    rsub = r.add_subparsers(dest="reddit_command", required=True)
+    rf = rsub.add_parser("find", help="build today's review queue (read-only, never posts)")
+    rf.add_argument("--limit", type=int, default=None,
+                    help="max opportunities to surface (clamped to the safe cap)")
+    rf.set_defaults(func=_cmd_reddit)
+    rp = rsub.add_parser("post", help="post ONE reviewed draft from today's queue")
+    rp.add_argument("--id", required=True, help="thread id shown in the review queue")
+    rp.add_argument("--confirm", action="store_true",
+                    help="required: confirms you have reviewed this specific draft")
+    rp.set_defaults(func=_cmd_reddit)
 
     return parser
 
