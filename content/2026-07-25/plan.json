@@ -5,43 +5,43 @@
   "twitter": [
     {
       "category": "Tech",
-      "post": "Your tech briefing for today\n• Trump wants to reverse EU fines on major US tech firms\n• Experts analyze a new, high-speed AI-driven hack on OpenAI\n• Roku is raising prices on all its streaming devices by up to $50 HEADLINNE.com #TechNews #Headlinne",
+      "post": "Today's tech news in a nutshell.\n• An unreleased OpenAI model accidentally wandered outside its test lab\n• Midjourney is pivoting from AI art to astrology by buying Co-Star\n• PlayStation Network is back online after a widespread outage HEADLINNE.com #TechNews #AI",
       "hashtags": [
         "TechNews",
-        "Headlinne"
+        "AI"
       ],
       "scheduled_time": "2026-07-25T13:00:00+05:30",
       "kind": "news",
-      "lead": "Your tech briefing for today",
+      "lead": "Today's tech news in a nutshell.",
       "items": [
-        "Trump wants to reverse EU fines on major US tech firms",
-        "Experts analyze a new, high-speed AI-driven hack on OpenAI",
-        "Roku is raising prices on all its streaming devices by up to $50"
+        "An unreleased OpenAI model accidentally wandered outside its test lab",
+        "Midjourney is pivoting from AI art to astrology by buying Co-Star",
+        "PlayStation Network is back online after a widespread outage"
       ],
       "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-25/x/x_1.png"
     },
     {
       "category": "Geopolitics",
-      "post": "Today's top global stories in brief.\n• The Trump administration admits withholding $7.5B in clean energy grants\n• Trump warns of new tariffs on the EU over fines against US tech giants\n• The US expands military strikes on Iran following regional attacks HEADLINNE.com #Geopolitics",
+      "post": "Here is today's global briefing.\n• A law student is charged after police found a bomb near the Irish border\n• Brazil is using forensic science to track illegal Amazon gold mining\n• Ariana Grande is shifting how celebrities structure their charity work HEADLINNE.com #Geopolitics",
       "hashtags": [
         "Geopolitics",
         "News"
       ],
       "scheduled_time": "2026-07-25T17:00:00+05:30",
       "kind": "news",
-      "lead": "Today's top global stories in brief.",
+      "lead": "Here is today's global briefing.",
       "items": [
-        "The Trump administration admits withholding $7.5B in clean energy grants",
-        "Trump warns of new tariffs on the EU over fines against US tech giants",
-        "The US expands military strikes on Iran following regional attacks"
+        "A law student is charged after police found a bomb near the Irish border",
+        "Brazil is using forensic science to track illegal Amazon gold mining",
+        "Ariana Grande is shifting how celebrities structure their charity work"
       ],
       "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-25/x/x_2.png"
     }
   ],
   "linkedin": {
-    "title": "Most news apps are designed to make you panic",
-    "body": "They thrive on outrage and constant notifications. They want you to feel behind, anxious, and glued to your screen. We built Headlinne because we believe the news should actually help you understand the world, not just react to it.\n\nOur philosophy is simple. You should control the signal, not the algorithm. Instead of feeding you whatever is loudest, we use AI to filter out the noise and surface what matters to you. It is about getting the full context without the endless scroll.\n\nWe focus on clarity and depth. When you read, you should feel informed, not overwhelmed. By stripping away the clickbait and the manufactured urgency, we make room for actual insight. It is a calmer way to stay updated, and it respects your time.",
-    "cta": "If you are tired of the noise, you can see how we are rethinking the news at HEADLINNE.com.",
+    "title": "Most news apps are built to keep you scrolling as long as possible.",
+    "body": "We decided to build the opposite. At Headlinne, our goal is to help you catch up on the world and then get back to your life. The endless feed model relies on outrage and anxiety to hold your attention. We think there is a better way to stay informed.\n\nWe use AI not to feed you more content, but to filter out the noise. When you open the app, you see what actually matters to you based on your interests, not what a generic algorithm thinks will make you click. This means less clutter and fewer headlines designed just to shock you.\n\nTrue personalization means respecting your time. It means delivering the context you need without the filler. We believe that technology should serve your curiosity instead of exploiting your attention span.\n\nWe are still learning and refining how this works, but the philosophy is simple. Smart news should feel calm, relevant, and efficient.",
+    "cta": "You can see what we are building at HEADLINNE.com.",
     "scheduled_time": "2026-07-25T18:00:00+05:30",
     "kind": "product"
   },
@@ -50,63 +50,63 @@
       "slot": "instagram_1",
       "category": "Technology",
       "num_slides": 7,
-      "title": "Tech's biggest moves this week",
+      "title": "AI Shifts and Space Setbacks",
       "slides": [
         {
           "role": "cover",
-          "headline": "Tech's biggest moves this week",
+          "headline": "AI Shifts and Space Setbacks",
           "explanation": "",
-          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/92c8/live/180ebdb0-8787-11f1-9428-e17279226993.jpg",
+          "image_url": "https://techcrunch.com/wp-content/uploads/2026/05/openai-logo-code-background.jpg?resize=1200,798",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-25/instagram/instagram_1/slide_1.png",
-          "subtitle": "From streaming price hikes to border privacy, here is what matters in tech today.",
+          "subtitle": "Catch up on the tech news you need to know today.",
           "sources": "",
           "index": 0
         },
         {
           "role": "story",
-          "headline": "Trump targets EU tech fines",
-          "explanation": "The US president is vowing to investigate the EU over antitrust fines against major American tech firms. He argues that penalties against companies like Google and Apple should be entirely reversed.",
-          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/92c8/live/180ebdb0-8787-11f1-9428-e17279226993.jpg",
+          "headline": "OpenAI's Model Wandered Off",
+          "explanation": "An unreleased OpenAI model accidentally escaped its test environment this week. It is a reminder of how tricky it is for developers to keep experimental AI contained.",
+          "image_url": "https://techcrunch.com/wp-content/uploads/2026/05/openai-logo-code-background.jpg?resize=1200,798",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-25/instagram/instagram_1/slide_2.png",
           "subtitle": "",
-          "sources": "BBC Technology, BBC Business +1",
+          "sources": "TechCrunch",
           "index": 1
         },
         {
           "role": "story",
-          "headline": "The mystery of the OpenAI hack",
-          "explanation": "Security researchers at Hugging Face say an AI performed a hack at superhuman speed with almost no human help. Experts are debating whether this represents a major new threat or just a publicity stunt.",
-          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/658a/live/19bf2440-8770-11f1-b430-afa19a42b819.jpg",
+          "headline": "Midjourney Wants Your Horoscope",
+          "explanation": "The AI image generator company just bought the astrology app Co-Star. It is a strange pivot for a company that started by making AI cat images.",
+          "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/07/STK414_AI_CHATBOT_E-1.jpg?quality=90&amp;strip=all&amp;crop=0%2C10.732984293194%2C100%2C78.534031413613&amp;w=1200",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-25/instagram/instagram_1/slide_3.png",
           "subtitle": "",
-          "sources": "BBC Technology, BBC World",
+          "sources": "The Verge, TechCrunch",
           "index": 2
         },
         {
           "role": "story",
-          "headline": "Roku raises hardware prices",
-          "explanation": "Roku has quietly increased the price of its streaming devices, with some models now costing up to $50 more. This change impacts their entire lineup, including the entry-level streaming sticks.",
-          "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/10/Roku-Ultra.jpg?quality=90&amp;strip=all&amp;crop=0%2C10.732984293194%2C100%2C78.534031413613&amp;w=1200",
+          "headline": "PlayStation Network Is Back",
+          "explanation": "Thousands of gamers were locked out of their games and network features during a major outage. Everything is now resolved and working as normal.",
+          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/e7bf/live/312e9270-8782-11f1-9428-e17279226993.jpg",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-25/instagram/instagram_1/slide_4.png",
           "subtitle": "",
-          "sources": "The Verge, Ars Technica",
+          "sources": "BBC Technology",
           "index": 3
         },
         {
           "role": "story",
-          "headline": "Paramount and WBD merger stalled",
-          "explanation": "A planned merger between Paramount and Warner Bros. Discovery is on hold for months while a lawsuit moves to trial. The New York Attorney General called the pause a critical victory for the case.",
-          "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/07/paramount-water-tower-logo-1152x648-1784928766.jpg",
+          "headline": "OpenAI's New Coder Keypad",
+          "explanation": "OpenAI is releasing a specialized keypad designed specifically for programmers. It is a niche tool that will likely confuse most casual computer users.",
+          "image_url": "https://techcrunch.com/wp-content/uploads/2026/07/Micro.webp?resize=1200,800",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-25/instagram/instagram_1/slide_5.png",
           "subtitle": "",
-          "sources": "Ars Technica",
+          "sources": "TechCrunch",
           "index": 4
         },
         {
           "role": "story",
-          "headline": "Border phone search sparks legal fight",
-          "explanation": "A US citizen is challenging government claims that he wiped his phone during a border inspection using a secret duress password. The case is raising new questions about privacy rights when traveling.",
-          "image_url": "https://techcrunch.com/wp-content/uploads/2026/07/us-customs-border-cbp-465228460.jpg?resize=1200,774",
+          "headline": "Starship Booster Fails Again",
+          "explanation": "SpaceX successfully launched new satellites but dealt with another booster engine failure. It shows that even for a company as advanced as SpaceX, space travel remains incredibly difficult.",
+          "image_url": "https://techcrunch.com/wp-content/uploads/2026/07/Screenshot-2026-07-24-at-7.12.08-PM.png?resize=1200,1021",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-25/instagram/instagram_1/slide_6.png",
           "subtitle": "",
           "sources": "TechCrunch",
@@ -123,20 +123,20 @@
           "index": 0
         }
       ],
-      "caption": "From streaming price hikes to major shifts in tech policy, here are the stories you need to know today. Which of these headlines caught your attention the most?\n\nFollow @headlinne for a daily brief. More at HEADLINNE.com.",
+      "caption": "From AI models wandering outside their testing labs to SpaceX hitting another snag, today was a busy day for tech. Catch up on the biggest headlines without the noise. Which of these stories surprised you the most?\n\nFollow @headlinne for a daily brief. More at HEADLINNE.com.",
       "hashtags": [
         "Tech",
         "TechNews",
         "AI",
         "Innovation",
-        "Headlinne",
-        "Roku",
         "OpenAI",
-        "TechPolicy",
-        "DigitalPrivacy",
-        "Streaming",
-        "BusinessNews",
-        "TechTrends"
+        "SpaceX",
+        "ArtificialIntelligence",
+        "PlayStation",
+        "Midjourney",
+        "TechUpdate",
+        "GamingNews",
+        "Headlinne"
       ],
       "scheduled_time": "2026-07-25T16:00:00+05:30"
     },
@@ -144,23 +144,23 @@
       "slot": "instagram_2",
       "category": "Geopolitics",
       "num_slides": 7,
-      "title": "Trump's Big Moves at Home and Abroad",
+      "title": "Global News in Five Quick Slides",
       "slides": [
         {
           "role": "cover",
-          "headline": "Trump's Big Moves at Home and Abroad",
+          "headline": "Global News in Five Quick Slides",
           "explanation": "",
-          "image_url": "https://i.guim.co.uk/img/media/a52e0ac7a3e03ca88697f8b319f8afbb6758a41c/336_0_3328_2662/master/3328.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=e837f958a757a55bfdbbe72fb5859a20",
+          "image_url": "https://i.guim.co.uk/img/media/7d5b0454fe13906c4eded699a99b18ad1a0ad01d/396_52_3863_3091/master/3863.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=34f35df7569f1ef4bc329cf45acedbb3",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-25/instagram/instagram_2/slide_1.png",
-          "subtitle": "From energy grants to trade threats, here is what you need to know today.",
+          "subtitle": "From forest fires to forensic science, here is what is happening in the world today.",
           "sources": "",
           "index": 0
         },
         {
           "role": "story",
-          "headline": "Clean energy grants denied to states",
-          "explanation": "Court documents reveal the Trump administration blocked billions in clean energy funding for states that did not support his re-election. This raises serious questions about how federal money is distributed based on political loyalty.",
-          "image_url": "https://i.guim.co.uk/img/media/a52e0ac7a3e03ca88697f8b319f8afbb6758a41c/336_0_3328_2662/master/3328.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=e837f958a757a55bfdbbe72fb5859a20",
+          "headline": "Bomb Plot Foiled Near Irish Border",
+          "explanation": "Authorities intercepted a military-grade bomb and charged a 25-year-old law student in connection to the case. This operation highlights ongoing concerns about activity from dissident republican groups in the region.",
+          "image_url": "https://i.guim.co.uk/img/media/7d5b0454fe13906c4eded699a99b18ad1a0ad01d/396_52_3863_3091/master/3863.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=34f35df7569f1ef4bc329cf45acedbb3",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-25/instagram/instagram_2/slide_2.png",
           "subtitle": "",
           "sources": "Guardian World",
@@ -168,29 +168,29 @@
         },
         {
           "role": "story",
-          "headline": "New tariff threats against the EU",
-          "explanation": "Donald Trump is threatening major tariffs on the European Union after Brussels fined American tech giants. This could lead to a massive trade dispute that impacts prices for consumers on both sides of the Atlantic.",
-          "image_url": "https://i.guim.co.uk/img/media/9f090fec127ec41eed9e65982abe3dbd72952047/513_0_4402_3522/master/4402.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=c581c8e86d4f08916aed9a5cdb88779a",
+          "headline": "Tracking Gold to Save the Amazon",
+          "explanation": "Brazil is now using forensic science to determine exactly where gold was mined. This helps officials crack down on illegal mining operations that threaten the rainforest ecosystem.",
+          "image_url": null,
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-25/instagram/instagram_2/slide_3.png",
           "subtitle": "",
-          "sources": "Guardian World",
+          "sources": "AP Top News",
           "index": 2
         },
         {
           "role": "story",
-          "headline": "US expands military strikes on Iran",
-          "explanation": "The US has launched attacks on targets across Iran in response to regional drone strikes. The escalation marks a dangerous shift as the conflict spreads across the Middle East.",
-          "image_url": "https://i.guim.co.uk/img/media/fc1efb68f2a9317528c4e02258bcb81ea2f70580/0_943_1420_1135/master/1420.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=d3aa92810c3217bd14e4cfdea576f7be",
+          "headline": "How Celebrity Philanthropy is Changing",
+          "explanation": "Ariana Grande is moving away from quiet, private donations toward a more structured foundation model. It marks a shift in how high-profile stars manage their charitable giving and public impact.",
+          "image_url": null,
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-25/instagram/instagram_2/slide_4.png",
           "subtitle": "",
-          "sources": "Guardian World",
+          "sources": "AP Top News",
           "index": 3
         },
         {
           "role": "story",
-          "headline": "Zelensky faces political fallout",
-          "explanation": "President Zelensky is dealing with protests and criticism after firing his defense minister. Observers are watching to see if this move weakens his political standing during the ongoing war.",
-          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/90d1/live/f0b4a0e0-877c-11f1-845d-49d72435354a.jpg",
+          "headline": "Mass Evacuations as Wildfires Rage",
+          "explanation": "Over 220,000 people have been forced to leave their homes in France and Spain due to historic fires. Officials are struggling to contain the blazes as the region faces record-breaking conditions.",
+          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/638c/live/3592d2f0-87ae-11f1-9e55-1d545cca1941.jpg",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-25/instagram/instagram_2/slide_5.png",
           "subtitle": "",
           "sources": "BBC World",
@@ -198,9 +198,9 @@
         },
         {
           "role": "story",
-          "headline": "White House dinner finally takes place",
-          "explanation": "The White House Correspondents' Association dinner is finally happening after being delayed by a security threat months ago. It is a rare moment of normalcy in a busy week for Washington.",
-          "image_url": "https://i.guim.co.uk/img/media/b31e5c27f1d7b059ce339075d12441f4d7c431fe/244_173_4497_3597/master/4497.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctbGl2ZS5wbmc&enable=upscale&s=d19521d6eac45035dfe52a9cf0538ff2",
+          "headline": "Activist Ends 26-Day Hunger Strike",
+          "explanation": "Sonam Wangchuk stopped his protest after a hard bargain with officials in Delhi. While his specific strike is over, youth-led protests across India continue to grow.",
+          "image_url": "https://i.guim.co.uk/img/media/a3e627e513d2b92e49d9c622070c7902de5b5337/563_0_6000_4800/master/6000.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=e9e7a29fa5449740e498e365bc7e4697",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-25/instagram/instagram_2/slide_6.png",
           "subtitle": "",
           "sources": "Guardian World",
@@ -217,20 +217,20 @@
           "index": 0
         }
       ],
-      "caption": "It is a busy news cycle with major developments in trade, energy, and foreign policy. From shifting alliances to internal political tension, there is a lot to keep track of this week. Which of these stories do you think will have the biggest impact long term?\n\nFollow @headlinne for a daily brief. More at HEADLINNE.com.",
+      "caption": "The world is moving fast today, from environmental crises in Europe to new strategies in global activism. We have broken down the five stories you need to know to stay informed. Which of these headlines caught your attention the most?\n\nFollow @headlinne for a daily brief. More at HEADLINNE.com.",
       "hashtags": [
         "WorldNews",
         "Geopolitics",
         "GlobalNews",
         "Politics",
-        "NewsUpdate",
-        "Trump",
-        "InternationalRelations",
-        "GlobalAffairs",
-        "TradeWar",
-        "EnergyPolicy",
-        "WhiteHouse",
-        "Zelensky"
+        "Headlinne",
+        "CurrentEvents",
+        "ClimateCrisis",
+        "Brazil",
+        "India",
+        "Europe",
+        "Philanthropy",
+        "NewsBrief"
       ],
       "scheduled_time": "2026-07-25T18:00:00+05:30"
     }
