@@ -1,0 +1,238 @@
+{
+  "day": "2026-07-25",
+  "is_promo_day": false,
+  "is_friday": false,
+  "twitter": [
+    {
+      "category": "Tech",
+      "post": "Your tech briefing for today\n• Trump wants to reverse EU fines on major US tech firms\n• Experts analyze a new, high-speed AI-driven hack on OpenAI\n• Roku is raising prices on all its streaming devices by up to $50 HEADLINNE.com #TechNews #Headlinne",
+      "hashtags": [
+        "TechNews",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-07-25T13:00:00+05:30",
+      "kind": "news",
+      "lead": "Your tech briefing for today",
+      "items": [
+        "Trump wants to reverse EU fines on major US tech firms",
+        "Experts analyze a new, high-speed AI-driven hack on OpenAI",
+        "Roku is raising prices on all its streaming devices by up to $50"
+      ],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-25/x/x_1.png"
+    },
+    {
+      "category": "Geopolitics",
+      "post": "Today's top global stories in brief.\n• The Trump administration admits withholding $7.5B in clean energy grants\n• Trump warns of new tariffs on the EU over fines against US tech giants\n• The US expands military strikes on Iran following regional attacks HEADLINNE.com #Geopolitics",
+      "hashtags": [
+        "Geopolitics",
+        "News"
+      ],
+      "scheduled_time": "2026-07-25T17:00:00+05:30",
+      "kind": "news",
+      "lead": "Today's top global stories in brief.",
+      "items": [
+        "The Trump administration admits withholding $7.5B in clean energy grants",
+        "Trump warns of new tariffs on the EU over fines against US tech giants",
+        "The US expands military strikes on Iran following regional attacks"
+      ],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-25/x/x_2.png"
+    }
+  ],
+  "linkedin": {
+    "title": "Most news apps are designed to make you panic",
+    "body": "They thrive on outrage and constant notifications. They want you to feel behind, anxious, and glued to your screen. We built Headlinne because we believe the news should actually help you understand the world, not just react to it.\n\nOur philosophy is simple. You should control the signal, not the algorithm. Instead of feeding you whatever is loudest, we use AI to filter out the noise and surface what matters to you. It is about getting the full context without the endless scroll.\n\nWe focus on clarity and depth. When you read, you should feel informed, not overwhelmed. By stripping away the clickbait and the manufactured urgency, we make room for actual insight. It is a calmer way to stay updated, and it respects your time.",
+    "cta": "If you are tired of the noise, you can see how we are rethinking the news at HEADLINNE.com.",
+    "scheduled_time": "2026-07-25T18:00:00+05:30",
+    "kind": "product"
+  },
+  "instagram": [
+    {
+      "slot": "instagram_1",
+      "category": "Technology",
+      "num_slides": 7,
+      "title": "Tech's biggest moves this week",
+      "slides": [
+        {
+          "role": "cover",
+          "headline": "Tech's biggest moves this week",
+          "explanation": "",
+          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/92c8/live/180ebdb0-8787-11f1-9428-e17279226993.jpg",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-25/instagram/instagram_1/slide_1.png",
+          "subtitle": "From streaming price hikes to border privacy, here is what matters in tech today.",
+          "sources": "",
+          "index": 0
+        },
+        {
+          "role": "story",
+          "headline": "Trump targets EU tech fines",
+          "explanation": "The US president is vowing to investigate the EU over antitrust fines against major American tech firms. He argues that penalties against companies like Google and Apple should be entirely reversed.",
+          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/92c8/live/180ebdb0-8787-11f1-9428-e17279226993.jpg",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-25/instagram/instagram_1/slide_2.png",
+          "subtitle": "",
+          "sources": "BBC Technology, BBC Business +1",
+          "index": 1
+        },
+        {
+          "role": "story",
+          "headline": "The mystery of the OpenAI hack",
+          "explanation": "Security researchers at Hugging Face say an AI performed a hack at superhuman speed with almost no human help. Experts are debating whether this represents a major new threat or just a publicity stunt.",
+          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/658a/live/19bf2440-8770-11f1-b430-afa19a42b819.jpg",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-25/instagram/instagram_1/slide_3.png",
+          "subtitle": "",
+          "sources": "BBC Technology, BBC World",
+          "index": 2
+        },
+        {
+          "role": "story",
+          "headline": "Roku raises hardware prices",
+          "explanation": "Roku has quietly increased the price of its streaming devices, with some models now costing up to $50 more. This change impacts their entire lineup, including the entry-level streaming sticks.",
+          "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/10/Roku-Ultra.jpg?quality=90&amp;strip=all&amp;crop=0%2C10.732984293194%2C100%2C78.534031413613&amp;w=1200",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-25/instagram/instagram_1/slide_4.png",
+          "subtitle": "",
+          "sources": "The Verge, Ars Technica",
+          "index": 3
+        },
+        {
+          "role": "story",
+          "headline": "Paramount and WBD merger stalled",
+          "explanation": "A planned merger between Paramount and Warner Bros. Discovery is on hold for months while a lawsuit moves to trial. The New York Attorney General called the pause a critical victory for the case.",
+          "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/07/paramount-water-tower-logo-1152x648-1784928766.jpg",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-25/instagram/instagram_1/slide_5.png",
+          "subtitle": "",
+          "sources": "Ars Technica",
+          "index": 4
+        },
+        {
+          "role": "story",
+          "headline": "Border phone search sparks legal fight",
+          "explanation": "A US citizen is challenging government claims that he wiped his phone during a border inspection using a secret duress password. The case is raising new questions about privacy rights when traveling.",
+          "image_url": "https://techcrunch.com/wp-content/uploads/2026/07/us-customs-border-cbp-465228460.jpg?resize=1200,774",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-25/instagram/instagram_1/slide_6.png",
+          "subtitle": "",
+          "sources": "TechCrunch",
+          "index": 5
+        },
+        {
+          "role": "cta",
+          "headline": "That's your brief for today.",
+          "explanation": "",
+          "image_url": null,
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-25/instagram/instagram_1/slide_7.png",
+          "subtitle": "Personalised news, minus the noise.",
+          "sources": "",
+          "index": 0
+        }
+      ],
+      "caption": "From streaming price hikes to major shifts in tech policy, here are the stories you need to know today. Which of these headlines caught your attention the most?\n\nFollow @headlinne for a daily brief. More at HEADLINNE.com.",
+      "hashtags": [
+        "Tech",
+        "TechNews",
+        "AI",
+        "Innovation",
+        "Headlinne",
+        "Roku",
+        "OpenAI",
+        "TechPolicy",
+        "DigitalPrivacy",
+        "Streaming",
+        "BusinessNews",
+        "TechTrends"
+      ],
+      "scheduled_time": "2026-07-25T16:00:00+05:30"
+    },
+    {
+      "slot": "instagram_2",
+      "category": "Geopolitics",
+      "num_slides": 7,
+      "title": "Trump's Big Moves at Home and Abroad",
+      "slides": [
+        {
+          "role": "cover",
+          "headline": "Trump's Big Moves at Home and Abroad",
+          "explanation": "",
+          "image_url": "https://i.guim.co.uk/img/media/a52e0ac7a3e03ca88697f8b319f8afbb6758a41c/336_0_3328_2662/master/3328.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=e837f958a757a55bfdbbe72fb5859a20",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-25/instagram/instagram_2/slide_1.png",
+          "subtitle": "From energy grants to trade threats, here is what you need to know today.",
+          "sources": "",
+          "index": 0
+        },
+        {
+          "role": "story",
+          "headline": "Clean energy grants denied to states",
+          "explanation": "Court documents reveal the Trump administration blocked billions in clean energy funding for states that did not support his re-election. This raises serious questions about how federal money is distributed based on political loyalty.",
+          "image_url": "https://i.guim.co.uk/img/media/a52e0ac7a3e03ca88697f8b319f8afbb6758a41c/336_0_3328_2662/master/3328.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=e837f958a757a55bfdbbe72fb5859a20",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-25/instagram/instagram_2/slide_2.png",
+          "subtitle": "",
+          "sources": "Guardian World",
+          "index": 1
+        },
+        {
+          "role": "story",
+          "headline": "New tariff threats against the EU",
+          "explanation": "Donald Trump is threatening major tariffs on the European Union after Brussels fined American tech giants. This could lead to a massive trade dispute that impacts prices for consumers on both sides of the Atlantic.",
+          "image_url": "https://i.guim.co.uk/img/media/9f090fec127ec41eed9e65982abe3dbd72952047/513_0_4402_3522/master/4402.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=c581c8e86d4f08916aed9a5cdb88779a",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-25/instagram/instagram_2/slide_3.png",
+          "subtitle": "",
+          "sources": "Guardian World",
+          "index": 2
+        },
+        {
+          "role": "story",
+          "headline": "US expands military strikes on Iran",
+          "explanation": "The US has launched attacks on targets across Iran in response to regional drone strikes. The escalation marks a dangerous shift as the conflict spreads across the Middle East.",
+          "image_url": "https://i.guim.co.uk/img/media/fc1efb68f2a9317528c4e02258bcb81ea2f70580/0_943_1420_1135/master/1420.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=d3aa92810c3217bd14e4cfdea576f7be",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-25/instagram/instagram_2/slide_4.png",
+          "subtitle": "",
+          "sources": "Guardian World",
+          "index": 3
+        },
+        {
+          "role": "story",
+          "headline": "Zelensky faces political fallout",
+          "explanation": "President Zelensky is dealing with protests and criticism after firing his defense minister. Observers are watching to see if this move weakens his political standing during the ongoing war.",
+          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/90d1/live/f0b4a0e0-877c-11f1-845d-49d72435354a.jpg",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-25/instagram/instagram_2/slide_5.png",
+          "subtitle": "",
+          "sources": "BBC World",
+          "index": 4
+        },
+        {
+          "role": "story",
+          "headline": "White House dinner finally takes place",
+          "explanation": "The White House Correspondents' Association dinner is finally happening after being delayed by a security threat months ago. It is a rare moment of normalcy in a busy week for Washington.",
+          "image_url": "https://i.guim.co.uk/img/media/b31e5c27f1d7b059ce339075d12441f4d7c431fe/244_173_4497_3597/master/4497.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctbGl2ZS5wbmc&enable=upscale&s=d19521d6eac45035dfe52a9cf0538ff2",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-25/instagram/instagram_2/slide_6.png",
+          "subtitle": "",
+          "sources": "Guardian World",
+          "index": 5
+        },
+        {
+          "role": "cta",
+          "headline": "That's your brief for today.",
+          "explanation": "",
+          "image_url": null,
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-25/instagram/instagram_2/slide_7.png",
+          "subtitle": "Personalised news, minus the noise.",
+          "sources": "",
+          "index": 0
+        }
+      ],
+      "caption": "It is a busy news cycle with major developments in trade, energy, and foreign policy. From shifting alliances to internal political tension, there is a lot to keep track of this week. Which of these stories do you think will have the biggest impact long term?\n\nFollow @headlinne for a daily brief. More at HEADLINNE.com.",
+      "hashtags": [
+        "WorldNews",
+        "Geopolitics",
+        "GlobalNews",
+        "Politics",
+        "NewsUpdate",
+        "Trump",
+        "InternationalRelations",
+        "GlobalAffairs",
+        "TradeWar",
+        "EnergyPolicy",
+        "WhiteHouse",
+        "Zelensky"
+      ],
+      "scheduled_time": "2026-07-25T18:00:00+05:30"
+    }
+  ]
+}
