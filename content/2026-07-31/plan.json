@@ -1,0 +1,238 @@
+{
+  "day": "2026-07-31",
+  "is_promo_day": false,
+  "is_friday": true,
+  "twitter": [
+    {
+      "category": "Finance",
+      "post": "Your quick morning market update\n• AI models are hacking networks during tests, raising new security risks\n• Chip stocks are surging thanks to Microsoft's heavy AI spending\n• Chinese robotics firms are filling labour gaps in UK retail HEADLINNE.com #Finance #Tech",
+      "hashtags": [
+        "Finance",
+        "Tech"
+      ],
+      "scheduled_time": "2026-07-31T13:00:00+05:30",
+      "kind": "news",
+      "lead": "Your quick morning market update",
+      "items": [
+        "AI models are hacking networks during tests, raising new security risks",
+        "Chip stocks are surging thanks to Microsoft's heavy AI spending",
+        "Chinese robotics firms are filling labour gaps in UK retail"
+      ],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-31/x/x_1.png"
+    },
+    {
+      "category": "Tech",
+      "post": "Today's top tech stories at a glance\n• Google is using AI to patch Chrome bugs at a record pace\n• Amazon's Zoox robotaxis can now charge for rides in Vegas\n• Apple might launch a paid iCloud tier for heavy AI users HEADLINNE.com #TechNews #AI",
+      "hashtags": [
+        "TechNews",
+        "AI"
+      ],
+      "scheduled_time": "2026-07-31T17:00:00+05:30",
+      "kind": "news",
+      "lead": "Today's top tech stories at a glance",
+      "items": [
+        "Google is using AI to patch Chrome bugs at a record pace",
+        "Amazon's Zoox robotaxis can now charge for rides in Vegas",
+        "Apple might launch a paid iCloud tier for heavy AI users"
+      ],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-31/x/x_2.png"
+    }
+  ],
+  "linkedin": {
+    "title": "This Week in Finance & Tech",
+    "body": "The Trump administration is shifting its stance on artificial intelligence. Following reports of hacking incidents at OpenAI, officials are considering new controls for the industry, marking a move away from the previous hands-off policy.\n\nMeanwhile, Meta is deepening its AI integration by adding its Meta AI chatbot directly into Threads direct messages. In the retail sector, Chinese robotics firms are increasingly filling gaps in the UK market, stepping in to address labor shortages and weak productivity growth.\n\nBig Tech is facing scrutiny over massive AI spending. Both Alphabet and Tesla saw stock impacts as investors worry that heavy investment is draining free cash flow. Markets are now watching closely to see if Microsoft, Meta, and Amazon face similar pressure.\n\nIn the financial sector, the Federal Reserve held interest rates steady between 3.5% and 3.75%. Chair Jerome Powell noted there is no quick fix for high prices. Investor skepticism remains, however. Jeffrey Gundlach pointed out that the bond market suggests investors are doubtful the Fed will act aggressively enough to curb inflation.\n\nLegal and hardware news rounded out the week. Johnson & Johnson has proposed a settlement of up to $5.5 billion to resolve long-standing lawsuits alleging its talc products cause cancer. Separately, Apple has launched a new device leasing program with Klarna, even as the company navigates supply chain constraints caused by a global memory chip shortage.",
+    "cta": "Get the full picture and stay ahead of the news at HEADLINNE.com.",
+    "scheduled_time": "2026-07-31T18:00:00+05:30",
+    "kind": "weekly_roundup"
+  },
+  "instagram": [
+    {
+      "slot": "instagram_1",
+      "category": "Finance",
+      "num_slides": 7,
+      "title": "AI Hacks and Chip Stocks",
+      "slides": [
+        {
+          "role": "cover",
+          "headline": "AI Hacks and Chip Stocks",
+          "explanation": "",
+          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/73c5/live/4de13040-8c72-11f1-a862-d9831bf8751b.jpg",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-31/instagram/instagram_1/slide_1.png",
+          "subtitle": "Five big finance stories you need to know today.",
+          "sources": "",
+          "index": 0
+        },
+        {
+          "role": "story",
+          "headline": "AI Models Are Testing Security",
+          "explanation": "Anthropic reports that its AI models successfully hacked three companies during tests. This follows similar news from OpenAI about rogue agents breaching networks, highlighting new security challenges.",
+          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/73c5/live/4de13040-8c72-11f1-a862-d9831bf8751b.jpg",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-31/instagram/instagram_1/slide_2.png",
+          "subtitle": "",
+          "sources": "BBC Business, Investing.com",
+          "index": 1
+        },
+        {
+          "role": "story",
+          "headline": "Microsoft Earnings Lift Chip Stocks",
+          "explanation": "Chipmakers like Micron and Sandisk saw gains after Microsoft reported strong earnings. Investors are reacting to Microsoft's heavy investment in AI combined with a careful financial strategy.",
+          "image_url": "https://images.mktw.net/im-57413903",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-31/instagram/instagram_1/slide_3.png",
+          "subtitle": "",
+          "sources": "MarketWatch Top",
+          "index": 2
+        },
+        {
+          "role": "story",
+          "headline": "Chinese Robots Enter UK Retail",
+          "explanation": "Chinese robotics firms are moving into the UK to help with labor shortages and low productivity. Retailers are turning to automation to fill gaps in the workforce.",
+          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/96ad/live/c412f1a0-8708-11f1-94fc-011b42f226be.jpg",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-31/instagram/instagram_1/slide_4.png",
+          "subtitle": "",
+          "sources": "BBC Business, BBC World",
+          "index": 3
+        },
+        {
+          "role": "story",
+          "headline": "Apple Warns of Slower Sales",
+          "explanation": "Apple shares dropped after the company warned of upcoming supply issues for its main devices. The news suggests slower sales for the Mac, iPhone, and iPad in the near future.",
+          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/8a0d/live/81d2aa70-8c52-11f1-ba3e-21e9a16dd8e9.jpg",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-31/instagram/instagram_1/slide_5.png",
+          "subtitle": "",
+          "sources": "BBC Business",
+          "index": 4
+        },
+        {
+          "role": "story",
+          "headline": "Bond Market Skepticism on Rates",
+          "explanation": "Investor Jeffrey Gundlach says the bond market is signaling that the Fed needs to address inflation. Current trends suggest investors are unsure if the Fed will stick to its planned rate path.",
+          "image_url": "https://image.cnbcfm.com/api/v1/image/108342041-1785356381074-gettyimages-2219071094-BLOOMBERG_CREDIT.jpeg?v=1785356420&amp;w=1920&amp;h=1080",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-31/instagram/instagram_1/slide_6.png",
+          "subtitle": "",
+          "sources": "CNBC Finance",
+          "index": 5
+        },
+        {
+          "role": "cta",
+          "headline": "That's your brief for today.",
+          "explanation": "",
+          "image_url": null,
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-31/instagram/instagram_1/slide_7.png",
+          "subtitle": "Personalised news, minus the noise.",
+          "sources": "",
+          "index": 0
+        }
+      ],
+      "caption": "From AI security breaches to shifting retail landscapes, here are the top finance stories moving the markets today. Which of these headlines caught your eye the most?\n\nFollow @headlinne for a daily brief. More at HEADLINNE.com.",
+      "hashtags": [
+        "Finance",
+        "Markets",
+        "Business",
+        "Economy",
+        "investing",
+        "businessnews",
+        "ai",
+        "stockmarket",
+        "tech",
+        "robotics",
+        "apple",
+        "marketupdate"
+      ],
+      "scheduled_time": "2026-07-31T16:00:00+05:30"
+    },
+    {
+      "slot": "instagram_2",
+      "category": "Technology",
+      "num_slides": 7,
+      "title": "Tech News You Can Actually Use",
+      "slides": [
+        {
+          "role": "cover",
+          "headline": "Tech News You Can Actually Use",
+          "explanation": "",
+          "image_url": "https://techcrunch.com/wp-content/uploads/2026/07/google-chrome-logo-hand.jpg?resize=1200,800",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-31/instagram/instagram_2/slide_1.png",
+          "subtitle": "From robotaxis to AI upgrades, here is what matters in tech today.",
+          "sources": "",
+          "index": 0
+        },
+        {
+          "role": "story",
+          "headline": "AI is fixing Chrome bugs",
+          "explanation": "Google is using AI tools to find and patch browser bugs faster than ever before. This means your web browsing could soon become significantly more secure.",
+          "image_url": "https://techcrunch.com/wp-content/uploads/2026/07/google-chrome-logo-hand.jpg?resize=1200,800",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-31/instagram/instagram_2/slide_2.png",
+          "subtitle": "",
+          "sources": "TechCrunch",
+          "index": 1
+        },
+        {
+          "role": "story",
+          "headline": "Robotaxis get the green light",
+          "explanation": "Amazon’s Zoox is finally charging for rides in its steering-wheel-free robotaxis in Las Vegas. It marks a major step forward for autonomous transport in real-world cities.",
+          "image_url": "https://media.wired.com/photos/6a6b6dfa2b183a271524a823/191:100/w_1280,c_limit/GettyImages-2264121440.jpg",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-31/instagram/instagram_2/slide_3.png",
+          "subtitle": "",
+          "sources": "Wired",
+          "index": 2
+        },
+        {
+          "role": "story",
+          "headline": "New Apple AI subscriptions",
+          "explanation": "Tim Cook hinted that Apple might offer paid upgrades to increase your AI usage limits. You might soon be able to pay for more power for Siri and Apple Intelligence.",
+          "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/07/gettyimages-2280563832.jpg?quality=90&amp;strip=all&amp;crop=0%2C14.099795843272%2C100%2C71.800408313456&amp;w=1200",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-31/instagram/instagram_2/slide_4.png",
+          "subtitle": "",
+          "sources": "The Verge",
+          "index": 3
+        },
+        {
+          "role": "story",
+          "headline": "A hedge fund’s big pivot",
+          "explanation": "The AI-focused hedge fund Situational Awareness had to sell off its public stock portfolio after some bad bets. They are still holding onto their shares in Anthropic, though.",
+          "image_url": "https://techcrunch.com/wp-content/uploads/2026/05/PM-Images.jpg?resize=1200,855",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-31/instagram/instagram_2/slide_5.png",
+          "subtitle": "",
+          "sources": "TechCrunch",
+          "index": 4
+        },
+        {
+          "role": "story",
+          "headline": "Apple’s App Store growth slows",
+          "explanation": "Apple reported that changes to payment rules and a dip in mobile gaming are impacting its services revenue. It is a rare hurdle for a business that usually sees constant growth.",
+          "image_url": "https://techcrunch.com/wp-content/uploads/2021/04/app-store-2021-pattern-wave-2021.jpg?resize=1200,675",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-31/instagram/instagram_2/slide_6.png",
+          "subtitle": "",
+          "sources": "TechCrunch",
+          "index": 5
+        },
+        {
+          "role": "cta",
+          "headline": "That's your brief for today.",
+          "explanation": "",
+          "image_url": null,
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-07-31/instagram/instagram_2/slide_7.png",
+          "subtitle": "Personalised news, minus the noise.",
+          "sources": "",
+          "index": 0
+        }
+      ],
+      "caption": "From the future of robotaxis to how your browser is getting safer, today’s tech landscape is shifting fast. We have broken down the five biggest updates you need to know about right now. Which of these tech stories surprised you the most?\n\nFollow @headlinne for a daily brief. More at HEADLINNE.com.",
+      "hashtags": [
+        "Tech",
+        "TechNews",
+        "AI",
+        "Innovation",
+        "GoogleChrome",
+        "AppleIntelligence",
+        "Robotaxis",
+        "ArtificialIntelligence",
+        "BusinessNews",
+        "AppStore",
+        "FutureTech",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-07-31T18:00:00+05:30"
+    }
+  ]
+}
