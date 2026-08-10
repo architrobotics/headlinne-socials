@@ -1,61 +1,5 @@
 {
   "days": {
-    "2026-07-30": {
-      "story_urls": [
-        "https://www.bbc.co.uk/news/articles/ckgd31l5yrdo?at_medium=RSS&at_campaign=rss",
-        "https://www.theverge.com/tech/972927/microsoft-copilot-super-app-confirmed",
-        "https://www.theverge.com/tech/972738/xbox-revenue-microsoft-earnings-q4-2026",
-        "https://techcrunch.com/2026/07/29/microsoft-logs-3-2b-from-anthropic-investment-but-openai-was-a-mixed-bag/",
-        "https://techcrunch.com/2026/07/29/zuckerberg-says-metas-enterprise-ai-opportunity-extends-beyond-agents/",
-        "https://www.theguardian.com/business/2026/jul/29/federal-reserve-interest-rates",
-        "https://www.aljazeera.com/economy/2026/7/29/us-fed-holds-interest-rates-steady-citing-elevated-inflation?traffic_source=rss",
-        "https://apnews.com/article/joker-ghostbusters-producer-ponzi-scheme-fraud-charge-92490a18e78bdea0e1ebc6e761d95c89",
-        "https://apnews.com/article/chabad-lubavitch-headquarters-car-crash-sentencing-feae37a7872062d9aa6becd294dd7d79",
-        "https://www.theguardian.com/us-news/live/2026/jul/29/donald-trump-anthony-fauci-rand-paul-covid-lab-leak-theory-iran-tariffs-latest-news-updates",
-        "https://www.bbc.co.uk/news/articles/c20dppq3y90o?at_medium=RSS&at_campaign=rss",
-        "https://www.bbc.co.uk/news/articles/c9q90q9qnn2o?at_medium=RSS&at_campaign=rss",
-        "https://www.theverge.com/tech/972294/meta-q2-2026-earnings-mark-zuckerberg-personal-ai-agents",
-        "https://techcrunch.com/2026/07/29/microsoft-is-openly-competing-with-openai-anthropic-more-than-ever/",
-        "https://www.theverge.com/ai-artificial-intelligence/972709/openai-hardware-greg-brockman-interview",
-        "https://apnews.com/article/trump-iran-strait-of-hormuz-8df557699c900b29fb33172e6da7f3e9",
-        "https://www.theguardian.com/world/2026/jul/30/ukraine-russia-missile-strikes-attack-kyiv",
-        "https://www.bbc.co.uk/news/articles/c74gwdzywmeo?at_medium=RSS&at_campaign=rss",
-        "https://apnews.com/article/samsung-ai-profit-memory-chips-10c2c548a392988862d8c7bd3f6fae05",
-        "https://www.bbc.co.uk/news/articles/c70g6y24d76o?at_medium=RSS&at_campaign=rss"
-      ],
-      "story_titles": [
-        "Meta shares fall as frustration grows over AI spending plans",
-        "Microsoft confirms Copilot \u2018super app\u2019 coming this year",
-        "Xbox revenue drops 10 percent as Microsoft&#8217;s cloud and AI business surges",
-        "Microsoft logs $3.2B from Anthropic investment, but OpenAI was a mixed bag",
-        "Zuckerberg says Meta\u2019s enterprise AI opportunity extends beyond agents",
-        "Fed holds interest rates steady despite Trump\u2019s renewed calls to lower them",
-        "US Fed holds interest rates steady, citing \u2018elevated\u2019 inflation",
-        "Film financier Jason Cloth indicted in alleged $100M Ponzi scheme tied to movie funding",
-        "Man gets 6-month sentence for ramming car into Jewish group\u2019s NY world headquarters",
-        "Donald Trump again threatens to hit Iran \u2018very hard\u2019 \u2013 live",
-        "Trump considering AI controls after OpenAI hacking incidents",
-        "Data centres could pay hundreds of millions in deposits for power demands",
-        "Mark Zuckerberg is planning a big push into personal AI agents",
-        "Microsoft is openly competing with OpenAI, Anthropic more than ever",
-        "OpenAI president says it&#8217;s &#8216;building a family of devices&#8217; for its AI chatbots",
-        "FACT FOCUS: A look at US and Iranian claims of control over the Strait of Hormuz",
-        "Deadly strikes on Ukrainian cities after Zelenskyy warns of \u2018massive\u2019 Russian attack",
-        "US launches 'heavy' strikes on Iran after attempted attack on American troops",
-        "Samsung reports record profit as South Korean chip giants benefit from global AI boom",
-        "Saudi Arabia joins US in strikes on Iran-backed militias in Iraq"
-      ],
-      "post_texts": [
-        "Ever wonder how different outlets frame the same news story? We added a bias analysis tool so you can see where a report lands on the political spectrum. It is a simple way to spot spin and get a clearer picture of what is actually happening. HEADLINNE.com #MediaLiteracy #News",
-        "We have all been there. You click on one article about electric vehicles and suddenly your feed is flooded with ten more, regardless of whether you actually care about the technology or just needed to know about a specific recall. Most recommendation engines are built to optimize for clicks rather than understanding your actual interests.\n\nAt Headlinne, we take a different approach. We focus on building a model that learns from the nuances of what you read. It is not just about tagging topics like tech or politics. It is about understanding the context, the depth of the reporting, and the perspective that keeps you engaged. If you read a piece about urban planning, the engine should not just feed you more articles with that keyword. It should learn that you value long-form analysis on infrastructure and city development.\n\nThis is the difference between a feed that just fills your time and one that actually respects your curiosity. By focusing on the substance of the story rather than just the surface-level metadata, we can create a reading experience that feels tailored to how you think, not just what you clicked on yesterday.",
-        "Big tech is moving fast this week, with major pivots in gaming and artificial intelligence. We are seeing a clear shift toward enterprise tools and away from traditional hardware. Which of these updates surprised you the most?\n\nFollow @headlinne for a daily brief. More at HEADLINNE.com.",
-        "From the latest economic policy shifts to breaking legal news, here are the stories shaping the headlines today. We break down the facts so you can stay informed without the noise. Which of these updates did you find most surprising?\n\nFollow @headlinne for a daily brief. More at HEADLINNE.com.",
-        "Most news stories have a subtle slant. Our bias analysis tool highlights where a report leans so you can see the full picture. It is a simple way to stay informed without getting trapped in a single perspective. HEADLINNE.com #News #MediaLiteracy",
-        "We often talk about algorithms as if they are magic. In reality, a recommendation engine is just a student that never stops paying attention. It does not guess what you like based on your age or location. It learns by observing what you actually engage with over time.\n\nWhen you read a story about climate policy or a deep dive into tech regulations, the engine notes the specific topics you find valuable. It ignores the noise. It focuses on the signal. Over time, it builds a map of your interests that evolves as you do.\n\nThe goal is not to trap you in a filter bubble. The goal is to save you time. By filtering out the stories that do not matter to you, we can surface the ones that do. It is about respecting your time by only showing you the news that actually impacts your world.\n\nPersonalization is not about knowing everything about you. It is about understanding what you are curious about today.",
-        "The AI landscape is moving fast this week, with major shifts in both government policy and hardware plans. Whether it is new regulations or new gadgets, the way we use technology is about to change. Which of these updates do you think will impact your daily life the most?\n\nFollow @headlinne for a daily brief. More at HEADLINNE.com.",
-        "From rising tensions in the Middle East to a massive profit milestone for Samsung, these are the stories shaping the world today. It is a lot to keep up with, so we have broken down the essentials for you. Which of these updates surprised you the most?\n\nFollow @headlinne for a daily brief. More at HEADLINNE.com."
-      ]
-    },
     "2026-07-31": {
       "story_urls": [
         "https://www.bbc.co.uk/news/articles/cz7dl7w8y7po?at_medium=RSS&at_campaign=rss",
@@ -624,6 +568,39 @@
         "Now, AI search is changing the game. Instead of hunting for the right article, you can just ask a question and get a synthesized answer. It is a fundamental shift from keyword matching to actual understanding.\n\nThe real benefit here is not just speed. It is about context. When you search for a complex story, you do not just need a list of links. You need to understand the who, the why, and the implications. AI can connect those dots in seconds, saving you the time of opening five different tabs to piece the story together yourself.\n\nBut this comes with a responsibility. If we are letting algorithms summarize the news for us, we need to be certain those summaries are grounded in facts. The goal should not be to replace journalism with a bot, but to make the world's best reporting more accessible and easier to digest.\n\nWe are building Headlinne to bridge that gap. We want to give you the depth you need without the noise.",
         "From climate concerns in Texas to shifting digital privacy rules, the tech landscape is moving fast. We've broken down the biggest stories you need to know today. Which of these updates surprised you the most?\n\nFollow @headlinne for a daily brief. More at HEADLINNE.com.",
         "From the front lines in Ukraine to the halls of the Pentagon, here is a quick look at the top geopolitical stories shaping our world today. Which of these updates did you find the most concerning?\n\nFollow @headlinne for a daily brief. More at HEADLINNE.com."
+      ]
+    },
+    "2026-08-10": {
+      "story_urls": [
+        "https://apnews.com/article/trump-white-house-counsel-will-scharf-c37ebefbd5786879d2ce2bedc5223133",
+        "https://www.theguardian.com/world/2026/aug/09/yemen-houthis-saudi-oil-refinery-defence-pact-iran-strait-of-hormuz",
+        "https://www.aljazeera.com/news/2026/8/9/germany-warns-of-daily-hybrid-warfare-following-suspected-drone-attack?traffic_source=rss",
+        "https://www.theguardian.com/world/2026/aug/09/italy-condemns-spain-border-controls-ceuta-fallout-intensifies",
+        "https://www.bbc.co.uk/news/videos/cly5zpx0ypdo?at_medium=RSS&at_campaign=rss",
+        "https://techcrunch.com/2026/08/09/embattled-hedge-fund-situational-awareness-invests-400m-in-chip-startup-source-foundry/",
+        "https://www.theverge.com/transportation/977155/49ers-coach-tesla-autopilot-crash",
+        "https://techcrunch.com/2026/08/09/techcrunch-mobility-zoox-prepares-for-launch-and-ubers-av-empire/",
+        "https://www.wired.com/story/the-best-workout-headphones-and-earbuds/",
+        "https://www.theverge.com/tech/977161/mark-zuckerberg-yacht-wilderness-legacy-stranded-boat"
+      ],
+      "story_titles": [
+        "Trump announces staff secretary Will Scharf will be his new White House counsel",
+        "Iran-aligned Houthis claim they attacked oil refinery in Saudi Arabia",
+        "Germany warns of \u2018daily hybrid warfare\u2019 after explosive-laden drone found",
+        "Italy condemns Spain\u2019s \u2018unacceptable\u2019 border controls as Ceuta fallout intensifies",
+        "How Kinahan's hearing unfolded inside the courtroom in Dublin",
+        "Embattled hedge fund Situational Awareness invests $400M in chip startup Source Foundry",
+        "49ers coach says his Tesla was on Autopilot when he crashed",
+        "TechCrunch Mobility: Zoox prepares for launch and Uber\u2019s AV empire",
+        "8 Best Workout Headphones & Earbuds: Beats, Bose, Apple (2026)",
+        "Zuckerberg&#8217;s yacht was closer, but someone else saved a stranded boat"
+      ],
+      "post_texts": [
+        "The world is moving fast today.\n\u2022 Trump named Will Scharf as his new White House counsel\n\u2022 Yemen's Houthis hit a Saudi oil refinery with a drone strike\n\u2022 Germany says daily hybrid warfare is now a constant reality HEADLINNE.com #Geopolitics #News",
+        "Today's big tech updates in brief.\n\u2022 Situational Awareness is betting $400M on chip startup Source Foundry\n\u2022 Kyle Shanahan says his Tesla was on Autopilot during a recent crash\n\u2022 Zoox is gearing up for launch as AI transforms the taxi industry HEADLINNE.com #TechNews #AI",
+        "We built Deep Dive Mode at Headlinne to change that dynamic. When you see a story that matters, you often need more than just the latest update. You need context. You need to know how we got here.\n\nDeep Dive Mode uses AI to surface the essential background information behind the headlines. It connects the dots on complex topics without forcing you to open ten different browser tabs or search for old articles yourself. It turns a quick update into a complete picture.\n\nOur goal isn't to flood you with more content. It is to help you get the most out of the time you spend reading. When you understand the story, you can form your own opinion instead of just reacting to the noise.",
+        "From rising tensions in the Middle East to legal battles in Ireland, the global landscape is shifting quickly today. We have broken down the five most important geopolitical headlines you need to know. Which of these stories do you think will have the biggest impact this week?\n\nFollow @headlinne for a daily brief. More at HEADLINNE.com.",
+        "From high-stakes chip investments to the realities of Tesla's Autopilot, today's tech news is a mixed bag. We broke down the most interesting stories so you can stay informed in under a minute. Which of these updates surprised you the most?\n\nFollow @headlinne for a daily brief. More at HEADLINNE.com."
       ]
     }
   }
