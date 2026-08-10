@@ -159,6 +159,15 @@ SCHEDULE_IST = {
     "linkedin": (18, 0),    # 6:00 PM
     "instagram_1": (16, 0), # 4:00 PM
     "instagram_2": (18, 0), # 6:00 PM
+    # Reels are the only real discovery surface on Instagram: the Reels tab is
+    # served to people who do not follow you, while feed posts are shown almost
+    # entirely to existing followers. A cold account therefore needs reels to be
+    # seen at all, which is why they lead the day and bracket it.
+    "reel_1": (9, 30),      # 9:30 AM  - news explainer of the day's biggest story
+    "reel_2": (20, 0),      # 8:00 PM  - educational explainer (evergreen topic)
+    # The daily story card lands in the evening scroll peak, when saves and
+    # shares (the strongest ranking signals for a static post) are highest.
+    "story_card": (21, 30), # 9:30 PM
 }
 
 
@@ -176,6 +185,17 @@ LINKEDIN_SOFT_LIMIT = 2800        # well under LinkedIn's 3000 hard cap
 INSTAGRAM_CAPTION_LIMIT = 2200
 INSTAGRAM_MAX_HASHTAGS = 12       # Instagram allows 30; we stay tasteful
 
+# Caption strategy. Instagram now indexes caption *text* for search, so the
+# opening line is worth far more as readable keywords than as a hashtag block.
+# We keep a handful of tags in the caption (where they still carry topical
+# signal) and move the long tail into the first comment, which keeps the visible
+# caption clean without losing the tags.
+INSTAGRAM_CAPTION_HASHTAGS = 4       # shown in the caption itself
+INSTAGRAM_FIRST_COMMENT_HASHTAGS = 12  # the rest, posted as the first comment
+# Only the first ~125 characters of a caption show before "more", so the hook
+# has to land inside that window.
+INSTAGRAM_CAPTION_HOOK_CHARS = 125
+
 WEBSITE = "HEADLINNE.com"
 BRAND = "Headlinne"
 
@@ -188,6 +208,189 @@ BRAND = "Headlinne"
 # "crop to first image" rule is automatically satisfied.
 SLIDE_W = 1080
 SLIDE_H = 1350
+
+
+# --------------------------------------------------------------------------- #
+# Instagram Reels
+# --------------------------------------------------------------------------- #
+# 1080 x 1920 is the full-screen 9:16 canvas Reels are designed around. Meta's
+# publishing API accepts 0.01:1 to 10:1 but crops or pillarboxes anything that
+# is not 9:16, and the Reels *tab* (the discovery surface that actually matters)
+# only takes 9:16 clips between 5 and 90 seconds.
+REEL_W = 1080
+REEL_H = 1920
+REEL_FPS = 30                     # inside Meta's accepted 23-60 fps range
+
+# Length. Completion rate is the single strongest reel ranking signal, and it
+# falls off a cliff past about 30 seconds, so we target a tight edit and hard-cap
+# the result. Meta's own limits are 3 seconds to 15 minutes, far looser than what
+# actually performs.
+REEL_TARGET_SECONDS = 28
+REEL_MIN_SECONDS = 8
+REEL_MAX_SECONDS = 55
+
+# x264 quality. CRF 20 is visually clean for flat graphic content while staying
+# far under Meta's 300 MB / 25 Mbps ceiling.
+#
+# The preset is "veryfast" on purpose. At 1080x1920 a slower preset blocks the
+# frame pipeline for minutes and buys almost nothing here: this footage is flat
+# colour, large type and slow moves, which is the easiest thing in the world for
+# an encoder. Instagram re-encodes everything on upload anyway, so the extra
+# bitrate a fast preset spends never reaches a viewer.
+REEL_CRF = int(os.getenv("REEL_CRF", "20"))
+REEL_PRESET = os.getenv("REEL_PRESET", "veryfast")
+
+# Every reel burns in its own captions, because most reels are watched muted and
+# the words have to survive that. The voiceover is the other half: it is what an
+# explainer is actually for, it is what a viewer who unmutes expects to find, and
+# a reel with a real audio track is treated as a more complete post than one
+# carrying silence.
+#
+# When the voiceover is on, the narration drives the edit: each beat lasts as
+# long as its spoken line plus a little air, so REEL_TARGET_SECONDS below only
+# governs the silent fallback.
+REEL_VOICEOVER = os.getenv("REEL_VOICEOVER", "true").strip().lower() in ("1", "true", "yes")
+REEL_TTS_MODEL = os.getenv("REEL_TTS_MODEL", "gemini-3.1-flash-tts-preview")
+
+# Gemini TTS returns raw signed 16-bit little-endian PCM, mono, at 24 kHz.
+TTS_SAMPLE_RATE = 24000
+TTS_SAMPLE_WIDTH = 2
+TTS_CHANNELS = 1
+
+# Prebuilt voices. Audition them before settling: the two formats deliberately
+# use different voices so the morning news reel and the evening lesson do not
+# sound like the same person reading two scripts.
+REEL_VOICE_NEWS = os.getenv("REEL_VOICE_NEWS", "Charon")
+REEL_VOICE_EDUCATION = os.getenv("REEL_VOICE_EDUCATION", "Kore")
+
+# Delivery direction, prepended to each line. Gemini TTS takes plain-language
+# style instructions, and without one it reads news copy like an advertisement.
+REEL_VOICE_STYLE = {
+    "news": "Read this as a calm, credible news presenter. Clear and unhurried, "
+            "no hype, no salesy lift at the end of sentences.",
+    "education": "Read this warmly, like someone explaining an idea to a friend "
+                 "who is genuinely curious. Relaxed, never lecturing.",
+}
+
+# Air around each spoken line: a moment for the cut to land before the voice
+# starts, and a moment to breathe before the next one. Small numbers, but they
+# are paid seven times over, so they are worth about five seconds of runtime
+# between them.
+REEL_VOICE_LEAD_IN = 0.25
+REEL_VOICE_TAIL = 0.45
+
+# Fallback when the voiceover is off or unavailable. Meta's spec expects an
+# audio stream and some clients reject a video-only MP4, so a silent track is
+# still muxed rather than none at all.
+REEL_SILENT_AUDIO = True
+
+# Optional override if ffmpeg is not on PATH. When unset we look for a system
+# ffmpeg first and fall back to the one bundled with imageio-ffmpeg.
+FFMPEG_BINARY = os.getenv("FFMPEG_BINARY", "")
+
+
+# --------------------------------------------------------------------------- #
+# Educational reel topics
+# --------------------------------------------------------------------------- #
+# The evening reel teaches one evergreen idea rather than reporting news. The
+# code owns the *device* (which graphic explains it best) and the model owns the
+# words, which is what keeps these visually varied instead of fifteen versions of
+# the same talking-head template.
+#
+# `graphic` must be one of the devices implemented in render/graphics.py:
+#   bars     two or three labelled bars that grow, for "this vs that" magnitudes
+#   counter  one number that counts up, for a single striking figure
+#   flow     three chips connected by arrows, for a cause-and-effect mechanism
+#   timeline a line that fills through labelled stops, for "what happens when"
+#   split    a screen split in two halves, for a direct contrast
+@dataclass(frozen=True)
+class EducationTopic:
+    title: str        # the idea being taught, in plain words
+    angle: str        # the specific take that makes it worth 30 seconds
+    graphic: str      # which visual device carries the explanation
+    category: str     # drives the accent colour and the pill
+
+
+EDUCATION_TOPICS: tuple[EducationTopic, ...] = (
+    EducationTopic(
+        "Why a rate hike makes your loan cost more",
+        "Follow one decision from a central bank down to one person's monthly payment.",
+        "flow", "Finance"),
+    EducationTopic(
+        "Falling inflation does not mean falling prices",
+        "Inflation slowing means prices climb more slowly, not that they come back down.",
+        "bars", "Finance"),
+    EducationTopic(
+        "How a bank run actually happens",
+        "It is three steps, and the third one is pure psychology.",
+        "flow", "Finance"),
+    EducationTopic(
+        "A company can lose money and still be worth billions",
+        "Markets price the future, not the current year, which is why losses and value coexist.",
+        "bars", "Finance"),
+    EducationTopic(
+        "Why one narrow strait moves the oil price",
+        "A huge share of the world's oil sails through a few chokepoints.",
+        "flow", "Geopolitics"),
+    EducationTopic(
+        "What a sanction actually does",
+        "Sanctions do not switch an economy off, they raise the cost of every transaction.",
+        "flow", "Geopolitics"),
+    EducationTopic(
+        "A ceasefire is not a peace deal",
+        "One pauses the fighting, the other settles the reason for it.",
+        "split", "Geopolitics"),
+    EducationTopic(
+        "Why markets move before an election result",
+        "Traders price the probability, so the move happens ahead of the news.",
+        "timeline", "Finance"),
+    EducationTopic(
+        "Why chip export rules matter more than tariffs",
+        "A tariff makes something pricier, an export rule makes it unavailable.",
+        "split", "Technology"),
+    EducationTopic(
+        "On-device AI versus cloud AI",
+        "Where the thinking happens changes speed, privacy and cost.",
+        "split", "Technology"),
+    EducationTopic(
+        "What a chip's nanometre number really means",
+        "It stopped being a measurement years ago and became a marketing label.",
+        "split", "Technology"),
+    EducationTopic(
+        "Why a rate cut takes months to reach you",
+        "The decision is instant, the effect travels through the economy in stages.",
+        "timeline", "Finance"),
+    EducationTopic(
+        "Why two outlets report the same story differently",
+        "Same facts, different choices about which fact goes first.",
+        "split", "Technology"),
+    EducationTopic(
+        "What 'sources say' actually means",
+        "There is a real hierarchy behind that phrase, and it tells you how solid a story is.",
+        "flow", "Technology"),
+    EducationTopic(
+        "How a headline can be true and still mislead",
+        "Leaving out the denominator is the oldest trick in the business.",
+        "bars", "Technology"),
+    EducationTopic(
+        "What GDP misses about how people live",
+        "It counts activity, not whether life got better.",
+        "bars", "Finance"),
+)
+
+
+# --------------------------------------------------------------------------- #
+# Format switches
+# --------------------------------------------------------------------------- #
+# Each daily format can be turned off without touching code. Reels and the story
+# card are on by default because they are what a cold account needs.
+REELS_ENABLED = os.getenv("REELS_ENABLED", "true").strip().lower() in ("1", "true", "yes")
+STORY_CARD_ENABLED = os.getenv("STORY_CARD_ENABLED", "true").strip().lower() in ("1", "true", "yes")
+# The second daily carousel. With reels and the story card added, four feed posts
+# a day is more than a small account needs, and posting past the point where each
+# post can find its audience dilutes every one of them. Set this to "false" to
+# drop to one carousel a day (recommended once the reels are running).
+IG_SECOND_CAROUSEL = os.getenv("IG_SECOND_CAROUSEL", "true").strip().lower() in ("1", "true", "yes")
 
 
 # --------------------------------------------------------------------------- #

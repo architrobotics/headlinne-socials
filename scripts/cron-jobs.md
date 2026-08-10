@@ -41,7 +41,8 @@ All jobs call the GitHub "workflow dispatch" API.
   ```json
   { "ref": "main", "inputs": { "target": "instagram-1" } }
   ```
-  Valid targets: `x-1`, `x-2`, `linkedin`, `instagram-1`, `instagram-2`.
+  Valid targets: `reel-1`, `x-1`, `instagram-1`, `x-2`, `linkedin`,
+  `instagram-2`, `reel-2`, `story-card`.
 
 Replace `OWNER/REPO` with your repository, and `main` with your branch if different.
 
@@ -54,17 +55,24 @@ it on UTC, use the UTC times.
 ### Default setup (recommended): Buffer in "scheduled" mode
 
 In scheduled mode the generate run schedules your X and LinkedIn posts straight
-into Buffer at their slot times, so you only need three cron jobs:
+into Buffer at their slot times, so you only need the Instagram jobs:
 
 | Job             | Workflow      | Target        | IST    | UTC    |
 | --------------- | ------------- | ------------- | ------ | ------ |
 | Generate        | generate.yml  | (none)        | 06:00  | 00:30  |
+| Reel 1 (news)   | publish.yml   | reel-1        | 09:30  | 04:00  |
 | Instagram 1     | publish.yml   | instagram-1   | 16:00  | 10:30  |
 | Instagram 2     | publish.yml   | instagram-2   | 18:00  | 12:30  |
+| Reel 2 (learn)  | publish.yml   | reel-2        | 20:00  | 14:30  |
+| Story card      | publish.yml   | story-card    | 21:30  | 16:00  |
 
 Buffer then publishes:
 - X post 1 at 13:00 IST, X post 2 at 17:00 IST
 - LinkedIn at 18:00 IST
+
+If you turn off the second carousel (repository variable `IG_SECOND_CAROUSEL`
+set to `false`, which is the recommendation once the reels are running), simply
+do not create the Instagram 2 job.
 
 ### Alternative: Buffer in "trigger" mode
 
@@ -83,8 +91,11 @@ If your cron-job.org jobs use UTC and you prefer cron syntax:
 
 ```
 Generate      30 0 * * *
+Reel 1         0 4 * * *
 Instagram 1   30 10 * * *
 Instagram 2   30 12 * * *
+Reel 2        30 14 * * *
+Story card     0 16 * * *
 X post 1      30 7 * * *     (trigger mode only)
 X post 2      30 11 * * *    (trigger mode only)
 LinkedIn      30 12 * * *    (trigger mode only)

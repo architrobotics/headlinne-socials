@@ -14,8 +14,7 @@ from __future__ import annotations
 
 from datetime import date
 
-from ..config import (BRAND, CATEGORY_LABELS, INSTAGRAM_HANDLE,
-                      INSTAGRAM_MAX_HASHTAGS, WEBSITE)
+from ..config import (BRAND, CATEGORY_LABELS, INSTAGRAM_MAX_HASHTAGS)
 from ..gemini.client import GeminiClient
 from ..gemini.prompts import STYLE_GUIDE, instagram_prompt
 from ..logging_setup import get_logger
@@ -23,6 +22,8 @@ from ..models import InstagramCarousel, NewsDigest, Slide, Story
 from ..news.images import best_story_image
 from ..quality.sanitize import sanitize
 from ..scheduling import slot_iso
+from . import hooks
+from .common import clamp_words
 
 log = get_logger("generate.instagram")
 
@@ -55,15 +56,6 @@ def source_line(story: Story) -> str:
     if extra > 0:
         line += f" +{extra}"
     return line
-
-
-def _clamp_words(text: str, max_chars: int) -> str:
-    """Trim to a word boundary under max_chars (keeps cover titles tidy)."""
-    text = text.strip()
-    if len(text) <= max_chars:
-        return text
-    cut = text[:max_chars].rsplit(" ", 1)[0]
-    return cut.rstrip(",.:;- ").strip() or text[:max_chars]
 
 
 def _decide_num_stories(stories: list[Story]) -> int:
@@ -124,8 +116,8 @@ def _carousel_for(client: GeminiClient, category: str, stories: list[Story],
 
     # Cover title + hook (model-written, sanitised and length-clamped, with a
     # clean deterministic fallback so the cover is never empty or over-long).
-    title = _clamp_words(sanitize(data.get("cover_title", "")), 52) or _cover_title(category, n)
-    hook = _clamp_words(sanitize(data.get("cover_hook", "")), 96)
+    title = clamp_words(sanitize(data.get("cover_title", "")), 52) or _cover_title(category, n)
+    hook = clamp_words(sanitize(data.get("cover_hook", "")), 96)
 
     # Resolve the best available image for each chosen story once (this may fetch
     # the article hero for stories whose feed image is small or missing), then
@@ -159,13 +151,25 @@ def _carousel_for(client: GeminiClient, category: str, stories: list[Story],
     # Final CTA slide (rendered later with the brand background + engagement).
     slides.append(Slide(role="cta", headline=CTA_HEADLINE, subtitle=CTA_SUBTITLE))
 
-    # Caption fallback, engagement nudge and website mention.
+    # Caption. The model's caption is one block of prose, so its first sentence
+    # becomes the opener (the part Instagram shows before "more" and indexes for
+    # search) and the rest becomes the body. Hashtags are split between the
+    # caption and the first comment. See generate.hooks for why.
     if not caption:
         caption = (f"Today's biggest {label} stories, in one quick scroll. "
                    f"Which one caught you off guard?")
-    caption = f"{caption}\n\nFollow {INSTAGRAM_HANDLE} for a daily brief."
-    if WEBSITE.lower() not in caption.lower():
-        caption = f"{caption} More at {WEBSITE}."
+    opener, _, remainder = caption.partition(". ")
+    if remainder:
+        opener = opener + "."
+    else:
+        opener, remainder = caption, ""
+
+    caption_text, first_comment = hooks.build_caption(
+        opener=opener,
+        body=remainder.strip(),
+        question="",  # the model already ends its caption with one
+        hashtags=hashtags,
+    )
 
     carousel = InstagramCarousel(
         slot=slot,
@@ -173,8 +177,9 @@ def _carousel_for(client: GeminiClient, category: str, stories: list[Story],
         num_slides=len(slides),
         title=title,
         slides=slides,
-        caption=caption,
+        caption=caption_text,
         hashtags=hashtags,
+        first_comment=first_comment,
         scheduled_time=slot_iso(day, slot),
     )
     log.info("IG carousel [%s] %d slides (%d stories)", label, len(slides), n)

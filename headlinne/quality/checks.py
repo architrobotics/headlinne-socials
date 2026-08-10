@@ -11,8 +11,9 @@ from __future__ import annotations
 import re
 from dataclasses import dataclass, field
 
-from ..config import (INSTAGRAM_CAPTION_LIMIT, LINKEDIN_SOFT_LIMIT, TWITTER_LIMIT)
-from ..models import InstagramCarousel, LinkedInPost, TwitterPost
+from ..config import (INSTAGRAM_CAPTION_LIMIT, LINKEDIN_SOFT_LIMIT,
+                      REEL_MAX_SECONDS, TWITTER_LIMIT)
+from ..models import InstagramCarousel, LinkedInPost, Reel, StoryCard, TwitterPost
 from .sanitize import contains_forbidden
 
 _CLICKBAIT = (
@@ -83,4 +84,78 @@ def check_instagram(carousel: InstagramCarousel) -> QualityReport:
     _common_text_checks(carousel.caption, "instagram caption", r)
     for i, s in enumerate(carousel.slides):
         _common_text_checks(f"{s.headline} {s.explanation}", f"instagram slide {i+1}", r)
+    return r
+
+
+def check_reel(reel: Reel, *, require_media: bool = True) -> QualityReport:
+    """Validate a reel before it is scheduled.
+
+    The errors here are the conditions that would publish something broken: no
+    video file, no hook, or a runtime outside what Instagram will accept. The
+    warnings are the craft problems that are worth seeing in the logs but are
+    not worth withholding a post over.
+
+    `require_media` is off for a `--no-render` run, where the absence of a video
+    is the point rather than a fault.
+    """
+    r = QualityReport()
+    if require_media and not reel.video_file:
+        r.error(f"reel {reel.slot}: no rendered video")
+    if not reel.hook.strip():
+        r.error(f"reel {reel.slot}: empty hook")
+    if len(reel.beats) < 3:
+        r.error(f"reel {reel.slot}: only {len(reel.beats)} beats, too thin to publish")
+    if len(reel.caption) > INSTAGRAM_CAPTION_LIMIT:
+        r.error(f"reel {reel.slot}: caption {len(reel.caption)} exceeds "
+                f"{INSTAGRAM_CAPTION_LIMIT}")
+
+    # Meta's floor is 3 seconds, but the Reels tab (the surface that matters)
+    # only takes clips of 5 seconds or more.
+    if reel.duration_seconds and reel.duration_seconds < 5:
+        r.error(f"reel {reel.slot}: {reel.duration_seconds:.1f}s is under the "
+                f"5 second minimum for the Reels tab")
+    if reel.duration_seconds > REEL_MAX_SECONDS + 1:
+        r.warn(f"reel {reel.slot}: {reel.duration_seconds:.1f}s is longer than "
+               f"the {REEL_MAX_SECONDS}s target, completion rate will suffer")
+
+    # A hook that runs long gets shrunk by the renderer until it stops being a
+    # hook, which is a quiet way for a reel to fail.
+    if len(reel.hook) > 52:
+        r.warn(f"reel {reel.slot}: hook is {len(reel.hook)} chars, it will render small")
+
+    # Silence is a supported fallback, not a target: the reel still works muted,
+    # but it loses the audio-page discovery a narrated one gets, so it is worth
+    # seeing in the logs when it happens.
+    if require_media and not reel.has_voiceover:
+        r.warn(f"reel {reel.slot}: no voiceover, the track is silent")
+
+    _common_text_checks(reel.caption, f"reel {reel.slot} caption", r)
+    for i, beat in enumerate(reel.beats):
+        _common_text_checks(f"{beat.caption} {beat.detail}",
+                            f"reel {reel.slot} beat {i+1}", r)
+    return r
+
+
+def check_story_card(card: StoryCard, *, require_media: bool = True) -> QualityReport:
+    """Validate the daily story card.
+
+    The format's whole value is that it is complete on one frame, so a card
+    missing its steps is not a weaker version of the format, it is a different
+    and worse one. That makes an empty step an error rather than a warning.
+    """
+    r = QualityReport()
+    if not card.headline.strip():
+        r.error("story card: empty headline")
+    filled = [s for s in card.steps if s.text.strip()]
+    if len(filled) < 3:
+        r.error(f"story card: only {len(filled)} of {len(card.steps)} steps have text")
+    if require_media and not card.image_file:
+        r.error("story card: no rendered image")
+    if len(card.caption) > INSTAGRAM_CAPTION_LIMIT:
+        r.error(f"story card: caption {len(card.caption)} exceeds {INSTAGRAM_CAPTION_LIMIT}")
+
+    _common_text_checks(f"{card.headline} {card.standfirst}", "story card", r)
+    _common_text_checks(card.caption, "story card caption", r)
+    for step in card.steps:
+        _common_text_checks(step.text, f"story card step '{step.label}'", r)
     return r

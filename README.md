@@ -2,11 +2,12 @@
 
 Autonomous daily social media for [HEADLINNE.com](https://HEADLINNE.com). Every
 day this system gathers the most significant news in Technology, Finance and
-Geopolitics, writes human-sounding posts, renders Instagram carousels from a
-design template, and publishes to X, LinkedIn and Instagram on a fixed schedule.
-It runs entirely on free infrastructure: GitHub Actions for compute, a daily
-trigger from cron-job.org, Buffer for X and LinkedIn, and the Meta Graph API for
-Instagram. Content is written by Google's `gemini-3.1-flash-lite` model.
+Geopolitics, writes human-sounding posts, renders Instagram reels, carousels and
+explainer cards from a shared design system, and publishes to X, LinkedIn and
+Instagram on a fixed schedule. It runs entirely on free infrastructure: GitHub
+Actions for compute, a daily trigger from cron-job.org, Buffer for publishing,
+and the Meta Graph API as an alternative Instagram path. Content is written by
+Google's `gemini-3.1-flash-lite` model.
 
 There is no server to maintain. You set it up once, add your keys, and it posts
 on its own.
@@ -17,22 +18,24 @@ on its own.
 
 1. [How it works](#how-it-works)
 2. [What it posts](#what-it-posts)
-3. [The writing style](#the-writing-style)
-4. [Reddit engagement](#reddit-engagement-opportunity-finder-not-a-spam-bot)
-5. [Prerequisites](#prerequisites)
-5. [Setup](#setup)
+3. [Why the format mix looks like this](#why-the-format-mix-looks-like-this)
+4. [The writing style](#the-writing-style)
+5. [Hooks and captions](#hooks-and-captions)
+6. [Reddit engagement](#reddit-engagement-opportunity-finder-not-a-spam-bot)
+7. [Prerequisites](#prerequisites)
+8. [Setup](#setup)
    - [1. Create the repository](#1-create-the-repository)
    - [2. Get a Gemini API key](#2-get-a-gemini-api-key)
    - [3. Connect Buffer (X and LinkedIn)](#3-connect-buffer-x-and-linkedin)
    - [4. Connect the Meta Graph API (Instagram)](#4-connect-the-meta-graph-api-instagram)
    - [5. Add GitHub secrets and variables](#5-add-github-secrets-and-variables)
    - [6. Schedule the daily trigger with cron-job.org](#6-schedule-the-daily-trigger-with-cron-joborg)
-6. [Scheduled mode vs trigger mode](#scheduled-mode-vs-trigger-mode)
-7. [The daily schedule](#the-daily-schedule)
-8. [Running and testing locally](#running-and-testing-locally)
-9. [Project structure](#project-structure)
-10. [Customising](#customising)
-11. [Troubleshooting](#troubleshooting)
+9. [Scheduled mode vs trigger mode](#scheduled-mode-vs-trigger-mode)
+10. [The daily schedule](#the-daily-schedule)
+11. [Running and testing locally](#running-and-testing-locally)
+12. [Project structure](#project-structure)
+13. [Customising](#customising)
+14. [Troubleshooting](#troubleshooting)
 
 ---
 
@@ -45,10 +48,17 @@ RSS feeds from a list of reputable publishers, clusters stories that appear in
 several outlets so it can verify them across sources, and ranks them by
 significance rather than by how recently they were published. A story backed by
 more independent, trusted sources scores higher. From the ranking it picks the
-two strongest categories of the day, asks Gemini to write the copy, renders the
-Instagram carousel images with Pillow, and commits everything to the `content/`
-folder. It also records a small rolling history in `state/` so it does not repeat
-stories or phrasing over the following days.
+strongest categories of the day, asks Gemini to write the copy, renders the
+Instagram carousels and the story card with Pillow and the two reels with Pillow
+plus ffmpeg, and commits everything to the `content/` folder. It also records a
+small rolling history in `state/` so it does not repeat stories or phrasing over
+the following days, and prunes rendered media older than six days so a daily pair
+of videos does not grow the repository without bound.
+
+Each Instagram format is generated independently and failures are contained. If
+a reel cannot be encoded, or the model returns a story card with half its steps
+empty, that one format is dropped from the day and everything else still goes
+out.
 
 **Publish (through the day).** At each scheduled time a lightweight trigger fires
 and the matching post goes out. X and LinkedIn go through Buffer. Instagram
@@ -84,11 +94,96 @@ journey, engineering decisions, the roadmap. Every Friday it posts a "This Week
 in Finance and Tech" roundup instead. Professional but approachable, no
 buzzwords, no hashtags, with a light invitation to visit the site.
 
-**Instagram: 2 carousels a day.** One for each of the two strongest categories,
-at 4 PM and 6 PM IST. Each carousel covers the top 3 or top 5 stories (the system
-decides based on how strong the deeper stories are). Every slide is built from a
-shared design system (`headlinne/render/theme.py`) so the whole set reads as one
-polished, editorial template:
+**Instagram: 2 reels, 1 story card and 1 or 2 carousels a day.** All four formats
+are drawn from the same design system (`headlinne/render/theme.py`), so a reel, a
+carousel and a card read as one brand.
+
+### Reels (2 a day)
+
+Reels are the only Instagram surface that reliably reaches people who do not
+already follow the account, so they lead the day and close it.
+
+- **Morning (9:30 AM IST): a news explainer.** Walks through the single biggest
+  story of the day. Hook, what happened, the mechanism, a graphic, why it matters
+  to you.
+- **Evening (8 PM IST): an educational explainer.** Teaches one evergreen idea
+  with a small worked example: why a rate hike reaches your loan, what a sanction
+  actually does, why two outlets report the same story differently. These are
+  what get saved and sent on, and they keep earning reach weeks later. The topic
+  rotates deterministically through the list in `config.EDUCATION_TOPICS`, so a
+  full cycle takes about a fortnight.
+
+Both are 1080x1920, cut into six beats plus a sign-off. Narrated they run around
+35 to 40 seconds; silent, about 28. Every word is also burned into the frame
+because most reels are watched muted, a progress bar across the top tells the
+viewer how much is left, and nothing important sits where Instagram draws its own
+caption and action rail.
+
+**They are narrated.** Gemini TTS speaks a line per beat, and *the narration
+drives the edit*: each cut lasts exactly as long as its spoken line plus a little
+air, rather than as long as the code guesses the text takes to read. The spoken
+line is written separately from the on-screen line, because a sentence written to
+be glanced at and a sentence written to be said are rarely the same one, and the
+prompt asks for both. The morning and evening reels use different voices so the
+news brief and the lesson do not sound like one person reading two scripts.
+
+That matters beyond sounding better: a reel with a real audio track is a more
+complete post than one carrying silence, and anyone who unmutes gets something
+rather than nothing. The two voices, the delivery direction and the pacing are
+all in `config.py` under "Instagram Reels", and are worth auditioning before you
+settle on them.
+
+If speech cannot be produced (no key, a quota, an outage) the reel still ships:
+it falls back to reading-speed pacing and a silent track, logs a warning through
+the quality gate, and the burned-in captions carry the content. Set
+`REEL_VOICEOVER=false` to choose silence deliberately.
+
+Worth knowing about cost: narration is **one API call per beat**, so two reels
+add about fourteen speech requests a day on top of the text generation, and a
+couple of minutes to the generate run. Speech quotas are counted separately from
+text quotas on a Gemini key, so if reels start coming out silent while the
+written copy is fine, that is the first place to look.
+
+**One beat carries a graphic instead of a photo.** This is what makes an
+explainer feel authored rather than templated, and there are five devices to
+choose from, in `headlinne/render/graphics.py`:
+
+| Device | What it shows | Prints figures? |
+| --- | --- | --- |
+| `flow` | a cause-and-effect chain, three chips joined by arrows | no |
+| `split` | one direct contrast, two stacked panels with a VS pivot | no |
+| `timeline` | what happens over time, a rail filling through labelled stops | no |
+| `bars` | two or three quantities compared by height | optionally |
+| `counter` | one striking figure, counted up | yes |
+
+The split matters. `bars` and `counter` print numbers, which is a factual claim
+in a form people screenshot, so **every figure they print is checked character by
+character against the source article** and anything that does not appear there is
+removed (`generate/reel.py`). Bar *heights* are a separate, softer claim about
+relative size, so a bar can still show direction without printing a statistic.
+Educational reels lose printed figures entirely, since their examples are openly
+hypothetical and a hypothetical number drawn as a chart stops looking
+hypothetical.
+
+### The story card (1 a day, 9:30 PM IST)
+
+One article, walked through from start to finish, on a single image. A carousel
+asks for a swipe, and every swipe is another chance to leave. This asks for a
+save instead, which is worth far more to a post's reach.
+
+The rail is always the same four stops, fixed in code and not up to the model:
+**what happened**, **how we got here**, **why it matters**, **what to watch**. A
+reader who has seen one of these knows where the "does this affect me" line will
+be before they have finished the headline. The layout measures the steps first
+and hands the headline whatever is left over, so a long story shrinks its type
+rather than silently truncating the line that carries the point.
+
+### Carousels (1 or 2 a day)
+
+One for each of the strongest categories, at 4 PM and 6 PM IST. Each covers the
+top 3 or top 5 stories (the system decides based on how strong the deeper stories
+are). Every slide is built from the shared design system so the whole set reads
+as one polished, editorial template:
 
 - **Brand furniture on every slide.** The `h` logo mark and the `HEADLINNE`
   wordmark sit top-left, a category pill (colour-coded) sits top-right, and a row
@@ -112,6 +207,40 @@ instead of a flat block, so a slide is never empty. The model never generates
 images. It only produces the text that fills the template. The renderer draws
 everything.
 
+The second carousel is optional. Set the `IG_SECOND_CAROUSEL` variable to
+`false` to drop to one a day, which is the recommendation once the reels are
+running (see the next section).
+
+---
+
+## Why the format mix looks like this
+
+Worth reading before changing it, because the reasoning is the useful part.
+
+**Reels exist to be found. Everything else exists to convert.** Instagram serves
+the Reels tab to people who do not follow you, and shows feed posts almost
+entirely to people who already do. An account with no video is therefore close to
+invisible to anyone new, however good the carousels are. That is why the two
+reels bracket the day, and why the morning one covers the day's biggest story,
+where the search interest already exists.
+
+**Carousels and cards earn more per person reached, so they follow the reels.**
+Once someone has arrived, a format that is dense and saveable is worth more than
+another one asking to be discovered. The story card is the strongest version of
+that, because it is complete on one frame and the natural response is to keep it.
+
+**The educational reel is the part that compounds.** A news explainer is worth a
+day. An explainer of why a rate rise reaches your loan is worth as long as loans
+exist, and it keeps being served long after it was posted. An account that only
+posts news has nothing that accumulates.
+
+**More posting is not more reach.** Four Instagram posts a day is at the top of
+what a small account can carry: each post competes with the others for the same
+initial test audience, and going past that point makes every one of them land
+softer. If you want to add a format, take one away. `IG_SECOND_CAROUSEL=false`
+is the intended lever, leaving one reel, one carousel, one reel and the story
+card.
+
 ---
 
 ## The writing style
@@ -133,6 +262,39 @@ interesting and correct, not by hyping.
 
 These guarantees are covered by the test suite (see
 [Running and testing locally](#running-and-testing-locally)).
+
+---
+
+## Hooks and captions
+
+Two things decide whether a post is seen at all: the first two seconds of a reel
+and the first line of a caption. Both are owned by `headlinne/generate/hooks.py`
+rather than left to the model.
+
+**The hook's shape is rotated in code.** Left to itself a model writes the same
+opener every day ("X just announced Y, and here is why it matters"), and an
+account that opens the same way daily teaches both the algorithm and the audience
+to scroll past. So the model is handed a specific rhetorical shape to write into,
+picked deterministically from the day and the slot. There are eight, and they are
+the ones that actually earn watch time in news and finance explainers:
+
+`contradiction` (name the assumption, then puncture it) · `stakes` (what this
+costs you) · `scale` (make the number picturable) · `mechanism` (promise the
+machinery, not the event) · `consequence` (open from the future) ·
+`question_gap` (a real puzzle the reporting answers) · `analogy` (transplant it
+into something domestic) · `count` (three things, one of them expensive).
+
+The rotation is offset by slot, so the morning and evening reels never open the
+same way on the same day.
+
+**Captions lead with keywords, not hashtags.** Instagram indexes caption text for
+search now, so the opening line is worth far more as a readable, searchable
+sentence than as a block of tags. Every caption is built the same way: an opener
+that fits inside the ~125 characters shown before "more", the substance in short
+paragraphs, one genuine question (comments are the heaviest ranking signal a post
+can earn), the follow and site line, then a handful of topical hashtags. The long
+tail of tags goes to the **first comment**, where Instagram treats them the same
+but they do not clutter what a reader sees.
 
 ---
 
@@ -277,6 +439,16 @@ Add these as **variables** (plain, non-secret):
 | `BUFFER_SCHEDULING_MODE` | `scheduled` | `scheduled` or `trigger`, see below |
 | `PUBLIC_IMAGE_BASE_URL` | empty | Only needed for a private repo (step 1) |
 | `X_ATTACH_CARD` | `true` | Attach the branded image card to X posts |
+| `REELS_ENABLED` | `true` | Render and publish the two daily reels |
+| `STORY_CARD_ENABLED` | `true` | Render and publish the daily story card |
+| `IG_SECOND_CAROUSEL` | `true` | Set `false` to drop to one carousel a day |
+| `REEL_CRF` | `20` | x264 quality for reels (lower is better and bigger) |
+| `REEL_PRESET` | `veryfast` | x264 speed preset |
+| `REEL_VOICEOVER` | `true` | Narrate reels with Gemini TTS |
+| `REEL_TTS_MODEL` | `gemini-3.1-flash-tts-preview` | Speech model |
+| `REEL_VOICE_NEWS` | `Charon` | Voice for the morning news reel |
+| `REEL_VOICE_EDUCATION` | `Kore` | Voice for the evening lesson |
+| `FFMPEG_BINARY` | empty | Path to ffmpeg, if it is not on `PATH` |
 | `REDDIT_ENGAGEMENT_CAP` | `12` | Max Reddit drafts per run (hard-capped at 25) |
 
 For local runs, copy `.env.example` to `.env` and fill in the same values. The
@@ -328,14 +500,18 @@ fires at its slot.
 | Slot | IST | UTC | Platform | What |
 | --- | --- | --- | --- | --- |
 | generate | 06:00 | 00:30 | (none) | Gather, write, render, commit |
+| reel-1 | 09:30 | 04:00 | Instagram | News explainer reel |
 | x-1 | 13:00 | 07:30 | X | First post (news or promo) |
 | instagram-1 | 16:00 | 10:30 | Instagram | First carousel |
 | x-2 | 17:00 | 11:30 | X | Second post (only on non-promo days) |
 | linkedin | 18:00 | 12:30 | LinkedIn | Daily post or Friday roundup |
-| instagram-2 | 18:00 | 12:30 | Instagram | Second carousel |
+| instagram-2 | 18:00 | 12:30 | Instagram | Second carousel (optional) |
+| reel-2 | 20:00 | 14:30 | Instagram | Educational explainer reel |
+| story-card | 21:30 | 16:00 | Instagram | The daily story card |
 
 In scheduled mode you do not need cron jobs for x-1, x-2 or linkedin. Buffer
-handles those.
+handles those. The Instagram slots always need a trigger, because Meta has no
+native scheduling and Buffer publishes these at call time.
 
 The generate workflow also has a built-in backup schedule at 00:30 UTC in case
 the external trigger ever misses a day. You can remove it if you prefer to rely
@@ -347,15 +523,38 @@ only on cron-job.org.
 
 You do not need any API keys to preview the design or run the tests.
 
-**Preview the Instagram carousel design.** This renders sample carousels with
-mock content, fully offline, so you can check how the slides look:
+**Preview every format.** This renders sample carousels, X cards, the story card
+and both reels with mock content, fully offline, so you can check how everything
+looks without spending a Gemini call or waiting for a scheduled run:
 
 ```bash
 pip install -r requirements.txt
 python -m headlinne preview --out preview
 ```
 
-Open the PNGs it writes under `preview/`.
+Open the PNGs and MP4s it writes under `preview/`.
+
+The reels take a couple of minutes each to render, so while you are iterating on
+the still formats you can skip them:
+
+```bash
+python -m headlinne preview --out preview --no-video
+```
+
+Previews use a **stub voice** by default: silence of exactly the length the real
+narration would take, so the pacing and the cut points are honest without
+spending an API request. To hear the actual voices (needs `GEMINI_API_KEY`):
+
+```bash
+python -m headlinne preview --out preview --voice
+```
+
+**About ffmpeg.** Reels are encoded with ffmpeg. GitHub's Ubuntu runners already
+ship it, so CI needs nothing extra. Locally, `imageio-ffmpeg` in
+`requirements.txt` carries a static build, so `pip install -r requirements.txt`
+is enough on Windows and macOS too. If you have your own build somewhere unusual,
+point `FFMPEG_BINARY` at it. When no encoder can be found the reels are skipped
+with a clear error and the rest of the day still generates.
 
 **Run the test suite.** The tests cover the parts that must never break: the
 forbidden-punctuation guarantees, the 280 character limit, the schedule maths,
@@ -372,9 +571,9 @@ generate step on your own machine:
 
 ```bash
 python -m headlinne generate                # gather, write, render, schedule
-python -m headlinne generate --no-render     # skip image rendering
+python -m headlinne generate --no-render     # skip image and video rendering
 python -m headlinne generate --no-schedule   # do not touch Buffer
-python -m headlinne publish --target x-1      # publish one slot
+python -m headlinne publish --target reel-1   # publish one slot
 ```
 
 **Trigger a run manually on GitHub.** In the Actions tab you can run either
@@ -395,13 +594,23 @@ headlinne-social/
 │   ├── storage.py           Reads and writes the content/ folder
 │   ├── cli.py               Command-line entry point
 │   ├── news/                Fetch feeds, extract images, rank and verify
-│   ├── gemini/              Gemini client and the prompts
+│   ├── gemini/              Gemini clients and the prompts
+│   │   ├── client.py        JSON generation for all the copy
+│   │   └── tts.py           Speech generation for reel narration
 │   ├── generate/            Builds X, LinkedIn and Instagram content
-│   ├── render/              Draws the carousel slides with Pillow
+│   │   ├── hooks.py         Hook archetype rotation and caption assembly
+│   │   ├── reel.py          Both reel scripts, plus figure verification
+│   │   └── story_card.py    The daily walk-through card
+│   ├── render/              Draws every visual with Pillow (video via ffmpeg)
 │   │   ├── theme.py         The design system: palette, furniture, fallbacks
 │   │   ├── fonts.py         Display / body / label font loading and fitting
 │   │   ├── carousel.py      Cover, story and CTA slide layouts
-│   │   └── card.py          Branded square image card for X posts
+│   │   ├── card.py          Branded square image card for X posts
+│   │   ├── story_card.py    The single-image walk-through layout
+│   │   ├── motion.py        Animation engine, frames piped into ffmpeg
+│   │   ├── graphics.py      The five explanatory devices for reel graphics
+│   │   ├── voice.py         Narration track, and the pacing it dictates
+│   │   └── reel.py          Hook, beat, graphic, payoff and outro layouts
 │   ├── reddit/              Reddit opportunity finder + human-review assistant
 │   │   ├── client.py        Reddit API (read + guarded single-comment submit)
 │   │   ├── relevance.py     Topic fit and sensitive-topic filtering
@@ -446,11 +655,24 @@ Almost everything you might want to change lives in `headlinne/config.py`:
   tokens (top bar, pills, progress pips, scrims, fallback backgrounds) live in
   `headlinne/render/theme.py`.
 - **Limits.** Character limits, hashtag counts and the carousel canvas size.
+- **Reels.** `REEL_TARGET_SECONDS` and the min/max window, `REEL_FPS`, the canvas
+  size and the encoder settings.
+- **Educational reel topics.** `EDUCATION_TOPICS` is the rotation for the evening
+  reel. Each entry is a title, the angle that makes it worth 30 seconds, and the
+  graphic device that explains it best. Adding one is the cheapest way to extend
+  the evergreen library.
 - **Model.** `GEMINI_MODEL`, `GEMINI_THINKING_LEVEL` and `GEMINI_TEMPERATURE`.
 
 The feature list used in X promo posts and the topic list used for LinkedIn live
-in `headlinne/generate/common.py`. The prompts themselves are in
+in `headlinne/generate/common.py`. The hook archetypes are in
+`headlinne/generate/hooks.py`, and the prompts themselves are in
 `headlinne/gemini/prompts.py`.
+
+**If you change a text length limit, check the layout it feeds.** The character
+limits in `generate/reel.py` and `generate/story_card.py` are worked back from
+what the frames can carry at a readable size (and, for reels, from reading speed
+at four seconds a cut). Raising them does not overflow anything, the renderers
+shrink to fit, but the text arrives smaller than it should be.
 
 ---
 
@@ -476,6 +698,40 @@ its memory of what it has already posted.
 publish runs. Each commits its output back to the repo, so an empty `content/`
 folder for today usually means the generate run did not complete. The most common
 cause is a missing or incorrect `GEMINI_API_KEY`.
+
+**Nothing posted for days, and the numbers are flat.** Before changing any
+content, confirm the machine is running at all. `state/history.json` records
+every day the generate job completed, and `content/<date>/published/` holds a
+marker file per slot that actually went out. If the newest day in either is not
+today, this is a plumbing problem, not a content problem, and no amount of new
+formats will fix it. The usual causes are an expired GitHub PAT on the
+cron-job.org jobs (they fail silently from GitHub's side, so check cron-job.org's
+own execution history), an expired Meta token, or a Buffer channel that got
+disconnected.
+
+**Reels do not publish but carousels do.** Almost always the video URL. Reels are
+megabytes rather than kilobytes and `raw.githubusercontent.com` serves them with
+a generic content type that some fetchers dislike, so this is the first thing to
+move to a real host: point `PUBLIC_IMAGE_BASE_URL` at an object store that serves
+the committed `content/` folder. Open the MP4 URL from the run log in a private
+browser window to check it plays.
+
+**Reels are skipped entirely.** The log line to look for is "ffmpeg is not
+available". On a runner this should never happen, since `imageio-ffmpeg` is in
+`requirements.txt`. Locally, install ffmpeg or set `FFMPEG_BINARY`.
+
+**Reels publish but are silent.** Look for "falling back to silence" in the
+generate log, which names the beat that failed. The usual causes are a speech
+quota, or `REEL_TTS_MODEL` pointing at a model your key cannot reach (the TTS
+models are separate from the text model, so a working `GEMINI_API_KEY` does not
+by itself guarantee access). The reel is still correct and still publishes, it
+just loses the narration.
+
+**The repository is getting large.** Each day commits two MP4s of a megabyte or
+two. The generate run prunes rendered PNGs and MP4s older than six days
+(`storage.MEDIA_KEEP_DAYS`), which keeps the working tree small, but git history
+still holds every version. If that becomes a problem, serve media from an object
+store via `PUBLIC_IMAGE_BASE_URL` instead of committing it.
 
 ---
 

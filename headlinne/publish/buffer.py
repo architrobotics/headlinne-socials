@@ -141,22 +141,34 @@ class BufferClient:
 
     def create_post(self, *, channel_id: str, text: str,
                     image_urls: list[str] | None = None,
+                    video_url: str | None = None,
+                    thumbnail_offset_ms: int | None = None,
                     due_at_utc: str | None = None,
                     metadata: dict | None = None) -> dict:
         """Create a post on a channel.
 
         Pass image_urls to attach images (several become an Instagram carousel,
-        in order). Schedules the post if due_at_utc is given, otherwise publishes
-        immediately.
+        in order), or video_url for a single video asset. Schedules the post if
+        due_at_utc is given, otherwise publishes immediately.
         """
         if not channel_id:
             raise BufferError("channel_id is empty (check BUFFER_CHANNEL_ID_*).")
+        if video_url and image_urls:
+            raise BufferError("a post carries either images or a video, not both.")
         input_obj: dict = {
             "text": text,
             "channelId": channel_id,
             "schedulingType": "automatic",
         }
-        if image_urls:
+        if video_url:
+            # Buffer's asset list takes exactly one media kind per entry. The
+            # thumbnail offset picks which frame becomes the cover, which is what
+            # shows in the Reels tab and the profile grid.
+            asset: dict = {"url": video_url}
+            if thumbnail_offset_ms is not None:
+                asset["metadata"] = {"thumbnailOffset": int(thumbnail_offset_ms)}
+            input_obj["assets"] = [{"video": asset}]
+        elif image_urls:
             input_obj["assets"] = [{"image": {"url": u}} for u in image_urls if u]
         if metadata:
             input_obj["metadata"] = metadata
@@ -185,15 +197,29 @@ class BufferClient:
         return self.create_post(channel_id=SECRETS.buffer_channel_linkedin, text=text,
                                 due_at_utc=due_at_utc)
 
+    @staticmethod
+    def _instagram_metadata(post_type: str, first_comment: str = "") -> dict:
+        """Channel metadata for an Instagram post.
+
+        `type` is required by Buffer (post, story or reel), as is
+        shouldShareToFeed, which we always set true: a reel that is not shared to
+        the feed only exists in the Reels tab and never reaches the profile grid.
+
+        `firstComment` is where the long tail of hashtags goes. Instagram treats
+        tags in the first comment the same way it treats tags in the caption,
+        while the visible caption stays readable, which matters now that caption
+        text is what powers Instagram's own search.
+        """
+        meta: dict = {"type": post_type, "shouldShareToFeed": True}
+        if first_comment.strip():
+            meta["firstComment"] = first_comment.strip()
+        return {"instagram": meta}
+
     def post_instagram(self, image_urls: list[str], caption: str,
-                       due_at_utc: str | None = None) -> dict:
+                       due_at_utc: str | None = None,
+                       first_comment: str = "") -> dict:
         """Publish an Instagram feed post. Two or more images make a carousel, in
         the order given. Instagram allows 2 to 10 images in a carousel.
-
-        Instagram requires a post type (post, story or reel); a feed carousel is
-        type "post". Buffer also requires shouldShareToFeed on Instagram posts,
-        which we set true so the carousel lands on the main profile feed. Both go
-        in the channel-specific metadata field.
         """
         if not image_urls:
             raise BufferError("Instagram post needs at least one image URL.")
@@ -202,8 +228,27 @@ class BufferClient:
         return self.create_post(channel_id=SECRETS.buffer_channel_instagram,
                                 text=caption, image_urls=image_urls,
                                 due_at_utc=due_at_utc,
-                                metadata={"instagram": {"type": "post",
-                                                        "shouldShareToFeed": True}})
+                                metadata=self._instagram_metadata("post",
+                                                                  first_comment))
+
+    def post_instagram_reel(self, video_url: str, caption: str,
+                            due_at_utc: str | None = None,
+                            first_comment: str = "",
+                            thumbnail_offset_ms: int = 1200) -> dict:
+        """Publish an Instagram Reel from a public MP4 URL.
+
+        The default thumbnail offset lands just over a second in, by which point
+        the hook text has finished animating on, so the cover frame reads as a
+        designed still rather than as a half-drawn one.
+        """
+        if not video_url:
+            raise BufferError("Instagram reel needs a video URL.")
+        return self.create_post(channel_id=SECRETS.buffer_channel_instagram,
+                                text=caption, video_url=video_url,
+                                thumbnail_offset_ms=thumbnail_offset_ms,
+                                due_at_utc=due_at_utc,
+                                metadata=self._instagram_metadata("reel",
+                                                                  first_comment))
 
 
 def build_caption(caption: str, hashtags: list[str]) -> str:

@@ -109,6 +109,10 @@ def _alpha_ramp(h: int, stops: list[tuple[float, int]]) -> Image.Image:
     return col
 
 
+# Public alias: the reel scrim is built from the same ramp primitive.
+alpha_ramp = _alpha_ramp
+
+
 def cinematic_scrim(w: int, h: int, tint=INK) -> Image.Image:
     """A full-height scrim for photo slides: a firm dark base rising from the
     bottom, a soft darken at the very top (for the brand bar) and a gentle
@@ -136,6 +140,29 @@ def cinematic_scrim(w: int, h: int, tint=INK) -> Image.Image:
     return overlay
 
 
+def cover_fit(img: Image.Image, w: int, h: int) -> Image.Image:
+    """Scale and centre-crop a photo to exactly w x h, then sharpen.
+
+    Shared by every surface that uses a photographic background (carousel
+    slides, reel plates, the story card texture) so photography is treated
+    identically everywhere.
+    """
+    img = img.convert("RGB")
+    src_w, src_h = img.size
+    factor = max(w / src_w, h / src_h)
+    new = (max(1, int(src_w * factor)), max(1, int(src_h * factor)))
+    img = img.resize(new, Image.LANCZOS)
+    left = (img.width - w) // 2
+    top = (img.height - h) // 2
+    img = img.crop((left, top, left + w, top + h))
+    # Upscaled sources need more help than downscaled ones.
+    if factor > 1.05:
+        img = img.filter(ImageFilter.UnsharpMask(radius=2.2, percent=135, threshold=2))
+    else:
+        img = img.filter(ImageFilter.UnsharpMask(radius=1.1, percent=75, threshold=3))
+    return img.convert("RGBA")
+
+
 def panel_gradient(w: int, h: int, base=INK) -> Image.Image:
     """A subtle top-to-bottom gradient panel (for the CTA and fallbacks)."""
     top = scale(hex_to_rgb(base) if isinstance(base, str) else base, 1.35)
@@ -151,12 +178,17 @@ def panel_gradient(w: int, h: int, base=INK) -> Image.Image:
 # --------------------------------------------------------------------------- #
 # Premium fallback background (no usable photo)
 # --------------------------------------------------------------------------- #
-def brand_fallback(w: int, h: int, category: str, seed: str) -> Image.Image:
+def brand_fallback(w: int, h: int, category: str, seed: str,
+                   *, ghost_mark: bool = True) -> Image.Image:
     """A designed fallback for slides with no photo.
 
     A warm, category-tinted radial wash on the ink base, a large ghosted brand
     mark bleeding off one corner, and a faint diagonal sheen. Deterministic per
     `seed` so consecutive fallbacks differ but a given slide is stable.
+
+    `ghost_mark` turns off the oversized logo. It reads as texture behind a
+    headline, but behind a dense block of body copy it reads as a smudge, so
+    text-heavy surfaces switch it off.
     """
     accent = accent_for(category)
     ink = hex_to_rgb(INK)
@@ -170,34 +202,40 @@ def brand_fallback(w: int, h: int, category: str, seed: str) -> Image.Image:
     gx = 0.24 + ((digest % 53) / 53.0) * 0.52
     gy = 0.16 + (((digest >> 8) % 47) / 47.0) * 0.30
 
-    # Radial accent glow, painted as an alpha-masked wash.
+    # Radial accent glow, painted as an alpha-masked wash. The mask is built at
+    # a quarter scale and then upsampled: a 140 pixel blur costs sixteen times
+    # more at full resolution and, on a gradient this soft, produces a mask no
+    # eye can tell apart. This function runs for every photo-less slide and for
+    # most reel beats, so it is worth the trick.
     glow_rgb = mix(ink_soft, accent, 0.55)
-    cx, cy = int(w * gx), int(h * gy)
-    radius = int(w * 0.95)
-    mask = Image.new("L", (w, h), 0)
+    small_w, small_h = max(1, w // 4), max(1, h // 4)
+    cx, cy = int(small_w * gx), int(small_h * gy)
+    radius = int(small_w * 0.95)
+    mask = Image.new("L", (small_w, small_h), 0)
     mdraw = ImageDraw.Draw(mask)
     mdraw.ellipse([cx - radius, cy - radius, cx + radius, cy + radius], fill=110)
-    mask = mask.filter(ImageFilter.GaussianBlur(radius=140))
+    mask = mask.filter(ImageFilter.GaussianBlur(radius=35))
     wash = Image.new("RGBA", (w, h), rgba(glow_rgb, 255))
-    wash.putalpha(mask)
+    wash.putalpha(mask.resize((w, h), Image.BILINEAR))
     canvas = Image.alpha_composite(canvas, wash)
 
     # Large ghost logo mark bleeding off the lower-right, very low opacity.
-    mark = logo_mark(int(w * 0.9))
+    mark = logo_mark(int(w * 0.9)) if ghost_mark else None
     if mark is not None:
         ghost = mark.copy()
         alpha = ghost.split()[3].point(lambda a: int(a * 0.06))
         ghost.putalpha(alpha)
         canvas.alpha_composite(ghost, (int(w * 0.42), int(h * 0.40)))
 
-    # Faint diagonal sheen for a bit of life.
-    sheen = Image.new("L", (w, h), 0)
+    # Faint diagonal sheen for a bit of life (same quarter-scale blur trick).
+    sheen = Image.new("L", (small_w, small_h), 0)
     sdraw = ImageDraw.Draw(sheen)
-    sdraw.polygon([(int(w * 0.0), h), (int(w * 0.55), 0),
-                   (int(w * 0.72), 0), (int(w * 0.17), h)], fill=14)
-    sheen = sheen.filter(ImageFilter.GaussianBlur(60))
+    sdraw.polygon([(0, small_h), (int(small_w * 0.55), 0),
+                   (int(small_w * 0.72), 0), (int(small_w * 0.17), small_h)],
+                  fill=14)
+    sheen = sheen.filter(ImageFilter.GaussianBlur(15))
     sheen_layer = Image.new("RGBA", (w, h), rgba((255, 255, 255), 255))
-    sheen_layer.putalpha(sheen)
+    sheen_layer.putalpha(sheen.resize((w, h), Image.BILINEAR))
     canvas = Image.alpha_composite(canvas, sheen_layer)
 
     # Settle the bottom so type has a firm anchor.
@@ -213,45 +251,57 @@ def brand_fallback(w: int, h: int, category: str, seed: str) -> Image.Image:
 # --------------------------------------------------------------------------- #
 def draw_top_bar(canvas: Image.Image, draw: ImageDraw.ImageDraw, category: str,
                  *, show_pill: bool = True, pill_text: str | None = None,
-                 pill_accent=None) -> None:
+                 pill_accent=None, width: int | None = None,
+                 y: int | None = None, scale_up: float = 1.0) -> None:
     """The brand bar every slide / card carries: the logo mark + HEADLINNE
     wordmark on the left, and a pill on the right. The pill defaults to the
-    category label in the category accent, but both can be overridden."""
-    y = TOP_BAR_Y
-    mark_size = 46
+    category label in the category accent, but both can be overridden.
+
+    `width`, `y` and `scale_up` exist so the taller 9:16 reel canvas can reuse
+    exactly the same furniture at a slightly larger size, which is what keeps a
+    reel recognisable as the same brand as a carousel.
+    """
+    from ..config import SLIDE_W
+
+    width = width or SLIDE_W
+    y = TOP_BAR_Y if y is None else y
+    mark_size = int(46 * scale_up)
     mark = logo_mark(mark_size)
     x = MARGIN
     if mark is not None:
         canvas.alpha_composite(mark, (x, y - 2))
-        x += mark_size + 18
+        x += mark_size + int(18 * scale_up)
 
-    word_font = fonts.label_font(30, weight=800)
+    word_font = fonts.label_font(int(30 * scale_up), weight=800)
     # Vertically centre the wordmark against the mark.
     wf_h = fonts.line_height(word_font)
     wy = y - 2 + (mark_size - wf_h) // 2 - 2
     fonts.draw_tracked(draw, (x, wy), "HEADLINNE", word_font,
-                       fill=rgba(TEXT_PRIMARY), tracking=3.2)
+                       fill=rgba(TEXT_PRIMARY), tracking=3.2 * scale_up)
 
     if show_pill:
         draw_pill_right(draw, pill_text or pill_label(category),
                         pill_accent or accent_for(category),
-                        y_center=y - 2 + mark_size // 2)
+                        y_center=y - 2 + mark_size // 2, width=width,
+                        scale_up=scale_up)
 
 
 def draw_pill_right(draw: ImageDraw.ImageDraw, text: str, accent,
-                    *, y_center: int) -> None:
+                    *, y_center: int, width: int | None = None,
+                    scale_up: float = 1.0) -> None:
     """A small solid accent pill flush to the right margin, vertically centred
     on `y_center`."""
     from ..config import SLIDE_W
 
-    font = fonts.label_font(23, weight=800)
-    tracking = 1.8
+    width = width or SLIDE_W
+    font = fonts.label_font(int(23 * scale_up), weight=800)
+    tracking = 1.8 * scale_up
     tw = fonts.tracked_width(font, text, tracking)
-    pad_x, pad_y = 22, 12
+    pad_x, pad_y = int(22 * scale_up), int(12 * scale_up)
     fh = fonts.line_height(font)
     w = tw + pad_x * 2
     h = fh + pad_y * 2
-    x1 = SLIDE_W - MARGIN
+    x1 = width - MARGIN
     x0 = x1 - w
     y0 = y_center - h // 2
     y1 = y0 + h
@@ -303,15 +353,18 @@ def draw_progress(canvas: Image.Image, draw: ImageDraw.ImageDraw, *,
             x += dot + gap
 
 
-def draw_handle(draw: ImageDraw.ImageDraw, text: str, *, accent=None) -> None:
+def draw_handle(draw: ImageDraw.ImageDraw, text: str, *, accent=None,
+                width: int | None = None, y: int | None = None,
+                size: int = 24) -> None:
     """The @handle / website, flush right on the bottom bar."""
     from ..config import SLIDE_W
 
-    font = fonts.label_font(24, weight=700)
+    width = width or SLIDE_W
+    font = fonts.label_font(size, weight=700)
     tracking = 1.2
     tw = fonts.tracked_width(font, text, tracking)
-    x = SLIDE_W - MARGIN - tw
-    y = BOTTOM_BAR_Y - 2
+    x = width - MARGIN - tw
+    y = (BOTTOM_BAR_Y - 2) if y is None else y
     fonts.draw_tracked(draw, (x, y), text, font,
                        fill=rgba(accent or TEXT_SECONDARY), tracking=tracking)
 

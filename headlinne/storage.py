@@ -20,10 +20,10 @@ import json
 from datetime import date, timedelta
 from pathlib import Path
 
-from .config import content_dir_for
+from .config import CONTENT_DIR, content_dir_for
 from .logging_setup import get_logger
-from .models import (DayPlan, InstagramCarousel, LinkedInPost, NewsDigest,
-                     Story, TwitterPost)
+from .models import (DayPlan, InstagramCarousel, LinkedInPost, NewsDigest, Reel,
+                     Story, StoryCard, TwitterPost)
 
 log = get_logger("storage")
 
@@ -49,6 +49,28 @@ def x_card_path(day: date, slot: str) -> Path:
     d = content_dir_for(day) / "x"
     d.mkdir(parents=True, exist_ok=True)
     return d / f"{slot}.png"
+
+
+def reel_dir(day: date) -> Path:
+    """Folder for the day's rendered reels (MP4 plus cover PNG)."""
+    d = content_dir_for(day) / "reels"
+    d.mkdir(parents=True, exist_ok=True)
+    return d
+
+
+def reel_video_path(day: date, slot: str) -> Path:
+    return reel_dir(day) / f"{slot}.mp4"
+
+
+def reel_cover_path(day: date, slot: str) -> Path:
+    return reel_dir(day) / f"{slot}_cover.png"
+
+
+def story_card_path(day: date) -> Path:
+    """Path for the rendered daily story card."""
+    d = content_dir_for(day) / "story_card"
+    d.mkdir(parents=True, exist_ok=True)
+    return d / "story_card.png"
 
 
 def _write_json(path: Path, data) -> None:
@@ -104,12 +126,34 @@ def load_instagram(day: date) -> list[InstagramCarousel]:
     return [InstagramCarousel.from_dict(c) for c in data]
 
 
+def save_reels(day: date, reels: list[Reel]) -> None:
+    _write_json(_ensure(day) / "reels.json", [r.to_dict() for r in reels])
+
+
+def load_reels(day: date) -> list[Reel]:
+    data = _read_json(content_dir_for(day) / "reels.json") or []
+    return [Reel.from_dict(r) for r in data]
+
+
+def save_story_card(day: date, card: StoryCard | None) -> None:
+    if card is None:
+        return
+    _write_json(_ensure(day) / "story_card.json", card.to_dict())
+
+
+def load_story_card(day: date) -> StoryCard | None:
+    data = _read_json(content_dir_for(day) / "story_card.json")
+    return StoryCard.from_dict(data) if data else None
+
+
 def save_day_plan(day: date, plan: DayPlan) -> None:
     """Convenience: write a single combined plan.json plus the per-platform files."""
     _write_json(_ensure(day) / "plan.json", plan.to_dict())
     save_twitter(day, plan.twitter)
     save_linkedin(day, plan.linkedin)
     save_instagram(day, plan.instagram)
+    save_reels(day, plan.reels)
+    save_story_card(day, plan.story_card)
 
 
 # --------------------------------------------------------------------------- #
@@ -121,6 +165,53 @@ def mark_published(day: date, target: str, info: dict) -> None:
 
 def is_published(day: date, target: str) -> bool:
     return (content_dir_for(day) / "published" / f"{target}.json").exists()
+
+
+# --------------------------------------------------------------------------- #
+# Media retention
+# --------------------------------------------------------------------------- #
+# Rendered media is committed so it can be fetched over the public web, which
+# means every day's output is permanent unless something removes it. Slides are
+# small enough not to matter, but a daily pair of reels is several megabytes, and
+# left alone that grows the repository by gigabytes a year.
+MEDIA_KEEP_DAYS = 6
+
+# The narration WAVs are the largest thing here and the only one nothing ever
+# fetches: the speech is already muxed into the MP4, so they survive purely so a
+# reel that sounds wrong can be diagnosed without regenerating it.
+MEDIA_SUFFIXES = (".png", ".jpg", ".mp4", ".wav")
+
+
+def prune_media(day: date, keep_days: int = MEDIA_KEEP_DAYS) -> int:
+    """Delete rendered binaries older than `keep_days`, keeping the JSON.
+
+    The JSON is the record of what was posted and costs nothing to keep. The
+    binaries only need to outlive the day's last publish slot, and a few days of
+    slack covers a retry or a late trigger. Returns the number of files removed.
+    """
+    removed = 0
+    cutoff = day - timedelta(days=keep_days)
+    if not CONTENT_DIR.exists():
+        return 0
+    for folder in CONTENT_DIR.iterdir():
+        if not folder.is_dir():
+            continue
+        try:
+            folder_day = date.fromisoformat(folder.name)
+        except ValueError:
+            continue
+        if folder_day >= cutoff:
+            continue
+        for path in folder.rglob("*"):
+            if path.is_file() and path.suffix.lower() in MEDIA_SUFFIXES:
+                try:
+                    path.unlink()
+                    removed += 1
+                except OSError as exc:  # pragma: no cover - best effort
+                    log.warning("could not prune %s: %s", path, exc)
+    if removed:
+        log.info("pruned %d rendered file(s) older than %s", removed, cutoff)
+    return removed
 
 
 # --------------------------------------------------------------------------- #

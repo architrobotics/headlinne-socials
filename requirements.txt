@@ -4,3 +4,7 @@ requests>=2.31.0
 beautifulsoup4>=4.12.0
 Pillow>=10.0.0
 python-dotenv>=1.0.0
+# Reels are encoded with ffmpeg. GitHub's Ubuntu runners already have it, so in
+# CI this dependency is unused; locally it supplies a static build so `preview`
+# works with no system install. Set FFMPEG_BINARY to override either.
+imageio-ffmpeg>=0.4.9

@@ -4,9 +4,9 @@ source-attribution line that mirrors the ranker's cross-source verification."""
 
 from __future__ import annotations
 
-from headlinne.generate.instagram import (_clamp_words, _cover_title,
-                                          _decide_num_stories, _hashtags,
-                                          source_line)
+from headlinne.generate.common import clamp_words
+from headlinne.generate.instagram import (_cover_title, _decide_num_stories,
+                                          _hashtags, source_line)
 from tests.helpers import make_story
 
 
@@ -60,9 +60,11 @@ def test_source_line_single_source_has_no_overflow():
 
 
 def test_clamp_words_trims_on_word_boundary():
-    out = _clamp_words("one two three four five six seven eight", 20)
+    # Shared by every generator that draws text into a fixed space, so this
+    # guards the carousel cover, the reel captions and the story card steps.
+    out = clamp_words("one two three four five six seven eight", 20)
     assert len(out) <= 20
     # Never cuts a word in half or leaves trailing punctuation.
     assert not out.endswith(" ")
     assert out.split() == out.split()  # sanity: still whole words
-    assert _clamp_words("short title", 40) == "short title"
+    assert clamp_words("short title", 40) == "short title"

@@ -105,21 +105,9 @@ def default_image_loader(src: Optional[str]) -> Optional[Image.Image]:
     return _fetch_image(src)
 
 
-def _cover_fit(img: Image.Image, w: int, h: int) -> Image.Image:
-    """Scale and centre-crop to exactly w x h, then sharpen."""
-    img = img.convert("RGB")
-    src_w, src_h = img.size
-    scale = max(w / src_w, h / src_h)
-    new = (max(1, int(src_w * scale)), max(1, int(src_h * scale)))
-    img = img.resize(new, Image.LANCZOS)
-    left = (img.width - w) // 2
-    top = (img.height - h) // 2
-    img = img.crop((left, top, left + w, top + h))
-    if scale > 1.05:
-        img = img.filter(ImageFilter.UnsharpMask(radius=2.2, percent=135, threshold=2))
-    else:
-        img = img.filter(ImageFilter.UnsharpMask(radius=1.1, percent=75, threshold=3))
-    return img.convert("RGBA")
+# Cover-fitting now lives in the shared design system so the carousel, the reel
+# plates and the story card all treat photography identically.
+_cover_fit = theme.cover_fit
 
 
 def _photo_or_fallback(slide: Slide, category: str, loader: ImageLoader) -> Image.Image:

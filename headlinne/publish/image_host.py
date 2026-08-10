@@ -1,8 +1,17 @@
-"""Turn locally-rendered slide PNGs into publicly reachable URLs.
+"""Turn locally-rendered media into publicly reachable URLs.
 
-Buffer does not accept image uploads. For Instagram carousels it fetches each
-image from a public URL. The simplest zero-cost option is to commit the rendered
-PNGs to a public GitHub repo and serve them through raw.githubusercontent.com.
+Buffer does not accept uploads. It (and the Meta Graph API) fetch every asset
+from a public URL, so anything we render has to be reachable over the internet
+before it can be published. The simplest zero-cost option is to commit the
+rendered files to a public GitHub repo and serve them through
+raw.githubusercontent.com.
+
+This covers reel MP4s as well as slide PNGs, and video is where a raw-GitHub
+setup is most likely to strain: the files are megabytes rather than kilobytes,
+they accumulate daily in git history, and raw.githubusercontent serves them with
+a generic content type that some fetchers are fussier about than others. If reel
+publishing fails while carousels keep working, moving PUBLIC_IMAGE_BASE_URL to a
+real object store is the first thing to try.
 
 If your repo is private, set PUBLIC_IMAGE_BASE_URL to a host you control (S3,
 Cloudflare R2, a small static server, etc.) that serves the same committed paths,

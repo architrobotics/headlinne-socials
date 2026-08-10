@@ -35,6 +35,21 @@ LINKEDIN_TOPICS = [
 ]
 
 
+def clamp_words(text: str, max_chars: int) -> str:
+    """Trim to a word boundary under `max_chars`.
+
+    Used wherever generated text is drawn into a fixed space (cover titles, reel
+    captions, story card steps). The renderer would shrink the type to fit
+    instead, but past a certain length that produces a slide nobody reads, so we
+    cut at the source.
+    """
+    text = (text or "").strip()
+    if len(text) <= max_chars:
+        return text
+    cut = text[:max_chars].rsplit(" ", 1)[0]
+    return cut.rstrip(",.:;- ").strip() or text[:max_chars]
+
+
 def hashtag(word: str) -> str:
     return "#" + str(word).lstrip("#").replace(" ", "")
 

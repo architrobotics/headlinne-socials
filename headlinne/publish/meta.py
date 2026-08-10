@@ -28,6 +28,9 @@ log = get_logger("publish.meta")
 
 _POLL_INTERVAL_SECONDS = 4
 _POLL_MAX_ATTEMPTS = 30  # ~2 minutes per container
+# Reels are transcoded, not just fetched, so they need a longer budget than an
+# image container does.
+_REEL_POLL_MAX_ATTEMPTS = 90  # ~6 minutes
 _REQUEST_TIMEOUT = 40
 
 
@@ -94,9 +97,10 @@ class MetaClient:
             raise MetaError("no container id for carousel parent")
         return cid
 
-    def _wait_finished(self, container_id: str) -> None:
+    def _wait_finished(self, container_id: str,
+                       max_attempts: int = _POLL_MAX_ATTEMPTS) -> None:
         """Poll a container until it is FINISHED (or fail on ERROR/timeout)."""
-        for _ in range(_POLL_MAX_ATTEMPTS):
+        for _ in range(max_attempts):
             body = self._get(container_id, {"fields": "status_code,status"})
             status = body.get("status_code")
             if status == "FINISHED":
@@ -114,6 +118,57 @@ class MetaClient:
         if not media_id:
             raise MetaError("publish returned no media id")
         return media_id
+
+    def publish_image(self, image_url: str, caption: str) -> str:
+        """Publish a single-image feed post (the daily story card)."""
+        body = self._post(f"{self.ig_user_id}/media", {
+            "image_url": image_url,
+            "caption": caption[:INSTAGRAM_CAPTION_LIMIT],
+        })
+        container = body.get("id")
+        if not container:
+            raise MetaError("no container id for the image post")
+        self._wait_finished(container)
+        media_id = self._publish(container)
+        log.info("Instagram image published, media id=%s", media_id)
+        return media_id
+
+    def publish_reel(self, video_url: str, caption: str, *,
+                     cover_url: str | None = None,
+                     share_to_feed: bool = True) -> str:
+        """Publish a Reel from a public MP4 URL. Returns the media id.
+
+        Reels take longer to process than images because Meta transcodes the
+        video, so this polls with a longer budget than the carousel flow.
+
+        `share_to_feed` should stay true. A reel that is not shared to the feed
+        lives only in the Reels tab and never appears on the profile grid, which
+        costs the post everything it would otherwise earn from profile visits.
+        """
+        params = {
+            "media_type": "REELS",
+            "video_url": video_url,
+            "caption": caption[:INSTAGRAM_CAPTION_LIMIT],
+            "share_to_feed": "true" if share_to_feed else "false",
+        }
+        if cover_url:
+            params["cover_url"] = cover_url
+
+        body = self._post(f"{self.ig_user_id}/media", params)
+        container = body.get("id")
+        if not container:
+            raise MetaError("no container id for the reel")
+        log.info("Reel container %s created, waiting for transcode", container)
+        self._wait_finished(container, max_attempts=_REEL_POLL_MAX_ATTEMPTS)
+
+        media_id = self._publish(container)
+        log.info("Instagram reel published, media id=%s", media_id)
+        return media_id
+
+    def post_comment(self, media_id: str, text: str) -> str:
+        """Add a comment to a published post (used for the hashtag block)."""
+        body = self._post(f"{media_id}/comments", {"message": text})
+        return body.get("id", "")
 
     def publish_carousel(self, image_urls: list[str], caption: str) -> str:
         """Publish a carousel from public image URLs. Returns the media id."""
