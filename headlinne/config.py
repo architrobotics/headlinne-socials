@@ -24,6 +24,46 @@ except Exception:  # pragma: no cover
 
 
 # --------------------------------------------------------------------------- #
+# Reading the environment
+# --------------------------------------------------------------------------- #
+# Every setting below goes through these three helpers, and the reason is a trap
+# that is very easy to walk into.
+#
+# A workflow line like `REEL_VOICEOVER: ${{ vars.REEL_VOICEOVER }}` does NOT
+# leave the variable unset when the repository variable has never been created.
+# GitHub substitutes an **empty string**, so the runner gets `REEL_VOICEOVER=""`.
+# `os.getenv("REEL_VOICEOVER", "true")` then returns `""`, not `"true"`, because
+# as far as Python is concerned the variable is set. The default silently never
+# applies, and a feature everyone expected to be on ships off.
+#
+# So: an empty or whitespace-only value means "not configured", and the default
+# wins. Anyone who genuinely wants a feature off sets the variable to "false"
+# rather than clearing it.
+def _env_str(name: str, default: str) -> str:
+    """A string setting, where an empty value means 'use the default'."""
+    return os.getenv(name, "").strip() or default
+
+
+def _env_flag(name: str, default: bool) -> bool:
+    """A boolean setting. Anything other than a truthy word reads as False."""
+    raw = os.getenv(name, "").strip().lower()
+    if not raw:
+        return default
+    return raw in ("1", "true", "yes", "on")
+
+
+def _env_number(name: str, default, cast):
+    """A numeric setting, falling back on an empty or unparseable value."""
+    raw = os.getenv(name, "").strip()
+    if not raw:
+        return default
+    try:
+        return cast(raw)
+    except (TypeError, ValueError):
+        return default
+
+
+# --------------------------------------------------------------------------- #
 # Paths
 # --------------------------------------------------------------------------- #
 ROOT = Path(__file__).resolve().parent.parent
@@ -237,8 +277,8 @@ REEL_MAX_SECONDS = 55
 # colour, large type and slow moves, which is the easiest thing in the world for
 # an encoder. Instagram re-encodes everything on upload anyway, so the extra
 # bitrate a fast preset spends never reaches a viewer.
-REEL_CRF = int(os.getenv("REEL_CRF", "20"))
-REEL_PRESET = os.getenv("REEL_PRESET", "veryfast")
+REEL_CRF = _env_number("REEL_CRF", 20, int)
+REEL_PRESET = _env_str("REEL_PRESET", "veryfast")
 
 # Every reel burns in its own captions, because most reels are watched muted and
 # the words have to survive that. The voiceover is the other half: it is what an
@@ -249,8 +289,8 @@ REEL_PRESET = os.getenv("REEL_PRESET", "veryfast")
 # When the voiceover is on, the narration drives the edit: each beat lasts as
 # long as its spoken line plus a little air, so REEL_TARGET_SECONDS below only
 # governs the silent fallback.
-REEL_VOICEOVER = os.getenv("REEL_VOICEOVER", "true").strip().lower() in ("1", "true", "yes")
-REEL_TTS_MODEL = os.getenv("REEL_TTS_MODEL", "gemini-3.1-flash-tts-preview")
+REEL_VOICEOVER = _env_flag("REEL_VOICEOVER", True)
+REEL_TTS_MODEL = _env_str("REEL_TTS_MODEL", "gemini-3.1-flash-tts-preview")
 
 # Gemini TTS returns raw signed 16-bit little-endian PCM, mono, at 24 kHz.
 TTS_SAMPLE_RATE = 24000
@@ -260,8 +300,8 @@ TTS_CHANNELS = 1
 # Prebuilt voices. Audition them before settling: the two formats deliberately
 # use different voices so the morning news reel and the evening lesson do not
 # sound like the same person reading two scripts.
-REEL_VOICE_NEWS = os.getenv("REEL_VOICE_NEWS", "Charon")
-REEL_VOICE_EDUCATION = os.getenv("REEL_VOICE_EDUCATION", "Kore")
+REEL_VOICE_NEWS = _env_str("REEL_VOICE_NEWS", "Charon")
+REEL_VOICE_EDUCATION = _env_str("REEL_VOICE_EDUCATION", "Kore")
 
 # Delivery direction, prepended to each line. Gemini TTS takes plain-language
 # style instructions, and without one it reads news copy like an advertisement.
@@ -286,7 +326,7 @@ REEL_SILENT_AUDIO = True
 
 # Optional override if ffmpeg is not on PATH. When unset we look for a system
 # ffmpeg first and fall back to the one bundled with imageio-ffmpeg.
-FFMPEG_BINARY = os.getenv("FFMPEG_BINARY", "")
+FFMPEG_BINARY = _env_str("FFMPEG_BINARY", "")
 
 
 # --------------------------------------------------------------------------- #
@@ -384,13 +424,13 @@ EDUCATION_TOPICS: tuple[EducationTopic, ...] = (
 # --------------------------------------------------------------------------- #
 # Each daily format can be turned off without touching code. Reels and the story
 # card are on by default because they are what a cold account needs.
-REELS_ENABLED = os.getenv("REELS_ENABLED", "true").strip().lower() in ("1", "true", "yes")
-STORY_CARD_ENABLED = os.getenv("STORY_CARD_ENABLED", "true").strip().lower() in ("1", "true", "yes")
+REELS_ENABLED = _env_flag("REELS_ENABLED", True)
+STORY_CARD_ENABLED = _env_flag("STORY_CARD_ENABLED", True)
 # The second daily carousel. With reels and the story card added, four feed posts
 # a day is more than a small account needs, and posting past the point where each
 # post can find its audience dilutes every one of them. Set this to "false" to
 # drop to one carousel a day (recommended once the reels are running).
-IG_SECOND_CAROUSEL = os.getenv("IG_SECOND_CAROUSEL", "true").strip().lower() in ("1", "true", "yes")
+IG_SECOND_CAROUSEL = _env_flag("IG_SECOND_CAROUSEL", True)
 
 
 # --------------------------------------------------------------------------- #
@@ -399,8 +439,8 @@ IG_SECOND_CAROUSEL = os.getenv("IG_SECOND_CAROUSEL", "true").strip().lower() in 
 GEMINI_MODEL = "gemini-3.1-flash-lite"
 # Thinking budget for generation: "minimal" | "low" | "medium" | "high".
 # "low" gives clean, instruction-following copy without much latency or cost.
-GEMINI_THINKING_LEVEL = os.getenv("GEMINI_THINKING_LEVEL", "low")
-GEMINI_TEMPERATURE = float(os.getenv("GEMINI_TEMPERATURE", "0.65"))
+GEMINI_THINKING_LEVEL = _env_str("GEMINI_THINKING_LEVEL", "low")
+GEMINI_TEMPERATURE = _env_number("GEMINI_TEMPERATURE", 0.65, float)
 GEMINI_MAX_RETRIES = 4
 
 
@@ -411,20 +451,20 @@ GEMINI_MAX_RETRIES = 4
 #               time, and Buffer publishes them. (Recommended: fewer triggers.)
 # "trigger"   -> `publish --target x-1|x-2|linkedin` posts at call time, so you
 #               must add cron-job.org triggers for those slots too.
-BUFFER_SCHEDULING_MODE = os.getenv("BUFFER_SCHEDULING_MODE", "scheduled")
+BUFFER_SCHEDULING_MODE = _env_str("BUFFER_SCHEDULING_MODE", "scheduled")
 
 BUFFER_API_URL = "https://api.buffer.com"
 
 # Attach the rendered branded card image to X posts (lifts reach). The tweet text
 # stays a valid standalone post either way. Set to "false" to post text only.
-X_ATTACH_CARD = os.getenv("X_ATTACH_CARD", "true").strip().lower() in ("1", "true", "yes")
+X_ATTACH_CARD = _env_flag("X_ATTACH_CARD", True)
 
 # Meta Graph API (the alternative, direct Instagram publisher in
 # headlinne/publish/meta.py). The active pipeline publishes Instagram through
 # Buffer, but this path is fully supported for anyone who prefers to publish
 # carousels straight to Meta with the secrets from setup steps 4 and 5.
 META_GRAPH_URL = "https://graph.facebook.com"
-META_GRAPH_VERSION = os.getenv("META_GRAPH_VERSION", "v21.0")
+META_GRAPH_VERSION = _env_str("META_GRAPH_VERSION", "v21.0")
 
 
 # --------------------------------------------------------------------------- #
@@ -441,12 +481,12 @@ META_GRAPH_VERSION = os.getenv("META_GRAPH_VERSION", "v21.0")
 # post. It is capped low, is helpful-first, and only ever suggests a Headlinne
 # mention where it is on-topic, allowed, and disclosed.
 
-REDDIT_USER_AGENT = os.getenv(
+REDDIT_USER_AGENT = _env_str(
     "REDDIT_USER_AGENT", "web:headlinne-assist:v1.0 (by /u/your_reddit_username)")
 
 # How many opportunities one `reddit find` run may surface / draft. Kept low on
 # purpose. The hard cap below cannot be exceeded even via the env var.
-REDDIT_ENGAGEMENT_CAP = int(os.getenv("REDDIT_ENGAGEMENT_CAP", "12"))
+REDDIT_ENGAGEMENT_CAP = _env_number("REDDIT_ENGAGEMENT_CAP", 12, int)
 REDDIT_ENGAGEMENT_HARD_MAX = 25
 
 # At most this share of surfaced replies may mention Headlinne (Reddit's informal
@@ -542,7 +582,7 @@ class Secrets:
     # For a public GitHub repo this is filled automatically in CI from
     # GITHUB_REPOSITORY / GITHUB_REF_NAME. You can override for a custom host.
     github_repository: str = field(default_factory=lambda: os.getenv("GITHUB_REPOSITORY", ""))
-    github_ref_name: str = field(default_factory=lambda: os.getenv("GITHUB_REF_NAME", "main"))
+    github_ref_name: str = field(default_factory=lambda: _env_str("GITHUB_REF_NAME", "main"))
     public_image_base_url: str = field(default_factory=lambda: os.getenv("PUBLIC_IMAGE_BASE_URL", ""))
 
 

@@ -1,4 +1,4 @@
-  # Headlinne Social Automation
+# Headlinne Social Automation
 
 Autonomous daily social media for [HEADLINNE.com](https://HEADLINNE.com). Every
 day this system gathers the most significant news in Technology, Finance and
@@ -454,6 +454,14 @@ Add these as **variables** (plain, non-secret):
 For local runs, copy `.env.example` to `.env` and fill in the same values. The
 `.env` file is git-ignored. Never commit real keys.
 
+**You do not need to create any of the variables above.** Every one has a working
+default, and the workflows pass them through as `${{ vars.NAME }}`, which hands
+the runner an empty string when the variable does not exist. `config.py` treats
+an empty value as "not configured" and uses the default, so a variable is only
+worth creating when you want to *change* something. To turn a feature off, set
+it to `false` rather than clearing it, since clearing it just restores the
+default.
+
 ### 6. Schedule the daily trigger with cron-job.org
 
 cron-job.org calls the GitHub `workflow_dispatch` API on a schedule. The full
@@ -737,6 +745,5 @@ store via `PUBLIC_IMAGE_BASE_URL` instead of committing it.
 
 Built as a foundation to grow with Headlinne. The code favours clear, readable
 structure over cleverness, so it is easy to extend as the product evolves.
-#   h e a d l i n n e - s o c i a l s 
- 
+#   h e a d l i n n e - s o c i a l s  
  
