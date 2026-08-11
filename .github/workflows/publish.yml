@@ -11,11 +11,14 @@ on:
         required: true
         type: choice
         options:
+          - reel-1
           - x-1
+          - instagram-1
           - x-2
           - linkedin
-          - instagram-1
           - instagram-2
+          - reel-2
+          - story-card
 
 permissions:
   contents: write          # to record publish markers back to the repo

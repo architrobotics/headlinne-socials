@@ -1,4 +1,4 @@
-# Headlinne Social Automation
+  # Headlinne Social Automation
 
 Autonomous daily social media for [HEADLINNE.com](https://HEADLINNE.com). Every
 day this system gathers the most significant news in Technology, Finance and
@@ -737,5 +737,6 @@ store via `PUBLIC_IMAGE_BASE_URL` instead of committing it.
 
 Built as a foundation to grow with Headlinne. The code favours clear, readable
 structure over cleverness, so it is easy to extend as the product evolves.
-#   h e a d l i n n e - s o c i a l s  
+#   h e a d l i n n e - s o c i a l s 
+ 
  
