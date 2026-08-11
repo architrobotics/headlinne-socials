@@ -5,22 +5,22 @@
   "twitter": [
     {
       "category": "Promo",
-      "post": "Most news feeds are cluttered with stuff you do not care about. Our app quietly learns what actually interests you over time. It gets better the more you read so you can spend less time scrolling and more time learning. HEADLINNE.com #News #TechTips",
+      "post": "Most news apps show everyone the same headlines. But your interests are unique. We built a feed that learns what you actually read so you can spend less time scrolling and more time getting informed. HEADLINNE.com #news #reading",
       "hashtags": [
-        "News",
-        "TechTips"
+        "news",
+        "reading"
       ],
       "scheduled_time": "2026-08-11T13:00:00+05:30",
       "kind": "promo",
-      "lead": "A news feed that learns your taste",
+      "lead": "News that learns what you like",
       "items": [],
       "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-11/x/x_1.png"
     }
   ],
   "linkedin": {
-    "title": "Most news feeds are broken because they treat everyone the same.",
-    "body": "We all have different interests, different levels of knowledge, and different goals for our time. Yet, most platforms serve us a generic mix of popular stories that often feel irrelevant or just noisy. They prioritize what is trending over what actually matters to the individual reader.\n\nTrue personalization is not just about showing you more of what you already like. It is about respecting your time. It means filtering out the clutter so you can focus on the stories that inform your specific worldview or professional needs. It is about depth over breadth.\n\nWe built Headlinne because we believe technology should act like a personal editor. It should learn what you find valuable and quietly curate the day around those priorities. When news is tailored to you, you stop skimming headlines and start actually reading.\n\nI am curious how you currently manage your news intake. Do you feel like you are getting what you need, or are you constantly filtering out the noise yourself?",
-    "cta": "You can see how we are approaching this challenge at HEADLINNE.com.",
+    "title": "Most news feeds are broken because they treat everyone like the same person.",
+    "body": "When you open a typical news app, you are fed a mix of sensational headlines, irrelevant local stories, and topics you stopped caring about months ago. It is designed to grab attention for a few seconds rather than inform you about the things that actually matter to your life or your work.\n\nTrue personalization is not about showing you more of what you already click on. It is about understanding the context behind your interests. If you are tracking a specific industry, you do not need the same broad headlines as everyone else. You need the deep dives, the analysis, and the updates that change your perspective on that topic.\n\nWe built Headlinne to solve this noise problem. By using AI to filter out the fluff and focus on what is genuinely relevant to you, we are trying to make the daily news cycle feel like a resource instead of a chore. It is about giving you back your time while keeping you sharper.",
+    "cta": "You can see how we are rethinking the feed at HEADLINNE.com.",
     "scheduled_time": "2026-08-11T18:00:00+05:30",
     "kind": "product"
   },
@@ -29,66 +29,66 @@
       "slot": "instagram_1",
       "category": "Technology",
       "num_slides": 7,
-      "title": "AI's big week: 5 tech updates",
+      "title": "Tech News You Need Today",
       "slides": [
         {
           "role": "cover",
-          "headline": "AI's big week: 5 tech updates",
+          "headline": "Tech News You Need Today",
           "explanation": "",
-          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/13ae/live/d1192590-9504-11f1-bf69-07da70b136c8.jpg",
+          "image_url": "https://techcrunch.com/wp-content/uploads/2024/06/social-media-icons.jpg?resize=1200,798",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-11/instagram/instagram_1/slide_1.png",
-          "subtitle": "From massive chip investments to Google's hardware reveal, here is what matters.",
+          "subtitle": "From data breaches to AI power struggles, here is the day's top tech news.",
           "sources": "",
           "index": 0
         },
         {
           "role": "story",
-          "headline": "Nvidia secures massive funding for AI",
-          "explanation": "Investors have poured 500 billion dollars into Nvidia to help build vast new data centers. This infrastructure is needed to power the massive computer chips that run modern AI systems.",
-          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/13ae/live/d1192590-9504-11f1-bf69-07da70b136c8.jpg",
+          "headline": "Social media giants face addiction lawsuits",
+          "explanation": "Courts have rejected appeals from Meta, TikTok, Snapchat, and Google regarding addiction lawsuits. This keeps thousands of cases against these platforms moving forward.",
+          "image_url": "https://techcrunch.com/wp-content/uploads/2024/06/social-media-icons.jpg?resize=1200,798",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-11/instagram/instagram_1/slide_2.png",
           "subtitle": "",
-          "sources": "BBC Technology, BBC Business",
+          "sources": "TechCrunch",
           "index": 1
         },
         {
           "role": "story",
-          "headline": "The gap between AI hype and reality",
-          "explanation": "Tech executives claim AI will give employees more free time, yet staff report working up to 90 hours a week. It seems the promised work-life balance has not arrived for the people building the tech.",
-          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/e1c0/live/bb9691e0-94b3-11f1-a7ab-8b30adf0800a.jpg",
+          "headline": "Massive shipping data breach hits everyone",
+          "explanation": "A cyberattack on Ceva Logistics has exposed personal data across banks, retailers, and even Steam gamers. If you shop online, your information may have been caught in the crossfire.",
+          "image_url": "https://techcrunch.com/wp-content/uploads/2026/08/shipping-2288991285.jpg?resize=1200,878",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-11/instagram/instagram_1/slide_3.png",
           "subtitle": "",
-          "sources": "BBC Technology, BBC Business",
+          "sources": "TechCrunch",
           "index": 2
         },
         {
           "role": "story",
-          "headline": "Meta tries a new AI strategy",
-          "explanation": "Meta is launching open AI models to try and catch up with its competitors. Mark Zuckerberg hopes this pivot will finally jumpstart the company's struggling AI efforts.",
-          "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2024/08/GettyImages-2162539176-1024x648.jpg",
+          "headline": "OpenAI pauses Astra over safety fears",
+          "explanation": "OpenAI slowed development of its Astra model because they could not rule out potential cyber risks. It shows how even the biggest AI labs are struggling to balance speed with safety.",
+          "image_url": "https://www.engadget.com/img/gallery/openai-slows-down-astra-development-due-to-cybersecurity-concerns/l-intro-1786353354.jpg",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-11/instagram/instagram_1/slide_4.png",
           "subtitle": "",
-          "sources": "Ars Technica",
+          "sources": "Engadget",
           "index": 3
         },
         {
           "role": "story",
-          "headline": "OpenAI fights back against cyberattacks",
-          "explanation": "OpenAI is releasing a new AI model specifically trained to detect and block cyberattacks. As digital threats grow, this tool aims to strengthen security defenses using automation.",
-          "image_url": "https://techcrunch.com/wp-content/uploads/2026/05/openai-logo-code-background.jpg?resize=1200,798",
+          "headline": "Amazon's new power plant sparks climate debate",
+          "explanation": "Amazon is backing an off-the-grid power plant to support its data centers. Critics worry this move could become a major source of climate pollution in the race for AI dominance.",
+          "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/GettyImages-2267221283-1152x648.jpg",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-11/instagram/instagram_1/slide_5.png",
           "subtitle": "",
-          "sources": "TechCrunch",
+          "sources": "Ars Technica",
           "index": 4
         },
         {
           "role": "story",
-          "headline": "What to watch for at Google's event",
-          "explanation": "Google is set to reveal its latest hardware, including new slab and foldable Pixel phones. We might also see updates to their smartwatches and new colors for their earbuds.",
-          "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/08/videoframe_17597.png?quality=90&amp;strip=all&amp;crop=0%2C3.4613147178592%2C100%2C93.077370564282&amp;w=1200",
+          "headline": "OpenAI finishes massive $7B employee payout",
+          "explanation": "OpenAI just wrapped up a tender offer that allowed employees to cash out $7 billion in shares. This kind of wealth moves local economies, like the housing market in San Francisco.",
+          "image_url": "https://techcrunch.com/wp-content/uploads/2026/07/OpenAI-logo-green.jpg?w=1024",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-11/instagram/instagram_1/slide_6.png",
           "subtitle": "",
-          "sources": "The Verge",
+          "sources": "TechCrunch",
           "index": 5
         },
         {
@@ -102,44 +102,45 @@
           "index": 0
         }
       ],
-      "caption": "The tech world is moving fast this week, from massive infrastructure investments to new hardware launches.\n\nWe have broken down the biggest stories so you can stay informed without the noise. Which of these updates are you most interested in?\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#Tech #TechNews #AI #Innovation",
+      "caption": "From major legal battles to the hidden costs of our AI obsession, the tech industry is moving fast today.\n\nWe have broken down the five stories you actually need to know about. Which of these headlines caught your attention the most?\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#Tech #TechNews #AI #Innovation",
       "hashtags": [
         "Tech",
         "TechNews",
         "AI",
         "Innovation",
-        "Nvidia",
-        "GooglePixel",
-        "Meta",
         "OpenAI",
         "CyberSecurity",
-        "TechTrends",
-        "Headlinne"
+        "DataBreach",
+        "SocialMedia",
+        "ClimateChange",
+        "TechIndustry",
+        "Headlinne",
+        "DailyBriefing"
       ],
       "scheduled_time": "2026-08-11T16:00:00+05:30",
-      "first_comment": "#Nvidia #GooglePixel #Meta #OpenAI #CyberSecurity #TechTrends #Headlinne"
+      "first_comment": "#OpenAI #CyberSecurity #DataBreach #SocialMedia #ClimateChange #TechIndustry #Headlinne #DailyBriefing"
     },
     {
       "slot": "instagram_2",
       "category": "Geopolitics",
       "num_slides": 7,
-      "title": "Global Updates You Should Know Today",
+      "title": "Politics and Crises Around the Globe",
       "slides": [
         {
           "role": "cover",
-          "headline": "Global Updates You Should Know Today",
+          "headline": "Politics and Crises Around the Globe",
           "explanation": "",
-          "image_url": "https://i.guim.co.uk/img/media/c3ddc8f9aef2cdda8bb7bbbca0d04cc087cae526/0_600_1214_971/master/1214.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=020bcad3c610e57d5d5b40b03e41bcb3",
+          "image_url": "https://i.guim.co.uk/img/media/c762e144ddc72b6031ab6f372efddeed68516df0/783_88_1406_1125/master/1406.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=8046060d44236ff673b9d9003ea84a1a",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-11/instagram/instagram_2/slide_1.png",
-          "subtitle": "Five quick stories on the shifts shaping our world right now.",
+          "subtitle": "Five stories you need to know today.",
           "sources": "",
           "index": 0
         },
         {
           "role": "story",
-          "headline": "Ukraine Strikes Deep Inside Russia",
-          "explanation": "A Ukrainian drone attack hit an industrial site hundreds of miles from the border, killing at least 13 people. This marks a significant escalation in Kyiv’s strategy to target the Russian economy directly.",
-          "image_url": "https://i.guim.co.uk/img/media/c3ddc8f9aef2cdda8bb7bbbca0d04cc087cae526/0_600_1214_971/master/1214.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=020bcad3c610e57d5d5b40b03e41bcb3",
+          "headline": "NC Republicans Pick New Candidate",
+          "explanation": "Lawmaker Jennifer Balkcom will now run for North Carolina’s 11th district seat. This follows the incumbent dropping out after a House investigation into sexual harassment allegations.",
+          "image_url": "https://i.guim.co.uk/img/media/c762e144ddc72b6031ab6f372efddeed68516df0/783_88_1406_1125/master/1406.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=8046060d44236ff673b9d9003ea84a1a",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-11/instagram/instagram_2/slide_2.png",
           "subtitle": "",
           "sources": "Guardian World",
@@ -147,29 +148,29 @@
         },
         {
           "role": "story",
-          "headline": "Russia Bans Anti-War Party",
-          "explanation": "A Moscow court ruled that the country's only liberal, anti-war party cannot run in next month's parliamentary elections. This decision effectively removes any organized political opposition from the ballot.",
-          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/3520/live/5abf3640-94dd-11f1-b2ab-0dd01740f9f6.jpg",
+          "headline": "Tanker Spill Off Oman Coast",
+          "explanation": "Oman is working to manage a major oil spill from a tanker linked to Russia’s shadow fleet. These vessels often operate outside regular channels to bypass international sanctions.",
+          "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/08/2026-08-10T144728Z_776278371_RC2QVMAKPKKX_RTRMADP_3_MIDEAST-GULF-SHIPPING-SPILL-1786378622.jpg?resize=1920%2C1440",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-11/instagram/instagram_2/slide_3.png",
           "subtitle": "",
-          "sources": "BBC World",
+          "sources": "Al Jazeera",
           "index": 2
         },
         {
           "role": "story",
-          "headline": "Inside Ukraine's Drone Launch Sites",
-          "explanation": "Journalists gained access to a secret base in eastern Ukraine where soldiers prepare long-range drones. It offers a rare look at the logistics behind the country's deep-strike capabilities.",
-          "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/08/Wide_CLEAN_FINAL1-1786403775.jpg?resize=1920%2C1080&amp;quality=80",
+          "headline": "Tensions Rise at India Job Protests",
+          "explanation": "Police used teargas on protesters in India who claim there were irregularities in civil service recruitment exams. Young job seekers are frustrated by a system they say is unfair.",
+          "image_url": "https://i.guim.co.uk/img/media/43648b7782b4d45aaffaf3714f44d2ea212f338c/394_0_3750_3000/master/3750.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=ff5a27a3746dc80c2942f56b80844b76",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-11/instagram/instagram_2/slide_4.png",
           "subtitle": "",
-          "sources": "Al Jazeera",
+          "sources": "Guardian World",
           "index": 3
         },
         {
           "role": "story",
-          "headline": "Boat Operator Charged After NYC Tragedy",
-          "explanation": "Federal prosecutors charged a speedboat driver with misconduct after a vessel capsized in New York Harbor, killing a mother and her infant. The case highlights the serious legal consequences for negligence on the water.",
-          "image_url": "https://i.guim.co.uk/img/media/c7b80089b28c6434898e91ec28619287fe48bff5/417_0_4167_3334/master/4167.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=9b37bb59bb7e1ac027c9e77e2a833da8",
+          "headline": "Hunger Striker Details Force Feeding",
+          "explanation": "A filmmaker in US immigration detention says he was force-fed during an eight-month hunger strike. He describes the experience as deeply harmful and traumatizing.",
+          "image_url": "https://i.guim.co.uk/img/media/bbb331d29d3ec31a0b2367344b8a557140f6a308/1263_738_3472_2778/master/3472.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=2cb7aa9d837bc8dd995574fd6af4f8cf",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-11/instagram/instagram_2/slide_5.png",
           "subtitle": "",
           "sources": "Guardian World",
@@ -177,12 +178,12 @@
         },
         {
           "role": "story",
-          "headline": "Tech Giants Face Addiction Lawsuits",
-          "explanation": "A US appeals court ruled that Meta, Google, and TikTok must face lawsuits claiming their platforms are addictive. This could set a major precedent for how tech companies are held liable for user safety.",
-          "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/08/getty_6a7a2817be-1786390551.jpg?resize=1920%2C1440",
+          "headline": "Ohio Rep Stays in Race Despite Claims",
+          "explanation": "Representative Max Miller is remaining on the ballot for his Ohio congressional seat despite facing domestic abuse allegations. The deadline to replace him has already passed.",
+          "image_url": null,
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-11/instagram/instagram_2/slide_6.png",
           "subtitle": "",
-          "sources": "Al Jazeera",
+          "sources": "AP Top News",
           "index": 5
         },
         {
@@ -196,23 +197,23 @@
           "index": 0
         }
       ],
-      "caption": "From rising tensions in Eastern Europe to a major legal hurdle for Big Tech, here is what is making headlines today.\n\nWe break down the facts so you can stay informed without the noise. Which of these stories do you think will have the biggest impact this year?\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#WorldNews #Geopolitics #GlobalNews #Politics",
+      "caption": "Today’s news covers shifting political races, environmental hazards, and human rights concerns.\n\nFrom new candidates in North Carolina to intense protests in India, these are the stories shaping the current global landscape. Which of these headlines caught your attention most?\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#WorldNews #Geopolitics #GlobalNews #Politics",
       "hashtags": [
         "WorldNews",
         "Geopolitics",
         "GlobalNews",
         "Politics",
-        "Headlinne",
-        "NewsUpdate",
-        "TechNews",
+        "DailyBrief",
         "CurrentEvents",
-        "UkraineConflict",
-        "DigitalSafety",
-        "DailyBriefing",
-        "GlobalAffairs"
+        "NCpolitics",
+        "IndiaNews",
+        "HumanRights",
+        "OilSpill",
+        "Election2024",
+        "Headlinne"
       ],
       "scheduled_time": "2026-08-11T18:00:00+05:30",
-      "first_comment": "#Headlinne #NewsUpdate #TechNews #CurrentEvents #UkraineConflict #DigitalSafety #DailyBriefing #GlobalAffairs"
+      "first_comment": "#DailyBrief #CurrentEvents #NCpolitics #IndiaNews #HumanRights #OilSpill #Election2024 #Headlinne"
     }
   ],
   "reels": [
@@ -221,13 +222,13 @@
       "kind": "news",
       "category": "Technology",
       "title": "Nvidia gets $500bn from major investors to develop AI infrastructure",
-      "hook": "Three big tech stories this week",
+      "hook": "Massive cash for AI infrastructure",
       "beats": [
         {
           "role": "hook",
-          "caption": "Three big tech stories this week",
-          "detail": "The third one is about a massive cash injection",
-          "narration": "Three big tech stories this week. The third one is about a massive cash",
+          "caption": "Massive cash for AI infrastructure",
+          "detail": "Three major tech updates today. The third one is the most expensive.",
+          "narration": "Three big stories in tech right now. The third one is the expensive one.",
           "seconds": 3.0,
           "graphic": "",
           "data": {},
@@ -235,9 +236,9 @@
         },
         {
           "role": "point",
-          "caption": "Nvidia lands 500 billion",
+          "caption": "Nvidia secures 500 billion",
           "detail": "Major investors back new AI infrastructure",
-          "narration": "Nvidia just secured five hundred billion dollars from big investors.",
+          "narration": "Nvidia just secured five hundred billion dollars from major investors.",
           "seconds": 3.0,
           "graphic": "",
           "data": {},
@@ -246,8 +247,8 @@
         {
           "role": "point",
           "caption": "Building the AI engine",
-          "detail": "It is for new data centres to house miles of chips",
-          "narration": "That money is going straight into building new data centres to house miles",
+          "detail": "New data centers for miles of stacked chips",
+          "narration": "That money is going straight into building massive new data centers.",
           "seconds": 3.0,
           "graphic": "",
           "data": {},
@@ -255,16 +256,16 @@
         },
         {
           "role": "graphic",
-          "caption": "Where the money goes",
-          "detail": "Developing infrastructure for AI processing",
-          "narration": "These centres have to keep those chips cool and running to process all that",
+          "caption": "Turning cash into power",
+          "detail": "Cooling and operating miles of AI chips",
+          "narration": "These centers will house and cool miles of stacked chips to process AI data.",
           "seconds": 3.0,
           "graphic": "flow",
           "data": {
             "steps": [
-              "Raise cash",
-              "Build centres",
-              "Run AI chips"
+              "Investments",
+              "New data centers",
+              "AI processing"
             ]
           },
           "image_url": null
@@ -272,8 +273,8 @@
         {
           "role": "point",
           "caption": "Why you should care",
-          "detail": "This infrastructure powers the AI apps you use daily",
-          "narration": "This matters because this is the physical backbone that powers the AI apps",
+          "detail": "This defines how AI services actually run",
+          "narration": "This is the physical backbone that determines how fast and capable AI",
           "seconds": 3.0,
           "graphic": "",
           "data": {},
@@ -281,36 +282,35 @@
         },
         {
           "role": "payoff",
-          "caption": "The AI race is getting expensive",
+          "caption": "The future is being built",
           "detail": "",
-          "narration": "It is clear that the AI race is getting very expensive.",
+          "narration": "It is the physical foundation of the next wave of tech.",
           "seconds": 3.0,
           "graphic": "",
           "data": {},
           "image_url": null
         }
       ],
-      "caption": "Nvidia has secured 500 billion dollars in funding to expand its AI infrastructure.\n\nThe investment will focus on building new data centres. These facilities are essential for housing and cooling the chips that power modern artificial intelligence.\n\nDo you think data centres are the biggest bottleneck for AI right now?\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#TechNews #AI #Tech #Nvidia",
+      "caption": "Nvidia has secured 500 billion dollars to build out new AI infrastructure.\n\nThe investment will fund massive data centers filled with miles of stacked computer chips. These facilities are designed to cool and operate the hardware needed to process complex AI actions.\n\nHow much do you think this will change the speed of AI development?\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#TechNews #AI #Tech #Nvidia",
       "hashtags": [
         "TechNews",
         "AI",
         "Tech",
         "Nvidia",
         "ArtificialIntelligence",
-        "DataCentres",
+        "DataCenters",
+        "Investing",
         "BusinessNews",
-        "AIInfrastructure",
-        "TechInvestment",
-        "Computing",
-        "ChipShortage",
         "TechTrends",
-        "FutureOfTech",
+        "Computing",
         "SiliconValley",
+        "Innovation",
+        "FutureTech",
         "Headlinne"
       ],
       "scheduled_time": "2026-08-11T09:30:00+05:30",
-      "first_comment": "#ArtificialIntelligence #DataCentres #BusinessNews #AIInfrastructure #TechInvestment #Computing #ChipShortage #TechTrends #FutureOfTech #SiliconValley #Headlinne",
-      "sources": "BBC Technology, BBC Business",
+      "first_comment": "#ArtificialIntelligence #DataCenters #Investing #BusinessNews #TechTrends #Computing #SiliconValley #Innovation #FutureTech #Headlinne",
+      "sources": "BBC Technology, BBC Business +1",
       "story_url": "https://www.bbc.co.uk/news/articles/c78gr0jv0mdo?at_medium=RSS&at_campaign=rss",
       "duration_seconds": 28.0,
       "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-11/reels/reel_1.mp4",
@@ -323,13 +323,13 @@
       "kind": "education",
       "category": "Finance",
       "title": "What GDP misses about how people live",
-      "hook": "Everyone thinks GDP tracks our health",
+      "hook": "We think GDP measures our success.",
       "beats": [
         {
           "role": "hook",
-          "caption": "Everyone thinks GDP tracks our health",
-          "detail": "It actually just counts how much money we spend",
-          "narration": "We think GDP measures how well we live. It actually just counts how much we",
+          "caption": "We think GDP measures our success.",
+          "detail": "It actually just counts how much money moves.",
+          "narration": "We think GDP measures how well we're doing. It doesn't. It just counts",
           "seconds": 3.0,
           "graphic": "",
           "data": {},
@@ -337,9 +337,9 @@
         },
         {
           "role": "point",
-          "caption": "It counts every transaction",
-          "detail": "GDP adds up all spending, regardless of whether it actually helps us.",
-          "narration": "GDP treats every single dollar spent the same way. It doesn't ask if it",
+          "caption": "GDP tracks activity",
+          "detail": "It counts every dollar spent, regardless of the outcome.",
+          "narration": "Think of GDP as a giant tracker for economic activity. It counts every",
           "seconds": 3.0,
           "graphic": "",
           "data": {},
@@ -347,9 +347,9 @@
         },
         {
           "role": "point",
-          "caption": "A car crash boosts GDP",
-          "detail": "Repairs and medical bills count as economic activity, but nobody is better",
-          "narration": "Think about a car crash. The repairs and medical bills actually boost the",
+          "caption": "A crash boosts the total",
+          "detail": "Towing, repairs, and medical bills all count as economic growth.",
+          "narration": "Imagine a car crash. The tow truck, the body shop, and the medical bills",
           "seconds": 3.0,
           "graphic": "",
           "data": {},
@@ -357,20 +357,20 @@
         },
         {
           "role": "graphic",
-          "caption": "Activity vs well-being",
-          "detail": "Money spent fixing a mess looks the same as money spent building something",
-          "narration": "The economy grows when you build a school, but also when you fix a smashed",
+          "caption": "More money, less life",
+          "detail": "The economy grows while the day gets worse.",
+          "narration": "The economy technically grows, even though your day is ruined.",
           "seconds": 3.0,
           "graphic": "bars",
           "data": {
             "bars": [
               {
-                "label": "New School",
-                "weight": 0.6
+                "label": "Activity",
+                "weight": 0.8
               },
               {
-                "label": "Crash Repair",
-                "weight": 0.6
+                "label": "Well-being",
+                "weight": 0.2
               }
             ]
           },
@@ -378,9 +378,9 @@
         },
         {
           "role": "point",
-          "caption": "GDP isn't a scorecard",
-          "detail": "It tracks the speed of money, not the quality of our actual lives.",
-          "narration": "GDP tracks how fast money moves, not whether our lives are actually getting",
+          "caption": "GDP counts motion",
+          "detail": "It measures the speed of cash, not the quality of life.",
+          "narration": "GDP measures the speed of cash. It doesn't care if your life actually got",
           "seconds": 3.0,
           "graphic": "",
           "data": {},
@@ -388,39 +388,39 @@
         },
         {
           "role": "payoff",
-          "caption": "GDP isn't a scorecard",
+          "caption": "It counts motion, not progress",
           "detail": "",
-          "narration": "GDP tracks how fast money moves, not whether our lives are actually getting",
+          "narration": "It counts motion, not progress.",
           "seconds": 3.0,
           "graphic": "",
           "data": {},
           "image_url": null
         }
       ],
-      "caption": "Why GDP is a flawed measure of national progress.\n\nGDP counts every dollar spent as progress, even if that money is just fixing a disaster. We need better ways to measure if people are truly thriving.\n\nWhat is one thing you think we should measure instead of just GDP?\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#Explained #LearnOnInstagram #Finance #Markets",
+      "caption": "Why GDP fails to measure our actual quality of life.\n\nWe often treat GDP like a scoreboard for human happiness. But GDP only tracks economic transactions, not well-being. If something breaks and costs money to fix, the economy grows, even if we are worse off.\n\nWhat is one thing that improves your life but adds nothing to GDP?\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#Explained #LearnOnInstagram #Finance #Markets",
       "hashtags": [
         "Explained",
         "LearnOnInstagram",
         "Finance",
         "Markets",
         "Economy",
-        "gdp",
-        "economics",
-        "society",
-        "money",
-        "growth",
-        "wellbeing",
-        "policy",
-        "politics",
-        "learning",
-        "education",
-        "explainer"
+        "Economics",
+        "GDP",
+        "QualityOfLife",
+        "Money",
+        "Society",
+        "Education",
+        "Learning",
+        "CriticalThinking",
+        "Understanding",
+        "Wellbeing",
+        "EconomyExplained"
       ],
       "scheduled_time": "2026-08-11T20:00:00+05:30",
-      "first_comment": "#Economy #gdp #economics #society #money #growth #wellbeing #policy #politics #learning #education #explainer",
+      "first_comment": "#Economy #Economics #GDP #QualityOfLife #Money #Society #Education #Learning #CriticalThinking #Understanding #Wellbeing #EconomyExplained",
       "sources": "",
       "story_url": "",
-      "duration_seconds": 28.0,
+      "duration_seconds": 28.033333333333335,
       "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-11/reels/reel_2.mp4",
       "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-11/reels/reel_2_cover.png",
       "audio_file": null,
@@ -429,50 +429,51 @@
   ],
   "story_card": {
     "slot": "story_card",
-    "category": "Geopolitics",
-    "headline": "Ukraine drone strike hits deep inside Russia",
-    "standfirst": "Kyiv is targeting industrial infrastructure far from the front lines.",
+    "category": "Finance",
+    "headline": "Councils gain power to block new vape and betting shops",
+    "standfirst": "Local leaders are getting more control over the high street to fix town centre decline.",
     "steps": [
       {
         "label": "What happened",
-        "text": "A Ukrainian drone strike on an industrial city in Russia killed at least 13 people."
+        "text": "The Prime Minister announced new powers for councils to restrict vape and betting shops."
       },
       {
         "label": "How we got here",
-        "text": "Kyiv has been launching long-range strikes against targets hundreds of miles past the border."
+        "text": "Decades of decline have left many town centres feeling hollowed out and empty."
       },
       {
         "label": "Why it matters",
-        "text": "These attacks aim to damage the Russian economy by hitting its oil refinery infrastructure."
+        "text": "This aims to give local authorities control over what kind of businesses open in their areas."
       },
       {
         "label": "What to watch",
-        "text": "Whether Ukraine expands these long-range operations to further disrupt Russian industry."
+        "text": "Keep an eye on how local councils use these new powers to reshape their high streets."
       }
     ],
-    "caption": "A Ukrainian drone strike on an oil refinery deep inside Russia has resulted in at least 13 deaths.\n\nThis attack marks a significant escalation in Kyiv's strategy to disrupt the Russian economy. By targeting industrial hubs far from the front lines, Ukraine is attempting to weaken the resources supporting the war effort.\n\nDo you think targeting economic infrastructure is an effective strategy in this conflict?\n\nSave this one. Follow for the daily card. Full story on HEADLINNE.com.\n\n#WorldNews #Geopolitics #GlobalNews #Ukraine",
+    "caption": "Prime Minister Andy Burnham has announced that councils will get new powers to stop vape and betting shops.\n\nTown centres have faced years of decline, leading to a hollowing out of local high streets. This move aims to give communities more say over the types of businesses allowed to open in their areas.\n\nDo you think your local high street needs more variety or are these restrictions too much?\n\nSave this one. Follow for the daily card. Full story on HEADLINNE.com.\n\n#Finance #Markets #Economy #UKpolitics",
     "hashtags": [
-      "WorldNews",
-      "Geopolitics",
-      "GlobalNews",
-      "Ukraine",
-      "Russia",
-      "Conflict",
-      "Energy",
-      "News",
-      "DroneStrike",
-      "War",
-      "InternationalRelations",
+      "Finance",
+      "Markets",
       "Economy",
-      "CurrentEvents",
+      "UKpolitics",
+      "HighStreet",
+      "LocalGovernment",
+      "TownCentres",
+      "VapeShops",
+      "BettingShops",
+      "UrbanPlanning",
+      "Community",
+      "BusinessNews",
+      "AndyBurnham",
+      "Retail",
       "NewsExplained",
       "Headlinne"
     ],
     "scheduled_time": "2026-08-11T21:30:00+05:30",
-    "first_comment": "#Russia #Conflict #Energy #News #DroneStrike #War #InternationalRelations #Economy #CurrentEvents #NewsExplained #Headlinne",
-    "sources": "Guardian World",
-    "story_url": "https://www.theguardian.com/world/2026/aug/10/ukraine-drone-strike-on-oil-refinery-russia",
-    "image_url": "https://i.guim.co.uk/img/media/c3ddc8f9aef2cdda8bb7bbbca0d04cc087cae526/0_600_1214_971/master/1214.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=020bcad3c610e57d5d5b40b03e41bcb3",
+    "first_comment": "#HighStreet #LocalGovernment #TownCentres #VapeShops #BettingShops #UrbanPlanning #Community #BusinessNews #AndyBurnham #Retail #NewsExplained #Headlinne",
+    "sources": "BBC Business, Guardian World",
+    "story_url": "https://www.bbc.co.uk/news/articles/cvg90el9236o?at_medium=RSS&at_campaign=rss",
+    "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/43eb/live/ed0a0df0-94fa-11f1-9181-85140b8ce01b.jpg",
     "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-11/story_card/story_card.png"
   }
 }
