@@ -1,0 +1,212 @@
+[
+  {
+    "slot": "reel_1",
+    "kind": "news",
+    "category": "Technology",
+    "title": "Nvidia gets $500bn from major investors to develop AI infrastructure",
+    "hook": "Three big tech stories this week",
+    "beats": [
+      {
+        "role": "hook",
+        "caption": "Three big tech stories this week",
+        "detail": "The third one is about a massive cash injection",
+        "narration": "Three big tech stories this week. The third one is about a massive cash",
+        "seconds": 3.0,
+        "graphic": "",
+        "data": {},
+        "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/13ae/live/d1192590-9504-11f1-bf69-07da70b136c8.jpg"
+      },
+      {
+        "role": "point",
+        "caption": "Nvidia lands 500 billion",
+        "detail": "Major investors back new AI infrastructure",
+        "narration": "Nvidia just secured five hundred billion dollars from big investors.",
+        "seconds": 3.0,
+        "graphic": "",
+        "data": {},
+        "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/13ae/live/d1192590-9504-11f1-bf69-07da70b136c8.jpg"
+      },
+      {
+        "role": "point",
+        "caption": "Building the AI engine",
+        "detail": "It is for new data centres to house miles of chips",
+        "narration": "That money is going straight into building new data centres to house miles",
+        "seconds": 3.0,
+        "graphic": "",
+        "data": {},
+        "image_url": null
+      },
+      {
+        "role": "graphic",
+        "caption": "Where the money goes",
+        "detail": "Developing infrastructure for AI processing",
+        "narration": "These centres have to keep those chips cool and running to process all that",
+        "seconds": 3.0,
+        "graphic": "flow",
+        "data": {
+          "steps": [
+            "Raise cash",
+            "Build centres",
+            "Run AI chips"
+          ]
+        },
+        "image_url": null
+      },
+      {
+        "role": "point",
+        "caption": "Why you should care",
+        "detail": "This infrastructure powers the AI apps you use daily",
+        "narration": "This matters because this is the physical backbone that powers the AI apps",
+        "seconds": 3.0,
+        "graphic": "",
+        "data": {},
+        "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/13ae/live/d1192590-9504-11f1-bf69-07da70b136c8.jpg"
+      },
+      {
+        "role": "payoff",
+        "caption": "The AI race is getting expensive",
+        "detail": "",
+        "narration": "It is clear that the AI race is getting very expensive.",
+        "seconds": 3.0,
+        "graphic": "",
+        "data": {},
+        "image_url": null
+      }
+    ],
+    "caption": "Nvidia has secured 500 billion dollars in funding to expand its AI infrastructure.\n\nThe investment will focus on building new data centres. These facilities are essential for housing and cooling the chips that power modern artificial intelligence.\n\nDo you think data centres are the biggest bottleneck for AI right now?\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#TechNews #AI #Tech #Nvidia",
+    "hashtags": [
+      "TechNews",
+      "AI",
+      "Tech",
+      "Nvidia",
+      "ArtificialIntelligence",
+      "DataCentres",
+      "BusinessNews",
+      "AIInfrastructure",
+      "TechInvestment",
+      "Computing",
+      "ChipShortage",
+      "TechTrends",
+      "FutureOfTech",
+      "SiliconValley",
+      "Headlinne"
+    ],
+    "scheduled_time": "2026-08-11T09:30:00+05:30",
+    "first_comment": "#ArtificialIntelligence #DataCentres #BusinessNews #AIInfrastructure #TechInvestment #Computing #ChipShortage #TechTrends #FutureOfTech #SiliconValley #Headlinne",
+    "sources": "BBC Technology, BBC Business",
+    "story_url": "https://www.bbc.co.uk/news/articles/c78gr0jv0mdo?at_medium=RSS&at_campaign=rss",
+    "duration_seconds": 28.0,
+    "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-11/reels/reel_1.mp4",
+    "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-11/reels/reel_1_cover.png",
+    "audio_file": null,
+    "has_voiceover": false
+  },
+  {
+    "slot": "reel_2",
+    "kind": "education",
+    "category": "Finance",
+    "title": "What GDP misses about how people live",
+    "hook": "Everyone thinks GDP tracks our health",
+    "beats": [
+      {
+        "role": "hook",
+        "caption": "Everyone thinks GDP tracks our health",
+        "detail": "It actually just counts how much money we spend",
+        "narration": "We think GDP measures how well we live. It actually just counts how much we",
+        "seconds": 3.0,
+        "graphic": "",
+        "data": {},
+        "image_url": null
+      },
+      {
+        "role": "point",
+        "caption": "It counts every transaction",
+        "detail": "GDP adds up all spending, regardless of whether it actually helps us.",
+        "narration": "GDP treats every single dollar spent the same way. It doesn't ask if it",
+        "seconds": 3.0,
+        "graphic": "",
+        "data": {},
+        "image_url": null
+      },
+      {
+        "role": "point",
+        "caption": "A car crash boosts GDP",
+        "detail": "Repairs and medical bills count as economic activity, but nobody is better",
+        "narration": "Think about a car crash. The repairs and medical bills actually boost the",
+        "seconds": 3.0,
+        "graphic": "",
+        "data": {},
+        "image_url": null
+      },
+      {
+        "role": "graphic",
+        "caption": "Activity vs well-being",
+        "detail": "Money spent fixing a mess looks the same as money spent building something",
+        "narration": "The economy grows when you build a school, but also when you fix a smashed",
+        "seconds": 3.0,
+        "graphic": "bars",
+        "data": {
+          "bars": [
+            {
+              "label": "New School",
+              "weight": 0.6
+            },
+            {
+              "label": "Crash Repair",
+              "weight": 0.6
+            }
+          ]
+        },
+        "image_url": null
+      },
+      {
+        "role": "point",
+        "caption": "GDP isn't a scorecard",
+        "detail": "It tracks the speed of money, not the quality of our actual lives.",
+        "narration": "GDP tracks how fast money moves, not whether our lives are actually getting",
+        "seconds": 3.0,
+        "graphic": "",
+        "data": {},
+        "image_url": null
+      },
+      {
+        "role": "payoff",
+        "caption": "GDP isn't a scorecard",
+        "detail": "",
+        "narration": "GDP tracks how fast money moves, not whether our lives are actually getting",
+        "seconds": 3.0,
+        "graphic": "",
+        "data": {},
+        "image_url": null
+      }
+    ],
+    "caption": "Why GDP is a flawed measure of national progress.\n\nGDP counts every dollar spent as progress, even if that money is just fixing a disaster. We need better ways to measure if people are truly thriving.\n\nWhat is one thing you think we should measure instead of just GDP?\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#Explained #LearnOnInstagram #Finance #Markets",
+    "hashtags": [
+      "Explained",
+      "LearnOnInstagram",
+      "Finance",
+      "Markets",
+      "Economy",
+      "gdp",
+      "economics",
+      "society",
+      "money",
+      "growth",
+      "wellbeing",
+      "policy",
+      "politics",
+      "learning",
+      "education",
+      "explainer"
+    ],
+    "scheduled_time": "2026-08-11T20:00:00+05:30",
+    "first_comment": "#Economy #gdp #economics #society #money #growth #wellbeing #policy #politics #learning #education #explainer",
+    "sources": "",
+    "story_url": "",
+    "duration_seconds": 28.0,
+    "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-11/reels/reel_2.mp4",
+    "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-11/reels/reel_2_cover.png",
+    "audio_file": null,
+    "has_voiceover": false
+  }
+]
