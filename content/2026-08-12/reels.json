@@ -3,34 +3,34 @@
     "slot": "reel_1",
     "kind": "news",
     "category": "Geopolitics",
-    "title": "Syrian court sentences Bashar al-Assad to death in absentia for war crimes",
-    "hook": "Leaders are usually untouchable.",
+    "title": "A guide to this week’s election in Zambia, a southern African country rich in critical",
+    "hook": "It's just a local election.",
     "beats": [
       {
         "role": "hook",
-        "caption": "Leaders are usually untouchable.",
-        "detail": "Not in this courtroom.",
-        "narration": "You might think national leaders are untouchable. But a court just proved",
+        "caption": "It's just a local election.",
+        "detail": "It's actually a global test for critical minerals.",
+        "narration": "You might think this is just a local vote. But it's actually about global",
         "seconds": 3.0,
         "graphic": "",
         "data": {},
-        "image_url": "https://i.guim.co.uk/img/media/69f4d6bd877a926e54d765cdc4b16a72656110fb/292_0_2933_2346/master/2933.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=1d126593c6535297cfd1376cabb81c04"
+        "image_url": null
       },
       {
         "role": "point",
-        "caption": "Assad sentenced to death",
-        "detail": "A Syrian court ruled in absentia",
-        "narration": "A Syrian court has sentenced former president Bashar al-Assad to death.",
+        "caption": "Zambia heads to the polls",
+        "detail": "Voters cast ballots this Thursday",
+        "narration": "This Thursday, voters in Zambia are heading to the polls to pick their next",
         "seconds": 3.0,
         "graphic": "",
         "data": {},
-        "image_url": "https://i.guim.co.uk/img/media/69f4d6bd877a926e54d765cdc4b16a72656110fb/292_0_2933_2346/master/2933.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=1d126593c6535297cfd1376cabb81c04"
+        "image_url": null
       },
       {
         "role": "point",
-        "caption": "Charges are severe",
-        "detail": "Crimes against humanity and war crimes",
-        "narration": "He and his brother were found guilty of war crimes and crimes against",
+        "caption": "The stakes are high",
+        "detail": "The incumbent is seeking re-election",
+        "narration": "President Hakainde Hichilema is running for another term against his",
         "seconds": 3.0,
         "graphic": "",
         "data": {},
@@ -38,123 +38,25 @@
       },
       {
         "role": "graphic",
-        "caption": "Lives lost",
-        "detail": "14 years of civil war",
-        "narration": "This verdict follows a brutal fourteen year civil war that took half a",
-        "seconds": 3.0,
-        "graphic": "counter",
-        "data": {
-          "value_label": "500,000",
-          "caption": "Total lives lost"
-        },
-        "image_url": null
-      },
-      {
-        "role": "point",
-        "caption": "A symbolic turning point",
-        "detail": "Accountability for atrocities",
-        "narration": "It is a major step toward accountability for the victims of these",
-        "seconds": 3.0,
-        "graphic": "",
-        "data": {},
-        "image_url": "https://i.guim.co.uk/img/media/69f4d6bd877a926e54d765cdc4b16a72656110fb/292_0_2933_2346/master/2933.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=1d126593c6535297cfd1376cabb81c04"
-      },
-      {
-        "role": "payoff",
-        "caption": "A rare legal precedent",
-        "detail": "",
-        "narration": "It marks a rare and significant moment in international justice.",
-        "seconds": 3.0,
-        "graphic": "",
-        "data": {},
-        "image_url": null
-      }
-    ],
-    "caption": "A Syrian court has sentenced former president Bashar al-Assad to death in absentia for war crimes.\n\nThe verdict covers atrocities committed during the country's fourteen-year civil war. It is a major legal move regarding the conflict that has claimed hundreds of thousands of lives.\n\nDo you think legal rulings like this make a difference?\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#WorldNews #Geopolitics #GlobalNews #Syria",
-    "hashtags": [
-      "WorldNews",
-      "Geopolitics",
-      "GlobalNews",
-      "Syria",
-      "BasharAlAssad",
-      "News",
-      "InternationalLaw",
-      "Justice",
-      "MiddleEast",
-      "CurrentEvents",
-      "HumanRights",
-      "CourtRuling",
-      "Conflict",
-      "Headlinne"
-    ],
-    "scheduled_time": "2026-08-12T09:30:00+05:30",
-    "first_comment": "#BasharAlAssad #News #InternationalLaw #Justice #MiddleEast #CurrentEvents #HumanRights #CourtRuling #Conflict #Headlinne",
-    "sources": "Guardian World, Al Jazeera",
-    "story_url": "https://www.theguardian.com/world/2026/aug/11/syria-bashar-al-assad-death-sentence-war-crimes",
-    "duration_seconds": 40.3,
-    "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-12/reels/reel_1.mp4",
-    "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-12/reels/reel_1_cover.png",
-    "audio_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-12/reels/reel_1_voice.wav",
-    "has_voiceover": true
-  },
-  {
-    "slot": "reel_2",
-    "kind": "education",
-    "category": "Finance",
-    "title": "Why a rate hike makes your loan cost more",
-    "hook": "Why your loan costs more",
-    "beats": [
-      {
-        "role": "hook",
-        "caption": "Why your loan costs more",
-        "detail": "A small change at the top hits your monthly wallet hard.",
-        "narration": "Ever wonder why a small rate hike makes your monthly loan payment jump?",
-        "seconds": 3.0,
-        "graphic": "",
-        "data": {},
-        "image_url": null
-      },
-      {
-        "role": "point",
-        "caption": "Central banks set the pace",
-        "detail": "They control the base cost of borrowing money for the whole country.",
-        "narration": "It starts with the central bank. They set the base price for borrowing",
-        "seconds": 3.0,
-        "graphic": "",
-        "data": {},
-        "image_url": null
-      },
-      {
-        "role": "point",
-        "caption": "Meet Sarah and her car",
-        "detail": "She wants a loan for a new car, but the bank adds a premium to that base",
-        "narration": "Think of Sarah buying a car. If the base rate goes up, her bank raises hers",
-        "seconds": 3.0,
-        "graphic": "",
-        "data": {},
-        "image_url": null
-      },
-      {
-        "role": "graphic",
-        "caption": "How the cost travels",
-        "detail": "It ripples down from the top until it reaches your personal monthly bill.",
-        "narration": "It ripples down from the top, all the way to your monthly bill.",
+        "caption": "Why the world is watching",
+        "detail": "It comes down to key resources",
+        "narration": "The outcome matters because Zambia is a major hub for the world's critical",
         "seconds": 3.0,
         "graphic": "flow",
         "data": {
           "steps": [
-            "Central bank hike",
-            "Banks raise rates",
-            "Your loan gets dearer"
+            "Zambia mines minerals",
+            "Election decides policy",
+            "Global supply shifts"
           ]
         },
         "image_url": null
       },
       {
         "role": "point",
-        "caption": "Loans follow the base rate",
-        "detail": "When borrowing becomes expensive for banks, they pass that cost straight to",
-        "narration": "When borrowing gets expensive for banks, they pass that cost right on to",
+        "caption": "Your tech depends on it",
+        "detail": "Minerals here power global electronics",
+        "narration": "The policies set by the winner will shape how these minerals reach the",
         "seconds": 3.0,
         "graphic": "",
         "data": {},
@@ -162,39 +64,141 @@
       },
       {
         "role": "payoff",
-        "caption": "Higher rates mean higher bills",
+        "caption": "A vote with global impact",
         "detail": "",
-        "narration": "That is why higher rates mean higher bills for everyone.",
+        "narration": "It's a vote with consequences that reach far beyond Africa.",
         "seconds": 3.0,
         "graphic": "",
         "data": {},
         "image_url": null
       }
     ],
-    "caption": "How interest rate hikes actually affect your personal loan payments.\n\nWhen central banks raise rates, it becomes more expensive for regular banks to borrow money. They offset that cost by raising the interest rates on the loans they offer to you.\n\nHave you noticed your loan payments changing lately?\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#Explained #LearnOnInstagram #Finance #Markets",
+    "caption": "Zambia is holding a major presidential election this week that is drawing international attention.\n\nThe southern African nation is a key player in the global market for critical minerals. Voters are deciding the country's direction as they head to the polls this Thursday.\n\nDo you think global mineral demand should play a bigger role in how we view foreign elections?\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#WorldNews #Geopolitics #GlobalNews #Zambia",
+    "hashtags": [
+      "WorldNews",
+      "Geopolitics",
+      "GlobalNews",
+      "Zambia",
+      "Lusaka",
+      "AfricanPolitics",
+      "Hichilema",
+      "GlobalEconomy",
+      "CriticalMinerals",
+      "Election2026",
+      "Mining",
+      "InternationalRelations",
+      "EnergyTransition",
+      "Africa",
+      "Headlinne"
+    ],
+    "scheduled_time": "2026-08-12T09:30:00+05:30",
+    "first_comment": "#Lusaka #AfricanPolitics #Hichilema #GlobalEconomy #CriticalMinerals #Election2026 #Mining #InternationalRelations #EnergyTransition #Africa #Headlinne",
+    "sources": "AP Top News",
+    "story_url": "https://apnews.com/article/zambia-election-critical-minerals-us-china-hichilema-6aa3902c21a9caa57ca6b715093fde87",
+    "duration_seconds": 28.0,
+    "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-12/reels/reel_1.mp4",
+    "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-12/reels/reel_1_cover.png",
+    "audio_file": null,
+    "has_voiceover": false
+  },
+  {
+    "slot": "reel_2",
+    "kind": "education",
+    "category": "Finance",
+    "title": "Why a rate hike makes your loan cost more",
+    "hook": "Why your loan gets expensive",
+    "beats": [
+      {
+        "role": "hook",
+        "caption": "Why your loan gets expensive",
+        "detail": "A small change at the top hits your wallet at the bottom.",
+        "narration": "Ever wonder why a central bank decision suddenly makes your loan more",
+        "seconds": 3.0,
+        "graphic": "",
+        "data": {},
+        "image_url": null
+      },
+      {
+        "role": "point",
+        "caption": "Banks borrow too",
+        "detail": "They get money from the central bank to lend to you.",
+        "narration": "It starts here. Banks don't have infinite cash. They borrow from the",
+        "seconds": 3.0,
+        "graphic": "",
+        "data": {},
+        "image_url": null
+      },
+      {
+        "role": "point",
+        "caption": "The cost goes up",
+        "detail": "Imagine a bank paying five percent instead of four to borrow money.",
+        "narration": "When the central bank hikes rates, it gets pricier for your bank to borrow",
+        "seconds": 3.0,
+        "graphic": "",
+        "data": {},
+        "image_url": null
+      },
+      {
+        "role": "graphic",
+        "caption": "The chain reaction",
+        "detail": "",
+        "narration": "So they pass that cost on to you.",
+        "seconds": 3.0,
+        "graphic": "flow",
+        "data": {
+          "steps": [
+            "Central bank hikes",
+            "Banks pay more",
+            "Your loan cost rises"
+          ]
+        },
+        "image_url": null
+      },
+      {
+        "role": "point",
+        "caption": "You pay the difference",
+        "detail": "Your bank keeps its profit margin by adjusting your rate.",
+        "narration": "Your bank needs to stay profitable, so your monthly payment goes up to",
+        "seconds": 3.0,
+        "graphic": "",
+        "data": {},
+        "image_url": null
+      },
+      {
+        "role": "payoff",
+        "caption": "Rates rise, costs follow",
+        "detail": "",
+        "narration": "When borrowing money costs more for the bank, it costs more for you too.",
+        "seconds": 3.0,
+        "graphic": "",
+        "data": {},
+        "image_url": null
+      }
+    ],
+    "caption": "How a central bank rate hike actually changes your monthly loan payments.\n\nBanks borrow money from the central bank to fund the loans they give to customers. When that central borrowing cost goes up, banks adjust their rates to protect their profit margins. This means your personal loan becomes more expensive.\n\nHas a rate change ever surprised you on a loan repayment?\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#Explained #LearnOnInstagram #Finance #Markets",
     "hashtags": [
       "Explained",
       "LearnOnInstagram",
       "Finance",
       "Markets",
       "Economy",
-      "money",
-      "interestrates",
       "personalfinance",
+      "moneytips",
+      "interestrates",
       "banking",
       "loans",
-      "savings",
-      "centralbank",
-      "education",
-      "howitworks",
-      "budget",
-      "Headlinne"
+      "financialliteracy",
+      "economyexplained",
+      "moneybasics",
+      "debt",
+      "finance101",
+      "smartmoney"
     ],
     "scheduled_time": "2026-08-12T20:00:00+05:30",
-    "first_comment": "#Economy #money #interestrates #personalfinance #banking #loans #savings #centralbank #education #howitworks #budget #Headlinne",
+    "first_comment": "#Economy #personalfinance #moneytips #interestrates #banking #loans #financialliteracy #economyexplained #moneybasics #debt #finance101 #smartmoney",
     "sources": "",
     "story_url": "",
-    "duration_seconds": 28.066666666666666,
+    "duration_seconds": 28.0,
     "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-12/reels/reel_2.mp4",
     "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-12/reels/reel_2_cover.png",
     "audio_file": null,

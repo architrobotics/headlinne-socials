@@ -1,49 +1,48 @@
 {
   "slot": "story_card",
-  "category": "Technology",
-  "headline": "Google's Pixel launch style is changing",
-  "standfirst": "Fans are questioning the shift from technical specs to celebrity cameos.",
+  "category": "Finance",
+  "headline": "Nvidia's $500 billion AI collateral plan faces risks",
+  "standfirst": "Jensen Huang is pitching GPU chips as collateral for massive funding, but China adds",
   "steps": [
     {
       "label": "What happened",
-      "text": "Google's recent hardware event felt more like a talk show than a tech product launch."
+      "text": "Nvidia CEO Jensen Huang wants to use his company's AI chips as collateral to secure $500 billion."
     },
     {
       "label": "How we got here",
-      "text": "Last year, the Pixel 10 reveal replaced detailed hardware specs with Jimmy Fallon and skits."
+      "text": "Investors are looking for new ways to fund the massive infrastructure needs of the AI boom."
     },
     {
       "label": "Why it matters",
-      "text": "Diehard fans who want deep product insights were left confused by the celebrity focus."
+      "text": "The plan relies on the chips holding their value. China trade restrictions could hurt that value."
     },
     {
       "label": "What to watch",
-      "text": "See if Google shifts back to technical updates for future phone launches."
+      "text": "Watch how quickly these specialized chips depreciate and if China trade rules tighten further."
     }
   ],
-  "caption": "Google is facing criticism from fans over the format of their latest Pixel hardware launch event.\n\nThe company swapped traditional product deep dives for celebrity appearances and scripted comedy. Many loyal users felt the new approach prioritized entertainment over the technical details they actually wanted to see.\n\nDo you prefer tech events to be serious product showcases or entertaining shows?\n\nSave this one. Follow for the daily card. Full story on HEADLINNE.com.\n\n#TechNews #Tech #AI #GooglePixel",
+  "caption": "Nvidia CEO Jensen Huang is proposing a new way to fund AI growth using GPU chips as collateral.\n\nThis strategy aims to unlock half a trillion dollars in financing for the tech sector. However, the plan faces significant uncertainty regarding how well these chips will hold their value over time, especially with ongoing trade tensions with China.\n\nDo you think using hardware as collateral is a smart way to fund AI development?\n\nSave this one. Follow for the daily card. Full story on HEADLINNE.com.\n\n#Finance #Markets #Economy #Nvidia",
   "hashtags": [
-    "TechNews",
-    "Tech",
+    "Finance",
+    "Markets",
+    "Economy",
+    "Nvidia",
+    "JensenHuang",
     "AI",
-    "GooglePixel",
-    "Pixel10",
-    "MadeByGoogle",
-    "Android",
-    "Smartphone",
-    "TechEvents",
-    "GoogleHardware",
-    "PixelFans",
-    "TechTrends",
-    "GoogleLaunch",
-    "ProductAnnouncement",
+    "Investing",
+    "TechNews",
+    "Semiconductors",
+    "ArtificialIntelligence",
+    "MarketTrends",
+    "BusinessNews",
+    "TechStocks",
     "NewsExplained",
     "Headlinne"
   ],
   "scheduled_time": "2026-08-12T21:30:00+05:30",
-  "first_comment": "#Pixel10 #MadeByGoogle #Android #Smartphone #TechEvents #GoogleHardware #PixelFans #TechTrends #GoogleLaunch #ProductAnnouncement #NewsExplained #Headlinne",
-  "sources": "The Verge",
-  "story_url": "https://www.theverge.com/tech/977844/made-by-google-pixel-11-launch-power-users-notification-led",
-  "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/07/videoframe_16661.png?quality=90&amp;strip=all&amp;crop=0,3.4249563699826,100,93.150087260035",
+  "first_comment": "#JensenHuang #AI #Investing #TechNews #Semiconductors #ArtificialIntelligence #MarketTrends #BusinessNews #TechStocks #NewsExplained #Headlinne",
+  "sources": "CNBC Finance",
+  "story_url": "https://www.cnbc.com/2026/08/11/nvidia-ai-funding-jensen-huang-china-risk.html",
+  "image_url": "https://image.cnbcfm.com/api/v1/image/108317415-1780669966906-gettyimages-2279256214-SKOREA_NVIDIA.jpeg?v=1781563682&amp;w=1920&amp;h=1080",
   "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-12/story_card/story_card.png"
 }
