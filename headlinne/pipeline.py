@@ -455,7 +455,8 @@ def _publish_linkedin(day: date) -> None:
 
 
 def _publish_instagram(day: date, target: str) -> None:
-    from .publish import BufferClient, get_image_host
+    from .publish import (BufferClient, apply_first_comment_policy,
+                          get_image_host)
 
     carousels = storage.load_instagram(day)
     carousel = next((c for c in carousels if c.slot == target), None)
@@ -474,14 +475,17 @@ def _publish_instagram(day: date, target: str) -> None:
     # The caption already carries its own short hashtag block (see
     # generate.hooks), so nothing more is appended here. The long tail goes to
     # the first comment instead.
-    res = BufferClient().post_instagram(image_urls, carousel.caption,
-                                        first_comment=carousel.first_comment)
+    caption, first_comment = apply_first_comment_policy(
+        carousel.caption, carousel.first_comment)
+    res = BufferClient().post_instagram(image_urls, caption,
+                                        first_comment=first_comment)
     storage.mark_published(day, target, {"buffer": res, "images": image_urls})
 
 
 def _publish_reel(day: date, target: str) -> None:
     """Publish one of the day's reels from its committed MP4."""
-    from .publish import BufferClient, get_image_host
+    from .publish import (BufferClient, apply_first_comment_policy,
+                          get_image_host)
 
     reels = storage.load_reels(day)
     reel = next((r for r in reels if r.slot == target), None)
@@ -495,15 +499,18 @@ def _publish_reel(day: date, target: str) -> None:
         return
 
     video_url = get_image_host().url_for(video_path)
-    res = BufferClient().post_instagram_reel(video_url, reel.caption,
-                                             first_comment=reel.first_comment)
+    caption, first_comment = apply_first_comment_policy(
+        reel.caption, reel.first_comment)
+    res = BufferClient().post_instagram_reel(video_url, caption,
+                                             first_comment=first_comment)
     storage.mark_published(day, target, {"buffer": res, "video": video_url,
                                          "duration": reel.duration_seconds})
 
 
 def _publish_story_card(day: date) -> None:
     """Publish the daily story card as a single-image feed post."""
-    from .publish import BufferClient, get_image_host
+    from .publish import (BufferClient, apply_first_comment_policy,
+                          get_image_host)
 
     card = storage.load_story_card(day)
     if not card:
@@ -516,7 +523,9 @@ def _publish_story_card(day: date) -> None:
         return
 
     image_url = get_image_host().url_for(path)
-    res = BufferClient().post_instagram([image_url], card.caption,
-                                        first_comment=card.first_comment)
+    caption, first_comment = apply_first_comment_policy(
+        card.caption, card.first_comment)
+    res = BufferClient().post_instagram([image_url], caption,
+                                        first_comment=first_comment)
     storage.mark_published(day, "story_card", {"buffer": res,
                                                "images": [image_url]})

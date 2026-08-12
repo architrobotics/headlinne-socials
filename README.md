@@ -114,10 +114,12 @@ already follow the account, so they lead the day and close it.
   full cycle takes about a fortnight.
 
 Both are 1080x1920, cut into six beats plus a sign-off. Narrated they run around
-35 to 40 seconds; silent, about 28. Every word is also burned into the frame
-because most reels are watched muted, a progress bar across the top tells the
-viewer how much is left, and nothing important sits where Instagram draws its own
-caption and action rail.
+40 seconds (up to about 50 when every line runs long); silent, about 28. The
+voice speaks at roughly 12 characters a second, which is what the narration
+length limit in `generate/reel.py` is worked back from. Every word is also burned
+into the frame because most reels are watched muted, a progress bar across the
+top tells the viewer how much is left, and nothing important sits where Instagram
+draws its own caption and action rail.
 
 **They are narrated.** Gemini TTS speaks a line per beat, and *the narration
 drives the edit*: each cut lasts exactly as long as its spoken line plus a little
@@ -138,11 +140,34 @@ it falls back to reading-speed pacing and a silent track, logs a warning through
 the quality gate, and the burned-in captions carry the content. Set
 `REEL_VOICEOVER=false` to choose silence deliberately.
 
-Worth knowing about cost: narration is **one API call per beat**, so two reels
-add about fourteen speech requests a day on top of the text generation, and a
-couple of minutes to the generate run. Speech quotas are counted separately from
-text quotas on a Gemini key, so if reels start coming out silent while the
-written copy is fine, that is the first place to look.
+**Speech is rate limited much more tightly than text, and this matters.**
+Narration is one API call per beat, so two reels need about fourteen speech
+requests. The Gemini **free tier allows three TTS requests per minute**, so those
+fourteen calls cannot simply be fired off: they get refused, the retries get
+refused too, and the reels come out silent with the reason buried in the logs.
+
+Two things make it work anyway.
+
+**Quota is counted per model, so the client uses more than one.**
+`REEL_TTS_FALLBACK_MODELS` lists models to fall through to when the primary
+starts refusing, and because each carries its own allowance, two or three
+between them cover a day's fourteen lines where one alone does not. A refusal
+triggers an immediate move to the next model rather than a wait, since the next
+model's quota is unaffected by the first one's. Once a model works it becomes
+sticky for the rest of the run.
+
+**Calls are paced.** `REEL_TTS_MIN_INTERVAL` (default 21 seconds) spaces requests
+to stay inside the per-minute limit, and a 429 is read as the server saying how
+long to wait, using the `retryDelay` it sends back, rather than guessed at with
+exponential backoff.
+
+The cost is time: narrating both reels takes about five minutes of the generate
+run, nearly all of it waiting. **On a paid key set `REEL_TTS_MIN_INTERVAL` to
+`0`** and that disappears entirely.
+
+If reels start coming out silent while the written copy is fine, the speech quota
+is the first place to look. Speech and text quotas are counted separately on a
+Gemini key.
 
 **One beat carries a graphic instead of a photo.** This is what makes an
 explainer feel authored rather than templated, and there are five devices to
@@ -292,9 +317,16 @@ search now, so the opening line is worth far more as a readable, searchable
 sentence than as a block of tags. Every caption is built the same way: an opener
 that fits inside the ~125 characters shown before "more", the substance in short
 paragraphs, one genuine question (comments are the heaviest ranking signal a post
-can earn), the follow and site line, then a handful of topical hashtags. The long
-tail of tags goes to the **first comment**, where Instagram treats them the same
-but they do not clutter what a reader sees.
+can earn), the follow and site line, then a handful of topical hashtags.
+
+The long tail of tags goes at the **end of the caption**. Posting it as a first
+comment would be tidier, but that is a paid Buffer feature and the free plan
+rejects the whole post rather than ignoring the field, which is a bad trade for a
+cosmetic gain. The tags work identically from the end of a caption, and the
+opening line, the part that actually drives search, is unaffected either way. On
+a paid Buffer plan set `BUFFER_FIRST_COMMENT=true` for the cleaner version; if
+the plan turns out not to support it, the publisher retries once without the
+field and folds the tags back into the caption rather than losing the post.
 
 ---
 
@@ -437,6 +469,7 @@ Add these as **variables** (plain, non-secret):
 | Variable | Default | What it does |
 | --- | --- | --- |
 | `BUFFER_SCHEDULING_MODE` | `scheduled` | `scheduled` or `trigger`, see below |
+| `BUFFER_FIRST_COMMENT` | `false` | Post the hashtag tail as a first comment. Needs a **paid** Buffer plan |
 | `PUBLIC_IMAGE_BASE_URL` | empty | Only needed for a private repo (step 1) |
 | `X_ATTACH_CARD` | `true` | Attach the branded image card to X posts |
 | `REELS_ENABLED` | `true` | Render and publish the two daily reels |
@@ -448,6 +481,8 @@ Add these as **variables** (plain, non-secret):
 | `REEL_TTS_MODEL` | `gemini-3.1-flash-tts-preview` | Speech model |
 | `REEL_VOICE_NEWS` | `Charon` | Voice for the morning news reel |
 | `REEL_VOICE_EDUCATION` | `Kore` | Voice for the evening lesson |
+| `REEL_TTS_MIN_INTERVAL` | `21` | Seconds between speech calls. Set `0` on a paid key |
+| `REEL_TTS_FALLBACK_MODELS` | `gemini-2.5-flash-preview-tts,gemini-2.5-pro-preview-tts` | Comma-separated models to fall through to when the primary hits its quota |
 | `FFMPEG_BINARY` | empty | Path to ffmpeg, if it is not on `PATH` |
 | `REDDIT_ENGAGEMENT_CAP` | `12` | Max Reddit drafts per run (hard-capped at 25) |
 
@@ -729,11 +764,19 @@ available". On a runner this should never happen, since `imageio-ffmpeg` is in
 `requirements.txt`. Locally, install ffmpeg or set `FFMPEG_BINARY`.
 
 **Reels publish but are silent.** Look for "falling back to silence" in the
-generate log, which names the beat that failed. The usual causes are a speech
-quota, or `REEL_TTS_MODEL` pointing at a model your key cannot reach (the TTS
-models are separate from the text model, so a working `GEMINI_API_KEY` does not
-by itself guarantee access). The reel is still correct and still publishes, it
-just loses the narration.
+generate log, which names the beat that failed. In order of likelihood:
+
+1. **Speech quota.** The free tier is three TTS requests a minute and a daily
+   cap on top of that. If the log shows repeated "rate limited" retries, raise
+   `REEL_TTS_MIN_INTERVAL` or move to a paid key.
+2. **Model access.** `REEL_TTS_MODEL` must be a model your key can reach. The
+   speech models are separate from the text model, so a `GEMINI_API_KEY` that
+   generates copy fine does not by itself guarantee TTS access.
+3. **An empty repository variable.** Only if you have created `REEL_VOICEOVER`
+   and left it blank, which now reads as "not configured" rather than "off".
+
+The reel is still correct and still publishes either way, it just loses the
+narration and falls back to reading-speed pacing.
 
 **The repository is getting large.** Each day commits two MP4s of a megabyte or
 two. The generate run prunes rendered PNGs and MP4s older than six days
@@ -745,5 +788,3 @@ store via `PUBLIC_IMAGE_BASE_URL` instead of committing it.
 
 Built as a foundation to grow with Headlinne. The code favours clear, readable
 structure over cleverness, so it is easy to extend as the product evolves.
-#   h e a d l i n n e - s o c i a l s  
- 

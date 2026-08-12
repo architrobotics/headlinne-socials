@@ -32,7 +32,8 @@ from datetime import datetime, timedelta, timezone
 
 import requests
 
-from ..config import BUFFER_API_URL, INSTAGRAM_CAPTION_LIMIT, SECRETS
+from ..config import (BUFFER_API_URL, BUFFER_FIRST_COMMENT,
+                      INSTAGRAM_CAPTION_LIMIT, SECRETS)
 from ..logging_setup import get_logger
 
 log = get_logger("publish.buffer")
@@ -73,6 +74,61 @@ _MAX_RETRIES = 4
 
 class BufferError(RuntimeError):
     pass
+
+
+# --------------------------------------------------------------------------- #
+# First comment (a paid Buffer feature)
+# --------------------------------------------------------------------------- #
+def _is_paid_feature_error(message: str) -> bool:
+    low = (message or "").lower()
+    return "paid plan" in low or "upgrade" in low
+
+
+def _has_first_comment(input_obj: dict) -> bool:
+    return bool(input_obj.get("metadata", {})
+                .get("instagram", {})
+                .get("firstComment", "").strip())
+
+
+def _without_first_comment(metadata: dict | None) -> dict | None:
+    if not metadata or "instagram" not in metadata:
+        return metadata
+    trimmed = {**metadata, "instagram": {k: v for k, v
+                                         in metadata["instagram"].items()
+                                         if k != "firstComment"}}
+    return trimmed
+
+
+def _append_tags(text: str, input_obj: dict) -> str:
+    """Move a rejected first comment onto the end of the caption.
+
+    The hashtags still work from there. All the first comment ever bought was a
+    tidier-looking caption, and the opening line, which is the part Instagram
+    indexes for search, is untouched either way.
+    """
+    tags = (input_obj.get("metadata", {}).get("instagram", {})
+            .get("firstComment", "").strip())
+    if not tags or tags in text:
+        return text
+    return f"{text}\n\n{tags}"[:INSTAGRAM_CAPTION_LIMIT]
+
+
+def apply_first_comment_policy(caption: str, first_comment: str) -> tuple[str, str]:
+    """Decide up front where the hashtag long tail goes.
+
+    Returns ``(caption, first_comment)``. When first comments are off (the
+    default, since they need a paid Buffer plan) the tags are folded into the
+    caption here, so the normal path never depends on a feature the account may
+    not have.
+    """
+    tags = (first_comment or "").strip()
+    if not tags:
+        return caption, ""
+    if BUFFER_FIRST_COMMENT:
+        return caption, tags
+    if tags in caption:
+        return caption, ""
+    return f"{caption}\n\n{tags}"[:INSTAGRAM_CAPTION_LIMIT], ""
 
 
 class BufferClient:
@@ -181,7 +237,20 @@ class BufferClient:
         result = body.get("data", {}).get("createPost", {})
         post = result.get("post")
         if not post:
-            raise BufferError(result.get("message", "unknown Buffer error"))
+            message = result.get("message", "unknown Buffer error")
+            # Buffer rejects the entire post when a paid-only field is present
+            # rather than ignoring the field. Losing a day's post over a
+            # formatting nicety is the wrong trade, so drop it and try again.
+            if _is_paid_feature_error(message) and _has_first_comment(input_obj):
+                log.warning("Buffer rejected the first comment (%s). Retrying "
+                            "without it.", message)
+                return self.create_post(
+                    channel_id=channel_id, text=_append_tags(text, input_obj),
+                    image_urls=image_urls, video_url=video_url,
+                    thumbnail_offset_ms=thumbnail_offset_ms,
+                    due_at_utc=due_at_utc,
+                    metadata=_without_first_comment(metadata))
+            raise BufferError(message)
         log.info("Buffer post created id=%s status=%s due=%s assets=%d",
                  post.get("id"), post.get("status"), post.get("dueAt"),
                  len(post.get("assets") or []))

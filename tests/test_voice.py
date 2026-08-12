@@ -157,6 +157,98 @@ def test_a_failed_sign_off_also_abandons_the_track():
         assert build_voice_track(_reel(), Path(tmp) / "v.wav", client=stub) is None
 
 
+def test_a_rate_limit_hint_is_honoured_instead_of_guessing():
+    # The free tier allows three speech requests a minute and a reel needs
+    # seven, so 429s are normal operation. The server says how long its window
+    # has left to run, and waiting that long beats an exponential guess.
+    from headlinne.gemini.tts import _is_rate_limit, _retry_after
+
+    body = ("429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': "
+            "'You exceeded your current quota'}, 'details': [{'@type': "
+            "'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '11s'}]}")
+    exc = RuntimeError(body)
+    assert _is_rate_limit(exc)
+    assert _retry_after(exc) == 11.0
+    # A plain failure has no hint and falls back to exponential backoff.
+    assert _retry_after(RuntimeError("connection reset")) is None
+    assert not _is_rate_limit(RuntimeError("connection reset"))
+
+
+def test_a_rate_limited_model_falls_through_to_the_next_one():
+    """Quota is counted per model, so a second model is a second allowance.
+
+    On the free tier this is the difference between narration working and not:
+    one model's daily cap does not cover a day's fourteen lines.
+    """
+    from headlinne.gemini.tts import TTSClient
+
+    class _Models:
+        def __init__(self, working):
+            self.working = working
+            self.tried: list[str] = []
+
+        def generate_content(self, *, model, contents, config):
+            self.tried.append(model)
+            if model != self.working:
+                raise RuntimeError("429 RESOURCE_EXHAUSTED 'retryDelay': '2s'")
+            part = type("P", (), {"inline_data": type("D", (), {"data": b"\x00" * 480})()})()
+            content = type("C", (), {"parts": [part]})()
+            return type("R", (), {"candidates": [type("X", (), {"content": content})()]})()
+
+    client = TTSClient(api_key="x", min_interval=0,
+                       fallback_models=("model-b", "model-c"))
+    client.models = ["model-a", "model-b", "model-c"]
+    fake = _Models("model-b")
+    client._client = type("C", (), {"models": fake})()
+    client._ensure_client = lambda: True
+
+    assert client.synthesize("hello", voice="Kore") is not None
+    assert fake.tried == ["model-a", "model-b"]      # no wasted waiting
+    # The working model becomes sticky, so the next line does not rediscover it.
+    fake.tried.clear()
+    client.synthesize("again", voice="Kore")
+    assert fake.tried == ["model-b"]
+
+
+def test_a_non_quota_error_does_not_burn_the_other_models():
+    # Another model will not fix a malformed request, so there is no point
+    # spending its quota finding that out.
+    from headlinne.gemini.tts import TTSClient
+
+    tried: list[str] = []
+
+    class _Models:
+        def generate_content(self, *, model, contents, config):
+            tried.append(model)
+            raise RuntimeError("400 INVALID_ARGUMENT")
+
+    client = TTSClient(api_key="x", min_interval=0, fallback_models=("b", "c"))
+    client._client = type("C", (), {"models": _Models()})()
+    client._ensure_client = lambda: True
+    assert client.synthesize("hello", voice="Kore") is None
+    assert tried.count("b") == 0
+
+
+def test_calls_are_paced_so_the_quota_is_not_hit_in_the_first_place():
+    import time
+
+    from headlinne.gemini.tts import TTSClient
+
+    client = TTSClient(api_key="x", min_interval=0.4)
+    client._ensure_client = lambda: False   # no network, just exercise pacing
+    start = time.monotonic()
+    client._last_call = time.monotonic()
+    client._wait_for_slot()
+    assert time.monotonic() - start >= 0.35
+
+    # Pacing is off entirely on a paid key, where it would only add minutes.
+    fast = TTSClient(api_key="x", min_interval=0)
+    fast._last_call = time.monotonic()
+    start = time.monotonic()
+    fast._wait_for_slot()
+    assert time.monotonic() - start < 0.05
+
+
 def test_a_beat_with_nothing_to_say_abandons_the_track():
     reel = _reel()
     reel.beats[1].caption = reel.beats[1].detail = reel.beats[1].narration = ""

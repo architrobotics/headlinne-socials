@@ -292,6 +292,33 @@ REEL_PRESET = _env_str("REEL_PRESET", "veryfast")
 REEL_VOICEOVER = _env_flag("REEL_VOICEOVER", True)
 REEL_TTS_MODEL = _env_str("REEL_TTS_MODEL", "gemini-3.1-flash-tts-preview")
 
+# Speech quota is counted per model, so a second model is a second allowance.
+# On the free tier that is the difference between narration being possible and
+# not: one model's daily cap does not cover a day's fourteen lines, but two
+# between them comfortably do. When one starts refusing, the client moves to the
+# next immediately rather than waiting out a window it cannot use.
+REEL_TTS_FALLBACK_MODELS = tuple(
+    m.strip() for m in _env_str(
+        "REEL_TTS_FALLBACK_MODELS",
+        "gemini-2.5-flash-preview-tts,gemini-2.5-pro-preview-tts").split(",")
+    if m.strip()
+)
+
+# Speech is rate limited far more tightly than text. The Gemini free tier allows
+# THREE TTS requests per minute, and a reel needs one per beat plus the sign-off,
+# so a pair of reels is fourteen calls. Fired back to back that is a guaranteed
+# 429 storm, and the reels come out silent with the cause buried in retry logs.
+#
+# So calls are spaced deliberately. 21 seconds keeps a single run inside the free
+# tier's window with a little margin. On a paid key set REEL_TTS_MIN_INTERVAL to
+# 0 and the pacing disappears (two reels then narrate in seconds rather than in
+# five minutes).
+REEL_TTS_MIN_INTERVAL = _env_number("REEL_TTS_MIN_INTERVAL", 21.0, float)
+
+# 429s are an expected part of normal operation here rather than a failure, so
+# speech gets more attempts than text does.
+REEL_TTS_MAX_RETRIES = _env_number("REEL_TTS_MAX_RETRIES", 6, int)
+
 # Gemini TTS returns raw signed 16-bit little-endian PCM, mono, at 24 kHz.
 TTS_SAMPLE_RATE = 24000
 TTS_SAMPLE_WIDTH = 2
@@ -454,6 +481,16 @@ GEMINI_MAX_RETRIES = 4
 BUFFER_SCHEDULING_MODE = _env_str("BUFFER_SCHEDULING_MODE", "scheduled")
 
 BUFFER_API_URL = "https://api.buffer.com"
+
+# Posting the hashtag long tail as the first comment is a PAID Buffer feature.
+# On the free plan the API rejects the whole post rather than ignoring the
+# field, so this defaults to off: the tags go at the end of the caption instead,
+# which costs a little tidiness and nothing else. The opening line is what
+# caption search reads, and it is unaffected either way.
+#
+# Set to true on a paid Buffer plan for a cleaner caption. If the plan turns out
+# not to support it the publisher retries without it rather than losing the post.
+BUFFER_FIRST_COMMENT = _env_flag("BUFFER_FIRST_COMMENT", False)
 
 # Attach the rendered branded card image to X posts (lifts reach). The tweet text
 # stays a valid standalone post either way. Set to "false" to post text only.
