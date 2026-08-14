@@ -1,0 +1,493 @@
+{
+  "day": "2026-08-14",
+  "is_promo_day": false,
+  "is_friday": true,
+  "twitter": [
+    {
+      "category": "Tech",
+      "post": "Today's top tech stories to know.\n• Twitch users are pushing back against Amazon using streams for AI training\n• Private firms may soon be authorized to launch cyberattacks on criminals\n• OpenAI's new Ultrafast mode makes its top model 14 times quicker HEADLINNE.com #TechNews #AI",
+      "hashtags": [
+        "TechNews",
+        "AI"
+      ],
+      "scheduled_time": "2026-08-14T13:00:00+05:30",
+      "kind": "news",
+      "lead": "Today's top tech stories to know.",
+      "items": [
+        "Twitch users are pushing back against Amazon using streams for AI training",
+        "Private firms may soon be authorized to launch cyberattacks on criminals",
+        "OpenAI's new Ultrafast mode makes its top model 14 times quicker"
+      ],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-14/x/x_1.png"
+    },
+    {
+      "category": "Geopolitics",
+      "post": "A quick look at today's top stories.\n• Texas mail ballot ID rules are back after an appeals court ruling\n• A judge tossed the Trump lawsuit against Harvard over campus protests\n• Ebola has reached a sixth province in the DRC as cases climb HEADLINNE.com #news #geopolitics",
+      "hashtags": [
+        "news",
+        "geopolitics"
+      ],
+      "scheduled_time": "2026-08-14T17:00:00+05:30",
+      "kind": "news",
+      "lead": "A quick look at today's top stories.",
+      "items": [
+        "Texas mail ballot ID rules are back after an appeals court ruling",
+        "A judge tossed the Trump lawsuit against Harvard over campus protests",
+        "Ebola has reached a sixth province in the DRC as cases climb"
+      ],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-14/x/x_2.png"
+    }
+  ],
+  "linkedin": {
+    "title": "This Week in Finance & Tech",
+    "body": "The tech world has been busy this week, particularly with OpenAI. The company is removing rate limits for free ChatGPT users, meaning you will soon have unlimited access to text chats. On the hardware front, reports suggest their upcoming AI device will be a smart speaker priced between $300 and $400. Meanwhile, OpenAI is pushing back in its trade secrets case against Apple, arguing that Apple's own security practices weaken their claims.\n\nIn financial news, President Donald Trump is renewing his attempt to remove Federal Reserve governor Lisa Cook. This move is part of a broader strategy to reshape the central bank's board.\n\nElsewhere, Google Wallet is rolling out a feature that lets parents set up secure balances for their children, aimed at helping kids learn financial management with built-in safeguards. In the UK, Prime Minister Andy Burnham announced new powers for councils to restrict the number of vape and betting shops in town centres, citing concerns over the decline of local high streets.\n\nLooking at the broader markets, U.S. stock futures are holding steady as investors wait for upcoming inflation data. There is also ongoing caution regarding the Middle East, as Prime Minister Burnham warned that the conflict could impact UK economic growth due to rising energy costs and supply chain disruptions.",
+    "cta": "Get the full picture on the stories that matter at HEADLINNE.com.",
+    "scheduled_time": "2026-08-14T18:00:00+05:30",
+    "kind": "weekly_roundup"
+  },
+  "instagram": [
+    {
+      "slot": "instagram_1",
+      "category": "Technology",
+      "num_slides": 7,
+      "title": "Private Cyberattacks and Dating App Changes",
+      "slides": [
+        {
+          "role": "cover",
+          "headline": "Private Cyberattacks and Dating App Changes",
+          "explanation": "",
+          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/6839/live/60b85d20-9702-11f1-b2ab-0dd01740f9f6.jpg",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-14/instagram/instagram_1/slide_1.png",
+          "subtitle": "Swipe to see the five tech stories you need to know today.",
+          "sources": "",
+          "index": 0
+        },
+        {
+          "role": "story",
+          "headline": "Twitch Users Push Back on AI Training",
+          "explanation": "Twitch is facing backlash after defaulting users into an agreement that lets Amazon use their streaming data to train AI models. This matters because it highlights growing concerns about how our personal content is being used without clear, active consent.",
+          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/6839/live/60b85d20-9702-11f1-b2ab-0dd01740f9f6.jpg",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-14/instagram/instagram_1/slide_2.png",
+          "subtitle": "",
+          "sources": "BBC Technology, BBC Business +1",
+          "index": 1
+        },
+        {
+          "role": "story",
+          "headline": "Private Firms to Lead Cyberattacks",
+          "explanation": "The Trump administration is starting a program that allows private companies to conduct cyberattacks against foreign criminals under government supervision. This shift could change how international cyber warfare is handled by bringing private sector speed into government operations.",
+          "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/23318432/akrales_220309_4977_0079.jpg?quality=90&amp;strip=all&amp;crop=0%2C10.732984293194%2C100%2C78.534031413613&amp;w=1200",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-14/instagram/instagram_1/slide_3.png",
+          "subtitle": "",
+          "sources": "The Verge",
+          "index": 2
+        },
+        {
+          "role": "story",
+          "headline": "OpenAI Unveils Ultrafast Model Mode",
+          "explanation": "OpenAI is testing a new mode for its latest model that runs 14 times faster than before. The company hopes this speed boost will attract more business clients who need AI to handle enterprise tasks quickly.",
+          "image_url": "https://techcrunch.com/wp-content/uploads/2026/02/EU-ai-1258475609.jpg?w=1024",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-14/instagram/instagram_1/slide_4.png",
+          "subtitle": "",
+          "sources": "TechCrunch",
+          "index": 3
+        },
+        {
+          "role": "story",
+          "headline": "Bumble Drops Women-First Rule",
+          "explanation": "Bumble is removing its signature rule that required women to send the first message in heterosexual matches. The app says it made the change after testing showed users wanted more flexibility in how they start conversations.",
+          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/e2c2/live/34e5f670-972b-11f1-808c-532494fd22c7.jpg",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-14/instagram/instagram_1/slide_5.png",
+          "subtitle": "",
+          "sources": "BBC Technology, BBC Business",
+          "index": 4
+        },
+        {
+          "role": "story",
+          "headline": "Surveillance Firm Addresses Police Abuse",
+          "explanation": "The CEO of Flock admitted the company was too slow to act after police officers used their license plate cameras to stalk romantic partners. This raises serious questions about how surveillance technology is monitored and secured against misuse.",
+          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/041d/live/7f342ef0-9720-11f1-bb91-6bb44c42ed47.jpg",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-14/instagram/instagram_1/slide_6.png",
+          "subtitle": "",
+          "sources": "BBC Technology, BBC Business",
+          "index": 5
+        },
+        {
+          "role": "cta",
+          "headline": "That's your brief for today.",
+          "explanation": "",
+          "image_url": null,
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-14/instagram/instagram_1/slide_7.png",
+          "subtitle": "Personalised news, minus the noise.",
+          "sources": "",
+          "index": 0
+        }
+      ],
+      "caption": "From changes in how we date to new rules for cyber warfare, today's tech landscape is shifting fast.\n\nWe've broken down the biggest stories so you can stay informed without the noise. Which of these updates surprised you the most?\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#Tech #TechNews #AI #Innovation",
+      "hashtags": [
+        "Tech",
+        "TechNews",
+        "AI",
+        "Innovation",
+        "Cybersecurity",
+        "Twitch",
+        "Bumble",
+        "DataPrivacy",
+        "OpenAI",
+        "DigitalNews",
+        "TechTrends",
+        "Surveillance"
+      ],
+      "scheduled_time": "2026-08-14T16:00:00+05:30",
+      "first_comment": "#Cybersecurity #Twitch #Bumble #DataPrivacy #OpenAI #DigitalNews #TechTrends #Surveillance"
+    },
+    {
+      "slot": "instagram_2",
+      "category": "Geopolitics",
+      "num_slides": 7,
+      "title": "Today's Global Updates in 60 Seconds",
+      "slides": [
+        {
+          "role": "cover",
+          "headline": "Today's Global Updates in 60 Seconds",
+          "explanation": "",
+          "image_url": "https://dims.apnews.com/dims4/default/295c329/2147483647/strip/true/crop/675x450+12+0/resize/980x653!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2F90%2F29%2F4e3c1cc7446089a9101a7bdff4c8%2Fdefaultshareimage-copy.png",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-14/instagram/instagram_2/slide_1.png",
+          "subtitle": "From shifting election laws to a growing health crisis, here is what matters now.",
+          "sources": "",
+          "index": 0
+        },
+        {
+          "role": "story",
+          "headline": "Texas Mail-In Voting Rules Shift",
+          "explanation": "A federal appeals court has reinstated strict ID requirements for mail-in ballots in Texas. This decision impacts how thousands of voters will cast their ballots in future elections.",
+          "image_url": "https://dims.apnews.com/dims4/default/295c329/2147483647/strip/true/crop/675x450+12+0/resize/980x653!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2F90%2F29%2F4e3c1cc7446089a9101a7bdff4c8%2Fdefaultshareimage-copy.png",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-14/instagram/instagram_2/slide_2.png",
+          "subtitle": "",
+          "sources": "AP Top News",
+          "index": 1
+        },
+        {
+          "role": "story",
+          "headline": "Harvard Lawsuit Dismissed",
+          "explanation": "A judge has thrown out a lawsuit alleging Harvard failed to protect Jewish students during campus protests. It marks a significant legal hurdle for the administration's response to recent campus activism.",
+          "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/08/ap_6a7e0098d9d7f-1786642584.jpg?resize=1920%2C1440",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-14/instagram/instagram_2/slide_3.png",
+          "subtitle": "",
+          "sources": "Al Jazeera",
+          "index": 2
+        },
+        {
+          "role": "story",
+          "headline": "Ebola Spreads to Sixth Province",
+          "explanation": "The Ebola outbreak in the Democratic Republic of the Congo has now reached a sixth province. Health officials warn that this is currently on track to become the deadliest outbreak on record.",
+          "image_url": "https://i.guim.co.uk/img/media/7cdf83c55d79a96a161395d5c73576671830d88a/31_0_5000_4000/master/5000.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=b82fe7c7094f73887564f28c8f9c65eb",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-14/instagram/instagram_2/slide_4.png",
+          "subtitle": "",
+          "sources": "Guardian World, Al Jazeera",
+          "index": 3
+        },
+        {
+          "role": "story",
+          "headline": "Boeing Ordered to Pay $29 Million",
+          "explanation": "A Chicago jury awarded the family of an Irish plane crash victim millions in damages following a civil suit. The ruling highlights ongoing accountability issues regarding aviation safety standards.",
+          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/82a7/live/6b9bb890-973e-11f1-96db-71945ca8cae7.jpg",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-14/instagram/instagram_2/slide_5.png",
+          "subtitle": "",
+          "sources": "BBC World",
+          "index": 4
+        },
+        {
+          "role": "story",
+          "headline": "Trump Orders Navy Jet Launch Change",
+          "explanation": "President Trump has directed the Navy to return to an older system for launching jets from aircraft carriers. The move signals a shift in military operations and equipment protocols.",
+          "image_url": null,
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-14/instagram/instagram_2/slide_6.png",
+          "subtitle": "",
+          "sources": "AP Top News",
+          "index": 5
+        },
+        {
+          "role": "cta",
+          "headline": "That's your brief for today.",
+          "explanation": "",
+          "image_url": null,
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-14/instagram/instagram_2/slide_7.png",
+          "subtitle": "Personalised news, minus the noise.",
+          "sources": "",
+          "index": 0
+        }
+      ],
+      "caption": "From major legal rulings to public health alerts, the world is moving fast today.\n\nWe have broken down the five biggest stories so you can stay informed without the noise. Which of these headlines caught your attention the most?\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#WorldNews #Geopolitics #GlobalNews #Politics",
+      "hashtags": [
+        "WorldNews",
+        "Geopolitics",
+        "GlobalNews",
+        "Politics",
+        "news",
+        "currentaffairs",
+        "briefing",
+        "texaspolitics",
+        "harvard",
+        "ebola",
+        "aviationnews",
+        "militaryupdates"
+      ],
+      "scheduled_time": "2026-08-14T18:00:00+05:30",
+      "first_comment": "#news #currentaffairs #briefing #texaspolitics #harvard #ebola #aviationnews #militaryupdates"
+    }
+  ],
+  "reels": [
+    {
+      "slot": "reel_1",
+      "kind": "news",
+      "category": "Technology",
+      "title": "Twitch users outraged as Amazon uses their content to train AI in opt-out feature",
+      "hook": "They're using your streams for AI",
+      "beats": [
+        {
+          "role": "hook",
+          "caption": "They're using your streams for AI",
+          "detail": "Amazon now trains its systems on Twitch content by default.",
+          "narration": "Imagine you're streaming on Twitch, and Amazon starts using your video to",
+          "seconds": 3.0,
+          "graphic": "",
+          "data": {},
+          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/6839/live/60b85d20-9702-11f1-b2ab-0dd01740f9f6.jpg"
+        },
+        {
+          "role": "point",
+          "caption": "Twitch users are pushing back",
+          "detail": "Amazon is using streamer content to train its AI models.",
+          "narration": "That's exactly what's happening right now, and users are pretty upset about",
+          "seconds": 3.0,
+          "graphic": "",
+          "data": {},
+          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/6839/live/60b85d20-9702-11f1-b2ab-0dd01740f9f6.jpg"
+        },
+        {
+          "role": "point",
+          "caption": "Opt-out is the problem",
+          "detail": "Amazon set the data usage as the default setting for everyone.",
+          "narration": "The issue is that Amazon turned this on for everyone automatically by",
+          "seconds": 3.0,
+          "graphic": "",
+          "data": {},
+          "image_url": null
+        },
+        {
+          "role": "graphic",
+          "caption": "A major shift in control",
+          "detail": "Your content is now feeding their AI systems.",
+          "narration": "You think your stream is for your fans, but it's also fueling their new",
+          "seconds": 3.0,
+          "graphic": "split",
+          "data": {
+            "left_title": "User View",
+            "left_text": "My stream is for fans",
+            "right_title": "Amazon View",
+            "right_text": "My stream is data"
+          },
+          "image_url": null
+        },
+        {
+          "role": "point",
+          "caption": "Why this actually matters",
+          "detail": "Streamers are worried about their work being used without consent.",
+          "narration": "People are concerned because they didn't sign up to be unpaid data for AI",
+          "seconds": 3.0,
+          "graphic": "",
+          "data": {},
+          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/6839/live/60b85d20-9702-11f1-b2ab-0dd01740f9f6.jpg"
+        },
+        {
+          "role": "payoff",
+          "caption": "Check your Twitch settings today",
+          "detail": "",
+          "narration": "If you're a streamer, it's worth checking your account settings today.",
+          "seconds": 3.0,
+          "graphic": "",
+          "data": {},
+          "image_url": null
+        }
+      ],
+      "caption": "Twitch streamers are speaking out against Amazon using their content to train AI models by default.\n\nThe streaming platform has made it so your past content is automatically included in their data sets. You have to manually go into your settings if you want to opt out of this process.\n\nShould platforms be allowed to train AI on your content by default?\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#TechNews #AI #Tech #Twitch",
+      "hashtags": [
+        "TechNews",
+        "AI",
+        "Tech",
+        "Twitch",
+        "Amazon",
+        "Technology",
+        "Streaming",
+        "Privacy",
+        "CreatorEconomy",
+        "DataPrivacy",
+        "TwitchStreamer",
+        "ArtificialIntelligence",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-08-14T09:30:00+05:30",
+      "first_comment": "#Amazon #Technology #Streaming #Privacy #CreatorEconomy #DataPrivacy #TwitchStreamer #ArtificialIntelligence #Headlinne",
+      "sources": "BBC Technology, BBC Business +1",
+      "story_url": "https://www.bbc.co.uk/news/articles/cp30pz8d09jo?at_medium=RSS&at_campaign=rss",
+      "duration_seconds": 42.766666666666666,
+      "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-14/reels/reel_1.mp4",
+      "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-14/reels/reel_1_cover.png",
+      "audio_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-14/reels/reel_1_voice.wav",
+      "has_voiceover": true
+    },
+    {
+      "slot": "reel_2",
+      "kind": "education",
+      "category": "Finance",
+      "title": "How a bank run actually happens",
+      "hook": "How a bank run actually happens",
+      "beats": [
+        {
+          "role": "hook",
+          "caption": "How a bank run actually happens",
+          "detail": "It is three steps, and the last one is pure psychology.",
+          "narration": "Ever wonder how a bank run actually happens? It's three steps, and the last",
+          "seconds": 3.0,
+          "graphic": "",
+          "data": {},
+          "image_url": null
+        },
+        {
+          "role": "point",
+          "caption": "Banks don't keep all your cash",
+          "detail": "They invest it to make loans.",
+          "narration": "First, you have to remember that banks don't keep all your cash in a vault",
+          "seconds": 3.0,
+          "graphic": "",
+          "data": {},
+          "image_url": null
+        },
+        {
+          "role": "point",
+          "caption": "The neighborhood panic",
+          "detail": "Imagine Sarah hears her bank is struggling.",
+          "narration": "Imagine Sarah hears her bank is in trouble. She rushes to withdraw her five",
+          "seconds": 3.0,
+          "graphic": "",
+          "data": {},
+          "image_url": null
+        },
+        {
+          "role": "graphic",
+          "caption": "The chain reaction",
+          "detail": "",
+          "narration": "When her neighbor sees her running, they panic too. It creates a chain",
+          "seconds": 3.0,
+          "graphic": "flow",
+          "data": {
+            "steps": [
+              "Someone withdraws",
+              "Others get nervous",
+              "Everyone rushes out"
+            ]
+          },
+          "image_url": null
+        },
+        {
+          "role": "point",
+          "caption": "It is just a belief",
+          "detail": "If you think the bank is safe, it is.",
+          "narration": "It's pure psychology. The bank fails only because everyone suddenly",
+          "seconds": 3.0,
+          "graphic": "",
+          "data": {},
+          "image_url": null
+        },
+        {
+          "role": "payoff",
+          "caption": "Panic creates the problem",
+          "detail": "",
+          "narration": "The bank run is real, but the panic is what actually creates the problem.",
+          "seconds": 3.0,
+          "graphic": "",
+          "data": {},
+          "image_url": null
+        }
+      ],
+      "caption": "Here is how a bank run actually works in three simple steps.\n\nBanks operate by lending out the money you deposit. If everyone tries to withdraw their cash at the exact same time, the bank runs out of physical money. The entire event is driven by the belief that the bank is failing.\n\nWhat is one thing you think would stop a bank run before it starts?\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#Explained #LearnOnInstagram #Finance #Markets",
+      "hashtags": [
+        "Explained",
+        "LearnOnInstagram",
+        "Finance",
+        "Markets",
+        "Economy",
+        "economics",
+        "banking",
+        "money",
+        "psychology",
+        "financialliteracy",
+        "howitworks",
+        "education",
+        "learning",
+        "business",
+        "moneytips",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-08-14T20:00:00+05:30",
+      "first_comment": "#Economy #economics #banking #money #psychology #financialliteracy #howitworks #education #learning #business #moneytips #Headlinne",
+      "sources": "",
+      "story_url": "",
+      "duration_seconds": 40.2,
+      "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-14/reels/reel_2.mp4",
+      "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-14/reels/reel_2_cover.png",
+      "audio_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-14/reels/reel_2_voice.wav",
+      "has_voiceover": true
+    }
+  ],
+  "story_card": {
+    "slot": "story_card",
+    "category": "Geopolitics",
+    "headline": "Texas mail ballot ID rules back in effect",
+    "standfirst": "A federal appeals court has reinstated identity requirements for mail-in voting in Texas.",
+    "steps": [
+      {
+        "label": "What happened",
+        "text": "A federal appeals court has reinstated strict ID requirements for mail-in ballots in Texas."
+      },
+      {
+        "label": "How we got here",
+        "text": "The court overturned a lower ruling that had blocked these specific identification rules."
+      },
+      {
+        "label": "Why it matters",
+        "text": "This decision changes how voters verify their identity when casting ballots by mail in Texas."
+      },
+      {
+        "label": "What to watch",
+        "text": "Look for updates on how this impacts upcoming election procedures and voter compliance."
+      }
+    ],
+    "caption": "A federal appeals court has reinstated identity requirements for mail-in voting in Texas.\n\nThe ruling reverses a previous block on these specific identification rules. This change directly affects the verification process for mail-in ballots across the state.\n\nDo you think strict ID requirements for mail-in ballots make elections more secure?\n\nSave this one. Follow for the daily card. Full story on HEADLINNE.com.\n\n#WorldNews #Geopolitics #GlobalNews #Texas",
+    "hashtags": [
+      "WorldNews",
+      "Geopolitics",
+      "GlobalNews",
+      "Texas",
+      "VotingRights",
+      "ElectionNews",
+      "MailInBallots",
+      "TexasPolitics",
+      "FederalCourt",
+      "VoterID",
+      "USNews",
+      "Elections",
+      "LegalNews",
+      "Democracy",
+      "Policy",
+      "NewsExplained"
+    ],
+    "scheduled_time": "2026-08-14T21:30:00+05:30",
+    "first_comment": "#VotingRights #ElectionNews #MailInBallots #TexasPolitics #FederalCourt #VoterID #USNews #Elections #LegalNews #Democracy #Policy #NewsExplained",
+    "sources": "AP Top News",
+    "story_url": "https://apnews.com/article/texas-election-law-mail-ballot-id-requirements-8bacd668d30c56700a7e0c410796f748",
+    "image_url": "https://dims.apnews.com/dims4/default/295c329/2147483647/strip/true/crop/675x450+12+0/resize/980x653!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2F90%2F29%2F4e3c1cc7446089a9101a7bdff4c8%2Fdefaultshareimage-copy.png",
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-14/story_card/story_card.png"
+  }
+}

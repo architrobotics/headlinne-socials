@@ -1,0 +1,204 @@
+[
+  {
+    "slot": "reel_1",
+    "kind": "news",
+    "category": "Technology",
+    "title": "Twitch users outraged as Amazon uses their content to train AI in opt-out feature",
+    "hook": "They're using your streams for AI",
+    "beats": [
+      {
+        "role": "hook",
+        "caption": "They're using your streams for AI",
+        "detail": "Amazon now trains its systems on Twitch content by default.",
+        "narration": "Imagine you're streaming on Twitch, and Amazon starts using your video to",
+        "seconds": 3.0,
+        "graphic": "",
+        "data": {},
+        "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/6839/live/60b85d20-9702-11f1-b2ab-0dd01740f9f6.jpg"
+      },
+      {
+        "role": "point",
+        "caption": "Twitch users are pushing back",
+        "detail": "Amazon is using streamer content to train its AI models.",
+        "narration": "That's exactly what's happening right now, and users are pretty upset about",
+        "seconds": 3.0,
+        "graphic": "",
+        "data": {},
+        "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/6839/live/60b85d20-9702-11f1-b2ab-0dd01740f9f6.jpg"
+      },
+      {
+        "role": "point",
+        "caption": "Opt-out is the problem",
+        "detail": "Amazon set the data usage as the default setting for everyone.",
+        "narration": "The issue is that Amazon turned this on for everyone automatically by",
+        "seconds": 3.0,
+        "graphic": "",
+        "data": {},
+        "image_url": null
+      },
+      {
+        "role": "graphic",
+        "caption": "A major shift in control",
+        "detail": "Your content is now feeding their AI systems.",
+        "narration": "You think your stream is for your fans, but it's also fueling their new",
+        "seconds": 3.0,
+        "graphic": "split",
+        "data": {
+          "left_title": "User View",
+          "left_text": "My stream is for fans",
+          "right_title": "Amazon View",
+          "right_text": "My stream is data"
+        },
+        "image_url": null
+      },
+      {
+        "role": "point",
+        "caption": "Why this actually matters",
+        "detail": "Streamers are worried about their work being used without consent.",
+        "narration": "People are concerned because they didn't sign up to be unpaid data for AI",
+        "seconds": 3.0,
+        "graphic": "",
+        "data": {},
+        "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/6839/live/60b85d20-9702-11f1-b2ab-0dd01740f9f6.jpg"
+      },
+      {
+        "role": "payoff",
+        "caption": "Check your Twitch settings today",
+        "detail": "",
+        "narration": "If you're a streamer, it's worth checking your account settings today.",
+        "seconds": 3.0,
+        "graphic": "",
+        "data": {},
+        "image_url": null
+      }
+    ],
+    "caption": "Twitch streamers are speaking out against Amazon using their content to train AI models by default.\n\nThe streaming platform has made it so your past content is automatically included in their data sets. You have to manually go into your settings if you want to opt out of this process.\n\nShould platforms be allowed to train AI on your content by default?\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#TechNews #AI #Tech #Twitch",
+    "hashtags": [
+      "TechNews",
+      "AI",
+      "Tech",
+      "Twitch",
+      "Amazon",
+      "Technology",
+      "Streaming",
+      "Privacy",
+      "CreatorEconomy",
+      "DataPrivacy",
+      "TwitchStreamer",
+      "ArtificialIntelligence",
+      "Headlinne"
+    ],
+    "scheduled_time": "2026-08-14T09:30:00+05:30",
+    "first_comment": "#Amazon #Technology #Streaming #Privacy #CreatorEconomy #DataPrivacy #TwitchStreamer #ArtificialIntelligence #Headlinne",
+    "sources": "BBC Technology, BBC Business +1",
+    "story_url": "https://www.bbc.co.uk/news/articles/cp30pz8d09jo?at_medium=RSS&at_campaign=rss",
+    "duration_seconds": 42.766666666666666,
+    "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-14/reels/reel_1.mp4",
+    "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-14/reels/reel_1_cover.png",
+    "audio_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-14/reels/reel_1_voice.wav",
+    "has_voiceover": true
+  },
+  {
+    "slot": "reel_2",
+    "kind": "education",
+    "category": "Finance",
+    "title": "How a bank run actually happens",
+    "hook": "How a bank run actually happens",
+    "beats": [
+      {
+        "role": "hook",
+        "caption": "How a bank run actually happens",
+        "detail": "It is three steps, and the last one is pure psychology.",
+        "narration": "Ever wonder how a bank run actually happens? It's three steps, and the last",
+        "seconds": 3.0,
+        "graphic": "",
+        "data": {},
+        "image_url": null
+      },
+      {
+        "role": "point",
+        "caption": "Banks don't keep all your cash",
+        "detail": "They invest it to make loans.",
+        "narration": "First, you have to remember that banks don't keep all your cash in a vault",
+        "seconds": 3.0,
+        "graphic": "",
+        "data": {},
+        "image_url": null
+      },
+      {
+        "role": "point",
+        "caption": "The neighborhood panic",
+        "detail": "Imagine Sarah hears her bank is struggling.",
+        "narration": "Imagine Sarah hears her bank is in trouble. She rushes to withdraw her five",
+        "seconds": 3.0,
+        "graphic": "",
+        "data": {},
+        "image_url": null
+      },
+      {
+        "role": "graphic",
+        "caption": "The chain reaction",
+        "detail": "",
+        "narration": "When her neighbor sees her running, they panic too. It creates a chain",
+        "seconds": 3.0,
+        "graphic": "flow",
+        "data": {
+          "steps": [
+            "Someone withdraws",
+            "Others get nervous",
+            "Everyone rushes out"
+          ]
+        },
+        "image_url": null
+      },
+      {
+        "role": "point",
+        "caption": "It is just a belief",
+        "detail": "If you think the bank is safe, it is.",
+        "narration": "It's pure psychology. The bank fails only because everyone suddenly",
+        "seconds": 3.0,
+        "graphic": "",
+        "data": {},
+        "image_url": null
+      },
+      {
+        "role": "payoff",
+        "caption": "Panic creates the problem",
+        "detail": "",
+        "narration": "The bank run is real, but the panic is what actually creates the problem.",
+        "seconds": 3.0,
+        "graphic": "",
+        "data": {},
+        "image_url": null
+      }
+    ],
+    "caption": "Here is how a bank run actually works in three simple steps.\n\nBanks operate by lending out the money you deposit. If everyone tries to withdraw their cash at the exact same time, the bank runs out of physical money. The entire event is driven by the belief that the bank is failing.\n\nWhat is one thing you think would stop a bank run before it starts?\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#Explained #LearnOnInstagram #Finance #Markets",
+    "hashtags": [
+      "Explained",
+      "LearnOnInstagram",
+      "Finance",
+      "Markets",
+      "Economy",
+      "economics",
+      "banking",
+      "money",
+      "psychology",
+      "financialliteracy",
+      "howitworks",
+      "education",
+      "learning",
+      "business",
+      "moneytips",
+      "Headlinne"
+    ],
+    "scheduled_time": "2026-08-14T20:00:00+05:30",
+    "first_comment": "#Economy #economics #banking #money #psychology #financialliteracy #howitworks #education #learning #business #moneytips #Headlinne",
+    "sources": "",
+    "story_url": "",
+    "duration_seconds": 40.2,
+    "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-14/reels/reel_2.mp4",
+    "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-14/reels/reel_2_cover.png",
+    "audio_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-14/reels/reel_2_voice.wav",
+    "has_voiceover": true
+  }
+]
