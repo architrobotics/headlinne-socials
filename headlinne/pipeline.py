@@ -27,7 +27,8 @@ from __future__ import annotations
 from datetime import date, datetime, timezone
 
 from . import storage
-from .config import (BUFFER_SCHEDULING_MODE, CATEGORIES, IG_SECOND_CAROUSEL,
+from .config import (BUFFER_SCHEDULING_MODE, CAROUSEL_WEEKDAYS, CATEGORIES,
+                     IG_SECOND_CAROUSEL,
                      REELS_ENABLED, SECRETS, STORY_CARD_ENABLED)
 from .gemini.client import GeminiClient
 from .generate import instagram as gen_instagram
@@ -131,8 +132,18 @@ def generate(day: date | None = None, *, render: bool = True,
     linkedin_post = gen_linkedin.generate(client, digest, day, friday, week_stories)
 
     # 4. Instagram carousels (the strongest categories)
-    ig_cats = strongest_categories(digest, n=2 if IG_SECOND_CAROUSEL else 1)
-    carousels = gen_instagram.generate(client, digest, ig_cats, day)
+    #
+    # Carousels are weekly now. Five slides of argument is a considered artefact,
+    # not a daily beat, and the daily rhythm is two reels plus the story card.
+    # CAROUSEL_WEEKDAYS is 0=Monday; an empty setting means every day.
+    carousel_day = (not CAROUSEL_WEEKDAYS) or (day.weekday() in CAROUSEL_WEEKDAYS)
+    if carousel_day:
+        ig_cats = strongest_categories(digest, n=2 if IG_SECOND_CAROUSEL else 1)
+        carousels = gen_instagram.generate(client, digest, ig_cats, day)
+    else:
+        log.info("No carousel today (weekday %d not in %s)",
+                 day.weekday(), list(CAROUSEL_WEEKDAYS))
+        carousels = []
 
     # 5. Reels: one news explainer, one educational explainer.
     reels = _generate_reels(client, digest, day)

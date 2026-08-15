@@ -13,7 +13,8 @@ import re
 import time
 from typing import Any
 
-from ..config import (GEMINI_MAX_RETRIES, GEMINI_MODEL, GEMINI_TEMPERATURE,
+from ..config import (GEMINI_FALLBACK_MODELS, GEMINI_MAX_RETRIES, GEMINI_MODEL,
+                      GEMINI_TEMPERATURE,
                       GEMINI_THINKING_LEVEL, SECRETS)
 from ..logging_setup import get_logger
 
@@ -22,6 +23,12 @@ log = get_logger("gemini.client")
 
 class GeminiError(RuntimeError):
     pass
+
+
+def _is_quota_error(exc: Exception) -> bool:
+    """Gemini signals an exhausted allowance as 429 / RESOURCE_EXHAUSTED."""
+    text = f"{exc}"
+    return "429" in text or "RESOURCE_EXHAUSTED" in text
 
 
 def _extract_json(text: str) -> Any:
@@ -40,10 +47,21 @@ def _extract_json(text: str) -> Any:
 
 
 class GeminiClient:
-    def __init__(self, api_key: str | None = None, model: str = GEMINI_MODEL):
-        self.model = model
+    def __init__(self, api_key: str | None = None, model: str = GEMINI_MODEL,
+                 fallback_models: tuple[str, ...] = GEMINI_FALLBACK_MODELS):
+        # Quota is counted per model, so each fallback is a fresh allowance
+        # rather than a second try at the same one - the same reasoning the TTS
+        # client already uses. Without this, exhausting the primary model's
+        # daily cap fails the whole run even though other models are available.
+        self.models = [model, *(m for m in fallback_models if m and m != model)]
+        self._model_index = 0
         self._api_key = api_key or SECRETS.gemini_api_key
         self._client = None
+
+    @property
+    def model(self) -> str:
+        """The model currently in use. Advances as allowances are exhausted."""
+        return self.models[self._model_index]
 
     def _ensure_client(self):
         if self._client is not None:
@@ -92,6 +110,14 @@ class GeminiClient:
                 return _extract_json(text)
             except Exception as exc:  # noqa: BLE001 - we want to retry broadly
                 last_err = exc
+                # A quota refusal will not clear by waiting: the window is a day,
+                # not seconds. Move to the next model's allowance immediately and
+                # retry without burning the backoff.
+                if _is_quota_error(exc) and self._model_index + 1 < len(self.models):
+                    self._model_index += 1
+                    log.warning("Gemini quota exhausted, switching to %s",
+                                self.model)
+                    continue
                 wait = min(2 ** attempt, 20)
                 log.warning("Gemini attempt %d/%d failed: %s (retrying in %ss)",
                             attempt, GEMINI_MAX_RETRIES, exc, wait)
@@ -104,4 +130,6 @@ class GeminiClient:
                     )
                 time.sleep(wait)
 
-        raise GeminiError(f"Gemini failed after {GEMINI_MAX_RETRIES} attempts: {last_err}")
+        raise GeminiError(
+            f"Gemini failed after {GEMINI_MAX_RETRIES} attempts across "
+            f"{self._model_index + 1} model(s): {last_err}")

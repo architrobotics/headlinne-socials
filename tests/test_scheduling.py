@@ -66,3 +66,28 @@ def test_slot_utc_iso_is_actually_utc():
 def test_all_slots_resolve():
     for slot in SCHEDULE_IST:
         assert slot_utc_iso(date(2026, 6, 28), slot).endswith("Z")
+
+
+# --------------------------------------------------------------------------- #
+# Weekly carousel cadence
+# --------------------------------------------------------------------------- #
+def test_carousel_weekdays_is_actually_read_by_the_pipeline():
+    """Regression: the setting existed for one commit without being wired,
+    so carousels kept generating daily while the config claimed otherwise."""
+    import inspect
+
+    from headlinne import pipeline
+
+    assert "CAROUSEL_WEEKDAYS" in inspect.getsource(pipeline.generate)
+
+
+def test_carousel_weekdays_selects_only_those_days():
+    from datetime import date
+
+    from headlinne.config import CAROUSEL_WEEKDAYS
+
+    assert CAROUSEL_WEEKDAYS, "an empty tuple would mean 'every day'"
+    # 17 Aug 2026 is a Monday, so the week runs 17..23.
+    chosen = [d for d in range(17, 24)
+              if date(2026, 8, d).weekday() in CAROUSEL_WEEKDAYS]
+    assert 1 <= len(chosen) <= 3, f"expected a weekly-ish cadence, got {chosen}"
