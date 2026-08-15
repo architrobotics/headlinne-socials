@@ -27,6 +27,7 @@ from ..config import (INK, SLIDE_H, SLIDE_W, SURFACE, SURFACE_DEEP,
 from ..logging_setup import get_logger
 from ..models import StoryCard
 from . import fonts, slides, theme
+from .carousel import _lead_number
 from . import receipt as _receipt
 
 log = get_logger("render.story_card")
@@ -113,6 +114,20 @@ def render_story_card(card: StoryCard, out_path: Path,
                                         len(card.outlets))
     named = _receipt.named(_receipt_source(card), limit=3)
 
+    # The designed set is five: state it, size it, turn it, show the working,
+    # ask. Every page is always drawn - a set that is sometimes three and
+    # sometimes five stops being a format the audience recognises.
+    number = _lead_number(card.headline) or _lead_number(card.standfirst)
+    # Never say the headline twice. A five-page set whose middle pages repeat
+    # the cover is worse than three pages, because the reader keeps swiping to
+    # find the part that is new.
+    caption_line = (card.caption or "").splitlines()[0].strip() \
+        if card.caption else ""
+    second = card.standfirst or caption_line
+    third = caption_line if caption_line != second else ""
+    if not third:
+        third = (f"{agree} of {total} outlets reported the same thing."
+                 if total else "")
     pages = [
         slides.slide_cover(
             kicker=kicker, headline=card.headline,
@@ -120,12 +135,21 @@ def render_story_card(card: StoryCard, out_path: Path,
             say=card.standfirst or None, sources=total, agree=agree,
             tone=tone, pose=pose),
     ]
-    if card.standfirst:
-        pages.append(slides.slide_twist(
-            kicker="Why it matters", headline=card.standfirst,
-            body=card.caption.split("\n")[0] if card.caption else "",
-            dateline=dateline, say=slides.pip_line("twist"),
-            tone=slides.CORAL, pose=pose))
+    if number:
+        pages.append(slides.slide_scale(
+            kicker="How big", number=number[0], unit=number[1],
+            body=card.standfirst or card.caption.split("\n")[0],
+            dateline=dateline, say=slides.pip_line("scale"), pose="read"))
+    else:
+        pages.append(slides.slide_brief(
+            kicker="What happened", headline=second or card.headline,
+            standfirst="", dateline=dateline, sources=total, agree=agree,
+            pose="read"))
+    pages.append(slides.slide_twist(
+        kicker="Why it matters",
+        headline=card.standfirst or card.headline,
+        body=card.caption.split("\n")[0] if card.caption else "",
+        dateline=dateline, say=slides.pip_line("twist"), pose="puzzled"))
     pages.append(slides.slide_close(
         outlets=named, body="Headlinne reads every outlet covering a story and "
                             "shows you where they agree, and where they don't.",

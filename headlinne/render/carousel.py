@@ -473,6 +473,8 @@ def render_carousel(carousel: InstagramCarousel, out_dir: Path,
                 headline=slide.headline, standfirst=slide.explanation,
                 dateline=dateline, index=story_positions.index(i) + 1,
                 of=len(story_positions), sources=total, agree=agree,
+                pose=slides.BRIEF_POSES[story_positions.index(i)
+                                        % len(slides.BRIEF_POSES)],
                 tone=_tone("scale"))
         elif i == last_story and total:
             img = slides.slide_close(

@@ -354,7 +354,15 @@ def encode(design: ReelDesign, out_path: Path, *, scale: float = 1.0,
 # --------------------------------------------------------------------------- #
 # Turning a generated reel into the design
 # --------------------------------------------------------------------------- #
-_POSE_RUN = ("walk", "point", "present", "talk", "point")
+_POSE_RUN = ("walk", "point", "present", "jump", "talk")
+
+# The reel runs on the design's warm family rather than one category colour.
+# A category accent held for thirty seconds flattens the piece, and the cool
+# ones (Science violet) fight the paper the whole way down.
+_BEAT_TONES = ((206, 62, 34),      # coral - what happened
+               (196, 86, 47),      # terracotta - where, who
+               (148, 98, 23),      # marigold - the number, the twist
+               (30, 107, 84))      # mint - the sourcing
 
 # The chapter label names the part of the explanation, so the viewer always
 # knows where they are. Generated beats carry a role; these are its words.
@@ -386,7 +394,7 @@ def emphasise(text: str) -> str:
     return f"{text[:m.start()]}*{m.group(1).strip()}*{text[m.end():]}"
 
 
-def design_from_reel(reel, durations, *, outro: float, accent,
+def design_from_reel(reel, durations, *, outro: float, accent=None,
                      dateline: str, sources: str = "", total: int = 0,
                      agree: int = 0, category: str = "Technology") -> ReelDesign:
     """Lay a generated reel out on the design's beats.
@@ -414,7 +422,7 @@ def design_from_reel(reel, durations, *, outro: float, accent,
             pose="" if is_outro else _POSE_RUN[i % len(_POSE_RUN)],
             line=emphasise(rb.caption),
             detail=rb.detail or "",
-            accent=accent,
+            accent=_BEAT_TONES[i % len(_BEAT_TONES)],
             say="Come and read it." if is_outro else None,
             counter=counter,
             plates=[] if is_outro else plates,

@@ -28,6 +28,7 @@ from ..config import (REEL_VOICE_EDUCATION, REEL_VOICE_LEAD_IN, REEL_VOICE_NEWS,
                       TTS_SAMPLE_WIDTH)
 from ..gemini.tts import TTSClient, pcm_seconds, silence
 from ..logging_setup import get_logger
+from . import motion
 from ..models import Reel
 
 log = get_logger("render.voice")
@@ -120,7 +121,13 @@ def build_voice_track(reel: Reel, out_path: Path,
     weights = [max(1, len(line)) for line in lines]
     total_weight = sum(weights)
     shares = [budget * w / total_weight for w in weights]
-    seconds = [max(MIN_BEAT_SECONDS, round(sh, 2)) for sh in shares]
+    # A beat may never be shorter than its own text needs, however the audio
+    # divided up - the speech can outrun the reader, and the reader is the one
+    # who has to keep up.
+    floors = [motion.minimum_hold(b.caption, b.detail) for b in reel.beats]
+    floors.append(motion.minimum_hold(OUTRO_LINE))
+    seconds = [max(MIN_BEAT_SECONDS, floor, round(sh, 2))
+               for sh, floor in zip(shares, floors)]
 
     beat_seconds = seconds[:-1]
     outro_seconds = seconds[-1]

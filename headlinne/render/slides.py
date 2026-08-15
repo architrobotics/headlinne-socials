@@ -161,8 +161,14 @@ def slide_scale(*, kicker: str, number: str, unit: str, body: str,
     canvas, draw = _page(tone, dateline)
     m, ink = MARGIN, _rgb(INK)
     draw.text((m, 220), kicker.upper(), font=font(30, 700), fill=tone)
-    draw.text((m, 274), number, font=font(280, 800), fill=ink)
-    draw.text((m + 300, 420), unit, font=font(64, 700), fill=ink)
+    numeral = font(280, 800)
+    draw.text((m, 274), number, font=numeral, fill=ink)
+    # The unit sits after the numeral rather than at a fixed offset: "4" and
+    # "8,700" are not the same width, and the prototype only ever drew "4".
+    # Keep the design's position for a single digit, and push past the
+    # numeral only when it is wider than that allowed for.
+    unit_x = max(m + 300, m + int(draw.textlength(number, font=numeral)) + 28)
+    draw.text((unit_x, 420), unit, font=font(64, 700), fill=ink)
     block(draw, body, font(46, 500), m, 620, SLIDE_W - m * 2, 60,
           _rgb(TEXT_SECONDARY))
     if pose:
@@ -227,6 +233,14 @@ def slide_brief(*, kicker: str, headline: str, standfirst: str, dateline: str,
     tone = tone if tone is not None else theme.accent_for("Technology")
     canvas, draw = _page(tone, dateline)
     m, ink = MARGIN, _rgb(INK)
+
+    # Pip changes pose page to page. He is the thread through the set - the
+    # thing that makes five unrelated stories read as one brief - so he is
+    # present, but small and low, where he cannot compete with the headline.
+    if pose:
+        pw, ph = theme.pip_size(pose, 9)
+        theme.draw_pip(canvas, pose, x=SLIDE_W - m - pw, y=SLIDE_H - 300 - ph,
+                       scale=9)
 
     draw.text((m, 262), kicker.upper(), font=font(30, 700), fill=tone)
     if of:
@@ -339,3 +353,8 @@ def pip_line(kind: str, *, agree: int = 0, total: int = 0) -> str | None:
     if kind == "scale":
         return "That is the part worth keeping."
     return None
+
+
+# The brief's pose rotation. Five stories, five attitudes, so the set has a
+# rhythm rather than five copies of one drawing.
+BRIEF_POSES = ("read", "point", "puzzled", "present", "carry")

@@ -154,3 +154,13 @@ def test_missing_artwork_is_only_a_problem_when_rendering_was_asked_for():
     # `generate --no-render` deliberately produces text without artwork, so the
     # gate must not treat that as a broken card.
     assert check_story_card(card, require_media=False).ok
+
+
+def test_the_daily_carousel_is_always_the_designed_five():
+    # A set that is sometimes three pages and sometimes five stops being a
+    # format the audience recognises.
+    import tempfile as _t
+    with _t.TemporaryDirectory() as tmp:
+        assert len(render_story_card(_card(), Path(tmp))) == 5
+        assert len(render_story_card(_card(standfirst="", headline="4 tonnes hit the Moon"),
+                                     Path(tmp) / "b")) == 5

@@ -460,3 +460,30 @@ __all__ = [
     "fit_caption", "fit_detail", "hold", "normalise_durations", "render_scenes",
     "save_cover", "seconds_for_text", "window",
 ]
+
+
+# --------------------------------------------------------------------------- #
+# Legibility budgets
+# --------------------------------------------------------------------------- #
+# Two budgets, not one, because the frame carries two kinds of text. The primary
+# line is *read*, word by word, and 230 wpm is where reading stops keeping up.
+# The detail line under it is *scanned* - taken in as a shape, not parsed - and
+# scanning runs far faster. Measuring both against a single rate is what
+# produced a 308 wpm cut that felt fine to write and was unreadable to watch.
+READING_WPM = 230.0     # the primary line, actually read
+SCANNING_WPM = 380.0    # everything on screen, taken in at a glance
+
+
+def minimum_hold(caption: str, detail: str = "") -> float:
+    """The least time a beat may be held before it outruns its own text.
+
+    A beat is legible when both budgets are satisfied: the line can be read at
+    reading speed *and* the whole frame can be taken in at scanning speed.
+    """
+    primary = max(1, len((caption or "").split()))
+    total = primary + len((detail or "").split())
+    return max(primary / READING_WPM * 60.0, total / SCANNING_WPM * 60.0)
+
+
+def wpm(words: int, seconds: float) -> float:
+    return (words / seconds * 60.0) if seconds > 0 else float("inf")
