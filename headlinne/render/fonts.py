@@ -39,8 +39,20 @@ def _clamp(value: float, lo: float, hi: float) -> float:
 
 
 @lru_cache(maxsize=256)
-def title_font(size: int) -> ImageFont.FreeTypeFont:
-    """Anton at the given pixel size (falls back to DejaVu Bold)."""
+def title_font(size: int, weight: int = 800) -> ImageFont.FreeTypeFont:
+    """The display face: Manrope at its heaviest.
+
+    This was Anton, which is free, ubiquitous and the default face of every
+    automated news account - it reads as a template before a word is parsed. It
+    also has one weight and one width, so nothing could be emphasised *inside* a
+    headline: every word shouted at the same volume. Manrope's variable weight
+    axis is what makes the kinetic reel type possible at all.
+    """
+    return label_font(size, weight)
+
+
+def _anton(size: int) -> ImageFont.FreeTypeFont:
+    """Retained for anything that still wants the old condensed face."""
     try:
         if ANTON_PATH.exists():
             return ImageFont.truetype(str(ANTON_PATH), size)

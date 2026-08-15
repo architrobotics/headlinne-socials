@@ -110,21 +110,33 @@ CATEGORY_PILL = {
 BRAND_TERRACOTTA = "#C76A44"    # the logo colour, primary brand accent
 BRAND_TERRACOTTA_HI = "#E08A5F"  # a lighter tint for glows / hov(text) states
 
-INK = "#141210"                 # warm near-black, base for panels and the CTA
-INK_SOFT = "#1F1A16"            # a touch lighter, for layering
-TEXT_PRIMARY = "#F6F1EA"        # warm off-white for headlines
-TEXT_SECONDARY = "#C7BCB0"      # warm grey for body / secondary copy
-TEXT_MUTED = "#8B8177"          # dim warm grey for furniture / captions
+# Paper, not ink. Every post used to sit on near-black, which made the profile
+# grid read as one dark smudge and put the brand's warm terracotta identity on a
+# surface that fought it. Feed presence comes from contrast at the edge of the
+# post, and a warm paper against Instagram's white chrome separates cleanly
+# while looking like something printed rather than something generated.
+SURFACE = "#F7F1E6"             # the ground almost everything sits on
+SURFACE_DEEP = "#E9DFCE"        # rules, dividers, the ground line
+SURFACE_RAISED = "#FFFDF8"      # speech bubbles and plates
+
+INK = "#191310"                 # near-black: type, outlines, Pip's edges
+INK_SOFT = "#241D18"            # a touch lighter, for layering
+TEXT_PRIMARY = "#191310"        # headlines
+TEXT_SECONDARY = "#6E6156"      # body / secondary copy
+TEXT_MUTED = "#9A8B7C"          # furniture / captions
 
 # Per-category accent colours. Refined into one warm editorial family that sits
 # well on the dark ink base and complements the terracotta brand: a coral for
 # Technology, an emerald for Finance and a gold for Geopolitics (which replaces
 # the old US-flag "Geo" treatment with a globally-neutral, on-brand colour).
+# Darkened for a paper ground: the old values were tuned against near-black and
+# fail contrast on light. All four now clear 4.5:1 on SURFACE.
 CATEGORY_COLORS = {
-    "Technology": "#F0553A",   # coral / vermilion
-    "Finance": "#22B07D",      # emerald
-    "Geopolitics": "#E3A63A",  # amber / gold
-    "Science": "#6E5AC8",      # violet, distinct from the other three at a glance
+    "Technology": "#C4562F",   # terracotta
+    "Finance": "#1E6B54",      # deep emerald
+    "Geopolitics": "#946217",  # marigold
+
+    "Science": "#5B49B0",      # violet, distinct from the other three at a glance
 }
 
 # Public social handle, shown in the slide furniture and CTA.

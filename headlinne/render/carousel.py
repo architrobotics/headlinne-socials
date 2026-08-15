@@ -170,7 +170,7 @@ def _render_cover(slide: Slide, category: str, loader: ImageLoader,
     draw = ImageDraw.Draw(canvas)
     accent = theme.accent_for(category)
 
-    theme.draw_top_bar(canvas, draw, category)
+    theme.draw_masthead(canvas, draw, category)
 
     max_w = SLIDE_W - 2 * MARGIN
 
@@ -225,7 +225,8 @@ def _render_cover(slide: Slide, category: str, loader: ImageLoader,
                                 line_spacing=1.2, shadow_alpha=120)
 
     theme.draw_progress(canvas, draw, total=total, active=0, accent=accent)
-    theme.draw_swipe_hint(draw, accent, y=theme.BOTTOM_BAR_Y - 12)
+    # removed: Instagram draws its own swipe affordance
+    # theme.draw_swipe_hint(draw, accent, y=theme.BOTTOM_BAR_Y - 12)
     return canvas
 
 
@@ -261,8 +262,14 @@ def _render_story(slide: Slide, category: str, loader: ImageLoader,
     draw = ImageDraw.Draw(canvas)
     accent = theme.accent_for(category)
 
-    theme.draw_top_bar(canvas, draw, category)
-    _draw_ghost_index(canvas, slide.index, accent)
+    theme.draw_masthead(canvas, draw, category)
+    # The ghosted "01" is gone. It sat at an opacity that read as a compression
+    # fault rather than as design, and it numbered a sequence Instagram already
+    # numbers with its own dots. Pip carries the slide instead.
+    pose = theme.pose_for("cover" if slide.role == "cover" else "explainer")
+    if pose:
+        theme.draw_pip(canvas, pose, scale=8,
+                       x=SLIDE_W - theme.MARGIN - 26 * 8, y=190)
 
     max_w = SLIDE_W - 2 * MARGIN
 
@@ -328,67 +335,37 @@ def _draw_ghost_index(canvas: Image.Image, index: int, accent) -> None:
 # CTA slide
 # --------------------------------------------------------------------------- #
 def _render_cta(slide: Slide, category: str, *, total: int) -> Image.Image:
-    canvas = theme.panel_gradient(SLIDE_W, SLIDE_H, theme.INK)
-    # Soft terracotta glow behind the logo.
-    glow = Image.new("RGBA", (SLIDE_W, SLIDE_H), (0, 0, 0, 0))
-    gmask = Image.new("L", (SLIDE_W, SLIDE_H), 0)
-    gdraw = ImageDraw.Draw(gmask)
-    cx, cy = SLIDE_W // 2, int(SLIDE_H * 0.34)
-    r = int(SLIDE_W * 0.5)
-    gdraw.ellipse([cx - r, cy - r, cx + r, cy + r], fill=120)
-    gmask = gmask.filter(ImageFilter.GaussianBlur(150))
-    glow_col = theme.mix(theme.hex_to_rgb(theme.INK), theme.hex_to_rgb(theme.BRAND_TERRACOTTA), 0.6)
-    glow = Image.new("RGBA", (SLIDE_W, SLIDE_H), theme.rgba(glow_col))
-    glow.putalpha(gmask)
-    canvas = Image.alpha_composite(canvas, glow)
+    """The last slide. Pip asks for the click; the domain is the loudest thing.
+
+    Previously a dark panel with a terracotta glow behind the logo mark, which
+    was the only slide in the set that did not sit on paper.
+    """
+    canvas = theme.paper(SLIDE_W, SLIDE_H)
     draw = ImageDraw.Draw(canvas)
+    accent = theme.accent_for(category)
+    theme.draw_masthead(canvas, draw, category)
 
-    # Logo mark, centred upper third.
-    mark = theme.logo_mark(224)
-    logo_bottom = int(SLIDE_H * 0.20)
-    if mark is not None:
-        lx = (SLIDE_W - 224) // 2
-        ly = int(SLIDE_H * 0.17)
-        canvas.alpha_composite(mark, (lx, ly))
-        logo_bottom = ly + 224
+    pose = theme.pose_for("cta")
+    if pose:
+        theme.draw_pip(canvas, pose, scale=15,
+                       x=MARGIN - 30, y=int(SLIDE_H * 0.20))
 
-    max_w = SLIDE_W - 2 * MARGIN
-
-    # Sign-off headline.
-    head = slide.headline or "That's your brief for today."
-    head_font, head_lines, head_h = fonts.fit_block(
-        fonts.title_font, head,
-        max_width=max_w, max_height=int(SLIDE_H * 0.20), start_size=92, min_size=52,
-    )
-    y = logo_bottom + 82
-    lh = int(fonts.line_height(head_font) * 1.06)
-    for line in head_lines:
-        w = fonts.text_width(head_font, line)
-        draw.text((MARGIN + (max_w - w) // 2, y), line, font=head_font,
-                  fill=theme.rgba(theme.TEXT_PRIMARY))
-        y += lh
-
-    # Sub-line.
-    sub = slide.subtitle or "Personalised news, minus the noise."
-    sub_font = fonts.body_font(40, weight=500)
-    sub_lines = fonts.wrap_text(sub_font, sub, max_w)
-    y += 18
-    slh = int(fonts.line_height(sub_font) * 1.2)
-    for line in sub_lines:
-        w = fonts.text_width(sub_font, line)
-        draw.text((MARGIN + (max_w - w) // 2, y), line, font=sub_font,
+    y = int(SLIDE_H * 0.54)
+    draw.text((MARGIN, y), "READ THE FULL STORY",
+              font=fonts.label_font(30, 700), fill=theme.rgba(accent))
+    y += 54
+    head_font = fonts.title_font(104, 800)
+    draw.text((MARGIN, y), WEBSITE, font=head_font,
+              fill=theme.rgba(theme.TEXT_PRIMARY))
+    y += 132
+    sub_font = fonts.body_font(38, weight=500)
+    subtitle = slide.subtitle or "Every source on this story, side by side."
+    for line in fonts.wrap_text(sub_font, subtitle, SLIDE_W - MARGIN * 2):
+        draw.text((MARGIN, y), line, font=sub_font,
                   fill=theme.rgba(theme.TEXT_SECONDARY))
-        y += slh
+        y += int(fonts.line_height(sub_font) * 1.25)
 
-    # Engagement pills: FOLLOW (solid) + SAVE (outline), centred as a pair.
-    y += 60
-    _draw_cta_pills(draw, y)
-
-    # Website, terracotta, near the bottom.
-    web_font = fonts.title_font(72)
-    ww = fonts.text_width(web_font, WEBSITE)
-    draw.text((MARGIN + (max_w - ww) // 2, int(SLIDE_H * 0.82)), WEBSITE,
-              font=web_font, fill=theme.rgba(theme.BRAND_TERRACOTTA))
+    _draw_footer_rule(canvas, draw) if "_draw_footer_rule" in globals() else None
     return canvas
 
 

@@ -95,6 +95,10 @@ def _background(card: StoryCard, loader: ImageLoader) -> Image.Image:
             log.warning("story card background failed: %s", exc)
     # No ghost mark: this card is mostly body copy, and the oversized logo
     # reads as a smudge behind it rather than as texture.
+    return theme.paper(SLIDE_W, SLIDE_H)
+
+
+def _unused_background(card, loader):
     return theme.brand_fallback(SLIDE_W, SLIDE_H, card.category,
                                 card.headline or card.category, ghost_mark=False)
 
@@ -134,9 +138,16 @@ def _layout_steps(card: StoryCard, available: int):
 
 
 def _draw_header(canvas: Image.Image, draw: ImageDraw.ImageDraw,
-                 card: StoryCard, accent, *, budget: int) -> None:
-    """Eyebrow, rule, headline and standfirst, fitted into `budget` pixels."""
-    theme.draw_top_bar(canvas, draw, card.category)
+                 card: StoryCard, accent, *, budget: int) -> int:
+    """Eyebrow, rule, headline and standfirst, fitted into `budget` pixels.
+
+    Returns the y the copy actually ended at, which is usually well short of the
+    budget. Anything placed after the header must measure from this rather than
+    from the budget, or it lands on top of the standfirst.
+    """
+    theme.draw_masthead(canvas, draw, card.category,
+                        date_text=getattr(card, "date_label", ""))
+
 
     y = HEAD_TOP
     eyebrow = f"THE FULL STORY  ·  {_dateline(card.scheduled_time)}"
@@ -176,6 +187,7 @@ def _draw_header(canvas: Image.Image, draw: ImageDraw.ImageDraw,
             draw.text((MARGIN, y), line, font=sub_font,
                       fill=theme.rgba(theme.TEXT_SECONDARY))
             y += slh
+    return y
 
 
 def _draw_rail(canvas: Image.Image, draw: ImageDraw.ImageDraw, blocks,
@@ -272,9 +284,26 @@ def render_story_card(card: StoryCard, out_path: Path,
     blocks, rail_h = _layout_steps(card, rail_room)
     header_budget = RAIL_BOTTOM - rail_h - HEAD_TO_RAIL - HEAD_TOP
 
-    _draw_header(canvas, draw, card, accent, budget=header_budget)
-    _draw_rail(canvas, draw, blocks, accent,
-               top=HEAD_TOP + header_budget + HEAD_TO_RAIL)
+    header_bottom = _draw_header(canvas, draw, card, accent,
+                                 budget=header_budget)
+    rail_top = HEAD_TOP + header_budget + HEAD_TO_RAIL
+
+    # Pip sits in the clear band between the header and the rail, sized to fit
+    # it rather than placed at a guessed y - the header grows and shrinks with
+    # the headline, so any fixed position eventually lands on top of the text.
+    # Sensitive stories carry no mascot at all.
+    pose = theme.pose_for("explainer",
+                          sensitive=bool(getattr(card, "sensitive", False)))
+    band_top = header_bottom + 24
+    band_h = rail_top - band_top
+    if pose and band_h >= 130:
+        scale = max(5, min(9, (band_h - 40) // 24))
+        sprite_h = 24 * scale
+        theme.draw_pip(canvas, pose, scale=scale,
+                       x=SLIDE_W - MARGIN - 26 * scale,
+                       y=band_top + (band_h - sprite_h) // 2)
+
+    _draw_rail(canvas, draw, blocks, accent, top=rail_top)
     _draw_footer(canvas, draw, card, accent)
 
     canvas.convert("RGB").save(out_path, "PNG")

@@ -20,8 +20,9 @@ from typing import Optional
 from PIL import Image, ImageDraw, ImageFilter
 
 from ..config import (BRAND_TERRACOTTA, BRAND_TERRACOTTA_HI, CATEGORY_COLORS,
-                      CATEGORY_PILL, INK, INK_SOFT, LOGO_PATH, TEXT_MUTED,
-                      TEXT_PRIMARY, TEXT_SECONDARY)
+                      CATEGORY_PILL, INK, INK_SOFT, LOGO_PATH, SURFACE,
+                      SURFACE_DEEP, SURFACE_RAISED, TEXT_MUTED, TEXT_PRIMARY,
+                      TEXT_SECONDARY)
 from . import fonts
 
 # --------------------------------------------------------------------------- #
@@ -114,6 +115,15 @@ alpha_ramp = _alpha_ramp
 
 
 def cinematic_scrim(w: int, h: int, tint=INK) -> Image.Image:
+    """On a paper ground there is nothing to darken: type sits straight on it.
+
+    Retained as a no-op so the reel and any photo-backed slide can still call it
+    without a conditional at every site.
+    """
+    return Image.new("RGBA", (w, h), (0, 0, 0, 0))
+
+
+def _legacy_cinematic_scrim(w: int, h: int, tint=INK) -> Image.Image:
     """A full-height scrim for photo slides: a firm dark base rising from the
     bottom, a soft darken at the very top (for the brand bar) and a gentle
     overall tint. Keeps white type legible over any photo without hiding it."""
@@ -164,6 +174,12 @@ def cover_fit(img: Image.Image, w: int, h: int) -> Image.Image:
 
 
 def panel_gradient(w: int, h: int, base=INK) -> Image.Image:
+    """Flat paper. The old radial gradient was visible enough to read as a
+    compression artefact rather than as lighting."""
+    return paper(w, h)
+
+
+def _legacy_panel_gradient(w: int, h: int, base=INK) -> Image.Image:
     """A subtle top-to-bottom gradient panel (for the CTA and fallbacks)."""
     top = scale(hex_to_rgb(base) if isinstance(base, str) else base, 1.35)
     bottom = hex_to_rgb(base) if isinstance(base, str) else base
@@ -179,6 +195,16 @@ def panel_gradient(w: int, h: int, base=INK) -> Image.Image:
 # Premium fallback background (no usable photo)
 # --------------------------------------------------------------------------- #
 def brand_fallback(w: int, h: int, category: str, seed: str,
+                   *_a, **_k) -> Image.Image:
+    """The designed background for a slide with no usable photograph.
+
+    Now simply paper. The generated pixel scene and chart plate in render/plate.py
+    are the real fallbacks; this is the ground they sit on.
+    """
+    return paper(w, h)
+
+
+def _legacy_brand_fallback(w: int, h: int, category: str, seed: str,
                    *, ghost_mark: bool = True) -> Image.Image:
     """A designed fallback for slides with no photo.
 
@@ -313,9 +339,13 @@ def draw_pill_right(draw: ImageDraw.ImageDraw, text: str, accent,
 
 
 def draw_tracked_shadowed(canvas: Image.Image, xy, text: str, font, fill,
-                          *, tracking: float = 0.0, shadow_alpha: int = 130) -> int:
-    """Tracked (letter-spaced) text with a soft drop shadow, for accent-coloured
-    labels that must stay legible over bright photography."""
+                          *, tracking: float = 0.0, shadow_alpha: int = 0) -> int:
+    """Tracked (letter-spaced) text, optionally shadowed.
+
+    The shadow now defaults off. It existed to hold accent labels legible over
+    bright photography on a dark ground; on paper it reads as a blurred edge.
+    Callers drawing over a photo can still pass shadow_alpha explicitly.
+    """
     x, y = xy
     if shadow_alpha:
         shadow = Image.new("RGBA", canvas.size, (0, 0, 0, 0))
@@ -418,3 +448,99 @@ def draw_source_line(draw: ImageDraw.ImageDraw, sources: str, accent,
     tx += fonts.tracked_width(label_font, label, 1.6) + 16
     draw.text((tx, y), sources, font=name_font, fill=rgba(TEXT_SECONDARY))
     return y + fonts.line_height(name_font)
+
+
+# --------------------------------------------------------------------------- #
+# Paper-era furniture: Pip, the source strip, and the masthead that replaced
+# the category pill.
+#
+# The pill used to be the loudest object on every canvas - saturated fill, black
+# text, top right - and it carried the least useful information there. Category
+# is now a thin rule under the wordmark: same fact, a tenth of the volume.
+# --------------------------------------------------------------------------- #
+from . import pip as _pip          # noqa: E402  (circular-safe: pip imports none)
+from . import receipt as _receipt  # noqa: E402
+
+
+def paper(w: int, h: int) -> Image.Image:
+    """A flat paper ground. No gradient: the old radial one was visible enough
+    to read as a compression artefact rather than as lighting."""
+    return Image.new("RGBA", (w, h), rgba(hex_to_rgb(SURFACE)))
+
+
+def draw_masthead(canvas: Image.Image, draw: ImageDraw.ImageDraw, category: str,
+                  *, date_text: str = "", width: int | None = None,
+                  y: int = 74, margin: int | None = None) -> int:
+    """Wordmark left, date right, category as a coloured rule beneath.
+
+    Returns the y of the rule, so callers can lay out from it.
+    """
+    w = width or canvas.width
+    m = MARGIN if margin is None else margin
+    accent = accent_for(category)
+    draw.text((m, y), "HEADLINNE", font=fonts.title_font(34, 800),
+              fill=hex_to_rgb(TEXT_PRIMARY))
+    if date_text:
+        draw.text((w - m, y + 4), date_text.upper(),
+                  font=fonts.label_font(26, 600),
+                  fill=hex_to_rgb(TEXT_SECONDARY), anchor="ra")
+    rule_y = y + 58
+    draw.rectangle([m, rule_y, w - m, rule_y + 4], fill=accent)
+    return rule_y
+
+
+def draw_pip(canvas: Image.Image, pose: str = "idle", *, x: int = 0, y: int = 0,
+             scale: int = 14) -> tuple[int, int]:
+    """Stamp Pip. Returns his rendered size so callers can lay out around him.
+
+    The pose is metadata, not decoration: a regular reader learns to read the
+    kind of story from the character before reading a word.
+    """
+    sprite = _pip.render(_pip.SPRITES.get(pose, _pip.SPRITES["idle"]), scale)
+    canvas.alpha_composite(sprite.convert("RGBA"), (x, y))
+    return sprite.size
+
+
+def pose_for(story_kind: str, *, sensitive: bool = False) -> str | None:
+    """Which pose a story earns, or None when it must carry no mascot at all.
+
+    Sensitive stories - deaths, disasters - are reported plainly. Pip never
+    appears beside one, and neither does a speech bubble or a wonder framing.
+    """
+    if sensitive:
+        return None
+    return {
+        "brief": "carry", "cover": "carry", "breaking": "alert",
+        "explainer": "read", "verified": "verified", "disagree": "puzzled",
+        "cta": "carry",
+    }.get(story_kind, "idle")
+
+
+def draw_receipt(draw: ImageDraw.ImageDraw, story, *, x: int, y: int,
+                 tick_w: int = 13, tick_h: int = 46, gap: int = 9,
+                 label: bool = True) -> int:
+    """The source strip. Returns the y below everything it drew.
+
+    Filled ticks are outlets that reported the event. A single-source story gets
+    one outlined tick and says so - we publish that rather than pad it, because
+    a bar that is never thin is a bar that means nothing.
+    """
+    filled, outlined = _receipt.ticks(story)
+    good = hex_to_rgb(CATEGORY_COLORS.get("Finance", "#1E6B54"))
+    muted = hex_to_rgb(TEXT_MUTED)
+    for i in range(filled):
+        bx = x + i * (tick_w + gap)
+        draw.rectangle([bx, y, bx + tick_w, y + tick_h], fill=good)
+    for i in range(outlined):
+        bx = x + (filled + i) * (tick_w + gap)
+        draw.rectangle([bx, y, bx + tick_w, y + tick_h], outline=muted, width=3)
+    below = y + tick_h
+    if label:
+        below += 28
+        draw.text((x, below), _receipt.label(story),
+                  font=fonts.label_font(32, 700), fill=hex_to_rgb(TEXT_PRIMARY))
+        below += 44
+        draw.text((x, below), _receipt.named(story, limit=3),
+                  font=fonts.label_font(27, 500), fill=hex_to_rgb(TEXT_SECONDARY))
+        below += 38
+    return below
