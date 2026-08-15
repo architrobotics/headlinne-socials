@@ -20,10 +20,18 @@ def _s(title, summary="", source="Example"):
                  published_iso="2026-08-15T09:00:00+00:00")
 
 
+# Summaries are as full as a real feed's, because sparse ones do not exercise
+# the entity requirement: two accounts of one event name several of the same
+# places, and a two-line fixture never gets the chance to.
 AIRSTRIKE = _s("Israeli strikes on southern Lebanon kill 11 in worst toll since June",
-               "Hezbollah said the attacks hit homes early on Saturday.", "Guardian")
+               "Strikes across southern Lebanon killed 11 people, officials said. "
+               "Hezbollah confirmed several of the dead were its members, and "
+               "Israel said it had targeted infrastructure near Nabatieh.",
+               "Guardian")
 AIRSTRIKE_2 = _s("Eleven killed in Israeli strikes on southern Lebanon, authorities say",
-                 "Lebanon said homes were hit and people fled.", "BBC World")
+                 "Lebanese authorities said Israeli strikes hit homes near "
+                 "Nabatieh in southern Lebanon. Hezbollah said its members were "
+                 "among those killed.", "BBC World")
 QUAKE = _s("Magnitude 7.7 earthquake strikes off the coast of Indonesia",
            "People fled homes in Indonesia early on Saturday.", "Phys.org")
 
@@ -97,3 +105,39 @@ def test_attach_sets_verified_only_with_a_second_outlet():
     assert AIRSTRIKE.verified is True
     assert "BBC World" in AIRSTRIKE.corroborating_sources
     assert QUAKE.verified is False, "a lone report is not verified"
+
+
+# --------------------------------------------------------------------------- #
+# Three more false positives, each found by auditing a live run
+# --------------------------------------------------------------------------- #
+STORM = _s("Hawaii's Big Island lashed by rain and wind as Tropical Storm Lala closes in",
+           "This satellite image shows Tropical Storm Lala over the Pacific Ocean.",
+           "AP Top News")
+STORM_2 = _s("Hurricane poised to hit Hawaii as El Nino stirs the Pacific",
+             "Tropical Storm Lala neared Hawaii's Big Island on Saturday.", "Phys.org")
+ECLIPSE = _s("Total Solar Eclipse in Sunflower Field",
+             "This image shows the eclipse over the Ocean, Aug 2026.", "NASA")
+BULLETIN = _s("DR Congo Ebola outbreak spreads to sixth province",
+              "In tonight's edition: the Ebola outbreak spreads, and Instagram "
+              "accounts fuel the Ceuta border crisis.", "France 24")
+CEUTA = _s("Instagram accounts fuelling Ceuta crisis with paid advice",
+           "Smugglers advertise routes across the Ceuta border.", "BBC World")
+
+
+def test_one_shared_entity_is_a_coincidence_not_a_match():
+    """A Pacific storm and an eclipse photo shared exactly 'Ocean'."""
+    corpus = _corpus(STORM, STORM_2, ECLIPSE)
+    idf, n = _idf(corpus), len(corpus)
+    assert C.agreement(STORM, STORM_2, idf, n) >= C.MIN_SCORE
+    assert C.agreement(STORM, ECLIPSE, idf, n) < C.MIN_SCORE
+
+
+def test_a_bulletin_cannot_corroborate_its_own_side_stories():
+    """'In tonight's edition:' runs six unrelated items under one headline."""
+    corpus = _corpus(BULLETIN, CEUTA)
+    assert C.is_roundup(BULLETIN.title, BULLETIN.summary)
+    assert C.agreement(BULLETIN, CEUTA, _idf(corpus), len(corpus)) == 0.0
+
+
+def test_month_abbreviations_are_not_entities():
+    assert "aug" not in C._entities(ECLIPSE)

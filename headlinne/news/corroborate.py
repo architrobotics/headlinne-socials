@@ -61,12 +61,29 @@ MIN_SHARED_TERMS = 2
 # false one - too thin to trust on a day this had not been measured against.
 MIN_SCORE = 2.60
 
+# A shared entity must also be a *distinctive* one. "African", "Ocean" and "Aug"
+# are capitalised and shared by any number of unrelated stories; measured live,
+# they let an Ebola outbreak corroborate a whale survey and a Pacific storm
+# corroborate a solar eclipse. Requiring the shared entities to carry real
+# inverse-document-frequency weight removes those without touching genuine
+# matches, where the shared entity is a specific place or organisation.
+MIN_ENTITY_WEIGHT = 3.4
+
+# And there must be more than one of them. A single shared entity is a
+# coincidence: measured live, a Pacific storm and a solar eclipse photo shared
+# exactly "Ocean" and nothing else, while the storm and a genuine second report
+# of it shared five - Hawaii, Lala, Pacific, Big, Island. Two accounts of one
+# event name several of the same specifics; two unrelated ones rarely name two.
+MIN_SHARED_ENTITIES = 2
+
 # Roundups name a dozen unrelated subjects and would corroborate all of them.
 # They are excluded as *sources* of corroboration; they can still be published.
 _ROUNDUP_MARKERS = ("recap", "roundup", "round-up", "week in", "best of",
                     "everything we", "what we know", "live updates",
                     "as it happened", "deals of the", "top stories",
-                    "your guide to", "explained:")
+                    "your guide to", "explained:",
+                    "in tonight's edition", "in this edition", "also in the",
+                    "here are the stories", "the headlines:", "briefing:")
 
 _WORD = re.compile(r"[a-z0-9][a-z0-9'-]{2,}")
 
@@ -90,6 +107,8 @@ _CAPITALISED = re.compile(r"([A-Z][A-Za-z'-]{2,})")
 _CALENDAR = frozenset("""
 monday tuesday wednesday thursday friday saturday sunday january february march
 april may june july august september october november december
+mon tue tues wed thu thur thurs fri sat sun
+jan feb mar apr jun jul aug sept sep oct nov dec
 """.split())
 
 
@@ -152,9 +171,15 @@ def _weight(terms: set[str], idf: dict[str, float]) -> float:
     return sum(idf.get(t, 0.0) for t in terms)
 
 
-def is_roundup(title: str) -> bool:
-    """A post that lists many subjects cannot vouch for any one of them."""
-    low = title.lower()
+def is_roundup(title: str, summary: str = "") -> bool:
+    """A post that lists many subjects cannot vouch for any one of them.
+
+    The summary is checked as well as the headline. Broadcast bulletins open
+    "In tonight's edition:" and then run through six unrelated stories under a
+    headline naming only the first, which is how a Congo Ebola report came to
+    corroborate a piece about Instagram accounts in Ceuta.
+    """
+    low = f"{title} {summary[:160]}".lower()
     return any(m in low for m in _ROUNDUP_MARKERS)
 
 
@@ -165,11 +190,16 @@ def agreement(a: Story, b: Story, idf: dict[str, float],
     The result is shared distinctive weight scaled by corpus size, so it is
     comparable across a quiet day and a busy one. Compare against MIN_SCORE.
     """
-    if is_roundup(a.title) or is_roundup(b.title):
+    if is_roundup(a.title, a.summary) or is_roundup(b.title, b.summary):
         return 0.0
-    # A shared named entity is required, not merely helpful. Without it, two
-    # unrelated tragedies corroborate each other on casualty vocabulary.
-    if not (_entities(a) & _entities(b)):
+    # A shared named entity is required, and it must be a distinctive one.
+    # Without the entity requirement two unrelated tragedies corroborate on
+    # casualty vocabulary; without the weight requirement they corroborate on
+    # "African" or "Ocean".
+    shared_entities = _entities(a) & _entities(b)
+    if len(shared_entities) < MIN_SHARED_ENTITIES:
+        return 0.0
+    if _weight(shared_entities, idf) < MIN_ENTITY_WEIGHT:
         return 0.0
     shared = _signature(a) & _signature(b)
     if len(shared) < MIN_SHARED_TERMS:
