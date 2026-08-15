@@ -79,13 +79,18 @@ TIMEZONE = ZoneInfo("Asia/Kolkata")     # IST. All scheduling is expressed in IS
 # --------------------------------------------------------------------------- #
 # Categories
 # --------------------------------------------------------------------------- #
-CATEGORIES = ("Technology", "Finance", "Geopolitics")
+# Science earns its own category rather than being filed under Technology. The
+# stories that travel furthest - a rocket hitting the Moon, whales returning to
+# a coastline, what a brain does while you sleep - are universal in a way a
+# product launch is not, and they had nowhere to live.
+CATEGORIES = ("Technology", "Finance", "Geopolitics", "Science")
 
 # Short labels used in copy and slide titles.
 CATEGORY_LABELS = {
     "Technology": "Tech",
     "Finance": "Finance",
     "Geopolitics": "Geopolitics",
+    "Science": "Science",
 }
 
 # Uppercase labels used on the small category pill in the carousel furniture.
@@ -93,6 +98,7 @@ CATEGORY_PILL = {
     "Technology": "TECHNOLOGY",
     "Finance": "FINANCE",
     "Geopolitics": "WORLD",
+    "Science": "SCIENCE",
 }
 
 # --------------------------------------------------------------------------- #
@@ -118,6 +124,7 @@ CATEGORY_COLORS = {
     "Technology": "#F0553A",   # coral / vermilion
     "Finance": "#22B07D",      # emerald
     "Geopolitics": "#E3A63A",  # amber / gold
+    "Science": "#6E5AC8",      # violet, distinct from the other three at a glance
 }
 
 # Public social handle, shown in the slide furniture and CTA.
@@ -166,6 +173,18 @@ FEEDS: tuple[Feed, ...] = (
     Feed("Guardian World", "https://www.theguardian.com/world/rss", "Geopolitics", 1.1),
     Feed("AP Top News", "https://feedx.net/rss/ap.xml", "Geopolitics", 1.2),
     Feed("NPR World", "https://feeds.npr.org/1004/rss.xml", "Geopolitics", 1.0),
+
+    # ---- Science ----
+    # Every feed above is a general, business or technology wire. Between them
+    # they never carried the most-shared story of 5 August - a four-tonne rocket
+    # stage hitting the Moon - so no amount of re-weighting could have surfaced
+    # it. These four all fetched cleanly when tested against the new ranker, and
+    # supplied four of its top eight.
+    Feed("Phys.org", "https://phys.org/rss-feed/", "Science", 1.0),
+    Feed("Space.com", "https://www.space.com/feeds/all", "Science", 1.0),
+    Feed("New Scientist", "https://www.newscientist.com/subject/space/feed/", "Science", 1.0),
+    Feed("Science Daily", "https://www.sciencedaily.com/rss/top/science.xml", "Science", 1.0),
+    Feed("NASA", "https://www.nasa.gov/rss/dyn/breaking_news.rss", "Science", 1.3),
 )
 
 # How far back a story may be and still count as "today's news".
@@ -457,13 +476,33 @@ STORY_CARD_ENABLED = _env_flag("STORY_CARD_ENABLED", True)
 # a day is more than a small account needs, and posting past the point where each
 # post can find its audience dilutes every one of them. Set this to "false" to
 # drop to one carousel a day (recommended once the reels are running).
-IG_SECOND_CAROUSEL = _env_flag("IG_SECOND_CAROUSEL", True)
+IG_SECOND_CAROUSEL = _env_flag("IG_SECOND_CAROUSEL", False)
+
+# Carousels are the most expensive format to produce and the least suited to a
+# daily beat: five slides of argument is a weekly artefact, not a daily one. The
+# daily rhythm is two reels and one or two story cards; the carousel becomes a
+# considered weekly piece. Days are 0=Monday.
+CAROUSEL_WEEKDAYS = tuple(
+    int(d) for d in _env_str("CAROUSEL_WEEKDAYS", "1,4").split(",") if d.strip()
+)
 
 
 # --------------------------------------------------------------------------- #
 # Gemini model
 # --------------------------------------------------------------------------- #
 GEMINI_MODEL = "gemini-3.1-flash-lite"
+
+# Quota is counted per model, so a second model is a second allowance - the same
+# reasoning as REEL_TTS_FALLBACK_MODELS above, which text never had. A run that
+# exhausts the primary model's daily cap currently fails outright rather than
+# moving on. On a 429 the client should advance immediately rather than waiting
+# out a window it cannot use.
+GEMINI_FALLBACK_MODELS = tuple(
+    m.strip() for m in _env_str(
+        "GEMINI_FALLBACK_MODELS",
+        "gemini-3.1-flash,gemini-2.5-flash-lite,gemini-2.5-flash").split(",")
+    if m.strip()
+)
 # Thinking budget for generation: "minimal" | "low" | "medium" | "high".
 # "low" gives clean, instruction-following copy without much latency or cost.
 GEMINI_THINKING_LEVEL = _env_str("GEMINI_THINKING_LEVEL", "low")
