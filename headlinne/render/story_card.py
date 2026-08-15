@@ -31,7 +31,8 @@ from ..config import (INK, SLIDE_H, SLIDE_W, SURFACE, SURFACE_DEEP,
                       TEXT_SECONDARY, WEBSITE)
 from ..logging_setup import get_logger
 from ..models import StoryCard
-from . import fonts, theme
+from . import fonts, slides, theme
+from . import receipt as _receipt
 from .carousel import default_image_loader
 
 log = get_logger("render.story_card")
@@ -83,7 +84,9 @@ def _dateline(scheduled_time: str) -> str:
         day = datetime.fromisoformat(scheduled_time).date()
     except (TypeError, ValueError):
         day = date.today()
-    return day.strftime("%a, %d %b").upper()
+    # "TUE 15 AUG" - the design's dateline carries no comma and no leading
+    # zero, so it reads as a stamp rather than as a sentence.
+    return f"{day.strftime('%a')} {day.day} {day.strftime('%b')}".upper()
 
 
 def _background(card: StoryCard, loader: ImageLoader) -> Image.Image:
@@ -354,8 +357,18 @@ def render_story_card(card: StoryCard, out_path: Path,
         draw.text((m, y), line, font=headline_font, fill=ink)
         y += 96
 
-    # The receipt strip does the arguing.
-    theme.draw_receipt(draw, _receipt_source(card), x=m, y=SLIDE_H - 322)
+    # The receipt strip does the arguing. This is the prototype's strip rather
+    # than theme.draw_receipt: that one reports how many outlets covered the
+    # story and cannot say how many of them agree, which is exactly what the
+    # disagree card exists to show.
+    n = len(card.outlets)
+    agree = card.agree if card.agree else n
+    ry = SLIDE_H - 322
+    slides.receipt_strip(draw, m, ry, n, agree)
+    draw.text((m, ry + 74), f"{agree} of {n} outlets agree",
+              font=fonts.label_font(34, 700), fill=ink)
+    draw.text((m, ry + 122), _receipt.named(_receipt_source(card), limit=3),
+              font=fonts.label_font(28, 500), fill=ink_soft)
 
     draw.rectangle([m, SLIDE_H - 132, SLIDE_W - m, SLIDE_H - 130],
                    fill=_rgb(SURFACE_DEEP))
