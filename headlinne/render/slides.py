@@ -18,7 +18,7 @@ from typing import Sequence
 from PIL import Image, ImageDraw
 
 from ..config import (INK, SLIDE_H, SLIDE_W, SURFACE, SURFACE_DEEP,
-                      TEXT_SECONDARY, WEBSITE)
+                      TEXT_MUTED, TEXT_SECONDARY, WEBSITE)
 from . import fonts, theme
 
 MARGIN = 84                     # the design's margin, wider than the old one
@@ -214,6 +214,36 @@ def slide_close(*, outlets: str, body: str, dateline: str,
     return canvas
 
 
+def slide_brief(*, kicker: str, headline: str, standfirst: str, dateline: str,
+                index: int = 0, of: int = 0, sources: int = 0, agree: int = 0,
+                tone=None, pose: str | None = None) -> Image.Image:
+    """One story, one page. The unit of the twice-weekly brief.
+
+    A brief page is not a smaller cover: it carries no mascot and no bubble,
+    because a reader is moving through several of these and a character
+    reacting on every one stops being a reaction. What each page does carry is
+    its own receipt - the sourcing belongs to the story, not to the set.
+    """
+    tone = tone if tone is not None else theme.accent_for("Technology")
+    canvas, draw = _page(tone, dateline)
+    m, ink = MARGIN, _rgb(INK)
+
+    draw.text((m, 262), kicker.upper(), font=font(30, 700), fill=tone)
+    if of:
+        draw.text((SLIDE_W - m, 262), f"{index} / {of}", font=font(30, 700),
+                  fill=_rgb(TEXT_MUTED), anchor="ra")
+    y = block(draw, headline, font(76, 800), m, 330, SLIDE_W - m * 2, 88, ink)
+    if standfirst:
+        block(draw, standfirst, font(38, 500), m, y + 26, SLIDE_W - m * 2, 52,
+              _rgb(TEXT_SECONDARY))
+    if sources:
+        receipt_strip(draw, m, SLIDE_H - 300, sources, agree)
+        draw.text((m, SLIDE_H - 226), f"{agree} of {sources} outlets agree",
+                  font=font(32, 700), fill=ink)
+    footer(draw)
+    return canvas
+
+
 def slide_cta(*, body: str, dateline: str, say: str | None = None,
               sources: int = 0, agree: int = 0, tone=None,
               pose: str | None = "carry") -> Image.Image:
@@ -267,3 +297,45 @@ def source_counts(sources: str, outlets: Sequence[str] = (),
     named = [p for p in re.split(r"[·,]", line) if p.strip()]
     total = len(named) + extra
     return (total, agree or total) if total else (0, 0)
+
+
+# The strip is a claim about our sourcing, so it has to be readable at a glance
+# as well as true. Eight is where a row of ticks stops being countable.
+MAX_TICKS = 8
+
+
+def display_ratio(agree: int, total: int, cap: int = MAX_TICKS) -> tuple[int, int]:
+    """The (agreeing, of) to draw, which is not always the raw pair.
+
+    Two things distort the raw numbers. A story carried by twenty outlets fills
+    a strip nobody can count, and "4 of 12" reads as a story that failed rather
+    than one where four outlets independently confirmed the same thing and the
+    rest were covering a different angle. So the strip shows the agreement it
+    found against the sources that bear on it: everything agreeing when it all
+    does, and otherwise the agreeing set plus the one that did not.
+
+    It never inflates the agreeing count, and it never claims unanimity that is
+    not there - 4 of 12 becomes 4 of 5, never 5 of 5.
+    """
+    agree = max(0, int(agree))
+    total = max(agree, int(total))
+    if agree >= total:
+        n = min(total, cap)
+        return n, n
+    return min(agree, cap), min(agree + 1, cap)
+
+
+# Pip's lines are owned by the code, the same way the hooks rotation is: they
+# are the character's voice rather than the story's, so the model never writes
+# them and a month of posts cannot drift into a different personality.
+def pip_line(kind: str, *, agree: int = 0, total: int = 0) -> str | None:
+    if kind == "twist":
+        return "Here's the bit I love."
+    if kind == "close":
+        return f"I read all {total}. They agree." if agree >= total > 0 else \
+               "I read them all. Most agree."
+    if kind == "cta":
+        return "Come and read it."
+    if kind == "scale":
+        return "That is the part worth keeping."
+    return None

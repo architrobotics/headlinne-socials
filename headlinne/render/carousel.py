@@ -452,9 +452,10 @@ def render_carousel(carousel: InstagramCarousel, out_dir: Path,
     last_story = story_positions[-1] if story_positions else -1
 
     for i, slide in enumerate(carousel.slides):
-        total, agree = slides.source_counts(slide.sources,
-                                            getattr(slide, "outlets", ()),
-                                            getattr(slide, "agree", 0))
+        raw_total, raw_agree = slides.source_counts(
+            slide.sources, getattr(slide, "outlets", ()),
+            getattr(slide, "agree", 0))
+        agree, total = slides.display_ratio(raw_agree, raw_total)
         if slide.role == "cover":
             img = slides.slide_cover(
                 kicker=kicker, headline=slide.headline or carousel.title,
@@ -464,12 +465,20 @@ def render_carousel(carousel: InstagramCarousel, out_dir: Path,
         elif slide.role == "cta":
             img = slides.slide_cta(
                 body=slide.explanation or slide.subtitle, dateline=dateline,
-                say=slide.headline or None, sources=total, agree=agree,
+                say=slides.pip_line("cta"), sources=total, agree=agree,
                 tone=_tone("cta"))
+        elif carousel.kind == "brief":
+            img = slides.slide_brief(
+                kicker=CATEGORY_LABELS.get(slide.subtitle, slide.subtitle) or kicker,
+                headline=slide.headline, standfirst=slide.explanation,
+                dateline=dateline, index=story_positions.index(i) + 1,
+                of=len(story_positions), sources=total, agree=agree,
+                tone=_tone("scale"))
         elif i == last_story and total:
             img = slides.slide_close(
                 outlets=slide.sources, body=slide.explanation,
                 dateline=dateline, sources=total, agree=agree,
+                say=slides.pip_line("close", agree=agree, total=total),
                 tone=_tone("close"))
         else:
             number = _lead_number(slide.headline)
@@ -478,12 +487,12 @@ def render_carousel(carousel: InstagramCarousel, out_dir: Path,
                     kicker=slide.subtitle or kicker,
                     number=number[0], unit=number[1],
                     body=slide.explanation, dateline=dateline,
-                    tone=_tone("scale"))
+                    say=slides.pip_line("scale"), tone=_tone("scale"))
             else:
                 img = slides.slide_twist(
                     kicker=slide.subtitle or kicker, headline=slide.headline,
                     body=slide.explanation, dateline=dateline,
-                    tone=_tone("scale"))
+                    say=slides.pip_line("scale"), tone=_tone("scale"))
 
         path = out_dir / f"slide_{i + 1}.png"
         img.convert("RGB").save(path, "PNG")

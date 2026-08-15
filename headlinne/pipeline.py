@@ -137,6 +137,9 @@ def generate(day: date | None = None, *, render: bool = True,
     if day.weekday() in CAROUSEL_WEEKDAYS:
         ig_cats = strongest_categories(digest, n=2 if IG_SECOND_CAROUSEL else 1)
         carousels = gen_instagram.generate(client, digest, ig_cats, day)
+        # The carousel days are the round-up: several stories, a page each.
+        for c in carousels:
+            c.kind = "brief"
     else:
         carousels = []
         log.info("no carousel today: weekday %d is not in %s",
@@ -157,7 +160,7 @@ def generate(day: date | None = None, *, render: bool = True,
         reels = _render_reels(day, reels)
         if story_card:
             try:
-                render_story_card(story_card, storage.story_card_path(day))
+                render_story_card(story_card, storage.story_card_path(day).parent)
             except Exception as exc:  # pragma: no cover - never fail the whole run
                 log.error("story card render failed: %s", exc, exc_info=True)
                 story_card = None

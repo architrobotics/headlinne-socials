@@ -73,60 +73,72 @@ def _spoken_line(beat) -> str:
 
 def build_voice_track(reel: Reel, out_path: Path,
                       client: TTSClient | None = None) -> VoiceTrack | None:
-    """Narrate every beat and the sign-off, or return None and let it be silent."""
+    """Narrate the whole reel in one request, or return None and let it be silent.
+
+    This used to call the API once per beat. Seven calls against a quota counted
+    per minute meant the pacing alone spent two minutes per reel, and any one of
+    the seven failing lost the entire track. A reel is one continuous piece of
+    speech, so it is now one request: the lines are spoken as a single script and
+    the beats take their share of the result.
+
+    The split is proportional to how much each line has to say. It is not exact -
+    only the API knows where it actually paused - but the total is exact, which
+    is the part that matters: the audio and the video end together, and no beat
+    can drift far when every beat is measured against the same total.
+    """
     client = client or TTSClient()
     voice = voice_for(reel)
     style = "news" if reel.kind == "news" else "education"
 
-    lead_in = silence(REEL_VOICE_LEAD_IN)
-    tail = silence(REEL_VOICE_TAIL)
-
-    chunks: list[bytes] = []
-    beat_seconds: list[float] = []
-
-    for index, beat in enumerate(reel.beats, 1):
-        line = _spoken_line(beat)
+    lines = [_spoken_line(beat) for beat in reel.beats]
+    for index, line in enumerate(lines, 1):
         if not line:
             log.error("beat %d of %s has nothing to say, dropping the voiceover.",
                       index, reel.slot)
             return None
-        pcm = client.synthesize(line, voice=voice, style=style)
-        if not pcm:
-            log.error("could not narrate beat %d of %s, falling back to silence.",
-                      index, reel.slot)
-            return None
+    lines.append(OUTRO_LINE)
 
-        chunks.extend([lead_in, pcm, tail])
-        spoken = REEL_VOICE_LEAD_IN + pcm_seconds(pcm) + REEL_VOICE_TAIL
-        beat_seconds.append(max(MIN_BEAT_SECONDS, round(spoken, 2)))
-
-    outro_pcm = client.synthesize(OUTRO_LINE, voice=voice, style=style)
-    if not outro_pcm:
-        log.error("could not narrate the sign-off of %s, falling back to silence.",
+    # One request. The blank line between each is what the model reads as a beat
+    # of silence, which is also where the video cuts.
+    script = "\n\n".join(lines)
+    pcm = client.synthesize(script, voice=voice, style=style)
+    if not pcm:
+        log.error("could not narrate %s in one request, falling back to silence.",
                   reel.slot)
         return None
-    chunks.extend([lead_in, outro_pcm, tail])
-    outro_seconds = max(MIN_BEAT_SECONDS,
-                        round(REEL_VOICE_LEAD_IN + pcm_seconds(outro_pcm)
-                              + REEL_VOICE_TAIL, 2))
 
-    # The rounding above nudges each beat's video length up by a few
-    # milliseconds, so pad the audio to match rather than letting the two drift
-    # apart over seven cuts.
-    padded: list[bytes] = []
-    for i, target in enumerate([*beat_seconds, outro_seconds]):
-        actual = sum(pcm_seconds(c) for c in chunks[i * 3:i * 3 + 3])
-        padded.extend(chunks[i * 3:i * 3 + 3])
-        if target > actual:
-            padded.append(silence(target - actual))
+    lead_in = silence(REEL_VOICE_LEAD_IN)
+    tail = silence(REEL_VOICE_TAIL)
+    spoken = pcm_seconds(pcm)
 
-    _write_wav(out_path, b"".join(padded))
+    # Share the spoken time out by how much each line carries, then hold every
+    # beat to the floor so a two-word payoff still gets time to be read.
+    # The air at each end belongs to the reel too, so it is shared out with the
+    # speech rather than added on top - otherwise the WAV is longer than the cut
+    # list says it is, and the two drift apart.
+    budget = REEL_VOICE_LEAD_IN + spoken + REEL_VOICE_TAIL
+    weights = [max(1, len(line)) for line in lines]
+    total_weight = sum(weights)
+    shares = [budget * w / total_weight for w in weights]
+    seconds = [max(MIN_BEAT_SECONDS, round(sh, 2)) for sh in shares]
+
+    beat_seconds = seconds[:-1]
+    outro_seconds = seconds[-1]
+
+    # The floors and the rounding only ever lengthen the video, so pad the audio
+    # to match rather than letting the two drift apart across the reel.
+    audio = b"".join([lead_in, pcm, tail])
+    target = sum(seconds)
+    actual = pcm_seconds(audio)
+    if target > actual:
+        audio += silence(target - actual)
+
+    _write_wav(out_path, audio)
     track = VoiceTrack(path=out_path, beat_seconds=beat_seconds,
                        outro_seconds=outro_seconds)
-    log.info("narrated %s: %d lines, %.1fs total", reel.slot,
-             len(reel.beats) + 1, track.total_seconds)
+    log.info("narrated %s in 1 request: %d lines, %.1fs total", reel.slot,
+             len(lines), track.total_seconds)
     return track
-
 
 def _write_wav(path: Path, pcm: bytes) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)

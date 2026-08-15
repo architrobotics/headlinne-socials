@@ -152,6 +152,9 @@ class InstagramCarousel:
     caption: str
     hashtags: list[str]
     scheduled_time: str
+    # What this set is for. "brief" is the twice-weekly round-up - several
+    # stories, one page each. "story" walks a single story all the way through.
+    kind: str = "story"
     # The long tail of hashtags, posted as the first comment so the visible
     # caption stays readable (see config.INSTAGRAM_CAPTION_HASHTAGS).
     first_comment: str = ""

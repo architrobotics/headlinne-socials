@@ -95,14 +95,18 @@ def test_a_sensitive_story_carries_no_mascot():
 # --------------------------------------------------------------------------- #
 # Rendering
 # --------------------------------------------------------------------------- #
-def test_card_renders_at_the_instagram_portrait_size():
-    with tempfile.TemporaryDirectory() as tmp:
-        path = render_story_card(_card(), Path(tmp) / "card.png")
-        assert path.exists()
-        from PIL import Image
+def test_the_story_gets_a_carousel_of_its_own():
+    # The counterweight to the twice-weekly brief: that one is many stories a
+    # page each, this is one story given room.
+    from PIL import Image
 
-        with Image.open(path) as img:
-            assert img.size == (SLIDE_W, SLIDE_H)
+    with tempfile.TemporaryDirectory() as tmp:
+        paths = render_story_card(_card(), Path(tmp))
+        assert len(paths) >= 3
+        for path in paths:
+            assert path.exists()
+            with Image.open(path) as img:
+                assert img.size == (SLIDE_W, SLIDE_H)
 
 
 def test_every_kind_and_category_renders():
@@ -111,18 +115,18 @@ def test_every_kind_and_category_renders():
                 (("brief", "Technology"), ("breaking", "Finance"),
                  ("disagree", "Geopolitics"), ("brief", "Science"))):
             card = _card(kind=kind, category=category)
-            path = render_story_card(card, Path(tmp) / f"{i}.png")
-            assert path.stat().st_size > 0
+            paths = render_story_card(card, Path(tmp) / str(i))
+            assert all(p.stat().st_size > 0 for p in paths)
 
 
 def test_a_long_headline_still_renders_inside_the_frame():
     long_card = _card(headline="Two outlets read the same memo and came away "
                                "with numbers eight thousand jobs apart")
-    with tempfile.TemporaryDirectory() as tmp:
-        path = render_story_card(long_card, Path(tmp) / "long.png")
-        from PIL import Image
+    from PIL import Image
 
-        with Image.open(path) as img:
+    with tempfile.TemporaryDirectory() as tmp:
+        paths = render_story_card(long_card, Path(tmp))
+        with Image.open(paths[0]) as img:
             assert img.size == (SLIDE_W, SLIDE_H)
 
 

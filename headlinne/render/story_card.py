@@ -93,63 +93,56 @@ def _receipt_source(card: StoryCard):
 
 
 def render_story_card(card: StoryCard, out_path: Path,
-                      image_loader: ImageLoader | None = None) -> Path:
-    """Render the day's story card to a PNG and stamp the path onto the card.
+                      image_loader: ImageLoader | None = None) -> list[Path]:
+    """Render the day's story as its own carousel, returning the slide paths.
 
-    The layout is the one worked out in design/prototypes/cards.py: wordmark and
-    date over a single hairline, Pip at a fixed size and place, a kicker, the
-    headline, and the receipt strip doing the arguing at the foot. There is no
-    numbered rail and no photograph - the card is the counterweight to the
-    carousel, and what it offers is a claim and the evidence for it.
+    One story, walked all the way through: a cover that states it, a page for
+    the thing the reader did not know, a close showing who reported it, and the
+    ask. It is the counterweight to the twice-weekly brief - that one is many
+    stories a page each, this one is a single story given room.
+
+    `out_path` may be a file or a directory; the slides are written beside it
+    either way, and the first is stamped onto the card as its cover.
     """
-    out_path.parent.mkdir(parents=True, exist_ok=True)
+    out_dir = out_path if out_path.suffix == "" else out_path.parent
+    out_dir.mkdir(parents=True, exist_ok=True)
 
     kicker, pose, tone = _card_kind(card)
-    canvas = Image.new("RGBA", (SLIDE_W, SLIDE_H), _rgb(SURFACE))
-    draw = ImageDraw.Draw(canvas)
-    ink, ink_soft = _rgb(INK), _rgb(TEXT_SECONDARY)
-    m = CARD_MARGIN
+    dateline = _dateline(card.scheduled_time)
+    agree, total = slides.display_ratio(card.agree or len(card.outlets),
+                                        len(card.outlets))
+    named = _receipt.named(_receipt_source(card), limit=3)
 
-    # Header: wordmark left, date right. One hairline, no pills.
-    draw.text((m, 74), "HEADLINNE", font=fonts.title_font(34, 800), fill=ink)
-    draw.text((SLIDE_W - m, 78), _dateline(card.scheduled_time).upper(),
-              font=fonts.label_font(26, 600), fill=ink_soft, anchor="ra")
-    draw.rectangle([m, 132, SLIDE_W - m, 136], fill=tone)
+    pages = [
+        slides.slide_cover(
+            kicker=kicker, headline=card.headline,
+            standfirst=card.standfirst, dateline=dateline,
+            say=card.standfirst or None, sources=total, agree=agree,
+            tone=tone, pose=pose),
+    ]
+    if card.standfirst:
+        pages.append(slides.slide_twist(
+            kicker="Why it matters", headline=card.standfirst,
+            body=card.caption.split("\n")[0] if card.caption else "",
+            dateline=dateline, say=slides.pip_line("twist"),
+            tone=slides.CORAL, pose=pose))
+    pages.append(slides.slide_close(
+        outlets=named, body="Headlinne reads every outlet covering a story and "
+                            "shows you where they agree, and where they don't.",
+        dateline=dateline, say=slides.pip_line("close", agree=agree, total=total),
+        sources=total, agree=agree, pose=pose))
+    pages.append(slides.slide_cta(
+        body="Every source on this story, side by side. Free to read, no "
+             "account needed.",
+        dateline=dateline, say=slides.pip_line("cta"), sources=total,
+        agree=agree, pose=pose))
 
-    # Pip, always the same size and always the same place - he is furniture the
-    # reader learns, not a decoration that moves with the copy. Sensitive
-    # stories carry no mascot at all.
-    if pose:
-        theme.draw_pip(canvas, pose, x=m - 30, y=196, scale=15)
-
-    draw.text((m, 606), kicker.upper(), font=fonts.label_font(30, 700), fill=tone)
-
-    headline_font = fonts.title_font(84, 800)
-    y = 664
-    for line in fonts.wrap_text(headline_font, card.headline, SLIDE_W - m * 2):
-        draw.text((m, y), line, font=headline_font, fill=ink)
-        y += 96
-
-    # The receipt strip does the arguing. This is the prototype's strip rather
-    # than theme.draw_receipt: that one reports how many outlets covered the
-    # story and cannot say how many of them agree, which is exactly what the
-    # disagree card exists to show.
-    n = len(card.outlets)
-    agree = card.agree if card.agree else n
-    ry = SLIDE_H - 322
-    slides.receipt_strip(draw, m, ry, n, agree)
-    draw.text((m, ry + 74), f"{agree} of {n} outlets agree",
-              font=fonts.label_font(34, 700), fill=ink)
-    draw.text((m, ry + 122), _receipt.named(_receipt_source(card), limit=3),
-              font=fonts.label_font(28, 500), fill=ink_soft)
-
-    draw.rectangle([m, SLIDE_H - 132, SLIDE_W - m, SLIDE_H - 130],
-                   fill=_rgb(SURFACE_DEEP))
-    draw.text((m, SLIDE_H - 108), WEBSITE.lower(),
-              font=fonts.label_font(26, 600), fill=ink_soft)
-
-    canvas.convert("RGB").save(out_path, "PNG")
-    card.image_file = str(out_path)
-    log.info("rendered story card (%s, %d outlets) -> %s",
-             card.kind, len(card.outlets), out_path.name)
-    return out_path
+    paths: list[Path] = []
+    for i, page in enumerate(pages, 1):
+        path = out_dir / f"slide_{i}.png"
+        page.convert("RGB").save(path, "PNG")
+        paths.append(path)
+    card.image_file = str(paths[0])
+    log.info("rendered story carousel (%s, %d pages, %d of %d agree) -> %s",
+             card.kind, len(paths), agree, total, out_dir.name)
+    return paths
