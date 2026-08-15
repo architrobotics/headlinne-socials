@@ -85,6 +85,17 @@ def _drop_seen(digest: NewsDigest, history: History) -> None:
         digest.by_category[cat] = kept
 
 
+def _corroborate_selected(digest: NewsDigest, corpus: list) -> None:
+    """Fill in corroborating sources for the stories we might actually publish."""
+    chosen = [s for stories in digest.by_category.values() for s in stories[:6]]
+    if digest.breaking and digest.breaking not in chosen:
+        chosen.append(digest.breaking)
+    corroborate.attach(chosen, corpus)
+    verified = sum(1 for s in chosen if s.verified)
+    log.info("Corroborated %d/%d candidate stories to two or more outlets",
+             verified, len(chosen))
+
+
 def _twitter_categories(digest: NewsDigest) -> list[str]:
     """Two different categories for the day's two news posts, breaking first."""
     order = strongest_categories(digest, n=len(CATEGORIES))
@@ -112,6 +123,12 @@ def generate(day: date | None = None, *, render: bool = True,
     stories = fetch_all()
     digest = rank(stories)
     _drop_seen(digest, history)
+    # Corroborate what survived, against the whole day's corpus. Clustering is
+    # tuned to avoid fusing distinct stories into one post, which makes it far
+    # too strict to count coverage: on a 297-story day it verified 9 events out
+    # of 288. This second pass asks a different question of the same corpus and
+    # costs no extra request.
+    _corroborate_selected(digest, stories)
     storage.save_digest(day, digest)
 
     promo = is_promo_day(day)
