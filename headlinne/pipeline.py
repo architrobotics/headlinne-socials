@@ -27,8 +27,9 @@ from __future__ import annotations
 from datetime import date, datetime, timezone
 
 from . import storage
-from .config import (BUFFER_SCHEDULING_MODE, CATEGORIES, IG_SECOND_CAROUSEL,
-                     REELS_ENABLED, SECRETS, STORY_CARD_ENABLED)
+from .config import (BUFFER_SCHEDULING_MODE, CAROUSEL_WEEKDAYS, CATEGORIES,
+                     IG_SECOND_CAROUSEL, REELS_ENABLED, SECRETS,
+                     STORY_CARD_ENABLED)
 from .gemini.client import GeminiClient
 from .generate import instagram as gen_instagram
 from .generate import linkedin as gen_linkedin
@@ -130,9 +131,16 @@ def generate(day: date | None = None, *, render: bool = True,
     week_stories = storage.recent_week_stories(day) if friday else []
     linkedin_post = gen_linkedin.generate(client, digest, day, friday, week_stories)
 
-    # 4. Instagram carousels (the strongest categories)
-    ig_cats = strongest_categories(digest, n=2 if IG_SECOND_CAROUSEL else 1)
-    carousels = gen_instagram.generate(client, digest, ig_cats, day)
+    # 4. Instagram carousels (the strongest categories). Five slides of argument
+    #    is a weekly artefact rather than a daily one, so the carousel runs only
+    #    on CAROUSEL_WEEKDAYS; the other days carry the reels and the story card.
+    if day.weekday() in CAROUSEL_WEEKDAYS:
+        ig_cats = strongest_categories(digest, n=2 if IG_SECOND_CAROUSEL else 1)
+        carousels = gen_instagram.generate(client, digest, ig_cats, day)
+    else:
+        carousels = []
+        log.info("no carousel today: weekday %d is not in %s",
+                 day.weekday(), list(CAROUSEL_WEEKDAYS))
 
     # 5. Reels: one news explainer, one educational explainer.
     reels = _generate_reels(client, digest, day)

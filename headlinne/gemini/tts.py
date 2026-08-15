@@ -26,6 +26,9 @@ from ..config import (REEL_TTS_FALLBACK_MODELS, REEL_TTS_MAX_RETRIES,
                       REEL_TTS_MIN_INTERVAL, REEL_TTS_MODEL, REEL_VOICE_STYLE,
                       SECRETS, TTS_CHANNELS, TTS_SAMPLE_RATE, TTS_SAMPLE_WIDTH)
 from ..logging_setup import get_logger
+# Text generation reaches the same quota wall, so the judgement of what counts
+# as a refusal is defined once in client.py and shared.
+from .client import _is_rate_limit
 
 log = get_logger("gemini.tts")
 
@@ -40,11 +43,6 @@ _RETRY_DELAY = re.compile(r"'?retryDelay'?\s*:\s*'?(\d+(?:\.\d+)?)s")
 def _retry_after(exc: Exception) -> float | None:
     match = _RETRY_DELAY.search(str(exc))
     return float(match.group(1)) if match else None
-
-
-def _is_rate_limit(exc: Exception) -> bool:
-    text = str(exc)
-    return "429" in text or "RESOURCE_EXHAUSTED" in text
 
 
 def pcm_seconds(pcm: bytes) -> float:
