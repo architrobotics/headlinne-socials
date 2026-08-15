@@ -489,6 +489,16 @@ def draw_masthead(canvas: Image.Image, draw: ImageDraw.ImageDraw, category: str,
     return rule_y
 
 
+def pip_size(pose: str = "idle", scale: int = 14) -> tuple[int, int]:
+    """Pip's rendered size, for callers that anchor him to an edge.
+
+    The sprite grid is not square and not 24 wide, so anything that positions
+    him from the right or the bottom has to measure rather than assume.
+    """
+    sprite = _pip.render(_pip.SPRITES.get(pose, _pip.SPRITES["idle"]), scale)
+    return sprite.size
+
+
 def draw_pip(canvas: Image.Image, pose: str = "idle", *, x: int = 0, y: int = 0,
              scale: int = 14) -> tuple[int, int]:
     """Stamp Pip. Returns his rendered size so callers can lay out around him.

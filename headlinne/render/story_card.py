@@ -25,7 +25,10 @@ from typing import Callable, Optional
 
 from PIL import Image, ImageDraw
 
-from ..config import SLIDE_H, SLIDE_W, WEBSITE
+from types import SimpleNamespace
+
+from ..config import (INK, SLIDE_H, SLIDE_W, SURFACE, SURFACE_DEEP,
+                      TEXT_SECONDARY, WEBSITE)
 from ..logging_setup import get_logger
 from ..models import StoryCard
 from . import fonts, theme
@@ -37,6 +40,19 @@ ImageLoader = Callable[[Optional[str]], Optional[Image.Image]]
 
 MARGIN = theme.MARGIN
 CONTENT_W = SLIDE_W - 2 * MARGIN
+
+# The card sets its own margin, wider than the carousel's, because it carries
+# far less on the frame and the extra air is what makes it read as a keepsake.
+CARD_MARGIN = 84
+
+# The three cards, from design/prototypes/cards.py. The kicker names what the
+# reader is looking at, the accent carries the temperature, and the pose says
+# the same thing again for anyone who reads the character before the words.
+CARD_KINDS = {
+    "brief":    ("Your brief",       "carry",   (196, 86, 47)),
+    "breaking": ("Developing",       "alert",   (232, 74, 42)),
+    "disagree": ("Sources disagree", "puzzled", (255, 180, 61)),
+}
 
 HEAD_TOP = 166                  # below the brand bar
 RAIL_BOTTOM = 1178              # above the footer
@@ -269,44 +285,85 @@ def _draw_footer(canvas: Image.Image, draw: ImageDraw.ImageDraw,
                            fill=theme.rgba(theme.BRAND_TERRACOTTA), tracking=1.4)
 
 
+def _rgb(value: str) -> tuple[int, int, int]:
+    return theme.hex_to_rgb(value)
+
+
+def _card_kind(card: StoryCard) -> tuple[str, str | None, tuple[int, int, int]]:
+    """The kicker, Pip's pose and the accent for this card.
+
+    A sensitive story keeps its kicker and its accent but loses the mascot -
+    theme.pose_for is the single place that judgement lives.
+    """
+    kicker, _, tone = CARD_KINDS.get(card.kind, CARD_KINDS["brief"])
+    # pose_for already maps brief -> carry, breaking -> alert, disagree ->
+    # puzzled, which is the prototype's mapping. Ask it by kind, not by pose.
+    pose = theme.pose_for(card.kind,
+                          sensitive=bool(getattr(card, "sensitive", False)))
+    return kicker, pose, tone
+
+
+def _receipt_source(card: StoryCard):
+    """What render/receipt.py needs, which is the outlets rather than a string.
+
+    receipt.py reads .source and .corroborating_sources off a Story. The card
+    carries the flattened list, so hand it back in the shape the strip expects
+    rather than teaching the strip a second input.
+    """
+    names = list(card.outlets)
+    return SimpleNamespace(source=names[0] if names else "",
+                           corroborating_sources=names[1:],
+                           verified=len(names) > 1)
+
+
 def render_story_card(card: StoryCard, out_path: Path,
                       image_loader: ImageLoader | None = None) -> Path:
-    """Render the day's story card to a PNG and stamp the path onto the card."""
-    loader = image_loader or default_image_loader
+    """Render the day's story card to a PNG and stamp the path onto the card.
+
+    The layout is the one worked out in design/prototypes/cards.py: wordmark and
+    date over a single hairline, Pip at a fixed size and place, a kicker, the
+    headline, and the receipt strip doing the arguing at the foot. There is no
+    numbered rail and no photograph - the card is the counterweight to the
+    carousel, and what it offers is a claim and the evidence for it.
+    """
     out_path.parent.mkdir(parents=True, exist_ok=True)
 
-    accent = theme.accent_for(card.category)
-    canvas = _background(card, loader)
+    kicker, pose, tone = _card_kind(card)
+    canvas = Image.new("RGBA", (SLIDE_W, SLIDE_H), _rgb(SURFACE))
     draw = ImageDraw.Draw(canvas)
+    ink, ink_soft = _rgb(INK), _rgb(TEXT_SECONDARY)
+    m = CARD_MARGIN
 
-    # Measure the rail first, then hand the header whatever is left.
-    rail_room = RAIL_BOTTOM - (HEAD_TOP + HEADER_MIN + HEAD_TO_RAIL)
-    blocks, rail_h = _layout_steps(card, rail_room)
-    header_budget = RAIL_BOTTOM - rail_h - HEAD_TO_RAIL - HEAD_TOP
+    # Header: wordmark left, date right. One hairline, no pills.
+    draw.text((m, 74), "HEADLINNE", font=fonts.title_font(34, 800), fill=ink)
+    draw.text((SLIDE_W - m, 78), _dateline(card.scheduled_time).upper(),
+              font=fonts.label_font(26, 600), fill=ink_soft, anchor="ra")
+    draw.rectangle([m, 132, SLIDE_W - m, 136], fill=tone)
 
-    header_bottom = _draw_header(canvas, draw, card, accent,
-                                 budget=header_budget)
-    rail_top = HEAD_TOP + header_budget + HEAD_TO_RAIL
+    # Pip, always the same size and always the same place - he is furniture the
+    # reader learns, not a decoration that moves with the copy. Sensitive
+    # stories carry no mascot at all.
+    if pose:
+        theme.draw_pip(canvas, pose, x=m - 30, y=196, scale=15)
 
-    # Pip sits in the clear band between the header and the rail, sized to fit
-    # it rather than placed at a guessed y - the header grows and shrinks with
-    # the headline, so any fixed position eventually lands on top of the text.
-    # Sensitive stories carry no mascot at all.
-    pose = theme.pose_for("explainer",
-                          sensitive=bool(getattr(card, "sensitive", False)))
-    band_top = header_bottom + 24
-    band_h = rail_top - band_top
-    if pose and band_h >= 130:
-        scale = max(5, min(9, (band_h - 40) // 24))
-        sprite_h = 24 * scale
-        theme.draw_pip(canvas, pose, scale=scale,
-                       x=SLIDE_W - MARGIN - 26 * scale,
-                       y=band_top + (band_h - sprite_h) // 2)
+    draw.text((m, 606), kicker.upper(), font=fonts.label_font(30, 700), fill=tone)
 
-    _draw_rail(canvas, draw, blocks, accent, top=rail_top)
-    _draw_footer(canvas, draw, card, accent)
+    headline_font = fonts.title_font(84, 800)
+    y = 664
+    for line in fonts.wrap_text(headline_font, card.headline, SLIDE_W - m * 2):
+        draw.text((m, y), line, font=headline_font, fill=ink)
+        y += 96
+
+    # The receipt strip does the arguing.
+    theme.draw_receipt(draw, _receipt_source(card), x=m, y=SLIDE_H - 322)
+
+    draw.rectangle([m, SLIDE_H - 132, SLIDE_W - m, SLIDE_H - 130],
+                   fill=_rgb(SURFACE_DEEP))
+    draw.text((m, SLIDE_H - 108), WEBSITE.lower(),
+              font=fonts.label_font(26, 600), fill=ink_soft)
 
     canvas.convert("RGB").save(out_path, "PNG")
     card.image_file = str(out_path)
-    log.info("rendered story card (%d steps) -> %s", len(card.steps), out_path.name)
+    log.info("rendered story card (%s, %d outlets) -> %s",
+             card.kind, len(card.outlets), out_path.name)
     return out_path

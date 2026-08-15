@@ -261,6 +261,12 @@ class StoryCard:
     first_comment: str = ""
     sources: str = ""
     story_url: str = ""
+    # Every outlet that reported the event, the original first. The receipt
+    # strip counts these, so it needs the list rather than the display string.
+    outlets: list[str] = field(default_factory=list)
+    # Which of the three cards this is: "brief", "breaking" or "disagree". It
+    # picks the kicker, the accent and Pip's pose.
+    kind: str = "brief"
     image_url: Optional[str] = None   # article photo, used as a dimmed texture
     image_file: Optional[str] = None  # rendered PNG, relative to the day folder
 
