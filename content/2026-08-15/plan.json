@@ -5,10 +5,10 @@
   "twitter": [
     {
       "category": "Promo",
-      "post": "Ever read a news story and wonder why it actually affects you? We added a Why It Matters summary to every article on Headlinne. It cuts through the noise so you get the context without the deep dive. HEADLINNE.com #News #Tech",
+      "post": "Ever read a news story and wonder what the actual implications are? We add a Why It Matters summary to every article so you can skip the confusion and get straight to the point of why a story actually affects your life. HEADLINNE.com #News #MediaLiteracy",
       "hashtags": [
         "News",
-        "Tech"
+        "MediaLiteracy"
       ],
       "scheduled_time": "2026-08-15T13:00:00+05:30",
       "kind": "promo",
@@ -18,9 +18,9 @@
     }
   ],
   "linkedin": {
-    "title": "Personalized news is currently broken, but it does not have to stay that way.",
-    "body": "Most news apps today operate on a simple loop. They show you more of what you already clicked on, creating a feedback loop that narrows your world rather than expanding it. That is not personalization. That is just an echo chamber designed to keep you scrolling.\n\nAt Headlinne, we are building something different. Our roadmap is focused on moving away from engagement metrics and toward genuine relevance. We believe AI should act as a filter that helps you understand the world better, not just a tool to keep you addicted to headlines.\n\nThe next phase for us is about nuance. We are working on ways to help you see multiple perspectives on the same story without the noise. The goal is to provide clarity, not just volume. You should be able to get the facts you need in five minutes, so you can spend the rest of your day actually living your life.",
-    "cta": "If you are tired of the endless scroll, come see how we are building a better way to stay informed at HEADLINNE.com.",
+    "title": "Personalised news is currently broken because it prioritises speed over substance.",
+    "body": "Most news feeds today are designed to keep you scrolling by serving up whatever is loudest or most controversial. That is not personalisation. That is just an algorithm chasing engagement at the expense of your time and your peace of mind.\n\nAt Headlinne, we are building something different. The next step for personalised news is not about serving you more content. It is about serving you the right content based on your actual interests and your need for clarity. We are moving toward a model where the AI acts as a sophisticated editor rather than a content aggregator.\n\nThis means building tools that respect your intelligence. We are focusing on systems that can filter out noise and summarise complex topics without stripping away the nuance. The goal is to give you a complete picture of the day in minutes, not hours.\n\nTechnology should help us understand the world better, not just consume more of it. We are committed to making sure that remains the core of our roadmap.",
+    "cta": "You can see where we are heading at HEADLINNE.com.",
     "scheduled_time": "2026-08-15T18:00:00+05:30",
     "kind": "product"
   },
@@ -29,66 +29,66 @@
       "slot": "instagram_1",
       "category": "Geopolitics",
       "num_slides": 7,
-      "title": "Global Updates: Quakes to Court Rulings",
+      "title": "Floods, Fires and Global Updates",
       "slides": [
         {
           "role": "cover",
-          "headline": "Global Updates: Quakes to Court Rulings",
+          "headline": "Floods, Fires and Global Updates",
           "explanation": "",
-          "image_url": "https://dims.apnews.com/dims4/default/295c329/2147483647/strip/true/crop/675x450+12+0/resize/980x653!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2F90%2F29%2F4e3c1cc7446089a9101a7bdff4c8%2Fdefaultshareimage-copy.png",
+          "image_url": "https://i.guim.co.uk/img/media/80101e7c2032931fe50acd0e603b5a3ec3c75bc1/386_0_2500_2001/master/2500.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=db99e3f462da54ab0c1b16c13384e00c",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-15/instagram/instagram_1/slide_1.png",
-          "subtitle": "Get caught up on the five big stories shaping the world today.",
+          "subtitle": "Five key stories from around the world to keep you informed today.",
           "sources": "",
           "index": 0
         },
         {
           "role": "story",
-          "headline": "Major Earthquake Hits Indonesia",
-          "explanation": "A powerful 7.7 magnitude earthquake struck off the coast of Indonesia today. Authorities issued a tsunami warning for the surrounding area.",
-          "image_url": "https://dims.apnews.com/dims4/default/295c329/2147483647/strip/true/crop/675x450+12+0/resize/980x653!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2F90%2F29%2F4e3c1cc7446089a9101a7bdff4c8%2Fdefaultshareimage-copy.png",
+          "headline": "Massive earthquake hits Indonesia",
+          "explanation": "A 7.7-magnitude quake struck the Flores region, triggering a tsunami warning and sending thousands to higher ground. It serves as a stark reminder of the region's vulnerability to seismic activity.",
+          "image_url": "https://i.guim.co.uk/img/media/80101e7c2032931fe50acd0e603b5a3ec3c75bc1/386_0_2500_2001/master/2500.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=db99e3f462da54ab0c1b16c13384e00c",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-15/instagram/instagram_1/slide_2.png",
           "subtitle": "",
-          "sources": "AP Top News, Guardian World",
+          "sources": "Guardian World",
           "index": 1
         },
         {
           "role": "story",
-          "headline": "Trump's Strait of Hormuz Remark",
-          "explanation": "Donald Trump suggested declaring the Strait of Hormuz as US territory during a recent speech. It remains unclear if this signals a shift in official administration policy.",
-          "image_url": "https://i.guim.co.uk/img/media/b5c83da9efbbf04d1758c3b4f20d9ba23182b70d/206_0_4535_3628/master/4535.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=8e377a24efd8de65b851fa05989ea020",
+          "headline": "Arson arrests spike across France",
+          "explanation": "Authorities have arrested nearly 500 people for allegedly starting wildfires as Europe grapples with a brutal summer fire season. This crackdown highlights the intense pressure on emergency services across the continent.",
+          "image_url": "https://i.guim.co.uk/img/media/4e74294d7fc12a4f6c823be60d68e8ff43d71b97/984_0_5000_4000/master/5000.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=378563bd61dc281f936978cbc7eccf38",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-15/instagram/instagram_1/slide_3.png",
           "subtitle": "",
-          "sources": "Guardian World, Al Jazeera",
+          "sources": "Guardian World",
           "index": 2
         },
         {
           "role": "story",
-          "headline": "Maryland Digital Ad Tax Struck Down",
-          "explanation": "A state tax court has voided Maryland's digital advertising tax. The state must now issue refunds to companies like Google and Apple.",
-          "image_url": null,
+          "headline": "Deadly rains paralyze eastern Japan",
+          "explanation": "Unprecedented rainfall has caused landslides and flooding, leaving thousands stranded at Narita airport. These extreme weather events are forcing hundreds of thousands to flee their homes for safety.",
+          "image_url": "https://i.guim.co.uk/img/media/17e68e19ed25b80e37efd7f163ec27d98dba3af4/284_0_2842_2274/master/2842.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=d1da142e4fc30681b9fdac676fe33b1a",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-15/instagram/instagram_1/slide_4.png",
           "subtitle": "",
-          "sources": "AP Top News",
+          "sources": "Guardian World",
           "index": 3
         },
         {
           "role": "story",
-          "headline": "Trump Challenges Ballroom Restrictions",
-          "explanation": "The Trump administration has asked the Supreme Court to allow construction work on a ballroom to proceed. They argue that requiring congressional approval for such projects is dangerous.",
-          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/50eb/live/f1f95720-97e9-11f1-a76b-f1c27c51f3da.jpg",
+          "headline": "Guilty plea in CEO killing",
+          "explanation": "Luigi Mangione has admitted to killing the CEO of a healthcare company in Manhattan. The case has drawn significant attention due to the high-profile nature of the victim and the public admission of guilt.",
+          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/475a/live/4ceb94d0-9827-11f1-87b9-bf39baa58377.jpg",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-15/instagram/instagram_1/slide_5.png",
           "subtitle": "",
-          "sources": "BBC World, Al Jazeera",
+          "sources": "BBC World",
           "index": 4
         },
         {
           "role": "story",
-          "headline": "France Blocks Social Media Ban",
-          "explanation": "France's top court rejected a proposed ban on social media for children under 15, citing freedom of expression. President Macron says he will draft a new version.",
-          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/7f52/live/af679960-97f5-11f1-9577-b1309b6ea3af.jpg",
+          "headline": "Kellogg phasing out artificial dyes",
+          "explanation": "The cereal giant is removing artificial colors from all its products by the end of this year. This shift reflects a growing corporate trend to address consumer demand for simpler ingredients.",
+          "image_url": null,
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-15/instagram/instagram_1/slide_6.png",
           "subtitle": "",
-          "sources": "BBC World, Engadget",
+          "sources": "AP Top News",
           "index": 5
         },
         {
@@ -102,88 +102,88 @@
           "index": 0
         }
       ],
-      "caption": "From international policy shifts to unexpected court rulings, here is what is happening around the globe today.\n\nWe break down the facts so you can stay informed without the noise. Which of these stories did you find most surprising?\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#WorldNews #Geopolitics #GlobalNews #Politics",
+      "caption": "From extreme weather events across Europe and Asia to major legal developments and shifts in the food industry, here is what\n\nyou need to know today.\n\nWe have broken down the most important stories so you can stay updated in seconds. Which of these headlines caught your attention the most?\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#WorldNews #Geopolitics #GlobalNews #Politics",
       "hashtags": [
         "WorldNews",
         "Geopolitics",
         "GlobalNews",
         "Politics",
-        "Headlinne",
-        "CurrentEvents",
-        "Indonesia",
-        "TechNews",
-        "Maryland",
-        "SupremeCourt",
-        "France",
-        "GlobalAffairs"
+        "news",
+        "currentaffairs",
+        "indonesia",
+        "climate",
+        "france",
+        "japan",
+        "health",
+        "headlinne"
       ],
       "scheduled_time": "2026-08-15T16:00:00+05:30",
-      "first_comment": "#Headlinne #CurrentEvents #Indonesia #TechNews #Maryland #SupremeCourt #France #GlobalAffairs"
+      "first_comment": "#news #currentaffairs #indonesia #climate #france #japan #health #headlinne"
     },
     {
       "slot": "instagram_2",
       "category": "Finance",
       "num_slides": 7,
-      "title": "China's Tariff Loophole and AI Stocks",
+      "title": "AI Boom, Market Highs, and More",
       "slides": [
         {
           "role": "cover",
-          "headline": "China's Tariff Loophole and AI Stocks",
+          "headline": "AI Boom, Market Highs, and More",
           "explanation": "",
-          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/d8fc/live/12e1de40-977b-11f1-a8a8-85d648bbf002.jpg",
+          "image_url": "https://image.cnbcfm.com/api/v1/image/108334981-1784059637128-gettyimages-2285488608-US_STOCKS.jpeg?v=1784059834&amp;w=1920&amp;h=1080",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-15/instagram/instagram_2/slide_1.png",
-          "subtitle": "Five quick updates on global business and markets you need to know today.",
+          "subtitle": "Get caught up on today's top business and finance news in just a few swipes.",
           "sources": "",
           "index": 0
         },
         {
           "role": "story",
-          "headline": "China's Tariff Workaround",
-          "explanation": "A new US report found that China sent goods through other countries to bypass American tariffs. This reveals how complex global trade routes have become in the ongoing tariff dispute.",
-          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/d8fc/live/12e1de40-977b-11f1-a8a8-85d648bbf002.jpg",
+          "headline": "Goldman Sachs cashes in on AI",
+          "explanation": "The bank is helping tech giants like Nvidia and Intel fund their massive infrastructure needs. It shows how much money is flowing into the physical hardware required to power AI.",
+          "image_url": "https://image.cnbcfm.com/api/v1/image/108334981-1784059637128-gettyimages-2285488608-US_STOCKS.jpeg?v=1784059834&amp;w=1920&amp;h=1080",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-15/instagram/instagram_2/slide_2.png",
           "subtitle": "",
-          "sources": "BBC Business, BBC World",
+          "sources": "CNBC Finance",
           "index": 1
         },
         {
           "role": "story",
-          "headline": "Selena Gomez Faces Lawsuit",
-          "explanation": "Investors are suing Selena Gomez over her company, Wondermind Global. They claim the star failed to meet specific promises made to those backing the business.",
-          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/e075/live/9e8057c0-97fc-11f1-9577-b1309b6ea3af.jpg",
+          "headline": "Luigi Mangione pleads guilty",
+          "explanation": "The man accused of killing a UnitedHealthcare CEO has entered a guilty plea to federal stalking charges. This comes just before a major state murder trial starts in New York.",
+          "image_url": "https://images.mktw.net/im-83787222",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-15/instagram/instagram_2/slide_3.png",
           "subtitle": "",
-          "sources": "BBC Business, BBC World",
+          "sources": "MarketWatch Top",
           "index": 2
         },
         {
           "role": "story",
-          "headline": "Ryanair Engine Failure Details",
-          "explanation": "Investigators say a broken engine fan blade caused the window damage on a recent flight from Greece. It highlights the serious safety risks that can occur when critical aircraft parts fail.",
-          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/1623/live/fc15b5f0-975d-11f1-9240-c70a29f1c818.jpg",
+          "headline": "Watch these stocks move premarket",
+          "explanation": "Reddit, Applied Materials, and Wayfair are seeing significant trading activity before the opening bell. Tracking these shifts helps you see where investor sentiment is moving today.",
+          "image_url": "https://image.cnbcfm.com/api/v1/image/108186633-17552717302025-08-15t151923z_1465650247_rc2p7gaycl62_rtrmadp_0_usa-stocks.jpeg?v=1755271869&amp;w=1920&amp;h=1080",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-15/instagram/instagram_2/slide_4.png",
           "subtitle": "",
-          "sources": "BBC Business, BBC World",
+          "sources": "CNBC Finance",
           "index": 3
         },
         {
           "role": "story",
-          "headline": "Buying the AI Stock Dip",
-          "explanation": "Bank of America analysts are highlighting 16 AI-related stocks that might be undervalued after recent market selloffs. This suggests there could be buying opportunities in hardware and energy sectors for investors.",
-          "image_url": "https://images.mktw.net/im-65244158",
+          "headline": "Why the stock market keeps climbing",
+          "explanation": "New data shows that record-high profit margins are driving the current rally, not just sales growth. Companies are finding ways to be more efficient rather than just selling more goods.",
+          "image_url": "https://image.cnbcfm.com/api/v1/image/108343981-1785777883997-gettyimages-2205196853-dsc01876.jpeg?v=1785777912&amp;w=1920&amp;h=1080",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-15/instagram/instagram_2/slide_5.png",
           "subtitle": "",
-          "sources": "MarketWatch Top",
+          "sources": "CNBC Finance",
           "index": 4
         },
         {
           "role": "story",
-          "headline": "Nvidia Shifts OpenAI Data Plans",
-          "explanation": "Nvidia has scaled back a massive $250 billion guarantee related to an OpenAI data center project. This move is a notable change in the financial commitments between two tech giants.",
-          "image_url": "https://content-media.investing.com/trkd-images/LYNXMPEM7D1SD_L.jpg",
+          "headline": "Disposable BBQ ban issued",
+          "explanation": "The government is temporarily banning single-use grills due to extreme wildfire risks during current heatwaves. Officials say these products are a significant danger to public safety right now.",
+          "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/b53b/live/4aaee280-97eb-11f1-a76b-f1c27c51f3da.jpg",
           "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-15/instagram/instagram_2/slide_6.png",
           "subtitle": "",
-          "sources": "Investing.com",
+          "sources": "BBC Business",
           "index": 5
         },
         {
@@ -197,57 +197,58 @@
           "index": 0
         }
       ],
-      "caption": "From trade loopholes to shifts in the massive AI industry, here is what is moving the needle in business today.\n\nWe break down the headlines so you can stay informed without the noise. Which of these stories did you find most surprising?\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#Finance #Markets #Business #Economy",
+      "caption": "From the massive capital flowing into AI infrastructure to the record-breaking profit margins boosting the stock market\n\n, here is what is moving the needle today.\n\nWe have also rounded up the latest on the high-profile Mangione case and a critical safety update regarding heatwave risks. Which of these stories did you find most interesting?\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#Finance #Markets #Business #Economy",
       "hashtags": [
         "Finance",
         "Markets",
         "Business",
         "Economy",
-        "BusinessNews",
-        "Investing",
-        "TechNews",
-        "GlobalTrade",
-        "MarketTrends",
-        "StockMarket",
-        "Headlinne"
+        "businessnews",
+        "stockmarket",
+        "ai",
+        "investing",
+        "goldmansachs",
+        "marketupdate",
+        "newsupdate",
+        "headlinne"
       ],
       "scheduled_time": "2026-08-15T18:00:00+05:30",
-      "first_comment": "#BusinessNews #Investing #TechNews #GlobalTrade #MarketTrends #StockMarket #Headlinne"
+      "first_comment": "#businessnews #stockmarket #ai #investing #goldmansachs #marketupdate #newsupdate #headlinne"
     }
   ],
   "reels": [
     {
       "slot": "reel_1",
       "kind": "news",
-      "category": "Geopolitics",
-      "title": "Magnitude 7.7 earthquake strikes off coast of Indonesia and tsunami warning issued",
-      "hook": "A massive earthquake hit Indonesia",
+      "category": "Technology",
+      "title": "Google will now allow users to remove visible watermark from its AI generations",
+      "hook": "How to remove Google's AI labels",
       "beats": [
         {
           "role": "hook",
-          "caption": "A massive earthquake hit Indonesia",
-          "detail": "The U.S. Geological Survey reports a 7.7 magnitude quake.",
-          "narration": "Here is what we know about the major earthquake that just hit off the coast",
+          "caption": "How to remove Google's AI labels",
+          "detail": "Here is what happens when you turn off the watermark on generated images.",
+          "narration": "Here is exactly how Google is changing the way it labels AI images.",
           "seconds": 3.0,
           "graphic": "",
           "data": {},
-          "image_url": "https://dims.apnews.com/dims4/default/295c329/2147483647/strip/true/crop/675x450+12+0/resize/980x653!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2F90%2F29%2F4e3c1cc7446089a9101a7bdff4c8%2Fdefaultshareimage-copy.png"
+          "image_url": "https://techcrunch.com/wp-content/uploads/2026/06/gemini-app-GettyImages-2276204472-1.jpg?w=1024"
         },
         {
           "role": "point",
-          "caption": "Major quake detected",
-          "detail": "It was recorded underwater by the U.S. Geological Survey.",
-          "narration": "It was recorded underwater by the U.S. Geological Survey.",
+          "caption": "Google changes AI labels",
+          "detail": "Users can now remove the visible watermark from AI-generated files.",
+          "narration": "Google now lets you turn off the visible watermark on images its AI creates.",
           "seconds": 3.0,
           "graphic": "",
           "data": {},
-          "image_url": "https://dims.apnews.com/dims4/default/295c329/2147483647/strip/true/crop/675x450+12+0/resize/980x653!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2F90%2F29%2F4e3c1cc7446089a9101a7bdff4c8%2Fdefaultshareimage-copy.png"
+          "image_url": "https://techcrunch.com/wp-content/uploads/2026/06/gemini-app-GettyImages-2276204472-1.jpg?w=1024"
         },
         {
           "role": "point",
-          "caption": "Tsunami warning issued",
-          "detail": "Authorities have alerted the region to potential waves.",
-          "narration": "Because of the location and size, officials have triggered a tsunami",
+          "caption": "The watermark toggle",
+          "detail": "You can switch off the visible label in your account settings.",
+          "narration": "It’s a simple switch in your settings that hides the logo on the image",
           "seconds": 3.0,
           "graphic": "",
           "data": {},
@@ -255,62 +256,61 @@
         },
         {
           "role": "graphic",
-          "caption": "Scale of the quake",
-          "detail": "Measured by the U.S. Geological Survey.",
-          "narration": "This is the current magnitude reading reported by geologists monitoring the",
+          "caption": "Two types of ID",
+          "detail": "The invisible tag stays behind.",
+          "narration": "But this doesn't wipe everything. The invisible, machine-readable data",
           "seconds": 3.0,
-          "graphic": "counter",
+          "graphic": "split",
           "data": {
-            "value_label": "7.7",
-            "caption": "Magnitude recorded"
+            "left_title": "Visible Label",
+            "left_text": "The logo you see on the image",
+            "right_title": "Invisible Tag",
+            "right_text": "Data hidden inside the file"
           },
           "image_url": null
         },
         {
           "role": "point",
-          "caption": "Safety in the region",
-          "detail": "Coastal residents are urged to stay alert.",
-          "narration": "For people living along the coast, that warning means staying alert and",
+          "caption": "Why it matters",
+          "detail": "Tech platforms can still detect that an image is AI-made.",
+          "narration": "So while the image looks cleaner to human eyes, software can still spot it.",
           "seconds": 3.0,
           "graphic": "",
           "data": {},
-          "image_url": "https://dims.apnews.com/dims4/default/295c329/2147483647/strip/true/crop/675x450+12+0/resize/980x653!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2F90%2F29%2F4e3c1cc7446089a9101a7bdff4c8%2Fdefaultshareimage-copy.png"
+          "image_url": "https://techcrunch.com/wp-content/uploads/2026/06/gemini-app-GettyImages-2276204472-1.jpg?w=1024"
         },
         {
           "role": "payoff",
-          "caption": "Stay tuned for updates",
+          "caption": "AI images remain traceable",
           "detail": "",
-          "narration": "We will keep you updated as more information comes in.",
+          "narration": "Basically, the AI images are still traceable.",
           "seconds": 3.0,
           "graphic": "",
           "data": {},
           "image_url": null
         }
       ],
-      "caption": "A 7.7 magnitude earthquake has been reported off the coast of Indonesia.\n\nThe U.S. Geological Survey confirmed the underwater tremor earlier today. Authorities have issued a tsunami warning for the surrounding coastal areas.\n\nHave you ever experienced a natural disaster warning?\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#WorldNews #Geopolitics #GlobalNews #Indonesia",
+      "caption": "Google is letting users remove visible watermarks from AI-generated images.\n\nThis change allows for cleaner looking files, but it does not remove the invisible benchmarks used to identify content as AI-generated. The hidden data remains intact for detection systems.\n\nDo you think AI images should always have a visible label?\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#TechNews #AI #Tech #news",
       "hashtags": [
-        "WorldNews",
-        "Geopolitics",
-        "GlobalNews",
-        "Indonesia",
-        "Earthquake",
-        "Tsunami",
-        "News",
-        "BreakingNews",
-        "Geology",
-        "AsiaNews",
-        "Safety",
-        "USGS",
-        "NaturalDisaster",
-        "Jakarta",
-        "EmergencyAlert",
+        "TechNews",
+        "AI",
+        "Tech",
+        "news",
+        "google",
+        "artificialintelligence",
+        "digitalmedia",
+        "techupdates",
+        "internetsafety",
+        "contentcreation",
+        "technologytrends",
+        "softwareupdates",
         "Headlinne"
       ],
       "scheduled_time": "2026-08-15T09:30:00+05:30",
-      "first_comment": "#Earthquake #Tsunami #News #BreakingNews #Geology #AsiaNews #Safety #USGS #NaturalDisaster #Jakarta #EmergencyAlert #Headlinne",
-      "sources": "AP Top News, Guardian World",
-      "story_url": "https://apnews.com/article/indonesia-earthquake-magnitude-77-c31ad3cf07fa83d2d443e8d85e5c9d84",
-      "duration_seconds": 37.733333333333334,
+      "first_comment": "#google #artificialintelligence #digitalmedia #techupdates #internetsafety #contentcreation #technologytrends #softwareupdates #Headlinne",
+      "sources": "TechCrunch, Engadget",
+      "story_url": "https://techcrunch.com/2026/08/14/google-will-now-allow-users-to-remove-visible-watermark-from-its-ai-generations/",
+      "duration_seconds": 39.93333333333333,
       "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-15/reels/reel_1.mp4",
       "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-15/reels/reel_1_cover.png",
       "audio_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-15/reels/reel_1_voice.wav",
@@ -321,13 +321,13 @@
       "kind": "education",
       "category": "Finance",
       "title": "A company can lose money and still be worth billions",
-      "hook": "Why losing money makes companies rich",
+      "hook": "Why losing cash can be a good sign",
       "beats": [
         {
           "role": "hook",
-          "caption": "Why losing money makes companies rich",
-          "detail": "It sounds backwards, but the stock market is not looking at today.",
-          "narration": "It sounds totally backwards, but the stock market is not looking at today.",
+          "caption": "Why losing cash can be a good sign",
+          "detail": "Investors do not pay for the past. They pay for what happens next.",
+          "narration": "If you understand this, you'll stop fearing companies that lose money.",
           "seconds": 3.0,
           "graphic": "",
           "data": {},
@@ -335,9 +335,9 @@
         },
         {
           "role": "point",
-          "caption": "Investors buy the future",
-          "detail": "They are betting on what a company will become, not what it is right now.",
-          "narration": "Investors aren't just buying a company's past. They're betting on its",
+          "caption": "Profit isn't the only goal",
+          "detail": "Companies often spend everything to grow fast.",
+          "narration": "See, most people think a business must make a profit to be worth anything.",
           "seconds": 3.0,
           "graphic": "",
           "data": {},
@@ -345,9 +345,9 @@
         },
         {
           "role": "point",
-          "caption": "Imagine a new coffee shop",
-          "detail": "It spends a million dollars to open ten new locations, so it loses cash",
-          "narration": "Imagine a coffee shop that spends a million dollars to open ten new",
+          "caption": "The lemonade stand",
+          "detail": "Imagine a stand losing money today to build a thousand stands by next year.",
+          "narration": "Imagine a stand that spends all its cash to open ten new stores. It's",
           "seconds": 3.0,
           "graphic": "",
           "data": {},
@@ -355,16 +355,16 @@
         },
         {
           "role": "graphic",
-          "caption": "The math of growth",
-          "detail": "They lose cash now to build the scale that creates massive value later.",
-          "narration": "It’s losing cash now, but it's building the scale that creates massive",
+          "caption": "The bet on tomorrow",
+          "detail": "Investors look at the potential for growth.",
+          "narration": "But investors aren't looking at this month. They're betting on the future",
           "seconds": 3.0,
           "graphic": "bars",
           "data": {
             "bars": [
               {
-                "label": "Current Loss",
-                "weight": 0.3
+                "label": "Today's Profit",
+                "weight": 0.2
               },
               {
                 "label": "Future Value",
@@ -376,9 +376,9 @@
         },
         {
           "role": "point",
-          "caption": "Price reflects potential",
-          "detail": "When you see high value and low profit, it means the market expects big",
-          "narration": "When you see high value and low profit, it just means the market expects",
+          "caption": "Markets price the future",
+          "detail": "Current losses are just the cost of building future success.",
+          "narration": "It turns out markets price the future, not just what's happening right now.",
           "seconds": 3.0,
           "graphic": "",
           "data": {},
@@ -386,90 +386,92 @@
         },
         {
           "role": "payoff",
-          "caption": "The market prices potential",
+          "caption": "Growth is worth more than profit",
           "detail": "",
-          "narration": "Ultimately, the market is pricing the potential, not just the bank account.",
+          "narration": "That is why a company can lose money today and still be worth billions.",
           "seconds": 3.0,
           "graphic": "",
           "data": {},
           "image_url": null
         }
       ],
-      "caption": "Why do some companies lose money but still have a high stock price?\n\nInvestors prioritize growth over current profit. They are willing to overlook short-term losses if they believe the company will dominate its market in the long run.\n\nCan you think of a company that took years to turn a profit?\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#Explained #LearnOnInstagram #Finance #Markets",
+      "caption": "How companies lose money and stay valuable.\n\nMany successful companies prioritize rapid expansion over immediate profit. This strategy uses current earnings to build long-term dominance.\n\nHave you ever invested in a company that wasn't profitable yet?\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#Explained #LearnOnInstagram #Finance #Markets",
       "hashtags": [
         "Explained",
         "LearnOnInstagram",
         "Finance",
         "Markets",
         "Economy",
-        "investing",
-        "stocks",
         "business",
-        "money",
+        "investing",
+        "startups",
         "growth",
-        "entrepreneurship",
+        "economics",
+        "money",
         "learning",
-        "startup",
-        "education",
+        "stocks",
+        "tech",
+        "strategy",
         "Headlinne"
       ],
       "scheduled_time": "2026-08-15T20:00:00+05:30",
-      "first_comment": "#Economy #investing #stocks #business #money #growth #entrepreneurship #learning #startup #education #Headlinne",
+      "first_comment": "#Economy #business #investing #startups #growth #economics #money #learning #stocks #tech #strategy #Headlinne",
       "sources": "",
       "story_url": "",
-      "duration_seconds": 41.833333333333336,
+      "duration_seconds": 28.033333333333335,
       "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-15/reels/reel_2.mp4",
       "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-15/reels/reel_2_cover.png",
-      "audio_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-15/reels/reel_2_voice.wav",
-      "has_voiceover": true
+      "audio_file": null,
+      "has_voiceover": false
     }
   ],
   "story_card": {
     "slot": "story_card",
-    "category": "Finance",
-    "headline": "China accused of bypassing US tariffs via third countries",
-    "standfirst": "A new US report reveals how Chinese goods are dodging levies through global trade routes.",
+    "category": "Geopolitics",
+    "headline": "Powerful 7.7 Earthquake Hits Eastern Indonesia",
+    "standfirst": "A major tremor struck the Flores region, forcing thousands to evacuate coastal areas.",
     "steps": [
       {
         "label": "What happened",
-        "text": "A new US report claims China is routing goods through countries with lower tariffs to avoid levies."
+        "text": "A shallow 7.7-magnitude earthquake hit the Flores region of eastern Indonesia early Saturday."
       },
       {
         "label": "How we got here",
-        "text": "The US imposed high tariffs on Chinese imports. Companies sought ways to lower their tax bills."
+        "text": "The US Geological Survey recorded the tremor, which was strong enough to trigger regional alarm."
       },
       {
         "label": "Why it matters",
-        "text": "This strategy undermines the US trade policy meant to protect domestic industries."
+        "text": "Authorities issued an immediate tsunami warning, causing thousands of people to flee to high ground."
       },
       {
         "label": "What to watch",
-        "text": "Look for potential US government crackdowns or new trade rules targeting these transit countries."
+        "text": "We are waiting on official updates regarding potential damage or casualties from the region."
       }
     ],
-    "caption": "A new US government report details how China is allegedly avoiding trade tariffs through third party nations.\n\nThe report highlights a complex network where goods are funneled through countries with friendlier trade terms. This practice allows Chinese exporters to bypass higher costs originally set by the US. It raises questions about the effectiveness of current trade enforcement.\n\nDo you think the US can effectively stop these workarounds, or is global trade too complex?\n\nSave this one. Follow for the daily card. Full story on HEADLINNE.com.\n\n#Finance #Markets #Economy #trade",
+    "caption": "A major 7.7-magnitude earthquake has struck the Flores region in eastern Indonesia today.\n\nLocal authorities issued a tsunami warning immediately following the tremor. Thousands of residents evacuated to higher ground in panic. We are currently monitoring reports for updates on the impact of this shallow quake.\n\nHow do you think coastal communities can best prepare for sudden tsunami warnings?\n\nSave this one. Follow for the daily card. Full story on HEADLINNE.com.\n\n#WorldNews #Geopolitics #GlobalNews #Indonesia",
     "hashtags": [
-      "Finance",
-      "Markets",
-      "Economy",
-      "trade",
-      "tariffs",
-      "china",
-      "uspolitics",
-      "business",
-      "globaltrade",
-      "import",
-      "supplychain",
-      "internationalnews",
-      "marketwatch",
+      "WorldNews",
+      "Geopolitics",
+      "GlobalNews",
+      "Indonesia",
+      "Earthquake",
+      "Flores",
+      "News",
+      "BreakingNews",
+      "TsunamiWarning",
+      "Geology",
+      "DisasterPrep",
+      "SeismicActivity",
+      "Safety",
+      "Emergency",
       "NewsExplained",
       "Headlinne"
     ],
     "scheduled_time": "2026-08-15T21:30:00+05:30",
-    "first_comment": "#tariffs #china #uspolitics #business #globaltrade #import #supplychain #internationalnews #marketwatch #NewsExplained #Headlinne",
-    "sources": "BBC Business, BBC World",
-    "story_url": "https://www.bbc.co.uk/news/articles/c78gy6ep3n5o?at_medium=RSS&at_campaign=rss",
-    "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/d8fc/live/12e1de40-977b-11f1-a8a8-85d648bbf002.jpg",
+    "first_comment": "#Earthquake #Flores #News #BreakingNews #TsunamiWarning #Geology #DisasterPrep #SeismicActivity #Safety #Emergency #NewsExplained #Headlinne",
+    "sources": "Guardian World",
+    "story_url": "https://www.theguardian.com/world/2026/aug/15/indonesia-earthquake",
+    "image_url": "https://i.guim.co.uk/img/media/80101e7c2032931fe50acd0e603b5a3ec3c75bc1/386_0_2500_2001/master/2500.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=db99e3f462da54ab0c1b16c13384e00c",
     "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-15/story_card/story_card.png"
   }
 }

@@ -1,48 +1,49 @@
 {
   "slot": "story_card",
-  "category": "Finance",
-  "headline": "China accused of bypassing US tariffs via third countries",
-  "standfirst": "A new US report reveals how Chinese goods are dodging levies through global trade routes.",
+  "category": "Geopolitics",
+  "headline": "Powerful 7.7 Earthquake Hits Eastern Indonesia",
+  "standfirst": "A major tremor struck the Flores region, forcing thousands to evacuate coastal areas.",
   "steps": [
     {
       "label": "What happened",
-      "text": "A new US report claims China is routing goods through countries with lower tariffs to avoid levies."
+      "text": "A shallow 7.7-magnitude earthquake hit the Flores region of eastern Indonesia early Saturday."
     },
     {
       "label": "How we got here",
-      "text": "The US imposed high tariffs on Chinese imports. Companies sought ways to lower their tax bills."
+      "text": "The US Geological Survey recorded the tremor, which was strong enough to trigger regional alarm."
     },
     {
       "label": "Why it matters",
-      "text": "This strategy undermines the US trade policy meant to protect domestic industries."
+      "text": "Authorities issued an immediate tsunami warning, causing thousands of people to flee to high ground."
     },
     {
       "label": "What to watch",
-      "text": "Look for potential US government crackdowns or new trade rules targeting these transit countries."
+      "text": "We are waiting on official updates regarding potential damage or casualties from the region."
     }
   ],
-  "caption": "A new US government report details how China is allegedly avoiding trade tariffs through third party nations.\n\nThe report highlights a complex network where goods are funneled through countries with friendlier trade terms. This practice allows Chinese exporters to bypass higher costs originally set by the US. It raises questions about the effectiveness of current trade enforcement.\n\nDo you think the US can effectively stop these workarounds, or is global trade too complex?\n\nSave this one. Follow for the daily card. Full story on HEADLINNE.com.\n\n#Finance #Markets #Economy #trade",
+  "caption": "A major 7.7-magnitude earthquake has struck the Flores region in eastern Indonesia today.\n\nLocal authorities issued a tsunami warning immediately following the tremor. Thousands of residents evacuated to higher ground in panic. We are currently monitoring reports for updates on the impact of this shallow quake.\n\nHow do you think coastal communities can best prepare for sudden tsunami warnings?\n\nSave this one. Follow for the daily card. Full story on HEADLINNE.com.\n\n#WorldNews #Geopolitics #GlobalNews #Indonesia",
   "hashtags": [
-    "Finance",
-    "Markets",
-    "Economy",
-    "trade",
-    "tariffs",
-    "china",
-    "uspolitics",
-    "business",
-    "globaltrade",
-    "import",
-    "supplychain",
-    "internationalnews",
-    "marketwatch",
+    "WorldNews",
+    "Geopolitics",
+    "GlobalNews",
+    "Indonesia",
+    "Earthquake",
+    "Flores",
+    "News",
+    "BreakingNews",
+    "TsunamiWarning",
+    "Geology",
+    "DisasterPrep",
+    "SeismicActivity",
+    "Safety",
+    "Emergency",
     "NewsExplained",
     "Headlinne"
   ],
   "scheduled_time": "2026-08-15T21:30:00+05:30",
-  "first_comment": "#tariffs #china #uspolitics #business #globaltrade #import #supplychain #internationalnews #marketwatch #NewsExplained #Headlinne",
-  "sources": "BBC Business, BBC World",
-  "story_url": "https://www.bbc.co.uk/news/articles/c78gy6ep3n5o?at_medium=RSS&at_campaign=rss",
-  "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/d8fc/live/12e1de40-977b-11f1-a8a8-85d648bbf002.jpg",
+  "first_comment": "#Earthquake #Flores #News #BreakingNews #TsunamiWarning #Geology #DisasterPrep #SeismicActivity #Safety #Emergency #NewsExplained #Headlinne",
+  "sources": "Guardian World",
+  "story_url": "https://www.theguardian.com/world/2026/aug/15/indonesia-earthquake",
+  "image_url": "https://i.guim.co.uk/img/media/80101e7c2032931fe50acd0e603b5a3ec3c75bc1/386_0_2500_2001/master/2500.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=db99e3f462da54ab0c1b16c13384e00c",
   "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-15/story_card/story_card.png"
 }
