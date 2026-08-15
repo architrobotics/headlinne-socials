@@ -12,6 +12,9 @@ owns a component (Pip, the fonts) this calls it rather than redrawing it.
 
 from __future__ import annotations
 
+import re
+from typing import Sequence
+
 from PIL import Image, ImageDraw
 
 from ..config import (INK, SLIDE_H, SLIDE_W, SURFACE, SURFACE_DEEP,
@@ -232,3 +235,35 @@ def slide_cta(*, body: str, dateline: str, say: str | None = None,
                   font=font(32, 700), fill=ink)
     footer(draw)
     return canvas
+
+
+# --------------------------------------------------------------------------- #
+# Reading the receipt out of generated content
+# --------------------------------------------------------------------------- #
+_OVERFLOW = re.compile(r"\+\s*(\d+)\s*$")
+
+
+def source_counts(sources: str, outlets: Sequence[str] = (),
+                  agree: int = 0) -> tuple[int, int]:
+    """(total, agreeing) outlets for the receipt strip.
+
+    Prefers the structured list when the generator supplied one. Otherwise it
+    reads the display line, which is written as "Reuters · BBC +2" - the named
+    outlets plus an honest overflow. Returning (0, 0) is meaningful: the strip
+    is then not drawn at all, which is better than drawing a confident row of
+    ticks for a story whose sourcing we cannot count.
+    """
+    if outlets:
+        total = len(outlets)
+        return total, (agree or total)
+    line = (sources or "").strip()
+    if not line:
+        return 0, 0
+    extra = 0
+    m = _OVERFLOW.search(line)
+    if m:
+        extra = int(m.group(1))
+        line = line[:m.start()]
+    named = [p for p in re.split(r"[·,]", line) if p.strip()]
+    total = len(named) + extra
+    return (total, agree or total) if total else (0, 0)

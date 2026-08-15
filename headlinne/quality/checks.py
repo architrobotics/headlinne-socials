@@ -139,16 +139,18 @@ def check_reel(reel: Reel, *, require_media: bool = True) -> QualityReport:
 def check_story_card(card: StoryCard, *, require_media: bool = True) -> QualityReport:
     """Validate the daily story card.
 
-    The format's whole value is that it is complete on one frame, so a card
-    missing its steps is not a weaker version of the format, it is a different
-    and worse one. That makes an empty step an error rather than a warning.
+    The card is one claim and the evidence for it, so an empty headline or a
+    receipt with nothing behind it is not a weaker card - it is a post that
+    argues nothing. Both are errors rather than warnings.
     """
     r = QualityReport()
     if not card.headline.strip():
         r.error("story card: empty headline")
-    filled = [s for s in card.steps if s.text.strip()]
-    if len(filled) < 3:
-        r.error(f"story card: only {len(filled)} of {len(card.steps)} steps have text")
+    if not card.outlets:
+        r.error("story card: no outlets behind the receipt")
+    elif card.agree > len(card.outlets):
+        r.error(f"story card: {card.agree} agreeing outlets of only "
+                f"{len(card.outlets)} reported")
     if require_media and not card.image_file:
         r.error("story card: no rendered image")
     if len(card.caption) > INSTAGRAM_CAPTION_LIMIT:
@@ -156,6 +158,4 @@ def check_story_card(card: StoryCard, *, require_media: bool = True) -> QualityR
 
     _common_text_checks(f"{card.headline} {card.standfirst}", "story card", r)
     _common_text_checks(card.caption, "story card caption", r)
-    for step in card.steps:
-        _common_text_checks(step.text, f"story card step '{step.label}'", r)
     return r

@@ -18,6 +18,7 @@ from ..config import BRAND, CATEGORY_LABELS
 from ..gemini.client import GeminiClient
 from ..gemini.prompts import STYLE_GUIDE, stories_block, story_card_prompt
 from ..logging_setup import get_logger
+from ..render import receipt
 from ..models import NewsDigest, Story, StoryCard, StoryStep
 from ..news.images import best_story_image
 from ..quality.sanitize import sanitize
@@ -31,14 +32,12 @@ log = get_logger("generate.story_card")
 # The fixed rail. Order matters: it is the shape of an explanation, from the
 # event, back to its cause, forward to its effect, then out to what is still
 # undecided.
-STEP_LABELS = ("What happened", "How we got here", "Why it matters", "What to watch")
 
 # Every card carries four steps, a headline and a standfirst inside one 1080x1350
 # frame. These limits are what that space actually holds at a size someone reads
 # on a phone, worked back from the layout in render/story_card.py. Longer text
 # does not overflow (the renderer shrinks the whole rail to fit), it just arrives
 # smaller than it should be, so the cut happens here instead.
-STEP_CHARS = 104
 HEADLINE_CHARS = 64
 STANDFIRST_CHARS = 90
 
@@ -69,25 +68,6 @@ def pick_story(digest: NewsDigest, *, exclude_urls: set[str] | None = None,
     return max(pool, key=lambda s: (s.score, s.source_count))
 
 
-def _steps_from(data: dict) -> list[StoryStep]:
-    """Map the model's steps onto the fixed rail.
-
-    Matched by label where possible and by position otherwise, so a model that
-    renames a step or returns them out of order still produces a correct card.
-    """
-    returned = [s for s in (data.get("steps") or []) if isinstance(s, dict)]
-    by_label = {str(s.get("label", "")).strip().lower(): s for s in returned}
-
-    steps: list[StoryStep] = []
-    for i, label in enumerate(STEP_LABELS):
-        raw = by_label.get(label.lower())
-        if raw is None:
-            raw = returned[i] if i < len(returned) else {}
-        text = clamp_words(sanitize(raw.get("text", "")), STEP_CHARS)
-        steps.append(StoryStep(label=label, text=text))
-    return steps
-
-
 def _hashtags(category: str, model_tags: list[str]) -> list[str]:
     out: list[str] = []
     seen: set[str] = set()
@@ -113,21 +93,24 @@ def generate(client: GeminiClient, digest: NewsDigest, day: date,
     label = CATEGORY_LABELS.get(story.category, story.category)
     data = client.generate_json(
         system=STYLE_GUIDE,
-        prompt=story_card_prompt(stories_block([story]), list(STEP_LABELS),
-                                 STEP_CHARS, label),
+        prompt=story_card_prompt(stories_block([story]), HEADLINE_CHARS, label),
     )
 
     headline = clamp_words(sanitize(data.get("headline", "")), HEADLINE_CHARS) \
         or clamp_words(sanitize(story.title), HEADLINE_CHARS)
     standfirst = clamp_words(sanitize(data.get("standfirst", "")), STANDFIRST_CHARS)
-    steps = _steps_from(data)
 
-    # A card with an empty middle is worse than no card: it looks broken and it
-    # teaches the audience that the format is not worth stopping for.
-    filled = [s for s in steps if s.text.strip()]
-    if len(filled) < 3:
-        log.error("story card had only %d usable steps, skipping it today.",
-                  len(filled))
+    # The receipt is the card's argument, so it comes from the corroboration the
+    # ranker already did rather than from the model. Every outlet returned by
+    # corroborate() reported the same event, so all of them agree; a card that
+    # says otherwise needs a conflict detector we do not have yet.
+    outlets = receipt.outlets(story)
+    kind = "breaking" if getattr(story, "is_breaking", False) else "brief"
+
+    # A card with nothing behind it is worse than no card: the receipt would be
+    # a single outlined tick, which is an admission, not a post.
+    if not headline:
+        log.error("story card had no usable headline, skipping it today.")
         return None
 
     hashtags = _hashtags(story.category, data.get("hashtags", []) or [])
@@ -144,7 +127,10 @@ def generate(client: GeminiClient, digest: NewsDigest, day: date,
         category=story.category,
         headline=headline,
         standfirst=standfirst,
-        steps=steps,
+        outlets=outlets,
+        agree=len(outlets),
+        kind=kind,
+        steps=[],
         caption=caption,
         hashtags=hashtags,
         first_comment=first_comment,

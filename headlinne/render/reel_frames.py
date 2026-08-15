@@ -319,15 +319,22 @@ class FrameRenderer:
 
 
 def encode(design: ReelDesign, out_path: Path, *, scale: float = 1.0,
-           guides: bool = False, day: int = 0, crf: int = 20) -> Path:
-    """Render every frame and pipe it into ffmpeg."""
+           guides: bool = False, day: int = 0, crf: int = 20,
+           audio_path: Path | None = None) -> Path:
+    """Render every frame and pipe it into ffmpeg, muxing narration if there is any."""
     renderer = FrameRenderer(design, scale=scale, guides=guides)
     out_path.parent.mkdir(parents=True, exist_ok=True)
     n = int(design.duration * FPS)
     cmd = [FFMPEG_BINARY or "ffmpeg", "-y", "-f", "rawvideo", "-vcodec", "rawvideo",
            "-s", f"{renderer.W}x{renderer.H}", "-pix_fmt", "rgb24",
-           "-r", str(FPS), "-i", "-", "-an", "-vcodec", "libx264",
-           "-pix_fmt", "yuv420p", "-crf", str(crf), str(out_path)]
+           "-r", str(FPS), "-i", "-"]
+    if audio_path is not None and Path(audio_path).exists():
+        cmd += ["-i", str(audio_path), "-c:a", "aac", "-b:a", "160k",
+                "-shortest"]
+    else:
+        cmd += ["-an"]
+    cmd += ["-vcodec", "libx264", "-pix_fmt", "yuv420p", "-crf", str(crf),
+            str(out_path)]
     proc = subprocess.Popen(cmd, stdin=subprocess.PIPE, stdout=subprocess.DEVNULL,
                             stderr=subprocess.PIPE)
     try:
@@ -342,3 +349,80 @@ def encode(design: ReelDesign, out_path: Path, *, scale: float = 1.0,
     log.info("rendered reel (%d frames, %.0fs) -> %s", n, design.duration,
              out_path.name)
     return out_path
+
+
+# --------------------------------------------------------------------------- #
+# Turning a generated reel into the design
+# --------------------------------------------------------------------------- #
+_POSE_RUN = ("walk", "point", "present", "talk", "point")
+
+# The chapter label names the part of the explanation, so the viewer always
+# knows where they are. Generated beats carry a role; these are its words.
+_CHAPTERS = {
+    "hook": "What happened", "point": "What it means", "graphic": "The number",
+    "payoff": "Why it matters", "outro": "Read it",
+}
+
+# A quantity and the unit that belongs to it, so "8,700 km/h" is emphasised
+# as one phrase rather than leaving the unit stranded at reading weight.
+_NUMBER = re.compile(
+    r"\b(\d[\d,.]*(?:\s*(?:%|per cent|percent|bn|m|k|km/h|kg|tonnes?|"
+    r"million|billion|times))?)\b", re.I)
+
+
+def emphasise(text: str) -> str:
+    """Mark the fact the line is built around, if the writer has not.
+
+    Emphasis is part of the design: one phrase per line carries the weight, and
+    the rest stays at reading weight. Where a line already marks its own, that
+    is respected. Where it does not, the quantity is the thing worth enlarging -
+    it is the part a viewer scrubbing past will actually take away.
+    """
+    if "*" in text:
+        return text
+    m = _NUMBER.search(text or "")
+    if not m:
+        return text
+    return f"{text[:m.start()]}*{m.group(1).strip()}*{text[m.end():]}"
+
+
+def design_from_reel(reel, durations, *, outro: float, accent,
+                     dateline: str, sources: str = "", total: int = 0,
+                     agree: int = 0, category: str = "Technology") -> ReelDesign:
+    """Lay a generated reel out on the design's beats.
+
+    The generated beats already carry the structure - a hook, some points, a
+    payoff and an outro - so this maps them onto the design rather than
+    inventing a second one. The outro is the sign-off: Pip asks there, and
+    nowhere else, so the ask lands once.
+    """
+    beats: list[Beat] = []
+    t = 0.0
+    n = len(reel.beats)
+    for i, rb in enumerate(reel.beats):
+        secs = float(durations[i]) if i < len(durations) else 2.6
+        is_outro = rb.role == "outro" or i == n - 1
+        counter = None
+        if rb.graphic == "counter":
+            value = rb.data.get("value") or rb.data.get("to") or ""
+            counter = str(value) or None
+        plates = ["scene"] if (rb.image_url or
+                               rb.graphic in ("bars", "flow", "timeline")) else []
+        beats.append(Beat(
+            start=round(t, 3),
+            chapter=_CHAPTERS.get(rb.role, rb.role.replace("_", " ").title()),
+            pose="" if is_outro else _POSE_RUN[i % len(_POSE_RUN)],
+            line=emphasise(rb.caption),
+            detail=rb.detail or "",
+            accent=accent,
+            say="Come and read it." if is_outro else None,
+            counter=counter,
+            plates=[] if is_outro else plates,
+        ))
+        t += max(0.4, secs)
+    t += max(0.0, float(outro))
+    return ReelDesign(
+        beats=beats, duration=round(max(t, 1.0), 3), dateline=dateline,
+        sources=sources, agree=agree, outlets=total,
+        plates={"scene": (lambda: _plate.scene_for(category, w=520, h=350),
+                          -3.6, "ILLUSTRATION · NOT A PHOTOGRAPH")})

@@ -27,10 +27,11 @@ from typing import Callable, Optional
 
 from PIL import Image, ImageDraw, ImageFilter
 
-from ..config import (GEO_USE_FLAG, INSTAGRAM_HANDLE, SLIDE_H, SLIDE_W, WEBSITE)
+from ..config import (CATEGORY_LABELS, GEO_USE_FLAG, INSTAGRAM_HANDLE,
+                      SLIDE_H, SLIDE_W, WEBSITE)
 from ..logging_setup import get_logger
 from ..models import InstagramCarousel, Slide
-from . import fonts, theme
+from . import fonts, slides, theme
 from .flag_text import render_flag_text
 
 log = get_logger("render.carousel")
@@ -152,12 +153,12 @@ def _draw_block_with_shadow(canvas: Image.Image, lines: list[str], font, *,
 
 
 def _dateline(carousel_time: str) -> str:
-    """A human dateline like 'MON, 21 JUL' derived from the slot time."""
+    """A human dateline like 'MON 21 JUL' derived from the slot time."""
     try:
         d = datetime.fromisoformat(carousel_time).date()
     except (ValueError, TypeError):
         d = date.today()
-    return d.strftime("%a, %d %b").upper()
+    return f"{d.strftime('%a')} {d.day} {d.strftime('%b')}".upper()
 
 
 # --------------------------------------------------------------------------- #
@@ -401,29 +402,93 @@ def _draw_cta_pills(draw: ImageDraw.ImageDraw, y: int) -> None:
 # --------------------------------------------------------------------------- #
 # Public entry point
 # --------------------------------------------------------------------------- #
+def _lead_number(text: str) -> tuple[str, str] | None:
+    """A quantity the scale slide can build itself around, if the copy opens with one.
+
+    The scale slide exists to make one number mean something, so it is only the
+    right slide when there is a number to enlarge, and only when the number is
+    what the line leads with. Anything else falls through to the twist.
+    """
+    m = re.match(r"\s*([0-9][0-9,.]*)\s+([A-Za-z][A-Za-z/]{1,14})\b", text or "")
+    if not m:
+        return None
+    return m.group(1), m.group(2)
+
+
+# Each slide carries its own temperature, as the design has it: the cover runs
+# hot, the scale slide sits on the brand terracotta, the twist is the marigold
+# that means "look again", and the close is the green of a checked source.
+_SLIDE_TONE = {
+    "cover": (206, 62, 34),
+    "scale": "Technology",
+    "twist": "Geopolitics",
+    "close": "Finance",
+    "cta": "Technology",
+}
+
+
+def _tone(kind: str):
+    value = _SLIDE_TONE.get(kind, "Technology")
+    return value if isinstance(value, tuple) else theme.accent_for(value)
+
+
 def render_carousel(carousel: InstagramCarousel, out_dir: Path,
                     image_loader: ImageLoader | None = None) -> list[Path]:
-    """Render every slide to a PNG, returning the file paths in order."""
-    loader = image_loader or default_image_loader
+    """Render every slide to a PNG, returning the file paths in order.
+
+    The five slides of the design do five different jobs, so the role on the
+    slide picks the layout rather than the layout being one template with the
+    copy swapped. Story slides become the twist by default, the last of them
+    closes on the sourcing, and one that opens on a quantity becomes the scale
+    slide instead.
+    """
     out_dir.mkdir(parents=True, exist_ok=True)
     paths: list[Path] = []
-    category = carousel.category
-    total = len(carousel.slides)
     dateline = _dateline(carousel.scheduled_time)
+    kicker = CATEGORY_LABELS.get(carousel.category, carousel.category)
 
-    for i, slide in enumerate(carousel.slides, 1):
-        position = i - 1
+    story_positions = [i for i, sl in enumerate(carousel.slides)
+                       if sl.role not in ("cover", "cta")]
+    last_story = story_positions[-1] if story_positions else -1
+
+    for i, slide in enumerate(carousel.slides):
+        total, agree = slides.source_counts(slide.sources,
+                                            getattr(slide, "outlets", ()),
+                                            getattr(slide, "agree", 0))
         if slide.role == "cover":
-            img = _render_cover(slide, category, loader, total=total, dateline=dateline)
+            img = slides.slide_cover(
+                kicker=kicker, headline=slide.headline or carousel.title,
+                standfirst=slide.subtitle, dateline=dateline,
+                say=slide.subtitle or None, sources=total, agree=agree,
+                tone=_tone("cover"))
         elif slide.role == "cta":
-            img = _render_cta(slide, category, total=total)
+            img = slides.slide_cta(
+                body=slide.explanation or slide.subtitle, dateline=dateline,
+                say=slide.headline or None, sources=total, agree=agree,
+                tone=_tone("cta"))
+        elif i == last_story and total:
+            img = slides.slide_close(
+                outlets=slide.sources, body=slide.explanation,
+                dateline=dateline, sources=total, agree=agree,
+                tone=_tone("close"))
         else:
-            img = _render_story(slide, category, loader, position=position, total=total)
+            number = _lead_number(slide.headline)
+            if number:
+                img = slides.slide_scale(
+                    kicker=slide.subtitle or kicker,
+                    number=number[0], unit=number[1],
+                    body=slide.explanation, dateline=dateline,
+                    tone=_tone("scale"))
+            else:
+                img = slides.slide_twist(
+                    kicker=slide.subtitle or kicker, headline=slide.headline,
+                    body=slide.explanation, dateline=dateline,
+                    tone=_tone("scale"))
 
-        path = out_dir / f"slide_{i}.png"
+        path = out_dir / f"slide_{i + 1}.png"
         img.convert("RGB").save(path, "PNG")
         slide.image_file = str(path)
         paths.append(path)
-        log.info("rendered %s", path.name)
+        log.info("rendered %s (%s)", path.name, slide.role)
 
     return paths

@@ -24,9 +24,11 @@ from PIL import Image, ImageDraw
 from ..config import BRAND, CATEGORY_COLORS, INSTAGRAM_HANDLE, WEBSITE
 from ..logging_setup import get_logger
 from ..models import TwitterPost
-from . import fonts, theme
+from . import fonts, slides, theme, xcards
 
 log = get_logger("render.card")
+
+from .carousel import _lead_number  # noqa: E402  (shared quantity reader)
 
 CARD = 1080                     # square
 MARGIN = theme.MARGIN
@@ -151,9 +153,37 @@ def _render_promo(post: TwitterPost) -> Image.Image:
 
 
 def render_twitter_card(post: TwitterPost, out_path: Path) -> Path:
-    """Render a post's card to `out_path` (PNG) and return the path."""
+    """Render a post's card to `out_path` (PNG) and return the path.
+
+    The card never repeats the tweet: on X the text is the hook and the image is
+    the evidence. Which of the designed cards a post earns follows from what it
+    actually has - a promo closes the thread, a post whose lead opens on a
+    quantity gets the number enlarged beside a plate, and anything with sourcing
+    to show gets the receipt.
+    """
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    img = _render_promo(post) if post.kind == "promo" else _render_news(post)
+    category = _category_of(post)
+    total, agree = slides.source_counts(getattr(post, "sources", ""),
+                                        getattr(post, "outlets", ()),
+                                        getattr(post, "agree", 0))
+    outlets = list(getattr(post, "outlets", ()) or [])
+
+    if post.kind == "promo":
+        img = xcards.cta_card(lines=(post.lead or "Every source on this story, side by side.",
+                                     "Free to read. No account needed."),
+                              sources=total or 8, agree=agree or total or 8)
+    elif outlets and len(outlets) > 1:
+        img = xcards.receipt_card(outlets=outlets[:8], agree=min(agree, 8) or None)
+    else:
+        number = _lead_number(post.lead)
+        if number:
+            img = xcards.photo_card(label=_eyebrow(post), number=number[0],
+                                    unit=number[1], body=post.lead,
+                                    category=category)
+        else:
+            img = xcards.photo_card(label=_eyebrow(post), number="",
+                                    unit=post.lead[:40], body=" ".join(post.items[:2]),
+                                    category=category)
     img.convert("RGB").save(out_path, "PNG")
     post.image_file = str(out_path)
     log.info("rendered X %s card -> %s", post.kind, out_path.name)

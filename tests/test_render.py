@@ -82,7 +82,8 @@ def test_twitter_news_card_renders_square_png():
     from PIL import Image
 
     from headlinne.models import TwitterPost
-    from headlinne.render.card import CARD, render_twitter_card
+    from headlinne.render.xcards import H as CARD_H, W as CARD_W
+    from headlinne.render.card import render_twitter_card
 
     post = TwitterPost(
         category="Tech", post="x", hashtags=["AI"],
@@ -95,7 +96,9 @@ def test_twitter_news_card_renders_square_png():
         out = render_twitter_card(post, Path(tmp) / "x_1.png")
         assert out.exists() and out.stat().st_size > 8_000
         with Image.open(out) as img:
-            assert img.size == (CARD, CARD)
+            # 16:9, not square: on X the card sits in a timeline, and the wide
+            # crop is what survives the preview without being cut.
+            assert img.size == (CARD_W, CARD_H)
         assert post.image_file  # renderer records where it wrote
 
 

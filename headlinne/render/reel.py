@@ -627,11 +627,12 @@ def render_reel(reel: Reel, out_dir: Path,
     Returns (video_path, cover_path) and stamps the paths, the duration and
     whether it ended up narrated onto the Reel.
 
-    The narration is built first, because its per-line lengths are what the cuts
-    are laid out against. If it cannot be produced the reel is still rendered,
-    timed from reading speed and carrying a silent track.
+    The narration is built first, because its per-line lengths are what the
+    beats are laid out against. If it cannot be produced the reel is still
+    rendered, timed from reading speed and carrying no audio.
     """
-    from ..config import REEL_VOICEOVER
+    from ..config import REEL_CRF, REEL_VOICEOVER
+    from . import reel_frames, slides
     from .voice import build_voice_track
 
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -651,21 +652,42 @@ def render_reel(reel: Reel, out_dir: Path,
         log.info("reel %s will be silent (captions still carry the content).",
                  reel.slot)
 
-    scenes = build_scenes(reel, image_loader, track)
+    durations = (track.beat_seconds if track and track.beat_seconds
+                 else plan_durations(reel))
+    outro = track.outro_seconds if track else 0.0
+    total, agree = slides.source_counts(reel.sources)
 
-    # The cover is the hook beat held partway through its reveal, so the Reels
-    # tab and the profile grid both show a legible, fully-formed frame.
-    motion.save_cover(scenes[0], cover_path)
-    duration = motion.render_scenes(scenes, video_path, size=(REEL_W, REEL_H),
-                                    fps=REEL_FPS,
-                                    audio_path=track.path if track else None)
+    design = reel_frames.design_from_reel(
+        reel, durations, outro=outro,
+        accent=theme.accent_for(reel.category),
+        dateline=_reel_dateline(reel.scheduled_time),
+        sources=reel.sources, total=total, agree=agree,
+        category=reel.category)
+
+    renderer = reel_frames.FrameRenderer(design, scale=1.0)
+    # The cover is an early frame of the hook, held after its reveal has landed,
+    # so the Reels tab and the profile grid both show a formed frame.
+    cover_t = min(design.duration * 0.5, design.beats[0].start + 1.4)
+    renderer.frame(cover_t).convert("RGB").save(cover_path, "PNG")
+
+    reel_frames.encode(design, video_path, scale=1.0, crf=REEL_CRF,
+                       audio_path=track.path if track else None)
 
     reel.video_file = str(video_path)
     reel.cover_file = str(cover_path)
     reel.audio_file = str(track.path) if track else None
     reel.has_voiceover = track is not None
-    reel.duration_seconds = duration
-    log.info("reel [%s] %s rendered: %.1fs across %d scenes, %s",
-             reel.slot, reel.kind, duration, len(scenes),
+    reel.duration_seconds = design.duration
+    log.info("reel [%s] %s rendered: %.1fs across %d beats, %s",
+             reel.slot, reel.kind, design.duration, len(design.beats),
              "narrated" if track else "silent")
     return video_path, cover_path
+
+
+def _reel_dateline(scheduled_time: str) -> str:
+    from datetime import date, datetime
+    try:
+        day = datetime.fromisoformat(scheduled_time).date()
+    except (TypeError, ValueError):
+        day = date.today()
+    return f"{day.strftime('%a')} {day.day} {day.strftime('%b')}".upper()

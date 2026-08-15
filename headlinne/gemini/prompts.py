@@ -479,56 +479,36 @@ Provide exactly {num_beats} beats.
 # --------------------------------------------------------------------------- #
 # Story card (one article, start to finish, on a single image)
 # --------------------------------------------------------------------------- #
-def story_card_prompt(story_block: str, labels: list[str],
-                      max_chars: int, category_label: str) -> str:
-    steps = "\n".join(f'  {i+1}. {label}' for i, label in enumerate(labels))
-    shape = ",\n".join(f'    {{"label": "{label}", "text": "..."}}' for label in labels)
+def story_card_prompt(story_block: str, max_chars: int,
+                      category_label: str) -> str:
     return f"""
-Write a single explainer card that walks a reader through ONE {category_label}
-news story from beginning to end, using only the material below. The reader sees
-everything at once on one image, so this has to be complete on its own. Someone
-who reads only this card should understand the whole story and be able to
-explain it to a friend.
+Write the day's story card for ONE {category_label} news story, using only the
+material below. The card is a single image: a kicker, one headline, and a strip
+showing which outlets reported it. There is no body copy, so the headline is the
+whole argument and it has to be able to stand alone.
 
 {story_block}
 
-STRUCTURE. Write exactly these {len(labels)} steps, in this order:
-{steps}
+THE HEADLINE. Under {max_chars} characters, and a hard limit - it is drawn into
+a fixed space. Say what happened, in the present or the simple past. It must be
+a claim a reader can disagree with, not a topic: "The Bank held rates for a
+fourth time", never "The latest on interest rates". No colons, no "here's why",
+no question marks. Do not name the outlet in it.
 
-Rules for every step:
-- Under {max_chars} characters. This is a hard limit, the text is drawn into a
-  fixed space and longer text will not fit.
-- One or two short sentences. Plain spoken English. No jargon, no filler, no
-  throat-clearing like "it is important to note".
-- Each step must add something the previous step did not say. Never restate.
-- Only use facts from the material above. If the material does not support a
-  step, keep that step general and honest rather than inventing detail. For
-  "what to watch", it is fine to name the decision or date the story itself
-  points to, and nothing beyond that.
+THE CAPTION. Instagram shows the first line or two before it truncates, so the
+opener has to work alone.
+- caption_opener: one line, the reason to stop scrolling. Not the headline again.
+- caption_body: two or three sentences of what actually happened and why it
+  matters to the reader. Plain, specific, no adjectives doing the work of facts.
+- question: one short question a reader could genuinely answer in the comments.
 
-Also write:
-- "headline": the story in one line, under 62 characters, original wording, not
-  a copy of any source headline. Concrete, no hype.
-- "standfirst": one line of context under the headline, under 96 characters. It
-  should answer "why is this on my screen" in plain terms.
-- "caption_opener": the first line of the Instagram caption, under 120
-  characters, written as a clear searchable sentence using the words someone
-  would type to look this story up. No hashtags, no emoji.
-- "caption_body": two or three short sentences adding real substance beyond the
-  card.
-- "question": one honest question that invites a real opinion in the comments.
-- "hashtags": 10 to 14 relevant tag words (no # symbol, no spaces).
-
-Return JSON exactly like this:
+Return JSON only:
 {{
   "headline": "...",
-  "standfirst": "...",
-  "steps": [
-{shape}
-  ],
   "caption_opener": "...",
   "caption_body": "...",
   "question": "...",
-  "hashtags": ["Word", "Word"]
+  "hashtags": ["...", "..."]
 }}
-""".strip()
+"""
+
