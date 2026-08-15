@@ -25,6 +25,7 @@ from datetime import datetime, timezone
 from difflib import SequenceMatcher
 
 from ..config import CATEGORIES, HIGH_INTEREST_KEYWORDS
+from . import interest as interest_mod
 from ..logging_setup import get_logger
 from ..models import NewsDigest, Story
 
@@ -32,7 +33,13 @@ log = get_logger("news.ranking")
 
 # Tuning knobs.
 _SIM_THRESHOLD = 0.52          # how alike two headlines must be to merge
-_SOURCE_WEIGHT = 3.2           # weight on (verified) cross-source coverage
+# Cross-source coverage used to be the heaviest term at 3.2, which meant the
+# top story was always the one the most outlets ran - a central bank, a summit,
+# an earnings print. That is a measure of attendance, not of interest. It is now
+# a small tiebreaker between stories the interest score rates equally, and the
+# real verification signal moved to Story.verified.
+_SOURCE_WEIGHT = 0.6           # tiebreaker only; see news/interest.py
+_INTEREST_WEIGHT = 1.0         # the primary ranking signal
 _TIER_WEIGHT = 1.6             # weight on best source reputability
 _KEYWORD_WEIGHT = 0.9          # weight per importance keyword (capped)
 _RECENCY_WEIGHT = 1.0          # small recency nudge
@@ -48,10 +55,13 @@ _CATEGORY_TOPK = 5             # clusters per category that count toward weight
 _LOW_VALUE_MARKERS = (
     "opinion", "comment is free", "editorial", "live:", "live updates",
     "as it happened", "watch:", "video:", "in pictures", "in photos",
-    "recap", "best deals", "deal of the day", "discount", "how to",
+    "recap", "best deals", "deal of the day", "discount",
     "review:", "sponsored", "advertisement", "paid post", "horoscope",
-    "quiz", "explainer", "podcast", "listen:",
+    "quiz", "podcast", "listen:",
 )
+# "explainer" and "how to" used to sit in that list. They are the exact genre of
+# the evening educational reel, and the genre the best explainer channels are
+# built on - penalising them was penalising our own second daily format.
 
 _STOP = {
     "the", "a", "an", "and", "or", "of", "to", "in", "on", "for", "with", "at",
@@ -168,7 +178,12 @@ def _score(story: Story) -> float:
 
     penalty = _low_value_penalty(text)
 
-    return verification + reputability + keywords + recency + breadth - penalty
+    # The primary signal: would a person who is not obliged to read this want to?
+    appeal = _INTEREST_WEIGHT * interest_mod.interest(
+        story.title, story.summary, has_image=bool(story.image_url))
+
+    return (appeal + verification + reputability + keywords + recency
+            + breadth - penalty)
 
 
 def rank(stories: list[Story]) -> NewsDigest:
@@ -186,8 +201,15 @@ def rank(stories: list[Story]) -> NewsDigest:
     clusters = _cluster(stories)
     merged = [_merge(c) for c in clusters]
     for s in merged:
+        s.verified = s.source_count >= 2
+        s.sensitive = interest_mod.is_sensitive(s.title, s.summary)
         s.score = round(_score(s), 3)
     merged.sort(key=lambda s: s.score, reverse=True)
+
+    verified_n = sum(1 for s in merged if s.verified)
+    sensitive_n = sum(1 for s in merged if s.sensitive)
+    log.info("%d/%d events reached two independent sources; %d route sober",
+             verified_n, len(merged), sensitive_n)
 
     log.info("Clustered %d stories into %d events", len(stories), len(merged))
 

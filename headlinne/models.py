@@ -29,6 +29,14 @@ class Story:
     # Filled in by the ranker.
     corroborating_sources: list[str] = field(default_factory=list)
     score: float = 0.0
+    # Two independent outlets is the bar for calling a story verified. This is a
+    # property of the story, never a ranking term: being widely covered is not
+    # the same as being worth reading. Single-source stories still publish - the
+    # source strip renders honestly thin, and we are willing to post that.
+    verified: bool = False
+    # Death and disaster. Renderers must drop the mascot, the speech bubble and
+    # any wonder framing when this is set.
+    sensitive: bool = False
 
     @property
     def source_count(self) -> int:
