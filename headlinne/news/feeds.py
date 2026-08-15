@@ -12,7 +12,9 @@ from email.utils import parsedate_to_datetime
 
 import feedparser
 
-from ..config import FEEDS, MAX_STORY_AGE_HOURS, Feed
+import socket
+
+from ..config import FEED_TIMEOUT_SECONDS, FEEDS, MAX_STORY_AGE_HOURS, Feed
 from ..logging_setup import get_logger
 from ..models import Story
 from .images import image_from_entry
@@ -60,7 +62,16 @@ def fetch_feed(feed: Feed, *, fetch_images: bool = True) -> list[Story]:
     stories: list[Story] = []
     cutoff = datetime.now(timezone.utc) - timedelta(hours=MAX_STORY_AGE_HOURS)
     try:
-        parsed = feedparser.parse(feed.url)
+        # feedparser has no timeout of its own and inherits the global socket
+        # default, which is "wait forever". One publisher that accepts the
+        # connection and then stalls would hang the whole daily run - the job
+        # has a 45 minute ceiling and would burn all of it on one feed.
+        previous = socket.getdefaulttimeout()
+        socket.setdefaulttimeout(FEED_TIMEOUT_SECONDS)
+        try:
+            parsed = feedparser.parse(feed.url)
+        finally:
+            socket.setdefaulttimeout(previous)
     except Exception as exc:  # pragma: no cover - network
         log.warning("feed failed %s: %s", feed.name, exc)
         return stories

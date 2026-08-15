@@ -26,6 +26,7 @@ from difflib import SequenceMatcher
 
 from ..config import CATEGORIES, HIGH_INTEREST_KEYWORDS
 from . import interest as interest_mod
+from . import quality as quality_mod
 from ..logging_setup import get_logger
 from ..models import NewsDigest, Story
 
@@ -197,6 +198,21 @@ def rank(stories: list[Story]) -> NewsDigest:
             category_weights={c: 0.0 for c in CATEGORIES},
             dominant_category=CATEGORIES[0],
         )
+
+    # Drop what is not news before anything else looks at it. This is a gate
+    # rather than a penalty: a soft score cannot hold back a promo code that the
+    # interest model finds genuinely interesting.
+    publishable, dropped = [], {}
+    for story in stories:
+        reason = quality_mod.reject_reason(story.title, story.summary)
+        if reason is None:
+            publishable.append(story)
+        else:
+            dropped[reason.split(":")[0]] = dropped.get(reason.split(":")[0], 0) + 1
+    if dropped:
+        log.info("Quality gate dropped %d/%d: %s", len(stories) - len(publishable),
+                 len(stories), dict(sorted(dropped.items())))
+    stories = publishable or stories
 
     clusters = _cluster(stories)
     merged = [_merge(c) for c in clusters]

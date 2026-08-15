@@ -141,7 +141,17 @@ GEO_USE_FLAG = False
 # News sources (free, public RSS feeds from reputable publishers)
 # --------------------------------------------------------------------------- #
 # `tier` is a reputability weight used in ranking (higher = more trusted).
+# No single publisher may hold up the run. feedparser has no timeout of its own,
+# so without this a feed that stalls mid-response blocks the daily job until the
+# workflow's 45 minute ceiling kills it.
+FEED_TIMEOUT_SECONDS = _env_number("FEED_TIMEOUT_SECONDS", 12.0, float)
+
 # Add or remove feeds freely. If a feed dies it is skipped, not fatal.
+#
+# Depth per beat matters as much as breadth across beats. Corroboration can only
+# find a second outlet if a second outlet is in the room: with one feed per beat
+# almost every story is single-source and the receipt strip stays thin no matter
+# how good the matching is. Several outlets now cover each category deliberately.
 @dataclass(frozen=True)
 class Feed:
     name: str
@@ -159,6 +169,8 @@ FEEDS: tuple[Feed, ...] = (
     Feed("TechCrunch", "https://techcrunch.com/feed/", "Technology", 1.0),
     Feed("Wired", "https://www.wired.com/feed/rss", "Technology", 1.0),
     Feed("Engadget", "https://www.engadget.com/rss.xml", "Technology", 0.9),
+    Feed("The Register", "https://www.theregister.com/headlines.atom", "Technology", 1.0),
+    Feed("ZDNet", "https://www.zdnet.com/news/rss.xml", "Technology", 0.9),
 
     # ---- Finance ----
     Feed("BBC Business", "https://feeds.bbci.co.uk/news/business/rss.xml", "Finance", 1.4),
@@ -166,6 +178,8 @@ FEEDS: tuple[Feed, ...] = (
     Feed("MarketWatch Top", "https://feeds.content.dowjones.io/public/rss/mw_topstories", "Finance", 1.1),
     Feed("Yahoo Finance", "https://finance.yahoo.com/news/rssindex", "Finance", 0.9),
     Feed("Investing.com", "https://www.investing.com/rss/news_25.rss", "Finance", 0.8),
+    Feed("Guardian Business", "https://www.theguardian.com/uk/business/rss", "Finance", 1.1),
+    Feed("Sky Business", "https://feeds.skynews.com/feeds/rss/business.xml", "Finance", 1.0),
 
     # ---- Geopolitics ----
     Feed("BBC World", "https://feeds.bbci.co.uk/news/world/rss.xml", "Geopolitics", 1.4),
@@ -173,6 +187,10 @@ FEEDS: tuple[Feed, ...] = (
     Feed("Guardian World", "https://www.theguardian.com/world/rss", "Geopolitics", 1.1),
     Feed("AP Top News", "https://feedx.net/rss/ap.xml", "Geopolitics", 1.2),
     Feed("NPR World", "https://feeds.npr.org/1004/rss.xml", "Geopolitics", 1.0),
+    Feed("Sky World", "https://feeds.skynews.com/feeds/rss/world.xml", "Geopolitics", 1.1),
+    Feed("France 24", "https://www.france24.com/en/rss", "Geopolitics", 1.0),
+    Feed("Deutsche Welle", "https://rss.dw.com/rdf/rss-en-world", "Geopolitics", 1.0),
+    Feed("CBC World", "https://www.cbc.ca/webfeed/rss/rss-world", "Geopolitics", 1.0),
 
     # ---- Science ----
     # Every feed above is a general, business or technology wire. Between them
@@ -185,6 +203,8 @@ FEEDS: tuple[Feed, ...] = (
     Feed("New Scientist", "https://www.newscientist.com/subject/space/feed/", "Science", 1.0),
     Feed("Science Daily", "https://www.sciencedaily.com/rss/top/science.xml", "Science", 1.0),
     Feed("NASA", "https://www.nasa.gov/rss/dyn/breaking_news.rss", "Science", 1.3),
+    Feed("Live Science", "https://www.livescience.com/feeds.xml", "Science", 0.9),
+    Feed("Nature News", "https://www.nature.com/nature.rss", "Science", 1.3),
 )
 
 # How far back a story may be and still count as "today's news".
