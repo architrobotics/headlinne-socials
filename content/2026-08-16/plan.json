@@ -1,0 +1,399 @@
+{
+  "day": "2026-08-16",
+  "is_promo_day": false,
+  "is_friday": false,
+  "twitter": [
+    {
+      "category": "Tech",
+      "post": "Your tech and entertainment update.\n• Star Wars: Ahsoka season two returns January 20 with a darker tone\n• Disney showed off new X-Men and Avengers footage at D23\n• SpaceX just finalized its $60 billion purchase of coding startup Cursor HEADLINNE.com #TechNews #StarWars",
+      "hashtags": [
+        "TechNews",
+        "StarWars"
+      ],
+      "scheduled_time": "2026-08-16T13:00:00+05:30",
+      "kind": "news",
+      "lead": "Your tech and entertainment update.",
+      "items": [
+        "Star Wars: Ahsoka season two returns January 20 with a darker tone",
+        "Disney showed off new X-Men and Avengers footage at D23",
+        "SpaceX just finalized its $60 billion purchase of coding startup Cursor"
+      ],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-16/x/x_1.png"
+    },
+    {
+      "category": "Geopolitics",
+      "post": "Here is what is happening in the world.\n• Israeli strikes in southern Lebanon killed 11 people today\n• The death toll from a Zimbabwe ferry capsizing has reached 68\n• Scottie Scheffler holds a two-shot lead at the St. Jude Championship HEADLINNE.com #News #Global",
+      "hashtags": [
+        "News",
+        "Global"
+      ],
+      "scheduled_time": "2026-08-16T17:00:00+05:30",
+      "kind": "news",
+      "lead": "Here is what is happening in the world.",
+      "items": [
+        "Israeli strikes in southern Lebanon killed 11 people today",
+        "The death toll from a Zimbabwe ferry capsizing has reached 68",
+        "Scottie Scheffler holds a two-shot lead at the St. Jude Championship"
+      ],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-16/x/x_2.png"
+    }
+  ],
+  "linkedin": {
+    "title": "Most people feel overwhelmed by the news, not informed.",
+    "body": "It is easy to blame the algorithm for this. We scroll through endless feeds, trying to separate signal from noise, but we often end up exhausted instead of smarter. The problem is not just the volume of information. The problem is that most news feeds treat everyone exactly the same.\n\nTrue intelligence is not about reading everything. It is about reading the right things for your specific life, career, and curiosity. When you filter out the noise that does not matter to you, you actually have the time to understand the stories that do.\n\nThis is where AI changes the game. It should not be used to create echo chambers or push outrage. It should be a tool that respects your time by curating a briefing that is actually relevant to you. Personalization is simply the difference between drowning in data and having a clear view of the world.\n\nI am curious how you keep up. Do you feel like you are getting the full picture, or are you just catching headlines as they fly by?",
+    "cta": "If you want to try a smarter way to stay updated, we are building it at HEADLINNE.com.",
+    "scheduled_time": "2026-08-16T18:00:00+05:30",
+    "kind": "product"
+  },
+  "instagram": [
+    {
+      "slot": "instagram_1",
+      "category": "Technology",
+      "num_slides": 7,
+      "title": "SpaceX Buys AI Coding Firm",
+      "slides": [
+        {
+          "role": "cover",
+          "headline": "SpaceX Buys AI Coding Firm",
+          "explanation": "",
+          "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/08/AhsokaS2_poster_1.jpg?quality=90&amp;strip=all&amp;crop=0,2.2232811309752,100,35.337873675236",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-16/instagram/instagram_1/slide_1.png",
+          "subtitle": "Plus big updates from D23 and the future of fusion energy.",
+          "sources": "",
+          "index": 0
+        },
+        {
+          "role": "story",
+          "headline": "Ahsoka Returns With Darker Twists",
+          "explanation": "Lucasfilm just dropped the first trailer for the second season of Ahsoka at D23. The new season promises a darker, witchcraft-focused tone when it premieres in January 2027.",
+          "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/08/AhsokaS2_poster_1.jpg?quality=90&amp;strip=all&amp;crop=0,2.2232811309752,100,35.337873675236",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-16/instagram/instagram_1/slide_2.png",
+          "subtitle": "",
+          "sources": "The Verge",
+          "index": 1
+        },
+        {
+          "role": "story",
+          "headline": "Marvel And Star Wars Updates",
+          "explanation": "Disney used D23 to reveal new looks at the X-Men movie, Avengers: Doomsday, and the VisionQuest series. These projects signal a major push to refresh the Marvel and Star Wars lineups for fans.",
+          "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/08/20260814_RH7_7615.jpg?quality=90&amp;strip=all&amp;crop=0%2C32.518906340896%2C100%2C34.962187318208&amp;w=1200",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-16/instagram/instagram_1/slide_3.png",
+          "subtitle": "",
+          "sources": "The Verge",
+          "index": 2
+        },
+        {
+          "role": "story",
+          "headline": "SpaceX Acquires AI Coding Startup",
+          "explanation": "SpaceX has finalized its purchase of the AI coding platform Cursor. This $60 billion deal marks a major expansion for the company into software development tools.",
+          "image_url": "https://www.engadget.com/img/gallery/spacex-has-officially-acquired-ai-coding-startup-cursor/l-intro-1786798141.jpg",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-16/instagram/instagram_1/slide_4.png",
+          "subtitle": "",
+          "sources": "Engadget",
+          "index": 3
+        },
+        {
+          "role": "story",
+          "headline": "Cursor Is Now Part Of SpaceX",
+          "explanation": "The AI coding startup Cursor is now officially operating under the SpaceX umbrella. This move highlights how deeply AI is becoming integrated into aerospace engineering workflows.",
+          "image_url": "https://techcrunch.com/wp-content/uploads/2026/07/cursor.jpg?resize=1200,800",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-16/instagram/instagram_1/slide_5.png",
+          "subtitle": "",
+          "sources": "TechCrunch",
+          "index": 4
+        },
+        {
+          "role": "story",
+          "headline": "Fusion Energy Funding Hits $7 Billion",
+          "explanation": "Fusion startups have raised over $7 billion, though most of that money is concentrated in just a few companies. It shows that investors are betting big on the potential for clean, limitless power.",
+          "image_url": "https://techcrunch.com/wp-content/uploads/2024/07/GettyImages-1455925032.jpg?resize=1200,675",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-16/instagram/instagram_1/slide_6.png",
+          "subtitle": "",
+          "sources": "TechCrunch",
+          "index": 5
+        },
+        {
+          "role": "cta",
+          "headline": "That's your brief for today.",
+          "explanation": "",
+          "image_url": null,
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-16/instagram/instagram_1/slide_7.png",
+          "subtitle": "Personalised news, minus the noise.",
+          "sources": "",
+          "index": 0
+        }
+      ],
+      "caption": "From massive corporate acquisitions to the next phase of the Star Wars universe, there is a lot happening in tech and\n\nentertainment today.\n\nWe have broken down the biggest headlines so you can stay informed without the noise. Which of these updates are you most excited to see more of?\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#Tech #TechNews #AI #Innovation",
+      "hashtags": [
+        "Tech",
+        "TechNews",
+        "AI",
+        "Innovation",
+        "SpaceX",
+        "StarWars",
+        "DisneyD23",
+        "ArtificialIntelligence",
+        "FusionEnergy",
+        "Marvel",
+        "TechUpdates",
+        "BusinessNews"
+      ],
+      "scheduled_time": "2026-08-16T16:00:00+05:30",
+      "first_comment": "#SpaceX #StarWars #DisneyD23 #ArtificialIntelligence #FusionEnergy #Marvel #TechUpdates #BusinessNews"
+    }
+  ],
+  "reels": [
+    {
+      "slot": "reel_1",
+      "kind": "news",
+      "category": "Technology",
+      "title": "Star Wars: Ahsoka season 2 and Starfighter get teased at D23",
+      "hook": "January 2027 just got a new date",
+      "beats": [
+        {
+          "role": "hook",
+          "caption": "January 2027 just got a new date",
+          "detail": "Lucasfilm finally shared a look at the next season of Ahsoka.",
+          "narration": "If you are a Star Wars fan, your January 2027 calendar just got a major",
+          "seconds": 3.0,
+          "graphic": "",
+          "data": {},
+          "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/08/AhsokaS2_poster_1.jpg?quality=90&amp;strip=all&amp;crop=0,2.2232811309752,100,35.337873675236"
+        },
+        {
+          "role": "point",
+          "caption": "Ahsoka season two is coming",
+          "detail": "Lucasfilm revealed the first teaser trailer at the D23 event.",
+          "narration": "Lucasfilm used the D23 event to pull back the curtain on the show's second",
+          "seconds": 3.0,
+          "graphic": "",
+          "data": {},
+          "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/08/AhsokaS2_poster_1.jpg?quality=90&amp;strip=all&amp;crop=0,2.2232811309752,100,35.337873675236"
+        },
+        {
+          "role": "point",
+          "caption": "A darker tone for the show",
+          "detail": "The new footage hints at a story full of witchcraft and mystery.",
+          "narration": "The footage they showed us is a big shift, hinting at a darker",
+          "seconds": 3.0,
+          "graphic": "",
+          "data": {},
+          "image_url": null
+        },
+        {
+          "role": "graphic",
+          "caption": "The wait is still on",
+          "detail": "We have a while to go before the premiere finally arrives.",
+          "narration": "We still have a little while to wait before the season actually kicks off.",
+          "seconds": 3.0,
+          "graphic": "timeline",
+          "data": {
+            "stops": [
+              "D23 Teaser",
+              "Waiting",
+              "Jan 20 2027"
+            ],
+            "note": "The journey to the premiere"
+          },
+          "image_url": null
+        },
+        {
+          "role": "point",
+          "caption": "Mark your calendars",
+          "detail": "The second season officially debuts on January 20th, 2027.",
+          "narration": "Mark your calendars for January 20th, 2027, when the new season officially",
+          "seconds": 3.0,
+          "graphic": "",
+          "data": {},
+          "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/08/AhsokaS2_poster_1.jpg?quality=90&amp;strip=all&amp;crop=0,2.2232811309752,100,35.337873675236"
+        },
+        {
+          "role": "payoff",
+          "caption": "The galaxy is getting darker",
+          "detail": "",
+          "narration": "It looks like the galaxy is about to get a lot darker.",
+          "seconds": 3.0,
+          "graphic": "",
+          "data": {},
+          "image_url": null
+        }
+      ],
+      "caption": "Lucasfilm has officially teased the second season of Star Wars Ahsoka at D23.\n\nThe first trailer shows a shift toward a darker, more mysterious tone involving witchcraft. The season is set to premiere in early 2027.\n\nWhat are you hoping to see in the next chapter of Ahsoka?\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#TechNews #AI #Tech #StarWars",
+      "hashtags": [
+        "TechNews",
+        "AI",
+        "Tech",
+        "StarWars",
+        "Ahsoka",
+        "Lucasfilm",
+        "D23",
+        "DisneyPlus",
+        "SciFi",
+        "TVNews",
+        "AhsokaTano",
+        "StarWarsFans",
+        "Entertainment",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-08-16T09:30:00+05:30",
+      "first_comment": "#Ahsoka #Lucasfilm #D23 #DisneyPlus #SciFi #TVNews #AhsokaTano #StarWarsFans #Entertainment #Headlinne",
+      "sources": "The Verge",
+      "story_url": "https://www.theverge.com/entertainment/980666/star-wars-ahsoka-season-2-and-starfighter-get-teased-at-d23",
+      "duration_seconds": 41.766666666666666,
+      "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-16/reels/reel_1.mp4",
+      "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-16/reels/reel_1_cover.png",
+      "audio_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-16/reels/reel_1_voice.wav",
+      "has_voiceover": true
+    },
+    {
+      "slot": "reel_2",
+      "kind": "education",
+      "category": "Geopolitics",
+      "title": "Why one narrow strait moves the oil price",
+      "hook": "Why does a tiny patch of sea matter?",
+      "beats": [
+        {
+          "role": "hook",
+          "caption": "Why does a tiny patch of sea matter?",
+          "detail": "It can change the price of fuel worldwide in a single day.",
+          "narration": "Why does a tiny patch of sea matter? It can change the price of fuel",
+          "seconds": 3.0,
+          "graphic": "",
+          "data": {},
+          "image_url": null
+        },
+        {
+          "role": "point",
+          "caption": "The world's oil highways",
+          "detail": "Most of the world's oil is moved by massive ships.",
+          "narration": "Most of the world's oil travels on massive ships that have to squeeze",
+          "seconds": 3.0,
+          "graphic": "",
+          "data": {},
+          "image_url": null
+        },
+        {
+          "role": "point",
+          "caption": "A bottleneck at sea",
+          "detail": "Imagine a highway lane closing during rush hour.",
+          "narration": "Think of it like a ten-lane highway suddenly narrowing down to one single",
+          "seconds": 3.0,
+          "graphic": "",
+          "data": {},
+          "image_url": null
+        },
+        {
+          "role": "graphic",
+          "caption": "The ripple effect",
+          "detail": "",
+          "narration": "When that one exit is blocked, the whole system backs up and the price",
+          "seconds": 3.0,
+          "graphic": "flow",
+          "data": {
+            "steps": [
+              "Shipment blocked",
+              "Supply drops",
+              "Price climbs"
+            ]
+          },
+          "image_url": null
+        },
+        {
+          "role": "point",
+          "caption": "Small gaps, big costs",
+          "detail": "When the flow slows, the market reacts fast.",
+          "narration": "Because oil is traded globally, any delay at these chokepoints hits your",
+          "seconds": 3.0,
+          "graphic": "",
+          "data": {},
+          "image_url": null
+        },
+        {
+          "role": "payoff",
+          "caption": "Geography dictates the price",
+          "detail": "",
+          "narration": "So when you see oil prices move, remember it's often just geography at work.",
+          "seconds": 3.0,
+          "graphic": "",
+          "data": {},
+          "image_url": null
+        }
+      ],
+      "caption": "Why do minor delays in narrow waterways cause oil prices to spike?\n\nGlobal oil relies on a few key chokepoints. When ships can't pass through these narrow straits, the supply chain stalls. This immediate scarcity forces prices up globally.\n\nCan you name one of these critical maritime chokepoints?\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#Explained #LearnOnInstagram #WorldNews #Geopolitics",
+      "hashtags": [
+        "Explained",
+        "LearnOnInstagram",
+        "WorldNews",
+        "Geopolitics",
+        "GlobalNews",
+        "oil",
+        "economics",
+        "shipping",
+        "energy",
+        "supplychain",
+        "globaltrade",
+        "market",
+        "finance",
+        "howitworks",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-08-16T20:00:00+05:30",
+      "first_comment": "#GlobalNews #oil #economics #shipping #energy #supplychain #globaltrade #market #finance #howitworks #Headlinne",
+      "sources": "",
+      "story_url": "",
+      "duration_seconds": 43.56666666666667,
+      "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-16/reels/reel_2.mp4",
+      "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-16/reels/reel_2_cover.png",
+      "audio_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-16/reels/reel_2_voice.wav",
+      "has_voiceover": true
+    }
+  ],
+  "story_card": {
+    "slot": "story_card",
+    "category": "Science",
+    "headline": "Blue and fin whales are returning to the Atlantic",
+    "standfirst": "The world's two largest animals are slowly rebounding after decades of commercial whaling.",
+    "steps": [
+      {
+        "label": "What happened",
+        "text": "Sightings of blue and fin whales are increasing in the southeast Atlantic Ocean."
+      },
+      {
+        "label": "How we got here",
+        "text": "Researchers analyzed 60 years of data following the ban on commercial whaling."
+      },
+      {
+        "label": "Why it matters",
+        "text": "This shows marine populations can slowly recover decades after human threats stop."
+      },
+      {
+        "label": "What to watch",
+        "text": "Future studies will track if these whale populations continue to grow."
+      }
+    ],
+    "caption": "Blue and fin whale populations are showing signs of recovery in the southeast Atlantic.\n\nNew research published in the African Journal of Marine Science confirms that sightings of these massive whales are up. It is a hopeful sign more than 40 years after commercial whaling was outlawed.\n\nDoes it surprise you how long it takes for whale populations to bounce back?\n\nSave this one. Follow for the daily card. Full story on HEADLINNE.com.\n\n#whales #oceanlife #marinescience #conservation",
+    "hashtags": [
+      "whales",
+      "oceanlife",
+      "marinescience",
+      "conservation",
+      "wildlife",
+      "atlantic",
+      "bluewhale",
+      "finwhale",
+      "nature",
+      "science",
+      "environment",
+      "ocean",
+      "research",
+      "NewsExplained",
+      "Headlinne"
+    ],
+    "scheduled_time": "2026-08-16T21:30:00+05:30",
+    "first_comment": "#wildlife #atlantic #bluewhale #finwhale #nature #science #environment #ocean #research #NewsExplained #Headlinne",
+    "sources": "Phys.org",
+    "story_url": "https://phys.org/news/2026-04-commercial-whaling-erased-blue-fin.html",
+    "image_url": "https://scx2.b-cdn.net/gfx/news/hires/2026/blue-and-fin-whale-sig.jpg",
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-16/story_card/story_card.png"
+  }
+}
