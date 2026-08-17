@@ -1,47 +1,49 @@
 {
   "slot": "story_card",
   "category": "Geopolitics",
-  "headline": "Ukraine launches major drone strikes into Russia",
-  "standfirst": "A massive overnight drone assault has reached the outskirts of Moscow.",
+  "headline": "DRC Ebola outbreak becomes deadliest on record",
+  "standfirst": "The current health crisis has now claimed more lives than any previous outbreak in the",
   "steps": [
     {
       "label": "What happened",
-      "text": "Ukraine launched a major drone attack on Russia. It caused a warehouse fire near Moscow and killed six."
+      "text": "The Ebola outbreak in the Democratic Republic of Congo is now the deadliest in the nation's history."
     },
     {
       "label": "How we got here",
-      "text": "This is one of the largest drone campaigns Kyiv has conducted since the war began."
+      "text": "Government data confirms at least 2,325 deaths, surpassing the toll of the 2018 to 2020 outbreak."
     },
     {
       "label": "Why it matters",
-      "text": "The scale of this attack shows the conflict is increasingly reaching deep inside Russian territory."
+      "text": "This record death toll highlights the ongoing, severe struggle to contain the virus in the area."
     },
     {
       "label": "What to watch",
-      "text": "Watch for how Moscow responds militarily to these strikes near its capital."
+      "text": "Health officials will continue tracking casualty numbers to assess the scope of the crisis."
     }
   ],
-  "caption": "Ukraine has launched a significant drone attack on Russia resulting in a warehouse fire and multiple deaths.\n\nRussian officials report that at least six people were killed during the overnight assault. This marks one of the most extensive drone operations Kyiv has mounted since the start of the full-scale invasion.\n\nDo you think these deep-strike attacks change the trajectory of the war?\n\nSave this one. Follow for the daily card. Full story on HEADLINNE.com.\n\n#WorldNews #Geopolitics #GlobalNews #Ukraine",
+  "caption": "The Ebola outbreak in the Democratic Republic of Congo has officially become the deadliest in the country's history.\n\nGovernment data now confirms at least 2,325 people have died from the virus. This grim milestone surpasses the total fatalities recorded during the major 2018 to 2020 outbreak.\n\nHow can international health organizations better support local efforts to contain future outbreaks?\n\nSave this one. Follow for the daily card. Full story on HEADLINNE.com.\n\n#WorldNews #Geopolitics #GlobalNews #Ebola",
   "hashtags": [
     "WorldNews",
     "Geopolitics",
     "GlobalNews",
-    "Ukraine",
-    "Russia",
-    "Moscow",
+    "Ebola",
+    "DRC",
+    "Congo",
+    "GlobalHealth",
+    "PublicHealth",
+    "Outbreak",
     "News",
-    "DroneAttack",
-    "Conflict",
-    "InternationalRelations",
-    "War",
-    "Security",
-    "Headlinne",
+    "AfricaNews",
+    "ViralOutbreak",
+    "HealthCrisis",
+    "MedicalNews",
+    "CurrentEvents",
     "NewsExplained"
   ],
   "scheduled_time": "2026-08-17T21:30:00+05:30",
-  "first_comment": "#Russia #Moscow #News #DroneAttack #Conflict #InternationalRelations #War #Security #Headlinne #NewsExplained",
-  "sources": "Guardian World",
-  "story_url": "https://www.theguardian.com/world/2026/aug/16/ukrainian-drone-attack-on-russia-wildberries-warehouse-fire",
-  "image_url": "https://i.guim.co.uk/img/media/32117ccbd21fa32d8a2eba949e84cad036fc92aa/253_0_2820_2255/master/2820.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=121f2d449227d7e47b73a0ec7b6a7b82",
+  "first_comment": "#DRC #Congo #GlobalHealth #PublicHealth #Outbreak #News #AfricaNews #ViralOutbreak #HealthCrisis #MedicalNews #CurrentEvents #NewsExplained",
+  "sources": "Guardian World, Al Jazeera",
+  "story_url": "https://www.theguardian.com/world/2026/aug/17/ebola-outbreak-drc-democratic-republic-of-congo-deadliest-in-history",
+  "image_url": "https://i.guim.co.uk/img/media/a393063cc2d82e5b3b20c44e22654a645b95ab37/581_0_5000_4000/master/5000.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=01a5dd5d8d86bc2efe5aced65507cdaa",
   "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-17/story_card/story_card.png"
 }
