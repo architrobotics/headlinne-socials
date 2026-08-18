@@ -135,10 +135,18 @@ _USEFUL = ("will now", "you can", "your", "warns", "warning", "affects",
            "security update", "vulnerabilit*", "patch", "scam", "how it works",
            "explains", "explained", "why it", "protect*")
 
-_PROCEDURAL = ("holds", "held", "meets", "meeting", "discuss*", "considers",
-               "is set to", "could", "may", "might", "expected to", "plans to",
-               "unchanged", "consecutive", "talks", "urges", "calls for",
-               "seeks", "weighs", "mulls", "to decide", "ahead of", "amid")
+# Both the base and the third-person form of every verb. Listing only "urges"
+# meant "Musicians urge government to ..." scored a full point higher than
+# "Musicians urges ...", which is a ranking decision made on grammar. Explicit
+# forms rather than stems: `urge*` would also catch "urgent" and `weigh*` would
+# catch "weight".
+_PROCEDURAL = ("hold", "holds", "held", "meet", "meets", "meeting", "discuss*",
+               "consider", "considers", "is set to", "could", "may", "might",
+               "expected to", "plan to", "plans to", "unchanged", "consecutive",
+               "talks", "urge", "urges", "urged", "call for", "calls for",
+               "seek", "seeks", "weigh", "weighs", "mull", "mulls",
+               "to decide", "ahead of", "amid", "vow", "vows", "pledge",
+               "pledges", "demand", "demands")
 
 _CONTEXT_DEPENDENT = ("continues", "latest", "amid ongoing", "another round",
                       "as it happened", "update:", "day two", "day three")

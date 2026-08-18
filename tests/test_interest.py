@@ -91,3 +91,21 @@ def test_the_breakdown_explains_the_total():
     for term in ("concrete", "novelty", "surprise", "universal", "useful",
                  "uplift", "standalone", "procedural"):
         assert term in b, term
+
+
+def test_a_verb_is_penalised_in_both_its_forms():
+    # The lexicon listed only third-person forms, so "Musicians urge government
+    # to ..." scored a full point above "Musicians urges ...". A ranking
+    # decision made on grammar is a ranking decision made on nothing.
+    for base, third in (("urge", "urges"), ("consider", "considers"),
+                        ("seek", "seeks"), ("plan to", "plans to")):
+        a = I.breakdown(f"Ministers {base} a ban on drilling")["procedural"]
+        b = I.breakdown(f"Ministers {third} a ban on drilling")["procedural"]
+        assert a == b > 0, (base, third, a, b)
+
+
+def test_the_procedural_verbs_do_not_catch_unrelated_words():
+    # `urge*` would match "urgent" and `weigh*` would match "weight", which is
+    # why these are listed as explicit forms rather than stems.
+    assert I.breakdown("An urgent recall of 40,000 batteries")["procedural"] == 0.0
+    assert I.breakdown("The weight of the stage was four tonnes")["procedural"] == 0.0

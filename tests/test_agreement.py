@@ -86,3 +86,32 @@ def test_a_record_written_before_agreement_existed_still_loads():
                  published_iso="2026-08-17T00:00:00+00:00").to_dict()
     del data["agreement"]
     assert Story.from_dict(data).agreement.state == "single"
+
+
+def test_one_outlet_cannot_agree_with_itself():
+    # The first live run printed "1 sources agree" - wrong on the grammar and
+    # wrong on the claim. Three outlets covered it, one stated the figure, two
+    # were silent on it. The coverage is what is true, so that is what is said.
+    a = Agreement(reported=3, agree=1,
+                  outlets=["Guardian Business", "Sky Business", "Guardian World"])
+    assert a.state == "developing"
+    assert a.label() == "3 outlets reported this"
+
+
+def test_two_agreeing_outlets_are_still_reported_as_agreement():
+    assert Agreement(reported=6, agree=2).label() == "2 sources agree"
+
+
+def test_no_label_is_ever_grammatically_wrong():
+    # Every reachable shape, not a sampled few. Word-boundary matching, because
+    # "11 outlets reported this" contains the substring "1 outlets".
+    import re
+
+    singular_plural = re.compile(r"1 (?:sources|outlets)")
+    for reported in range(2, 13):
+        for agree in range(0, reported + 1):
+            for conflict in range(0, reported - agree + 1):
+                label = Agreement(reported=reported, agree=agree,
+                                  conflict=conflict).label()
+                assert not singular_plural.search(label), label
+                assert not label.startswith("0 "), label

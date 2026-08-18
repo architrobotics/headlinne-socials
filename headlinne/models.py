@@ -108,7 +108,23 @@ class Agreement:
             return f"{self.agree} of {self.reported} outlets agree"
         if self.state == "developing":
             # A fraction would imply the silent outlets dissented. They did not.
-            return f"{self.agree} sources agree"
+            #
+            # But agreement needs at least two parties. When only one outlet
+            # stated the claim and the rest were silent on it, "1 source agrees"
+            # is a claim about nothing - and the first live run printed exactly
+            # "1 sources agree". What is true there is the coverage, so that is
+            # what gets said.
+            if self.agree >= 2:
+                return f"{self.agree} sources agree"
+            return f"{self.reported} outlets reported this"
+        # Disputed. A fraction needs at least two outlets to have taken a
+        # position and at least one of them to agree, or there is no comparison
+        # being reported: "0 of 1 outlets agree" is both ungrammatical and a
+        # statement about nothing. assess() always counts the originating outlet
+        # as agreeing with its own claim, so agree==0 should be unreachable -
+        # this is the guard for a record built by hand or by a future caller.
+        if self.eligible < 2 or self.agree < 1:
+            return f"{self.reported} outlets reported this"
         return f"{self.agree} of {self.eligible} outlets agree"
 
     def ticks(self) -> tuple[int, int]:
