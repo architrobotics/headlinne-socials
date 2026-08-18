@@ -533,9 +533,14 @@ cron jobs that POST to the workflow dispatch endpoint for the generate workflow
 (once in the morning) and the publish workflow (once per Instagram slot, plus the
 X and LinkedIn slots if you use trigger mode).
 
-In **scheduled mode** you only need three cron jobs: generate in the morning, and
-the two Instagram slots. X and LinkedIn are already scheduled inside Buffer during
-generation. This is the recommended setup.
+In **scheduled mode** you need four cron jobs: generate in the morning, then the
+reel, the carousel and the story card. X and LinkedIn are scheduled into Buffer
+during generation and need no trigger.
+
+**Read the first section of that file before creating the generate job.**
+`generate.yml` ships with its own `schedule:` block, so adding a cron-job.org
+generate job at the same time runs the whole day twice - two sets of model calls,
+two renders, two commits. Remove the workflow's schedule or skip that one job.
 
 ---
 
