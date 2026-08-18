@@ -108,11 +108,9 @@ def test_defaults_survive_a_runner_with_no_variables_set():
         try:
             assert fresh.REELS_ENABLED is True
             assert fresh.STORY_CARD_ENABLED is True
-            # Now off by default. Carousels moved to a weekly cadence: five
-            # slides of argument is a considered weekly artefact, not a daily
-            # one, and four feed posts a day dilutes every one of them.
+            # The day is one reel, one carousel, one story card. The second
+            # carousel is an opt-in extra rather than a default.
             assert fresh.IG_SECOND_CAROUSEL is False
-            assert fresh.CAROUSEL_WEEKDAYS
             assert fresh.REEL_VOICEOVER is True
             # An empty model name is worse than a wrong one: every speech call
             # fails and the reel goes out silent with no obvious cause.

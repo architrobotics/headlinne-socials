@@ -64,63 +64,88 @@ def _cmd_reddit(args: argparse.Namespace) -> int:
 def _cmd_preview(args: argparse.Namespace) -> int:
     """Render a sample carousel with mock content so you can check the design.
 
-    Works fully offline: no Gemini calls and no network image fetches (the
-    renderer falls back to clean branded gradients when an image is missing).
+    Works fully offline: no Gemini calls and no network image fetches. Every
+    plate therefore takes the fallback ladder down to a generated scene, which
+    is the rung most worth checking by eye.
     """
-    from .models import InstagramCarousel, Slide, TwitterPost
+    from .models import (Agreement, Conflict, InstagramCarousel, Slide,
+                         Story, TwitterPost)
     from .render import render_carousel, render_twitter_card
 
     out_root = Path(args.out or "preview")
-    samples = {
-        "Technology": ("The AI chip race just moved on-device",
-                       "Three shifts that change what your phone can do without the cloud."),
-        "Geopolitics": ("A tense week reshapes three borders",
-                        "What actually happened, and why it matters beyond the headlines."),
-    }
-    mock_stories = [
-        ("A major phone maker shows a new AI chip",
-         "It promises faster on-device features while using less battery. More AI could now run without the cloud.",
-         "Reuters, BBC +2"),
-        ("A big cloud outage briefly hit popular apps",
-         "Several services went dark for a few hours. It is a reminder of how much the internet leans on a few providers.",
-         "The Verge, AP"),
-        ("Fresh rules are proposed for AI labelling",
-         "Regulators want clearer tags on AI made content. Platforms will need to adjust how features ship.",
-         "Guardian +3"),
+
+    # One story, argued across five slides. The mock carries a full agreement
+    # record because half the furniture on a slide is derived from it: the
+    # kicker, the masthead tone, Pip's pose and the whole source strip.
+    story = Story(
+        title="A SpaceX rocket just hit the Moon",
+        summary="A four-tonne Falcon 9 upper stage struck the far side of the "
+                "Moon at 8700 km/h. Two orbiters photographed the crater.",
+        url="https://example.com/moon", category="Science", source="Reuters",
+        tier=1.4, published_iso="2026-08-18T06:00:00+00:00",
+        corroborating_sources=["AP", "Al Jazeera", "Space.com", "New Scientist"],
+        verified=True,
+        agreement=Agreement(
+            reported=8, agree=8,
+            outlets=["Reuters", "AP", "Al Jazeera", "Space.com",
+                     "New Scientist", "Sky", "BBC", "Guardian"]),
+    )
+    slides = [
+        Slide(role="cover", headline="A SpaceX rocket just hit the Moon",
+              subtitle="8,700 km/h. Nobody meant to do it.", kicker="SCIENCE",
+              pose="alert", say="Something hit the Moon.", index=1),
+        Slide(role="scale", headline="", kicker="HOW BIG", figure="4",
+              unit="tonnes", index=2,
+              explanation="About the size of a school bus, travelling at "
+                          "roughly six times the speed of a rifle bullet."),
+        Slide(role="twist", kicker="THIS HAPPENED ONCE BEFORE", index=3,
+              headline="In 2022 everyone blamed SpaceX. It was a Chinese rocket.",
+              pose="puzzled", say="Here's the bit I love.",
+              explanation="The correction took months. The original headline is "
+                          "still the one most people remember."),
+        Slide(role="sources", headline="", kicker="SOURCES", index=4,
+              pose="verified", say="I read all eight. They agree.",
+              explanation="Headlinne reads every outlet covering a story and "
+                          "shows you where they agree, and where they do not."),
+        Slide(role="cta", headline="", kicker="READ THE FULL STORY", index=5,
+              pose="carry", say="Come and read it.",
+              subtitle="Every source on this story, side by side."),
     ]
-
-    produced = []
-    for cat, (title, hook) in samples.items():
-        slides = [Slide(role="cover", headline=title, subtitle=hook, image_url=None)]
-        for i, (h, e, src) in enumerate(mock_stories, 1):
-            slides.append(Slide(role="story", headline=h, explanation=e,
-                                sources=src, index=i, image_url=None))
-        slides.append(Slide(role="cta", headline="That's your brief for today.",
-                            subtitle="Personalised news, minus the noise."))
-        carousel = InstagramCarousel(
-            slot="instagram_1", category=cat, num_slides=len(slides),
-            title=title, slides=slides,
-            caption="A quick look at today's biggest stories. Read more on HEADLINNE.com.",
-            hashtags=["News", "Headlinne"], scheduled_time="2026-07-21T16:00:00+05:30",
-        )
-        out_dir = out_root / cat.lower()
-        paths = render_carousel(carousel, out_dir)
-        produced.extend(paths)
-
-    # Sample X (Twitter) cards: one news roundup, one feature/promo.
-    x_news = TwitterPost(
-        category="Tech", post="", hashtags=[], scheduled_time="", kind="news",
-        lead="AI just moved onto your phone",
-        items=["A major maker unveiled an on-device AI chip",
-               "A big cloud outage briefly hit popular apps",
-               "New rules proposed for labelling AI content"],
+    carousel = InstagramCarousel(
+        slot="instagram_1", category=story.category, num_slides=len(slides),
+        title=slides[0].headline, slides=slides,
+        caption="One story, explained. What did you make of it?",
+        hashtags=["Science", "Space", "Headlinne"],
+        scheduled_time="2026-08-18T16:00:00+05:30",
+        story=story, story_url=story.url,
     )
-    x_promo = TwitterPost(
-        category="Promo", post="", hashtags=[], scheduled_time="", kind="promo",
-        lead="Ask the news a question, get answers with sources",
+    # No network: the loader returns None so every plate takes the fallback
+    # ladder down to a generated scene, which is the rung most worth checking.
+    produced = list(render_carousel(carousel, out_root / "carousel",
+                                    image_loader=lambda _src: None))
+
+    # The X cards. Four layouts, and which one a post earns is decided by the
+    # sourcing rather than chosen by hand.
+    disputed = Story(
+        title="Same memo, two numbers", summary="", url="https://example.com/memo",
+        category="Finance", source="Reuters", tier=1.4,
+        published_iso="2026-08-18T06:00:00+00:00",
+        corroborating_sources=["Financial Times"], verified=True,
+        agreement=Agreement(reported=7, agree=3, conflict=4,
+                            claim="12,000 jobs", claim_unit="jobs",
+                            outlets=["Reuters", "Financial Times", "WSJ", "Sky"],
+                            conflicts=[Conflict("Financial Times", "4,000 jobs")]),
     )
-    produced.append(render_twitter_card(x_news, out_root / "x" / "news_card.png"))
-    produced.append(render_twitter_card(x_promo, out_root / "x" / "promo_card.png"))
+    x_news = TwitterPost(category="Science", post="", hashtags=[],
+                         scheduled_time="", kind="news", lead=story.title)
+    x_promo = TwitterPost(category="Promo", post="", hashtags=[],
+                          scheduled_time="", kind="promo",
+                          lead="Every source, side by side")
+    produced.append(render_twitter_card(x_news, out_root / "x" / "receipt.png",
+                                        story=story))
+    produced.append(render_twitter_card(x_news, out_root / "x" / "compare.png",
+                                        story=disputed))
+    produced.append(render_twitter_card(x_promo, out_root / "x" / "promo.png"))
 
     produced.append(_preview_story_card(out_root))
     if not args.no_video:
@@ -134,8 +159,22 @@ def _cmd_preview(args: argparse.Namespace) -> int:
 
 def _preview_story_card(out_root: Path) -> Path:
     """Render a sample story card so the daily format can be checked offline."""
-    from .models import StoryCard, StoryStep
+    from .models import Agreement, StoryCard, StoryStep, Story
     from .render import render_story_card
+
+    # The card carries its story so the source strip, the masthead tone and
+    # Pip's pose all render. Without one it draws a headline and a rail and
+    # none of the furniture that makes it a Headlinne card.
+    story = Story(
+        title="The rate decision that changes your loan", summary="",
+        url="https://example.com/rates", category="Finance", source="Reuters",
+        tier=1.4, published_iso="2026-08-18T06:00:00+00:00",
+        corroborating_sources=["BBC Business", "CNBC", "Sky Business"],
+        verified=True,
+        agreement=Agreement(reported=6, agree=4,
+                            outlets=["Reuters", "BBC Business", "CNBC",
+                                     "Sky Business", "MarketWatch", "Guardian"]),
+    )
 
     card = StoryCard(
         slot="story_card", category="Finance",
@@ -159,123 +198,100 @@ def _preview_story_card(out_root: Path) -> Path:
         sources="Reuters, BBC +2",
         scheduled_time="2026-08-10T21:30:00+05:30",
     )
-    return render_story_card(card, out_root / "story_card" / "story_card.png")
+    return render_story_card(card, out_root / "story_card" / "story_card.png",
+                             story=story)
 
 
 def _preview_reels(out_root: Path, args: argparse.Namespace | None = None) -> list[Path]:
-    """Render one sample reel of each kind, if ffmpeg is available.
+    """Render the daily reel, if ffmpeg is available.
 
-    Uses the real layouts and a real graphic device, so this is the honest way
-    to check the pacing and the type sizes without spending a Gemini call or
-    waiting for a scheduled run.
+    The real layout, the real plate ladder and the real pacing, so this is the
+    honest way to check the design without spending a Gemini call or waiting for
+    a scheduled run. It goes through the visual gate first, exactly as the
+    pipeline does, so a preview that would not have published says so.
     """
-    from .models import Reel, ReelBeat
+    from .models import Agreement, Reel, ReelBeat, Story
+    from .quality import visual
     from .render import render_reel
     from .render.motion import ffmpeg_available
+    from .render.reel import ReelFrames, plan_durations
 
-    args = args or argparse.Namespace(voice=False)
     if not ffmpeg_available():
-        print("\nSkipping reel previews: ffmpeg not found. Install it, or run "
-              "`pip install imageio-ffmpeg`, then try again.\n")
+        print("Skipping the reel preview: ffmpeg not found. Install it, "
+              "or run `pip install imageio-ffmpeg`, then try again.")
         return []
 
-    news = Reel(
-        slot="reel_1", kind="news", category="Technology",
-        title="On-device AI chip",
-        hook="Your phone just stopped needing the cloud",
+    story = Story(
+        title="A SpaceX rocket just hit the Moon",
+        summary="A four-tonne Falcon 9 upper stage struck the far side of the "
+                "Moon at 8700 km/h. Two orbiters photographed the crater.",
+        url="https://example.com/moon", category="Science", source="Reuters",
+        tier=1.4, published_iso="2026-08-18T06:00:00+00:00",
+        corroborating_sources=["AP", "Al Jazeera", "Space.com", "New Scientist"],
+        verified=True,
+        agreement=Agreement(
+            reported=8, agree=8,
+            outlets=["Reuters", "AP", "Al Jazeera", "Space.com",
+                     "New Scientist", "Sky", "BBC", "Guardian"]),
+    )
+    reel = Reel(
+        slot="reel_1", kind="news", category="Science", title="Moon impact",
+        hook="A four-tonne rocket stage just hit the Moon",
         beats=[
-            ReelBeat(role="hook", caption="Your phone just stopped needing the cloud",
-                     detail="A new chip runs the AI work on the handset itself.",
-                     narration="Your phone just stopped needing the cloud. Here's why that matters."),
-            ReelBeat(role="point", caption="What happened",
-                     detail="A major maker put a dedicated AI chip in a "
-                            "mainstream phone, not a flagship.",
-                     narration="A big maker put a dedicated AI chip in an ordinary phone, not a flagship."),
-            ReelBeat(role="point", caption="Why that is hard",
-                     detail="Running a model locally means fitting it into a "
-                            "battery budget, not a data centre.",
-                     narration="Running a model locally means fitting it in a battery, not a data centre."),
-            ReelBeat(role="graphic", caption="Where the thinking happens",
-                     narration="So where does the thinking happen? That's the whole difference.",
-                     graphic="split",
-                     data={"left_title": "Cloud", "left_text": "Sent away, "
-                           "answered in a second, needs signal.",
-                           "right_title": "On device", "right_text": "Answered "
-                           "instantly, works on a plane, stays private."}),
-            ReelBeat(role="point", caption="What it means for you",
-                     detail="Faster replies, and the things you type never leave "
-                            "the phone.",
-                     narration="You get faster replies, and what you type never leaves the phone."),
-            ReelBeat(role="payoff", caption="The cloud just got optional",
-                     narration="For a lot of everyday AI, the cloud just became optional."),
+            ReelBeat(role="hook", chapter="What happened", pose="walk",
+                     caption="On Tuesday a *four-tonne* rocket stage struck the Moon.",
+                     detail="A Falcon 9 second stage.",
+                     narration="On Tuesday a four-tonne rocket stage struck the Moon."),
+            ReelBeat(role="point", chapter="Why", pose="point",
+                     say="Not deliberate.",
+                     caption="It was up there because solar activity pulled it *off course*.",
+                     detail="Nobody planned this.",
+                     narration="It was up there because solar activity had pulled it off course."),
+            ReelBeat(role="graphic", chapter="Where", pose="present",
+                     plates=["story"],
+                     caption="It came down near *Einstein Crater*, on the far side.",
+                     detail="Out of view from Earth.",
+                     narration="It came down near Einstein Crater, on the far side."),
+            ReelBeat(role="graphic", chapter="How fast", pose="jump",
+                     graphic="counter", data={"value": "8700"},
+                     caption="kilometres per hour.",
+                     detail="About six times a rifle bullet.",
+                     narration="Eight thousand seven hundred kilometres per hour."),
+            ReelBeat(role="point", chapter="The correction", pose="talk",
+                     caption="That one was reported as *SpaceX* too.",
+                     detail="Every major outlet ran it.",
+                     narration="The last one was reported as SpaceX too."),
+            ReelBeat(role="outro", chapter="Read it", pose="cta",
+                     say="Come and read it.",
+                     caption="The full story is on *headlinne.com*.",
+                     detail="Every source, side by side.",
+                     narration="The full story is on headlinne dot com."),
         ],
-        caption="A sample caption.", hashtags=["Tech"], sources="Reuters, BBC +2",
-        scheduled_time="2026-08-10T09:30:00+05:30",
+        caption="A sample caption.", hashtags=["Science"],
+        sources="Reuters · AP · Al Jazeera · Space.com +4",
+        dateline="TUE 18 AUG", story=story,
+        scheduled_time="2026-08-18T09:30:00+05:30",
     )
 
-    education = Reel(
-        slot="reel_2", kind="education", category="Finance",
-        title="Why a rate hike makes your loan cost more",
-        hook="One vote. Your mortgage. Six months.",
-        beats=[
-            ReelBeat(role="hook", caption="One vote. Your mortgage. Six months.",
-                     detail="Here is the chain nobody explains.",
-                     narration="One vote, your mortgage, six months. Here's the chain nobody explains."),
-            ReelBeat(role="point", caption="It starts with one rate",
-                     detail="The central bank sets what banks pay to borrow "
-                            "from each other overnight.",
-                     narration="It starts with one rate: what banks pay to borrow overnight."),
-            ReelBeat(role="point", caption="Meet Priya's bakery",
-                     detail="Her loan is priced off that rate. It moves, her "
-                            "repayment moves, her bread gets more expensive.",
-                     narration="Priya's bakery loan is priced off it. It moves, so does her bread."),
-            ReelBeat(role="graphic", caption="The chain",
-                     narration="The whole chain runs in three steps, and you're the last one.",
-                     graphic="flow",
-                     data={"steps": ["Central bank raises",
-                                     "Banks charge more",
-                                     "You pay more"]}),
-            ReelBeat(role="point", caption="The rule",
-                     detail="Rates are the price of money, and everything "
-                            "bought with borrowed money reprices.",
-                     narration="Rates are the price of money, so borrowed money reprices everything."),
-            ReelBeat(role="payoff", caption="That is the whole mechanism",
-                     narration="And that's the whole mechanism, start to finish."),
-        ],
-        caption="A sample caption.", hashtags=["Finance"],
-        scheduled_time="2026-08-10T20:00:00+05:30",
-    )
+    plan_durations(reel)
+    pace = visual.check_pace(reel)
+    frames = ReelFrames(reel, story, loader=lambda _src: None)
+    geometry = visual.check_reel_frames(frames, sample_every=12, story=story)
+    for message in pace.errors + geometry.errors:
+        print(f"  visual gate: {message}")
+    if not (pace.ok and geometry.ok):
+        print("  the preview reel would not have published; not encoding it.")
+        return []
 
-    produced: list[Path] = []
-    for reel in (news, education):
-        # No network in preview: a loader that always returns None makes every
-        # beat use the designed brand panel instead of an article photo, and the
-        # stub voice below stands in for Gemini TTS so a preview never spends a
-        # request. Pass --voice to hear the real thing.
-        video, cover = render_reel(
-            reel, out_root / "reels", image_loader=lambda _src: None,
-            voiceover=True,
-            tts_client=None if args.voice else _StubVoice())
-        produced.extend([video, cover])
-        print(f"  reel {reel.slot}: {reel.duration_seconds:.1f}s "
-              f"({'narrated' if reel.has_voiceover else 'silent'})")
-    return produced
-
-
-class _StubVoice:
-    """Stands in for Gemini TTS in previews.
-
-    Returns silence of the length the real voice would take, so the preview has
-    the same pacing and the same cut points as a narrated reel without making a
-    single API call. It is the timing that needs checking offline, not the timbre.
-    """
-
-    CHARS_PER_SECOND = 13.0
-
-    def synthesize(self, text: str, *, voice: str, style: str = "") -> bytes:
-        from .gemini.tts import silence
-
-        return silence(max(1.2, len(text or "") / self.CHARS_PER_SECOND))
+    # voiceover=False on purpose. A preview is for checking the layout and the
+    # cut points, both of which are honest at reading speed, and it should never
+    # spend a speech request just because a key happens to be in the environment.
+    video = render_reel(reel, out_root / "reels", story=story,
+                        image_loader=lambda _src: None, voiceover=False)
+    cover = Path(reel.cover_file) if reel.cover_file else None
+    print(f"  reel {reel.slot}: {reel.duration_seconds:.1f}s, "
+          f"{geometry.checks} geometry checks passed")
+    return [p for p in (video, cover) if p]
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -301,10 +317,6 @@ def build_parser() -> argparse.ArgumentParser:
     pv.add_argument("--no-video", action="store_true",
                     help="skip the reel previews (they need ffmpeg and take "
                          "about two minutes each)")
-    pv.add_argument("--voice", action="store_true",
-                    help="narrate the preview reels with the real Gemini TTS "
-                         "voice (needs GEMINI_API_KEY). Without this the "
-                         "preview uses correctly-timed silence.")
     pv.set_defaults(func=_cmd_preview)
 
     r = sub.add_parser("reddit",

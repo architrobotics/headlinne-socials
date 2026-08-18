@@ -24,7 +24,16 @@ from ..quality.sanitize import sanitize
 from ..scheduling import slot_iso
 from . import hooks
 from .common import clamp_words
-from .instagram import source_line
+from ..render import receipt as receipt_mod
+
+
+def source_line(story) -> str:
+    """The attribution line under the card's tick strip.
+
+    Taken from the agreement record rather than the raw corroborating list, so a
+    wire story carried by six outlets is named once rather than six times.
+    """
+    return receipt_mod.named(story, limit=4)
 
 log = get_logger("generate.story_card")
 

@@ -1,0 +1,13 @@
+# The runners are Ubuntu and the authoring machine is Windows. Without this,
+# the first commit from Windows bakes CRLF into every source file and every
+# later diff on a runner shows the whole file as changed.
+* text=auto eol=lf
+
+# Binary assets must never be touched.
+*.png binary
+*.jpg binary
+*.gif binary
+*.mp4 binary
+*.wav binary
+*.ttf binary
+*.b64 binary

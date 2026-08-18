@@ -57,7 +57,11 @@ jobs:
           PUBLIC_IMAGE_BASE_URL: ${{ vars.PUBLIC_IMAGE_BASE_URL }}
           REELS_ENABLED: ${{ vars.REELS_ENABLED }}
           STORY_CARD_ENABLED: ${{ vars.STORY_CARD_ENABLED }}
+          CAROUSEL_ENABLED: ${{ vars.CAROUSEL_ENABLED }}
           IG_SECOND_CAROUSEL: ${{ vars.IG_SECOND_CAROUSEL }}
+          SECOND_REEL: ${{ vars.SECOND_REEL }}
+          GEMINI_FALLBACK_MODELS: ${{ vars.GEMINI_FALLBACK_MODELS }}
+          FEED_TIMEOUT_SECONDS: ${{ vars.FEED_TIMEOUT_SECONDS }}
           REEL_VOICEOVER: ${{ vars.REEL_VOICEOVER }}
           REEL_TTS_MODEL: ${{ vars.REEL_TTS_MODEL }}
           REEL_VOICE_NEWS: ${{ vars.REEL_VOICE_NEWS }}

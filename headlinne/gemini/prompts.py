@@ -532,3 +532,126 @@ Return JSON exactly like this:
   "hashtags": ["Word", "Word"]
 }}
 """.strip()
+
+
+# --------------------------------------------------------------------------- #
+# The daily carousel: one story, argued across five slides
+# --------------------------------------------------------------------------- #
+def carousel_prompt(story_block: str, category_label: str,
+                    agreement_line: str) -> str:
+    """Five slides doing five different jobs, about one story.
+
+    The old prompt asked for N interchangeable story slides, which is why the
+    result read as a list. This asks for an argument: each slide has to answer
+    the question the previous one raises, and the model is told what each slide
+    is *for* rather than just how long it may be.
+    """
+    return f"""Write one Instagram carousel about a single {category_label} story.
+
+THE STORY
+{story_block}
+
+SOURCING
+{agreement_line}
+
+Five slides. Each has a different job, and the order is the argument. Do not
+write five versions of the same thing.
+
+1. COVER - what happened. A headline of at most 9 words that states the event
+   plainly, and one line under it carrying the single most concrete fact
+   (a figure, a distance, a speed). Also write what the mascot says: a short,
+   plain remark of at most 6 words, no jokes.
+2. SCALE - how big. Pull ONE number out of the story and give it a comparison a
+   person can picture ("about the size of a school bus"). `figure` is just the
+   number, `unit` is what it counts. If the story has no real number, set both
+   to empty strings and explain the scale of the thing in words instead. Never
+   invent a figure.
+3. TWIST - the thing a reader does not already know. A prior mistake, a
+   correction, a surprising cause, an unnoticed consequence. This is the slide
+   that earns the share, so it must be genuinely new information from the story
+   and not a restatement of the cover.
+4. SOURCES - why this is trustworthy. One or two sentences about what the
+   agreement between outlets means for this particular story.
+5. CTA - the sign-off. One line inviting a read.
+
+VOICE
+Informational, and interesting because of the facts rather than the delivery.
+Explain, do not announce. Use because, and, which, so - one thought carried
+through, not eleven headlines. No jokes, no hype, no clickbait, no rhetorical
+questions as headlines.
+
+Return ONLY JSON:
+{{
+  "cover_headline": "at most 9 words",
+  "cover_sub": "one line, the most concrete fact",
+  "cover_say": "at most 6 words",
+  "figure": "the number alone, or empty",
+  "unit": "what it counts, or empty",
+  "scale_text": "the comparison, one or two sentences",
+  "twist_headline": "at most 12 words",
+  "twist_text": "one or two sentences",
+  "twist_say": "at most 6 words",
+  "sources_text": "one or two sentences",
+  "cta_sub": "one line",
+  "caption": "3 or 4 short paragraphs ending in a genuine question",
+  "hashtags": ["Topical", "Tags"]
+}}"""
+
+
+def reel_daily_prompt(story_block: str, hook_brief: str, agreement_line: str,
+                      num_beats: int = 7) -> str:
+    """The single daily reel: a story explained across `num_beats` cuts.
+
+    Two lines per beat, and they are not the same sentence. The on-screen line
+    is read at a glance; the spoken line is heard. Writing one and using it for
+    both produces copy that is stilted in one medium or the other.
+
+    `*asterisks*` mark the words the renderer sets in the accent colour at a
+    heavier weight. They are the emphasis a variable font makes possible, so
+    exactly one span per beat, on the word that carries the meaning.
+    """
+    return f"""Write a {num_beats}-beat vertical video explaining one story.
+
+THE STORY
+{story_block}
+
+SOURCING
+{agreement_line}
+
+OPENING
+{hook_brief}
+
+Each beat needs:
+  chapter   1-3 words naming the question this beat answers ("What happened",
+            "Where", "How fast", "The correction"). It appears above the line.
+  caption   the on-screen line. At most 14 words. Wrap ONE span in *asterisks*
+            to mark the words that carry the meaning - exactly one per beat.
+  detail    a supporting line of at most 9 words. It is scanned, not read.
+  narration what is said aloud. Written to be spoken, so it may differ from the
+            caption entirely. At most 20 words.
+
+Flow the beats into each other - because, and, which, so. One thought carried
+through the whole reel, not {num_beats} separate headlines.
+
+If, and only if, the story contains a striking figure, make ONE beat a counter:
+set "counter" to that number with no units or commas, and write the caption as
+the words that follow it ("kilometres per hour."). The figure must appear in the
+story text exactly. If there is no such figure, set "counter" to null on every
+beat rather than inventing one.
+
+The last beat is the sign-off and must mention headlinne.com.
+
+VOICE
+Informational. The interest lives in the facts, not the delivery. A four-tonne
+rocket hitting the Moon does not need help being interesting. No jokes, no
+"here's my favourite part", no hype.
+
+Return ONLY JSON:
+{{
+  "beats": [
+    {{"chapter": "...", "caption": "... *emphasis* ...", "detail": "...",
+      "narration": "...", "counter": null}}
+  ],
+  "caption": "3 short paragraphs ending in a genuine question",
+  "hashtags": ["Topical", "Tags"]
+}}"""

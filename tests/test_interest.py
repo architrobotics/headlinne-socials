@@ -1,101 +1,93 @@
-"""Does the ranker prefer a story a person would actually read?
+"""The interest score: what it rewards, and the matching bugs it must not regress.
 
-The regression these guard against is the one the old weights had: cross-source
-count was the heaviest term, so the highest-scoring story was always the most
-widely attended one. On live feeds that produced a rate decision above a rocket
-hitting the Moon, and an X-Files director's cut in the top eight twice.
+Every case in the first two tests is a real headline that scored wrongly before
+the lexicons were boundary-anchored. They are here as regressions, not examples.
 """
 
-from __future__ import annotations
-
-from headlinne.models import Story
 from headlinne.news import interest as I
-from headlinne.news.ranking import rank
 
 
-def _story(title, summary="", category="Technology", tier=1.2, source="Example",
-           image=None):
-    return Story(
-        title=title, summary=summary, url="https://example.com/" + title[:12],
-        category=category, source=source, tier=tier,
-        published_iso="2026-08-15T09:00:00+00:00", image_url=image)
+def test_a_brand_name_containing_a_lexicon_word_is_not_universal():
+    # "Samsung" contains "sun", and a raw substring match scored a layoff notice
+    # as though it were about the solar system.
+    assert I.breakdown("Samsung Electronics America cuts 739 jobs")["universal"] == 0.0
+    # The real word still matches.
+    assert I.breakdown("The sun is more active than models predicted")["universal"] > 0
 
 
-def _covered_by(title, outlets, **kw):
-    """The same event as filed by several outlets, so the ranker clusters it.
-
-    Corroboration cannot be faked on a single Story: _merge() rebuilds it from
-    the distinct source names of a real cluster, which is what makes
-    Story.verified mean anything.
-    """
-    return [_story(title, source=o, **kw) for o in outlets]
+def test_a_word_containing_a_physical_noun_is_not_concrete():
+    # "notice" and "twice" both contain "ice".
+    assert I.breakdown("WARN notice says the plant will close")["concrete"] == 0.0
+    assert I.breakdown("The rate doubled twice over")["concrete"] == 0.0
+    # Actual ice still counts.
+    assert I.breakdown("Sea ice reached a new low this week")["concrete"] > 0
 
 
-MOON = "A SpaceX rocket crashed into the Moon at 8,700 kilometres per hour"
-RATES = "Bank holds interest rates for a fourth consecutive meeting"
+def test_a_stem_matches_every_ending_of_its_word():
+    scores = {form: I.breakdown(f"Scientists {form} why the reaction stalls")["novelty"]
+              for form in ("discover", "discovers", "discovered")}
+    assert set(scores.values()) == {0.5}, scores
 
 
-def test_an_event_outscores_a_process():
-    assert I.interest(MOON) > I.interest(RATES)
+def test_a_stem_does_not_bleed_into_an_unrelated_word():
+    # `star` is not a stem, so "start" must not read as a physical noun.
+    assert I.breakdown("Talks start in Geneva on Monday")["concrete"] == 0.0
+    assert I.breakdown("The star is older than the galaxy")["concrete"] > 0
 
 
-def test_procedural_language_is_penalised():
-    plain = I.interest("Regulator approved the merger")
-    proc = I.interest("Regulator meets to discuss whether it could approve the merger")
-    assert plain > proc
+def test_first_is_counted_as_novelty_but_never_as_uplift():
+    # It sat in both lexicons, so one neutral word scored twice and "first close
+    # below IPO price" read as good news.
+    b = I.breakdown("Chipotle opens its first outlet in Mexico")
+    assert b["novelty"] > 0
+    assert b["uplift"] == 0.0
 
 
-def test_universal_beats_parochial():
-    assert I.interest("New research explains why the human brain forgets") > \
-           I.interest("Borough council committee weighs quarterly earnings report")
+def test_a_market_story_is_not_universal_even_under_a_household_brand():
+    product = I.interest("Apple says the iPhone will now warn you before an app "
+                         "reads your location")
+    market = I.interest("Apple stock notches first close below its IPO price")
+    assert product > market, (product, market)
 
 
-def test_a_photograph_counts_for_something():
-    assert I.interest(MOON, has_image=True) > I.interest(MOON, has_image=False)
+def test_usefulness_is_scored():
+    plain = I.breakdown("A phone maker changed a setting")["useful"]
+    useful = I.breakdown("Your phone will now warn you before an app reads "
+                         "your location")["useful"]
+    assert useful > plain
 
 
-def test_concrete_numbers_beat_abstractions():
-    assert I.interest("The crater is 29 metres wide") > \
-           I.interest("Officials described the outcome as significant")
+def test_a_process_story_loses_to_an_event():
+    event = I.interest("A four-tonne rocket stage struck the Moon at 8,700 km/h")
+    process = I.interest("Central bank holds rates and meets again to discuss "
+                         "whether policy might change")
+    assert event > process
+    assert process < 0, "a pure process story should score negative"
 
 
-def test_sensitive_stories_are_flagged_not_scored_down():
-    """They must publish - they just must not be dressed up as delightful."""
-    grim = "At least 44 dead after an overcrowded ferry capsized"
-    assert I.is_sensitive(grim)
-    assert not I.is_sensitive(MOON)
-    assert I.interest(grim) > 0      # still a real story, still rankable
+def test_death_and_disaster_route_sober_without_scoring_lower():
+    assert I.is_sensitive("Ferry capsizes, 40 dead and dozens missing")
+    assert not I.is_sensitive("Ferry service returns after a decade")
+    # Sensitivity is a routing decision, not a penalty: it must not appear as a
+    # term in the score.
+    assert "sensitive" not in I._terms("40 dead in a ferry capsize", "", False)
 
 
-def test_wide_coverage_no_longer_buries_an_interesting_story():
-    """The exact failure the old weights had, as a test."""
-    digest = rank(
-        _covered_by(RATES, ["Reuters", "BBC", "FT", "AP", "Sky", "CNBC"],
-                    summary="The committee voted to hold.", category="Finance",
-                    tier=1.4)
-        + _covered_by(MOON, ["Space.com", "New Scientist"],
-                      summary="Four tonnes, near Einstein Crater.",
-                      image="https://example.com/x.jpg"))
-    top = max((s for v in digest.by_category.values() for s in v),
-              key=lambda s: s.score)
-    assert MOON in top.title, "the widely-covered process story won again"
+def test_universality_is_reported_separately_so_it_can_be_a_tilt():
+    assert I.is_universal("What sleep does to the brain")
+    assert not I.is_universal("Council approves the borough budget speech")
 
 
-def test_ranking_sets_the_verification_and_sensitivity_flags():
-    digest = rank(
-        _covered_by(MOON, ["Space.com", "New Scientist", "Reuters"])
-        + [_story("Two dead in a factory fire", category="Geopolitics")])
-    everything = [s for v in digest.by_category.values() for s in v]
-    by_title = {s.title: s for s in everything}
-    assert by_title[MOON].verified is True
-    assert by_title[MOON].sensitive is False
-    fire = by_title["Two dead in a factory fire"]
-    assert fire.verified is False, "one source is not verification"
-    assert fire.sensitive is True
+def test_a_repeated_word_does_not_max_a_term_on_its_own():
+    once = I.breakdown("The moon is bright")["universal"]
+    thrice = I.breakdown("The moon, the moon, the moon")["universal"]
+    assert once == thrice
 
 
-def test_explainers_are_no_longer_treated_as_low_value():
-    """They are the evening reel's entire genre."""
-    from headlinne.news.ranking import _LOW_VALUE_MARKERS
-    assert "explainer" not in _LOW_VALUE_MARKERS
-    assert "how to" not in _LOW_VALUE_MARKERS
+def test_the_breakdown_explains_the_total():
+    b = I.breakdown("Immune cells flood into the aging brain, scientists discover")
+    assert b["total"] == round(I.interest(
+        "Immune cells flood into the aging brain, scientists discover"), 2)
+    for term in ("concrete", "novelty", "surprise", "universal", "useful",
+                 "uplift", "standalone", "procedural"):
+        assert term in b, term

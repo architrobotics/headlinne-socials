@@ -27,8 +27,9 @@ from __future__ import annotations
 from datetime import date, datetime, timezone
 
 from . import storage
-from .config import (BUFFER_SCHEDULING_MODE, CATEGORIES, IG_SECOND_CAROUSEL,
-                     REELS_ENABLED, SECRETS, STORY_CARD_ENABLED)
+from .config import (BUFFER_SCHEDULING_MODE, CAROUSEL_ENABLED, CATEGORIES,
+                     IG_SECOND_CAROUSEL, REELS_ENABLED, SECOND_REEL, SECRETS,
+                     STORY_CARD_ENABLED)
 from .gemini.client import GeminiClient
 from .generate import instagram as gen_instagram
 from .generate import linkedin as gen_linkedin
@@ -37,7 +38,7 @@ from .generate import story_card as gen_story_card
 from .generate import twitter as gen_twitter
 from .logging_setup import get_logger
 from .models import DayPlan, NewsDigest
-from .news import fetch_all, rank, strongest_categories
+from .news import corroborate, fetch_all, rank, strongest_categories
 from .quality import (History, check_instagram, check_linkedin, check_reel,
                       check_story_card, check_twitter)
 from .quality.dedup import History as _History  # noqa: F401  (re-export friendliness)
@@ -84,6 +85,31 @@ def _drop_seen(digest: NewsDigest, history: History) -> None:
         digest.by_category[cat] = kept
 
 
+def _corroborate_selected(digest: NewsDigest, corpus: list) -> None:
+    """Fill in sources, verification and agreement for what might publish.
+
+    Clustering is tuned to avoid fusing distinct stories into one post, which
+    makes it far too strict to count coverage: on a 297-story day it verified 9
+    events out of 288. This second pass asks a different question of the same
+    already-fetched corpus and costs no extra request.
+    """
+    chosen = [s for stories in digest.by_category.values() for s in stories[:6]]
+    if digest.breaking and digest.breaking not in chosen:
+        chosen.append(digest.breaking)
+    if not chosen:
+        return
+    corroborate.attach(chosen, corpus)
+
+    verified = sum(1 for s in chosen if s.verified)
+    disputed = [s for s in chosen if s.agreement.state == "disputed"]
+    log.info("Corroborated %d/%d candidates to two or more independent outlets",
+             verified, len(chosen))
+    for s in disputed:
+        log.info("Sources disagree on %r (%s): %s",
+                 s.title[:60], s.agreement.claim,
+                 ", ".join(f"{c.outlet} {c.value}" for c in s.agreement.conflicts))
+
+
 def _twitter_categories(digest: NewsDigest) -> list[str]:
     """Two different categories for the day's two news posts, breaking first."""
     order = strongest_categories(digest, n=len(CATEGORIES))
@@ -111,6 +137,7 @@ def generate(day: date | None = None, *, render: bool = True,
     stories = fetch_all()
     digest = rank(stories)
     _drop_seen(digest, history)
+    _corroborate_selected(digest, stories)
     storage.save_digest(day, digest)
 
     promo = is_promo_day(day)
@@ -130,12 +157,17 @@ def generate(day: date | None = None, *, render: bool = True,
     week_stories = storage.recent_week_stories(day) if friday else []
     linkedin_post = gen_linkedin.generate(client, digest, day, friday, week_stories)
 
-    # 4. Instagram carousels (the strongest categories)
-    ig_cats = strongest_categories(digest, n=2 if IG_SECOND_CAROUSEL else 1)
-    carousels = gen_instagram.generate(client, digest, ig_cats, day)
-
-    # 5. Reels: one news explainer, one educational explainer.
+    # 4. The reel. One a day, on the day's strongest story. It goes first
+    #    because it gets first claim on that story: the reel is the only surface
+    #    that reaches people who do not already follow, so it should carry the
+    #    best thing available rather than whatever the carousel left behind.
     reels = _generate_reels(client, digest, day)
+    reel_url = next((r.story_url for r in reels if r.story_url), "")
+
+    # 5. The carousel, on a different story from the reel, so the day does not
+    #    spend two of its three posts on one event.
+    carousels = _generate_carousel(client, digest, day,
+                                   exclude_urls={reel_url} if reel_url else set())
 
     # 6. The daily story card. Generated after the reels so it can be given a
     #    different story from the news reel, rather than the day spending two of
@@ -144,12 +176,12 @@ def generate(day: date | None = None, *, render: bool = True,
 
     # 7. Render everything.
     if render:
-        for carousel in carousels:
-            render_carousel(carousel, storage.carousel_dir(day, carousel.slot))
+        carousels = _render_carousels(day, carousels)
         reels = _render_reels(day, reels)
         if story_card:
             try:
-                render_story_card(story_card, storage.story_card_path(day))
+                render_story_card(story_card, storage.story_card_path(day),
+                                  story=getattr(story_card, "story", None))
             except Exception as exc:  # pragma: no cover - never fail the whole run
                 log.error("story card render failed: %s", exc, exc_info=True)
                 story_card = None
@@ -184,10 +216,11 @@ def generate(day: date | None = None, *, render: bool = True,
 
     # 9. Record history so tomorrow does not repeat today.
     used_urls, used_titles, used_texts = [], [], []
-    for cat in ig_cats:
-        for s in digest.by_category.get(cat, [])[:5]:
-            used_urls.append(s.url)
-            used_titles.append(s.title)
+    for carousel in carousels:
+        if carousel.story_url:
+            used_urls.append(carousel.story_url)
+        if carousel.story is not None:
+            used_titles.append(carousel.story.title)
     for r in reels:
         if r.story_url:
             used_urls.append(r.story_url)
@@ -226,10 +259,10 @@ def generate(day: date | None = None, *, render: bool = True,
 # Reels and the story card
 # --------------------------------------------------------------------------- #
 def _generate_reels(client: GeminiClient, digest: NewsDigest, day: date) -> list:
-    """The day's news explainer and educational explainer.
+    """The day's reel. One, unless the second slot has been turned on.
 
-    Each is attempted independently: a failure in one is logged and skipped
-    rather than taking the other (or the rest of the day) down with it.
+    Failures are contained: a reel that cannot be written is logged and skipped
+    rather than taking the rest of the day down with it.
     """
     if not REELS_ENABLED:
         log.info("reels disabled (REELS_ENABLED), skipping.")
@@ -237,17 +270,34 @@ def _generate_reels(client: GeminiClient, digest: NewsDigest, day: date) -> list
 
     reels = []
     try:
-        news_reel = gen_reel.generate_news(client, digest, day)
-        if news_reel:
-            reels.append(news_reel)
+        reel = gen_reel.generate_daily(client, digest, day)
+        if reel:
+            reels.append(reel)
     except Exception as exc:  # noqa: BLE001 - one format must not sink the run
-        log.error("news reel generation failed: %s", exc, exc_info=True)
+        log.error("daily reel generation failed: %s", exc, exc_info=True)
 
-    try:
-        reels.append(gen_reel.generate_education(client, day))
-    except Exception as exc:  # noqa: BLE001
-        log.error("education reel generation failed: %s", exc, exc_info=True)
+    if SECOND_REEL:
+        try:
+            second = gen_reel.generate_education(client, day)
+            second.slot = "reel_2"
+            reels.append(second)
+        except Exception as exc:  # noqa: BLE001
+            log.error("second reel generation failed: %s", exc, exc_info=True)
     return reels
+
+
+def _generate_carousel(client: GeminiClient, digest: NewsDigest, day: date,
+                       exclude_urls: set[str]) -> list:
+    """The day's carousel: one story, five slides."""
+    if not CAROUSEL_ENABLED:
+        log.info("carousel disabled (CAROUSEL_ENABLED), skipping.")
+        return []
+    try:
+        return gen_instagram.generate(client, digest, day,
+                                      exclude_urls=exclude_urls)
+    except Exception as exc:  # noqa: BLE001
+        log.error("carousel generation failed: %s", exc, exc_info=True)
+        return []
 
 
 def _generate_story_card(client: GeminiClient, digest: NewsDigest, day: date,
@@ -267,6 +317,37 @@ def _generate_story_card(client: GeminiClient, digest: NewsDigest, day: date,
         return None
 
 
+def _render_carousels(day: date, carousels: list) -> list:
+    """Render each carousel and put it through the visual gate.
+
+    A carousel that fails the gate is dropped from the day rather than
+    published. That is the same containment every other stage uses, and it is
+    the right trade: a missing post costs one day of reach, a visibly broken one
+    costs trust in every post around it.
+    """
+    from PIL import Image
+
+    from .quality import visual
+
+    kept = []
+    for carousel in carousels:
+        try:
+            paths = render_carousel(carousel, storage.carousel_dir(day, carousel.slot))
+        except Exception as exc:  # noqa: BLE001
+            log.error("carousel render failed for %s: %s", carousel.slot, exc,
+                      exc_info=True)
+            continue
+        report = visual.check_carousel(carousel, [Image.open(p) for p in paths])
+        for warning in report.warnings:
+            log.warning("visual: %s", warning)
+        if report.ok:
+            kept.append(carousel)
+        else:
+            for error in report.errors[:6]:
+                log.error("dropping carousel %s: %s", carousel.slot, error)
+    return kept
+
+
 def _render_reels(day: date, reels: list) -> list:
     """Render each reel to MP4, keeping only the ones that produced a file.
 
@@ -281,14 +362,42 @@ def _render_reels(day: date, reels: list) -> list:
                   "Install ffmpeg or `pip install imageio-ffmpeg`.")
         return []
 
+    from .quality import visual
+    from .render.reel import ReelFrames
+
     rendered = []
     for reel in reels:
+        story = _story_for_reel(reel)
+        # Validate the geometry before spending two minutes encoding it. A reel
+        # that breaks the safe zone is going to break it on every one of its
+        # nine hundred frames, so finding out before the encoder runs is free.
+        pace = visual.check_pace(reel)
+        frames = ReelFrames(reel, story)
+        geometry = visual.check_reel_frames(frames, sample_every=12, story=story)
+        for warning in pace.warnings + geometry.warnings:
+            log.warning("visual: %s", warning)
+        if not (pace.ok and geometry.ok):
+            for error in (pace.errors + geometry.errors)[:6]:
+                log.error("dropping reel %s: %s", reel.slot, error)
+            continue
         try:
-            render_reel(reel, storage.reel_dir(day))
+            # render_reel builds the narration itself, in one speech request,
+            # and takes the beat lengths from it.
+            render_reel(reel, storage.reel_dir(day), story=story,
+                        day_ordinal=day.toordinal())
             rendered.append(reel)
         except Exception as exc:  # noqa: BLE001
             log.error("reel render failed for %s: %s", reel.slot, exc, exc_info=True)
     return rendered
+
+
+def _story_for_reel(reel):
+    """The Story a reel is about, when it has one.
+
+    Educational reels teach an evergreen idea and have no article behind them,
+    so they render without a source strip rather than with an invented one.
+    """
+    return getattr(reel, "story", None)
 
 
 def _quality_filter_twitter(posts):

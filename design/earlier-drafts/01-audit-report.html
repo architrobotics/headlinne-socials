@@ -1,0 +1,1235 @@
+<title>Headlinne Social Rebuild</title>
+<style>
+:root{
+  --paper:#E7E9E4;
+  --surface:#F3F4F1;
+  --surface-2:#DDE0DA;
+  --ink:#15181A;
+  --ink-soft:#59605F;
+  --ink-faint:#868D8B;
+  --rule:#C8CCC5;
+  --rule-soft:#D6D9D2;
+  --signal:#1B4DE4;
+  --signal-wash:rgba(27,77,228,.09);
+  --flag:#B3312A;
+  --flag-wash:rgba(179,49,42,.10);
+  --go:#1B6B50;
+  --go-wash:rgba(27,107,80,.10);
+  --shadow:0 1px 2px rgba(20,24,26,.06),0 8px 24px -16px rgba(20,24,26,.28);
+
+  --display:"Segoe UI Variable Display","SF Pro Display",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+  --body:"Segoe UI Variable Text","SF Pro Text",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"Cascadia Code","Cascadia Mono","SF Mono","JetBrains Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#0F1213;
+    --surface:#171B1C;
+    --surface-2:#1F2425;
+    --ink:#E7E9E4;
+    --ink-soft:#949C9A;
+    --ink-faint:#6E7674;
+    --rule:#2A2F30;
+    --rule-soft:#232829;
+    --signal:#78A0FF;
+    --signal-wash:rgba(120,160,255,.12);
+    --flag:#FF7063;
+    --flag-wash:rgba(255,112,99,.13);
+    --go:#48B98C;
+    --go-wash:rgba(72,185,140,.13);
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px -16px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0F1213;
+  --surface:#171B1C;
+  --surface-2:#1F2425;
+  --ink:#E7E9E4;
+  --ink-soft:#949C9A;
+  --ink-faint:#6E7674;
+  --rule:#2A2F30;
+  --rule-soft:#232829;
+  --signal:#78A0FF;
+  --signal-wash:rgba(120,160,255,.12);
+  --flag:#FF7063;
+  --flag-wash:rgba(255,112,99,.13);
+  --go:#48B98C;
+  --go-wash:rgba(72,185,140,.13);
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px -16px rgba(0,0,0,.7);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:17px;
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px 120px}
+
+/* ---------- furniture ---------- */
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+.eyebrow{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--ink-faint);
+}
+
+/* ---------- masthead ---------- */
+.masthead{padding:64px 0 40px;border-bottom:2px solid var(--ink)}
+.masthead .kicker{display:flex;gap:18px;flex-wrap:wrap;align-items:baseline;margin-bottom:30px}
+.masthead .kicker span{font-family:var(--mono);font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-faint)}
+.masthead .kicker span:first-child{color:var(--signal)}
+h1{
+  font-family:var(--display);
+  font-size:clamp(40px,7vw,78px);
+  line-height:.98;
+  letter-spacing:-.035em;
+  font-weight:700;
+  margin:0 0 26px;
+  text-wrap:balance;
+  max-width:16ch;
+}
+.standfirst{
+  font-size:clamp(18px,2.2vw,22px);line-height:1.5;color:var(--ink-soft);
+  max-width:60ch;margin:0;
+}
+.standfirst strong{color:var(--ink);font-weight:600}
+
+/* ---------- contact sheet ---------- */
+.sheet{margin:44px 0 0}
+.sheet-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+  gap:10px;align-items:start;
+}
+.shot{position:relative;background:var(--surface-2);border:1px solid var(--rule);overflow:hidden}
+.shot img{display:block;width:100%;height:auto}
+.shot figcaption{
+  font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink-faint);padding:6px 7px;border-top:1px solid var(--rule-soft);
+  display:flex;justify-content:space-between;gap:6px;
+}
+.sheet-note{
+  margin-top:14px;font-family:var(--mono);font-size:12px;line-height:1.7;color:var(--ink-soft);
+  border-left:2px solid var(--signal);padding-left:14px;max-width:78ch;text-transform:none;letter-spacing:0;
+}
+
+/* ---------- section scaffolding ---------- */
+section{border-top:1px solid var(--rule);padding-top:34px;margin-top:64px}
+.sec-head{display:grid;grid-template-columns:120px 1fr;gap:32px;align-items:start;margin-bottom:38px}
+.sec-num{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--signal);padding-top:9px}
+.sec-num em{display:block;color:var(--ink-faint);font-style:normal;margin-top:5px;letter-spacing:.06em}
+h2{
+  font-family:var(--display);font-size:clamp(27px,3.6vw,40px);line-height:1.06;
+  letter-spacing:-.028em;font-weight:700;margin:0 0 12px;text-wrap:balance;max-width:22ch;
+}
+.sec-head p{margin:0;color:var(--ink-soft);max-width:62ch;font-size:17px}
+.body-col{display:grid;grid-template-columns:120px 1fr;gap:32px}
+.body-col > .rail{font-family:var(--mono);font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-faint);line-height:1.8}
+.col{max-width:70ch}
+.col > *:first-child{margin-top:0}
+h3{
+  font-family:var(--display);font-size:22px;line-height:1.2;letter-spacing:-.02em;
+  font-weight:700;margin:44px 0 12px;text-wrap:balance;
+}
+h4{
+  font-family:var(--mono);font-size:12px;letter-spacing:.11em;text-transform:uppercase;
+  font-weight:600;color:var(--ink-soft);margin:32px 0 10px;
+}
+p{margin:0 0 17px}
+a{color:var(--signal);text-underline-offset:3px;text-decoration-thickness:1px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
+ul,ol{margin:0 0 18px;padding-left:20px}
+li{margin-bottom:9px}
+li::marker{color:var(--ink-faint)}
+strong{font-weight:640}
+code{
+  font-family:var(--mono);font-size:.87em;background:var(--surface-2);
+  padding:1.5px 5px;border-radius:2px;
+}
+
+/* ---------- defect cards ---------- */
+.defects{display:grid;gap:2px;background:var(--rule);border:1px solid var(--rule);margin:0 0 26px}
+.defect{background:var(--surface);padding:20px 22px;display:grid;grid-template-columns:34px 1fr;gap:16px}
+.defect .sev{
+  font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.04em;
+  padding-top:3px;
+}
+.defect.high .sev{color:var(--flag)}
+.defect.med .sev{color:var(--ink-soft)}
+.defect h5{
+  font-family:var(--display);font-size:18px;letter-spacing:-.015em;font-weight:680;
+  margin:0 0 7px;line-height:1.28;
+}
+.defect p{margin:0 0 10px;font-size:15.5px;line-height:1.58;color:var(--ink-soft)}
+.defect p:last-child{margin-bottom:0}
+.defect .fix{
+  font-size:15px;border-left:2px solid var(--go);padding-left:13px;color:var(--ink);
+}
+.defect .fix b{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--go);display:block;margin-bottom:3px;font-weight:700;
+}
+
+/* ---------- dossiers ---------- */
+.dossier{
+  border:1px solid var(--rule);background:var(--surface);margin:0 0 20px;
+  box-shadow:var(--shadow);
+}
+.dossier > header{
+  padding:17px 22px;border-bottom:1px solid var(--rule);
+  display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;
+}
+.dossier > header h5{
+  font-family:var(--display);font-size:20px;letter-spacing:-.02em;font-weight:700;margin:0;
+}
+.dossier > header .tag{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-faint);white-space:nowrap;
+}
+.dossier .rows{display:grid;gap:1px;background:var(--rule-soft)}
+.dossier .row{
+  background:var(--surface);padding:14px 22px;
+  display:grid;grid-template-columns:132px 1fr;gap:18px;align-items:start;
+}
+.dossier .row dt{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-faint);padding-top:3px;margin:0;
+}
+.dossier .row dd{margin:0;font-size:15.5px;line-height:1.56}
+.dossier .row.steal{background:var(--signal-wash)}
+.dossier .row.steal dt{color:var(--signal)}
+
+/* ---------- stat strip ---------- */
+.stats{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));
+  gap:1px;background:var(--rule);border:1px solid var(--rule);margin:0 0 26px;
+}
+.stat{background:var(--surface);padding:17px 18px}
+.stat .n{
+  font-family:var(--display);font-size:32px;font-weight:700;letter-spacing:-.035em;
+  line-height:1;display:block;margin-bottom:7px;font-variant-numeric:tabular-nums;
+}
+.stat .l{font-size:13.5px;line-height:1.42;color:var(--ink-soft);display:block}
+
+/* ---------- spec tables ---------- */
+.tablewrap{overflow-x:auto;margin:0 0 24px;border:1px solid var(--rule)}
+table{border-collapse:collapse;width:100%;font-size:14.5px;background:var(--surface);min-width:520px}
+th,td{text-align:left;padding:11px 15px;border-bottom:1px solid var(--rule-soft);vertical-align:top}
+th{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-faint);font-weight:600;background:var(--surface-2);
+  border-bottom:1px solid var(--rule);white-space:nowrap;
+}
+tbody tr:last-child td{border-bottom:none}
+td.m,th.m{font-family:var(--mono);font-size:12.5px;font-variant-numeric:tabular-nums;white-space:nowrap}
+td.m{color:var(--ink-soft)}
+
+/* ---------- swatches ---------- */
+.swatches{display:grid;grid-template-columns:repeat(auto-fit,minmax(128px,1fr));gap:10px;margin:0 0 24px}
+.sw{border:1px solid var(--rule);background:var(--surface)}
+.sw .chip{height:62px;border-bottom:1px solid var(--rule)}
+.sw .meta{padding:9px 11px}
+.sw .meta b{
+  display:block;font-family:var(--mono);font-size:11px;letter-spacing:.05em;
+  text-transform:uppercase;font-weight:600;margin-bottom:2px;
+}
+.sw .meta span{
+  display:block;font-family:var(--mono);font-size:11px;color:var(--ink-faint);
+  text-transform:uppercase;letter-spacing:.04em;
+}
+
+/* ---------- timeline ---------- */
+.timeline{border:1px solid var(--rule);background:var(--surface);margin:0 0 24px;overflow-x:auto}
+.tl-inner{min-width:600px;padding:22px}
+.tl-bar{display:flex;height:34px;border:1px solid var(--rule);margin-bottom:8px}
+.tl-seg{
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;
+  border-right:1px solid var(--rule);color:var(--ink);white-space:nowrap;overflow:hidden;
+}
+.tl-seg:last-child{border-right:none}
+.tl-scale{display:flex;font-family:var(--mono);font-size:10.5px;color:var(--ink-faint);font-variant-numeric:tabular-nums}
+.tl-scale span{border-left:1px solid var(--rule);padding-left:5px}
+
+/* ---------- callout ---------- */
+.callout{
+  border:1px solid var(--signal);background:var(--signal-wash);
+  padding:22px 24px;margin:0 0 26px;
+}
+.callout h4{margin-top:0;color:var(--signal)}
+.callout p:last-child{margin-bottom:0}
+.callout.warn{border-color:var(--flag);background:var(--flag-wash)}
+.callout.warn h4{color:var(--flag)}
+
+/* ---------- phases ---------- */
+.phase{border-left:2px solid var(--rule);padding:0 0 4px 22px;margin:0 0 30px;position:relative}
+.phase::before{
+  content:"";position:absolute;left:-5px;top:7px;width:8px;height:8px;
+  background:var(--signal);border-radius:50%;
+}
+.phase h5{
+  font-family:var(--display);font-size:19px;letter-spacing:-.018em;font-weight:700;
+  margin:0 0 4px;
+}
+.phase .when{
+  font-family:var(--mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--ink-faint);display:block;margin-bottom:11px;
+}
+.phase ul{margin-bottom:0}
+
+footer{
+  border-top:2px solid var(--ink);margin-top:76px;padding-top:26px;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--ink-faint);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
+}
+
+@media (max-width:860px){
+  .wrap{padding:0 18px 80px}
+  .sec-head,.body-col{grid-template-columns:1fr;gap:14px}
+  .sec-num{padding-top:0}
+  .sec-num em{display:inline;margin-left:10px}
+  .body-col > .rail{display:none}
+  .dossier .row{grid-template-columns:1fr;gap:5px}
+  .defect{grid-template-columns:26px 1fr;gap:11px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="wrap">
+
+<header class="masthead">
+  <div class="kicker">
+    <span>Design Review</span>
+    <span>Headlinne · Instagram · X</span>
+    <span>15 Aug 2026</span>
+  </div>
+  <h1>The feed is competent. That's the problem.</h1>
+  <p class="standfirst">
+    Nine assets came out of <code>python -m headlinne preview</code>. None of them are embarrassing —
+    the typography is clean, the system is consistent, the copy is tight. They are, however,
+    <strong>indistinguishable from every other automated news account</strong>, they throw away roughly
+    40% of every canvas, and they contain no evidence that Headlinne is a product rather than a quote
+    generator. This document audits all nine, studies the accounts that actually win in this sector,
+    and specifies the replacement system.
+  </p>
+
+  <div class="sheet">
+    <div class="sheet-grid">
+      <figure class="shot"><img src="data:image/jpeg;base64,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" alt="Technology carousel cover slide: dark brown gradient with large condensed headline">
+        <figcaption><span>Carousel 1</span><span>1080²</span></figcaption></figure>
+      <figure class="shot"><img src="data:image/jpeg;base64,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KXfWvvLZbUkI3RBPQ/50qTORq0iLWiJnFOias2ztshtQeYK1FYIPWBHT1qUXFiN37GTIPBV0/wA/rSZn+mopExvKFGir3vFl42pPxcwB1HHj4U60usei2S1d2KnVgqJcSvaT5CkTqWrEeJ1n0Vp+84kIKfcHVEDukuQSfWD/AJ/IYusY1cOLVZKcaU2kBtUHaodSCT41WWZRWjeXdi64lTFlsQDKm+Ezwf3hz1jjwiqt44y64k27exIbSkykCVAcniggooooCiiigKKKKAooooCiiigKKKKAooooEoop7LLj5UGUKWUpK1BI6JHU0QyirisXfps/fFWjottu7tY4jzqJdncthwrYcSGwkrkfCFfDPzpExPhq1LV+UYgop77Llu6tp5CkOIMKSrqDTKMiiiiiiiiigWikoohaKSigWikooFmikqRlh19RSy2pwjqEiY5igZSVb/Db3eUe7ObgraenBjdHXy5pqLC8WVhFs6SiN0J+GY6/cfegrUVZesLthClv27jaUqCTuEc+VNFndFW0Wz5VzwG1Tx18KKgooPHBoqoSjp0oooHb1bdu5UeUmKST5mkooFJJ5JpKKKAooooFomkooFopKKBaKSigWikooFqW3un7VRVbuqbUoQSkxImahooLxy9+SZuVEE7iClMExExETFInLX6FbkXK0q8VAAE8Rzxzx51SopguOZS+dSlLlwpYSQpO4AkEdIMetO/F8hEC6WkSTCQB1+QqjRQOUoqUVKMqUSSfM02iig//2Q==" alt="Technology carousel slide 2, same layout as slide 1 with a faint 01 numeral">
+        <figcaption><span>Carousel 2</span><span>1080²</span></figcaption></figure>
+      <figure class="shot"><img src="data:image/jpeg;base64,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" alt="Geopolitics carousel slide with amber accent and faint 02 numeral">
+        <figcaption><span>Carousel 3</span><span>1080²</span></figcaption></figure>
+      <figure class="shot"><img src="data:image/jpeg;base64,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" alt="Carousel closing slide with logo and follow buttons">
+        <figcaption><span>Carousel CTA</span><span>1080²</span></figcaption></figure>
+      <figure class="shot"><img src="data:image/jpeg;base64,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" alt="Story card with four numbered stops of dense body text on green">
+        <figcaption><span>Story card</span><span>1080²</span></figcaption></figure>
+      <figure class="shot"><img src="data:image/jpeg;base64,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" alt="X news card, square, dark brown with numbered list of three items">
+        <figcaption><span>X news</span><span>1:1</span></figcaption></figure>
+      <figure class="shot"><img src="data:image/jpeg;base64,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" alt="X promo card, square, dark brown with product line">
+        <figcaption><span>X promo</span><span>1:1</span></figcaption></figure>
+      <figure class="shot"><img src="data:image/jpeg;base64,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aSB4eAcZA8DfwWNPeLhT7RFUYDTuaHMa4A7i/OCDzuJOfLK6CqDvtvFe1gY2cbOdze7Zh+QR4hjxcE9crifcKt5jL5smOUzMOxo2vOORgdOBx046Lqog78d4r43NcyoG5ow1xjYXN5J4JGQcuOD5ZUddq5wwZ/3Q0kMaC4cfaOMk+FvJ9F0UQcs9RLUO3TODnZJztAJJJcScDnklcaiILlMqIiqiiIKiiIKiiqCqIogqKIgqqxVQYKqLno3wMm3VLC+PB4AzyjLhRd8G1h7XATFoxlpzyoPduWDExGPGcnjg9Pvwiuki71I+3si21DN7w8+LaeRjhcc76MvYY2O7sE5a0bXdPMnIPKDqqLmqjCTH3AHDBuIaRl33rhQEREFRREFRREFRREFRREFRFEFRREFRRVBiiiKoqIiAiIgZREUFyiiIqoiICIiAiIgIiICIiAiIgIiIMURFUVFEQVFEQVFEQVFEQVERQEREBERAREQEREBERAREQRERUEREBERAREQEREFRREFRREFRREFRREFRREFRREFRREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREH/2Q==" alt="Reel cover frame, vertical, headline in upper middle with empty lower third">
+        <figcaption><span>Reel 1</span><span>9:16</span></figcaption></figure>
+      <figure class="shot"><img src="data:image/jpeg;base64,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" alt="Second reel cover frame, same structure">
+        <figcaption><span>Reel 2</span><span>9:16</span></figcaption></figure>
+    </div>
+    <p class="sheet-note">
+      Seen at thumbnail scale — which is how the algorithm and the audience see them first — the entire
+      output collapses into one texture: dark brown rectangles with a light bar across the middle.
+      Nothing in this grid tells you what any post is about, and nothing distinguishes a reel from a
+      carousel from an ad. That is the whole audit in one image.
+    </p>
+  </div>
+</header>
+
+<!-- ============ 01 AUDIT ============ -->
+<section>
+  <div class="sec-head">
+    <div class="sec-num">01<em>Audit</em></div>
+    <div>
+      <h2>Twelve specific defects</h2>
+      <p>
+        Ranked by how much each one costs you in the feed. "High" means it is suppressing reach or
+        comprehension right now; "Med" means it is capping how good the work can get.
+      </p>
+    </div>
+  </div>
+
+  <div class="body-col">
+    <div class="rail">Composition<br>Colour<br>Type<br>Motion<br>Platform</div>
+    <div class="col" style="max-width:none">
+
+      <div class="defects">
+
+        <div class="defect high"><div class="sev">HIGH</div><div>
+          <h5>There are no photographs anywhere</h5>
+          <p>
+            Every single asset is type on a gradient. News is a visual medium — a photograph is the
+            fastest possible answer to "what is this about." Your reel renderer already has
+            <code>_photo_plate()</code> and a <code>KenBurns</code> class in <code>render/motion.py</code>;
+            the carousel never calls anything like them. You built the capability and then shipped
+            around it.
+          </p>
+          <p class="fix"><b>Fix</b>Photography becomes the default bed for cover slides and hook scenes.
+          Type sits on a scrim over the image, not on an empty gradient. Where no usable image exists,
+          fall back to a generated data graphic — never to bare gradient.</p>
+        </div></div>
+
+        <div class="defect high"><div class="sev">HIGH</div><div>
+          <h5>Roughly 40% of the cover slide is empty</h5>
+          <p>
+            On the technology cover, everything above y≈540 is void except the header row. The
+            composition is bottom-weighted with nothing anchoring the top, so the eye lands on
+            nothing, drifts, and scrolls. The reel cover is worse: the bottom ~430px is entirely
+            empty, and that is the region with the most attention in a vertical video.
+          </p>
+          <p class="fix"><b>Fix</b>Every canvas gets a declared zone map with a fill target. No zone
+          may be empty unless it is deliberate negative space bounded by an image edge.</p>
+        </div></div>
+
+        <div class="defect high"><div class="sev">HIGH</div><div>
+          <h5>The ghost watermarks read as rendering artifacts</h5>
+          <p>
+            The giant faint <code>h</code> and the <code>01</code>/<code>02</code> numerals sit at an
+            opacity that is exactly wrong — visible enough to notice, too faint to be intentional.
+            On the geopolitics slide the "02" plus the ghost "h" behind it produce a smudge that
+            reads as a compression fault. Decorative numbering is also lying: those numerals imply a
+            sequence that carries no information the reader needs.
+          </p>
+          <p class="fix"><b>Fix</b>Delete both. If you want a numeral it must be committed —
+          large, cropped hard by the canvas edge, at real contrast, and only where the sequence is
+          genuinely meaningful.</p>
+        </div></div>
+
+        <div class="defect high"><div class="sev">HIGH</div><div>
+          <h5>The palette has no feed presence</h5>
+          <p>
+            <code>#141210</code> to warm brown at low internal contrast means the post is a dark smudge
+            against Instagram's white chrome. Feed presence is a function of contrast <em>at the
+            boundary of the post</em>, and yours is uniformly dark, so every post looks like the same
+            hole in the grid. The visible radial gradient blob compounds it — it reads as a JPEG
+            artifact rather than lighting.
+          </p>
+          <p class="fix"><b>Fix</b>Two-surface system. A warm paper ground becomes the default
+          (roughly 70% of posts), ink is reserved for breaking news and hero moments. See §05.</p>
+        </div></div>
+
+        <div class="defect high"><div class="sev">HIGH</div><div>
+          <h5>Reel text sits inside Instagram's UI</h5>
+          <p>
+            "Reuters, BBC +2" lands around y≈1490 on a 1920-tall frame. Instagram's caption block,
+            handle, audio strip and action rail occupy roughly the bottom 400px and the right 90px.
+            Your source attribution — the single most trust-bearing element you have — is being
+            drawn underneath the username.
+          </p>
+          <p class="fix"><b>Fix</b>Hard safe zone: all content between y=180 and y=1450, nothing
+          within 120px of the right edge. Enforce it as a constant in code, not by eye.</p>
+        </div></div>
+
+        <div class="defect med"><div class="sev">MED</div><div>
+          <h5>Attention hierarchy is inverted</h5>
+          <p>
+            The loudest object on every slide is the category pill: saturated coral, black text, top
+            right — a position the eye hits second. It carries the least useful information on the
+            canvas. Meanwhile the sources line, which is your actual differentiator, is set in the
+            faintest grey available.
+          </p>
+          <p class="fix"><b>Fix</b>Demote category to a small text label in the header lockup.
+          Promote sourcing into a real designed component (§04).</p>
+        </div></div>
+
+        <div class="defect med"><div class="sev">MED</div><div>
+          <h5>Slides 1 and 2 are structurally identical</h5>
+          <p>
+            Eyebrow → rule → condensed headline → body → footer, repeated. A carousel needs rhythm:
+            the reason people swipe past slide 2 is that slide 2 promises slide 3 will be different.
+            Yours promises more of the same, and the swipe-through rate will show it.
+          </p>
+          <p class="fix"><b>Fix</b>A fixed five-beat structure where each slide has a distinct
+          visual archetype. See §06.</p>
+        </div></div>
+
+        <div class="defect med"><div class="sev">MED</div><div>
+          <h5>Anton is doing every job, and it is the genre's default font</h5>
+          <p>
+            Anton is free, ubiquitous, and the single most-used face on automated news accounts —
+            it signals "template" before a word is read. It also has one weight and one width, so
+            there is no hierarchy available <em>within</em> the display level: every headline shouts
+            at exactly the same volume, and nothing can be emphasised inside a headline.
+          </p>
+          <p class="fix"><b>Fix</b>Move to a variable condensed grotesk with real weight and width
+          axes. Add a serif for the interpretive voice — your logo's <code>h</code> is already a
+          serif and nothing in the system picks that thread up.</p>
+        </div></div>
+
+        <div class="defect med"><div class="sev">MED</div><div>
+          <h5>The reels do not look like video</h5>
+          <p>
+            <code>render/motion.py</code> has <code>ease_out_back</code>, <code>ease_out_quint</code>,
+            Ken Burns, rising lines and a progress bar — real motion primitives. But the design
+            language they animate is a static type card, so the output looks like a slideshow of
+            stills. There is no kinetic type, no word-level reveal, no number that counts, nothing
+            that could only exist in motion.
+          </p>
+          <p class="fix"><b>Fix</b>A named motion vocabulary of five transitions plus word-level
+          headline reveal and roll-up counters. Full spec in §06.</p>
+        </div></div>
+
+        <div class="defect med"><div class="sev">MED</div><div>
+          <h5>The reel cover is a frame grab, not a cover</h5>
+          <p>
+            <code>motion.save_cover()</code> lifts the frame at t=0.62. That frame was composed to be
+            passed through at 24fps, not to sit still in a grid competing for a tap. It has no
+            call, no crop discipline, and inherits whatever mid-animation state it lands in.
+          </p>
+          <p class="fix"><b>Fix</b>Render a dedicated cover composition. It is a poster, and it is
+          the only frame most people will ever see.</p>
+        </div></div>
+
+        <div class="defect med"><div class="sev">MED</div><div>
+          <h5>The X cards are square</h5>
+          <p>
+            1080×1080 in a timeline gets letterboxed or centre-cropped, wasting the horizontal space
+            that is the whole advantage of X's layout. You are also spending equal design effort on
+            X and Instagram when the audience data says you shouldn't (§03).
+          </p>
+          <p class="fix"><b>Fix</b>16:9 at 1200×675 for timeline cards, 4:5 at 1080×1350 when you
+          want vertical dominance. Reuse Instagram artwork rather than designing X separately.</p>
+        </div></div>
+
+        <div class="defect med"><div class="sev">MED</div><div>
+          <h5>The story card is a document screenshot</h5>
+          <p>
+            Four stops × (label + two lines of body) is roughly 90 words at 1080². The structure —
+            WHAT HAPPENED / HOW WE GOT HERE / WHY IT MATTERS / WHAT TO WATCH — is a genuinely good
+            idea borrowed from the right place. The execution asks someone to read an essay in a
+            feed.
+          </p>
+          <p class="fix"><b>Fix</b>Keep the four-stop skeleton, cut to ≤12 words per stop, and let
+          the four stops become a visual timeline rather than four paragraphs.</p>
+        </div></div>
+
+      </div>
+
+      <div class="callout">
+        <h4>What is already right</h4>
+        <p>
+          Don't rebuild these: the deterministic hook rotation in <code>generate/hooks.py</code> is a
+          genuinely strong idea and most accounts have nothing like it. The category-colour system is
+          sound. The copy is clean, plain and free of the "and here's why it matters 🧵👇" register
+          that plagues the sector. The four-stop story structure is correct. The offline
+          <code>preview</code> command means you can iterate on design without burning API calls —
+          that is worth more than it sounds.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ 02 SECTOR ============ -->
+<section>
+  <div class="sec-head">
+    <div class="sec-num">02<em>Sector</em></div>
+    <div>
+      <h2>Who to study, and the exact mechanic to take</h2>
+      <p>
+        Grouped by what they can teach you. For each: the design mechanic that does the work, why it
+        works, and the specific transferable move. Not all of them are competitors — the most useful
+        lessons come from adjacent formats.
+      </p>
+    </div>
+  </div>
+
+  <div class="body-col">
+    <div class="rail">Product<br>rivals</div>
+    <div class="col" style="max-width:none">
+
+      <h3>Tier 1 — Direct product rivals</h3>
+
+      <div class="dossier">
+        <header><h5>Ground News</h5><span class="tag">Bias-aware aggregator</span></header>
+        <div class="rows">
+          <div class="row"><dt>Mechanic</dt><dd>The <strong>bias bar</strong> — a horizontal stacked bar showing how many outlets covering a story lean left, centre and right, plus the "Blindspot" feature showing what one side isn't covering.</dd></div>
+          <div class="row"><dt>Why it works</dt><dd>It is a single proprietary visual primitive that <em>is</em> the product argument. You understand the value proposition in one glance without reading a word of marketing. It is screenshot-able, instantly recognisable out of context, and it makes the person sharing it look discerning rather than partisan.</dd></div>
+          <div class="row"><dt>Distribution</dt><dd>Notably, they barely fight for organic Instagram reach — the growth engine is YouTube sponsor reads, where a creator demonstrates the bar on screen. The visual primitive is what makes a 45-second sponsor read possible.</dd></div>
+          <div class="row steal"><dt>Take this</dt><dd>Build one proprietary graphic that argues your product. Ground News owns <em>bias</em>. Nobody owns <em>corroboration</em> — and your pipeline already verifies stories across sources. See §04.</dd></div>
+        </div>
+      </div>
+
+      <div class="dossier">
+        <header><h5>Particle</h5><span class="tag">AI news app · Lightspeed-backed</span></header>
+        <div class="rows">
+          <div class="row"><dt>Mechanic</dt><dd>Multi-perspective AI summaries with a "ask the story a question" affordance and spoken personalised feeds.</dd></div>
+          <div class="row"><dt>Why it works</dt><dd>Their positioning leans on <em>speed of catch-up</em> rather than depth. The product demo is the marketing — short screen recordings of a question being asked and answered with citations.</dd></div>
+          <div class="row steal"><dt>Take this</dt><dd>Your X promo card already says "Ask the news a question, get answers with sources." That is a demo, not a poster. Screen-record the actual interaction and let the product move.</dd></div>
+        </div>
+      </div>
+
+      <h3>Tier 2 — Design-led news brands</h3>
+
+      <div class="dossier">
+        <header><h5>Chartr / Sherwood News</h5><span class="tag">Acquired by Robinhood, 2023</span></header>
+        <div class="rows">
+          <div class="row"><dt>Mechanic</dt><dd><strong>One chart, one insight, one annotation.</strong> Light ground, a single saturated accent, an enormous plain-language title above the chart, and one arrow or label pointing at the exact thing you're meant to notice.</dd></div>
+          <div class="row"><dt>Why it works</dt><dd>A chart is <em>evidence</em>, and evidence gets shared because sharing it makes the sharer look informed rather than opinionated. It also survives the thumbnail test — a chart shape is legible at 120px where a paragraph is not. Their stated aim is to make you feel rewarded for the time, which is a different goal from making you feel outraged.</dd></div>
+          <div class="row"><dt>Detail worth copying</dt><dd>The title is never the chart's technical description. It is the conclusion. "Nobody is buying second cars any more" over the chart, not "US household vehicle ownership, 2015–2025."</dd></div>
+          <div class="row steal"><dt>Take this</dt><dd>Slide 3 of every carousel becomes an evidence slide with a real generated chart. This is the single highest-leverage addition available to you, because it is the one thing on this list that nobody expects an automated account to do.</dd></div>
+        </div>
+      </div>
+
+      <div class="dossier">
+        <header><h5>Axios</h5><span class="tag">Smart Brevity</span></header>
+        <div class="rows">
+          <div class="row"><dt>Mechanic</dt><dd>Fixed structural units with fixed labels — <em>Why it matters</em>, <em>The big picture</em>, <em>Between the lines</em>, <em>What's next</em> — each followed by one or two sentences maximum.</dd></div>
+          <div class="row"><dt>Why it works</dt><dd>The labels are a contract with the reader: you always know what kind of sentence is coming next, so you can enter and exit anywhere without losing the thread. It also makes the writing self-policing, because a label like "Why it matters" makes a vague sentence obviously wrong.</dd></div>
+          <div class="row steal"><dt>Take this</dt><dd>You already do this in the story card. Push the same labelled units into reel scene structure and carousel slides so the whole system shares one grammar.</dd></div>
+        </div>
+      </div>
+
+      <div class="dossier">
+        <header><h5>Morning Brew</h5><span class="tag">Newsletter → social flywheel</span></header>
+        <div class="rows">
+          <div class="row"><dt>Mechanic</dt><dd>A consistent, warm, slightly irreverent voice applied to business news, with social used as a top-of-funnel that always points back to the newsletter subscription.</dd></div>
+          <div class="row"><dt>Why it works</dt><dd>The voice is the moat — the same story from Reuters and from Brew reads completely differently, and readers choose the one that feels like a person. Crucially they never let a post be purely informational; there is always a stance or a joke that gives you a reason to send it to someone.</dd></div>
+          <div class="row steal"><dt>Careful here</dt><dd>This is the hardest thing on the list to copy with an automated pipeline, and attempting it badly produces the worst possible output — a machine doing forced banter. Your voice differentiator should be <em>restraint and precision</em>, not personality. See §03.</dd></div>
+        </div>
+      </div>
+
+      <div class="dossier">
+        <header><h5>Visual Capitalist / Voronoi</h5><span class="tag">Infographic publisher</span></header>
+        <div class="rows">
+          <div class="row"><dt>Mechanic</dt><dd>Dense, highly-styled infographics built on public data — government sources, IMF, World Bank — with heavy brand typography and annotation layered over charts generated in Tableau or Flourish.</dd></div>
+          <div class="row"><dt>Why it works</dt><dd>Density is the product. A Visual Capitalist graphic rewards a long look, which drives saves — and saves are the strongest ranking signal available on a static post. They are explicitly optimising for the artefact being kept, not scrolled.</dd></div>
+          <div class="row steal"><dt>Take this</dt><dd>The pipeline: clean data → generate the chart programmatically → style it with brand typography as a second pass. That is exactly reproducible in Pillow, and it is how your evidence slide should be built.</dd></div>
+        </div>
+      </div>
+
+      <h3>Tier 3 — Creator-led news</h3>
+
+      <div class="dossier">
+        <header><h5>Dylan Page ("News Daddy")</h5><span class="tag">≈19M TikTok · #1 news account</span></header>
+        <div class="rows">
+          <div class="row"><dt>Mechanic</dt><dd>Cold open on the single most arresting fact — no logo, no intro, no "hey guys." Rapid cuts roughly every 1.5–2.5 seconds, B-roll under every sentence, escalation beats ("and it gets worse"), and an exit that hands the argument to the comments.</dd></div>
+          <div class="row"><dt>Why it works</dt><dd>The structure is built entirely around 3-second retention. Face-to-camera plus constant visual change means the frame never repeats, so there is no moment where the eye has permission to leave. His stated approach is quick to start, quick to finish, everything at once.</dd></div>
+          <div class="row steal"><dt>Take this</dt><dd>The <em>pacing law</em>, not the persona. Nothing on screen may persist unchanged for more than 2.5 seconds. Your current reels hold a static composition for far longer than that.</dd></div>
+        </div>
+      </div>
+
+      <div class="dossier">
+        <header><h5>Cleo Abram — <em>Huge If True</em></h5><span class="tag">Optimistic tech explainer</span></header>
+        <div class="rows">
+          <div class="row"><dt>Mechanic</dt><dd>Frame a technology question as a genuine open curiosity, then take the viewer along the process of answering it. Deliberately optimistic framing as a counter-position to doom-default tech coverage.</dd></div>
+          <div class="row"><dt>Why it works</dt><dd>She describes it as expressing her own curiosity so people can follow it — the viewer is placed alongside the presenter rather than lectured. The optimism is also a positioning wedge in a category where negativity is the default.</dd></div>
+          <div class="row steal"><dt>Take this</dt><dd>This is the model for your <em>evergreen educational</em> reel — the one that isn't tied to today's news. Open on a question, not a statement. Note the cost though: she publishes roughly monthly, with hundreds of hours per video. Take the structure, not the production budget.</dd></div>
+        </div>
+      </div>
+
+      <div class="dossier">
+        <header><h5>The News Movement</h5><span class="tag">Social-first news for under-35s</span></header>
+        <div class="rows">
+          <div class="row"><dt>Mechanic</dt><dd>Platform-native, creator-fronted news built for people who will never visit a homepage. Reaches roughly two-thirds of UK 18–35s.</dd></div>
+          <div class="row"><dt>Why it works</dt><dd>The finding worth internalising: their best-performing content is <strong>original journalism</strong>, not commentary or aggregation. Format-native packaging plus something genuinely new beats format-native packaging alone.</dd></div>
+          <div class="row steal"><dt>Take this</dt><dd>Aggregation alone will plateau. Your equivalent of "original" is cross-source synthesis that no single outlet published — the thing your ranking and verification layer already computes and then throws away.</dd></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ 03 NUMBERS ============ -->
+<section>
+  <div class="sec-head">
+    <div class="sec-num">03<em>Evidence</em></div>
+    <div>
+      <h2>What the audience data forces you to do</h2>
+      <p>
+        From the Reuters Institute Digital News Report 2026 — 48 markets, ~2,000 respondents each.
+        These numbers should decide your channel allocation, not taste.
+      </p>
+    </div>
+  </div>
+
+  <div class="body-col">
+    <div class="rail">DNR 2026<br>48 markets</div>
+    <div class="col" style="max-width:none">
+
+      <div class="stats">
+        <div class="stat"><span class="n">54%</span><span class="l">get news from social &amp; video networks — now ahead of TV (52%) and news sites (51%)</span></div>
+        <div class="stat"><span class="n">42%</span><span class="l">of 18–24s use Instagram for news — the largest platform for that age group</span></div>
+        <div class="stat"><span class="n">37%</span><span class="l">trust news overall — the lowest since measurement began in 2015</span></div>
+        <div class="stat"><span class="n">62%</span><span class="l">are concerned about telling real from fake online, up 4pp</span></div>
+        <div class="stat"><span class="n">27%</span><span class="l">get news from news-focused creators, who rate as entertaining but <em>less</em> trustworthy</span></div>
+        <div class="stat"><span class="n">15%</span><span class="l">of under-25s now use X for news, down sharply; US usage fell 7pp year-on-year</span></div>
+        <div class="stat"><span class="n">77%</span><span class="l">consume online news video weekly; video now beats broadcast TV in 45 of 48 markets</span></div>
+        <div class="stat"><span class="n">−33%</span><span class="l">Google organic search traffic to news sites globally, −38% in the US</span></div>
+      </div>
+
+      <h3>Three decisions this makes for you</h3>
+
+      <h4>1 — Instagram is the whole game; X is a side channel</h4>
+      <p>
+        42% of 18–24s using Instagram for news against 15% of under-25s on X is not a close call.
+        You are currently spending roughly equal design effort on both. Stop. X gets <em>volume and
+        replies</em>, not bespoke artwork: reuse the Instagram crop, post more often, and spend the
+        saved time on reels. The −33% collapse in search traffic to news sites is the same story from
+        another angle — the discovery surface has moved into feeds, permanently.
+      </p>
+
+      <h4>2 — Your automation is a liability on personality and an asset on trust</h4>
+      <p>
+        This is the most important strategic point in this document. Creators are winning because
+        they are <em>more entertaining, easier to understand, more relatable</em> — and you cannot
+        compete on any of those, because there is nobody behind the account. Trying to will produce
+        a machine performing warmth, which is worse than no warmth at all.
+      </p>
+      <p>
+        But the same research says creators score <em>badly</em> on trust and impartiality, trust in
+        news overall is at a record low of 37%, and 62% of people are actively worried about
+        distinguishing real from fake. That is an open flank. A faceless account that shows its
+        working — every claim sourced, every story corroborated across named outlets, no opinion,
+        no outrage — is occupying the exact position the creator economy has vacated. <strong>Your
+        differentiator is evidence, and evidence is a design problem.</strong>
+      </p>
+
+      <h4>3 — Video is non-negotiable, but yours must be watchable</h4>
+      <p>
+        77% weekly online news video, beating broadcast in 45 markets. Two reels a day is the right
+        call. The problem is not cadence, it is that the reels currently look like stills. §06 fixes
+        that.
+      </p>
+
+      <div class="callout warn">
+        <h4>Caveat on benchmark figures</h4>
+        <p>
+          Widely-quoted carousel benchmarks — 60–75% slide-1→2 swipe-through on a healthy hook,
+          1.5–3% save rate on educational carousels, carousels saved ~35% more than single images —
+          come from social-tooling vendors, not from Meta. Treat them as directional targets for your
+          own baseline, not as facts. The Reuters figures above are from primary research and can be
+          cited.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ 04 WEDGE ============ -->
+<section>
+  <div class="sec-head">
+    <div class="sec-num">04<em>Wedge</em></div>
+    <div>
+      <h2>Build the corroboration bar</h2>
+      <p>
+        The one recommendation in this document that is strategy rather than craft. Everything in
+        §05 and §06 is worth doing; this is the thing that would make the account recognisable.
+      </p>
+    </div>
+  </div>
+
+  <div class="body-col">
+    <div class="rail">Primitive</div>
+    <div class="col">
+
+      <p>
+        Ground News owns <em>bias</em> because they built one graphic that says it. Nobody owns
+        <em>corroboration</em>. Your pipeline already ranks and verifies stories across multiple
+        sources — it computes exactly the data that would fill this graphic, and then discards it
+        into a grey "Reuters, BBC +2" caption at the bottom of the slide.
+      </p>
+
+      <p>
+        <strong>The component:</strong> a compact horizontal bar carried by every asset in the system,
+        showing how many independent outlets are reporting the story, how strongly they agree, and
+        which ones. It is not a footer credit. It is a designed information graphic with its own
+        space in the layout.
+      </p>
+
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Element</th><th>Encodes</th><th>Spec</th></tr></thead>
+          <tbody>
+            <tr><td>Segment count</td><td>Number of independent outlets carrying the story</td><td class="m">6–14 ticks, 1 per outlet</td></tr>
+            <tr><td>Segment fill</td><td>Corroborated / partial / single-source</td><td class="m">solid / half / outline</td></tr>
+            <tr><td>Bar colour</td><td>Agreement strength</td><td class="m">go · neutral · flag</td></tr>
+            <tr><td>Wordmarks</td><td>The three highest-weight named outlets</td><td class="m">14px, tabular</td></tr>
+            <tr><td>Numeral</td><td>Total source count, large</td><td class="m">display, 44px</td></tr>
+            <tr><td>Timestamp</td><td>Age of the oldest confirming report</td><td class="m">mono, 12px</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>Why this is the right bet</h4>
+      <ul>
+        <li><strong>It argues the product without marketing copy.</strong> Someone who has never heard of Headlinne understands what the app does from one screenshot.</li>
+        <li><strong>It is defensible.</strong> It requires a multi-source verification pipeline to generate honestly. Competitors who fake it will get caught, and competitors who don't have the pipeline can't fake it at all.</li>
+        <li><strong>It solves the empty-canvas problem structurally.</strong> Every slide now has a piece of real information design in it, so no slide is ever pure type on a gradient.</li>
+        <li><strong>It is the trust position from §03, made visible.</strong> Record-low trust plus 62% fake-news anxiety is a market asking for exactly this.</li>
+        <li><strong>It makes screenshots identifiable.</strong> Anyone reposting your card carries the bar with it.</li>
+      </ul>
+
+      <div class="callout">
+        <h4>The honesty constraint</h4>
+        <p>
+          This only works if the bar is never decorative. A single-source story must render as a
+          visibly thin, outlined, one-tick bar — and you must be willing to post it that way.
+          The moment the graphic is padded to look impressive it becomes a liability rather than an
+          asset, and it is the kind of thing that gets noticed publicly exactly once.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ 05 SYSTEM ============ -->
+<section>
+  <div class="sec-head">
+    <div class="sec-num">05<em>System</em></div>
+    <div>
+      <h2>Design system, second edition</h2>
+      <p>
+        Concrete replacement tokens for <code>headlinne/config.py</code> and
+        <code>render/theme.py</code>. The brand does not change — the terracotta and the serif
+        <code>h</code> stay. What changes is that the system stops fighting them.
+      </p>
+    </div>
+  </div>
+
+  <div class="body-col">
+    <div class="rail">Colour<br>Type<br>Grid</div>
+    <div class="col" style="max-width:none">
+
+      <h3>Two surfaces, not one</h3>
+      <p>
+        The core structural change. Your brand is warm, editorial and terracotta — and you have
+        rendered it as near-black. Paper becomes the default ground; ink is reserved. Practically
+        this gives you a checkerboard grid, so consecutive posts alternate light and dark and the
+        profile stops reading as one continuous smudge.
+      </p>
+
+      <h4>Paper surface — default, ~70% of posts</h4>
+      <div class="swatches">
+        <div class="sw"><div class="chip" style="background:#F5F0E8"></div><div class="meta"><b>Paper</b><span>#F5F0E8</span></div></div>
+        <div class="sw"><div class="chip" style="background:#E8E0D4"></div><div class="meta"><b>Paper deep</b><span>#E8E0D4</span></div></div>
+        <div class="sw"><div class="chip" style="background:#1A1512"></div><div class="meta"><b>Ink on paper</b><span>#1A1512</span></div></div>
+        <div class="sw"><div class="chip" style="background:#6B6058"></div><div class="meta"><b>Secondary</b><span>#6B6058</span></div></div>
+        <div class="sw"><div class="chip" style="background:#C4562F"></div><div class="meta"><b>Terracotta</b><span>#C4562F</span></div></div>
+      </div>
+
+      <h4>Ink surface — breaking &amp; hero, ~30%</h4>
+      <div class="swatches">
+        <div class="sw"><div class="chip" style="background:#141210"></div><div class="meta"><b>Ink</b><span>#141210</span></div></div>
+        <div class="sw"><div class="chip" style="background:#221C17"></div><div class="meta"><b>Ink raised</b><span>#221C17</span></div></div>
+        <div class="sw"><div class="chip" style="background:#F6F1EA"></div><div class="meta"><b>Paper on ink</b><span>#F6F1EA</span></div></div>
+        <div class="sw"><div class="chip" style="background:#A89A8C"></div><div class="meta"><b>Secondary</b><span>#A89A8C</span></div></div>
+        <div class="sw"><div class="chip" style="background:#E8763F"></div><div class="meta"><b>Terracotta lift</b><span>#E8763F</span></div></div>
+      </div>
+
+      <p>
+        Note the terracotta shifts between surfaces — <code>#C4562F</code> on paper,
+        <code>#E8763F</code> on ink. A single accent hex cannot hold its perceived weight across both
+        grounds, and this is the most common way two-surface systems fail.
+      </p>
+
+      <h4>Category colours — keep, but demote</h4>
+      <p>
+        Technology coral, Finance emerald, Geopolitics amber all stay. They stop being pill
+        backgrounds and become a 4px rule under the header lockup, plus the accent on the
+        corroboration bar. Same information, a tenth of the volume.
+      </p>
+
+      <h3>Typography</h3>
+
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Role</th><th>Current</th><th>Move to</th><th>Why</th></tr></thead>
+          <tbody>
+            <tr><td>Display</td><td class="m">Anton</td><td class="m">Archivo Variable<br>(wght + wdth)</td><td>Real weight and width axes give hierarchy inside a headline; escapes the genre default</td></tr>
+            <tr><td>Body</td><td class="m">Inter Variable</td><td class="m">Inter Variable</td><td>Correct already — keep it</td></tr>
+            <tr><td>Interpretive</td><td class="m">—</td><td class="m">A text serif</td><td>Picks up the logo's serif <code>h</code>; carries "why it matters" in a different voice from the reported facts</td></tr>
+            <tr><td>Data / furniture</td><td class="m">Inter</td><td class="m">A mono</td><td>Timestamps, source counts, tickers — mono makes data read as data</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout warn">
+        <h4>Pillow variable-font constraint — check before committing</h4>
+        <p>
+          Variable axes need <code>ImageFont.FreeTypeFont.set_variation_by_axes()</code>, which
+          requires a FreeType build with variation support. You already ship two variable fonts, so
+          it is probably fine — but verify with a one-line probe before designing around the width
+          axis. If it isn't available, ship static instances of the three widths you actually use
+          instead.
+        </p>
+      </div>
+
+      <h3>The canvas grid</h3>
+      <p>
+        Every format uses one 12-column grid with a 72px margin at 1080 width. Zones are declared
+        and every zone has a job — this is the mechanism that structurally prevents the empty-canvas
+        defect from returning.
+      </p>
+
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Zone</th><th class="m">1080×1350 (IG)</th><th class="m">1080×1920 (Reel)</th><th>Contains</th></tr></thead>
+          <tbody>
+            <tr><td>Header</td><td class="m">y 0–150</td><td class="m">y 180–330</td><td>Logo lockup, category rule, date</td></tr>
+            <tr><td>Stage</td><td class="m">y 150–760</td><td class="m">y 330–1010</td><td>Photograph, chart, or committed graphic — never empty</td></tr>
+            <tr><td>Statement</td><td class="m">y 760–1120</td><td class="m">y 1010–1300</td><td>Headline and deck</td></tr>
+            <tr><td>Evidence</td><td class="m">y 1120–1270</td><td class="m">y 1300–1450</td><td>Corroboration bar</td></tr>
+            <tr><td>Dead zone</td><td class="m">—</td><td class="m">y 1450–1920</td><td>Nothing. Instagram UI territory.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Note the move from 1080×1080 to <strong>1080×1350</strong> for Instagram statics. 4:5 occupies
+        25% more vertical space in the feed than a square for free, and it is the single cheapest
+        change on this entire list.
+      </p>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ 06 FORMATS ============ -->
+<section>
+  <div class="sec-head">
+    <div class="sec-num">06<em>Formats</em></div>
+    <div>
+      <h2>Format-by-format rebuild</h2>
+      <p>Each with the beat structure, the motion spec where relevant, and the file that owns it.</p>
+    </div>
+  </div>
+
+  <div class="body-col">
+    <div class="rail">Reels<br>Carousel<br>Story card<br>X</div>
+    <div class="col" style="max-width:none">
+
+      <h3>Reels — <code>render/reel.py</code>, <code>render/motion.py</code></h3>
+
+      <p>
+        Target 22–28 seconds. Your existing scene classes — <code>HookScene</code>,
+        <code>PointScene</code>, <code>GraphicScene</code>, <code>PayoffScene</code>,
+        <code>OutroScene</code> — are the right decomposition. They need a motion language and a
+        pacing law.
+      </p>
+
+      <div class="timeline">
+        <div class="tl-inner">
+          <div class="tl-bar">
+            <div class="tl-seg" style="flex:2;background:var(--flag-wash)">Hook</div>
+            <div class="tl-seg" style="flex:2.2;background:var(--surface-2)">Point 1</div>
+            <div class="tl-seg" style="flex:2.2;background:var(--surface-2)">Point 2</div>
+            <div class="tl-seg" style="flex:2.4;background:var(--signal-wash)">Graphic</div>
+            <div class="tl-seg" style="flex:2.2;background:var(--surface-2)">Point 3</div>
+            <div class="tl-seg" style="flex:2;background:var(--go-wash)">Payoff</div>
+            <div class="tl-seg" style="flex:1.6;background:var(--surface-2)">Outro</div>
+          </div>
+          <div class="tl-scale">
+            <span style="flex:2">0.0s</span><span style="flex:2.2">3.0</span><span style="flex:2.2">6.3</span>
+            <span style="flex:2.4">9.6</span><span style="flex:2.2">13.2</span><span style="flex:2">16.5</span>
+            <span style="flex:1.6">19.5</span>
+          </div>
+        </div>
+      </div>
+
+      <h4>The pacing law</h4>
+      <p>
+        Nothing on screen may persist unchanged for more than <strong>2.5 seconds</strong>. This is
+        the single rule taken from Dylan Page, and it is enforceable in code: if a scene's duration
+        exceeds 2.5s it must contain an internal event — a word revealing, a number ticking, a
+        photograph pushing, a rule wiping. <code>normalise_durations()</code> already exists; add
+        the assertion there.
+      </p>
+
+      <h4>Motion vocabulary — five named transitions, used nowhere else</h4>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Name</th><th>Motion</th><th class="m">Timing</th><th>Used for</th></tr></thead>
+          <tbody>
+            <tr><td><code>strike</code></td><td>Headline reveals word by word behind a terracotta rule wiping left→right</td><td class="m">340ms<br>ease_out_quint</td><td>Hook only. Never reused, so it reads as the opening.</td></tr>
+            <tr><td><code>push</code></td><td>Ken Burns at 1.00→1.06 scale across the whole scene</td><td class="m">full scene<br>linear</td><td>Any photo bed. Slow enough to be felt, not seen.</td></tr>
+            <tr><td><code>stack</code></td><td>New line rises 40px into place, previous line dims to secondary</td><td class="m">260ms<br>ease_out_cubic</td><td>Point scenes — makes the argument feel cumulative</td></tr>
+            <tr><td><code>count</code></td><td>Numerals roll from 0 to value, tabular figures, no layout shift</td><td class="m">700ms<br>ease_out_quint</td><td>Any statistic. This is the shot people replay.</td></tr>
+            <tr><td><code>stamp</code></td><td>Corroboration bar ticks fill left→right, source count lands with slight overshoot</td><td class="m">520ms<br>ease_out_back</td><td>Payoff scene. The product argument, animated.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Every one of these maps onto easing functions already in <code>motion.py</code>. The work is
+        design specification, not new infrastructure — <code>ease_out_back</code> is sitting there
+        unused and it is exactly what <code>stamp</code> needs.
+      </p>
+
+      <h4>Also</h4>
+      <ul>
+        <li><strong>Burned-in captions, always.</strong> A large share of viewing is muted, and Instagram's auto-captions are unstyled and unreliable. Set them in your own type at ~64px, two lines maximum, centred in the statement zone.</li>
+        <li><strong>Dedicated cover render.</strong> Replace <code>save_cover(t=0.62)</code> with a composed poster frame — full-bleed photograph, headline at display weight, corroboration bar visible.</li>
+        <li><strong>Loop the last 400ms into the first.</strong> A reel that appears to loop seamlessly reads as a rewatch, and rewatch is the strongest signal in the ranking.</li>
+      </ul>
+
+      <h3>Carousel — <code>render/carousel.py</code></h3>
+      <p>Five slides, five distinct archetypes. The rule: no two consecutive slides may share a layout.</p>
+
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th class="m">#</th><th>Archetype</th><th>Composition</th><th>Job</th></tr></thead>
+          <tbody>
+            <tr><td class="m">1</td><td>Cover</td><td>Full-bleed photograph, scrim from bottom, headline in statement zone, corroboration bar</td><td>Earn the swipe. Carries most of the weight.</td></tr>
+            <tr><td class="m">2</td><td>Contradiction</td><td>Split canvas — paper top, ink bottom. "What everyone assumed" against "what happened"</td><td>Reward the swipe with a structural surprise</td></tr>
+            <tr><td class="m">3</td><td>Evidence</td><td>Generated chart, conclusion as title, one annotation pointing at the thing that matters</td><td>The save. This is the Chartr slide.</td></tr>
+            <tr><td class="m">4</td><td>Consequence</td><td>Serif-set interpretive paragraph on paper, wide margins, no photo</td><td>"Why it matters" — deliberately quiet after slide 3</td></tr>
+            <tr><td class="m">5</td><td>Close</td><td>Corroboration bar at full size, named outlets, one line on what Headlinne does</td><td>Convert. The bar is the argument, not a logo.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <ul>
+        <li><strong>Delete the pagination dots and the SWIPE pill.</strong> Instagram already draws dots. You are spending canvas on furniture that duplicates the platform's own UI.</li>
+        <li><strong>Bleed slide edges.</strong> Let the photograph on slide 1 run off the right edge and continue onto slide 2 — a visual promise that there is more.</li>
+        <li><strong>Rewrite slide 5.</strong> "That's your brief for today" is a sign-off, and a sign-off gives no reason to follow. Replace with the corroboration bar and one line of product.</li>
+      </ul>
+
+      <h3>Story card — <code>render/story_card.py</code></h3>
+      <p>
+        Keep the four-stop skeleton. Cut to <strong>≤12 words per stop</strong> and render the stops
+        as an actual vertical timeline with a rule connecting them, not four paragraphs with numbered
+        bullets. Move to 1080×1350. If a story genuinely needs more than 48 words it is a carousel,
+        not a card — enforce that as a branch in code rather than by shrinking the type.
+      </p>
+
+      <h3>X — <code>generate/twitter.py</code>, <code>render/card.py</code></h3>
+      <p>
+        Given 15% of under-25s and a 7pp decline, X earns the least design investment on this list.
+        Change the aspect ratio, reuse Instagram artwork, and spend the time elsewhere.
+      </p>
+      <ul>
+        <li><strong>1200×675 (16:9)</strong> for timeline cards; 1080×1350 when you want vertical dominance.</li>
+        <li><strong>Text first, image second.</strong> On X the post text is the hook and the image is the evidence. Your card currently duplicates the headline in both, which wastes the strongest position you have.</li>
+        <li><strong>Thread the corroboration.</strong> Post the claim, then reply with the sources as a second post. It reads as showing your working and it doubles your surface area.</li>
+        <li><strong>Kill the promo card format.</strong> A static poster saying "Ask the news a question" converts far worse than a six-second screen recording of it happening.</li>
+      </ul>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ 07 HOOKS ============ -->
+<section>
+  <div class="sec-head">
+    <div class="sec-num">07<em>Hooks</em></div>
+    <div>
+      <h2>Extending the hook rotation</h2>
+      <p>
+        <code>generate/hooks.py</code> is the strongest file in the repository. The architecture —
+        code owns the rhetorical shape, the model fills it, rotation is deterministic — is right.
+        It needs more shapes and a visual dimension.
+      </p>
+    </div>
+  </div>
+
+  <div class="body-col">
+    <div class="rail">Archetypes</div>
+    <div class="col" style="max-width:none">
+
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Archetype</th><th>Shape</th><th>Opens with</th><th class="m">Status</th></tr></thead>
+          <tbody>
+            <tr><td>Contradiction</td><td>Name the assumption, puncture it</td><td>"Everyone assumed this would raise prices. It did the opposite."</td><td class="m">Have</td></tr>
+            <tr><td>Stakes</td><td>The concrete cost to one person</td><td>"This quietly changes what your bank can charge you."</td><td class="m">Have</td></tr>
+            <tr><td>Scale shift</td><td>A number too large to picture, then made physical</td><td>"That's every household in Britain, twice."</td><td class="m">Add</td></tr>
+            <tr><td>Missing piece</td><td>What nobody is reporting, and why that's the story</td><td>"Nine outlets covered this. None of them mentioned who's paying."</td><td class="m">Add</td></tr>
+            <tr><td>Precedent</td><td>This already happened somewhere; here's how it went</td><td>"Estonia tried exactly this in 2019."</td><td class="m">Add</td></tr>
+            <tr><td>Countdown</td><td>A dated deadline that forces attention</td><td>"You have until 6 April before this applies to you."</td><td class="m">Add</td></tr>
+            <tr><td>Correction</td><td>Yesterday's story changed today</td><td>"The number everyone reported on Monday was wrong."</td><td class="m">Add</td></tr>
+            <tr><td>Disagreement</td><td>Two credible sources conflict — show both</td><td>"Reuters and the FT are reporting different numbers. Here's why."</td><td class="m">Add</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout">
+        <h4>The last two are yours alone</h4>
+        <p>
+          <em>Correction</em> and <em>Disagreement</em> are hooks that only a multi-source
+          verification pipeline can generate honestly — a single-outlet account cannot write them,
+          and a creator would have to do the work manually. They also happen to be the most
+          trust-building content in the entire list, which is exactly the position §03 says you
+          should be occupying. If you add nothing else from this table, add these two.
+        </p>
+      </div>
+
+      <h4>Give each archetype a visual treatment</h4>
+      <p>
+        Right now the hook varies but the layout never does, so the rotation is invisible to the eye.
+        Bind each archetype to a composition — <em>contradiction</em> gets the split paper/ink canvas,
+        <em>scale shift</em> gets the full-bleed <code>count</code> animation,
+        <em>disagreement</em> gets a two-column source comparison. One line in the scene builder,
+        and suddenly the account has eight looks instead of one.
+      </p>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ 08 BUILD ============ -->
+<section>
+  <div class="sec-head">
+    <div class="sec-num">08<em>Build</em></div>
+    <div>
+      <h2>Sequenced so the feed improves from week one</h2>
+      <p>
+        Ordered by visible improvement per unit of work, not by architectural tidiness. Each phase
+        ships something you can look at in <code>python -m headlinne preview</code>.
+      </p>
+    </div>
+  </div>
+
+  <div class="body-col">
+    <div class="rail">Phases</div>
+    <div class="col">
+
+      <div class="phase">
+        <h5>Phase 1 — Stop the bleeding</h5>
+        <span class="when">Half a day · pure deletion and constants</span>
+        <ul>
+          <li>Delete the ghost <code>h</code> watermark and the <code>01</code>/<code>02</code> numerals.</li>
+          <li>Delete the pagination dots and the SWIPE pill.</li>
+          <li>Move Instagram statics from 1080×1080 to 1080×1350.</li>
+          <li>Move X cards to 1200×675.</li>
+          <li>Add the reel safe-zone constants and assert nothing renders below y=1450.</li>
+          <li>Demote the category pill to a rule under the header lockup.</li>
+        </ul>
+      </div>
+
+      <div class="phase">
+        <h5>Phase 2 — Photography</h5>
+        <span class="when">Two days · <code>news/images.py</code>, <code>render/carousel.py</code></span>
+        <ul>
+          <li>Wire the existing image loader into the carousel cover and slide 2.</li>
+          <li>Build the scrim system — a gradient that guarantees text contrast over any photograph, tested against a light image and a dark one.</li>
+          <li>Fallback chain: article image → category stock → generated data graphic. Never bare gradient.</li>
+        </ul>
+      </div>
+
+      <div class="phase">
+        <h5>Phase 3 — The corroboration bar</h5>
+        <span class="when">Three days · new <code>render/sourcebar.py</code></span>
+        <ul>
+          <li>Surface the source data your ranking layer already computes.</li>
+          <li>Render at three sizes: inline (carousel footer), full (close slide), animated (reel payoff).</li>
+          <li>Honest degradation for single-source stories — build and test that case first, so it can never be quietly skipped.</li>
+        </ul>
+      </div>
+
+      <div class="phase">
+        <h5>Phase 4 — Two-surface palette and type</h5>
+        <span class="when">Two days · <code>config.py</code>, <code>render/theme.py</code></span>
+        <ul>
+          <li>Add the paper surface and the per-surface accent shift.</li>
+          <li>Alternate surfaces by slot so the grid checkerboards.</li>
+          <li>Swap Anton for a variable condensed grotesk; probe Pillow variation support first.</li>
+          <li>Add the serif for interpretive copy and the mono for data.</li>
+        </ul>
+      </div>
+
+      <div class="phase">
+        <h5>Phase 5 — Motion language</h5>
+        <span class="when">Four days · <code>render/motion.py</code>, <code>render/reel.py</code></span>
+        <ul>
+          <li>Implement the five named transitions against the existing easing functions.</li>
+          <li>Enforce the 2.5-second pacing law in <code>normalise_durations()</code>.</li>
+          <li>Word-level headline reveal and roll-up counters.</li>
+          <li>Dedicated cover composition, replacing the t=0.62 frame grab.</li>
+          <li>Seamless loop on the final 400ms.</li>
+        </ul>
+      </div>
+
+      <div class="phase">
+        <h5>Phase 6 — Evidence slide</h5>
+        <span class="when">Four days · new <code>render/chart.py</code></span>
+        <ul>
+          <li>Three chart types only, done well: single-series line, ranked bar, share-of-total.</li>
+          <li>Conclusion-as-title, one annotation, brand typography applied as a second pass.</li>
+          <li>Gate on data availability — skip the slide rather than render a weak chart.</li>
+        </ul>
+      </div>
+
+      <div class="phase">
+        <h5>Phase 7 — Hook expansion</h5>
+        <span class="when">Two days · <code>generate/hooks.py</code></span>
+        <ul>
+          <li>Add the six new archetypes, starting with <em>Correction</em> and <em>Disagreement</em>.</li>
+          <li>Bind each archetype to a composition in the scene builder.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ 09 MEASURE ============ -->
+<section>
+  <div class="sec-head">
+    <div class="sec-num">09<em>Measure</em></div>
+    <div>
+      <h2>What to watch, and what to ignore</h2>
+      <p>Establish your own baseline in the two weeks before Phase 1 ships, so the comparison is against you rather than against a vendor benchmark.</p>
+    </div>
+  </div>
+
+  <div class="body-col">
+    <div class="rail">Signals</div>
+    <div class="col">
+
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Metric</th><th>Format</th><th>Tells you</th></tr></thead>
+          <tbody>
+            <tr><td>Slide 1 → 2 swipe rate</td><td class="m">Carousel</td><td>Whether the cover earns attention. The single most diagnostic number you have.</td></tr>
+            <tr><td>Slide 3 → 4 swipe rate</td><td class="m">Carousel</td><td>Whether the evidence slide is working or stalling</td></tr>
+            <tr><td>Saves per reach</td><td class="m">Both</td><td>Whether the artefact is worth keeping. The strongest static ranking signal.</td></tr>
+            <tr><td>3-second retention</td><td class="m">Reel</td><td>Hook quality, isolated from everything downstream</td></tr>
+            <tr><td>Full watch-through</td><td class="m">Reel</td><td>Whether the pacing law is holding</td></tr>
+            <tr><td>Rewatch rate</td><td class="m">Reel</td><td>Whether the loop and the <code>count</code> shot are landing</td></tr>
+            <tr><td>Sends per reach</td><td class="m">Both</td><td>The closest proxy for "this made the sharer look informed"</td></tr>
+            <tr><td>Profile taps → app installs</td><td class="m">All</td><td>The only number that pays for any of this</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>Ignore</h4>
+      <p>
+        Follower count and like count. Both are lagging, both are gameable, and neither predicts
+        installs. A post with 400 saves and 60 likes is worth more to you than the inverse, and
+        optimising for likes will actively push you toward the outrage register that your trust
+        position depends on avoiding.
+      </p>
+
+      <h4>Test one thing per phase</h4>
+      <p>
+        Two reels and one or two carousels a day is roughly 60 assets a month — enough to read a
+        difference, not enough to read three at once. Run one variable per phase: Phase 2 tests
+        photography against gradient, Phase 4 tests paper against ink, Phase 6 tests the evidence
+        slide against a fourth text slide. Anything more granular is noise at this volume.
+      </p>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>Headlinne · social design review</span>
+  <span>Sources: Reuters Institute DNR 2026 · nine rendered assets, 15 Aug 2026</span>
+</footer>
+
+</div>

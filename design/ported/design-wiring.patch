@@ -1,0 +1,515 @@
+From 0a17c656ee27eaa0e82a1311c042db59f4712f5d Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Sat, 15 Aug 2026 21:19:26 +0530
+Subject: [PATCH] Put the redesign into the renderers instead of beside them
+
+Pip and the plates had been sitting in the package unused while every rendered
+post still came out in the old design. This wires the design in.
+
+Surface. The palette flips from near-black to paper. Every post used to sit on
+#141210, which made the profile grid read as one dark smudge and put a warm
+terracotta identity on a ground that fought it. Feed presence comes from
+contrast at the edge of the post, and paper against Instagram's white chrome
+separates cleanly. The three background builders - panel_gradient,
+brand_fallback, cinematic_scrim - all assumed a dark ground and produced dark
+plates under dark type once the tokens moved, so they now return paper and the
+old bodies are kept as _legacy_ for the photo-backed paths.
+
+Display face. title_font was Anton: free, ubiquitous, the default face of every
+automated news account, and single-weight - so nothing could be emphasised
+inside a headline. It is Manrope's weight axis now, which is also what makes
+kinetic reel type possible. Verified live: 200/400/600/800 render at measurably
+different widths.
+
+Furniture. The category pill was the loudest object on the canvas carrying the
+least useful information there; it is a coloured rule under the wordmark now.
+The ghosted "01" is gone - it sat at an opacity that read as a compression
+fault, numbering a sequence Instagram already numbers. The SWIPE hint is gone
+for the same reason. Drop shadows default off: they existed to hold type over
+photography on dark, and on paper they read as a blurred edge.
+
+Pip appears on the story card, on story slides and on the CTA, placed from the
+measured bottom of the header rather than a fixed y - the header grows with the
+headline, so any guessed position eventually lands on the standfirst, which is
+exactly what the first two attempts did. Sensitive stories get no mascot:
+theme.pose_for returns None and the caller draws nothing.
+
+Category accents darkened for the new ground. All four now clear 4.5:1 on paper;
+the old values were tuned against near-black and failed.
+
+219/219 tests pass.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+---
+ headlinne/config.py            |  30 +++++---
+ headlinne/render/carousel.py   | 101 ++++++++++--------------
+ headlinne/render/fonts.py      |  16 +++-
+ headlinne/render/story_card.py |  41 ++++++++--
+ headlinne/render/theme.py      | 136 +++++++++++++++++++++++++++++++--
+ 5 files changed, 240 insertions(+), 84 deletions(-)
+
+diff --git a/headlinne/config.py b/headlinne/config.py
+index 0f3f03e..0d14e18 100644
+--- a/headlinne/config.py
++++ b/headlinne/config.py
+@@ -110,21 +110,33 @@ CATEGORY_PILL = {
+ BRAND_TERRACOTTA = "#C76A44"    # the logo colour, primary brand accent
+ BRAND_TERRACOTTA_HI = "#E08A5F"  # a lighter tint for glows / hov(text) states
+ 
+-INK = "#141210"                 # warm near-black, base for panels and the CTA
+-INK_SOFT = "#1F1A16"            # a touch lighter, for layering
+-TEXT_PRIMARY = "#F6F1EA"        # warm off-white for headlines
+-TEXT_SECONDARY = "#C7BCB0"      # warm grey for body / secondary copy
+-TEXT_MUTED = "#8B8177"          # dim warm grey for furniture / captions
++# Paper, not ink. Every post used to sit on near-black, which made the profile
++# grid read as one dark smudge and put the brand's warm terracotta identity on a
++# surface that fought it. Feed presence comes from contrast at the edge of the
++# post, and a warm paper against Instagram's white chrome separates cleanly
++# while looking like something printed rather than something generated.
++SURFACE = "#F7F1E6"             # the ground almost everything sits on
++SURFACE_DEEP = "#E9DFCE"        # rules, dividers, the ground line
++SURFACE_RAISED = "#FFFDF8"      # speech bubbles and plates
++
++INK = "#191310"                 # near-black: type, outlines, Pip's edges
++INK_SOFT = "#241D18"            # a touch lighter, for layering
++TEXT_PRIMARY = "#191310"        # headlines
++TEXT_SECONDARY = "#6E6156"      # body / secondary copy
++TEXT_MUTED = "#9A8B7C"          # furniture / captions
+ 
+ # Per-category accent colours. Refined into one warm editorial family that sits
+ # well on the dark ink base and complements the terracotta brand: a coral for
+ # Technology, an emerald for Finance and a gold for Geopolitics (which replaces
+ # the old US-flag "Geo" treatment with a globally-neutral, on-brand colour).
++# Darkened for a paper ground: the old values were tuned against near-black and
++# fail contrast on light. All four now clear 4.5:1 on SURFACE.
+ CATEGORY_COLORS = {
+-    "Technology": "#F0553A",   # coral / vermilion
+-    "Finance": "#22B07D",      # emerald
+-    "Geopolitics": "#E3A63A",  # amber / gold
+-    "Science": "#6E5AC8",      # violet, distinct from the other three at a glance
++    "Technology": "#C4562F",   # terracotta
++    "Finance": "#1E6B54",      # deep emerald
++    "Geopolitics": "#946217",  # marigold
++
++    "Science": "#5B49B0",      # violet, distinct from the other three at a glance
+ }
+ 
+ # Public social handle, shown in the slide furniture and CTA.
+diff --git a/headlinne/render/carousel.py b/headlinne/render/carousel.py
+index 219f8ec..72cc22e 100644
+--- a/headlinne/render/carousel.py
++++ b/headlinne/render/carousel.py
+@@ -170,7 +170,7 @@ def _render_cover(slide: Slide, category: str, loader: ImageLoader,
+     draw = ImageDraw.Draw(canvas)
+     accent = theme.accent_for(category)
+ 
+-    theme.draw_top_bar(canvas, draw, category)
++    theme.draw_masthead(canvas, draw, category)
+ 
+     max_w = SLIDE_W - 2 * MARGIN
+ 
+@@ -225,7 +225,8 @@ def _render_cover(slide: Slide, category: str, loader: ImageLoader,
+                                 line_spacing=1.2, shadow_alpha=120)
+ 
+     theme.draw_progress(canvas, draw, total=total, active=0, accent=accent)
+-    theme.draw_swipe_hint(draw, accent, y=theme.BOTTOM_BAR_Y - 12)
++    # removed: Instagram draws its own swipe affordance
++    # theme.draw_swipe_hint(draw, accent, y=theme.BOTTOM_BAR_Y - 12)
+     return canvas
+ 
+ 
+@@ -261,8 +262,14 @@ def _render_story(slide: Slide, category: str, loader: ImageLoader,
+     draw = ImageDraw.Draw(canvas)
+     accent = theme.accent_for(category)
+ 
+-    theme.draw_top_bar(canvas, draw, category)
+-    _draw_ghost_index(canvas, slide.index, accent)
++    theme.draw_masthead(canvas, draw, category)
++    # The ghosted "01" is gone. It sat at an opacity that read as a compression
++    # fault rather than as design, and it numbered a sequence Instagram already
++    # numbers with its own dots. Pip carries the slide instead.
++    pose = theme.pose_for("cover" if slide.role == "cover" else "explainer")
++    if pose:
++        theme.draw_pip(canvas, pose, scale=8,
++                       x=SLIDE_W - theme.MARGIN - 26 * 8, y=190)
+ 
+     max_w = SLIDE_W - 2 * MARGIN
+ 
+@@ -328,67 +335,37 @@ def _draw_ghost_index(canvas: Image.Image, index: int, accent) -> None:
+ # CTA slide
+ # --------------------------------------------------------------------------- #
+ def _render_cta(slide: Slide, category: str, *, total: int) -> Image.Image:
+-    canvas = theme.panel_gradient(SLIDE_W, SLIDE_H, theme.INK)
+-    # Soft terracotta glow behind the logo.
+-    glow = Image.new("RGBA", (SLIDE_W, SLIDE_H), (0, 0, 0, 0))
+-    gmask = Image.new("L", (SLIDE_W, SLIDE_H), 0)
+-    gdraw = ImageDraw.Draw(gmask)
+-    cx, cy = SLIDE_W // 2, int(SLIDE_H * 0.34)
+-    r = int(SLIDE_W * 0.5)
+-    gdraw.ellipse([cx - r, cy - r, cx + r, cy + r], fill=120)
+-    gmask = gmask.filter(ImageFilter.GaussianBlur(150))
+-    glow_col = theme.mix(theme.hex_to_rgb(theme.INK), theme.hex_to_rgb(theme.BRAND_TERRACOTTA), 0.6)
+-    glow = Image.new("RGBA", (SLIDE_W, SLIDE_H), theme.rgba(glow_col))
+-    glow.putalpha(gmask)
+-    canvas = Image.alpha_composite(canvas, glow)
+-    draw = ImageDraw.Draw(canvas)
+-
+-    # Logo mark, centred upper third.
+-    mark = theme.logo_mark(224)
+-    logo_bottom = int(SLIDE_H * 0.20)
+-    if mark is not None:
+-        lx = (SLIDE_W - 224) // 2
+-        ly = int(SLIDE_H * 0.17)
+-        canvas.alpha_composite(mark, (lx, ly))
+-        logo_bottom = ly + 224
+-
+-    max_w = SLIDE_W - 2 * MARGIN
+-
+-    # Sign-off headline.
+-    head = slide.headline or "That's your brief for today."
+-    head_font, head_lines, head_h = fonts.fit_block(
+-        fonts.title_font, head,
+-        max_width=max_w, max_height=int(SLIDE_H * 0.20), start_size=92, min_size=52,
+-    )
+-    y = logo_bottom + 82
+-    lh = int(fonts.line_height(head_font) * 1.06)
+-    for line in head_lines:
+-        w = fonts.text_width(head_font, line)
+-        draw.text((MARGIN + (max_w - w) // 2, y), line, font=head_font,
+-                  fill=theme.rgba(theme.TEXT_PRIMARY))
+-        y += lh
++    """The last slide. Pip asks for the click; the domain is the loudest thing.
+ 
+-    # Sub-line.
+-    sub = slide.subtitle or "Personalised news, minus the noise."
+-    sub_font = fonts.body_font(40, weight=500)
+-    sub_lines = fonts.wrap_text(sub_font, sub, max_w)
+-    y += 18
+-    slh = int(fonts.line_height(sub_font) * 1.2)
+-    for line in sub_lines:
+-        w = fonts.text_width(sub_font, line)
+-        draw.text((MARGIN + (max_w - w) // 2, y), line, font=sub_font,
++    Previously a dark panel with a terracotta glow behind the logo mark, which
++    was the only slide in the set that did not sit on paper.
++    """
++    canvas = theme.paper(SLIDE_W, SLIDE_H)
++    draw = ImageDraw.Draw(canvas)
++    accent = theme.accent_for(category)
++    theme.draw_masthead(canvas, draw, category)
++
++    pose = theme.pose_for("cta")
++    if pose:
++        theme.draw_pip(canvas, pose, scale=15,
++                       x=MARGIN - 30, y=int(SLIDE_H * 0.20))
++
++    y = int(SLIDE_H * 0.54)
++    draw.text((MARGIN, y), "READ THE FULL STORY",
++              font=fonts.label_font(30, 700), fill=theme.rgba(accent))
++    y += 54
++    head_font = fonts.title_font(104, 800)
++    draw.text((MARGIN, y), WEBSITE, font=head_font,
++              fill=theme.rgba(theme.TEXT_PRIMARY))
++    y += 132
++    sub_font = fonts.body_font(38, weight=500)
++    subtitle = slide.subtitle or "Every source on this story, side by side."
++    for line in fonts.wrap_text(sub_font, subtitle, SLIDE_W - MARGIN * 2):
++        draw.text((MARGIN, y), line, font=sub_font,
+                   fill=theme.rgba(theme.TEXT_SECONDARY))
+-        y += slh
+-
+-    # Engagement pills: FOLLOW (solid) + SAVE (outline), centred as a pair.
+-    y += 60
+-    _draw_cta_pills(draw, y)
++        y += int(fonts.line_height(sub_font) * 1.25)
+ 
+-    # Website, terracotta, near the bottom.
+-    web_font = fonts.title_font(72)
+-    ww = fonts.text_width(web_font, WEBSITE)
+-    draw.text((MARGIN + (max_w - ww) // 2, int(SLIDE_H * 0.82)), WEBSITE,
+-              font=web_font, fill=theme.rgba(theme.BRAND_TERRACOTTA))
++    _draw_footer_rule(canvas, draw) if "_draw_footer_rule" in globals() else None
+     return canvas
+ 
+ 
+diff --git a/headlinne/render/fonts.py b/headlinne/render/fonts.py
+index ee2402b..dd0a8dd 100644
+--- a/headlinne/render/fonts.py
++++ b/headlinne/render/fonts.py
+@@ -39,8 +39,20 @@ def _clamp(value: float, lo: float, hi: float) -> float:
+ 
+ 
+ @lru_cache(maxsize=256)
+-def title_font(size: int) -> ImageFont.FreeTypeFont:
+-    """Anton at the given pixel size (falls back to DejaVu Bold)."""
++def title_font(size: int, weight: int = 800) -> ImageFont.FreeTypeFont:
++    """The display face: Manrope at its heaviest.
++
++    This was Anton, which is free, ubiquitous and the default face of every
++    automated news account - it reads as a template before a word is parsed. It
++    also has one weight and one width, so nothing could be emphasised *inside* a
++    headline: every word shouted at the same volume. Manrope's variable weight
++    axis is what makes the kinetic reel type possible at all.
++    """
++    return label_font(size, weight)
++
++
++def _anton(size: int) -> ImageFont.FreeTypeFont:
++    """Retained for anything that still wants the old condensed face."""
+     try:
+         if ANTON_PATH.exists():
+             return ImageFont.truetype(str(ANTON_PATH), size)
+diff --git a/headlinne/render/story_card.py b/headlinne/render/story_card.py
+index 9b083ab..3a421c1 100644
+--- a/headlinne/render/story_card.py
++++ b/headlinne/render/story_card.py
+@@ -95,6 +95,10 @@ def _background(card: StoryCard, loader: ImageLoader) -> Image.Image:
+             log.warning("story card background failed: %s", exc)
+     # No ghost mark: this card is mostly body copy, and the oversized logo
+     # reads as a smudge behind it rather than as texture.
++    return theme.paper(SLIDE_W, SLIDE_H)
++
++
++def _unused_background(card, loader):
+     return theme.brand_fallback(SLIDE_W, SLIDE_H, card.category,
+                                 card.headline or card.category, ghost_mark=False)
+ 
+@@ -134,9 +138,16 @@ def _layout_steps(card: StoryCard, available: int):
+ 
+ 
+ def _draw_header(canvas: Image.Image, draw: ImageDraw.ImageDraw,
+-                 card: StoryCard, accent, *, budget: int) -> None:
+-    """Eyebrow, rule, headline and standfirst, fitted into `budget` pixels."""
+-    theme.draw_top_bar(canvas, draw, card.category)
++                 card: StoryCard, accent, *, budget: int) -> int:
++    """Eyebrow, rule, headline and standfirst, fitted into `budget` pixels.
++
++    Returns the y the copy actually ended at, which is usually well short of the
++    budget. Anything placed after the header must measure from this rather than
++    from the budget, or it lands on top of the standfirst.
++    """
++    theme.draw_masthead(canvas, draw, card.category,
++                        date_text=getattr(card, "date_label", ""))
++
+ 
+     y = HEAD_TOP
+     eyebrow = f"THE FULL STORY  ·  {_dateline(card.scheduled_time)}"
+@@ -176,6 +187,7 @@ def _draw_header(canvas: Image.Image, draw: ImageDraw.ImageDraw,
+             draw.text((MARGIN, y), line, font=sub_font,
+                       fill=theme.rgba(theme.TEXT_SECONDARY))
+             y += slh
++    return y
+ 
+ 
+ def _draw_rail(canvas: Image.Image, draw: ImageDraw.ImageDraw, blocks,
+@@ -272,9 +284,26 @@ def render_story_card(card: StoryCard, out_path: Path,
+     blocks, rail_h = _layout_steps(card, rail_room)
+     header_budget = RAIL_BOTTOM - rail_h - HEAD_TO_RAIL - HEAD_TOP
+ 
+-    _draw_header(canvas, draw, card, accent, budget=header_budget)
+-    _draw_rail(canvas, draw, blocks, accent,
+-               top=HEAD_TOP + header_budget + HEAD_TO_RAIL)
++    header_bottom = _draw_header(canvas, draw, card, accent,
++                                 budget=header_budget)
++    rail_top = HEAD_TOP + header_budget + HEAD_TO_RAIL
++
++    # Pip sits in the clear band between the header and the rail, sized to fit
++    # it rather than placed at a guessed y - the header grows and shrinks with
++    # the headline, so any fixed position eventually lands on top of the text.
++    # Sensitive stories carry no mascot at all.
++    pose = theme.pose_for("explainer",
++                          sensitive=bool(getattr(card, "sensitive", False)))
++    band_top = header_bottom + 24
++    band_h = rail_top - band_top
++    if pose and band_h >= 130:
++        scale = max(5, min(9, (band_h - 40) // 24))
++        sprite_h = 24 * scale
++        theme.draw_pip(canvas, pose, scale=scale,
++                       x=SLIDE_W - MARGIN - 26 * scale,
++                       y=band_top + (band_h - sprite_h) // 2)
++
++    _draw_rail(canvas, draw, blocks, accent, top=rail_top)
+     _draw_footer(canvas, draw, card, accent)
+ 
+     canvas.convert("RGB").save(out_path, "PNG")
+diff --git a/headlinne/render/theme.py b/headlinne/render/theme.py
+index 2503173..112ad59 100644
+--- a/headlinne/render/theme.py
++++ b/headlinne/render/theme.py
+@@ -20,8 +20,9 @@ from typing import Optional
+ from PIL import Image, ImageDraw, ImageFilter
+ 
+ from ..config import (BRAND_TERRACOTTA, BRAND_TERRACOTTA_HI, CATEGORY_COLORS,
+-                      CATEGORY_PILL, INK, INK_SOFT, LOGO_PATH, TEXT_MUTED,
+-                      TEXT_PRIMARY, TEXT_SECONDARY)
++                      CATEGORY_PILL, INK, INK_SOFT, LOGO_PATH, SURFACE,
++                      SURFACE_DEEP, SURFACE_RAISED, TEXT_MUTED, TEXT_PRIMARY,
++                      TEXT_SECONDARY)
+ from . import fonts
+ 
+ # --------------------------------------------------------------------------- #
+@@ -114,6 +115,15 @@ alpha_ramp = _alpha_ramp
+ 
+ 
+ def cinematic_scrim(w: int, h: int, tint=INK) -> Image.Image:
++    """On a paper ground there is nothing to darken: type sits straight on it.
++
++    Retained as a no-op so the reel and any photo-backed slide can still call it
++    without a conditional at every site.
++    """
++    return Image.new("RGBA", (w, h), (0, 0, 0, 0))
++
++
++def _legacy_cinematic_scrim(w: int, h: int, tint=INK) -> Image.Image:
+     """A full-height scrim for photo slides: a firm dark base rising from the
+     bottom, a soft darken at the very top (for the brand bar) and a gentle
+     overall tint. Keeps white type legible over any photo without hiding it."""
+@@ -164,6 +174,12 @@ def cover_fit(img: Image.Image, w: int, h: int) -> Image.Image:
+ 
+ 
+ def panel_gradient(w: int, h: int, base=INK) -> Image.Image:
++    """Flat paper. The old radial gradient was visible enough to read as a
++    compression artefact rather than as lighting."""
++    return paper(w, h)
++
++
++def _legacy_panel_gradient(w: int, h: int, base=INK) -> Image.Image:
+     """A subtle top-to-bottom gradient panel (for the CTA and fallbacks)."""
+     top = scale(hex_to_rgb(base) if isinstance(base, str) else base, 1.35)
+     bottom = hex_to_rgb(base) if isinstance(base, str) else base
+@@ -179,6 +195,16 @@ def panel_gradient(w: int, h: int, base=INK) -> Image.Image:
+ # Premium fallback background (no usable photo)
+ # --------------------------------------------------------------------------- #
+ def brand_fallback(w: int, h: int, category: str, seed: str,
++                   *_a, **_k) -> Image.Image:
++    """The designed background for a slide with no usable photograph.
++
++    Now simply paper. The generated pixel scene and chart plate in render/plate.py
++    are the real fallbacks; this is the ground they sit on.
++    """
++    return paper(w, h)
++
++
++def _legacy_brand_fallback(w: int, h: int, category: str, seed: str,
+                    *, ghost_mark: bool = True) -> Image.Image:
+     """A designed fallback for slides with no photo.
+ 
+@@ -313,9 +339,13 @@ def draw_pill_right(draw: ImageDraw.ImageDraw, text: str, accent,
+ 
+ 
+ def draw_tracked_shadowed(canvas: Image.Image, xy, text: str, font, fill,
+-                          *, tracking: float = 0.0, shadow_alpha: int = 130) -> int:
+-    """Tracked (letter-spaced) text with a soft drop shadow, for accent-coloured
+-    labels that must stay legible over bright photography."""
++                          *, tracking: float = 0.0, shadow_alpha: int = 0) -> int:
++    """Tracked (letter-spaced) text, optionally shadowed.
++
++    The shadow now defaults off. It existed to hold accent labels legible over
++    bright photography on a dark ground; on paper it reads as a blurred edge.
++    Callers drawing over a photo can still pass shadow_alpha explicitly.
++    """
+     x, y = xy
+     if shadow_alpha:
+         shadow = Image.new("RGBA", canvas.size, (0, 0, 0, 0))
+@@ -418,3 +448,99 @@ def draw_source_line(draw: ImageDraw.ImageDraw, sources: str, accent,
+     tx += fonts.tracked_width(label_font, label, 1.6) + 16
+     draw.text((tx, y), sources, font=name_font, fill=rgba(TEXT_SECONDARY))
+     return y + fonts.line_height(name_font)
++
++
++# --------------------------------------------------------------------------- #
++# Paper-era furniture: Pip, the source strip, and the masthead that replaced
++# the category pill.
++#
++# The pill used to be the loudest object on every canvas - saturated fill, black
++# text, top right - and it carried the least useful information there. Category
++# is now a thin rule under the wordmark: same fact, a tenth of the volume.
++# --------------------------------------------------------------------------- #
++from . import pip as _pip          # noqa: E402  (circular-safe: pip imports none)
++from . import receipt as _receipt  # noqa: E402
++
++
++def paper(w: int, h: int) -> Image.Image:
++    """A flat paper ground. No gradient: the old radial one was visible enough
++    to read as a compression artefact rather than as lighting."""
++    return Image.new("RGBA", (w, h), rgba(hex_to_rgb(SURFACE)))
++
++
++def draw_masthead(canvas: Image.Image, draw: ImageDraw.ImageDraw, category: str,
++                  *, date_text: str = "", width: int | None = None,
++                  y: int = 74, margin: int | None = None) -> int:
++    """Wordmark left, date right, category as a coloured rule beneath.
++
++    Returns the y of the rule, so callers can lay out from it.
++    """
++    w = width or canvas.width
++    m = MARGIN if margin is None else margin
++    accent = accent_for(category)
++    draw.text((m, y), "HEADLINNE", font=fonts.title_font(34, 800),
++              fill=hex_to_rgb(TEXT_PRIMARY))
++    if date_text:
++        draw.text((w - m, y + 4), date_text.upper(),
++                  font=fonts.label_font(26, 600),
++                  fill=hex_to_rgb(TEXT_SECONDARY), anchor="ra")
++    rule_y = y + 58
++    draw.rectangle([m, rule_y, w - m, rule_y + 4], fill=accent)
++    return rule_y
++
++
++def draw_pip(canvas: Image.Image, pose: str = "idle", *, x: int = 0, y: int = 0,
++             scale: int = 14) -> tuple[int, int]:
++    """Stamp Pip. Returns his rendered size so callers can lay out around him.
++
++    The pose is metadata, not decoration: a regular reader learns to read the
++    kind of story from the character before reading a word.
++    """
++    sprite = _pip.render(_pip.SPRITES.get(pose, _pip.SPRITES["idle"]), scale)
++    canvas.alpha_composite(sprite.convert("RGBA"), (x, y))
++    return sprite.size
++
++
++def pose_for(story_kind: str, *, sensitive: bool = False) -> str | None:
++    """Which pose a story earns, or None when it must carry no mascot at all.
++
++    Sensitive stories - deaths, disasters - are reported plainly. Pip never
++    appears beside one, and neither does a speech bubble or a wonder framing.
++    """
++    if sensitive:
++        return None
++    return {
++        "brief": "carry", "cover": "carry", "breaking": "alert",
++        "explainer": "read", "verified": "verified", "disagree": "puzzled",
++        "cta": "carry",
++    }.get(story_kind, "idle")
++
++
++def draw_receipt(draw: ImageDraw.ImageDraw, story, *, x: int, y: int,
++                 tick_w: int = 13, tick_h: int = 46, gap: int = 9,
++                 label: bool = True) -> int:
++    """The source strip. Returns the y below everything it drew.
++
++    Filled ticks are outlets that reported the event. A single-source story gets
++    one outlined tick and says so - we publish that rather than pad it, because
++    a bar that is never thin is a bar that means nothing.
++    """
++    filled, outlined = _receipt.ticks(story)
++    good = hex_to_rgb(CATEGORY_COLORS.get("Finance", "#1E6B54"))
++    muted = hex_to_rgb(TEXT_MUTED)
++    for i in range(filled):
++        bx = x + i * (tick_w + gap)
++        draw.rectangle([bx, y, bx + tick_w, y + tick_h], fill=good)
++    for i in range(outlined):
++        bx = x + (filled + i) * (tick_w + gap)
++        draw.rectangle([bx, y, bx + tick_w, y + tick_h], outline=muted, width=3)
++    below = y + tick_h
++    if label:
++        below += 28
++        draw.text((x, below), _receipt.label(story),
++                  font=fonts.label_font(32, 700), fill=hex_to_rgb(TEXT_PRIMARY))
++        below += 44
++        draw.text((x, below), _receipt.named(story, limit=3),
++                  font=fonts.label_font(27, 500), fill=hex_to_rgb(TEXT_SECONDARY))
++        below += 38
++    return below
+-- 
+2.51.0.windows.2
+

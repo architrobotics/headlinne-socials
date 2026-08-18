@@ -80,115 +80,146 @@ gathering, generating, rendering and publishing happens on GitHub's runners.
 
 **X (Twitter): 2 posts a day.** Every second day is a single Headlinne promo post
 that highlights a product feature in an educational, non-salesy way. On the other
-days there are two news posts covering two different categories. Each news post
-leads with a short line and lists the top stories with brief explanations. Posts
-stay within 280 characters with room reserved for the website and hashtags. Each
-post also gets a **branded image card** (rendered from the same design system as
-the carousels) attached automatically, which lifts reach in the timeline. The
-tweet text stays a valid standalone post, so the card is a bonus, not a
-dependency. Turn it off with the `X_ATTACH_CARD` variable.
+days there are two news posts covering two different categories. Posts stay
+within 280 characters with room reserved for the website and hashtags. Each post
+also gets a **branded card** attached automatically.
 
 **LinkedIn: 1 post a day.** These build credibility: how the recommendation
 engine works, what AI Search changes, the product philosophy, the founder
 journey, engineering decisions, the roadmap. Every Friday it posts a "This Week
-in Finance and Tech" roundup instead. Professional but approachable, no
-buzzwords, no hashtags, with a light invitation to visit the site.
+in Finance and Tech" roundup instead.
 
-**Instagram: 2 reels, 1 story card and 1 or 2 carousels a day.** All four formats
-are drawn from the same design system (`headlinne/render/theme.py`), so a reel, a
-carousel and a card read as one brand.
+**Instagram: 1 reel, 1 carousel and 1 story card a day.** All three are drawn
+from the same design system (`headlinne/render/theme.py`), so a reel, a carousel
+and a card read as one brand.
 
-### Reels (2 a day)
+### The design system
+
+Everything sits on **paper** (`#F7F1E6`), not on near-black. Feed presence comes
+from contrast at the edge of a post, and warm paper against Instagram's white
+chrome separates cleanly while looking like something printed rather than
+something generated.
+
+- **One face.** Manrope, on its variable weight axis. That axis is what lets a
+  single word inside a headline carry emphasis without changing size, which is
+  what the reel's kinetic type is built on.
+- **A masthead, not a pill.** The wordmark sits top-left, the date top-right, and
+  a coloured rule runs beneath. The rule's colour is semantic: coral for the live
+  story, marigold when the sources disagree, mint for agreement.
+- **Pip.** A 26-pixel pigeon, named for the BBC pips and for the carrier pigeons
+  Paul Reuter flew across the Aachen telegraph gap in 1850. He exists because an
+  automated account cannot have a presenter, and a character is the only way a
+  faceless brand gets a personality that scales to every post at no cost per
+  post. His pose is metadata: a regular reader learns the kind of story from the
+  character before reading a word. **Sensitive stories carry no mascot at all.**
+- **Plates.** Photographs appear tilted in a paper frame with a strip of tape. A
+  straight rectangle reads as a screenshot; a tilted one reads as an object
+  someone put there.
+- **The source strip.** A tick per outlet and a line stating the agreement.
+
+### The fallback ladder
+
+A slide is never empty and never a bare gradient:
+
+| Rung | When | What renders |
+| --- | --- | --- |
+| 1 | The article has a usable photo | The photo, tilted in a paper frame with a source caption |
+| 2 | No photo, the category has a scene | A generated pixel scene, captioned `ILLUSTRATION - NOT A PHOTOGRAPH`, always |
+| 3 | No photo, but the story has figures | A chart plate built from the article's own numbers |
+| 4 | Nothing usable | Pip presents the headline. Larger type, more air. |
+
+That caption on rung 2 is not optional and lives inside the plate function rather
+than at the call site, so it cannot be forgotten. Shipping a drawn crater a
+reader could mistake for a NASA photograph would undo more trust in one post than
+the source strip builds in a month.
+
+### The source strip
+
+The component that makes the product's argument. One number decides whether it
+builds trust or destroys it, and it is the denominator.
+
+"4 of 32" would be a lie by framing: thirty-two is how many feeds we read, not
+how many covered the story. The other twenty-eight never wrote about it, so
+counting them as absent agreement invents a disagreement that never happened.
+
+So three counts are tracked, and they are not interchangeable:
+
+- **reported** - outlets that covered the event, *after syndication collapse*. Six
+  outlets running one agency wire are one voice wearing six mastheads.
+- **agree** - outlets whose account of the central claim matches.
+- **conflict** - outlets that reported a materially different figure for it.
+
+An outlet that covered the story but never mentioned the figure is **silent, not
+dissenting**. It counts toward `reported` and toward neither of the others, and
+it draws no tick, because a hollow tick reads as "this outlet disagrees" and that
+would be false.
+
+That distinction is what lets the label be honest in all three shapes:
+
+| Renders | When |
+| --- | --- |
+| `8 of 8 outlets agree` | every outlet that reported it took a position, and they matched |
+| `4 sources agree` | four agreed and the rest were silent, so a count rather than a fraction |
+| `3 of 7 outlets agree` | seven took a position and four of them differ |
+
+A story with one source is **not published**. That is a gate, not a penalty.
+
+### The reel (1 a day, 9:30 AM IST)
 
 Reels are the only Instagram surface that reliably reaches people who do not
-already follow the account, so they lead the day and close it.
+already follow the account, so the day's single reel gets first claim on the
+day's best story. 1080x1920, around 28 seconds, seven beats.
 
-- **Morning (9:30 AM IST): a news explainer.** Walks through the single biggest
-  story of the day. Hook, what happened, the mechanism, a graphic, why it matters
-  to you.
-- **Evening (8 PM IST): an educational explainer.** Teaches one evergreen idea
-  with a small worked example: why a rate hike reaches your loan, what a sanction
-  actually does, why two outlets report the same story differently. These are
-  what get saved and sent on, and they keep earning reach weeks later. The topic
-  rotates deterministically through the list in `config.EDUCATION_TOPICS`, so a
-  full cycle takes about a fortnight.
+Three things carry the motion, and none of them is a transition effect:
 
-Both are 1080x1920, cut into six beats plus a sign-off. Narrated they run around
-40 seconds (up to about 50 when every line runs long); silent, about 28. The
-voice speaks at roughly 12 characters a second, which is what the narration
-length limit in `generate/reel.py` is worked back from. Every word is also burned
-into the frame because most reels are watched muted, a progress bar across the
-top tells the viewer how much is left, and nothing important sits where Instagram
-draws its own caption and action rail.
+- **Pip walks.** His position is a function of elapsed time across the whole
+  reel, so the character crosses the frame once. The pose cycles underneath at
+  its own rate, so he is animated whether or not he is moving.
+- **The line reveals word by word.** The layout is computed for the finished line
+  and only the drawing is withheld, so nothing re-wraps mid-beat, which is the
+  difference between a reveal and a jitter.
+- **Plates slide in and settle.** A plate that animates on every frame competes
+  with the text.
 
-**They are narrated.** Gemini TTS speaks a line per beat, and *the narration
-drives the edit*: each cut lasts exactly as long as its spoken line plus a little
-air, rather than as long as the code guesses the text takes to read. The spoken
-line is written separately from the on-screen line, because a sentence written to
-be glanced at and a sentence written to be said are rarely the same one, and the
-prompt asks for both. The morning and evening reels use different voices so the
-news brief and the lesson do not sound like one person reading two scripts.
+The masthead rule doubles as the completion bar, so a viewer can see how much is
+left without a second piece of furniture. **Nothing renders below y=1450** -
+Instagram's caption block, handle, audio strip and action rail sit exactly there.
 
-That matters beyond sounding better: a reel with a real audio track is a more
-complete post than one carrying silence, and anyone who unmutes gets something
-rather than nothing. The two voices, the delivery direction and the pacing are
-all in `config.py` under "Instagram Reels", and are worth auditioning before you
-settle on them.
+**It is narrated, and the narration drives the edit.** Each cut lasts as long as
+the voice needs rather than as long as the code guesses the text takes to read.
+The whole script goes to Gemini TTS as **one request per reel** - it used to be
+one per beat plus the sign-off, which on the free tier's three-per-minute limit
+meant eight calls spaced 21 seconds apart and several minutes of waiting per run.
+The trade is that sync comes from word-count proportions rather than measured
+clips, which is imperceptible for kinetic text and nothing is lip-synced. If
+speech fails for any reason the reel still ships: it falls back to reading-speed
+pacing and a silent track, and the burned-in captions carry it.
 
-If speech cannot be produced (no key, a quota, an outage) the reel still ships:
-it falls back to reading-speed pacing and a silent track, logs a warning through
-the quality gate, and the burned-in captions carry the content. Set
-`REEL_VOICEOVER=false` to choose silence deliberately.
+On a thin news day, when the top story scores below the bar, the reel teaches an
+evergreen idea from `config.EDUCATION_TOPICS` instead. A news explainer is worth
+a day; an explainer of why a rate rise reaches your loan is worth as long as
+loans exist.
 
-**Speech is rate limited much more tightly than text, and this matters.**
-Narration is one API call per beat, so two reels need about fourteen speech
-requests. The Gemini **free tier allows three TTS requests per minute**, so those
-fourteen calls cannot simply be fired off: they get refused, the retries get
-refused too, and the reels come out silent with the reason buried in the logs.
+### The carousel (1 a day, 4 PM IST)
 
-Two things make it work anyway.
+One carousel, **one story**, five slides doing five different jobs:
 
-**Quota is counted per model, so the client uses more than one.**
-`REEL_TTS_FALLBACK_MODELS` lists models to fall through to when the primary
-starts refusing, and because each carries its own allowance, two or three
-between them cover a day's fourteen lines where one alone does not. A refusal
-triggers an immediate move to the next model rather than a wait, since the next
-model's quota is unaffected by the first one's. Once a model works it becomes
-sticky for the rest of the run.
-
-**Calls are paced.** `REEL_TTS_MIN_INTERVAL` (default 21 seconds) spaces requests
-to stay inside the per-minute limit, and a 429 is read as the server saying how
-long to wait, using the `retryDelay` it sends back, rather than guessed at with
-exponential backoff.
-
-The cost is time: narrating both reels takes about five minutes of the generate
-run, nearly all of it waiting. **On a paid key set `REEL_TTS_MIN_INTERVAL` to
-`0`** and that disappears entirely.
-
-If reels start coming out silent while the written copy is fine, the speech quota
-is the first place to look. Speech and text quotas are counted separately on a
-Gemini key.
-
-**One beat carries a graphic instead of a photo.** This is what makes an
-explainer feel authored rather than templated, and there are five devices to
-choose from, in `headlinne/render/graphics.py`:
-
-| Device | What it shows | Prints figures? |
+| Slide | Job | Tone |
 | --- | --- | --- |
-| `flow` | a cause-and-effect chain, three chips joined by arrows | no |
-| `split` | one direct contrast, two stacked panels with a VS pivot | no |
-| `timeline` | what happens over time, a rail filling through labelled stops | no |
-| `bars` | two or three quantities compared by height | optionally |
-| `counter` | one striking figure, counted up | yes |
+| `cover` | what happened | coral |
+| `scale` | how big, one number set enormous and what it compares to | terracotta |
+| `twist` | the thing you did not already know | marigold |
+| `sources` | the receipt, in full, with every outlet named | mint |
+| `cta` | the domain, as the loudest object on the slide | terracotta |
 
-The split matters. `bars` and `counter` print numbers, which is a factual claim
-in a form people screenshot, so **every figure they print is checked character by
-character against the source article** and anything that does not appear there is
-removed (`generate/reel.py`). Bar *heights* are a separate, softer claim about
-relative size, so a bar can still show direction without printing a statistic.
-Educational reels lose printed figures entirely, since their examples are openly
-hypothetical and a hypothetical number drawn as a chart stops looking
-hypothetical.
+That shape is the whole change. The old carousel was a listicle, a cover then
+three or five unrelated stories under identical layouts, and a list has no reason
+to be swiped past its second entry. An argument does: each slide answers the
+question the previous one raised, which is what carries a reader to the last
+slide where the call to action lives.
+
+The order is enforced. `quality/visual.py` rejects a carousel whose roles are out
+of sequence, because the order *is* the argument.
 
 ### The story card (1 a day, 9:30 PM IST)
 
@@ -198,46 +229,28 @@ save instead, which is worth far more to a post's reach.
 
 The rail is always the same four stops, fixed in code and not up to the model:
 **what happened**, **how we got here**, **why it matters**, **what to watch**. A
-reader who has seen one of these knows where the "does this affect me" line will
-be before they have finished the headline. The layout measures the steps first
-and hands the headline whatever is left over, so a long story shrinks its type
-rather than silently truncating the line that carries the point.
+reader who has seen one knows where the "does this affect me" line will be before
+they have finished the headline.
 
-### Carousels (1 or 2 a day)
+The layout measures the steps first and hands the headline whatever is left, and
+it **shrinks the type rather than cutting a line**. The step most likely to run
+long is "why it matters", which is the one a reader came for.
 
-One for each of the strongest categories, at 4 PM and 6 PM IST. Each covers the
-top 3 or top 5 stories (the system decides based on how strong the deeper stories
-are). Every slide is built from the shared design system so the whole set reads
-as one polished, editorial template:
+### The X cards (1200 x 675)
 
-- **Brand furniture on every slide.** The `h` logo mark and the `HEADLINNE`
-  wordmark sit top-left, a category pill (colour-coded) sits top-right, and a row
-  of page-progress pips shows how far through the set you are. Because carousels
-  get screenshotted and reshared, the brand travels with every slide.
-- **Cover slide:** a full-bleed photo under a cinematic scrim, a dateline eyebrow
-  ("Your daily brief · Tue, 21 Jul"), a large curiosity-driven title written by
-  the model, a one-line hook, and a "Swipe" affordance to pull people in.
-- **Story slides:** the article photo with the same furniture, a large ghosted
-  index number ("01"), an accent rule, the headline, a short "what happened and
-  why it matters", and a **Sources** line naming the outlets that corroborated
-  the story. That trust line is the audience-facing side of the cross-source
-  verification the ranker already does.
-- **Final slide:** a warm branded sign-off with the logo, a "Follow" and a "Save"
-  call to action (the two actions Instagram rewards most), and the website.
+On X the post text is the hook, so the image has to add something rather than
+repeat it. The card carries the proof:
 
-Colours are one warm family anchored on the terracotta logo: a coral accent for
-Technology, emerald for Finance and amber for Geopolitics. When a story has no
-usable photo, the renderer draws a designed, category-tinted brand background
-instead of a flat block, so a slide is never empty. The model never generates
-images. It only produces the text that fills the template. The renderer draws
-everything.
+| Layout | Shows |
+| --- | --- |
+| `receipt` | who reported it, every outlet named, a tick each |
+| `compare` | two outlets, one document, two different numbers |
+| `correct` | the original claim struck through, and what was established later |
+| `plate` | one figure beside one image |
 
-The second carousel is optional. Set the `IG_SECOND_CAROUSEL` variable to
-`false` to drop to one a day, which is the recommendation once the reels are
-running (see the next section).
-
----
-
+The correction card is the one to lead with. It is a format no single-outlet
+account can run, and it makes the argument for the product without a word of
+marketing.
 ## Why the format mix looks like this
 
 Worth reading before changing it, because the reasoning is the useful part.
@@ -245,26 +258,33 @@ Worth reading before changing it, because the reasoning is the useful part.
 **Reels exist to be found. Everything else exists to convert.** Instagram serves
 the Reels tab to people who do not follow you, and shows feed posts almost
 entirely to people who already do. An account with no video is therefore close to
-invisible to anyone new, however good the carousels are. That is why the two
-reels bracket the day, and why the morning one covers the day's biggest story,
-where the search interest already exists.
+invisible to anyone new, however good the carousels are. That is why the reel
+leads the day and gets first claim on the day's best story, where the search
+interest already exists. The carousel takes the second-best one, so the day never
+spends two of its three posts on the same event.
 
 **Carousels and cards earn more per person reached, so they follow the reels.**
 Once someone has arrived, a format that is dense and saveable is worth more than
 another one asking to be discovered. The story card is the strongest version of
 that, because it is complete on one frame and the natural response is to keep it.
 
-**The educational reel is the part that compounds.** A news explainer is worth a
-day. An explainer of why a rate rise reaches your loan is worth as long as loans
-exist, and it keeps being served long after it was posted. An account that only
-posts news has nothing that accumulates.
+**The evergreen explainer is the part that compounds.** A news explainer is
+worth a day. An explainer of why a rate rise reaches your loan is worth as long
+as loans exist, and it keeps being served long after it was posted. An account
+that only posts news has nothing that accumulates, which is why the reel falls
+back to a topic from `EDUCATION_TOPICS` when the day's best story is not worth
+thirty seconds.
 
-**More posting is not more reach.** Four Instagram posts a day is at the top of
-what a small account can carry: each post competes with the others for the same
-initial test audience, and going past that point makes every one of them land
-softer. If you want to add a format, take one away. `IG_SECOND_CAROUSEL=false`
-is the intended lever, leaving one reel, one carousel, one reel and the story
-card.
+**More posting is not more reach.** Three Instagram posts a day is what a small
+account can carry. Each post competes with the others for the same initial test
+audience, so a fourth does not add reach, it divides it, and the reel is the one
+that has to win that competition because it is the only surface reaching people
+who do not already follow.
+
+This used to be four - two reels plus one or two carousels plus the card. The
+second reel and the second carousel are now opt-in (`SECOND_REEL=true`,
+`IG_SECOND_CAROUSEL=true`). Both slots still exist and still publish if something
+is written into them, so a manual extra post needs no code change.
 
 ---
 
@@ -472,16 +492,20 @@ Add these as **variables** (plain, non-secret):
 | `BUFFER_FIRST_COMMENT` | `false` | Post the hashtag tail as a first comment. Needs a **paid** Buffer plan |
 | `PUBLIC_IMAGE_BASE_URL` | empty | Only needed for a private repo (step 1) |
 | `X_ATTACH_CARD` | `true` | Attach the branded image card to X posts |
-| `REELS_ENABLED` | `true` | Render and publish the two daily reels |
+| `REELS_ENABLED` | `true` | Render and publish the daily reel |
 | `STORY_CARD_ENABLED` | `true` | Render and publish the daily story card |
-| `IG_SECOND_CAROUSEL` | `true` | Set `false` to drop to one carousel a day |
+| `CAROUSEL_ENABLED` | `true` | Render and publish the daily carousel |
+| `IG_SECOND_CAROUSEL` | `false` | Set `true` to add a second carousel |
+| `SECOND_REEL` | `false` | Set `true` to add an evening educational reel |
+| `GEMINI_FALLBACK_MODELS` | `gemini-3.1-flash,...` | Models to fall through to when the primary hits its daily cap |
+| `FEED_TIMEOUT_SECONDS` | `12` | Per-feed socket timeout, so one stalled publisher cannot hang the run |
 | `REEL_CRF` | `20` | x264 quality for reels (lower is better and bigger) |
 | `REEL_PRESET` | `veryfast` | x264 speed preset |
 | `REEL_VOICEOVER` | `true` | Narrate reels with Gemini TTS |
 | `REEL_TTS_MODEL` | `gemini-3.1-flash-tts-preview` | Speech model |
 | `REEL_VOICE_NEWS` | `Charon` | Voice for the morning news reel |
 | `REEL_VOICE_EDUCATION` | `Kore` | Voice for the evening lesson |
-| `REEL_TTS_MIN_INTERVAL` | `21` | Seconds between speech calls. Set `0` on a paid key |
+| `REEL_TTS_MIN_INTERVAL` | `21` | Seconds between speech calls. Rarely applies now that a reel costs one call |
 | `REEL_TTS_FALLBACK_MODELS` | `gemini-2.5-flash-preview-tts,gemini-2.5-pro-preview-tts` | Comma-separated models to fall through to when the primary hits its quota |
 | `FFMPEG_BINARY` | empty | Path to ffmpeg, if it is not on `PATH` |
 | `REDDIT_ENGAGEMENT_CAP` | `12` | Max Reddit drafts per run (hard-capped at 25) |
@@ -542,14 +566,14 @@ fires at its slot.
 
 | Slot | IST | UTC | Platform | What |
 | --- | --- | --- | --- | --- |
-| generate | 06:00 | 00:30 | (none) | Gather, write, render, commit |
-| reel-1 | 09:30 | 04:00 | Instagram | News explainer reel |
+| generate | 06:00 | 00:30 | (none) | Gather, write, render, validate, commit |
+| reel-1 | 09:30 | 04:00 | Instagram | The daily reel |
 | x-1 | 13:00 | 07:30 | X | First post (news or promo) |
-| instagram-1 | 16:00 | 10:30 | Instagram | First carousel |
+| instagram-1 | 16:00 | 10:30 | Instagram | The daily carousel |
 | x-2 | 17:00 | 11:30 | X | Second post (only on non-promo days) |
 | linkedin | 18:00 | 12:30 | LinkedIn | Daily post or Friday roundup |
-| instagram-2 | 18:00 | 12:30 | Instagram | Second carousel (optional) |
-| reel-2 | 20:00 | 14:30 | Instagram | Educational explainer reel |
+| instagram-2 | 18:00 | 12:30 | Instagram | Second carousel (off by default) |
+| reel-2 | 20:00 | 14:30 | Instagram | Second reel (off by default) |
 | story-card | 21:30 | 16:00 | Instagram | The daily story card |
 
 In scheduled mode you do not need cron jobs for x-1, x-2 or linkedin. Buffer
@@ -584,13 +608,9 @@ the still formats you can skip them:
 python -m headlinne preview --out preview --no-video
 ```
 
-Previews use a **stub voice** by default: silence of exactly the length the real
-narration would take, so the pacing and the cut points are honest without
-spending an API request. To hear the actual voices (needs `GEMINI_API_KEY`):
-
-```bash
-python -m headlinne preview --out preview --voice
-```
+Previews are **silent**: the reel is paced at reading speed and spends no API
+request. Cut points and layout are what a preview is for, and both are honest
+without the voice. A real generate run narrates it.
 
 **About ffmpeg.** Reels are encoded with ffmpeg. GitHub's Ubuntu runners already
 ship it, so CI needs nothing extra. Locally, `imageio-ffmpeg` in
@@ -636,24 +656,33 @@ headlinne-social/
 │   ├── pipeline.py          Orchestrates generate and publish
 │   ├── storage.py           Reads and writes the content/ folder
 │   ├── cli.py               Command-line entry point
-│   ├── news/                Fetch feeds, extract images, rank and verify
+│   ├── news/                Fetch feeds, rank, and corroborate
+│   │   ├── interest.py      Nine-term interest score: is this worth reading?
+│   │   ├── quality.py       The news-worthiness gate: what is not news at all
+│   │   ├── corroborate.py   Independent outlets, syndication, claim agreement
+│   │   ├── _lexicon.py      Boundary-anchored term matching, shared by both
+│   │   └── ranking.py       Clustering, scoring, the reserved slot, audit log
 │   ├── gemini/              Gemini clients and the prompts
 │   │   ├── client.py        JSON generation for all the copy
 │   │   └── tts.py           Speech generation for reel narration
 │   ├── generate/            Builds X, LinkedIn and Instagram content
 │   │   ├── hooks.py         Hook archetype rotation and caption assembly
-│   │   ├── reel.py          Both reel scripts, plus figure verification
+│   │   ├── instagram.py     The daily carousel: one story, five slides
+│   │   ├── reel.py          The daily reel script, plus figure verification
 │   │   └── story_card.py    The daily walk-through card
 │   ├── render/              Draws every visual with Pillow (video via ffmpeg)
-│   │   ├── theme.py         The design system: palette, furniture, fallbacks
-│   │   ├── fonts.py         Display / body / label font loading and fitting
-│   │   ├── carousel.py      Cover, story and CTA slide layouts
-│   │   ├── card.py          Branded square image card for X posts
+│   │   ├── theme.py         The design system: paper, masthead, Pip, receipt
+│   │   ├── pip.py           The mascot: 6 poses, 6 animation cycles, 26px wide
+│   │   ├── plate.py         Tilted taped frames and the 4-rung fallback ladder
+│   │   ├── receipt.py       The source strip: ticks, label, state, pose
+│   │   ├── fonts.py         Manrope on its weight axis, plus fitting helpers
+│   │   ├── carousel.py      The five slide layouts
+│   │   ├── card.py          The four X card layouts, 1200x675
 │   │   ├── story_card.py    The single-image walk-through layout
-│   │   ├── motion.py        Animation engine, frames piped into ffmpeg
-│   │   ├── graphics.py      The five explanatory devices for reel graphics
+│   │   ├── motion.py        Encoder, easing, frames piped into ffmpeg
+│   │   ├── graphics.py      Explanatory devices for educational reels
 │   │   ├── voice.py         Narration track, and the pacing it dictates
-│   │   └── reel.py          Hook, beat, graphic, payoff and outro layouts
+│   │   └── reel.py          Frame rendering, the element trace, the encode
 │   ├── reddit/              Reddit opportunity finder + human-review assistant
 │   │   ├── client.py        Reddit API (read + guarded single-comment submit)
 │   │   ├── relevance.py     Topic fit and sensitive-topic filtering
@@ -661,11 +690,18 @@ headlinne-social/
 │   │   ├── drafts.py        Gemini-drafted helpful replies
 │   │   └── pipeline.py      Build the review queue, guarded manual post
 │   ├── publish/             Buffer, Meta Graph API, image hosting
-│   └── quality/             Sanitiser, quality gate, de-duplication
+│   └── quality/             Sanitiser, text gate, visual gate, de-duplication
+│       ├── checks.py        Character limits, punctuation, clickbait
+│       └── visual.py        Collision, safe zone, contrast, receipt arithmetic
 ├── tests/                   Offline test suite (python -m tests)
 ├── assets/
-│   ├── fonts/               Display and body fonts
-│   └── logo.png             The Headlinne logo used on the CTA slide
+│   ├── fonts/               Manrope (display + body), Inter, Anton (legacy)
+│   └── logo.png             The app tile, for store surfaces
+├── design/
+│   ├── AUDIT.md             The pre-redesign audit and its defect register
+│   ├── brand-book.html      The design system, as presented
+│   ├── samples/             The approved renders. These are the source of truth
+│   └── prototypes/          The programs the samples were rendered from
 ├── scripts/
 │   └── cron-jobs.md         cron-job.org setup walkthrough
 ├── .github/workflows/
@@ -767,8 +803,9 @@ available". On a runner this should never happen, since `imageio-ffmpeg` is in
 generate log, which names the beat that failed. In order of likelihood:
 
 1. **Speech quota.** The free tier is three TTS requests a minute and a daily
-   cap on top of that. If the log shows repeated "rate limited" retries, raise
-   `REEL_TTS_MIN_INTERVAL` or move to a paid key.
+   cap on top of that. A reel costs **one** request, so hitting this now means
+   either the daily cap or a key without speech access - check the next item
+   before touching `REEL_TTS_MIN_INTERVAL`.
 2. **Model access.** `REEL_TTS_MODEL` must be a model your key can reach. The
    speech models are separate from the text model, so a `GEMINI_API_KEY` that
    generates copy fine does not by itself guarantee TTS access.

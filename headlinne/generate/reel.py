@@ -26,7 +26,8 @@ from datetime import date
 
 from ..config import (BRAND, CATEGORY_LABELS, EDUCATION_TOPICS, EducationTopic)
 from ..gemini.client import GeminiClient
-from ..gemini.prompts import (STYLE_GUIDE, reel_education_prompt,
+from ..gemini.prompts import (STYLE_GUIDE, reel_daily_prompt,
+                              reel_education_prompt,
                               reel_news_prompt, stories_block)
 from ..logging_setup import get_logger
 from ..models import NewsDigest, Reel, ReelBeat, Story
@@ -34,9 +35,18 @@ from ..news.images import best_story_image
 from ..quality.sanitize import sanitize
 from ..render.graphics import DEVICES, LABEL_ONLY_DEVICES
 from ..scheduling import slot_iso
+from ..render import receipt as receipt_mod
 from . import hooks
 from .common import clamp_words
-from .instagram import source_line
+
+
+def source_line(story: Story) -> str:
+    """The attribution line printed under the reel's tick strip.
+
+    Drawn from the agreement record rather than from the raw corroborating list,
+    so a syndicated wire carried by six outlets is named once.
+    """
+    return receipt_mod.named(story, limit=4)
 
 log = get_logger("generate.reel")
 
@@ -335,3 +345,133 @@ def generate_education(client: GeminiClient, day: date) -> Reel:
     return _assemble(slot="reel_2", kind="education", category=topic.category,
                      title=topic.title, data=data, beats=beats, day=day,
                      extra_tags=["Explained", "LearnOnInstagram"])
+
+
+# --------------------------------------------------------------------------- #
+# The daily reel
+# --------------------------------------------------------------------------- #
+# One reel a day, on the day's strongest story. Two reels was more than the
+# speech quota comfortably carried and more than a small account needs: each post
+# competes with the others for the same initial test audience, and the reel is
+# the one that has to win that competition because it is the only surface that
+# reaches people who do not already follow.
+DAILY_BEATS = 7
+
+# Below this interest score the day has no story worth thirty seconds, and the
+# reel teaches an evergreen idea instead. An explainer of why a rate rise reaches
+# your loan keeps earning reach for as long as loans exist; a reel about a thin
+# news day is worth one day and then nothing.
+WEAK_DAY_SCORE = 6.0
+
+
+def _daily_beats(data: dict, story: Story) -> list[ReelBeat]:
+    """Turn the model's beats into renderable ones.
+
+    Every figure a counter beat would print is checked against the story text
+    first. Bar *heights* are a soft claim about relative size, but a number set
+    at 140px is a hard one in the most screenshot-able form this account
+    produces, so an unverified figure loses its beat rather than its accuracy.
+    """
+    source_text = f"{story.title} {story.summary}"
+    digits = set(_digits(source_text))
+    sensitive = bool(getattr(story, "sensitive", False))
+
+    # Which pose each beat holds. Rotated by position rather than authored, so
+    # the character is doing something different on every cut without the model
+    # having to think about it.
+    poses = ("walk", "point", "present", "jump", "talk", "point", "cta")
+
+    beats: list[ReelBeat] = []
+    raw = data.get("beats", []) or []
+    for index, item in enumerate(raw[:DAILY_BEATS]):
+        caption = clamp_words(sanitize(str(item.get("caption", ""))), 120)
+        if not caption:
+            continue
+        counter = item.get("counter")
+        graphic, payload = "", {}
+        if counter not in (None, "", "null"):
+            raw_value = str(counter).replace(",", "").strip()
+            if raw_value in digits:
+                graphic, payload = "counter", {"value": raw_value}
+            else:
+                log.warning("reel: dropped unverified counter %r", counter)
+
+        role = "hook" if index == 0 else (
+            "outro" if index == len(raw[:DAILY_BEATS]) - 1 else
+            ("graphic" if graphic else "point"))
+        beats.append(ReelBeat(
+            role=role,
+            chapter=clamp_words(sanitize(str(item.get("chapter", ""))), 26),
+            caption=caption,
+            detail=clamp_words(sanitize(str(item.get("detail", ""))), 70),
+            narration=clamp_words(sanitize(str(item.get("narration", ""))), 150),
+            graphic=graphic, data=payload,
+            pose="" if sensitive else poses[index % len(poses)],
+            say="", plates=[]))
+    return beats
+
+
+def _place_plates(beats: list[ReelBeat], story: Story) -> None:
+    """Give the picture a beat of its own, roughly a third of the way in.
+
+    Not the hook: the opening two seconds decide whether anyone watches, and a
+    plate sliding in competes with the line that has to land there. Not the
+    sign-off either, which needs the room for the domain.
+    """
+    if getattr(story, "sensitive", False):
+        # Sober template. Clear rather than merely decline to add: a plate set
+        # anywhere upstream must not survive into a story about a disaster, and
+        # a rule this important should not depend on every caller remembering it.
+        for beat in beats:
+            beat.plates = []
+        return
+    candidates = [i for i, b in enumerate(beats)
+                  if b.role not in ("hook", "outro") and not b.graphic]
+    if not candidates:
+        return
+    beats[candidates[len(candidates) // 3]].plates = ["story"]
+
+
+def generate_daily(client: GeminiClient, digest: NewsDigest, day: date, *,
+                   exclude_urls: set[str] | None = None) -> Reel | None:
+    """The day's reel: the top story, or an evergreen lesson on a thin day."""
+    story = lead_story(digest, exclude_urls=exclude_urls)
+    if story is None or story.score < WEAK_DAY_SCORE:
+        if story is not None:
+            log.info("reel: top story scores %.2f, below the %.1f bar - "
+                     "teaching an evergreen idea instead", story.score,
+                     WEAK_DAY_SCORE)
+        reel = generate_education(client, day)
+        reel.slot = "reel_1"
+        reel.dateline = _dateline(day)
+        return reel
+
+    data = client.generate_json(
+        system=STYLE_GUIDE,
+        prompt=reel_daily_prompt(stories_block([story]),
+                                 hooks.hook_brief(day, "reel_1"),
+                                 _agreement_line(story), DAILY_BEATS),
+    )
+    beats = _daily_beats(data, story)
+    if len(beats) < 3:
+        log.error("reel: model returned %d usable beats, too thin to publish",
+                  len(beats))
+        return None
+    _place_plates(beats, story)
+
+    reel = _assemble(slot="reel_1", kind="news", category=story.category,
+                     title=clamp_words(sanitize(story.title), 90), data=data,
+                     beats=beats, day=day, sources=source_line(story),
+                     story_url=story.url)
+    reel.dateline = _dateline(day)
+    return reel
+
+
+def _dateline(day: date) -> str:
+    return f"{day.strftime('%a')} {day.day} {day.strftime('%b')}".upper()
+
+
+def _agreement_line(story: Story) -> str:
+    from .instagram import agreement_line
+
+    return agreement_line(story)

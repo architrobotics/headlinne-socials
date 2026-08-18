@@ -19,7 +19,6 @@ from headlinne.config import (REEL_VOICE_EDUCATION, REEL_VOICE_LEAD_IN,
                               TTS_SAMPLE_RATE)
 from headlinne.gemini.tts import pcm_seconds, silence
 from headlinne.models import Reel, ReelBeat
-from headlinne.render import reel as reel_render
 from headlinne.render.voice import (MIN_BEAT_SECONDS, VoiceTrack,
                                     build_voice_track, voice_for)
 
@@ -75,22 +74,43 @@ def test_silence_is_whole_samples_at_the_expected_rate():
 # --------------------------------------------------------------------------- #
 # Track assembly
 # --------------------------------------------------------------------------- #
-def test_every_beat_and_the_sign_off_get_a_line():
-    stub = StubVoice()
-    with tempfile.TemporaryDirectory() as tmp:
-        track = build_voice_track(_reel(), Path(tmp) / "v.wav", client=stub)
-    assert track is not None
-    # One call per beat, plus the spoken call to action.
-    assert len(stub.calls) == 5
-    assert len(track.beat_seconds) == 4
-
-
-def test_beat_length_is_the_spoken_line_plus_its_air():
+def test_the_whole_reel_costs_exactly_one_speech_request():
+    # It used to be one per beat plus one for the sign-off - five calls for this
+    # reel, spaced 21 seconds apart to survive the free tier's three-per-minute
+    # limit. Speech is the binding constraint on the whole pipeline, so the
+    # script goes in one request.
     stub = StubVoice(seconds=3.0)
     with tempfile.TemporaryDirectory() as tmp:
         track = build_voice_track(_reel(), Path(tmp) / "v.wav", client=stub)
-    expected = 3.0 + REEL_VOICE_LEAD_IN + REEL_VOICE_TAIL
-    assert all(abs(s - expected) < 0.02 for s in track.beat_seconds)
+    assert len(stub.calls) == 1, f"expected 1 request, made {len(stub.calls)}"
+    assert track.requests == 1
+
+    # And the one request carries every line, including the sign-off.
+    script = stub.calls[0][0]
+    for beat in _reel().beats:
+        assert beat.narration in script
+    assert "Headlinne" in script
+
+
+def test_the_beats_divide_the_measured_audio_between_them():
+    # Per-clip measurement is gone with the per-clip requests. Beat lengths are
+    # now shares of the one measured stream, apportioned by word count, and they
+    # must still add up to it - otherwise the cuts drift away from the voice.
+    stub = StubVoice(seconds=12.0)
+    with tempfile.TemporaryDirectory() as tmp:
+        track = build_voice_track(_reel(), Path(tmp) / "v.wav", client=stub)
+    budget = REEL_VOICE_LEAD_IN + 12.0 + REEL_VOICE_TAIL
+    assert abs(track.total_seconds - budget) < 0.6, track.beat_seconds
+
+
+def test_a_longer_line_is_held_longer_than_a_shorter_one():
+    stub = StubVoice(seconds=12.0)
+    reel = _reel()
+    reel.beats[0].narration = "One."
+    reel.beats[1].narration = " ".join(["word"] * 40)
+    with tempfile.TemporaryDirectory() as tmp:
+        track = build_voice_track(reel, Path(tmp) / "v.wav", client=stub)
+    assert track.beat_seconds[1] > track.beat_seconds[0]
 
 
 def test_a_very_short_line_still_gets_a_moment_to_land():
@@ -116,13 +136,25 @@ def test_the_wav_is_as_long_as_the_pacing_it_reports():
 
 
 def test_the_spoken_line_falls_back_to_the_on_screen_text():
-    stub = StubVoice()
     reel = _reel()
     reel.beats[1].narration = ""
+    stub = StubVoice()
     with tempfile.TemporaryDirectory() as tmp:
         build_voice_track(reel, Path(tmp) / "v.wav", client=stub)
-    spoken = stub.calls[1][0]
-    assert "What happened" in spoken and "A short supporting line" in spoken
+    script = stub.calls[0][0]
+    assert "What happened" in script
+    assert "A short supporting line" in script
+
+
+def test_emphasis_markers_are_never_read_aloud():
+    # The asterisks are a rendering instruction for the kinetic type.
+    reel = _reel()
+    reel.beats[1].narration = ""
+    reel.beats[1].caption = "It struck at *8,700 km/h*"
+    stub = StubVoice()
+    with tempfile.TemporaryDirectory() as tmp:
+        build_voice_track(reel, Path(tmp) / "v.wav", client=stub)
+    assert "*" not in stub.calls[0][0]
 
 
 def test_the_two_formats_use_different_voices():
@@ -143,18 +175,27 @@ def test_the_style_direction_matches_the_format():
 # --------------------------------------------------------------------------- #
 # Failure
 # --------------------------------------------------------------------------- #
-def test_one_failed_line_abandons_the_whole_track():
-    # Partial narration reads as broken, and a failure here is almost always
-    # systemic rather than specific to one line.
-    stub = StubVoice(fail_on=3)
+def test_a_failed_request_abandons_the_track():
+    # All or nothing. A reel that narrates half of itself and then goes quiet
+    # reads as broken, and a failure here is almost always systemic - a missing
+    # key, an exhausted quota - rather than specific to one line.
+    stub = StubVoice(fail_on=1)
     with tempfile.TemporaryDirectory() as tmp:
         assert build_voice_track(_reel(), Path(tmp) / "v.wav", client=stub) is None
 
 
-def test_a_failed_sign_off_also_abandons_the_track():
-    stub = StubVoice(fail_on=5)
+def test_a_reel_that_already_signs_off_is_not_made_to_do_it_twice():
+    # The daily reel's last beat IS the call to action. Appending the stock
+    # sign-off to it would have the voice ask twice.
+    reel = _reel()
+    reel.beats[-1].role = "outro"
+    reel.beats[-1].narration = "The full story is on headlinne dot com."
+    stub = StubVoice()
     with tempfile.TemporaryDirectory() as tmp:
-        assert build_voice_track(_reel(), Path(tmp) / "v.wav", client=stub) is None
+        track = build_voice_track(reel, Path(tmp) / "v.wav", client=stub)
+    assert stub.calls[0][0].count("Headlinne") <= 1
+    assert track.outro_seconds == 0.0
+    assert len(track.beat_seconds) == len(reel.beats)
 
 
 def test_a_rate_limit_hint_is_honoured_instead_of_guessing():
@@ -263,26 +304,5 @@ def _no_photos(_src):
     return None
 
 
-def test_scene_durations_come_from_the_narration_when_there_is_one():
-    reel = _reel()
-    track = VoiceTrack(path=Path("unused.wav"),
-                       beat_seconds=[5.0, 4.0, 6.0, 3.0], outro_seconds=2.5)
-    scenes = reel_render.build_scenes(reel, _no_photos, track)
-    assert [s.duration for s in scenes] == [5.0, 4.0, 6.0, 3.0, 2.5]
-
-
-def test_scene_durations_fall_back_to_reading_speed_without_a_track():
-    reel = _reel()
-    voiced = reel_render.build_scenes(reel, _no_photos)
-    assert len(voiced) == len(reel.beats) + 1
-    # The silent path still produces a sane runtime rather than nothing.
-    assert 8 <= sum(s.duration for s in voiced) <= 56
-
-
-def test_a_mismatched_track_is_ignored_rather_than_trusted():
-    # A track built for a different beat list would silently desync the reel.
-    reel = _reel()
-    stale = VoiceTrack(path=Path("unused.wav"), beat_seconds=[5.0, 4.0],
-                       outro_seconds=2.5)
-    scenes = reel_render.build_scenes(reel, _no_photos, stale)
-    assert [s.duration for s in scenes][:2] != [5.0, 4.0]
+# The narration-driven edit is asserted in tests/test_reels.py against
+# render.reel.plan_durations, which is where the beat lengths are now set.

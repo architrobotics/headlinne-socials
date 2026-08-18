@@ -1,90 +1,92 @@
-"""Generate the day's two Instagram carousels (content only, not images).
+"""Generate the day's carousel: one story, argued across five slides.
 
-For each of the two strongest categories we:
-  1. decide whether the carousel covers the top 3 or top 5 stories, based on how
-     strong the lower-ranked stories are,
-  2. ask the model for punchy per-slide text and a caption,
-  3. assemble Slide objects (cover + one per story + a final CTA slide),
-  4. attach the article image URLs that the renderer will use as backgrounds.
+The old generator produced a listicle - a cover, three or five unrelated stories
+under identical layouts, then a sign-off. A list has no reason to be swiped past
+its second entry. An argument does, because each slide answers the question the
+previous one raised, and that is what carries a reader to the last slide where
+the call to action lives.
 
-The actual PNGs are produced later by headlinne.render.carousel.
+Selection is the other half. The carousel gets one story a day and it has to be
+worth five slides, so the choice is made against the ranker's interest score
+*and* the sourcing: an uncorroborated story never gets the format, because four
+of its five slides would be making claims the source strip cannot back.
+
+The renderer draws everything. The model only produces the text that fills the
+template, and every figure it returns is checked against the story before it is
+allowed onto a slide.
 """
 
 from __future__ import annotations
 
+import re
 from datetime import date
 
-from ..config import (BRAND, CATEGORY_LABELS, INSTAGRAM_MAX_HASHTAGS)
+from ..config import BRAND, CATEGORY_LABELS, INSTAGRAM_MAX_HASHTAGS
 from ..gemini.client import GeminiClient
-from ..gemini.prompts import STYLE_GUIDE, instagram_prompt
+from ..gemini.prompts import STYLE_GUIDE, carousel_prompt, stories_block
 from ..logging_setup import get_logger
 from ..models import InstagramCarousel, NewsDigest, Slide, Story
 from ..news.images import best_story_image
 from ..quality.sanitize import sanitize
+from ..render import receipt as receipt_mod
 from ..scheduling import slot_iso
 from . import hooks
 from .common import clamp_words
 
 log = get_logger("generate.instagram")
 
-# CTA slide copy.
-CTA_HEADLINE = "That's your brief for today."
-CTA_SUBTITLE = "Personalised news, minus the noise."
-
-# Default hashtags blended in per category so posts stay on-brand. A short reach
-# set plus a couple of niche tags; the model adds more topical ones on top.
 _BASE_TAGS = {
     "Technology": ["Tech", "TechNews", "AI", "Innovation"],
     "Finance": ["Finance", "Markets", "Business", "Economy"],
     "Geopolitics": ["WorldNews", "Geopolitics", "GlobalNews", "Politics"],
+    "Science": ["Science", "Space", "Discovery", "Research"],
 }
 
+# A story needs this many independent outlets before it earns the carousel.
+# Higher than the two-source publishing bar on purpose: five slides is the
+# biggest claim the account makes in a day, and it should rest on more than the
+# minimum.
+MIN_SOURCES_FOR_CAROUSEL = 3
 
-def source_line(story: Story) -> str:
-    """A compact attribution line for a story slide, e.g. 'Reuters, BBC +2'.
 
-    This is the audience-facing trust signal that mirrors the cross-source
-    verification the ranker already does. Shows up to two outlet names, then a
-    '+N' for the rest, so a well-corroborated story visibly reads as verified.
+def agreement_line(story: Story) -> str:
+    """How the sourcing is described to the model, in words it can reuse."""
+    record = receipt_mod.agreement_of(story)
+    names = ", ".join(receipt_mod.outlets(story)[:6])
+    if record.state == "disputed":
+        conflicts = "; ".join(f"{c.outlet} says {c.value}"
+                              for c in record.conflicts[:3])
+        return (f"{record.agree} of {record.eligible} outlets agree on "
+                f"{record.claim or 'the central claim'}. They disagree: "
+                f"{conflicts}. Outlets: {names}.")
+    return f"{record.label()}. Outlets: {names}."
+
+
+def pick_story(digest: NewsDigest, *, exclude_urls: set[str] | None = None
+               ) -> Story | None:
+    """The one story worth five slides today.
+
+    Ranked by score, but gated on corroboration first: the carousel's fourth
+    slide is the source strip in full, and a story with one outlet behind it
+    turns that slide into an admission rather than a proof.
     """
-    names = [n for n in ([story.source] + list(story.corroborating_sources)) if n]
-    if not names:
-        return ""
-    shown = names[:2]
-    extra = len(names) - len(shown)
-    line = ", ".join(shown)
-    if extra > 0:
-        line += f" +{extra}"
-    return line
+    exclude = exclude_urls or set()
+    candidates = [s for stories in digest.by_category.values() for s in stories
+                  if s.url not in exclude]
+    candidates.sort(key=lambda s: s.score, reverse=True)
 
-
-def _decide_num_stories(stories: list[Story]) -> int:
-    """Pick 3 or 5 stories depending on how strong the deeper stories are.
-
-    If we have at least five stories and the fifth is still reasonably strong
-    relative to the top story, a five-story carousel is justified. Otherwise we
-    keep it tight at three. Falls back gracefully when fewer are available.
-    """
-    available = len(stories)
-    if available < 3:
-        return max(1, available)
-    if available >= 5:
-        top = stories[0].score or 1.0
-        fifth = stories[4].score
-        if top > 0 and fifth >= 0.5 * top:
-            return 5
-    return 3
-
-
-def _cover_title(category: str, n: int) -> str:
-    """Deterministic fallback cover headline, used only if the model does not
-    return a usable title. Clean and on-brand across categories."""
-    if category == "Technology":
-        return f"The {n} tech stories that matter today"
-    if category == "Finance":
-        return f"The {n} money moves that matter today"
-    # Geopolitics
-    return f"The {n} world stories that matter today"
+    for story in candidates:
+        if len(receipt_mod.outlets(story)) >= MIN_SOURCES_FOR_CAROUSEL:
+            return story
+    # Nothing well-sourced enough. Fall back to the best verified story rather
+    # than the best story outright, so the format's premise still holds.
+    for story in candidates:
+        if getattr(story, "verified", False):
+            log.info("carousel: no story reached %d outlets, using the best "
+                     "verified one", MIN_SOURCES_FOR_CAROUSEL)
+            return story
+    log.warning("carousel: no corroborated story today, skipping the format")
+    return None
 
 
 def _hashtags(category: str, model_tags: list[str]) -> list[str]:
@@ -100,101 +102,124 @@ def _hashtags(category: str, model_tags: list[str]) -> list[str]:
     return out[:INSTAGRAM_MAX_HASHTAGS]
 
 
-def _carousel_for(client: GeminiClient, category: str, stories: list[Story],
-                  slot: str, day: date) -> InstagramCarousel:
-    n = _decide_num_stories(stories)
-    chosen = stories[:n]
-    label = CATEGORY_LABELS[category]
+_DIGITS = re.compile(r"\d[\d,.]*")
 
-    data = client.generate_json(
-        system=STYLE_GUIDE,
-        prompt=instagram_prompt(label, chosen, n),
-    )
-    slide_data = data.get("slides", []) or []
-    caption = sanitize(data.get("caption", ""))
-    hashtags = _hashtags(category, data.get("hashtags", []))
 
-    # Cover title + hook (model-written, sanitised and length-clamped, with a
-    # clean deterministic fallback so the cover is never empty or over-long).
-    title = clamp_words(sanitize(data.get("cover_title", "")), 52) or _cover_title(category, n)
-    hook = clamp_words(sanitize(data.get("cover_hook", "")), 96)
+def verified_figure(figure: str, story: Story) -> str:
+    """A figure only survives if it appears in the story text.
 
-    # Resolve the best available image for each chosen story once (this may fetch
-    # the article hero for stories whose feed image is small or missing), then
-    # reuse it for both the cover and the story slide.
-    story_images = [best_story_image(s) for s in chosen]
+    The scale slide sets one number at 280px. A number that large is a factual
+    claim in the most screenshot-able form this account produces, so it is
+    checked character by character against the source rather than trusted.
+    """
+    if not figure:
+        return ""
+    digits = _DIGITS.findall(f"{story.title} {story.summary}")
+    normalised = {d.replace(",", "").rstrip(".") for d in digits}
+    candidate = figure.replace(",", "").strip().rstrip(".")
+    if candidate in normalised:
+        return figure
+    # Spelled-out small numbers are common and safe ("four tonnes").
+    words = {"one": "1", "two": "2", "three": "3", "four": "4", "five": "5",
+             "six": "6", "seven": "7", "eight": "8", "nine": "9", "ten": "10"}
+    if candidate.lower() in words and words[candidate.lower()] in normalised:
+        return figure
+    log.warning("carousel: dropped unverified figure %r, not found in the story",
+                figure)
+    return ""
 
-    # Cover slide: title + hook over the top story's featured image.
-    cover_image = next((img for img in story_images if img), None)
-    slides: list[Slide] = [
-        Slide(role="cover", headline=title, subtitle=hook, image_url=cover_image)
+
+def _slides(data: dict, story: Story) -> list[Slide]:
+    """Assemble the five slides, with a safe fallback for every field.
+
+    Sensitive stories lose the mascot and the speech bubbles entirely - pose and
+    say stay empty, which is what the renderer reads as "draw nothing".
+    """
+    sensitive = bool(getattr(story, "sensitive", False))
+    state = receipt_mod.state(story)
+
+    def pose(name: str) -> str:
+        return "" if sensitive else name
+
+    def say(key: str, limit: int = 34) -> str:
+        return "" if sensitive else clamp_words(sanitize(data.get(key, "")), limit)
+
+    figure = verified_figure(str(data.get("figure", "")).strip(), story)
+    unit = clamp_words(sanitize(data.get("unit", "")), 18) if figure else ""
+
+    cover_headline = (clamp_words(sanitize(data.get("cover_headline", "")), 70)
+                      or sanitize(story.title))
+    twist_headline = clamp_words(sanitize(data.get("twist_headline", "")), 90)
+
+    return [
+        Slide(role="cover", headline=cover_headline,
+              subtitle=clamp_words(sanitize(data.get("cover_sub", "")), 90),
+              kicker=receipt_mod.EYEBROW[state] if state != "unanimous"
+              else (story.category or "").upper(),
+              pose=pose("alert" if state != "disputed" else "puzzled"),
+              say=say("cover_say"),
+              image_url=story.image_url, index=1),
+        Slide(role="scale", headline="", kicker="HOW BIG" if figure else "THE SCALE",
+              figure=figure, unit=unit,
+              explanation=clamp_words(sanitize(data.get("scale_text", "")), 190),
+              image_url=story.image_url, index=2),
+        Slide(role="twist",
+              headline=twist_headline or "There is more to it than the headline.",
+              kicker="WHAT YOU DID NOT KNOW",
+              explanation=clamp_words(sanitize(data.get("twist_text", "")), 190),
+              pose=pose("puzzled"), say=say("twist_say"), index=3),
+        Slide(role="sources", headline="", kicker="SOURCES",
+              explanation=clamp_words(sanitize(data.get("sources_text", "")), 190),
+              pose=pose("verified" if state == "unanimous" else "puzzled"),
+              say=say("sources_say") or ("" if sensitive else
+                                         receipt_mod.short_label(story)),
+              index=4),
+        Slide(role="cta", headline="",
+              subtitle=clamp_words(sanitize(data.get("cta_sub", "")), 120)
+              or "Every source on this story, side by side.",
+              kicker="READ THE FULL STORY",
+              pose=pose("carry"), say=say("cta_say") or
+              ("" if sensitive else "Come and read it."), index=5),
     ]
 
-    # One slide per story. Use the model's text where present, else a safe
-    # fallback drawn from the story itself. Each slide carries its 1-based index
-    # and a source-attribution line for the on-slide trust signal.
-    for i, story in enumerate(chosen):
-        sd = slide_data[i] if i < len(slide_data) else {}
-        headline = sanitize(sd.get("headline", "")) or sanitize(story.title)
-        explanation = sanitize(sd.get("explanation", "")) or sanitize(story.summary)
-        slides.append(
-            Slide(
-                role="story",
-                headline=headline,
-                explanation=explanation,
-                image_url=story_images[i],
-                sources=source_line(story),
-                index=i + 1,
-            )
-        )
 
-    # Final CTA slide (rendered later with the brand background + engagement).
-    slides.append(Slide(role="cta", headline=CTA_HEADLINE, subtitle=CTA_SUBTITLE))
+def generate(client: GeminiClient, digest: NewsDigest, day: date, *,
+             exclude_urls: set[str] | None = None
+             ) -> list[InstagramCarousel]:
+    """The day's single carousel, or an empty list when nothing earns it."""
+    story = pick_story(digest, exclude_urls=exclude_urls)
+    if story is None:
+        return []
 
-    # Caption. The model's caption is one block of prose, so its first sentence
-    # becomes the opener (the part Instagram shows before "more" and indexes for
-    # search) and the rest becomes the body. Hashtags are split between the
-    # caption and the first comment. See generate.hooks for why.
-    if not caption:
-        caption = (f"Today's biggest {label} stories, in one quick scroll. "
-                   f"Which one caught you off guard?")
+    label = CATEGORY_LABELS.get(story.category, story.category)
+    data = client.generate_json(
+        system=STYLE_GUIDE,
+        prompt=carousel_prompt(stories_block([story]), label,
+                               agreement_line(story)),
+    )
+
+    slides = _slides(data, story)
+    caption = sanitize(data.get("caption", "")) or (
+        f"One {label} story, explained. What did you make of it?")
     opener, _, remainder = caption.partition(". ")
     if remainder:
-        opener = opener + "."
+        opener += "."
     else:
         opener, remainder = caption, ""
-
     caption_text, first_comment = hooks.build_caption(
-        opener=opener,
-        body=remainder.strip(),
-        question="",  # the model already ends its caption with one
-        hashtags=hashtags,
-    )
+        opener=opener, body=remainder.strip(), question="",
+        hashtags=_hashtags(story.category, data.get("hashtags", [])))
+
+    # Resolve the article photograph once. The plate ladder in render/plate.py
+    # decides whether it is usable and what to draw instead when it is not.
+    story.image_url = best_story_image(story) or story.image_url
 
     carousel = InstagramCarousel(
-        slot=slot,
-        category=category,
-        num_slides=len(slides),
-        title=title,
-        slides=slides,
-        caption=caption_text,
-        hashtags=hashtags,
-        first_comment=first_comment,
-        scheduled_time=slot_iso(day, slot),
-    )
-    log.info("IG carousel [%s] %d slides (%d stories)", label, len(slides), n)
-    return carousel
-
-
-def generate(client: GeminiClient, digest: NewsDigest, categories: list[str],
-             day: date) -> list[InstagramCarousel]:
-    """Two carousels: one per chosen category, in slots instagram_1 / _2."""
-    carousels: list[InstagramCarousel] = []
-    slots = ["instagram_1", "instagram_2"]
-    for cat, slot in zip(categories, slots):
-        stories = digest.by_category.get(cat, [])
-        if not stories:
-            log.warning("No stories for %s, skipping its carousel.", cat)
-            continue
-        carousels.append(_carousel_for(client, cat, stories, slot, day))
-    return carousels
+        slot="instagram_1", category=story.category, num_slides=len(slides),
+        title=slides[0].headline, slides=slides, caption=caption_text,
+        hashtags=_hashtags(story.category, data.get("hashtags", [])),
+        first_comment=first_comment, scheduled_time=slot_iso(day, "instagram_1"),
+        story=story, story_url=story.url)
+    log.info("carousel [%s] %s (%s)", label, story.title[:56],
+             receipt_mod.label(story))
+    return [carousel]

@@ -122,13 +122,24 @@ def test_no_step_ever_loses_a_line():
 
 
 def test_a_long_card_shrinks_its_type_instead_of_overflowing():
-    tight = _card(steps=[StoryStep(label, "word " * 20) for label in STEP_LABELS])
+    # 30 words a step is where the four blocks stop fitting at full size. Twenty
+    # still fits in two lines each, so it never exercised the shrink.
+    tight = _card(steps=[StoryStep(label, "word " * 30) for label in STEP_LABELS])
     roomy = _card(steps=[StoryStep(label, "short") for label in STEP_LABELS])
     tight_blocks, tight_h = _layout_steps(tight, available=600)
     roomy_blocks, roomy_h = _layout_steps(roomy, available=600)
     assert tight_h <= 600
     # The dense card is set smaller than the sparse one.
     assert tight_blocks[0][1].size < roomy_blocks[0][1].size
+
+
+def test_shrinking_is_preferred_to_cutting_the_line_that_carries_the_point():
+    # Truncation is the last resort, not the first. "Why it matters" is the step
+    # most likely to run long and the one a reader came for.
+    card = _card(steps=[StoryStep(label, "word " * 30) for label in STEP_LABELS])
+    blocks, _ = _layout_steps(card, available=600)
+    for step, _font, lines, _lh, _h in blocks:
+        assert len(" ".join(lines).split()) == len(step.text.split())
 
 
 def test_card_renders_at_the_instagram_portrait_size():

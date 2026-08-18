@@ -1,9 +1,17 @@
-"""Font loading and text-fitting helpers for the carousel renderer.
+"""Font loading and text-fitting helpers for every rendered surface.
 
-Titles and headlines use Anton (a free, condensed, Impact-like face). Body text
-uses Inter as a variable font, where we set the optical-size and weight axes
-explicitly. If a bundled font is missing for any reason we fall back to DejaVu
-so rendering never hard-fails.
+One display family: Manrope, on its variable weight axis. Long body copy still
+uses Inter, where we set the optical-size and weight axes explicitly. If a
+bundled font is missing for any reason we fall back to DejaVu so rendering never
+hard-fails.
+
+Titles used to be Anton. It was free, ubiquitous and the default face of every
+automated news account, so a post read as a template before a word of it was
+parsed. It is also single-weight and single-width, which meant nothing could be
+emphasised *inside* a headline: every word shouted at the same volume. Manrope's
+weight axis is what makes the kinetic reel type possible at all, and it is the
+face the approved samples were rendered in. The file stays in assets/ so an old
+render can still be reproduced, but nothing loads it.
 """
 
 from __future__ import annotations
@@ -19,7 +27,6 @@ from ..logging_setup import get_logger
 
 log = get_logger("render.fonts")
 
-ANTON_PATH = FONTS_DIR / "Anton-Regular.ttf"
 INTER_PATH = FONTS_DIR / "Inter-Variable.ttf"
 MANROPE_PATH = FONTS_DIR / "Manrope-Variable.ttf"
 
@@ -39,14 +46,13 @@ def _clamp(value: float, lo: float, hi: float) -> float:
 
 
 @lru_cache(maxsize=256)
-def title_font(size: int) -> ImageFont.FreeTypeFont:
-    """Anton at the given pixel size (falls back to DejaVu Bold)."""
-    try:
-        if ANTON_PATH.exists():
-            return ImageFont.truetype(str(ANTON_PATH), size)
-    except Exception as exc:  # pragma: no cover
-        log.warning("Anton load failed (%s), using DejaVu Bold.", exc)
-    return ImageFont.truetype(str(_DEJAVU_BOLD), size)
+def title_font(size: int, weight: int = 800) -> ImageFont.FreeTypeFont:
+    """The display face: Manrope at `size`, defaulting to its heaviest weight.
+
+    `weight` is what the reel's kinetic type varies to emphasise a word without
+    changing its size, so a line can carry stress without reflowing.
+    """
+    return label_font(size, weight)
 
 
 @lru_cache(maxsize=512)
@@ -75,9 +81,10 @@ def body_font(size: int, weight: int = 400) -> ImageFont.FreeTypeFont:
 def label_font(size: int, weight: int = 700) -> ImageFont.FreeTypeFont:
     """Manrope variable at a given size and weight (falls back to DejaVu Bold).
 
-    Used for the UI furniture: the wordmark, category pills, eyebrows, source
-    lines and page numbers. Its geometric, slightly rounded shapes pair cleanly
-    with the condensed Anton display face without competing with it.
+    This is the whole system: the wordmark, kickers, the receipt strip, the
+    speech bubble and the headlines all come from here at different weights.
+    One family across every surface is what makes a reel and a carousel read as
+    the same brand rather than as two layouts sharing a logo.
     """
     try:
         if MANROPE_PATH.exists():

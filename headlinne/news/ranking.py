@@ -25,19 +25,20 @@ from datetime import datetime, timezone
 from difflib import SequenceMatcher
 
 from ..config import CATEGORIES, HIGH_INTEREST_KEYWORDS
-from . import interest as interest_mod
 from ..logging_setup import get_logger
 from ..models import NewsDigest, Story
+from . import interest as interest_mod
+from . import quality as quality_mod
 
 log = get_logger("news.ranking")
 
 # Tuning knobs.
 _SIM_THRESHOLD = 0.52          # how alike two headlines must be to merge
-# Cross-source coverage used to be the heaviest term at 3.2, which meant the
-# top story was always the one the most outlets ran - a central bank, a summit,
-# an earnings print. That is a measure of attendance, not of interest. It is now
-# a small tiebreaker between stories the interest score rates equally, and the
-# real verification signal moved to Story.verified.
+# Cross-source coverage used to be the heaviest term at 3.2, which meant the top
+# story was always the one the most outlets ran: a central bank, a summit, an
+# earnings print. That is a measure of attendance, not of interest. It is now a
+# small tiebreaker between stories the interest score rates equally, and the real
+# verification signal moved to Story.verified, where it gates rather than ranks.
 _SOURCE_WEIGHT = 0.6           # tiebreaker only; see news/interest.py
 _INTEREST_WEIGHT = 1.0         # the primary ranking signal
 _TIER_WEIGHT = 1.6             # weight on best source reputability
@@ -50,8 +51,13 @@ _BREAKING_AGE_HOURS = 8
 _CATEGORY_TOPK = 5             # clusters per category that count toward weight
 
 # Markers of low-signal content we would rather not lead a carousel with:
-# opinion, live blogs, video/photo galleries, listicles, deals, sponsored posts.
-# A soft, capped penalty nudges genuine news above these without hard-dropping.
+# opinion, live blogs, video/photo galleries, deals, sponsored posts. A soft,
+# capped penalty nudges genuine news above these; the hard cases are dropped
+# outright by news.quality before scoring ever happens.
+#
+# "explainer" and "how to" used to sit in this list. They are the exact genre of
+# the evening educational reel, and the genre the best explainer channels are
+# built on - penalising them was penalising our own second daily format.
 _LOW_VALUE_MARKERS = (
     "opinion", "comment is free", "editorial", "live:", "live updates",
     "as it happened", "watch:", "video:", "in pictures", "in photos",
@@ -59,9 +65,6 @@ _LOW_VALUE_MARKERS = (
     "review:", "sponsored", "advertisement", "paid post", "horoscope",
     "quiz", "podcast", "listen:",
 )
-# "explainer" and "how to" used to sit in that list. They are the exact genre of
-# the evening educational reel, and the genre the best explainer channels are
-# built on - penalising them was penalising our own second daily format.
 
 _STOP = {
     "the", "a", "an", "and", "or", "of", "to", "in", "on", "for", "with", "at",
@@ -198,6 +201,25 @@ def rank(stories: list[Story]) -> NewsDigest:
             dominant_category=CATEGORIES[0],
         )
 
+    # Drop what is not news before anything else looks at it. This is a gate
+    # rather than a penalty: a soft, capped score cannot hold back a promo code
+    # that the interest model finds genuinely interesting.
+    publishable, dropped = [], {}
+    for story in stories:
+        reason = quality_mod.reject_reason(story.title, story.summary)
+        if reason is None:
+            publishable.append(story)
+        else:
+            kind = reason.split(":")[0]
+            dropped[kind] = dropped.get(kind, 0) + 1
+    if dropped:
+        log.info("Quality gate dropped %d/%d: %s", len(stories) - len(publishable),
+                 len(stories), dict(sorted(dropped.items())))
+    # If the gate somehow rejects everything, publish from the raw set rather
+    # than producing an empty day: a bad filter must not be able to silence the
+    # whole pipeline.
+    stories = publishable or stories
+
     clusters = _cluster(stories)
     merged = [_merge(c) for c in clusters]
     for s in merged:
@@ -206,17 +228,18 @@ def rank(stories: list[Story]) -> NewsDigest:
         s.score = round(_score(s), 3)
     merged.sort(key=lambda s: s.score, reverse=True)
 
-    verified_n = sum(1 for s in merged if s.verified)
-    sensitive_n = sum(1 for s in merged if s.sensitive)
-    log.info("%d/%d events reached two independent sources; %d route sober",
-             verified_n, len(merged), sensitive_n)
-
     log.info("Clustered %d stories into %d events", len(stories), len(merged))
+    log.info("%d/%d events reached two independent sources; %d route sober",
+             sum(1 for s in merged if s.verified), len(merged),
+             sum(1 for s in merged if s.sensitive))
 
     by_category: dict[str, list[Story]] = {c: [] for c in CATEGORIES}
     for s in merged:
         if s.category in by_category:
             by_category[s.category].append(s)
+
+    reserve_non_universal(by_category, merged)
+    _log_decisions(by_category)
 
     # Category weight = sum of top-K cluster scores in that category.
     weights = {
@@ -245,6 +268,74 @@ def rank(stories: list[Story]) -> NewsDigest:
         dominant_category=dominant,
         breaking=breaking,
     )
+
+
+# --------------------------------------------------------------------------- #
+# The reserved slot
+# --------------------------------------------------------------------------- #
+# How far up its category a reserved story is promoted. Third, not first: the
+# point is to guarantee the story a place where it will actually be seen, not to
+# lead the day with it over something that scored better.
+RESERVED_RANK = 2
+
+
+def reserve_non_universal(by_category: dict[str, list[Story]],
+                          merged: list[Story]) -> Story | None:
+    """Guarantee one slot to a story that is important without being universal.
+
+    Universality has to be a tilt, not a filter, and the difference is not
+    academic. Weighting it pushed "Afghan women tell the BBC their lives are
+    unrecognisable" out of the top eight entirely - a story that matters, from a
+    place a news product cannot simply stop covering because its readers have no
+    personal stake in it. A feed optimised purely for universality becomes all
+    wonder and no world.
+
+    So the best story in the non-universal pool is promoted into the visible part
+    of its category, chosen by score within that pool rather than handed a bonus
+    that would distort every other ranking.
+
+    Returns the promoted story, or None if the day's top stories were already
+    a mix.
+    """
+    pool = [s for s in merged
+            if not interest_mod.is_universal(s.title, s.summary)
+            and not s.sensitive]
+    if not pool:
+        return None
+
+    # Already represented near the top of its own category? Then nothing to do.
+    best = pool[0]                       # merged is score-sorted, so is the pool
+    siblings = by_category.get(best.category, [])
+    if best in siblings[:RESERVED_RANK + 1]:
+        return None
+
+    if best in siblings:
+        siblings.remove(best)
+    siblings.insert(min(RESERVED_RANK, len(siblings)), best)
+    log.info("Reserved slot: promoted %r (%s, score %.2f) into %s at position %d",
+             best.title[:60], best.source, best.score, best.category,
+             min(RESERVED_RANK, len(siblings) - 1) + 1)
+    return best
+
+
+def _log_decisions(by_category: dict[str, list[Story]], top: int = 3) -> None:
+    """Write out the per-term reasoning for the stories most likely to publish.
+
+    Ranking has to be auditable: a decision made six weeks ago should still be
+    accountable from the run log alone, without re-fetching a feed that has long
+    since rotated the story out.
+    """
+    for category, stories in by_category.items():
+        for rank_i, s in enumerate(stories[:top], 1):
+            b = interest_mod.breakdown(s.title, s.summary, bool(s.image_url))
+            log.info(
+                "rank %s#%d score=%.2f interest=%.2f sources=%d verified=%s "
+                "sensitive=%s | conc=%.2f univ=%.2f use=%.2f nov=%.2f surp=%.2f "
+                "upl=%.2f proc=%.2f | %s",
+                category, rank_i, s.score, b["total"], s.source_count,
+                s.verified, s.sensitive, b["concrete"], b["universal"],
+                b["useful"], b["novelty"], b["surprise"], b["uplift"],
+                b["procedural"], s.title[:70])
 
 
 def strongest_categories(digest: NewsDigest, n: int = 2) -> list[str]:

@@ -1,0 +1,2304 @@
+diff --git a/.env.example b/.env.example
+new file mode 100644
+index 0000000..b00287e
+--- /dev/null
++++ b/.env.example
+@@ -0,0 +1,103 @@
++# Headlinne - local environment
++#
++#   cp .env.example .env      then fill in the four secrets at the top.
++#
++# .env is gitignored. Never commit real values. In CI these live as GitHub
++# Actions repository *secrets* (the credentials) and *variables* (the settings),
++# and the workflows pass them through explicitly - see .github/workflows/.
++#
++# Every setting below is optional except GEMINI_API_KEY. An empty value means
++# "use the default", which is why the workflows can pass unset repo variables
++# through without breaking the run (tests/test_config_env.py guards that).
++
++
++# --------------------------------------------------------------------------- #
++# Secrets - required to actually run
++# --------------------------------------------------------------------------- #
++# The only one generation cannot proceed without.
++GEMINI_API_KEY=
++
++# Publishing. Leave these empty to generate content without scheduling anything.
++# IMPORTANT: with BUFFER_SCHEDULING_MODE=scheduled (the default), a plain
++# `python -m headlinne generate` run does not just render - it queues X and
++# LinkedIn posts into Buffer with dueAt set. Do your first run with no Buffer
++# token so nothing can post while you look at the output.
++BUFFER_ACCESS_TOKEN=
++BUFFER_CHANNEL_ID_X=
++BUFFER_CHANNEL_ID_LINKEDIN=
++BUFFER_CHANNEL_ID_INSTAGRAM=
++
++# Optional direct Instagram path, used instead of Buffer for carousels/reels.
++META_ACCESS_TOKEN=
++IG_USER_ID=
++
++# Instagram needs rendered images to be reachable over HTTPS. Point this at the
++# raw GitHub URL for the committed content/ directory, or any static host.
++PUBLIC_IMAGE_BASE_URL=
++
++
++# --------------------------------------------------------------------------- #
++# Formats - what gets made each day
++# --------------------------------------------------------------------------- #
++REELS_ENABLED=true
++STORY_CARD_ENABLED=true
++
++# Carousels are weekly now: five slides of argument is a considered artefact,
++# not a daily beat. CAROUSEL_WEEKDAYS is 0=Monday; empty means every day.
++IG_SECOND_CAROUSEL=false
++CAROUSEL_WEEKDAYS=1,4
++
++
++# --------------------------------------------------------------------------- #
++# Models
++# --------------------------------------------------------------------------- #
++# Quota is counted per model, so each fallback is a fresh daily allowance rather
++# than a second try at the same one. On a 429 the client advances immediately
++# instead of waiting out a window that will not clear for a day.
++GEMINI_FALLBACK_MODELS=gemini-3.1-flash,gemini-2.5-flash-lite,gemini-2.5-flash
++GEMINI_THINKING_LEVEL=low
++GEMINI_TEMPERATURE=0.65
++
++
++# --------------------------------------------------------------------------- #
++# Reels
++# --------------------------------------------------------------------------- #
++REEL_VOICEOVER=true
++REEL_TTS_MODEL=gemini-3.1-flash-tts-preview
++REEL_TTS_FALLBACK_MODELS=gemini-2.5-flash-preview-tts,gemini-2.5-pro-preview-tts
++
++# Speech is rate limited far harder than text - three requests a minute on the
++# free tier - and one call is currently made per beat. Two reels is therefore
++# roughly two dozen calls, which is why they are spaced. Set this to 0 on a paid
++# key. Batching narration into one call per reel would remove the need entirely.
++REEL_TTS_MIN_INTERVAL=21
++REEL_TTS_MAX_RETRIES=6
++
++REEL_VOICE_NEWS=Charon
++REEL_VOICE_EDUCATION=Kore
++
++# Encoder. A faster preset spends bitrate no viewer ever sees.
++REEL_PRESET=medium
++REEL_CRF=20
++FFMPEG_BINARY=
++
++
++# --------------------------------------------------------------------------- #
++# Publishing behaviour
++# --------------------------------------------------------------------------- #
++# "scheduled" hands Buffer a dueAt per slot; anything else posts immediately.
++BUFFER_SCHEDULING_MODE=scheduled
++BUFFER_FIRST_COMMENT=false
++X_ATTACH_CARD=true
++
++
++# --------------------------------------------------------------------------- #
++# Reddit - human-in-the-loop only
++# --------------------------------------------------------------------------- #
++# This tool finds threads and drafts replies for review. It does not post
++# unattended, and the caps below are enforced in code, not by convention.
++REDDIT_CLIENT_ID=
++REDDIT_CLIENT_SECRET=
++REDDIT_USERNAME=
++REDDIT_PASSWORD=
++REDDIT_ENGAGEMENT_CAP=8
+diff --git a/headlinne/config.py b/headlinne/config.py
+index 3cb2292..0f3f03e 100644
+--- a/headlinne/config.py
++++ b/headlinne/config.py
+@@ -79,13 +79,18 @@ TIMEZONE = ZoneInfo("Asia/Kolkata")     # IST. All scheduling is expressed in IS
+ # --------------------------------------------------------------------------- #
+ # Categories
+ # --------------------------------------------------------------------------- #
+-CATEGORIES = ("Technology", "Finance", "Geopolitics")
++# Science earns its own category rather than being filed under Technology. The
++# stories that travel furthest - a rocket hitting the Moon, whales returning to
++# a coastline, what a brain does while you sleep - are universal in a way a
++# product launch is not, and they had nowhere to live.
++CATEGORIES = ("Technology", "Finance", "Geopolitics", "Science")
+ 
+ # Short labels used in copy and slide titles.
+ CATEGORY_LABELS = {
+     "Technology": "Tech",
+     "Finance": "Finance",
+     "Geopolitics": "Geopolitics",
++    "Science": "Science",
+ }
+ 
+ # Uppercase labels used on the small category pill in the carousel furniture.
+@@ -93,6 +98,7 @@ CATEGORY_PILL = {
+     "Technology": "TECHNOLOGY",
+     "Finance": "FINANCE",
+     "Geopolitics": "WORLD",
++    "Science": "SCIENCE",
+ }
+ 
+ # --------------------------------------------------------------------------- #
+@@ -118,6 +124,7 @@ CATEGORY_COLORS = {
+     "Technology": "#F0553A",   # coral / vermilion
+     "Finance": "#22B07D",      # emerald
+     "Geopolitics": "#E3A63A",  # amber / gold
++    "Science": "#6E5AC8",      # violet, distinct from the other three at a glance
+ }
+ 
+ # Public social handle, shown in the slide furniture and CTA.
+@@ -134,7 +141,17 @@ GEO_USE_FLAG = False
+ # News sources (free, public RSS feeds from reputable publishers)
+ # --------------------------------------------------------------------------- #
+ # `tier` is a reputability weight used in ranking (higher = more trusted).
++# No single publisher may hold up the run. feedparser has no timeout of its own,
++# so without this a feed that stalls mid-response blocks the daily job until the
++# workflow's 45 minute ceiling kills it.
++FEED_TIMEOUT_SECONDS = _env_number("FEED_TIMEOUT_SECONDS", 12.0, float)
++
+ # Add or remove feeds freely. If a feed dies it is skipped, not fatal.
++#
++# Depth per beat matters as much as breadth across beats. Corroboration can only
++# find a second outlet if a second outlet is in the room: with one feed per beat
++# almost every story is single-source and the receipt strip stays thin no matter
++# how good the matching is. Several outlets now cover each category deliberately.
+ @dataclass(frozen=True)
+ class Feed:
+     name: str
+@@ -152,6 +169,8 @@ FEEDS: tuple[Feed, ...] = (
+     Feed("TechCrunch", "https://techcrunch.com/feed/", "Technology", 1.0),
+     Feed("Wired", "https://www.wired.com/feed/rss", "Technology", 1.0),
+     Feed("Engadget", "https://www.engadget.com/rss.xml", "Technology", 0.9),
++    Feed("The Register", "https://www.theregister.com/headlines.atom", "Technology", 1.0),
++    Feed("ZDNet", "https://www.zdnet.com/news/rss.xml", "Technology", 0.9),
+ 
+     # ---- Finance ----
+     Feed("BBC Business", "https://feeds.bbci.co.uk/news/business/rss.xml", "Finance", 1.4),
+@@ -159,6 +178,8 @@ FEEDS: tuple[Feed, ...] = (
+     Feed("MarketWatch Top", "https://feeds.content.dowjones.io/public/rss/mw_topstories", "Finance", 1.1),
+     Feed("Yahoo Finance", "https://finance.yahoo.com/news/rssindex", "Finance", 0.9),
+     Feed("Investing.com", "https://www.investing.com/rss/news_25.rss", "Finance", 0.8),
++    Feed("Guardian Business", "https://www.theguardian.com/uk/business/rss", "Finance", 1.1),
++    Feed("Sky Business", "https://feeds.skynews.com/feeds/rss/business.xml", "Finance", 1.0),
+ 
+     # ---- Geopolitics ----
+     Feed("BBC World", "https://feeds.bbci.co.uk/news/world/rss.xml", "Geopolitics", 1.4),
+@@ -166,6 +187,24 @@ FEEDS: tuple[Feed, ...] = (
+     Feed("Guardian World", "https://www.theguardian.com/world/rss", "Geopolitics", 1.1),
+     Feed("AP Top News", "https://feedx.net/rss/ap.xml", "Geopolitics", 1.2),
+     Feed("NPR World", "https://feeds.npr.org/1004/rss.xml", "Geopolitics", 1.0),
++    Feed("Sky World", "https://feeds.skynews.com/feeds/rss/world.xml", "Geopolitics", 1.1),
++    Feed("France 24", "https://www.france24.com/en/rss", "Geopolitics", 1.0),
++    Feed("Deutsche Welle", "https://rss.dw.com/rdf/rss-en-world", "Geopolitics", 1.0),
++    Feed("CBC World", "https://www.cbc.ca/webfeed/rss/rss-world", "Geopolitics", 1.0),
++
++    # ---- Science ----
++    # Every feed above is a general, business or technology wire. Between them
++    # they never carried the most-shared story of 5 August - a four-tonne rocket
++    # stage hitting the Moon - so no amount of re-weighting could have surfaced
++    # it. These four all fetched cleanly when tested against the new ranker, and
++    # supplied four of its top eight.
++    Feed("Phys.org", "https://phys.org/rss-feed/", "Science", 1.0),
++    Feed("Space.com", "https://www.space.com/feeds/all", "Science", 1.0),
++    Feed("New Scientist", "https://www.newscientist.com/subject/space/feed/", "Science", 1.0),
++    Feed("Science Daily", "https://www.sciencedaily.com/rss/top/science.xml", "Science", 1.0),
++    Feed("NASA", "https://www.nasa.gov/rss/dyn/breaking_news.rss", "Science", 1.3),
++    Feed("Live Science", "https://www.livescience.com/feeds.xml", "Science", 0.9),
++    Feed("Nature News", "https://www.nature.com/nature.rss", "Science", 1.3),
+ )
+ 
+ # How far back a story may be and still count as "today's news".
+@@ -457,13 +496,33 @@ STORY_CARD_ENABLED = _env_flag("STORY_CARD_ENABLED", True)
+ # a day is more than a small account needs, and posting past the point where each
+ # post can find its audience dilutes every one of them. Set this to "false" to
+ # drop to one carousel a day (recommended once the reels are running).
+-IG_SECOND_CAROUSEL = _env_flag("IG_SECOND_CAROUSEL", True)
++IG_SECOND_CAROUSEL = _env_flag("IG_SECOND_CAROUSEL", False)
++
++# Carousels are the most expensive format to produce and the least suited to a
++# daily beat: five slides of argument is a weekly artefact, not a daily one. The
++# daily rhythm is two reels and one or two story cards; the carousel becomes a
++# considered weekly piece. Days are 0=Monday.
++CAROUSEL_WEEKDAYS = tuple(
++    int(d) for d in _env_str("CAROUSEL_WEEKDAYS", "1,4").split(",") if d.strip()
++)
+ 
+ 
+ # --------------------------------------------------------------------------- #
+ # Gemini model
+ # --------------------------------------------------------------------------- #
+ GEMINI_MODEL = "gemini-3.1-flash-lite"
++
++# Quota is counted per model, so a second model is a second allowance - the same
++# reasoning as REEL_TTS_FALLBACK_MODELS above, which text never had. A run that
++# exhausts the primary model's daily cap currently fails outright rather than
++# moving on. On a 429 the client should advance immediately rather than waiting
++# out a window it cannot use.
++GEMINI_FALLBACK_MODELS = tuple(
++    m.strip() for m in _env_str(
++        "GEMINI_FALLBACK_MODELS",
++        "gemini-3.1-flash,gemini-2.5-flash-lite,gemini-2.5-flash").split(",")
++    if m.strip()
++)
+ # Thinking budget for generation: "minimal" | "low" | "medium" | "high".
+ # "low" gives clean, instruction-following copy without much latency or cost.
+ GEMINI_THINKING_LEVEL = _env_str("GEMINI_THINKING_LEVEL", "low")
+diff --git a/headlinne/gemini/client.py b/headlinne/gemini/client.py
+index b6a2ff1..6985cdf 100644
+--- a/headlinne/gemini/client.py
++++ b/headlinne/gemini/client.py
+@@ -13,7 +13,8 @@ import re
+ import time
+ from typing import Any
+ 
+-from ..config import (GEMINI_MAX_RETRIES, GEMINI_MODEL, GEMINI_TEMPERATURE,
++from ..config import (GEMINI_FALLBACK_MODELS, GEMINI_MAX_RETRIES, GEMINI_MODEL,
++                      GEMINI_TEMPERATURE,
+                       GEMINI_THINKING_LEVEL, SECRETS)
+ from ..logging_setup import get_logger
+ 
+@@ -24,6 +25,12 @@ class GeminiError(RuntimeError):
+     pass
+ 
+ 
++def _is_quota_error(exc: Exception) -> bool:
++    """Gemini signals an exhausted allowance as 429 / RESOURCE_EXHAUSTED."""
++    text = f"{exc}"
++    return "429" in text or "RESOURCE_EXHAUSTED" in text
++
++
+ def _extract_json(text: str) -> Any:
+     """Parse a JSON object/array from model text, tolerating code fences."""
+     text = text.strip()
+@@ -40,11 +47,22 @@ def _extract_json(text: str) -> Any:
+ 
+ 
+ class GeminiClient:
+-    def __init__(self, api_key: str | None = None, model: str = GEMINI_MODEL):
+-        self.model = model
++    def __init__(self, api_key: str | None = None, model: str = GEMINI_MODEL,
++                 fallback_models: tuple[str, ...] = GEMINI_FALLBACK_MODELS):
++        # Quota is counted per model, so each fallback is a fresh allowance
++        # rather than a second try at the same one - the same reasoning the TTS
++        # client already uses. Without this, exhausting the primary model's
++        # daily cap fails the whole run even though other models are available.
++        self.models = [model, *(m for m in fallback_models if m and m != model)]
++        self._model_index = 0
+         self._api_key = api_key or SECRETS.gemini_api_key
+         self._client = None
+ 
++    @property
++    def model(self) -> str:
++        """The model currently in use. Advances as allowances are exhausted."""
++        return self.models[self._model_index]
++
+     def _ensure_client(self):
+         if self._client is not None:
+             return
+@@ -92,6 +110,14 @@ class GeminiClient:
+                 return _extract_json(text)
+             except Exception as exc:  # noqa: BLE001 - we want to retry broadly
+                 last_err = exc
++                # A quota refusal will not clear by waiting: the window is a day,
++                # not seconds. Move to the next model's allowance immediately and
++                # retry without burning the backoff.
++                if _is_quota_error(exc) and self._model_index + 1 < len(self.models):
++                    self._model_index += 1
++                    log.warning("Gemini quota exhausted, switching to %s",
++                                self.model)
++                    continue
+                 wait = min(2 ** attempt, 20)
+                 log.warning("Gemini attempt %d/%d failed: %s (retrying in %ss)",
+                             attempt, GEMINI_MAX_RETRIES, exc, wait)
+@@ -104,4 +130,6 @@ class GeminiClient:
+                     )
+                 time.sleep(wait)
+ 
+-        raise GeminiError(f"Gemini failed after {GEMINI_MAX_RETRIES} attempts: {last_err}")
++        raise GeminiError(
++            f"Gemini failed after {GEMINI_MAX_RETRIES} attempts across "
++            f"{self._model_index + 1} model(s): {last_err}")
+diff --git a/headlinne/models.py b/headlinne/models.py
+index 0b31b0d..4aa92b2 100644
+--- a/headlinne/models.py
++++ b/headlinne/models.py
+@@ -29,6 +29,14 @@ class Story:
+     # Filled in by the ranker.
+     corroborating_sources: list[str] = field(default_factory=list)
+     score: float = 0.0
++    # Two independent outlets is the bar for calling a story verified. This is a
++    # property of the story, never a ranking term: being widely covered is not
++    # the same as being worth reading. Single-source stories still publish - the
++    # source strip renders honestly thin, and we are willing to post that.
++    verified: bool = False
++    # Death and disaster. Renderers must drop the mascot, the speech bubble and
++    # any wonder framing when this is set.
++    sensitive: bool = False
+ 
+     @property
+     def source_count(self) -> int:
+diff --git a/headlinne/news/corroborate.py b/headlinne/news/corroborate.py
+new file mode 100644
+index 0000000..f2a5972
+--- /dev/null
++++ b/headlinne/news/corroborate.py
+@@ -0,0 +1,258 @@
++"""Find the other outlets that covered a story, once that story has been chosen.
++
++Clustering and corroboration look like the same problem and are not. Clustering
++decides "are these one post?" and must be conservative: fusing two distinct
++stories produces a carousel about nothing. Corroboration decides "how many
++outlets reported this event?" and needs recall, because a story covered by six
++outlets that we can only prove two of is a story we under-report.
++
++Running both off one similarity score meant one of them was always wrong. On a
++297-story day the merge threshold produced 288 events, only 9 of which had a
++second source - so Story.verified was false for roughly 97% of the feed, and
++the source strip would have been honest but almost always thin.
++
++Lowering the merge threshold does not fix it. Measured on live feeds:
++
++    0.45  Samsung Galaxy Z Fold 8 Ultra review        | same story
++    0.44  Apple proposes to take a 15% cut ...        | same story
++    0.36  Talks to sell PayPal to Stripe ...          | same story
++    0.27  Samsung has new Galaxy headphones ...       | DIFFERENT story
++    0.26  Dell XPS 13 Review ...                      | DIFFERENT story
++
++The false pairs outscore the true one. Plain token overlap weights "review" and
++"samsung" exactly like "PayPal", so no single threshold separates them.
++
++So this module scores shared *distinctive* terms instead, weighting each by how
++rare it is across the day's own corpus. "PayPal" appears in two headlines and
++carries weight; "review" appears in thirty and carries almost none. Two outlets
++must share at least MIN_SHARED_TERMS distinctive terms before they corroborate
++at all, which is what stops a single shared brand name counting as agreement.
++
++Precision matters more than recall here in one direction only: claiming two
++outlets agree when they covered different events is a trust failure, and this
++brand is built on the source strip being true. When in doubt, do not corroborate.
++
++This runs on the day's already-fetched corpus. It costs no extra API call and no
++network - the coverage was always there, it was the matching that missed it.
++"""
++
++from __future__ import annotations
++
++import math
++import re
++from collections import Counter
++
++from ..models import Story
++
++# A term must be shared by both headlines and be distinctive in the corpus.
++MIN_SHARED_TERMS = 2
++
++# Shared distinctive weight, divided by log(corpus size) so the bar does not
++# drift with how many stories a day happens to bring in. Measured on live feeds:
++#
++#   4.18  Apple proposes to take a 15% cut ...      | same story
++#   6.91  Talks to sell PayPal to Stripe ...        | same story   (weakest true)
++#   1.51  Samsung headphones vs Fold review         | different    (strongest false)
++#
++# 2.60 sits well clear of the false pair with margin on both sides. Two earlier
++# versions were worse: normalising by the shorter headline's weight let a
++# four-word title clear the bar on two shared brand names, and matching on
++# headlines alone left only 0.79 between the weakest true pair and the strongest
++# false one - too thin to trust on a day this had not been measured against.
++MIN_SCORE = 2.60
++
++# A shared entity must also be a *distinctive* one. "African", "Ocean" and "Aug"
++# are capitalised and shared by any number of unrelated stories; measured live,
++# they let an Ebola outbreak corroborate a whale survey and a Pacific storm
++# corroborate a solar eclipse. Requiring the shared entities to carry real
++# inverse-document-frequency weight removes those without touching genuine
++# matches, where the shared entity is a specific place or organisation.
++MIN_ENTITY_WEIGHT = 3.4
++
++# And there must be more than one of them. A single shared entity is a
++# coincidence: measured live, a Pacific storm and a solar eclipse photo shared
++# exactly "Ocean" and nothing else, while the storm and a genuine second report
++# of it shared five - Hawaii, Lala, Pacific, Big, Island. Two accounts of one
++# event name several of the same specifics; two unrelated ones rarely name two.
++MIN_SHARED_ENTITIES = 2
++
++# Roundups name a dozen unrelated subjects and would corroborate all of them.
++# They are excluded as *sources* of corroboration; they can still be published.
++_ROUNDUP_MARKERS = ("recap", "roundup", "round-up", "week in", "best of",
++                    "everything we", "what we know", "live updates",
++                    "as it happened", "deals of the", "top stories",
++                    "your guide to", "explained:",
++                    "in tonight's edition", "in this edition", "also in the",
++                    "here are the stories", "the headlines:", "briefing:")
++
++_WORD = re.compile(r"[a-z0-9][a-z0-9'-]{2,}")
++
++_STOP = frozenset("""
++the a an and or of to in on for with at by from as is are was were be been it
++its this that these those after over amid into new say says said will has have
++had but not you how why what when who which their there here more most than
++then now just also can could would should may might about against between
++first last next year years day days week month report reports according
++""".split())
++
++
++def _terms(text: str) -> set[str]:
++    return {w for w in _WORD.findall(text.lower()) if w not in _STOP}
++
++
++_CAPITALISED = re.compile(r"([A-Z][A-Za-z'-]{2,})")
++
++# Capitalised by convention, but they name no one. Two unrelated stories filed
++# on the same Saturday are not the same story.
++_CALENDAR = frozenset("""
++monday tuesday wednesday thursday friday saturday sunday january february march
++april may june july august september october november december
++mon tue tues wed thu thur thurs fri sat sun
++jan feb mar apr jun jul aug sept sep oct nov dec
++""".split())
++
++
++def _entities(story: Story) -> set[str]:
++    """Proper nouns: the places, people and organisations a report names.
++
++    This is the discriminator that generic vocabulary cannot fake. Two accounts
++    of one event name the same places; two unrelated disasters share only the
++    language of disaster. Measured live, an Israeli airstrike in Lebanon and an
++    Indonesian earthquake matched at 2.85 on "early, homes, people, saturday,
++    strikes" - enough to clear an IDF bar and put two outlets on a source strip
++    for a story they never covered. They share no entity, so requiring one
++    removes them while leaving Israeli/Lebanon/Hezbollah matches untouched.
++
++    Sentence-initial words are skipped: every headline capitalises its first
++    word, and that says nothing about what it is about.
++    """
++    found: set[str] = set()
++    for sentence in re.split(r"[.!?]\s+", f"{story.title}. {story.summary}"):
++        # Skip the first word of every sentence: it is capitalised by grammar,
++        # not because it names anything.
++        for word in sentence.split()[1:]:
++            match = _CAPITALISED.match(word)
++            if match:
++                found.add(match.group(1).lower())
++    return found - _STOP - _CALENDAR
++
++
++def _signature(story: Story) -> set[str]:
++    """The terms that identify an event: headline plus summary.
++
++    Headlines alone are too short to separate a real match from a coincidental
++    one. Measured on live feeds, adding the summary lifted the weakest true pair
++    from 2.30 to 6.91 while leaving the strongest false pair unmoved at 1.51 -
++    the separation widens from 0.79 to 5.40, because two reports of the same
++    event share their specifics while two unrelated ones share only a brand.
++    """
++    return _terms(f"{story.title} {story.summary}")
++
++
++def build_idf(corpus: list[Story]) -> dict[str, float]:
++    """Inverse document frequency over the day's own headlines.
++
++    Computed per run rather than from a fixed list because what counts as a
++    distinctive word changes daily: on a launch day "rocket" is common and
++    carries little; most days it is rare and carries a lot.
++    """
++    n = max(1, len(corpus))
++    df: Counter[str] = Counter()
++    for story in corpus:
++        df.update(_signature(story))
++    # Floored at zero: a term carried by most of the corpus tells us nothing,
++    # and on a small corpus the unclamped form goes negative, which would let
++    # common words subtract from a genuine match.
++    return {term: max(0.0, math.log(n / (1 + count)))
++            for term, count in df.items()}
++
++
++def _weight(terms: set[str], idf: dict[str, float]) -> float:
++    return sum(idf.get(t, 0.0) for t in terms)
++
++
++def is_roundup(title: str, summary: str = "") -> bool:
++    """A post that lists many subjects cannot vouch for any one of them.
++
++    The summary is checked as well as the headline. Broadcast bulletins open
++    "In tonight's edition:" and then run through six unrelated stories under a
++    headline naming only the first, which is how a Congo Ebola report came to
++    corroborate a piece about Instagram accounts in Ceuta.
++    """
++    low = f"{title} {summary[:160]}".lower()
++    return any(m in low for m in _ROUNDUP_MARKERS)
++
++
++def agreement(a: Story, b: Story, idf: dict[str, float],
++              corpus_size: int = 0) -> float:
++    """How strongly two headlines look like the same event.
++
++    The result is shared distinctive weight scaled by corpus size, so it is
++    comparable across a quiet day and a busy one. Compare against MIN_SCORE.
++    """
++    if is_roundup(a.title, a.summary) or is_roundup(b.title, b.summary):
++        return 0.0
++    # A shared named entity is required, and it must be a distinctive one.
++    # Without the entity requirement two unrelated tragedies corroborate on
++    # casualty vocabulary; without the weight requirement they corroborate on
++    # "African" or "Ocean".
++    shared_entities = _entities(a) & _entities(b)
++    if len(shared_entities) < MIN_SHARED_ENTITIES:
++        return 0.0
++    if _weight(shared_entities, idf) < MIN_ENTITY_WEIGHT:
++        return 0.0
++    shared = _signature(a) & _signature(b)
++    if len(shared) < MIN_SHARED_TERMS:
++        return 0.0
++    scale = math.log(max(corpus_size, math.e))
++    return _weight(shared, idf) / scale
++
++
++def corroborate(story: Story, corpus: list[Story],
++                idf: dict[str, float] | None = None,
++                *, min_score: float = MIN_SCORE) -> list[Story]:
++    """Other outlets' reports of the same event, best match first.
++
++    Only returns stories from a different source than `story`, and never the
++    story itself.
++    """
++    idf = build_idf(corpus) if idf is None else idf
++    n = len(corpus)
++    hits: list[tuple[float, Story]] = []
++    seen_sources: set[str] = {story.source}
++    for other in corpus:
++        if other is story or other.url == story.url:
++            continue
++        if other.source in seen_sources:
++            continue
++        score = agreement(story, other, idf, n)
++        if score >= min_score:
++            hits.append((score, other))
++    hits.sort(key=lambda pair: -pair[0])
++
++    out: list[Story] = []
++    for _, other in hits:
++        if other.source in seen_sources:
++            continue
++        seen_sources.add(other.source)
++        out.append(other)
++    return out
++
++
++def attach(stories: list[Story], corpus: list[Story]) -> None:
++    """Fill in corroborating_sources and verified for each chosen story.
++
++    Runs after ranking, on the handful of stories actually being published,
++    rather than across the whole corpus - the expensive matching is only worth
++    doing for what will be posted.
++    """
++    idf = build_idf(corpus)
++    for story in stories:
++        others = corroborate(story, corpus, idf)
++        known = set(story.corroborating_sources)
++        for other in others:
++            if other.source != story.source and other.source not in known:
++                known.add(other.source)
++                story.corroborating_sources.append(other.source)
++        story.corroborating_sources.sort()
++        story.verified = story.source_count >= 2
+diff --git a/headlinne/news/feeds.py b/headlinne/news/feeds.py
+index 44bdd24..a1b3108 100644
+--- a/headlinne/news/feeds.py
++++ b/headlinne/news/feeds.py
+@@ -12,7 +12,9 @@ from email.utils import parsedate_to_datetime
+ 
+ import feedparser
+ 
+-from ..config import FEEDS, MAX_STORY_AGE_HOURS, Feed
++import socket
++
++from ..config import FEED_TIMEOUT_SECONDS, FEEDS, MAX_STORY_AGE_HOURS, Feed
+ from ..logging_setup import get_logger
+ from ..models import Story
+ from .images import image_from_entry
+@@ -60,7 +62,16 @@ def fetch_feed(feed: Feed, *, fetch_images: bool = True) -> list[Story]:
+     stories: list[Story] = []
+     cutoff = datetime.now(timezone.utc) - timedelta(hours=MAX_STORY_AGE_HOURS)
+     try:
+-        parsed = feedparser.parse(feed.url)
++        # feedparser has no timeout of its own and inherits the global socket
++        # default, which is "wait forever". One publisher that accepts the
++        # connection and then stalls would hang the whole daily run - the job
++        # has a 45 minute ceiling and would burn all of it on one feed.
++        previous = socket.getdefaulttimeout()
++        socket.setdefaulttimeout(FEED_TIMEOUT_SECONDS)
++        try:
++            parsed = feedparser.parse(feed.url)
++        finally:
++            socket.setdefaulttimeout(previous)
+     except Exception as exc:  # pragma: no cover - network
+         log.warning("feed failed %s: %s", feed.name, exc)
+         return stories
+diff --git a/headlinne/news/interest.py b/headlinne/news/interest.py
+new file mode 100644
+index 0000000..a693fd4
+--- /dev/null
++++ b/headlinne/news/interest.py
+@@ -0,0 +1,162 @@
++"""Is this story worth anyone's attention?
++
++The old scoring answered a different question. Its heaviest term by far was
++cross-source count, with outlet tier and importance keywords behind it - three
++proxies for institutional consensus. The story that maximises that function is,
++by definition, the one the most outlets ran: a central bank, a summit, an
++earnings print. Nobody chose those stories. The arithmetic did.
++
++Run live on 208 stories, the old weights put an X-Files director's cut in the
++top eight twice and never surfaced a rocket hitting the Moon at all - partly
++because it scored badly, mostly because no configured feed carried it.
++
++So verification and interest are separated here. Cross-source count answers
++"is this true?" and is a property of the story (see Story.verified); it is not
++a ranking term, because being well attended is not the same as being worth
++reading. This module answers "should anyone care?"
++
++Eight terms, all computable from the headline, summary and metadata already
++fetched. No extra API call.
++
++  concrete     physical nouns and measured quantities beat abstractions
++  novelty      first, never before, confirmed, discovered
++  surprise     turned out, actually, instead, contrary
++  universal    things every human has a stake in; penalises the parochial
++  uplift       recovery, progress, awe - positive emotion transmits better
++  imageable    a real photograph exists
++  standalone   understandable without yesterday's episode
++  procedural   penalty: a process, not an event
++
++The ordering that falls out of it: "X happened" beats "X may happen" beats
++"X met to discuss whether X might happen." Almost everything the old ranker
++surfaced sat in the third bucket.
++
++SENSITIVE is a separate axis and deliberately not a score. Deaths and disasters
++come with concrete nouns and hard numerals, which is exactly what `concrete`
++rewards - the first live run put a ferry disaster fourth on a list of things it
++considered interesting. Those stories still publish; they route to a plain
++treatment with no mascot, no bubble and no wonder framing. See is_sensitive().
++"""
++
++from __future__ import annotations
++
++import re
++
++# --------------------------------------------------------------------------- #
++# Lexicons. Deliberately small and readable: this is editorial judgement written
++# down, and it should be arguable over by a person rather than tuned blindly.
++# --------------------------------------------------------------------------- #
++_UNITS = re.compile(
++    r"\b(km/h|mph|kg|tonnes?|met(?:res|ers)|miles|light[- ]years|degrees|"
++    r"billion|million|trillion|percent|%|km|ft|mm|hours|minutes)\b")
++
++_NOVELTY = ("first", "first-ever", "never before", "unprecedented", "discovered",
++            "confirmed", "detected", "spotted", "new species", "breakthrough",
++            "record", "oldest", "largest", "smallest", "revealed")
++
++_SURPRISE = ("turned out", "actually", "instead", "contrary", "unexpected",
++             "surprised", "mystery", "puzzle", "baffl", "not what", "wrong",
++             "reversal", "far more", "far fewer")
++
++_PHYSICAL = ("rocket", "crater", "moon", "asteroid", "comet", "volcano", "whale",
++             "fossil", "glacier", "telescope", "satellite", "reactor", "bridge",
++             "tunnel", "ship", "aircraft", "brain", "cell", "virus", "star",
++             "planet", "ice", "ocean", "forest", "storm", "dinosaur", "engine")
++
++# Applies to a reader anywhere, with no prior expertise.
++_UNIVERSAL = ("moon", "space", "earth", "ocean", "brain", "sleep", "body",
++              "human", "cancer", "memory", "ageing", "aging", "heart", "climate",
++              "whale", "bird", "forest", "water", "food", "light", "sun", "star",
++              "planet", "universe", "cell", "dna", "gravity", "phone", "internet",
++              "battery", "energy", "everyone", "people", "children")
++
++# Local, expert-only or in-group. The opposite of universal.
++_PAROCHIAL = ("council", "borough", "constituency", "senator", "shares",
++              "shareholder", "earnings", "quarterly", "ftse", "nasdaq",
++              "premier league", "transfer window", "midfielder", "by-election",
++              "reshuffle", "select committee", "budget speech", "primary race")
++
++_UPLIFT = ("discovered", "breakthrough", "recovering", "reclaiming", "restored",
++           "revived", "saved", "thriving", "rebound", "cure", "solved", "first",
++           "record", "milestone", "repair", "better than", "returns")
++
++_PROCEDURAL = ("holds", "held", "meets", "meeting", "discuss", "considers",
++               "is set to", "could", "may ", "might", "expected to", "plans to",
++               "unchanged", "consecutive", "talks", "urges", "calls for",
++               "seeks", "weighs", "mulls", "to decide", "ahead of", "amid")
++
++_CONTEXT_DEPENDENT = ("continues", "latest", "amid ongoing", "another round",
++                      "as it happened", "update:", "day two", "day three")
++
++# Death and disaster. Not a disqualification - a routing decision.
++_SENSITIVE = ("dead", "death", "killed", "kills", "killing", "casualt",
++              "massacre", "shooting", "stabbed", "murder", "victims", "bodies",
++              "capsiz", "earthquake", "famine", "genocide", "atrocit", "suicide",
++              "abuse", "missing after", "death toll", "wounded", "injured",
++              "hostage", "airstrike", "bombing", "war crime")
++
++# Weights. Concrete leads because it is the strongest single predictor of a
++# story a person will actually look at; procedural is the only negative and is
++# weighted to fully cancel a strong positive, because a process story dressed in
++# concrete nouns is still a process story.
++_W_CONCRETE, _W_NOVELTY, _W_SURPRISE = 3.0, 2.4, 2.2
++_W_UNIVERSAL, _W_UPLIFT = 2.6, 1.8
++_W_IMAGE, _W_STANDALONE, _W_PROCEDURAL = 1.4, 1.2, 3.0
++
++
++def _hits(text: str, bag: tuple[str, ...]) -> int:
++    return sum(1 for k in bag if k in text)
++
++
++def is_sensitive(title: str, summary: str = "") -> bool:
++    """True if the story is about death or disaster.
++
++    Callers must not render these with the mascot, a speech bubble or any
++    wonder framing. They are reported plainly.
++    """
++    return _hits((title + " " + summary).lower(), _SENSITIVE) > 0
++
++
++def interest(title: str, summary: str = "", has_image: bool = False) -> float:
++    """Score how much a person who is not obliged to read this would want to."""
++    text = (title + " " + summary).lower()
++
++    concrete = min(1.0, _hits(text, _PHYSICAL) * 0.45
++                   + len(_UNITS.findall(text)) * 0.3
++                   + (0.25 if re.search(r"\d", title) else 0.0))
++    novelty = min(1.0, _hits(text, _NOVELTY) * 0.5)
++    surprise = min(1.0, _hits(text, _SURPRISE) * 0.55)
++    universal = max(0.0, min(1.0, _hits(text, _UNIVERSAL) * 0.4
++                             - _hits(text, _PAROCHIAL) * 0.5))
++    uplift = min(1.0, _hits(text, _UPLIFT) * 0.45)
++    standalone = max(0.0, 1.0 - _hits(text, _CONTEXT_DEPENDENT) * 0.5)
++    procedural = min(1.0, _hits(text, _PROCEDURAL) * 0.34)
++
++    return (_W_CONCRETE * concrete
++            + _W_NOVELTY * novelty
++            + _W_SURPRISE * surprise
++            + _W_UNIVERSAL * universal
++            + _W_UPLIFT * uplift
++            + _W_IMAGE * (1.0 if has_image else 0.0)
++            + _W_STANDALONE * standalone
++            - _W_PROCEDURAL * procedural)
++
++
++def breakdown(title: str, summary: str = "", has_image: bool = False) -> dict:
++    """Per-term detail, for tuning and for explaining a ranking in the logs."""
++    text = (title + " " + summary).lower()
++    return {
++        "concrete": round(min(1.0, _hits(text, _PHYSICAL) * 0.45
++                              + len(_UNITS.findall(text)) * 0.3
++                              + (0.25 if re.search(r"\d", title) else 0.0)), 2),
++        "novelty": round(min(1.0, _hits(text, _NOVELTY) * 0.5), 2),
++        "surprise": round(min(1.0, _hits(text, _SURPRISE) * 0.55), 2),
++        "universal": round(max(0.0, min(1.0, _hits(text, _UNIVERSAL) * 0.4
++                                        - _hits(text, _PAROCHIAL) * 0.5)), 2),
++        "uplift": round(min(1.0, _hits(text, _UPLIFT) * 0.45), 2),
++        "image": 1.0 if has_image else 0.0,
++        "standalone": round(max(0.0, 1.0 - _hits(text, _CONTEXT_DEPENDENT) * 0.5), 2),
++        "procedural": round(min(1.0, _hits(text, _PROCEDURAL) * 0.34), 2),
++        "sensitive": is_sensitive(title, summary),
++        "total": round(interest(title, summary, has_image), 2),
++    }
+diff --git a/headlinne/news/quality.py b/headlinne/news/quality.py
+new file mode 100644
+index 0000000..e2eac5b
+--- /dev/null
++++ b/headlinne/news/quality.py
+@@ -0,0 +1,111 @@
++"""What is not news, however well it scores.
++
++The interest score asks whether a person would want to read something. It has no
++opinion on whether the thing is journalism, and commerce copy is engineered to be
++interesting. Left to itself the ranker put these in one day's top twenty-five:
++
++    13.  Google Workspace Promo Codes: 14% Off for August 2026
++    22.  Our expert thinks this portable Celestron telescope will delight...
++    12.  5 Weird Tricks for Having a Brain
++    17.  On this day in space! Aug. 15, 1977: Mysterious 'Wow!' Signal
++    20.  I wish I had been a more rebellious teenager, says Bella Ramsey
++
++The existing _LOW_VALUE_MARKERS scored every one of those at 0.0 penalty, and a
++soft penalty could not have saved it anyway: it caps at 2.3 against interest
++scores above 11.
++
++So this is a gate rather than a weight. A story earns a place by reporting an
++event or a finding. A coupon, a product recommendation, a listicle, an
++anniversary and a celebrity's feelings about their teenage years are none of
++those, no matter how well they read.
++
++Being wrong in one direction is much worse than the other. Dropping a decent
++story costs one post out of a few hundred a week; publishing a promo code as
++news costs the thing the whole account is for. When a rule is arguable, it
++belongs in the arguable list below and is kept narrow.
++"""
++
++from __future__ import annotations
++
++import re
++
++# Commerce. None of this is reporting, and some of it is paid placement.
++_COMMERCE = (
++    "promo code", "coupon", "% off", "percent off", "discount code", "deal of",
++    "best deals", "on sale now", "save up to", "lowest price", "price drop",
++    "black friday", "prime day", "cyber monday", "affiliate", "buying guide",
++    "shop the", "where to buy", "our expert thinks", "we recommend",
++    "will delight", "worth your money", "should you buy",
++)
++
++# Reviews and product comparisons. A verdict on a phone is not an event.
++_REVIEW = (
++    "review:", " review ", "review]", "hands-on", "hands on with", "unboxing",
++    "we tried", "i tried", "tested:", "we tested", "benchmarked",
++    " vs ", " vs. ", "versus", "compared:", "which is better", "head-to-head",
++    "ranked:", "the best ", "top 10 ", "top 5 ", "our favourite", "our favorite",
++)
++
++# Listicles and quizzes.
++_LISTICLE = (
++    "weird tricks", "things you", "ways to", "reasons why", "things to know",
++    "tips for", "hacks for", "you should know", "quiz:", "explained in",
++)
++
++# Filler shapes: anniversaries, galleries, horoscopes, and celebrity feelings.
++_FILLER = (
++    "on this day", "years ago today", "this week in", "in pictures", "in photos",
++    "photo of the", "picture of the", "horoscope", "your daily", "caption this",
++    "emotional tributes", "heart breaks", "opens up about", "reveals all",
++    "what they wore", "red carpet", "reacts to", "slams ", "hits back at",
++)
++
++# Aggregator furniture that is about the outlet rather than the world.
++_HOUSEKEEPING = (
++    "newsletter", "subscribe", "our podcast", "listen:", "watch:", "live blog",
++    "live updates", "as it happened", "open thread", "weekly roundup",
++    "editor's note", "correction:", "we're hiring", "sponsored", "paid post",
++    "advertisement", "partner content", "promoted",
++)
++
++# Arguable. Kept deliberately narrow: these shapes are usually filler but
++# occasionally carry a real finding, so only the clearest forms are listed.
++_ARGUABLE = (
++    "everything announced", "everything we know", "everything you need",
++    "here's what we know", "rumor roundup", "leak roundup",
++)
++
++_RULES: tuple[tuple[str, tuple[str, ...]], ...] = (
++    ("commerce", _COMMERCE),
++    ("review", _REVIEW),
++    ("listicle", _LISTICLE),
++    ("filler", _FILLER),
++    ("housekeeping", _HOUSEKEEPING),
++    ("arguable", _ARGUABLE),
++)
++
++# "5 Weird Tricks", "7 things", "Top 12" - a numbered list of items rather than
++# a report of one thing happening.
++_NUMBERED_LIST = re.compile(
++    r"^\s*(?:the\s+)?\d{1,2}\s+\w+", re.I)
++
++
++def reject_reason(title: str, summary: str = "") -> str | None:
++    """Why this is not publishable as news, or None if it is.
++
++    Matching is on the headline. Summaries quote and describe, so a summary
++    mentioning a price does not make the story an advert, and testing against
++    them produced far more false rejections than true ones.
++    """
++    low = f" {title.lower().strip()} "
++    for name, markers in _RULES:
++        for marker in markers:
++            if marker in low:
++                return f"{name}:{marker.strip()}"
++    if _NUMBERED_LIST.match(title) and not re.match(r"^\s*\d{4}\b", title):
++        return "listicle:numbered"
++    return None
++
++
++def is_publishable(title: str, summary: str = "") -> bool:
++    return reject_reason(title, summary) is None
+diff --git a/headlinne/news/ranking.py b/headlinne/news/ranking.py
+index 81a6e08..b806cf1 100644
+--- a/headlinne/news/ranking.py
++++ b/headlinne/news/ranking.py
+@@ -25,6 +25,8 @@ from datetime import datetime, timezone
+ from difflib import SequenceMatcher
+ 
+ from ..config import CATEGORIES, HIGH_INTEREST_KEYWORDS
++from . import interest as interest_mod
++from . import quality as quality_mod
+ from ..logging_setup import get_logger
+ from ..models import NewsDigest, Story
+ 
+@@ -32,7 +34,13 @@ log = get_logger("news.ranking")
+ 
+ # Tuning knobs.
+ _SIM_THRESHOLD = 0.52          # how alike two headlines must be to merge
+-_SOURCE_WEIGHT = 3.2           # weight on (verified) cross-source coverage
++# Cross-source coverage used to be the heaviest term at 3.2, which meant the
++# top story was always the one the most outlets ran - a central bank, a summit,
++# an earnings print. That is a measure of attendance, not of interest. It is now
++# a small tiebreaker between stories the interest score rates equally, and the
++# real verification signal moved to Story.verified.
++_SOURCE_WEIGHT = 0.6           # tiebreaker only; see news/interest.py
++_INTEREST_WEIGHT = 1.0         # the primary ranking signal
+ _TIER_WEIGHT = 1.6             # weight on best source reputability
+ _KEYWORD_WEIGHT = 0.9          # weight per importance keyword (capped)
+ _RECENCY_WEIGHT = 1.0          # small recency nudge
+@@ -48,10 +56,13 @@ _CATEGORY_TOPK = 5             # clusters per category that count toward weight
+ _LOW_VALUE_MARKERS = (
+     "opinion", "comment is free", "editorial", "live:", "live updates",
+     "as it happened", "watch:", "video:", "in pictures", "in photos",
+-    "recap", "best deals", "deal of the day", "discount", "how to",
++    "recap", "best deals", "deal of the day", "discount",
+     "review:", "sponsored", "advertisement", "paid post", "horoscope",
+-    "quiz", "explainer", "podcast", "listen:",
++    "quiz", "podcast", "listen:",
+ )
++# "explainer" and "how to" used to sit in that list. They are the exact genre of
++# the evening educational reel, and the genre the best explainer channels are
++# built on - penalising them was penalising our own second daily format.
+ 
+ _STOP = {
+     "the", "a", "an", "and", "or", "of", "to", "in", "on", "for", "with", "at",
+@@ -168,7 +179,12 @@ def _score(story: Story) -> float:
+ 
+     penalty = _low_value_penalty(text)
+ 
+-    return verification + reputability + keywords + recency + breadth - penalty
++    # The primary signal: would a person who is not obliged to read this want to?
++    appeal = _INTEREST_WEIGHT * interest_mod.interest(
++        story.title, story.summary, has_image=bool(story.image_url))
++
++    return (appeal + verification + reputability + keywords + recency
++            + breadth - penalty)
+ 
+ 
+ def rank(stories: list[Story]) -> NewsDigest:
+@@ -183,12 +199,34 @@ def rank(stories: list[Story]) -> NewsDigest:
+             dominant_category=CATEGORIES[0],
+         )
+ 
++    # Drop what is not news before anything else looks at it. This is a gate
++    # rather than a penalty: a soft score cannot hold back a promo code that the
++    # interest model finds genuinely interesting.
++    publishable, dropped = [], {}
++    for story in stories:
++        reason = quality_mod.reject_reason(story.title, story.summary)
++        if reason is None:
++            publishable.append(story)
++        else:
++            dropped[reason.split(":")[0]] = dropped.get(reason.split(":")[0], 0) + 1
++    if dropped:
++        log.info("Quality gate dropped %d/%d: %s", len(stories) - len(publishable),
++                 len(stories), dict(sorted(dropped.items())))
++    stories = publishable or stories
++
+     clusters = _cluster(stories)
+     merged = [_merge(c) for c in clusters]
+     for s in merged:
++        s.verified = s.source_count >= 2
++        s.sensitive = interest_mod.is_sensitive(s.title, s.summary)
+         s.score = round(_score(s), 3)
+     merged.sort(key=lambda s: s.score, reverse=True)
+ 
++    verified_n = sum(1 for s in merged if s.verified)
++    sensitive_n = sum(1 for s in merged if s.sensitive)
++    log.info("%d/%d events reached two independent sources; %d route sober",
++             verified_n, len(merged), sensitive_n)
++
+     log.info("Clustered %d stories into %d events", len(stories), len(merged))
+ 
+     by_category: dict[str, list[Story]] = {c: [] for c in CATEGORIES}
+diff --git a/headlinne/pipeline.py b/headlinne/pipeline.py
+index 58a0bb7..43bc0a3 100644
+--- a/headlinne/pipeline.py
++++ b/headlinne/pipeline.py
+@@ -27,7 +27,8 @@ from __future__ import annotations
+ from datetime import date, datetime, timezone
+ 
+ from . import storage
+-from .config import (BUFFER_SCHEDULING_MODE, CATEGORIES, IG_SECOND_CAROUSEL,
++from .config import (BUFFER_SCHEDULING_MODE, CAROUSEL_WEEKDAYS, CATEGORIES,
++                     IG_SECOND_CAROUSEL,
+                      REELS_ENABLED, SECRETS, STORY_CARD_ENABLED)
+ from .gemini.client import GeminiClient
+ from .generate import instagram as gen_instagram
+@@ -84,6 +85,17 @@ def _drop_seen(digest: NewsDigest, history: History) -> None:
+         digest.by_category[cat] = kept
+ 
+ 
++def _corroborate_selected(digest: NewsDigest, corpus: list) -> None:
++    """Fill in corroborating sources for the stories we might actually publish."""
++    chosen = [s for stories in digest.by_category.values() for s in stories[:6]]
++    if digest.breaking and digest.breaking not in chosen:
++        chosen.append(digest.breaking)
++    corroborate.attach(chosen, corpus)
++    verified = sum(1 for s in chosen if s.verified)
++    log.info("Corroborated %d/%d candidate stories to two or more outlets",
++             verified, len(chosen))
++
++
+ def _twitter_categories(digest: NewsDigest) -> list[str]:
+     """Two different categories for the day's two news posts, breaking first."""
+     order = strongest_categories(digest, n=len(CATEGORIES))
+@@ -111,6 +123,12 @@ def generate(day: date | None = None, *, render: bool = True,
+     stories = fetch_all()
+     digest = rank(stories)
+     _drop_seen(digest, history)
++    # Corroborate what survived, against the whole day's corpus. Clustering is
++    # tuned to avoid fusing distinct stories into one post, which makes it far
++    # too strict to count coverage: on a 297-story day it verified 9 events out
++    # of 288. This second pass asks a different question of the same corpus and
++    # costs no extra request.
++    _corroborate_selected(digest, stories)
+     storage.save_digest(day, digest)
+ 
+     promo = is_promo_day(day)
+@@ -131,8 +149,18 @@ def generate(day: date | None = None, *, render: bool = True,
+     linkedin_post = gen_linkedin.generate(client, digest, day, friday, week_stories)
+ 
+     # 4. Instagram carousels (the strongest categories)
+-    ig_cats = strongest_categories(digest, n=2 if IG_SECOND_CAROUSEL else 1)
+-    carousels = gen_instagram.generate(client, digest, ig_cats, day)
++    #
++    # Carousels are weekly now. Five slides of argument is a considered artefact,
++    # not a daily beat, and the daily rhythm is two reels plus the story card.
++    # CAROUSEL_WEEKDAYS is 0=Monday; an empty setting means every day.
++    carousel_day = (not CAROUSEL_WEEKDAYS) or (day.weekday() in CAROUSEL_WEEKDAYS)
++    if carousel_day:
++        ig_cats = strongest_categories(digest, n=2 if IG_SECOND_CAROUSEL else 1)
++        carousels = gen_instagram.generate(client, digest, ig_cats, day)
++    else:
++        log.info("No carousel today (weekday %d not in %s)",
++                 day.weekday(), list(CAROUSEL_WEEKDAYS))
++        carousels = []
+ 
+     # 5. Reels: one news explainer, one educational explainer.
+     reels = _generate_reels(client, digest, day)
+diff --git a/headlinne/render/pip.py b/headlinne/render/pip.py
+new file mode 100644
+index 0000000..20a6fc1
+--- /dev/null
++++ b/headlinne/render/pip.py
+@@ -0,0 +1,375 @@
++"""Pip - the Headlinne pixel pigeon.
++
++Named for the BBC pips that have marked the news on the hour since 1924, and for
++the 45 carrier pigeons Paul Reuter flew across the Aachen-Brussels telegraph gap
++in 1850. That pigeon post became Reuters, which this pipeline still reads every
++morning. Pip carries verified news and nothing else.
++
++He exists because the account is automated and therefore cannot have a presenter.
++A character is the only way a faceless brand gets a personality that scales to
++every post at no cost per post - and it lets the sourcing read as a kindness
++rather than a lecture.
++
++Consistency rules, enforced in code rather than by eye:
++  * 26px-wide canvas, front-facing, bilaterally symmetric unless a prop breaks it
++  * the body block is byte-identical in every pose; only heads and props change
++  * cream head, terracotta body, marigold beak and feet - never recoloured, not
++    for categories and not for seasons
++  * eyes are a 2x2 ink block with one white highlight; only the pupil moves
++  * one-pixel ink outline on exterior edges only, never on interior detail
++  * every pose must still read at 26px, which is profile-avatar size
++
++`tests/test_pip.py` asserts the width guard and that every animation cycle
++actually changes pixels - a beak opening changes no bounding box, so comparing
++bounding boxes silently passes a frozen sprite.
++"""
++
++from __future__ import annotations
++
++from PIL import Image
++
++W = 26
++
++PAL = {
++    '.': None,
++    'K': (26, 20, 16),      # ink outline
++    'T': (196, 86, 47),     # terracotta body
++    'H': (232, 118, 63),    # wing highlight
++    'C': (246, 241, 234),   # cream head
++    'B': (255, 180, 61),    # beak / feet
++    'O': (208, 138, 36),    # beak shadow
++    'W': (255, 255, 255),   # eye highlight
++    'N': (26, 20, 16),      # pupil
++    'M': (63, 221, 156),    # mint - verified
++    'P': (247, 241, 230),   # paper
++    'S': (188, 176, 160),   # paper rule
++    'R': (255, 107, 74),    # coral - alert
++}
++
++# The body is identical in every pose. Written once, reused, never edited per-pose.
++BODY = """
++.....KKKKTTTTTTTTKKKK.....
++....KTTHHTTTTTTTTTTHHK....
++...KTTHHHTTTTTTTTTTHHHK...
++...KTHHHHTTTTTTTTTTHHHK...
++...KTHHHHTTTTTTTTTTHHHK...
++...KTTHHHTTTTTTTTTTHHTK...
++....KTTHTTTTTTTTTTTTHK....
++.....KKTTTTTTTTTTTTKK.....
++.......KKKKKKKKKKKK.......
++........BB......BB........
++.......BBBB....BBBB.......
++"""
++
++HEAD_OPEN = """
++..........................
++.........KKKKKKKK.........
++.......KKCCCCCCCCKK.......
++......KCCCCCCCCCCCCK......
++.....KCCCCCCCCCCCCCCK.....
++.....KCCNWCCCCCCNWCCK.....
++.....KCCNNCCCCCCNNCCK.....
++.....KCCCCCCCCCCCCCCK.....
++.....KCCCCCCBBBBCCCCK.....
++......KCCCCCOBBOCCCK......
++.......KKCCCCCCCCKK.......
++"""
++
++HEAD_SHUT = """
++..........................
++.........KKKKKKKK.........
++.......KKCCCCCCCCKK.......
++......KCCCCCCCCCCCCK......
++.....KCCCCCCCCCCCCCCK.....
++.....KCCCCCCCCCCCCCCK.....
++.....KCCKKCCCCCCKKCCK.....
++.....KCCCCCCCCCCCCCCK.....
++.....KCCCCCCBBBBCCCCK.....
++......KCCCCCOBBOCCCK......
++.......KKCCCCCCCCKK.......
++"""
++
++HEAD_WIDE = """
++..........................
++.........KKKKKKKK.........
++.......KKCCCCCCCCKK.......
++......KCCCCCCCCCCCCK......
++.....KCCCCCCCCCCCCCCK.....
++.....KCNWWCCCCCCNWWCK.....
++.....KCNNNCCCCCCNNNCK.....
++.....KCCCCCCCCCCCCCCK.....
++.....KCCCCCCRRRRCCCCK.....
++......KCCCCCORROCCCK......
++.......KKCCCCCCCCKK.......
++"""
++
++HEAD_GLANCE = """
++..........................
++.........KKKKKKKK.........
++.......KKCCCCCCCCKK.......
++......KCCCCCCCCCCCCK......
++.....KCCCCCCCCCCCCCCK.....
++.....KCCCCNWCCCCCCNWK.....
++.....KCCCCNNCCCCCCNNK.....
++.....KCCCCCCCCCCCCCCK.....
++.....KCCCCCCBBBBCCCCK.....
++......KCCCCCOBBOCCCK......
++.......KKCCCCCCCCKK.......
++"""
++
++
++def compose(head: str, body: str = BODY) -> str:
++    return "\n".join(_rows(head) + _rows(body))
++
++
++def _rows(grid: str) -> list[str]:
++    return [r for r in grid.strip("\n").split("\n") if r.strip("\n")]
++
++
++def overlay(grid: str, art: str, ox: int, oy: int) -> str:
++    """Stamp a prop onto a composed sprite at (ox, oy). '.' in the prop is transparent."""
++    rows = [list(r.ljust(W, ".")) for r in _rows(grid)]
++    for y, line in enumerate(_rows(art)):
++        for x, ch in enumerate(line):
++            if ch != "." and 0 <= oy + y < len(rows) and 0 <= ox + x < W:
++                rows[oy + y][ox + x] = ch
++    return "\n".join("".join(r) for r in rows)
++
++
++CHECK = """
++......MM
++.....MM.
++....MM..
++.MM.MM..
++..MMM...
++...M....
++"""
++
++QMARK = """
++.BBB.
++B...B
++....B
++..BB.
++..B..
++.....
++..B..
++"""
++
++BANNER = """
++KKKKKKKKKKKKKK
++KPPPPPPPPPPPPK
++KPSSSPPPSSSSPK
++KPPPPPPPPPPPPK
++KKKKKKKKKKKKKK
++"""
++
++BROADSHEET = """
++KKKKKKKKKKKKKKKKKKKK
++KPPPPPPPPPPPPPPPPPPK
++KPSSSSSSPPPSSSSSSPPK
++KPPPPPPPPPPPPPPPPPPK
++KPSSSSPPPPSSSSSPPPPK
++KPPPPPPPPPPPPPPPPPPK
++KKKKKKKKKKKKKKKKKKKK
++"""
++
++# The Headlinne "h", pixelated onto Pip's chest. Props cover it in some poses,
++# which is fine - it reads as a jersey mark, not a logo lockup.
++EMBLEM = """
++CC....
++CC....
++CCCCC.
++CC..CC
++CC..CC
++"""
++
++WING_UP_L = """
++KH.
++HHK
++HHH
++.KK
++"""
++
++WING_UP_R = """
++.HK
++KHH
++HHH
++KK.
++"""
++
++def badged(head: str) -> str:
++    """Pip with the Headlinne h on his chest. Props stamped after this cover it."""
++    return overlay(compose(head), EMBLEM, 10, 14)
++
++
++SPRITES = {
++    "idle":     badged(HEAD_OPEN),
++    "carry":    overlay(badged(HEAD_OPEN), BANNER, 6, 15),
++    "alert":    overlay(overlay(badged(HEAD_WIDE), WING_UP_L, 1, 10),
++                        WING_UP_R, 22, 10),
++    "read":     overlay(badged(HEAD_SHUT), BROADSHEET, 3, 14),
++    "verified": overlay(badged(HEAD_OPEN), CHECK, 18, 12),
++    "puzzled":  overlay(badged(HEAD_GLANCE), QMARK, 20, 1),
++}
++
++
++def render(grid: str, scale: int = 1) -> Image.Image:
++    rows = _rows(grid)
++    img = Image.new("RGBA", (W, len(rows)), (0, 0, 0, 0))
++    px = img.load()
++    for y, row in enumerate(rows):
++        for x, ch in enumerate(row.ljust(W, ".")[:W]):
++            c = PAL.get(ch)
++            if c:
++                px[x, y] = (*c, 255)
++    return img.resize((W * scale, len(rows) * scale), Image.NEAREST) if scale > 1 else img
++
++
++# --------------------------------------------------------------------------- #
++# Animation. Mario-style: a short cycle, big readable steps, no easing.
++# --------------------------------------------------------------------------- #
++LEGS_MID = """
++........BB......BB........
++.......BBBB....BBBB.......
++"""
++LEGS_L = """
++......BB..........BB......
++.....BBBB........BBBB.....
++"""
++LEGS_R = """
++.........BB....BB.........
++........BBBB..BBBB........
++"""
++
++HEAD_TALK = """
++..........................
++.........KKKKKKKK.........
++.......KKCCCCCCCCKK.......
++......KCCCCCCCCCCCCK......
++.....KCCCCCCCCCCCCCCK.....
++.....KCCNWCCCCCCNWCCK.....
++.....KCCNNCCCCCCNNCCK.....
++.....KCCCCCCBBBBCCCCK.....
++.....KCCCCCBKKKKBCCCK.....
++......KCCCCBOOOOBCCK......
++.......KKCCCCCCCCKK.......
++"""
++
++
++LEGS_TUCK = """
++.......BBBB....BBBB.......
++..........................
++"""
++LEGS_LAND = """
++.......BBBB....BBBB.......
++......BB..BB..BB..BB......
++"""
++
++# A wing held straight out, for pointing at whatever is on screen.
++WING_OUT_R = """
++KHHHK
++HHHHH
++KHHHK
++"""
++WING_OUT_L = """
++KHHHK
++HHHHH
++KHHHK
++"""
++
++
++def _legs(grid: str, legs: str) -> str:
++    """Swap the bottom two rows (the feet) for a different stride."""
++    rows = _rows(grid)
++    return "\n".join(rows[:-2] + _rows(legs))
++
++
++def _bob(grid: str, up: int) -> str:
++    """Lift the whole character by `up` pixels, keeping the canvas height."""
++    rows = _rows(grid)
++    return "\n".join(rows[up:] + ["." * W] * up)
++
++
++def walk_cycle(head: str = HEAD_OPEN) -> list[str]:
++    base = badged(head)
++    return [
++        _legs(base, LEGS_L),
++        _bob(_legs(base, LEGS_MID), 1),
++        _legs(base, LEGS_R),
++        _bob(_legs(base, LEGS_MID), 1),
++    ]
++
++
++def talk_cycle() -> list[str]:
++    return [badged(HEAD_OPEN), badged(HEAD_TALK),
++            badged(HEAD_TALK), badged(HEAD_OPEN)]
++
++
++def _headroom(grid: str, rows_above: int = 6) -> str:
++    """Add blank rows on top so a jump has somewhere to go without clipping."""
++    return "\n".join(["." * W] * rows_above + _rows(grid))
++
++
++def jump_cycle(head: str = HEAD_OPEN) -> list[str]:
++    """Crouch, launch, hang, land. Four frames is all Mario ever needed."""
++    base = badged(head)
++    airborne = overlay(overlay(base, WING_UP_L, 1, 10), WING_UP_R, 22, 10)
++    return [
++        _headroom(_legs(base, LEGS_LAND)),
++        _bob(_headroom(_legs(base, LEGS_TUCK)), 3),
++        _bob(_headroom(_legs(airborne, LEGS_TUCK)), 6),
++        _headroom(_legs(base, LEGS_LAND)),
++    ]
++
++
++def point_cycle(head: str = HEAD_OPEN) -> list[str]:
++    """Pip gesturing at the thing on screen. Two frames, small travel."""
++    base = badged(head)
++    return [overlay(base, WING_OUT_R, 20, 14),
++            overlay(base, WING_OUT_R, 22, 11),
++            overlay(base, WING_OUT_R, 21, 12)]
++
++
++def present_cycle(head: str = HEAD_OPEN) -> list[str]:
++    """Both wings out - 'here is the thing'."""
++    base = badged(head)
++    return [overlay(overlay(base, WING_OUT_L, 1, 14), WING_OUT_R, 20, 14),
++            overlay(overlay(base, WING_OUT_L, 0, 11), WING_OUT_R, 21, 11),
++            overlay(overlay(base, WING_OUT_L, 1, 12), WING_OUT_R, 20, 12)]
++
++
++def idle_cycle() -> list[str]:
++    """A two-frame breath, for when Pip is just standing there."""
++    base = badged(HEAD_OPEN)
++    return [base, _bob(base, 1)]
++
++
++def gif(frames: list[str], path, scale: int = 8, ms: int = 150,
++        bg=(247, 241, 230)):
++    ims = []
++    for f in frames:
++        layer = render(f, scale)
++        flat = Image.new("RGB", layer.size, bg)
++        flat.paste(layer, (0, 0), layer)
++        ims.append(flat)
++    ims[0].save(path, save_all=True, append_images=ims[1:],
++                duration=ms, loop=0, optimize=True)
++    return path
++
++
++if __name__ == "__main__":
++    gif(walk_cycle(), "pip_walk.gif", ms=140)
++    gif(jump_cycle(), "pip_jump.gif", ms=130)
++    gif(point_cycle(), "pip_point.gif", ms=320)
++    gif(present_cycle(), "pip_present.gif", ms=320)
++    gif(talk_cycle(), "pip_talk.gif", ms=180)
++    gif(idle_cycle(), "pip_idle.gif", ms=420)
++    strip = [render(f, 6) for f in
++             (jump_cycle() + point_cycle() + present_cycle())]
++    g = 12
++    sh = Image.new("RGB", (len(strip) * (strip[0].width + g) + g,
++                           strip[0].height + g * 2), (247, 241, 230))
++    for i, t in enumerate(strip):
++        sh.paste(t, (g + i * (strip[0].width + g), g), t)
++    sh.save("pip_posestrip.png")
++    print("animated: walk, talk, idle")
+diff --git a/headlinne/render/plate.py b/headlinne/render/plate.py
+new file mode 100644
+index 0000000..d1a9f14
+--- /dev/null
++++ b/headlinne/render/plate.py
+@@ -0,0 +1,139 @@
++"""Image plates, and the fallback ladder for when there is no usable photograph.
++
++A straight rectangle reads as a screenshot. A tilted one, in a paper frame with
++a strip of tape, reads as an object someone put there - which is the difference
++between a post that looks generated and one that looks made.
++
++The ladder, in order. Every rung produces a designed object; none of them is a
++bare gradient, because a bare gradient is what the old carousel fell back to on
++roughly half its slides:
++
++  1. the article's own photograph, via news.images.best_story_image()
++  2. a generated pixel scene keyed to the category  (this module)
++  3. a generated chart plate built from figures in the story
++  4. no plate at all - Pip presents the headline, larger type, more air
++
++Rung 2 always carries "ILLUSTRATION - NOT A PHOTOGRAPH". That caption lives
++inside tilted() rather than at the call site so it cannot be forgotten: this
++brand is built on showing its working, and a drawn crater mistaken for a NASA
++image would cost more trust in one post than the source strip earns in a month.
++"""
++
++import random
++from PIL import Image, ImageDraw, ImageFilter
++
++PAPER = (247, 241, 230)
++FRAME = (255, 253, 248)
++INK = (25, 19, 16)
++INK_SOFT = (110, 97, 86)
++TERRA = (196, 86, 47)
++MARIGOLD = (201, 133, 32)
++MINT = (30, 107, 84)
++NIGHT = (23, 20, 30)
++DUST = (168, 158, 146)
++DUST_HI = (206, 197, 184)
++DUST_LO = (108, 100, 92)
++
++
++def tilted(img, angle=-3.2, border=18, shadow=True, tape=True,
++           caption=None, font=None, bg=PAPER):
++    """A photo in a paper frame, rotated slightly. The tilt is the whole point:
++    a straight rectangle reads as a screenshot, a tilted one reads as an object."""
++    w, h = img.size
++    plate = Image.new("RGB", (w + border * 2, h + border * 2 + (54 if caption else 0)),
++                      FRAME)
++    plate.paste(img, (border, border))
++    d = ImageDraw.Draw(plate)
++    d.rectangle([0, 0, plate.width - 1, plate.height - 1], outline=INK, width=4)
++    if caption and font:
++        d.text((border, h + border + 14), caption, font=font, fill=INK_SOFT)
++
++    rot = plate.convert("RGBA").rotate(angle, expand=True,
++                                       resample=Image.BICUBIC)
++    out = Image.new("RGBA", (rot.width + 30, rot.height + 30), (0, 0, 0, 0))
++    if shadow:
++        sh = Image.new("RGBA", rot.size, (0, 0, 0, 0))
++        sh.paste((0, 0, 0, 70), (0, 0), rot.split()[-1])
++        sh = sh.filter(ImageFilter.GaussianBlur(9))
++        out.paste(sh, (14, 16), sh)
++    out.paste(rot, (0, 0), rot)
++
++    if tape:                               # a strip of masking tape, top-left
++        t = Image.new("RGBA", (86, 30), (222, 210, 186, 218))
++        td = ImageDraw.Draw(t)
++        td.line([(0, 0), (86, 0)], fill=(200, 186, 160, 235), width=2)
++        t = t.rotate(angle - 16, expand=True, resample=Image.BICUBIC)
++        out.paste(t, (int(out.width * 0.16), 2), t)
++    return out
++
++
++# --------------------------------------------------------------------------- #
++# Fallback rung 2: generated pixel scenes, one per category
++# --------------------------------------------------------------------------- #
++def _px(d, x, y, s, c):
++    d.rectangle([x, y, x + s - 1, y + s - 1], fill=c)
++
++
++def moon_scene(w=560, h=380, seed=5, px=8):
++    """Lunar surface with an impact crater. Obviously an illustration - which is
++    the point. It must never be mistaken for a photograph."""
++    rnd = random.Random(seed)
++    im = Image.new("RGB", (w, h), NIGHT)
++    d = ImageDraw.Draw(im)
++    for y in range(0, int(h * 0.54), 2):          # sky falls off toward the horizon
++        k = y / (h * 0.54)
++        d.rectangle([0, y, w, y + 2],
++                    fill=(int(23 + 26 * k), int(20 + 22 * k), int(30 + 26 * k)))
++    for _ in range(46):                                    # stars
++        sx, sy = rnd.randrange(0, w, px), rnd.randrange(0, int(h * 0.5), px)
++        _px(d, sx, sy, px, (200, 196, 210) if rnd.random() > .35 else (120, 116, 132))
++
++    horizon = int(h * 0.52)
++    d.rectangle([0, horizon, w, h], fill=DUST)
++    for y in range(horizon, h, 2):                # regolith brightens toward camera
++        k = (y - horizon) / max(1, h - horizon)
++        d.rectangle([0, y, w, y + 2], fill=(int(168 + 30 * k), int(158 + 28 * k),
++                                            int(146 + 26 * k)))
++    for x in range(0, w, px):                              # regolith texture
++        wob = int(6 * px * (0.5 + 0.5 * rnd.random()))
++        d.rectangle([x, horizon, x + px, horizon + px], fill=DUST_HI)
++        if rnd.random() > .72:
++            _px(d, x, horizon + wob, px, DUST_LO)
++
++    cx, cy, r = int(w * 0.58), int(h * 0.76), int(w * 0.17)
++    d.ellipse([cx - r, cy - r // 2, cx + r, cy + r // 2], fill=DUST_LO)
++    d.ellipse([cx - r + px, cy - r // 2 + px, cx + r - px, cy + r // 2 - px],
++              fill=(74, 68, 62))
++    d.ellipse([cx - r, cy - r // 2, cx + r, cy + r // 2], outline=DUST_HI, width=px // 2)
++    for _ in range(22):                                    # ejecta
++        a = rnd.random() * 6.283
++        dist = r + rnd.randrange(px, r)
++        ex = cx + int(dist * 1.4 * (a - 3.14) / 3.14)
++        ey = cy + int(dist * 0.34 * (rnd.random() - 0.5))
++        if 0 < ex < w and horizon < ey < h:
++            _px(d, ex - ex % px, ey - ey % px, px, DUST_HI)
++    return im
++
++
++def chart_scene(w=560, h=380, series=(3, 5, 4, 7, 9, 8, 12), px=8):
++    """Fallback for a story with a number but no picture."""
++    im = Image.new("RGB", (w, h), (240, 232, 216))
++    d = ImageDraw.Draw(im)
++    pad, top = 40, 40
++    bw = (w - pad * 2) // len(series)
++    peak = max(series)
++    for i, v in enumerate(series):
++        bh = int((h - top - pad) * v / peak)
++        x = pad + i * bw
++        col = TERRA if i < len(series) - 1 else MARIGOLD
++        d.rectangle([x, h - pad - bh, x + bw - 10, h - pad], fill=col)
++    d.rectangle([pad, h - pad, w - pad, h - pad + 4], fill=INK)
++    return im
++
++
++SCENES = {"Space": moon_scene, "Science": moon_scene, "Finance": chart_scene,
++          "Technology": chart_scene}
++
++
++def scene_for(category: str, **kw):
++    return SCENES.get(category, chart_scene)(**kw)
+diff --git a/headlinne/render/receipt.py b/headlinne/render/receipt.py
+new file mode 100644
+index 0000000..5280100
+--- /dev/null
++++ b/headlinne/render/receipt.py
+@@ -0,0 +1,76 @@
++"""The source strip: how many outlets reported this, drawn honestly.
++
++One number decides whether this component builds trust or destroys it, and it is
++the denominator.
++
++"4 of 32" would be a lie by framing. Thirty-two is how many feeds we read, not
++how many covered the story - the other twenty-eight never wrote about it, so
++counting them as absent agreement invents a disagreement that never happened. It
++also reads as weak coverage for a story that four independent outlets confirmed.
++
++The denominator is therefore always the number of outlets that reported this
++event. When all of them agree, and agreement is all this pipeline can currently
++detect, the honest statement is "5 outlets reported this" - stated as a count
++rather than a fraction, because a fraction implies a dissenting remainder that
++we have not measured.
++
++The strip is never padded to look stronger. A single-source story renders as one
++outlined tick and says so, and we publish it that way; the moment a thin bar is
++dressed up as a thick one, every thick bar stops meaning anything.
++"""
++
++from __future__ import annotations
++
++from ..models import Story
++
++# Above this the ticks stop being countable at a glance and become texture, so
++# the overflow is stated in words instead.
++MAX_TICKS = 8
++
++
++def outlets(story: Story) -> list[str]:
++    """Every outlet that reported this event, the original first."""
++    names = [story.source]
++    names.extend(n for n in story.corroborating_sources if n and n != story.source)
++    seen, unique = set(), []
++    for name in names:
++        if name not in seen:
++            seen.add(name)
++            unique.append(name)
++    return unique
++
++
++def label(story: Story) -> str:
++    """The line printed under the strip.
++
++    A count, never a fraction against the size of our feed list.
++    """
++    n = len(outlets(story))
++    if n <= 1:
++        return "Single source · not yet corroborated"
++    return f"{n} outlets reported this"
++
++
++def named(story: Story, limit: int = 3) -> str:
++    """The outlets to print, most authoritative first, with an honest overflow."""
++    names = outlets(story)
++    if len(names) <= limit:
++        return " · ".join(names)
++    return " · ".join(names[:limit]) + f" +{len(names) - limit}"
++
++
++def ticks(story: Story) -> tuple[int, int]:
++    """(filled, outlined) marks to draw.
++
++    A corroborated story fills one tick per outlet. A single-source story draws
++    exactly one outlined tick - visibly thin, which is the point.
++    """
++    n = len(outlets(story))
++    if n <= 1:
++        return 0, 1
++    return min(n, MAX_TICKS), 0
++
++
++def overflow(story: Story) -> int:
++    """Outlets beyond what the strip can show, for the "+N" suffix."""
++    return max(0, len(outlets(story)) - MAX_TICKS)
+diff --git a/tests/test_config_env.py b/tests/test_config_env.py
+index 438415c..393d3b4 100644
+--- a/tests/test_config_env.py
++++ b/tests/test_config_env.py
+@@ -108,7 +108,11 @@ def test_defaults_survive_a_runner_with_no_variables_set():
+         try:
+             assert fresh.REELS_ENABLED is True
+             assert fresh.STORY_CARD_ENABLED is True
+-            assert fresh.IG_SECOND_CAROUSEL is True
++            # Now off by default. Carousels moved to a weekly cadence: five
++            # slides of argument is a considered weekly artefact, not a daily
++            # one, and four feed posts a day dilutes every one of them.
++            assert fresh.IG_SECOND_CAROUSEL is False
++            assert fresh.CAROUSEL_WEEKDAYS
+             assert fresh.REEL_VOICEOVER is True
+             # An empty model name is worse than a wrong one: every speech call
+             # fails and the reel goes out silent with no obvious cause.
+diff --git a/tests/test_corroborate.py b/tests/test_corroborate.py
+new file mode 100644
+index 0000000..6413221
+--- /dev/null
++++ b/tests/test_corroborate.py
+@@ -0,0 +1,143 @@
++"""Corroboration must never claim an outlet reported something it did not.
++
++Every case here is taken from a live run. The airstrike/earthquake pair is the
++important one: an earlier version of this module put NPR and Phys.org on the
++source strip of an Israeli airstrike story because both had covered an
++Indonesian earthquake, and the two shared "early, homes, people, saturday,
++strikes". It cleared the weight bar comfortably. Requiring a shared named
++entity is what removes it.
++"""
++
++from __future__ import annotations
++
++from headlinne.models import Story
++from headlinne.news import corroborate as C
++
++
++def _s(title, summary="", source="Example"):
++    return Story(title=title, summary=summary, url="https://x/" + title[:9],
++                 category="Geopolitics", source=source, tier=1.2,
++                 published_iso="2026-08-15T09:00:00+00:00")
++
++
++# Summaries are as full as a real feed's, because sparse ones do not exercise
++# the entity requirement: two accounts of one event name several of the same
++# places, and a two-line fixture never gets the chance to.
++AIRSTRIKE = _s("Israeli strikes on southern Lebanon kill 11 in worst toll since June",
++               "Strikes across southern Lebanon killed 11 people, officials said. "
++               "Hezbollah confirmed several of the dead were its members, and "
++               "Israel said it had targeted infrastructure near Nabatieh.",
++               "Guardian")
++AIRSTRIKE_2 = _s("Eleven killed in Israeli strikes on southern Lebanon, authorities say",
++                 "Lebanese authorities said Israeli strikes hit homes near "
++                 "Nabatieh in southern Lebanon. Hezbollah said its members were "
++                 "among those killed.", "BBC World")
++QUAKE = _s("Magnitude 7.7 earthquake strikes off the coast of Indonesia",
++           "People fled homes in Indonesia early on Saturday.", "Phys.org")
++
++
++# Inverse document frequency needs a corpus to be a frequency *of* something.
++# Three stories cannot tell you which words are rare, so every test runs against
++# a realistic day's worth of unrelated filler - the same conditions the pipeline
++# sees, where the corpus is a few hundred headlines.
++_FILLER = [
++    _s(f"Company {i} announces a quarterly update for investors",
++       f"Analysts covering sector {i} said the outlook was unchanged.",
++       f"Outlet{i}")
++    for i in range(60)
++]
++
++
++def _corpus(*stories):
++    return [*stories, *_FILLER]
++
++
++def _idf(corpus):
++    return C.build_idf(corpus)
++
++
++def test_two_reports_of_one_event_corroborate():
++    corpus = _corpus(AIRSTRIKE, AIRSTRIKE_2, QUAKE)
++    score = C.agreement(AIRSTRIKE, AIRSTRIKE_2, _idf(corpus), len(corpus))
++    assert score >= C.MIN_SCORE, score
++
++
++def test_two_unrelated_disasters_do_not():
++    """The regression. Casualty vocabulary is not agreement."""
++    corpus = _corpus(AIRSTRIKE, AIRSTRIKE_2, QUAKE)
++    score = C.agreement(AIRSTRIKE, QUAKE, _idf(corpus), len(corpus))
++    assert score < C.MIN_SCORE, f"airstrike corroborated by an earthquake ({score})"
++
++
++def test_a_shared_entity_is_required():
++    assert C._entities(AIRSTRIKE) & C._entities(AIRSTRIKE_2)
++    assert not (C._entities(AIRSTRIKE) & C._entities(QUAKE))
++
++
++def test_calendar_words_are_not_entities():
++    """Two stories filed on one Saturday are not one story."""
++    assert "saturday" not in C._entities(QUAKE)
++    assert "june" not in C._entities(AIRSTRIKE)
++
++
++def test_sentence_initial_capitals_are_not_entities():
++    assert "eleven" not in C._entities(AIRSTRIKE_2)
++
++
++def test_roundups_never_corroborate():
++    recap = _s("Engadget review recap: everything we tested this week",
++               "Including the new foldable.", "Engadget")
++    single = _s("Samsung Galaxy Z Fold 8 Ultra review", "The Ultra fold.", "Ars")
++    corpus = _corpus(recap, single)
++    assert C.is_roundup(recap.title)
++    assert C.agreement(single, recap, _idf(corpus), len(corpus)) == 0.0
++
++
++def test_an_outlet_never_corroborates_itself():
++    same = _s("Israeli strikes on southern Lebanon kill 11", "Again.", "Guardian")
++    out = C.corroborate(AIRSTRIKE, _corpus(AIRSTRIKE, same))
++    assert all(o.source != AIRSTRIKE.source for o in out)
++
++
++def test_attach_sets_verified_only_with_a_second_outlet():
++    corpus = _corpus(AIRSTRIKE, AIRSTRIKE_2, QUAKE)
++    C.attach([AIRSTRIKE, QUAKE], corpus)
++    assert AIRSTRIKE.verified is True
++    assert "BBC World" in AIRSTRIKE.corroborating_sources
++    assert QUAKE.verified is False, "a lone report is not verified"
++
++
++# --------------------------------------------------------------------------- #
++# Three more false positives, each found by auditing a live run
++# --------------------------------------------------------------------------- #
++STORM = _s("Hawaii's Big Island lashed by rain and wind as Tropical Storm Lala closes in",
++           "This satellite image shows Tropical Storm Lala over the Pacific Ocean.",
++           "AP Top News")
++STORM_2 = _s("Hurricane poised to hit Hawaii as El Nino stirs the Pacific",
++             "Tropical Storm Lala neared Hawaii's Big Island on Saturday.", "Phys.org")
++ECLIPSE = _s("Total Solar Eclipse in Sunflower Field",
++             "This image shows the eclipse over the Ocean, Aug 2026.", "NASA")
++BULLETIN = _s("DR Congo Ebola outbreak spreads to sixth province",
++              "In tonight's edition: the Ebola outbreak spreads, and Instagram "
++              "accounts fuel the Ceuta border crisis.", "France 24")
++CEUTA = _s("Instagram accounts fuelling Ceuta crisis with paid advice",
++           "Smugglers advertise routes across the Ceuta border.", "BBC World")
++
++
++def test_one_shared_entity_is_a_coincidence_not_a_match():
++    """A Pacific storm and an eclipse photo shared exactly 'Ocean'."""
++    corpus = _corpus(STORM, STORM_2, ECLIPSE)
++    idf, n = _idf(corpus), len(corpus)
++    assert C.agreement(STORM, STORM_2, idf, n) >= C.MIN_SCORE
++    assert C.agreement(STORM, ECLIPSE, idf, n) < C.MIN_SCORE
++
++
++def test_a_bulletin_cannot_corroborate_its_own_side_stories():
++    """'In tonight's edition:' runs six unrelated items under one headline."""
++    corpus = _corpus(BULLETIN, CEUTA)
++    assert C.is_roundup(BULLETIN.title, BULLETIN.summary)
++    assert C.agreement(BULLETIN, CEUTA, _idf(corpus), len(corpus)) == 0.0
++
++
++def test_month_abbreviations_are_not_entities():
++    assert "aug" not in C._entities(ECLIPSE)
+diff --git a/tests/test_interest.py b/tests/test_interest.py
+new file mode 100644
+index 0000000..189493d
+--- /dev/null
++++ b/tests/test_interest.py
+@@ -0,0 +1,101 @@
++"""Does the ranker prefer a story a person would actually read?
++
++The regression these guard against is the one the old weights had: cross-source
++count was the heaviest term, so the highest-scoring story was always the most
++widely attended one. On live feeds that produced a rate decision above a rocket
++hitting the Moon, and an X-Files director's cut in the top eight twice.
++"""
++
++from __future__ import annotations
++
++from headlinne.models import Story
++from headlinne.news import interest as I
++from headlinne.news.ranking import rank
++
++
++def _story(title, summary="", category="Technology", tier=1.2, source="Example",
++           image=None):
++    return Story(
++        title=title, summary=summary, url="https://example.com/" + title[:12],
++        category=category, source=source, tier=tier,
++        published_iso="2026-08-15T09:00:00+00:00", image_url=image)
++
++
++def _covered_by(title, outlets, **kw):
++    """The same event as filed by several outlets, so the ranker clusters it.
++
++    Corroboration cannot be faked on a single Story: _merge() rebuilds it from
++    the distinct source names of a real cluster, which is what makes
++    Story.verified mean anything.
++    """
++    return [_story(title, source=o, **kw) for o in outlets]
++
++
++MOON = "A SpaceX rocket crashed into the Moon at 8,700 kilometres per hour"
++RATES = "Bank holds interest rates for a fourth consecutive meeting"
++
++
++def test_an_event_outscores_a_process():
++    assert I.interest(MOON) > I.interest(RATES)
++
++
++def test_procedural_language_is_penalised():
++    plain = I.interest("Regulator approved the merger")
++    proc = I.interest("Regulator meets to discuss whether it could approve the merger")
++    assert plain > proc
++
++
++def test_universal_beats_parochial():
++    assert I.interest("New research explains why the human brain forgets") > \
++           I.interest("Borough council committee weighs quarterly earnings report")
++
++
++def test_a_photograph_counts_for_something():
++    assert I.interest(MOON, has_image=True) > I.interest(MOON, has_image=False)
++
++
++def test_concrete_numbers_beat_abstractions():
++    assert I.interest("The crater is 29 metres wide") > \
++           I.interest("Officials described the outcome as significant")
++
++
++def test_sensitive_stories_are_flagged_not_scored_down():
++    """They must publish - they just must not be dressed up as delightful."""
++    grim = "At least 44 dead after an overcrowded ferry capsized"
++    assert I.is_sensitive(grim)
++    assert not I.is_sensitive(MOON)
++    assert I.interest(grim) > 0      # still a real story, still rankable
++
++
++def test_wide_coverage_no_longer_buries_an_interesting_story():
++    """The exact failure the old weights had, as a test."""
++    digest = rank(
++        _covered_by(RATES, ["Reuters", "BBC", "FT", "AP", "Sky", "CNBC"],
++                    summary="The committee voted to hold.", category="Finance",
++                    tier=1.4)
++        + _covered_by(MOON, ["Space.com", "New Scientist"],
++                      summary="Four tonnes, near Einstein Crater.",
++                      image="https://example.com/x.jpg"))
++    top = max((s for v in digest.by_category.values() for s in v),
++              key=lambda s: s.score)
++    assert MOON in top.title, "the widely-covered process story won again"
++
++
++def test_ranking_sets_the_verification_and_sensitivity_flags():
++    digest = rank(
++        _covered_by(MOON, ["Space.com", "New Scientist", "Reuters"])
++        + [_story("Two dead in a factory fire", category="Geopolitics")])
++    everything = [s for v in digest.by_category.values() for s in v]
++    by_title = {s.title: s for s in everything}
++    assert by_title[MOON].verified is True
++    assert by_title[MOON].sensitive is False
++    fire = by_title["Two dead in a factory fire"]
++    assert fire.verified is False, "one source is not verification"
++    assert fire.sensitive is True
++
++
++def test_explainers_are_no_longer_treated_as_low_value():
++    """They are the evening reel's entire genre."""
++    from headlinne.news.ranking import _LOW_VALUE_MARKERS
++    assert "explainer" not in _LOW_VALUE_MARKERS
++    assert "how to" not in _LOW_VALUE_MARKERS
+diff --git a/tests/test_pip.py b/tests/test_pip.py
+new file mode 100644
+index 0000000..43fb405
+--- /dev/null
++++ b/tests/test_pip.py
+@@ -0,0 +1,84 @@
++"""Guards for Pip and the image-plate fallback ladder.
++
++Two of these exist because the equivalent checks failed silently during design.
++
++`test_cycles_actually_move` compares rendered pixels rather than bounding boxes:
++the talk cycle animates a beak inside a fixed head outline, so a bbox comparison
++passes even when the sprite is frozen.
++
++`test_illustration_is_always_captioned` exists because rung 2 of the fallback
++ladder draws a scene that could be mistaken for a photograph. The caption is a
++correctness property, not a nicety.
++"""
++
++from __future__ import annotations
++
++import inspect
++
++from PIL import Image
++
++from headlinne.render import pip as P
++from headlinne.render import plate as PL
++
++
++def test_every_pose_is_the_declared_width():
++    for name, grid in P.SPRITES.items():
++        for i, row in enumerate(P._rows(grid)):
++            assert len(row) == P.W, f"{name} row {i} is {len(row)}px, expected {P.W}"
++
++
++def test_every_pose_renders_something():
++    for name, grid in P.SPRITES.items():
++        assert P.render(grid, 4).getbbox() is not None, f"{name} rendered empty"
++
++
++def test_pip_survives_avatar_scale():
++    """26px is profile-picture size. If he stops reading there he is useless."""
++    box = P.render(P.SPRITES["idle"], 1).getbbox()
++    assert box is not None
++    assert box[2] - box[0] >= 16 and box[3] - box[1] >= 16
++
++
++def test_cycles_actually_move():
++    cycles = {
++        "walk": P.walk_cycle(), "jump": P.jump_cycle(), "point": P.point_cycle(),
++        "present": P.present_cycle(), "talk": P.talk_cycle(), "idle": P.idle_cycle(),
++    }
++    for name, frames in cycles.items():
++        assert len(frames) >= 2, f"{name} has {len(frames)} frame(s)"
++        heights = {len(P._rows(f)) for f in frames}
++        assert len(heights) == 1, f"{name} frames differ in height: {heights}"
++        rendered = {P.render(f, 4).tobytes() for f in frames}
++        assert len(rendered) > 1, f"{name} never changes a pixel"
++
++
++def test_body_block_is_identical_across_poses():
++    """Only heads and props may vary. Drift here is how a mascot stops being one."""
++    bodies = set()
++    for grid in (P.badged(P.HEAD_OPEN), P.badged(P.HEAD_SHUT),
++                 P.badged(P.HEAD_WIDE), P.badged(P.HEAD_GLANCE)):
++        bodies.add("\n".join(P._rows(grid)[11:]))
++    assert len(bodies) == 1, "the body block drifted between poses"
++
++
++def test_fallback_ladder_every_rung_produces_an_object():
++    rungs = (
++        ("photo", PL.tilted(Image.new("RGB", (400, 260), (90, 90, 110)))),
++        ("pixel", PL.tilted(PL.moon_scene(w=400, h=260))),
++        ("chart", PL.tilted(PL.chart_scene(w=400, h=260))),
++        ("pip", P.render(P.SPRITES["carry"], 8)),
++    )
++    for name, im in rungs:
++        assert im.getbbox() is not None, f"rung {name} produced nothing"
++        assert im.width > 80 and im.height > 80, f"rung {name} is too small"
++
++
++def test_generated_scenes_are_deterministic():
++    assert PL.moon_scene(seed=5).tobytes() == PL.moon_scene(seed=5).tobytes()
++    assert PL.moon_scene(seed=5).tobytes() != PL.moon_scene(seed=11).tobytes()
++
++
++def test_illustration_is_always_captioned():
++    """The caption must be reachable from tilted(), not left to the caller."""
++    assert "caption" in inspect.signature(PL.tilted).parameters
++    assert "caption" in inspect.getsource(PL.tilted)
+diff --git a/tests/test_quality.py b/tests/test_quality.py
+new file mode 100644
+index 0000000..3332075
+--- /dev/null
++++ b/tests/test_quality.py
+@@ -0,0 +1,64 @@
++"""The quality gate: what is not news, however well it scores.
++
++Every rejection below was ranked into one day's top twenty-five by the interest
++model before this gate existed. A promo-code page placed thirteenth.
++"""
++
++from __future__ import annotations
++
++from headlinne.news import quality as Q
++
++REJECTED = [
++    "Google Workspace Promo Codes: 14% Off for August 2026",
++    "Our expert thinks this portable Celestron telescope will delight stargazers",
++    "5 Weird Tricks for Having a Brain",
++    "On this day in space! Aug. 15, 1977: Mysterious 'Wow!' Signal",
++    "Samsung Galaxy Z Fold 8 Ultra review: The ultra fold",
++    "Dell XPS 13 Review: Move Over, Neo",
++    "iPhone 18 vs Pixel 11: which is better?",
++    "The best robot vacuums for 2026",
++    "Engadget review recap: everything we tested this week",
++    "'My heart breaks into a million pieces': emotional tributes pour in",
++    "10 things you should know before buying an EV",
++    "Live updates: markets react",
++]
++
++KEPT = [
++    "A SpaceX rocket crashed into the Moon at 8,700 kilometres per hour",
++    "Israeli strikes on southern Lebanon kill 11 in worst toll since June",
++    "Immune cells flood into the aging brain, Stanford scientists discover",
++    "DR Congo Ebola outbreak spreads to sixth province",
++    "Bank of England holds interest rates for a fourth consecutive meeting",
++    "After commercial whaling nearly erased them, blue whales are returning",
++    "2026 budget raises the threshold for the top rate of income tax",
++    "First test flight of largest all-electric aircraft used just $5 of electricity",
++]
++
++
++def test_commerce_and_product_copy_is_rejected():
++    for title in REJECTED:
++        assert not Q.is_publishable(title), f"should have been dropped: {title}"
++
++
++def test_real_reporting_survives():
++    for title in KEPT:
++        reason = Q.reject_reason(title)
++        assert reason is None, f"dropped real news {title!r} for {reason}"
++
++
++def test_a_year_at_the_start_is_not_a_listicle():
++    """'2026 budget raises...' must not read as a numbered list."""
++    assert Q.is_publishable("2026 budget raises the threshold for income tax")
++    assert not Q.is_publishable("7 budget changes you should know about")
++
++
++def test_the_reason_names_the_rule_that_fired():
++    reason = Q.reject_reason("Google Workspace Promo Codes: 14% Off")
++    assert reason and reason.startswith("commerce:")
++
++
++def test_summaries_do_not_trigger_rejection():
++    """A story that mentions a price is not an advert."""
++    assert Q.is_publishable(
++        "Regulator fines the airline over cancelled flights",
++        "The best outcome for passengers is a refund, the review said.")
+diff --git a/tests/test_receipt.py b/tests/test_receipt.py
+new file mode 100644
+index 0000000..dfc5322
+--- /dev/null
++++ b/tests/test_receipt.py
+@@ -0,0 +1,47 @@
++"""The source strip must never overstate coverage.
++
++The denominator is the thing that decides whether this component earns trust or
++destroys it, so it is asserted rather than assumed.
++"""
++
++from __future__ import annotations
++
++from headlinne.models import Story
++from headlinne.render import receipt as R
++
++
++def _s(source, corroborating=()):
++    return Story(title="A thing happened", summary="", url="https://x/1",
++                 category="Science", source=source, tier=1.2,
++                 published_iso="2026-08-15T09:00:00+00:00",
++                 corroborating_sources=list(corroborating))
++
++
++def test_the_count_is_outlets_that_reported_not_feeds_we_read():
++    story = _s("Reuters", ["AP", "BBC World"])
++    assert R.label(story) == "3 outlets reported this"
++    assert "32" not in R.label(story)
++
++
++def test_a_single_source_says_so_and_draws_one_outlined_tick():
++    story = _s("Reuters")
++    assert R.ticks(story) == (0, 1)
++    assert "Single source" in R.label(story)
++
++
++def test_the_original_outlet_is_counted_once_even_if_repeated():
++    story = _s("Reuters", ["Reuters", "AP"])
++    assert R.outlets(story) == ["Reuters", "AP"]
++    assert R.label(story) == "2 outlets reported this"
++
++
++def test_ticks_never_exceed_what_can_be_counted_at_a_glance():
++    story = _s("Reuters", [f"Outlet {i}" for i in range(20)])
++    filled, outlined = R.ticks(story)
++    assert filled == R.MAX_TICKS and outlined == 0
++    assert R.overflow(story) == 21 - R.MAX_TICKS
++
++
++def test_named_outlets_overflow_honestly():
++    story = _s("Reuters", ["AP", "BBC", "Sky", "NPR"])
++    assert R.named(story, limit=3) == "Reuters · AP · BBC +2"
+diff --git a/tests/test_scheduling.py b/tests/test_scheduling.py
+index db741ce..02591eb 100644
+--- a/tests/test_scheduling.py
++++ b/tests/test_scheduling.py
+@@ -66,3 +66,28 @@ def test_slot_utc_iso_is_actually_utc():
+ def test_all_slots_resolve():
+     for slot in SCHEDULE_IST:
+         assert slot_utc_iso(date(2026, 6, 28), slot).endswith("Z")
++
++
++# --------------------------------------------------------------------------- #
++# Weekly carousel cadence
++# --------------------------------------------------------------------------- #
++def test_carousel_weekdays_is_actually_read_by_the_pipeline():
++    """Regression: the setting existed for one commit without being wired,
++    so carousels kept generating daily while the config claimed otherwise."""
++    import inspect
++
++    from headlinne import pipeline
++
++    assert "CAROUSEL_WEEKDAYS" in inspect.getsource(pipeline.generate)
++
++
++def test_carousel_weekdays_selects_only_those_days():
++    from datetime import date
++
++    from headlinne.config import CAROUSEL_WEEKDAYS
++
++    assert CAROUSEL_WEEKDAYS, "an empty tuple would mean 'every day'"
++    # 17 Aug 2026 is a Monday, so the week runs 17..23.
++    chosen = [d for d in range(17, 24)
++              if date(2026, 8, d).weekday() in CAROUSEL_WEEKDAYS]
++    assert 1 <= len(chosen) <= 3, f"expected a weekly-ish cadence, got {chosen}"
+diff --git a/tests/test_settings_are_wired.py b/tests/test_settings_are_wired.py
+new file mode 100644
+index 0000000..5827356
+--- /dev/null
++++ b/tests/test_settings_are_wired.py
+@@ -0,0 +1,91 @@
++"""Every setting must actually be read by something.
++
++Twice in one branch a setting was declared in config.py and never consumed:
++CAROUSEL_WEIGHTS-style dead config reads as a working feature in review and in
++the commit message, while the old behaviour carries on unchanged in production.
++These tests make that failure loud.
++
++The .env.example check exists for the same reason from the other direction: a
++setting nobody can discover is barely better than one nobody reads.
++"""
++
++from __future__ import annotations
++
++import pathlib
++import re
++
++REPO = pathlib.Path(__file__).resolve().parents[1]
++CONFIG = REPO / "headlinne" / "config.py"
++
++# Settings that are genuinely config-only: consumed by operators or by the
++# workflows rather than by application code.
++_EXTERNAL_ONLY = {
++    "GITHUB_REF_NAME", "GITHUB_REPOSITORY", "FFMPEG_BINARY",
++}
++
++
++def _declared_settings() -> set[str]:
++    src = CONFIG.read_text(encoding="utf-8")
++    names = set(re.findall(r"_env_(?:str|flag|number)\(\s*\"([A-Z_0-9]+)\"", src))
++    names |= set(re.findall(r"os\.getenv\(\"([A-Z_0-9]+)\"", src))
++    return names - _EXTERNAL_ONLY
++
++
++def _symbol_for(name: str, config_src: str) -> str:
++    """The name application code would actually import for this setting.
++
++    Two shapes exist: a module-level constant fed by _env_*(), and a SECRETS
++    dataclass field fed by os.getenv(). Searching for the raw environment
++    variable name finds neither, which is how three correctly-wired settings
++    first tripped this test.
++    """
++    m = re.search(r"^([A-Z_0-9]+)\s*(?::[^=]+)?=\s*(?:tuple\()?\s*"
++                  r"(?:\w+\s+for\s+\w+\s+in\s+)?_env_\w+\(\s*\"%s\"" % name,
++                  config_src, re.M)
++    if m:
++        return m.group(1)
++    m = re.search(r"^\s*([a-z_0-9]+)\s*:[^=]+=\s*field\([^)]*os\.getenv\(\"%s\""
++                  % name, config_src, re.M)
++    if m:
++        return m.group(1)
++    return name
++
++
++def _python_sources() -> str:
++    parts = []
++    for path in (REPO / "headlinne").rglob("*.py"):
++        if "__pycache__" in path.parts or path.name == "config.py":
++            continue
++        parts.append(path.read_text(encoding="utf-8"))
++    return "\n".join(parts)
++
++
++def test_every_setting_reaches_application_code():
++    """A constant nobody imports is a feature that silently does not exist."""
++    src = _python_sources()
++    config_src = CONFIG.read_text(encoding="utf-8")
++    unused = []
++    for name in sorted(_declared_settings()):
++        if _symbol_for(name, config_src) in src:
++            continue
++        unused.append(f"{name} -> {_symbol_for(name, config_src)}")
++    assert not unused, "declared but never consumed: " + ", ".join(unused)
++
++
++def test_env_example_documents_the_settings_operators_need():
++    example = (REPO / ".env.example").read_text(encoding="utf-8")
++    for name in ("GEMINI_API_KEY", "GEMINI_FALLBACK_MODELS", "CAROUSEL_WEEKDAYS",
++                 "IG_SECOND_CAROUSEL", "BUFFER_SCHEDULING_MODE",
++                 "REEL_TTS_MIN_INTERVAL", "PUBLIC_IMAGE_BASE_URL"):
++        assert name in example, f"{name} is undocumented in .env.example"
++
++
++def test_env_example_carries_no_real_values():
++    """It is committed. A populated secret here would be a leak."""
++    example = (REPO / ".env.example").read_text(encoding="utf-8")
++    for line in example.splitlines():
++        if not line.strip() or line.lstrip().startswith("#") or "=" not in line:
++            continue
++        key, _, value = line.partition("=")
++        if any(t in key for t in ("TOKEN", "KEY", "SECRET", "PASSWORD", "ID")):
++            assert value.strip() == "", f"{key.strip()} has a value committed"

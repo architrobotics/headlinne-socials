@@ -1,283 +1,239 @@
-"""The daily story card: one article, start to finish, on one image.
+"""The daily story card: one article, walked through on a single image.
 
-A carousel asks a reader to swipe, which means every slide is another chance for
-them to leave. This format asks for something different. Everything is on one
-frame, so the natural response is not to page through it but to keep it, and a
-save is worth far more to a post's reach than a swipe is.
+The counterweight to the carousel. A carousel asks for a swipe, and every swipe
+is another chance to leave; this asks for a save, which is worth far more to a
+post's reach. Everything a reader needs is on one frame, so the natural response
+is to keep it.
 
-The layout is a numbered rail: the story enters at the top as a headline and
-descends through four fixed stops, so a reader always knows where they are and
-what kind of information comes next. The stops are owned by the code rather than
-the model, because the value of the format is that it is the *same* shape every
-day. That is what makes it recognisable in a feed.
+The rail is always the same four stops, fixed in code and not up to the model:
+what happened, how we got here, why it matters, what to watch. A reader who has
+seen one of these knows where the "does this affect me" line will be before they
+have finished the headline. That predictability is the format.
 
-Everything is fitted rather than positioned. The headline takes what it needs,
-the standfirst takes what it needs, and the rail is given whatever is left and
-divides it between the steps, shrinking their type until it fits. So a long
-story and a short one both produce a card with no overflow and no dead space.
+The layout measures the steps first and hands the headline whatever is left, so
+a long story shrinks its type rather than silently truncating the line that
+carries the point.
 """
 
 from __future__ import annotations
 
 from datetime import date, datetime
 from pathlib import Path
-from typing import Callable, Optional
 
 from PIL import Image, ImageDraw
 
-from ..config import SLIDE_H, SLIDE_W, WEBSITE
+from ..config import SLIDE_H, SLIDE_W
 from ..logging_setup import get_logger
 from ..models import StoryCard
 from . import fonts, theme
-from .carousel import default_image_loader
 
 log = get_logger("render.story_card")
-
-ImageLoader = Callable[[Optional[str]], Optional[Image.Image]]
 
 MARGIN = theme.MARGIN
 CONTENT_W = SLIDE_W - 2 * MARGIN
 
-HEAD_TOP = 166                  # below the brand bar
-RAIL_BOTTOM = 1178              # above the footer
-FOOTER_Y = 1218
-HEAD_TO_RAIL = 44               # breathing room between the two blocks
+HEAD_TOP = 176                  # below the masthead rule
+# The rail must clear the receipt, and the receipt must clear the footer rule.
+# Working up from the bottom: the footer rule is 132 from the bottom, the
+# receipt block runs about 170px from its own top, and each boundary gets 30px
+# so the card never reads as crowded even when every step wraps to three lines.
+RECEIPT_FROM_BOTTOM = 300       # receipt top, i.e. y = 1050 on a 1350 canvas
+RAIL_BOTTOM = 1010              # 40px of air above the receipt
+HEAD_TO_RAIL = 44
 
-# The rail's geometry.
 DOT = 46                        # numbered marker diameter
-RAIL_X = MARGIN + DOT // 2      # centre line of the rail
+RAIL_X = MARGIN + DOT // 2
 STEP_TEXT_X = MARGIN + DOT + 30
 STEP_TEXT_W = SLIDE_W - MARGIN - STEP_TEXT_X
-
-STEP_GAP = 22                   # between one step and the next
+STEP_GAP = 22
 STEP_MAX_LINES = 3
 LABEL_SIZE = 23
 BODY_LINE_SPACING = 1.24
-
-# The header needs at least this much to hold an eyebrow, a rule, a two-line
-# headline and a two-line standfirst without any of them becoming unreadable.
-# The rail may never eat into it: it shrinks its own type instead. Both blocks
-# have a floor, and between them they are what makes the character limits in
-# generate/story_card.py the numbers they are.
-HEADER_MIN = 372
+HEADER_MIN = 300
 
 
-def _dateline(scheduled_time: str) -> str:
+def _dateline(when: str) -> str:
     try:
-        day = datetime.fromisoformat(scheduled_time).date()
-    except (TypeError, ValueError):
-        day = date.today()
-    return day.strftime("%a, %d %b").upper()
+        d = datetime.fromisoformat(when).date()
+    except (ValueError, TypeError):
+        d = date.today()
+    return f"{d.strftime('%a')} {d.day} {d.strftime('%b')}".upper()
 
 
-def _background(card: StoryCard, loader: ImageLoader) -> Image.Image:
-    """The article photo as a dimmed texture, or the designed brand panel.
-
-    The photo is pushed almost all the way down rather than shown properly. This
-    card is dense with text, and a legible photo behind twelve lines of copy
-    fights every one of them. Kept at this level it still gives the card a
-    subject and a colour temperature, which a flat panel cannot.
-    """
-    image = loader(card.image_url) if card.image_url else None
-    if image is not None and min(image.size) >= 320:
-        try:
-            plate = theme.cover_fit(image, SLIDE_W, SLIDE_H)
-            ink = theme.hex_to_rgb(theme.INK)
-            veil = Image.new("RGBA", (SLIDE_W, SLIDE_H), theme.rgba(ink, 226))
-            plate = Image.alpha_composite(plate, veil)
-            # A little extra weight at the very bottom so the footer sits on a
-            # firm base regardless of what the photo does down there.
-            ramp = theme.alpha_ramp(SLIDE_H, [(0.0, 0), (0.7, 0), (1.0, 90)])
-            layer = Image.new("RGBA", (SLIDE_W, SLIDE_H), theme.rgba(ink, 255))
-            layer.putalpha(ramp.resize((SLIDE_W, SLIDE_H)))
-            return Image.alpha_composite(plate, layer)
-        except Exception as exc:  # pragma: no cover - a bad image must not fail
-            log.warning("story card background failed: %s", exc)
-    # No ghost mark: this card is mostly body copy, and the oversized logo
-    # reads as a smudge behind it rather than as texture.
-    return theme.brand_fallback(SLIDE_W, SLIDE_H, card.category,
-                                card.headline or card.category, ghost_mark=False)
-
-
+# --------------------------------------------------------------------------- #
+# Layout
+# --------------------------------------------------------------------------- #
 def _layout_steps(card: StoryCard, available: int):
-    """Wrap every step, shrinking the whole rail until it fits `available`.
+    """Fit the four steps into `available` pixels, shrinking body type to suit.
 
-    Laid out before the header, and this is the important part: the header then
-    gets whatever is left over. Doing it the other way round is what produces a
-    card whose last line of every step is quietly cut off, which is the one
-    failure this format cannot survive, because the truncated line is usually
-    the one carrying the point.
+    Nothing is truncated while fitting. The whole point of the format is that
+    the reader gets the complete walk-through on one frame, and the step most
+    likely to run long is "why it matters" - the one carrying the line a reader
+    came for. Dropping its last line to make the layout work would be the layout
+    quietly deciding the story is less important than the grid.
+
+    So the type shrinks instead, and only if the smallest size still overflows
+    does anything get cut, with a warning, because at that point the alternative
+    is text drawn over the source strip.
     """
-    steps = card.steps[:5]
-    label_font = fonts.label_font(LABEL_SIZE, weight=800)
-    label_h = fonts.line_height(label_font)
-
+    label_font = fonts.label_font(LABEL_SIZE, 700)
     blocks: list = []
-    for size in range(33, 22, -1):
-        font = fonts.body_font(size, weight=400)
-        line_h = int(fonts.line_height(font) * BODY_LINE_SPACING)
-        blocks = []
-        total = 0
-        for step in steps:
-            lines = fonts.wrap_text(font, step.text, STEP_TEXT_W)[:STEP_MAX_LINES] \
-                if step.text.strip() else []
-            height = max(DOT, label_h + 10 + len(lines) * line_h)
-            blocks.append((step, font, lines, line_h, height))
-            total += height
-        total += STEP_GAP * max(0, len(steps) - 1)
+    total = 0
+    for size in range(34, 21, -2):
+        body_font = fonts.body_font(size, 400)
+        blocks, total = [], 0
+        for step in card.steps:
+            lines = fonts.wrap_text(body_font, step.text, STEP_TEXT_W)
+            lh = int(size * BODY_LINE_SPACING)
+            height = fonts.line_height(label_font) + 10 + len(lines) * lh
+            blocks.append((step, body_font, lines, lh, height))
+            total += height + STEP_GAP
+        total -= STEP_GAP
         if total <= available:
             return blocks, total
-    # Nothing fit even at the smallest size. Return the smallest anyway: the
-    # caller has already reserved the header's minimum, so this overruns by a
-    # few pixels at worst rather than colliding with the footer.
-    return blocks, total
+
+    # Last resort. The generator's character limits are worked back from this
+    # budget, so reaching here means the model ignored them.
+    log.warning("story card steps need %dpx at the smallest size but only %dpx "
+                "is available; truncating to %d lines each",
+                total, available, STEP_MAX_LINES)
+    trimmed, total = [], 0
+    for step, body_font, lines, lh, _height in blocks:
+        lines = lines[:STEP_MAX_LINES]
+        height = fonts.line_height(label_font) + 10 + len(lines) * lh
+        trimmed.append((step, body_font, lines, lh, height))
+        total += height + STEP_GAP
+    return trimmed, max(0, total - STEP_GAP)
 
 
-def _draw_header(canvas: Image.Image, draw: ImageDraw.ImageDraw,
-                 card: StoryCard, accent, *, budget: int) -> None:
-    """Eyebrow, rule, headline and standfirst, fitted into `budget` pixels."""
-    theme.draw_top_bar(canvas, draw, card.category)
+def _draw_rail(canvas: Image.Image, draw: ImageDraw.ImageDraw, blocks, tone, *,
+               top: int) -> int:
+    """The four stops, joined by a vertical rule."""
+    y = top
+    centres = []
+    label_font = fonts.label_font(LABEL_SIZE, 700)
+    for index, (step, body_font, lines, lh, height) in enumerate(blocks, 1):
+        label = step.label
+        cy = y + DOT // 2
+        centres.append(cy)
+        draw.ellipse([MARGIN, y, MARGIN + DOT, y + DOT], fill=tone)
+        number = str(index)
+        nb = label_font.getbbox(number)
+        draw.text((MARGIN + (DOT - (nb[2] - nb[0])) // 2 - nb[0],
+                   y + (DOT - (nb[3] - nb[1])) // 2 - nb[1]), number,
+                  font=fonts.label_font(24, 800),
+                  fill=theme.hex_to_rgb(theme.SURFACE))
 
-    y = HEAD_TOP
-    eyebrow = f"THE FULL STORY  ·  {_dateline(card.scheduled_time)}"
-    eyebrow_font = fonts.label_font(26, weight=800)
-    theme.draw_tracked_shadowed(canvas, (MARGIN, y), eyebrow, eyebrow_font,
-                                fill=theme.rgba(accent), tracking=2.2,
-                                shadow_alpha=120)
-    y += fonts.line_height(eyebrow_font) + 22
+        draw.text((STEP_TEXT_X, y + 2), label.upper(), font=label_font,
+                  fill=theme.safe_fill(tone, LABEL_SIZE))
+        ty = y + fonts.line_height(label_font) + 10
+        for line in lines:
+            draw.text((STEP_TEXT_X, ty), line, font=body_font,
+                      fill=theme.hex_to_rgb(theme.TEXT_PRIMARY))
+            ty += lh
+        y += height + STEP_GAP
 
-    theme.draw_accent_rule(draw, MARGIN, y, accent, width=104, thickness=7)
-    y += 7 + 26
+    if len(centres) > 1:
+        draw.rectangle([RAIL_X - 1, centres[0], RAIL_X + 1, centres[-1]],
+                       fill=theme.hex_to_rgb(theme.SURFACE_DEEP))
+        # Redraw the markers over the rule so it passes behind them.
+        for index, cy in enumerate(centres, 1):
+            draw.ellipse([MARGIN, cy - DOT // 2, MARGIN + DOT, cy + DOT // 2],
+                         fill=tone)
+            number = str(index)
+            nf = fonts.label_font(24, 800)
+            nb = nf.getbbox(number)
+            draw.text((MARGIN + (DOT - (nb[2] - nb[0])) // 2 - nb[0],
+                       cy - DOT // 2 + (DOT - (nb[3] - nb[1])) // 2 - nb[1]),
+                      number, font=nf, fill=theme.hex_to_rgb(theme.SURFACE))
+    return y
 
-    used = y - HEAD_TOP
-    # The standfirst gets a fixed share of what is left and the headline takes
-    # the rest, so a long headline shrinks rather than pushing the standfirst
-    # off the card.
-    stand_room = 96 if card.standfirst else 0
-    head_room = max(120, budget - used - stand_room - 18)
 
-    head_font, head_lines, _ = fonts.fit_block(
-        fonts.title_font, card.headline, max_width=CONTENT_W,
-        max_height=head_room, start_size=96, min_size=46, line_spacing=1.05)
-    lh = int(fonts.line_height(head_font) * 1.05)
-    for line in head_lines:
-        draw.text((MARGIN, y), line, font=head_font,
-                  fill=theme.rgba(theme.TEXT_PRIMARY))
+def _draw_header(canvas: Image.Image, draw: ImageDraw.ImageDraw, card: StoryCard,
+                 tone, *, budget: int) -> int:
+    """Kicker, headline and standfirst. Returns where the copy actually ended.
+
+    Returning the real end rather than the budget matters: the header grows and
+    shrinks with the headline, so anything positioned from the budget eventually
+    lands on top of the standfirst.
+    """
+    y = theme.draw_kicker(draw, "THE FULL STORY", x=MARGIN, y=HEAD_TOP, tone=tone)
+    y += 16
+
+    for size in range(78, 45, -4):
+        font = fonts.title_font(size, 800)
+        lines = fonts.wrap_text(font, card.headline, CONTENT_W)
+        if len(lines) * int(size * 1.1) <= budget - 120:
+            break
+    lh = int(size * 1.1)
+    for line in lines:
+        draw.text((MARGIN, y), line, font=font,
+                  fill=theme.hex_to_rgb(theme.TEXT_PRIMARY))
         y += lh
 
     if card.standfirst:
-        y += 16
-        sub_font, sub_lines, _ = fonts.fit_block(
-            fonts.body_font, card.standfirst, max_width=CONTENT_W,
-            max_height=stand_room, start_size=34, min_size=25, weight=500,
-            line_spacing=1.2)
-        slh = int(fonts.line_height(sub_font) * 1.2)
-        for line in sub_lines:
+        y += 14
+        sub_font = fonts.body_font(34, 500)
+        for line in fonts.wrap_text(sub_font, card.standfirst, CONTENT_W)[:2]:
             draw.text((MARGIN, y), line, font=sub_font,
-                      fill=theme.rgba(theme.TEXT_SECONDARY))
-            y += slh
+                      fill=theme.hex_to_rgb(theme.TEXT_SECONDARY))
+            y += int(34 * 1.28)
+    return y
 
 
-def _draw_rail(canvas: Image.Image, draw: ImageDraw.ImageDraw, blocks,
-               accent, *, top: int) -> None:
-    """Draw the numbered steps from a pre-measured layout."""
-    if not blocks:
-        return
-
-    label_font = fonts.label_font(LABEL_SIZE, weight=800)
-    label_h = fonts.line_height(label_font)
-    number_font = fonts.label_font(26, weight=800)
-
-    # The connecting line runs from the first marker to the last, drawn first so
-    # the markers sit on top of it.
-    tops = []
-    y = top
-    for _step, _font, _lines, _line_h, height in blocks:
-        tops.append(y)
-        y += height + STEP_GAP
-    if len(tops) > 1:
-        draw.rounded_rectangle([RAIL_X - 2, tops[0] + DOT // 2,
-                                RAIL_X + 2, tops[-1] + DOT // 2],
-                               radius=2, fill=theme.rgba(theme.TEXT_MUTED, 110))
-
-    for i, (step, font, lines, line_h, _height) in enumerate(blocks):
-        y = tops[i]
-        cy = y + DOT // 2
-        draw.ellipse([RAIL_X - DOT // 2, cy - DOT // 2,
-                      RAIL_X + DOT // 2, cy + DOT // 2], fill=theme.rgba(accent))
-        number = str(i + 1)
-        nb = number_font.getbbox(number)
-        draw.text((RAIL_X - (nb[2] - nb[0]) // 2 - nb[0],
-                   cy - (nb[3] - nb[1]) // 2 - nb[1]), number, font=number_font,
-                  fill=theme.rgba(theme.INK))
-
-        ty = y + 2
-        fonts.draw_tracked(draw, (STEP_TEXT_X, ty), step.label.upper(),
-                           label_font, fill=theme.rgba(accent), tracking=1.9)
-        ty += label_h + 10
-        for line in lines:
-            draw.text((STEP_TEXT_X, ty), line, font=font,
-                      fill=theme.rgba(theme.TEXT_SECONDARY))
-            ty += line_h
-
-
-def _draw_footer(canvas: Image.Image, draw: ImageDraw.ImageDraw,
-                 card: StoryCard, accent) -> None:
-    """Sources on the left, the save prompt on the right."""
-    y = FOOTER_Y
-    draw.rounded_rectangle([MARGIN, y - 22, SLIDE_W - MARGIN, y - 20],
-                           radius=1, fill=theme.rgba(theme.TEXT_MUTED, 80))
-
-    if card.sources:
-        theme.draw_source_line(draw, card.sources, accent, x=MARGIN + 8, y=y)
-    else:
-        web_font = fonts.label_font(27, weight=800)
-        fonts.draw_tracked(draw, (MARGIN, y), WEBSITE, web_font,
-                           fill=theme.rgba(theme.BRAND_TERRACOTTA), tracking=1.4)
-
-    label = "SAVE THIS"
-    font = fonts.label_font(24, weight=800)
-    tracking = 1.6
-    text_w = fonts.tracked_width(font, label, tracking)
-    pad_x, pad_y = 24, 13
-    w = text_w + pad_x * 2
-    h = fonts.line_height(font) + pad_y * 2
-    x0 = SLIDE_W - MARGIN - w
-    y0 = y - 8
-    draw.rounded_rectangle([x0, y0, x0 + w, y0 + h], radius=h // 2,
-                           outline=theme.rgba(accent), width=3)
-    fonts.draw_tracked(draw, (x0 + pad_x, y0 + pad_y - font.getbbox(label)[1]),
-                       label, font, fill=theme.rgba(accent), tracking=tracking)
-
-    if card.sources:
-        # The website only moves to the bottom line when sources took the left
-        # slot, so the card always carries the address exactly once.
-        web_font = fonts.label_font(26, weight=800)
-        fonts.draw_tracked(draw, (MARGIN, y + 52), WEBSITE, web_font,
-                           fill=theme.rgba(theme.BRAND_TERRACOTTA), tracking=1.4)
-
-
-def render_story_card(card: StoryCard, out_path: Path,
-                      image_loader: ImageLoader | None = None) -> Path:
-    """Render the day's story card to a PNG and stamp the path onto the card."""
-    loader = image_loader or default_image_loader
+# --------------------------------------------------------------------------- #
+# Public entry point
+# --------------------------------------------------------------------------- #
+def render_story_card(card: StoryCard, out_path: Path, story=None,
+                      image_loader=None) -> Path:
+    """Render the card to `out_path` (PNG) and return the path."""
     out_path.parent.mkdir(parents=True, exist_ok=True)
+    story = story if story is not None else getattr(card, "story", None)
+    tone = theme.tone_for(story, category=card.category)
 
-    accent = theme.accent_for(card.category)
-    canvas = _background(card, loader)
+    canvas = theme.paper(SLIDE_W, SLIDE_H)
     draw = ImageDraw.Draw(canvas)
+    theme.draw_masthead(canvas, draw, tone=tone,
+                        date_text=_dateline(card.scheduled_time))
 
-    # Measure the rail first, then hand the header whatever is left.
-    rail_room = RAIL_BOTTOM - (HEAD_TOP + HEADER_MIN + HEAD_TO_RAIL)
-    blocks, rail_h = _layout_steps(card, rail_room)
+    # Two passes, and the order matters. A first pass sizes the steps against
+    # the room they would have if the header took its minimum, which gives the
+    # header its budget. The header is then drawn and reports where it *actually*
+    # ended - usually short of the budget - and the steps are re-fitted against
+    # the space genuinely left below it.
+    #
+    # Laying the rail out once against the budget is what let it overrun: the
+    # header ends wherever the headline does, so a rail positioned from the
+    # budget rather than from the header slides down into the receipt.
+    provisional = RAIL_BOTTOM - (HEAD_TOP + HEADER_MIN + HEAD_TO_RAIL)
+    _blocks, rail_h = _layout_steps(card, provisional)
     header_budget = RAIL_BOTTOM - rail_h - HEAD_TO_RAIL - HEAD_TOP
 
-    _draw_header(canvas, draw, card, accent, budget=header_budget)
-    _draw_rail(canvas, draw, blocks, accent,
-               top=HEAD_TOP + header_budget + HEAD_TO_RAIL)
-    _draw_footer(canvas, draw, card, accent)
+    header_bottom = _draw_header(canvas, draw, card, tone, budget=header_budget)
+    rail_top = header_bottom + HEAD_TO_RAIL
+    blocks, rail_h = _layout_steps(card, RAIL_BOTTOM - rail_top)
+    rail_end = _draw_rail(canvas, draw, blocks, tone, top=rail_top)
+    if rail_end > RAIL_BOTTOM + STEP_GAP:
+        log.warning("story card rail ended at %d, past its %d floor",
+                    rail_end, RAIL_BOTTOM)
+
+    # Pip sits opposite the headline, sized to the room actually left between
+    # the header and the rail rather than placed at a guessed y.
+    pose = theme.pose_for_story(story, "explainer") if story is not None else "read"
+    band_h = rail_top - header_bottom
+    if pose and band_h >= 130:
+        scale = max(5, min(9, (band_h - 40) // 24))
+        theme.draw_pip(canvas, pose, scale=scale,
+                       x=SLIDE_W - MARGIN - 26 * scale,
+                       y=header_bottom + (band_h - 24 * scale) // 2)
+
+    if story is not None:
+        theme.draw_receipt(canvas, draw, story, x=MARGIN,
+                           y=SLIDE_H - RECEIPT_FROM_BOTTOM, tick_h=38,
+                           label_size=30, name_size=25)
+    theme.draw_footer(canvas, draw)
 
     canvas.convert("RGB").save(out_path, "PNG")
     card.image_file = str(out_path)
-    log.info("rendered story card (%d steps) -> %s", len(card.steps), out_path.name)
+    log.info("rendered story card -> %s", out_path.name)
     return out_path

@@ -18,3 +18,8 @@ preview/
 # Note: content/ and state/ ARE committed by the generate workflow on purpose.
 # Instagram needs the rendered images to be publicly reachable, and the rolling
 # history lives in state/history.json.
+
+# Reddit review drafts and local engagement state stay on your machine. The
+# drafts are for human review, and the state should not leak who was replied to.
+state/reddit_queue/
+state/reddit_state.json

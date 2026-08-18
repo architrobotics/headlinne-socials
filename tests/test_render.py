@@ -75,14 +75,14 @@ def test_theme_accent_and_pill_helpers():
         accent = theme.accent_for(category)
         assert isinstance(accent, tuple) and len(accent) == 3
         assert all(0 <= c <= 255 for c in accent)
-        assert theme.pill_label(category).isupper()
+        assert theme.label_for(category).isupper()
 
 
-def test_twitter_news_card_renders_square_png():
+def test_twitter_card_renders_at_the_x_aspect_ratio():
     from PIL import Image
 
     from headlinne.models import TwitterPost
-    from headlinne.render.card import CARD, render_twitter_card
+    from headlinne.render.card import CARD_W, CARD_H, render_twitter_card
 
     post = TwitterPost(
         category="Tech", post="x", hashtags=["AI"],
@@ -95,7 +95,9 @@ def test_twitter_news_card_renders_square_png():
         out = render_twitter_card(post, Path(tmp) / "x_1.png")
         assert out.exists() and out.stat().st_size > 8_000
         with Image.open(out) as img:
-            assert img.size == (CARD, CARD)
+            # 16:9, not square. X crops a square card in the timeline and
+            # shows this shape whole.
+            assert img.size == (CARD_W, CARD_H)
         assert post.image_file  # renderer records where it wrote
 
 
