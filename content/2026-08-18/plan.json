@@ -1,0 +1,395 @@
+{
+  "day": "2026-08-18",
+  "is_promo_day": false,
+  "is_friday": false,
+  "twitter": [
+    {
+      "category": "Science",
+      "post": "Today in science and space news\n• Ahsoka season 2 is coming with more Anakin and space battles\n• Hubble found proof the Milky Way grew by eating dwarf galaxies\n• On this day in 1877, astronomer Asaph Hall discovered Phobos HEADLINNE.com #Science #Space",
+      "hashtags": [
+        "Science",
+        "Space"
+      ],
+      "scheduled_time": "2026-08-18T13:00:00+05:30",
+      "kind": "news",
+      "lead": "Today in science and space news",
+      "items": [
+        "Ahsoka season 2 is coming with more Anakin and space battles",
+        "Hubble found proof the Milky Way grew by eating dwarf galaxies",
+        "On this day in 1877, astronomer Asaph Hall discovered Phobos"
+      ],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-18/x/x_1.png"
+    },
+    {
+      "category": "Tech",
+      "post": "Today's tech news in a nutshell.\n• A Glorious mechanical keyboard is down to $35 at Woot\n• Uber Eats is teaming up with Zipline for drone deliveries\n• Apple must change its privacy prompts after German complaints HEADLINNE.com #TechNews #Updates",
+      "hashtags": [
+        "TechNews",
+        "Updates"
+      ],
+      "scheduled_time": "2026-08-18T17:00:00+05:30",
+      "kind": "news",
+      "lead": "Today's tech news in a nutshell.",
+      "items": [
+        "A Glorious mechanical keyboard is down to $35 at Woot",
+        "Uber Eats is teaming up with Zipline for drone deliveries",
+        "Apple must change its privacy prompts after German complaints"
+      ],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-18/x/x_2.png"
+    }
+  ],
+  "linkedin": {
+    "title": "Searching for news used to mean digging through headlines until you found the right one.",
+    "body": "Now, AI search is changing the rules. Instead of scanning lists of links, people are asking specific questions and getting direct answers. This shifts the focus from finding the right publisher to finding the right information.\n\nBut there is a catch. When you rely on a single AI summary, you lose the nuance that comes from reading different perspectives. You get the answer, but you might miss the story.\n\nWe built Headlinne to fix this gap. We use AI to help you find what you need, but we keep the original sources front and center. You get the efficiency of a smart search without losing the context that real journalism provides.\n\nHow has your news consumption changed since AI entered the mix? Are you finding it easier to get the facts, or do you feel like you are losing the bigger picture?",
+    "cta": "See how we are rethinking the way you read at HEADLINNE.com.",
+    "scheduled_time": "2026-08-18T18:00:00+05:30",
+    "kind": "product"
+  },
+  "instagram": [
+    {
+      "slot": "instagram_1",
+      "category": "Science",
+      "num_slides": 7,
+      "title": "The Science Stories You Need Today",
+      "slides": [
+        {
+          "role": "cover",
+          "headline": "The Science Stories You Need Today",
+          "explanation": "",
+          "image_url": "https://cdn.mos.cms.futurecdn.net/cYtfyoUwaRhLLxUxn9zYdn-1920-80.jpg",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-18/instagram/instagram_1/slide_1.png",
+          "subtitle": "From space discoveries to new tech, here is your daily science update.",
+          "sources": "",
+          "index": 0
+        },
+        {
+          "role": "story",
+          "headline": "Ahsoka Season 2 Is Officially Coming",
+          "explanation": "The first trailer for season two shows massive space battles and more Anakin Skywalker. It is a big win for fans waiting to see how the story continues.",
+          "image_url": "https://cdn.mos.cms.futurecdn.net/cYtfyoUwaRhLLxUxn9zYdn-1920-80.jpg",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-18/instagram/instagram_1/slide_2.png",
+          "subtitle": "",
+          "sources": "Space.com",
+          "index": 1
+        },
+        {
+          "role": "story",
+          "headline": "How Our Galaxy Grew Up",
+          "explanation": "New data from the Hubble telescope proves the Milky Way grew by eating smaller galaxies early on. It gives us a clearer picture of how our home galaxy formed.",
+          "image_url": "https://scx2.b-cdn.net/gfx/news/hires/2026/hubble-solves-merger-m.jpg",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-18/instagram/instagram_1/slide_3.png",
+          "subtitle": "",
+          "sources": "Phys.org",
+          "index": 2
+        },
+        {
+          "role": "story",
+          "headline": "The Day We Found Mars's Moon",
+          "explanation": "On this day in 1877, astronomer Asaph Hall spotted the Martian moon Phobos for the first time. It is a reminder of how much we have learned about our solar system.",
+          "image_url": "https://cdn.mos.cms.futurecdn.net/b4SzvVoP2hqfAnQQXZX6Zc-1920-80.jpg",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-18/instagram/instagram_1/slide_4.png",
+          "subtitle": "",
+          "sources": "Space.com",
+          "index": 3
+        },
+        {
+          "role": "story",
+          "headline": "Locust Brains Can Spot Toxins",
+          "explanation": "Researchers found that locust neurons can detect harmful forever chemicals in the environment. This finding could lead to new, portable sensors to keep our water safe.",
+          "image_url": "https://scx2.b-cdn.net/gfx/news/hires/2026/how-insects-could-help-2.jpg",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-18/instagram/instagram_1/slide_5.png",
+          "subtitle": "",
+          "sources": "Phys.org",
+          "index": 4
+        },
+        {
+          "role": "story",
+          "headline": "Ocean Currents And Global Warming",
+          "explanation": "A major Atlantic current system acts like a thermostat for the entire planet. If it weakens, it could speed up global temperature increases.",
+          "image_url": "https://scx2.b-cdn.net/gfx/news/hires/2019/atlanticocean.jpg",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-18/instagram/instagram_1/slide_6.png",
+          "subtitle": "",
+          "sources": "Phys.org",
+          "index": 5
+        },
+        {
+          "role": "cta",
+          "headline": "That's your brief for today.",
+          "explanation": "",
+          "image_url": null,
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-18/instagram/instagram_1/slide_7.png",
+          "subtitle": "Personalised news, minus the noise.",
+          "sources": "",
+          "index": 0
+        }
+      ],
+      "caption": "From the mysteries of the early Milky Way to how locust brains might help us detect pollution, today’s science news is full\n\nof big shifts.\n\nWe are breaking down the latest updates so you can stay informed in just a few swipes. Which of these stories did you find the most interesting?\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#ScienceNews #SpaceExploration #Astronomy #ClimateChange",
+      "hashtags": [
+        "ScienceNews",
+        "SpaceExploration",
+        "Astronomy",
+        "ClimateChange",
+        "TechInnovation",
+        "MilkyWay",
+        "StarWars",
+        "Ahsoka",
+        "EnvironmentalScience",
+        "DailyUpdate",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-08-18T16:00:00+05:30",
+      "first_comment": "#TechInnovation #MilkyWay #StarWars #Ahsoka #EnvironmentalScience #DailyUpdate #Headlinne"
+    }
+  ],
+  "reels": [
+    {
+      "slot": "reel_1",
+      "kind": "news",
+      "category": "Science",
+      "title": "The 1st 'Star Wars: Ahsoka' season 2 trailer finally gives us a release date (video)",
+      "hook": "Imagine a TV show finally confirming",
+      "beats": [
+        {
+          "role": "hook",
+          "caption": "Imagine a TV show finally confirming",
+          "detail": "a return date for your favorite space saga.",
+          "narration": "Imagine a TV show finally confirming a return date for your favorite space",
+          "seconds": 3.0,
+          "graphic": "",
+          "data": {},
+          "image_url": "https://cdn.mos.cms.futurecdn.net/cYtfyoUwaRhLLxUxn9zYdn-1920-80.jpg"
+        },
+        {
+          "role": "point",
+          "caption": "Ahsoka returns",
+          "detail": "The first trailer for season 2 is out",
+          "narration": "The first trailer for Star Wars Ahsoka season two is finally here.",
+          "seconds": 3.0,
+          "graphic": "",
+          "data": {},
+          "image_url": "https://cdn.mos.cms.futurecdn.net/cYtfyoUwaRhLLxUxn9zYdn-1920-80.jpg"
+        },
+        {
+          "role": "point",
+          "caption": "Big scale battles",
+          "detail": "Expect more Clone Wars flashbacks",
+          "narration": "This first look promises massive space battles and trips back to the Clone",
+          "seconds": 3.0,
+          "graphic": "",
+          "data": {},
+          "image_url": null
+        },
+        {
+          "role": "graphic",
+          "caption": "Anakin is back",
+          "detail": "More of the Jedi Master",
+          "narration": "And for fans of the deeper lore, we are getting a lot more of Anakin",
+          "seconds": 3.0,
+          "graphic": "flow",
+          "data": {
+            "steps": [
+              "New trailer",
+              "Anakin returns",
+              "Space battles"
+            ]
+          },
+          "image_url": null
+        },
+        {
+          "role": "point",
+          "caption": "Mark your calendar",
+          "detail": "The release date is finally set",
+          "narration": "The best part is that we finally have a release date to look forward to.",
+          "seconds": 3.0,
+          "graphic": "",
+          "data": {},
+          "image_url": "https://cdn.mos.cms.futurecdn.net/cYtfyoUwaRhLLxUxn9zYdn-1920-80.jpg"
+        },
+        {
+          "role": "payoff",
+          "caption": "The galaxy is getting bigger",
+          "detail": "",
+          "narration": "The galaxy is getting bigger, and we finally know when we're heading back.",
+          "seconds": 3.0,
+          "graphic": "",
+          "data": {},
+          "image_url": null
+        }
+      ],
+      "caption": "The Star Wars Ahsoka season 2 trailer has finally dropped with a release date.\n\nWe got our first look at the upcoming season, which promises huge space battles and plenty of Anakin Skywalker. It also confirms those long-awaited Clone Wars flashbacks.\n\nWhich Star Wars character are you most excited to see return?\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#StarWars #Ahsoka #AhsokaTano #DisneyPlus",
+      "hashtags": [
+        "StarWars",
+        "Ahsoka",
+        "AhsokaTano",
+        "DisneyPlus",
+        "AnakinSkywalker",
+        "SciFi",
+        "TVNews",
+        "SpaceOpera",
+        "CloneWars",
+        "Streaming",
+        "Entertainment",
+        "Jedi",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-08-18T09:30:00+05:30",
+      "first_comment": "#AnakinSkywalker #SciFi #TVNews #SpaceOpera #CloneWars #Streaming #Entertainment #Jedi #Headlinne",
+      "sources": "Space.com",
+      "story_url": "https://www.space.com/entertainment/space-movies-shows/the-1st-star-wars-ahsoka-season-2-trailer-finally-gives-us-a-release-date",
+      "duration_seconds": 41.3,
+      "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-18/reels/reel_1.mp4",
+      "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-18/reels/reel_1_cover.png",
+      "audio_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-18/reels/reel_1_voice.wav",
+      "has_voiceover": true
+    },
+    {
+      "slot": "reel_2",
+      "kind": "education",
+      "category": "Geopolitics",
+      "title": "A ceasefire is not a peace deal",
+      "hook": "Two words get used interchangeably",
+      "beats": [
+        {
+          "role": "hook",
+          "caption": "Two words get used interchangeably",
+          "detail": "But one matters much more than the other",
+          "narration": "People often use these two words interchangeably, but one matters way more",
+          "seconds": 3.0,
+          "graphic": "",
+          "data": {},
+          "image_url": null
+        },
+        {
+          "role": "point",
+          "caption": "Ceasefire vs Peace",
+          "detail": "They are not the same thing",
+          "narration": "A ceasefire is just a pause in the fighting. It stops the bullets, but not",
+          "seconds": 3.0,
+          "graphic": "",
+          "data": {},
+          "image_url": null
+        },
+        {
+          "role": "point",
+          "caption": "The neighbor example",
+          "detail": "Imagine two neighbors fighting over a fence",
+          "narration": "Think of two neighbors fighting over a fence. A ceasefire is just them",
+          "seconds": 3.0,
+          "graphic": "",
+          "data": {},
+          "image_url": null
+        },
+        {
+          "role": "graphic",
+          "caption": "The big difference",
+          "detail": "Pause versus resolution",
+          "narration": "But a peace deal is the agreement that actually moves the fence to where it",
+          "seconds": 3.0,
+          "graphic": "split",
+          "data": {
+            "left_title": "Ceasefire",
+            "left_text": "Stops the shooting for now",
+            "right_title": "Peace Deal",
+            "right_text": "Solves the actual dispute"
+          },
+          "image_url": null
+        },
+        {
+          "role": "point",
+          "caption": "Temporary vs permanent",
+          "detail": "One is a break, the other is a solution",
+          "narration": "So, a ceasefire buys time, but a peace deal builds a future.",
+          "seconds": 3.0,
+          "graphic": "",
+          "data": {},
+          "image_url": null
+        },
+        {
+          "role": "payoff",
+          "caption": "A ceasefire buys time, peace builds a future",
+          "detail": "",
+          "narration": "A ceasefire buys time, but a peace deal builds a future.",
+          "seconds": 3.0,
+          "graphic": "",
+          "data": {},
+          "image_url": null
+        }
+      ],
+      "caption": "Here is the difference between a ceasefire and a peace deal.\n\nA ceasefire is a temporary pause in hostilities. A peace deal is a long term agreement that addresses the root cause of the conflict. One stops the fighting, while the other aims to end the war.\n\nWhat is one historical example where a ceasefire lasted longer than anyone expected?\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#Explained #LearnOnInstagram #WorldNews #Geopolitics",
+      "hashtags": [
+        "Explained",
+        "LearnOnInstagram",
+        "WorldNews",
+        "Geopolitics",
+        "GlobalNews",
+        "news",
+        "education",
+        "politics",
+        "explainer",
+        "history",
+        "currentaffairs",
+        "learning",
+        "analysis",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-08-18T20:00:00+05:30",
+      "first_comment": "#GlobalNews #news #education #politics #explainer #history #currentaffairs #learning #analysis #Headlinne",
+      "sources": "",
+      "story_url": "",
+      "duration_seconds": 42.666666666666664,
+      "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-18/reels/reel_2.mp4",
+      "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-18/reels/reel_2_cover.png",
+      "audio_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-18/reels/reel_2_voice.wav",
+      "has_voiceover": true
+    }
+  ],
+  "story_card": {
+    "slot": "story_card",
+    "category": "Technology",
+    "headline": "A mechanical keyboard deal for $35",
+    "standfirst": "Custom keyboards usually cost hundreds, but this model is heavily discounted.",
+    "steps": [
+      {
+        "label": "What happened",
+        "text": "The 65-percent Glorious GMMK 3 keyboard is on sale at Woot for $34.99."
+      },
+      {
+        "label": "How we got here",
+        "text": "Use the code WOOTGAMING at checkout to drop the price from its usual $139.99."
+      },
+      {
+        "label": "Why it matters",
+        "text": "It is a low-risk way to try custom mechanical keyboards without spending a fortune."
+      },
+      {
+        "label": "What to watch",
+        "text": "Check your final price at checkout to ensure the discount code applies correctly."
+      }
+    ],
+    "caption": "You can now buy the Glorious GMMK 3 mechanical keyboard for $35 on Woot using a discount code.\n\nCustom mechanical keyboards are often an expensive hobby. This deal brings the entry price down significantly for beginners who want to test the waters.\n\nIs a mechanical keyboard worth the upgrade over a standard one?\n\nSave this one. Follow for the daily card. Full story on HEADLINNE.com.\n\n#TechNews #Tech #AI #mechanicalkeyboard",
+    "hashtags": [
+      "TechNews",
+      "Tech",
+      "AI",
+      "mechanicalkeyboard",
+      "gloriousgmmk3",
+      "woot",
+      "techdeals",
+      "pcgaming",
+      "customkeyboard",
+      "setup",
+      "desksetup",
+      "pcperipherals",
+      "keyboardenthusiast",
+      "budgettech",
+      "gaminggear",
+      "NewsExplained"
+    ],
+    "scheduled_time": "2026-08-18T21:30:00+05:30",
+    "first_comment": "#gloriousgmmk3 #woot #techdeals #pcgaming #customkeyboard #setup #desksetup #pcperipherals #keyboardenthusiast #budgettech #gaminggear #NewsExplained",
+    "sources": "The Verge",
+    "story_url": "https://www.theverge.com/gadgets/981134/glorious-gmmk-3-mechanical-keyboard-deal-sale",
+    "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/08/Glorious-GMMK-3-Black-Breakout-2.png?quality=90&amp;strip=all&amp;crop=0%2C10.732984293194%2C100%2C78.534031413613&amp;w=1200",
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-18/story_card/story_card.png"
+  }
+}
