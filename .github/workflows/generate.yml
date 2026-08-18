@@ -8,8 +8,7 @@ name: Generate daily content
 # Times are UTC. 00:30 UTC = 06:00 IST. Remove it if you only want cron-job.org.
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "30 0 * * *"   # 06:00 IST backup run
+  
 
 permissions:
   contents: write          # needed to commit the generated content back
