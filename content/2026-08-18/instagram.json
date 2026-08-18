@@ -1,96 +1,130 @@
 [
   {
     "slot": "instagram_1",
-    "category": "Science",
-    "num_slides": 7,
-    "title": "The Science Stories You Need Today",
+    "category": "Finance",
+    "num_slides": 5,
+    "title": "Musicians urge government to stop North Sea drilling",
     "slides": [
       {
         "role": "cover",
-        "headline": "The Science Stories You Need Today",
+        "headline": "Musicians urge government to stop North Sea drilling",
         "explanation": "",
-        "image_url": "https://cdn.mos.cms.futurecdn.net/cYtfyoUwaRhLLxUxn9zYdn-1920-80.jpg",
+        "image_url": "https://i.guim.co.uk/img/media/8773acd37560a730030d7e874902f22c9dda4086/0_0_4724_3780/master/4724.jpg?width=700&quality=85&auto=format&fit=max&s=370d71e172574de98f0110c1d031b1fe",
         "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-18/instagram/instagram_1/slide_1.png",
-        "subtitle": "From space discoveries to new tech, here is your daily science update.",
+        "subtitle": "Over 200 artists signed a letter against new fields",
         "sources": "",
-        "index": 0
+        "index": 1,
+        "kicker": "DEVELOPING",
+        "pose": "alert",
+        "say": "This is a big story.",
+        "figure": "",
+        "unit": ""
       },
       {
-        "role": "story",
-        "headline": "Ahsoka Season 2 Is Officially Coming",
-        "explanation": "The first trailer for season two shows massive space battles and more Anakin Skywalker. It is a big win for fans waiting to see how the story continues.",
-        "image_url": "https://cdn.mos.cms.futurecdn.net/cYtfyoUwaRhLLxUxn9zYdn-1920-80.jpg",
+        "role": "scale",
+        "headline": "",
+        "explanation": "This group of 200 artists is about the size of a large orchestra or a mid-sized company workforce. Their collective influence is now being used to challenge national energy policy.",
+        "image_url": "https://i.guim.co.uk/img/media/8773acd37560a730030d7e874902f22c9dda4086/0_0_4724_3780/master/4724.jpg?width=700&quality=85&auto=format&fit=max&s=370d71e172574de98f0110c1d031b1fe",
         "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-18/instagram/instagram_1/slide_2.png",
         "subtitle": "",
-        "sources": "Space.com",
-        "index": 1
+        "sources": "",
+        "index": 2,
+        "kicker": "HOW BIG",
+        "pose": "",
+        "say": "",
+        "figure": "200",
+        "unit": "musicians"
       },
       {
-        "role": "story",
-        "headline": "How Our Galaxy Grew Up",
-        "explanation": "New data from the Hubble telescope proves the Milky Way grew by eating smaller galaxies early on. It gives us a clearer picture of how our home galaxy formed.",
-        "image_url": "https://scx2.b-cdn.net/gfx/news/hires/2026/hubble-solves-merger-m.jpg",
+        "role": "twist",
+        "headline": "The focus is on two specific oil and gas fields",
+        "explanation": "The artists are specifically calling out the Rosebank and Jackdaw fields. They argue that developing these sites directly contradicts the reality of the current climate crisis.",
+        "image_url": null,
         "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-18/instagram/instagram_1/slide_3.png",
         "subtitle": "",
-        "sources": "Phys.org",
-        "index": 2
+        "sources": "",
+        "index": 3,
+        "kicker": "WHAT YOU DID NOT KNOW",
+        "pose": "puzzled",
+        "say": "It is about specific locations.",
+        "figure": "",
+        "unit": ""
       },
       {
-        "role": "story",
-        "headline": "The Day We Found Mars's Moon",
-        "explanation": "On this day in 1877, astronomer Asaph Hall spotted the Martian moon Phobos for the first time. It is a reminder of how much we have learned about our solar system.",
-        "image_url": "https://cdn.mos.cms.futurecdn.net/b4SzvVoP2hqfAnQQXZX6Zc-1920-80.jpg",
+        "role": "sources",
+        "headline": "",
+        "explanation": "This report is verified by the Guardian and Sky Business. When multiple major outlets independently confirm the same letter and signatories, you can be certain the event occurred as",
+        "image_url": null,
         "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-18/instagram/instagram_1/slide_4.png",
         "subtitle": "",
-        "sources": "Space.com",
-        "index": 3
-      },
-      {
-        "role": "story",
-        "headline": "Locust Brains Can Spot Toxins",
-        "explanation": "Researchers found that locust neurons can detect harmful forever chemicals in the environment. This finding could lead to new, portable sensors to keep our water safe.",
-        "image_url": "https://scx2.b-cdn.net/gfx/news/hires/2026/how-insects-could-help-2.jpg",
-        "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-18/instagram/instagram_1/slide_5.png",
-        "subtitle": "",
-        "sources": "Phys.org",
-        "index": 4
-      },
-      {
-        "role": "story",
-        "headline": "Ocean Currents And Global Warming",
-        "explanation": "A major Atlantic current system acts like a thermostat for the entire planet. If it weakens, it could speed up global temperature increases.",
-        "image_url": "https://scx2.b-cdn.net/gfx/news/hires/2019/atlanticocean.jpg",
-        "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-18/instagram/instagram_1/slide_6.png",
-        "subtitle": "",
-        "sources": "Phys.org",
-        "index": 5
+        "sources": "",
+        "index": 4,
+        "kicker": "SOURCES",
+        "pose": "puzzled",
+        "say": "1 sources agree",
+        "figure": "",
+        "unit": ""
       },
       {
         "role": "cta",
-        "headline": "That's your brief for today.",
+        "headline": "",
         "explanation": "",
         "image_url": null,
-        "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-18/instagram/instagram_1/slide_7.png",
-        "subtitle": "Personalised news, minus the noise.",
+        "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-18/instagram/instagram_1/slide_5.png",
+        "subtitle": "Tap the link in our bio to read the full story on Headlinne.",
         "sources": "",
-        "index": 0
+        "index": 5,
+        "kicker": "READ THE FULL STORY",
+        "pose": "carry",
+        "say": "Come and read it.",
+        "figure": "",
+        "unit": ""
       }
     ],
-    "caption": "From the mysteries of the early Milky Way to how locust brains might help us detect pollution, today’s science news is full\n\nof big shifts.\n\nWe are breaking down the latest updates so you can stay informed in just a few swipes. Which of these stories did you find the most interesting?\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#ScienceNews #SpaceExploration #Astronomy #ClimateChange",
+    "caption": "More than 200 musicians have joined forces to oppose new oil and gas drilling in the North Sea.\n\nThe list of signatories includes major names like Thom Yorke, Brian Eno, and Robert Smith.\n\nThey have written to the Prime Minister urging a rejection of plans for the Rosebank and Jackdaw fields. The artists argue that new fossil fuel exploration is incompatible with climate targets.\n\nThis move highlights the growing tension between energy policy and environmental concerns in the UK.\n\nDo you think celebrity pressure has a real impact on government policy?\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#Finance #Markets #Business #Economy",
     "hashtags": [
-      "ScienceNews",
-      "SpaceExploration",
-      "Astronomy",
-      "ClimateChange",
-      "TechInnovation",
-      "MilkyWay",
-      "StarWars",
-      "Ahsoka",
-      "EnvironmentalScience",
-      "DailyUpdate",
-      "Headlinne"
+      "Finance",
+      "Markets",
+      "Business",
+      "Economy",
+      "Headlinne",
+      "ClimateNews",
+      "NorthSea",
+      "UKPolitics",
+      "MusicNews"
     ],
     "scheduled_time": "2026-08-18T16:00:00+05:30",
-    "first_comment": "#TechInnovation #MilkyWay #StarWars #Ahsoka #EnvironmentalScience #DailyUpdate #Headlinne"
+    "first_comment": "#Headlinne #ClimateNews #NorthSea #UKPolitics #MusicNews",
+    "story": {
+      "title": "Thom Yorke, Romy and Brian Eno among 200 musicians urging PM to reject new North Sea drilling",
+      "summary": "Robert Smith, Olly Alexander and Paris Paloma also among signatories to letter saying exploitation of Rosebank and Jackdaw fields defies climate reality Business live – latest updates More than 200 musicians including Massive Attack and Brian Eno have written to Andy Burnham urging him to reject plans for more oil and gas drilling in the North Sea. The letter, signed by 211 artists such as Bobby Gillespie, Olly Alexander and Paris Paloma, called on the prime minister to reject the Rosebank oilfield , warning that the project would fail to lower energy bills or provide energy security as most o",
+      "url": "https://www.theguardian.com/business/2026/aug/17/massive-attack-paris-paloma-musicians-burnham-rosebank-north-sea-drilling",
+      "category": "Finance",
+      "source": "Guardian Business",
+      "tier": 1.1,
+      "published_iso": "2026-08-17T11:16:28+00:00",
+      "image_url": "https://i.guim.co.uk/img/media/8773acd37560a730030d7e874902f22c9dda4086/0_0_4724_3780/master/4724.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=92b2d9f2e04cda3c3e8921feafa90428",
+      "corroborating_sources": [
+        "Guardian World",
+        "Sky Business"
+      ],
+      "score": 10.958,
+      "verified": true,
+      "sensitive": false,
+      "agreement": {
+        "reported": 3,
+        "agree": 1,
+        "conflict": 0,
+        "claim": "200",
+        "claim_unit": "reported",
+        "outlets": [
+          "Guardian Business",
+          "Sky Business",
+          "Guardian World"
+        ],
+        "conflicts": []
+      }
+    },
+    "story_url": "https://www.theguardian.com/business/2026/aug/17/massive-attack-paris-paloma-musicians-burnham-rosebank-north-sea-drilling"
   }
 ]
