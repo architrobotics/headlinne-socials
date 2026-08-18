@@ -191,3 +191,102 @@ def test_forbidden_punctuation_is_caught_in_a_step():
     card.steps[1].text = "This has a semicolon; which is banned."
     report = check_story_card(card)
     assert not report.ok
+
+
+# --------------------------------------------------------------------------- #
+# Pip
+# --------------------------------------------------------------------------- #
+def _story(state="unanimous", sensitive=False):
+    from headlinne.models import Agreement, Conflict, Story
+
+    story = Story(title="A rocket hit the Moon", summary="", url="http://x/m",
+                  category="Science", source="Reuters", tier=1.4,
+                  published_iso="2026-08-18T06:00:00+00:00", verified=True,
+                  sensitive=sensitive)
+    if state == "unanimous":
+        story.agreement = Agreement(reported=8, agree=8,
+                                    outlets=[f"O{i}" for i in range(8)])
+    elif state == "developing":
+        story.agreement = Agreement(reported=6, agree=4,
+                                    outlets=[f"O{i}" for i in range(6)])
+    else:
+        story.agreement = Agreement(
+            reported=7, agree=3, conflict=4, claim="12,000 jobs",
+            outlets=[f"O{i}" for i in range(7)],
+            conflicts=[Conflict(f"O{i}", f"{i},000 jobs") for i in range(4)])
+    return story
+
+
+def _rendered(story):
+    from PIL import Image
+
+    from headlinne.render.story_card import render_story_card
+
+    with tempfile.TemporaryDirectory() as tmp:
+        path = render_story_card(_card(), Path(tmp) / "card.png", story=story)
+        return Image.open(path).convert("RGB").copy()
+
+
+def test_pip_is_actually_drawn_on_the_story_card():
+    # He was not. The mascot was positioned into the gap between the header and
+    # the rail, which is exactly HEAD_TO_RAIL tall, and then only drawn if that
+    # gap was at least 130px - so the condition could never be true and Pip
+    # silently never appeared on this surface at all.
+    from headlinne.render import story_card as sc
+
+    assert sc.PIP_BAND >= 24 * sc.PIP_SCALE, "the band cannot fit the sprite"
+    assert sc.HEAD_TO_RAIL > sc.PIP_BAND, "no room reserved between the bands"
+
+    with_pip = _rendered(_story())
+    without = _rendered(_story(sensitive=True))
+    assert with_pip.tobytes() != without.tobytes(), "Pip changed no pixels"
+
+
+def test_a_sensitive_story_carries_neither_mascot_nor_bubble():
+    from headlinne.render import theme
+    from headlinne.render.story_card import pip_line
+
+    story = _story(sensitive=True)
+    assert theme.pose_for_story(story, "explainer") is None
+    assert pip_line(story) == ""
+
+
+def test_pip_says_something_true_about_the_sourcing():
+    from headlinne.render.story_card import pip_line
+
+    assert "8" in pip_line(_story("unanimous"))
+    assert pip_line(_story("disputed")) == "They don't all agree."
+    assert pip_line(_story("developing")) == "Still coming together."
+
+
+def test_the_card_takes_the_brand_colour_not_the_category_colour():
+    # Colour coding by desk gave a violet Science card and a green Finance one -
+    # four different-looking brands in one profile grid, none of them saying
+    # anything a reader can act on.
+    from headlinne.config import BRAND_TERRACOTTA, CATEGORY_COLORS
+    from headlinne.render import theme
+
+    terracotta = theme.hex_to_rgb(BRAND_TERRACOTTA)
+    for category in CATEGORY_COLORS:
+        story = _story()
+        story.category = category
+        assert theme.tone_for(story, category=category) == terracotta, category
+
+
+def test_a_disputed_story_still_overrides_the_brand_colour():
+    from headlinne.config import TONE_DISPUTE
+    from headlinne.render import theme
+
+    assert theme.tone_for(_story("disputed")) == theme.hex_to_rgb(TONE_DISPUTE)
+
+
+def test_the_rail_keeps_readable_type_now_that_pip_has_a_band():
+    # Giving Pip a band takes room from the rail. The rail is the content on this
+    # surface, so it must not be paying for the mascot in truncated steps.
+    from headlinne.render.story_card import RAIL_BOTTOM, _layout_steps
+
+    blocks, total = _layout_steps(_card(), available=RAIL_BOTTOM - 620)
+    assert total <= RAIL_BOTTOM - 620
+    for step, font, lines, _lh, _h in blocks:
+        assert len(" ".join(lines).split()) == len(step.text.split())
+        assert font.size >= 24, f"rail dropped to {font.size}px"

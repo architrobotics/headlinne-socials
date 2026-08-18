@@ -148,20 +148,28 @@ SLIDE_TONE = {
 def tone_for(story=None, category: str = "", role: str = "") -> tuple[int, int, int]:
     """The colour the masthead rule and kicker take.
 
-    Semantic first, taxonomic last. What a reader most needs from a glance is
-    whether the sources agree, not which desk filed it, so a disputed story is
-    marigold whatever its category and a sensitive one drops to plain ink. Only
-    when neither applies does the slide's own job, and then the category, decide.
+    Semantic only. What a reader needs from a glance is whether the sources
+    agree, not which desk filed it: a disputed story is marigold whatever its
+    category, a sensitive one drops to plain ink, and everything else takes the
+    tone of the job the surface is doing.
+
+    The fallback is the brand terracotta rather than the category accent. Colour
+    coding by desk was a leftover from the category pill, and it produced a
+    violet Science card and a green Finance one - four different-looking brands
+    in a profile grid, each saying something a reader cannot act on. The category
+    is already stated in words on the kicker.
+
+    `accent_for` still exists for anything that genuinely wants taxonomy. Nothing
+    currently does.
     """
     if story is not None:
         if getattr(story, "sensitive", False):
             return hex_to_rgb(INK_SOFT)
         if _receipt.state(story) in ("disputed", "single"):
             return hex_to_rgb(TONE_DISPUTE)
-        category = category or getattr(story, "category", "")
     if role in SLIDE_TONE:
         return hex_to_rgb(SLIDE_TONE[role])
-    return accent_for(category)
+    return hex_to_rgb(BRAND_TERRACOTTA)
 
 
 def label_for(category: str) -> str:
@@ -584,8 +592,14 @@ def draw_receipt(canvas: Image.Image, draw: ImageDraw.ImageDraw, story, *,
 
 def draw_receipt_inline(draw: ImageDraw.ImageDraw, story, *, x: int, y: int,
                         tick_w: int = 11, tick_h: int = 36, gap: int = 9,
-                        dark: bool = False) -> int:
-    """The reel's tighter strip: ticks and label on one line."""
+                        dark: bool = False, names: bool = False,
+                        name_size: int = 24) -> int:
+    """The tighter strip: ticks and label on one line, names optionally beneath.
+
+    Used where the surface is vertically tight - the reel, and the story card,
+    whose four-stop rail is the content and should not lose a line so the source
+    strip can be set in the stacked form.
+    """
     filled, hollow = _receipt.ticks(story)
     agree = hex_to_rgb(TONE_AGREE)
     muted = hex_to_rgb(TEXT_MUTED)
@@ -599,4 +613,12 @@ def draw_receipt_inline(draw: ImageDraw.ImageDraw, story, *, x: int, y: int,
     draw.text((cx + 24, y + 2), _receipt.short_label(story),
               font=fonts.label_font(26, 700),
               fill=hex_to_rgb(CREAM if dark else TEXT_PRIMARY))
-    return y + tick_h
+    below = y + tick_h
+    if names:
+        line = _receipt.named(story, limit=4)
+        if line:
+            below += 14
+            draw.text((x, below), line, font=fonts.label_font(name_size, 500),
+                      fill=(168, 154, 137) if dark else hex_to_rgb(TEXT_SECONDARY))
+            below += int(name_size * 1.35)
+    return below

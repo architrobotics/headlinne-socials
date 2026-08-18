@@ -33,19 +33,34 @@ MARGIN = theme.MARGIN
 CONTENT_W = SLIDE_W - 2 * MARGIN
 
 HEAD_TOP = 176                  # below the masthead rule
-# The rail must clear the receipt, and the receipt must clear the footer rule.
-# Working up from the bottom: the footer rule is 132 from the bottom, the
-# receipt block runs about 170px from its own top, and each boundary gets 30px
-# so the card never reads as crowded even when every step wraps to three lines.
-RECEIPT_FROM_BOTTOM = 300       # receipt top, i.e. y = 1050 on a 1350 canvas
-RAIL_BOTTOM = 1010              # 40px of air above the receipt
-HEAD_TO_RAIL = 44
+
+# The card is dense - a headline, a standfirst, four rail steps, the source strip
+# and the footer - so every band is measured from the bottom up and each boundary
+# gets real air rather than being squeezed to whatever is left.
+#
+# Pip has his own band. He used to be positioned into the gap between the header
+# and the rail, which is exactly HEAD_TO_RAIL tall and therefore never met the
+# minimum size, so the mascot silently never drew on this surface at all.
+# The strip is set in its inline form here - ticks and label on one line - so
+# the rail keeps the room it needs. Stacked, it costs 60px more, and the rail
+# pays for that in a whole step's worth of body type.
+RECEIPT_FROM_BOTTOM = 232       # receipt top, i.e. y = 1118 on a 1350 canvas
+RAIL_BOTTOM = 1090              # air above the receipt
+HEAD_TO_PIP = 20
+PIP_BAND = 150                  # Pip plus his bubble
+PIP_TO_RAIL = 20
+HEAD_TO_RAIL = HEAD_TO_PIP + PIP_BAND + PIP_TO_RAIL
+
+# Pip is smaller here than on a carousel cover. The rail is the content on this
+# surface and the mascot is furniture beside it, not the subject.
+PIP_SCALE = 6
+BUBBLE_SIZE = 28
 
 DOT = 46                        # numbered marker diameter
 RAIL_X = MARGIN + DOT // 2
 STEP_TEXT_X = MARGIN + DOT + 30
 STEP_TEXT_W = SLIDE_W - MARGIN - STEP_TEXT_X
-STEP_GAP = 22
+STEP_GAP = 16
 STEP_MAX_LINES = 3
 LABEL_SIZE = 23
 BODY_LINE_SPACING = 1.24
@@ -149,6 +164,61 @@ def _draw_rail(canvas: Image.Image, draw: ImageDraw.ImageDraw, blocks, tone, *,
     return y
 
 
+def pip_line(story) -> str:
+    """What Pip says on this card.
+
+    Tied to the sourcing rather than written by the model, for the same reason
+    the rail's four labels are fixed: it is the one line on the card that is
+    always true, and a reader who sees it every day learns to read the state of
+    a story from it before reading the story.
+    """
+    from . import receipt as receipt_mod
+
+    # Nothing draws this for a sensitive story - _draw_pip returns before it is
+    # asked for - but returning a cheerful line for one anyway leaves a trap for
+    # the next caller who reaches for pip_line without checking the pose first.
+    if story is not None and getattr(story, "sensitive", False):
+        return ""
+    state = receipt_mod.state(story) if story is not None else "unanimous"
+    count = len(receipt_mod.outlets(story)) if story is not None else 0
+    if state == "disputed":
+        return "They don't all agree."
+    if state == "single":
+        return "Only one outlet so far."
+    if state == "developing":
+        return "Still coming together."
+    if count >= 2:
+        return f"I read all {count}."
+    return "Here's the whole thing."
+
+
+def _draw_pip(canvas: Image.Image, draw: ImageDraw.ImageDraw, story, *,
+              top: int) -> int:
+    """Pip and his bubble, in the band between the standfirst and the rail.
+
+    Returns the y below the band. Draws nothing at all for a sensitive story:
+    pose_for_story returns None there, and a mascot beside a death toll is the
+    exact tonal failure the sober template exists to prevent.
+    """
+    pose = theme.pose_for_story(story, "explainer") if story is not None else "read"
+    if not pose:
+        return top
+
+    sprite_h = 24 * PIP_SCALE
+    pip_y = top + max(0, (PIP_BAND - sprite_h) // 2)
+    width, _height = theme.draw_pip(canvas, pose, x=MARGIN - 18, y=pip_y,
+                                    scale=PIP_SCALE)
+
+    line = pip_line(story)
+    if line:
+        # Beside him rather than above: this band is short and wide, which is the
+        # opposite of the reel's, so the room is horizontal.
+        theme.bubble_beside(canvas, draw, line, pip_x=MARGIN - 18, pip_w=width,
+                            pip_top=pip_y + sprite_h - 12, width=SLIDE_W,
+                            margin=MARGIN, size=BUBBLE_SIZE, max_w=520)
+    return top + PIP_BAND
+
+
 def _draw_header(canvas: Image.Image, draw: ImageDraw.ImageDraw, card: StoryCard,
                  tone, *, budget: int) -> int:
     """Kicker, headline and standfirst. Returns where the copy actually ended.
@@ -160,10 +230,13 @@ def _draw_header(canvas: Image.Image, draw: ImageDraw.ImageDraw, card: StoryCard
     y = theme.draw_kicker(draw, "THE FULL STORY", x=MARGIN, y=HEAD_TOP, tone=tone)
     y += 16
 
-    for size in range(78, 45, -4):
+    # Smaller than a carousel cover's 92, and capped at two lines. The cover's
+    # job is the headline; this card's job is the four-stop rail underneath it,
+    # and every line the headline takes is a line of body type the rail loses.
+    for size in range(56, 35, -4):
         font = fonts.title_font(size, 800)
         lines = fonts.wrap_text(font, card.headline, CONTENT_W)
-        if len(lines) * int(size * 1.1) <= budget - 120:
+        if len(lines) <= 2 and len(lines) * int(size * 1.1) <= budget - 120:
             break
     lh = int(size * 1.1)
     for line in lines:
@@ -172,12 +245,14 @@ def _draw_header(canvas: Image.Image, draw: ImageDraw.ImageDraw, card: StoryCard
         y += lh
 
     if card.standfirst:
-        y += 14
-        sub_font = fonts.body_font(34, 500)
-        for line in fonts.wrap_text(sub_font, card.standfirst, CONTENT_W)[:2]:
+        y += 12
+        # One line. The rail's first stop is "what happened", so a two-line
+        # standfirst says the same thing twice and charges the rail for it.
+        sub_font = fonts.body_font(30, 500)
+        for line in fonts.wrap_text(sub_font, card.standfirst, CONTENT_W)[:1]:
             draw.text((MARGIN, y), line, font=sub_font,
                       fill=theme.hex_to_rgb(theme.TEXT_SECONDARY))
-            y += int(34 * 1.28)
+            y += int(30 * 1.28)
     return y
 
 
@@ -217,20 +292,12 @@ def render_story_card(card: StoryCard, out_path: Path, story=None,
         log.warning("story card rail ended at %d, past its %d floor",
                     rail_end, RAIL_BOTTOM)
 
-    # Pip sits opposite the headline, sized to the room actually left between
-    # the header and the rail rather than placed at a guessed y.
-    pose = theme.pose_for_story(story, "explainer") if story is not None else "read"
-    band_h = rail_top - header_bottom
-    if pose and band_h >= 130:
-        scale = max(5, min(9, (band_h - 40) // 24))
-        theme.draw_pip(canvas, pose, scale=scale,
-                       x=SLIDE_W - MARGIN - 26 * scale,
-                       y=header_bottom + (band_h - 24 * scale) // 2)
+    _draw_pip(canvas, draw, story, top=header_bottom + HEAD_TO_PIP)
 
     if story is not None:
-        theme.draw_receipt(canvas, draw, story, x=MARGIN,
-                           y=SLIDE_H - RECEIPT_FROM_BOTTOM, tick_h=38,
-                           label_size=30, name_size=25)
+        theme.draw_receipt_inline(draw, story, x=MARGIN,
+                                  y=SLIDE_H - RECEIPT_FROM_BOTTOM,
+                                  tick_w=12, tick_h=38, names=True, name_size=25)
     theme.draw_footer(canvas, draw)
 
     canvas.convert("RGB").save(out_path, "PNG")
