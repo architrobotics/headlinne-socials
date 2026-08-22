@@ -117,7 +117,18 @@ something generated.
   automated account cannot have a presenter, and a character is the only way a
   faceless brand gets a personality that scales to every post at no cost per
   post. His pose is metadata: a regular reader learns the kind of story from the
-  character before reading a word. **Sensitive stories carry no mascot at all.**
+  character before reading a word. He appears on **every slide of a carousel** -
+  the scale slide used to draw him only as a fallback for a missing photograph,
+  so on any story that had one he was absent from a fifth of the set.
+
+  **Sensitive stories carry no mascot at all**, and that rule now holds in the
+  pixels rather than in the slide data. The sources and CTA slides supplied
+  their own default pose whenever the slide's was empty - which is exactly what
+  a sensitive story carries - so a ferry disaster shipped with a cartoon pigeon
+  on slides four and five while every test covering the rule passed, because
+  all of them read `slide.pose` instead of the render. The renderer refuses on
+  the story now, not on the field, and the visual gate counts Pip's palette
+  colours in the output.
 
   There are **20 poses and 18 animation cycles**, all built from one body block
   that is byte-identical in every pose, so only heads and props ever change.
@@ -353,6 +364,41 @@ both. Figurative uses (`dead star`, `dying star`, `dead zone`, `heat death`,
 `cell death`) are now subtracted, and only when they account for *every*
 sensitive term in the text, so "earthquake kills 40 near the observatory
 studying a dead star" still routes plainly.
+
+### Three genres that were never news
+
+The interest model was doing its job. What sat above it was everything the
+gates did not recognise, and on a measured day all three were inside the top
+ten.
+
+**Live blogs.** "... 'not nearly enough' - live" was the highest-scoring story
+of 15 August. `live:` and `live updates` were both in the low-value list; the
+trailing `- live` and `live blog` forms a publisher actually writes were not.
+
+**Shopping.** "Best Pixel 10 Cases and Accessories (2026): Mous, dbrand,
+Bellroy" ranked sixth. `best deals` was listed; `best ... cases` was not, and a
+product review carries no colon, so `review:` never fired either.
+
+**Papers, not stories.** The top three of 16 August were "Cell biochemistry
+beyond membranes: Condensate physics reveals general rules", "Unlocking the
+past: New method helps gain insights into old tissues" and "Airborne
+observatory improves views of solar corona" - while "A 30-year-old fossil was
+hiding bones from a mysterious ancient sea monster" sat at seven. Nothing in
+the scorer could tell a journal title from a headline, and the terms it rewards
+favour the journal: "cell", "physics" and "membranes" are all physical nouns,
+so `concrete` maxes out, and "reveals" is in `_NOVELTY`. There is a `jargon`
+penalty now, measured against a hand-labelled sample from four real days: it
+catches 9 of 11 paper titles with no false positive on 13 genuine stories.
+
+The penalty for all of this used to be 1.15 a marker capped at two, so at most
+2.30 - against a top-eighteen that spans about 2.5 points in total. A live blog
+stayed top of its day *with* the penalty applied. It is 3.0 now, which is
+enough to sink a story rather than nudge it.
+
+Feed strings are also unescaped properly now. `re.sub(r"&[a-z]+;", " ", text)`
+replaced a named entity with a space rather than the character it stood for and
+missed every numeric one, so nine titles in six days carried a raw `&#8217;`
+into the renderer, where it would have been set on a slide verbatim.
 
 ### Why the carousel stopped requiring three outlets
 
@@ -785,6 +831,22 @@ Previews are **silent**: the reel is paced at reading speed and spends no API
 request. Cut points and layout are what a preview is for, and both are honest
 without the voice. A real generate run narrates it.
 
+**See what the ranker actually picks.** `preview` renders one hand-written mock
+story, so it shows the design and tells you nothing about selection. This runs
+the real selectors over the real archived digests in `content/` and renders the
+stories they choose, offline and with no API key:
+
+```bash
+python scripts/sample_picks.py preview/samples 2026-08-18 2026-08-14
+```
+
+The ranking, the pick, the agreement state, Pip's pose and every pixel of layout
+are real; only the sentences are stand-ins, because Gemini writes those in a live
+run. Worth doing after any change to `news/interest.py` or `news/ranking.py` -
+rendering real headlines instead of a short fixture is what caught a subtitle
+running through the source strip, a magnifier fusing with Pip's head outline, and
+a visual gate that dropped exactly the stories the selector had just unblocked.
+
 **Check the account is still reaching people.** Reads the committed content
 folder, needs no key and no network, and exits non-zero when something is wrong:
 
@@ -895,7 +957,8 @@ headlinne-social/
 │   ├── samples/             The approved renders. These are the source of truth
 │   └── prototypes/          The programs the samples were rendered from
 ├── scripts/
-│   └── cron-jobs.md         cron-job.org setup walkthrough
+│   ├── cron-jobs.md         cron-job.org setup walkthrough
+│   └── sample_picks.py      Render what the ranker really picks, from the archive
 ├── .github/workflows/
 │   ├── generate.yml         Daily generate job
 │   ├── publish.yml          Per-slot publish job
