@@ -124,7 +124,12 @@ _PAROCHIAL = ("council", "borough", "constituency", "senator", "shares",
 # discovery really is both new and good.
 _UPLIFT = ("discover*", "breakthrough", "recovering", "recovered", "reclaim*",
            "restored", "revived", "saved", "thriving", "rebound", "cure",
-           "cured", "solved", "milestone", "repair*", "better than", "returns")
+           "cured", "solved", "milestone", "repair*", "better than")
+# `returns` was here and is gone. It is a noun as often as a verb, and both
+# senses are neutral: "returns to the market", "returns to court", "tax
+# returns", "returns fire". It scored a celebrity house listing as uplifting
+# and put it second in a pool of 380, above every discovery in the day.
+# rebound, recovered and revived already carry the sense that was wanted.
 
 # Knowing this changes what a reader does, checks or expects. Deliberately
 # factual and actionable rather than curiosity-gap: "you won't believe" is
@@ -151,6 +156,37 @@ _PROCEDURAL = ("hold", "holds", "held", "meet", "meets", "meeting", "discuss*",
 _CONTEXT_DEPENDENT = ("continues", "latest", "amid ongoing", "another round",
                       "as it happened", "update:", "day two", "day three")
 
+# Not our beat. Celebrity, entertainment, sport and property.
+#
+# There is no interest term that catches these, and several terms reward them:
+# a celebrity house listing carries a large numeral and a currency unit, so it
+# reads as `concrete`, and a photograph always exists, so it takes the image
+# point too. Measured on a real day that put "Chris Pratt's Pacific Palisades
+# home returns to the market" second in a pool of 380, above every discovery in
+# it - and the account has already published a story card about Travis Kelce
+# confirming his marriage, on an account about technology, finance and world
+# news.
+#
+# A penalty rather than a filter, and a smaller one than `procedural`, because
+# the boundary is genuinely soft: a film studio's earnings, an athlete's
+# endorsement contract or a housing market story can all be on the beat. This
+# costs such a story roughly one term; it does not remove it.
+_OFF_BEAT = ("actor", "actress", "singer", "rapper", "celebrity", "celebrities",
+             "red carpet", "box office", "movie star", "reality tv", "sitcom",
+             "royal family", "duchess", "the duke of", "prince harry",
+             "grammy", "grammys", "oscars", "academy award", "emmy", "emmys",
+             "brit awards", "eurovision", "met gala",
+             "engaged to", "engagement ring", "wedding", "honeymoon",
+             # Phrases rather than the bare noun: "marriage" alone would dock a
+             # same-sex marriage ruling, which is a real world-news story.
+             "confirms marriage", "announces marriage", "marries", "ties the knot",
+             "divorce", "split from", "dating rumours", "dating rumors",
+             "baby bump", "net worth", "mansion", "penthouse",
+             "listed for sale", "returns to the market", "asking price",
+             "premier league", "transfer fee", "world cup squad",
+             "nfl draft", "nba finals", "grand slam", "formula one",
+             "box set", "streaming series", "season finale", "tour dates")
+
 # Death and disaster. Not a disqualification - a routing decision.
 _SENSITIVE = ("dead", "death", "deaths", "killed", "kills", "killing",
               "casualt*", "massacre", "shooting", "stabbed", "murder",
@@ -166,6 +202,7 @@ _SENSITIVE = ("dead", "death", "deaths", "killed", "kills", "killing",
 _W_CONCRETE, _W_NOVELTY, _W_SURPRISE = 3.0, 2.4, 2.2
 _W_UNIVERSAL, _W_USEFUL, _W_UPLIFT = 2.6, 2.0, 1.8
 _W_IMAGE, _W_STANDALONE, _W_PROCEDURAL = 1.4, 1.2, 3.0
+_W_OFF_BEAT = 2.2
 
 
 _RX = {name: compile_terms(bag) for name, bag in (
@@ -173,6 +210,7 @@ _RX = {name: compile_terms(bag) for name, bag in (
     ("universal", _UNIVERSAL), ("parochial", _PAROCHIAL), ("uplift", _UPLIFT),
     ("useful", _USEFUL), ("procedural", _PROCEDURAL),
     ("context", _CONTEXT_DEPENDENT), ("sensitive", _SENSITIVE),
+    ("off_beat", _OFF_BEAT),
 )}
 
 
@@ -180,13 +218,44 @@ def _hits(text: str, name: str) -> int:
     return distinct_hits(text, _RX[name])
 
 
+# Where the vocabulary of death is the vocabulary of physics and biology, and
+# no person has come to harm. A dying star, a dead zone, the heat death of the
+# universe: these are the exact stories the wonder framing exists for, and the
+# sensitive routing was taking the mascot off them.
+#
+# Narrow on purpose. This suppresses the sensitive flag only when the matched
+# term is one of these phrases and nothing else in the text is sensitive, so
+# "earthquake kills 40 near the observatory" still routes plainly.
+_FIGURATIVE_DEATH = ("dead star", "dead stars", "dying star", "dying stars",
+                     "star death", "stellar death", "dead zone", "dead zones",
+                     "heat death", "dead planet", "dead galaxy", "dead cells",
+                     "dead skin", "cell death", "dead reckoning",
+                     "dead battery", "dead spot", "dead end")
+
+_RX["figurative_death"] = compile_terms(_FIGURATIVE_DEATH)
+
+
 def is_sensitive(title: str, summary: str = "") -> bool:
-    """True if the story is about death or disaster.
+    """True if the story is about death or disaster - a real one.
 
     Callers must not render these with the mascot, a speech bubble or any
     wonder framing. They are reported plainly.
+
+    The check is deliberately asymmetric. A missed sensitive story puts a
+    cartoon pigeon next to a death toll, which is the worst thing this system
+    can do, so the lexicon stays broad. But breadth cost real stories: "dead
+    star" put the single best story of a 380-story day - a nebula that shows
+    how our own sun ends - into plain treatment with no mascot and no wonder.
+    So the figurative uses are subtracted, and only when they account for
+    *every* sensitive term in the text.
     """
-    return _hits(f"{title} {summary}", "sensitive") > 0
+    text = f"{title} {summary}"
+    hits = _hits(text, "sensitive")
+    if not hits:
+        return False
+    # Every sensitive match is inside a figurative phrase, and there are at
+    # least as many figurative phrases as matches to account for them.
+    return hits > _hits(text, "figurative_death")
 
 
 def _terms(title: str, summary: str, has_image: bool) -> dict[str, float]:
@@ -205,6 +274,7 @@ def _terms(title: str, summary: str, has_image: bool) -> dict[str, float]:
         "image": 1.0 if has_image else 0.0,
         "standalone": max(0.0, 1.0 - _hits(text, "context") * 0.5),
         "procedural": min(1.0, _hits(text, "procedural") * 0.34),
+        "off_beat": min(1.0, _hits(text, "off_beat") * 0.5),
     }
 
 
@@ -219,7 +289,8 @@ def interest(title: str, summary: str = "", has_image: bool = False) -> float:
             + _W_UPLIFT * t["uplift"]
             + _W_IMAGE * t["image"]
             + _W_STANDALONE * t["standalone"]
-            - _W_PROCEDURAL * t["procedural"])
+            - _W_PROCEDURAL * t["procedural"]
+            - _W_OFF_BEAT * t["off_beat"])
 
 
 def is_universal(title: str, summary: str = "") -> bool:

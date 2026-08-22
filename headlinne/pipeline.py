@@ -166,13 +166,19 @@ def generate(day: date | None = None, *, render: bool = True,
 
     # 5. The carousel, on a different story from the reel, so the day does not
     #    spend two of its three posts on one event.
+    reel_stories = [r.story for r in reels if getattr(r, "story", None)]
     carousels = _generate_carousel(client, digest, day,
-                                   exclude_urls={reel_url} if reel_url else set())
+                                   exclude_urls={reel_url} if reel_url else set(),
+                                   exclude_stories=reel_stories)
 
     # 6. The daily story card. Generated after the reels so it can be given a
     #    different story from the news reel, rather than the day spending two of
     #    its formats on the same event.
-    story_card = _generate_story_card(client, digest, day, reels)
+    # The story card is told what the carousel took as well as what the reel
+    # took. It used to be told only about the reel, so on a day when two outlets
+    # filed the same discovery under different categories the carousel and the
+    # card both covered it.
+    story_card = _generate_story_card(client, digest, day, reels, carousels)
 
     # 7. Render everything.
     if render:
@@ -287,30 +293,37 @@ def _generate_reels(client: GeminiClient, digest: NewsDigest, day: date) -> list
 
 
 def _generate_carousel(client: GeminiClient, digest: NewsDigest, day: date,
-                       exclude_urls: set[str]) -> list:
+                       exclude_urls: set[str],
+                       exclude_stories: list | None = None) -> list:
     """The day's carousel: one story, five slides."""
     if not CAROUSEL_ENABLED:
         log.info("carousel disabled (CAROUSEL_ENABLED), skipping.")
         return []
     try:
         return gen_instagram.generate(client, digest, day,
-                                      exclude_urls=exclude_urls)
+                                      exclude_urls=exclude_urls,
+                                      exclude_stories=exclude_stories)
     except Exception as exc:  # noqa: BLE001
         log.error("carousel generation failed: %s", exc, exc_info=True)
         return []
 
 
 def _generate_story_card(client: GeminiClient, digest: NewsDigest, day: date,
-                         reels: list):
+                         reels: list, carousels: list | None = None):
     if not STORY_CARD_ENABLED:
         log.info("story card disabled (STORY_CARD_ENABLED), skipping.")
         return None
     news_reel = next((r for r in reels if r.kind == "news"), None)
+    spoken_for = [r.story for r in reels if getattr(r, "story", None)]
+    spoken_for += [c.story for c in (carousels or []) if getattr(c, "story", None)]
+    used_urls = {r.story_url for r in reels if r.story_url}
+    used_urls |= {c.story_url for c in (carousels or []) if c.story_url}
     try:
         return gen_story_card.generate(
             client, digest, day,
-            exclude_urls={news_reel.story_url} if news_reel and news_reel.story_url else set(),
+            exclude_urls=used_urls,
             prefer_other_than=news_reel.category if news_reel else None,
+            exclude_stories=spoken_for,
         )
     except Exception as exc:  # noqa: BLE001
         log.error("story card generation failed: %s", exc, exc_info=True)
@@ -459,7 +472,17 @@ def _quality_check_story_card(card, *, require_media: bool = True):
 
 
 def _schedule_buffer(day: date, plan: DayPlan) -> None:
-    """Schedule X and LinkedIn posts into Buffer at their slot times."""
+    """Schedule X and LinkedIn posts into Buffer at their slot times.
+
+    Idempotent per slot. Buffer cannot edit or delete a post once it is created
+    (see publish.buffer), so a second generate run on the same day used to mean
+    a second copy of every X and LinkedIn post going out, with no way to recall
+    it. That made the run unsafe to repeat, which is why the backup cron was
+    taken off generate.yml - and with only the external trigger left, one missed
+    call meant a silent day. The marker written by storage.mark_published is the
+    record of what already reached Buffer, so consulting it here is what makes
+    the run repeatable, and the workflow safe to schedule again.
+    """
     from .publish import BufferClient, BufferError
 
     try:
@@ -471,6 +494,10 @@ def _schedule_buffer(day: date, plan: DayPlan) -> None:
     # X posts
     for i, post in enumerate(plan.twitter):
         slot = "x_1" if i == 0 else "x_2"
+        if storage.is_published(day, slot):
+            log.info("%s is already in Buffer for %s, not scheduling it twice.",
+                     slot, day.isoformat())
+            continue
         due = None if upcoming_slot_passed(day, slot) else _to_buffer_utc(post.scheduled_time)
         images = _x_card_urls(day, slot)
         try:
@@ -481,6 +508,10 @@ def _schedule_buffer(day: date, plan: DayPlan) -> None:
             log.error("Failed to schedule X post %d: %s", i + 1, exc)
 
     # LinkedIn
+    if storage.is_published(day, "linkedin"):
+        log.info("linkedin is already in Buffer for %s, not scheduling it twice.",
+                 day.isoformat())
+        return
     li = plan.linkedin
     li_text = _linkedin_text(li)
     due = None if upcoming_slot_passed(day, "linkedin") else _to_buffer_utc(li.scheduled_time)
@@ -610,8 +641,14 @@ def _publish_reel(day: date, target: str) -> None:
     video_url = get_image_host().url_for(video_path)
     caption, first_comment = apply_first_comment_policy(
         reel.caption, reel.first_comment)
-    res = BufferClient().post_instagram_reel(video_url, caption,
-                                             first_comment=first_comment)
+    # The cover frame is the reel's thumbnail in the grid and in the Reels tab,
+    # and it is permanent. Derive it from the reel's own opening beat rather
+    # than guessing, so it always lands after the hook has finished revealing.
+    from .render.reel import cover_offset_ms
+
+    res = BufferClient().post_instagram_reel(
+        video_url, caption, first_comment=first_comment,
+        thumbnail_offset_ms=cover_offset_ms(reel))
     storage.mark_published(day, target, {"buffer": res, "video": video_url,
                                          "duration": reel.duration_seconds})
 

@@ -47,8 +47,12 @@ TONE = {
 POSE = {
     "unanimous": "verified",
     "developing": "read",
+    # A shrug and a magnifier are not the same statement. "Disputed" means the
+    # outlets took positions and those positions differ, which is a shrug.
+    # "Single" means nobody else is carrying it yet, which is not doubt about
+    # the claim, it is a note that the checking is still going on.
     "disputed": "puzzled",
-    "single": "puzzled",
+    "single": "investigate",
 }
 
 

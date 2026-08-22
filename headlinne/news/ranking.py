@@ -25,6 +25,7 @@ from datetime import datetime, timezone
 from difflib import SequenceMatcher
 
 from ..config import CATEGORIES, HIGH_INTEREST_KEYWORDS
+from ._lexicon import compile_terms, distinct_hits
 from ..logging_setup import get_logger
 from ..models import NewsDigest, Story
 from . import interest as interest_mod
@@ -42,7 +43,14 @@ _SIM_THRESHOLD = 0.52          # how alike two headlines must be to merge
 _SOURCE_WEIGHT = 0.6           # tiebreaker only; see news/interest.py
 _INTEREST_WEIGHT = 1.0         # the primary ranking signal
 _TIER_WEIGHT = 1.6             # weight on best source reputability
-_KEYWORD_WEIGHT = 0.9          # weight per importance keyword (capped)
+# Topical fit, not interest - see config.HIGH_INTEREST_KEYWORDS. Weighted and
+# capped so it can rank two comparably interesting stories against each other
+# and never overturn the interest score itself. At 0.9 x 4 it contributed 29% of
+# the ranking's variance while the interest score contributed 68%, which made a
+# vocabulary match worth more than half of what the whole editorial model was
+# worth. It is a tiebreaker now, and sized like one.
+_TOPIC_WEIGHT = 0.35           # per distinct on-beat term
+_TOPIC_CAP = 3                 # distinct terms that count
 _RECENCY_WEIGHT = 1.0          # small recency nudge
 _BREADTH_BONUS = 0.7           # bonus for a big story verified by trusted outlets
 _LOW_VALUE_PENALTY = 1.15      # docked per soft/low-value marker (capped)
@@ -162,14 +170,17 @@ def _low_value_penalty(text: str) -> float:
     return _LOW_VALUE_PENALTY * min(hits, 2)
 
 
+_TOPIC_RX = compile_terms(HIGH_INTEREST_KEYWORDS)
+
 def _score(story: Story) -> float:
     sources = story.source_count
     verification = _SOURCE_WEIGHT * math.log2(sources + 1)
     reputability = _TIER_WEIGHT * story.tier
 
-    text = (story.title + " " + story.summary).lower()
-    kw = sum(1 for k in HIGH_INTEREST_KEYWORDS if k in text)
-    keywords = _KEYWORD_WEIGHT * min(kw, 4)
+    text = story.title + " " + story.summary
+    # Distinct on-beat terms, matched on word boundaries. `k in text` counted
+    # "said" as an AI story - see config.HIGH_INTEREST_KEYWORDS.
+    topic = _TOPIC_WEIGHT * min(distinct_hits(text, _TOPIC_RX), _TOPIC_CAP)
 
     age = _hours_old(story)
     recency = _RECENCY_WEIGHT * math.exp(-age / 18.0)  # gentle decay
@@ -179,13 +190,13 @@ def _score(story: Story) -> float:
     # lead with (this is a proxy for genuine importance, not just volume).
     breadth = _BREADTH_BONUS if (sources >= 3 and story.tier >= 1.2) else 0.0
 
-    penalty = _low_value_penalty(text)
+    penalty = _low_value_penalty(text.lower())
 
     # The primary signal: would a person who is not obliged to read this want to?
     appeal = _INTEREST_WEIGHT * interest_mod.interest(
         story.title, story.summary, has_image=bool(story.image_url))
 
-    return (appeal + verification + reputability + keywords + recency
+    return (appeal + verification + reputability + topic + recency
             + breadth - penalty)
 
 
@@ -336,6 +347,37 @@ def _log_decisions(by_category: dict[str, list[Story]], top: int = 3) -> None:
                 s.verified, s.sensitive, b["concrete"], b["universal"],
                 b["useful"], b["novelty"], b["surprise"], b["uplift"],
                 b["procedural"], s.title[:70])
+
+
+# How alike two headlines must be for the day to treat them as one event when
+# choosing what each format covers.
+#
+# Deliberately looser than _SIM_THRESHOLD, and the asymmetry is the reason it is
+# a separate number rather than a reuse of that one. Clustering merges the
+# sources behind a published claim: a false merge there puts "4 outlets agree"
+# under a story four outlets did not agree on, which is the one thing this
+# system must never print. Here a false positive costs the day its second-best
+# story and nothing else. The two decisions do not deserve the same caution.
+#
+# 0.52 let Wired's "Astronomers Discover the Existence of a Black Hole Star" and
+# Phys.org's "Black hole star: Astronomers discover a brand-new type of
+# astrophysical object" through as separate events, and the day put the same
+# discovery on the carousel and the story card.
+SAME_EVENT_SIM = 0.30
+
+
+def same_event(a: Story, b: Story) -> bool:
+    """Whether two stories are two outlets covering one thing.
+
+    Used to stop a day spending two of its three formats on one event. Compares
+    headline tokens rather than URLs, because two outlets on one story share
+    neither a URL nor, necessarily, a category - the black hole star above was
+    filed under Technology by one and Science by the other.
+    """
+    ta, tb = _tokens(a.title), _tokens(b.title)
+    if not ta or not tb:
+        return False
+    return len(ta & tb) / len(ta | tb) >= SAME_EVENT_SIM
 
 
 def strongest_categories(digest: NewsDigest, n: int = 2) -> list[str]:

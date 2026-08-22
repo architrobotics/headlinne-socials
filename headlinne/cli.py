@@ -7,6 +7,7 @@ Usage:
   python -m headlinne publish --target reel-1    # publish one slot
   python -m headlinne preview                    # render every format offline
   python -m headlinne preview --no-video         # ... but skip the reels
+  python -m headlinne status                     # did it post, and did it reach?
 """
 
 from __future__ import annotations
@@ -59,6 +60,22 @@ def _cmd_reddit(args: argparse.Namespace) -> int:
         return 0
 
     return 1
+
+
+def _cmd_status(args: argparse.Namespace) -> int:
+    """Report whether the account is still generating, and still reaching.
+
+    Exits non-zero when something is wrong, so this can be a CI step rather
+    than something a person has to remember to look at. Nothing else in the
+    system notices silence: contained failures are the right call for one bad
+    format on one day, and the wrong call as a way of finding out that a
+    fortnight went by without a reel.
+    """
+    from . import health
+
+    report = health.scan(days=args.days)
+    print(health.as_json(report) if args.json else health.format_report(report))
+    return 1 if report.problems() else 0
 
 
 def _cmd_preview(args: argparse.Namespace) -> int:
@@ -318,6 +335,13 @@ def build_parser() -> argparse.ArgumentParser:
                     help="skip the reel previews (they need ffmpeg and take "
                          "about two minutes each)")
     pv.set_defaults(func=_cmd_preview)
+
+    st = sub.add_parser("status",
+                        help="is the account still generating, and still reaching?")
+    st.add_argument("--days", type=int, default=30,
+                    help="how many days back to look (default 30)")
+    st.add_argument("--json", action="store_true", help="machine-readable output")
+    st.set_defaults(func=_cmd_status)
 
     r = sub.add_parser("reddit",
                        help="find relevant Reddit threads and draft helpful replies for review")

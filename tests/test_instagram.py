@@ -1,7 +1,6 @@
 """The daily carousel: what earns it, and how the five slides are assembled."""
 
-from headlinne.generate.instagram import (MIN_SOURCES_FOR_CAROUSEL,
-                                          _hashtags, _slides, agreement_line,
+from headlinne.generate.instagram import (_hashtags, _slides, agreement_line,
                                           pick_story, verified_figure)
 from headlinne.models import Agreement, Conflict, NewsDigest, Story
 
@@ -40,17 +39,44 @@ def test_the_best_well_sourced_story_wins():
     assert pick_story(_digest([thin, best])) is best
 
 
-def test_a_thinly_sourced_story_never_gets_five_slides():
-    # Four of the five slides make claims the source strip has to back, so the
-    # bar is higher here than the two-source publishing bar.
+def test_corroboration_is_a_preference_and_not_a_floor():
+    """A hard three-outlet gate left three candidates in a pool of 380, and not
+    one of the twenty most interesting stories was among them. Corroboration is
+    rare in this feed set, so a floor does not raise the standard - it just
+    hands the format whatever got syndicated."""
+    thin = _story("A genuinely remarkable single-source find", score=14.0,
+                  outlets=1)
+    wire = _story("Third rate cut discussed at summit", score=9.0, outlets=5)
+    assert pick_story(_digest([thin, wire])) is thin
+
+
+def test_a_single_source_story_is_described_honestly_rather_than_refused():
+    """The fourth slide is the source strip, and the strip already has a
+    SINGLE SOURCE state with its own tone and its own pose. The format does not
+    need protecting from a story it can describe accurately."""
     thin = _story("Single-source scoop", score=9.9, outlets=1)
-    assert pick_story(_digest([thin])) is None
+    picked = pick_story(_digest([thin]))
+    assert picked is thin
+    assert picked.agreement.state == "single"
 
 
-def test_it_falls_back_to_the_best_verified_story_rather_than_nothing():
-    two = _story("Two outlets have it", score=7.0, outlets=2)
-    assert pick_story(_digest([two])) is two
-    assert two.agreement.reported < MIN_SOURCES_FOR_CAROUSEL
+def test_the_source_bonus_is_bounded_so_a_wire_story_cannot_coast_on_outlets():
+    """Every extra outlet past the cap is worth nothing, or the format drifts
+    back to picking whatever the most outlets ran."""
+    many = _story("Carried by everyone, interesting to nobody", score=8.0,
+                  outlets=12)
+    good = _story("Carried by two, worth five slides", score=11.0, outlets=2)
+    assert pick_story(_digest([many, good])) is good
+
+
+def test_two_comparable_stories_are_split_by_their_sourcing():
+    thin = _story("Comparable, one outlet", score=9.0, outlets=1)
+    sourced = _story("Comparable, four outlets", score=9.0, outlets=4)
+    assert pick_story(_digest([thin, sourced])) is sourced
+
+
+def test_a_day_with_no_stories_at_all_skips_the_format():
+    assert pick_story(_digest([])) is None
 
 
 def test_the_reel_story_is_excluded_so_the_day_does_not_repeat_itself():
@@ -169,3 +195,56 @@ def test_hashtags_are_deduplicated_and_capped():
     lowered = [t.lower() for t in tags]
     assert len(lowered) == len(set(lowered))
     assert len(tags) <= 12
+
+
+# --------------------------------------------------------------------------- #
+# One event, one format
+# --------------------------------------------------------------------------- #
+def test_two_outlets_on_one_event_are_recognised_as_one_event():
+    """The real collision: Wired filed it under Technology, Phys.org under
+    Science, the URLs differ, and the day put the same discovery on both the
+    carousel and the story card."""
+    from headlinne.news.ranking import same_event
+
+    a = _story("Astronomers Discover the Existence of a Black Hole Star",
+               category="Technology")
+    b = _story("Black hole star: Astronomers discover a brand-new type of "
+               "astrophysical object", category="Science")
+    assert same_event(a, b)
+
+
+def test_unrelated_stories_are_not_treated_as_one_event():
+    from headlinne.news.ranking import same_event
+
+    a = _story("Astronomers Discover the Existence of a Black Hole Star")
+    b = _story("Ebola outbreak in Democratic Republic of Congo now deadliest")
+    c = _story("Homes near pylons to get money off energy bills")
+    assert not same_event(a, b)
+    assert not same_event(a, c)
+    assert not same_event(b, c)
+
+
+def test_the_same_event_bar_is_looser_than_the_clustering_bar():
+    """Deliberately. A false merge in clustering prints "4 outlets agree" under
+    a story four outlets did not agree on. A false positive here costs the day
+    its second-best story. The two do not deserve the same caution."""
+    from headlinne.news.ranking import SAME_EVENT_SIM, _SIM_THRESHOLD
+
+    assert SAME_EVENT_SIM < _SIM_THRESHOLD
+
+
+def test_the_carousel_skips_a_story_the_reel_already_took():
+    reel_story = _story("Astronomers Discover the Existence of a Black Hole Star",
+                        score=12.0, outlets=4)
+    same = _story("Black hole star: Astronomers discover a brand-new type of "
+                  "astrophysical object", score=11.0, outlets=4)
+    other = _story("Homes near pylons to get money off energy bills",
+                   score=10.0, outlets=4)
+    picked = pick_story(_digest([same, other]), exclude_stories=[reel_story])
+    assert picked is other, "the carousel repeated the reel's event"
+
+
+def test_excluding_by_story_still_honours_the_url_exclusion():
+    a = _story("Story A", score=9.0, outlets=4)
+    b = _story("Completely different subject matter here", score=8.0, outlets=4)
+    assert pick_story(_digest([a, b]), exclude_urls={a.url}) is b

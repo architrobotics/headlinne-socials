@@ -19,23 +19,25 @@ on its own.
 1. [How it works](#how-it-works)
 2. [What it posts](#what-it-posts)
 3. [Why the format mix looks like this](#why-the-format-mix-looks-like-this)
-4. [The writing style](#the-writing-style)
-5. [Hooks and captions](#hooks-and-captions)
-6. [Reddit engagement](#reddit-engagement-opportunity-finder-not-a-spam-bot)
-7. [Prerequisites](#prerequisites)
-8. [Setup](#setup)
+4. [What the ranker is actually optimising for](#what-the-ranker-is-actually-optimising-for)
+5. [Is it actually reaching anyone?](#is-it-actually-reaching-anyone)
+6. [The writing style](#the-writing-style)
+7. [Hooks and captions](#hooks-and-captions)
+8. [Reddit engagement](#reddit-engagement-opportunity-finder-not-a-spam-bot)
+9. [Prerequisites](#prerequisites)
+10. [Setup](#setup)
    - [1. Create the repository](#1-create-the-repository)
    - [2. Get a Gemini API key](#2-get-a-gemini-api-key)
    - [3. Connect Buffer (X and LinkedIn)](#3-connect-buffer-x-and-linkedin)
    - [4. Connect the Meta Graph API (Instagram)](#4-connect-the-meta-graph-api-instagram)
    - [5. Add GitHub secrets and variables](#5-add-github-secrets-and-variables)
    - [6. Schedule the daily trigger with cron-job.org](#6-schedule-the-daily-trigger-with-cron-joborg)
-9. [Scheduled mode vs trigger mode](#scheduled-mode-vs-trigger-mode)
-10. [The daily schedule](#the-daily-schedule)
-11. [Running and testing locally](#running-and-testing-locally)
-12. [Project structure](#project-structure)
-13. [Customising](#customising)
-14. [Troubleshooting](#troubleshooting)
+11. [Scheduled mode vs trigger mode](#scheduled-mode-vs-trigger-mode)
+12. [The daily schedule](#the-daily-schedule)
+13. [Running and testing locally](#running-and-testing-locally)
+14. [Project structure](#project-structure)
+15. [Customising](#customising)
+16. [Troubleshooting](#troubleshooting)
 
 ---
 
@@ -45,9 +47,13 @@ The day splits into two stages.
 
 **Generate (morning).** Once a day GitHub Actions runs the generate job. It pulls
 RSS feeds from a list of reputable publishers, clusters stories that appear in
-several outlets so it can verify them across sources, and ranks them by
-significance rather than by how recently they were published. A story backed by
-more independent, trusted sources scores higher. From the ranking it picks the
+several outlets so it can verify them across sources, and ranks them by **how
+interesting they are**, not by how widely they were covered or how recently they
+were published. Cross-source coverage answers "is this true?" and gates
+publication; it deliberately does not decide what leads, because the story the
+most outlets ran is a central bank, a summit or an earnings print. See
+[What the ranker is actually optimising for](#what-the-ranker-is-actually-optimising-for).
+From the ranking it picks the
 strongest categories of the day, asks Gemini to write the copy, renders the
 Instagram carousels and the story card with Pillow and the two reels with Pillow
 plus ffmpeg, and commits everything to the `content/` folder. It also records a
@@ -112,6 +118,19 @@ something generated.
   faceless brand gets a personality that scales to every post at no cost per
   post. His pose is metadata: a regular reader learns the kind of story from the
   character before reading a word. **Sensitive stories carry no mascot at all.**
+
+  There are **20 poses and 18 animation cycles**, all built from one body block
+  that is byte-identical in every pose, so only heads and props ever change.
+  Several poses carry a specific meaning rather than a mood: `chart_up` and
+  `chart_down` for the direction of a market story, `investigate` for a story
+  only one outlet is running so far, `nod` and `shake` for whether the outlets
+  agreed. The animation is built from the basic principles rather than from
+  tweens - squash and stretch on a landing, anticipation before a launch,
+  follow-through on the wings, and frame holds for timing, since the player
+  steps frames at a fixed rate and repetition is the only timing control there
+  is. Every cycle registered in `theme.CYCLES` is checked on every run for
+  actually changing pixels. `python -m headlinne.render.pip` writes a GIF of
+  every cycle plus a contact sheet of all 20 poses.
 - **Plates.** Photographs appear tilted in a paper frame with a strip of tape. A
   straight rectangle reads as a screenshot; a tilted one reads as an object
   someone put there.
@@ -285,6 +304,155 @@ This used to be four - two reels plus one or two carousels plus the card. The
 second reel and the second carousel are now opt-in (`SECOND_REEL=true`,
 `IG_SECOND_CAROUSEL=true`). Both slots still exist and still publish if something
 is written into them, so a manual extra post needs no code change.
+
+---
+
+## What the ranker is actually optimising for
+
+`news/interest.py` scores nine terms and answers one question: would a person
+who is not obliged to read this want to? That score is the primary ranking
+signal, and on a measured day it carried **68% of the final score's variance**,
+which is what it should carry.
+
+Everything else in `news/ranking.py` is a tiebreaker, and the reason to say so
+explicitly is that three of them had quietly stopped being tiebreakers.
+
+**Topical fit is not interest.** `HIGH_INTEREST_KEYWORDS` in `config.py` answers
+"is this our beat", nothing more. It used to be worth up to +3.6 and carried
+**29% of the ranking's variance** — a vocabulary match worth almost half of what
+the entire editorial model was worth. Two things were wrong with it:
+
+- It matched raw substrings, so `ai` matched *said*, *again*, *against*,
+  *campaign*, *available*, *detail* and *fail*. On one real day of 380 stories,
+  **46% scored as AI stories while 8% actually were**. `war` matched *warning*,
+  *warming*, *toward* and *software*; `oil` matched *boiling* and *spoiled*. It
+  matches on word boundaries now, through the same `news/_lexicon.py` every
+  other lexicon in the project uses.
+- It rewarded exactly what `interest.py` penalises. `earnings`, `stocks`,
+  `ipo`, `merger`, `acquisition`, `summit` and `central bank` sat in the topic
+  list while `interest._PAROCHIAL` docked them, and the topic bonus won, because
+  it could add more than the parochial term could ever take away. A test now
+  asserts the two lexicons cannot overlap.
+
+**Not everything with a big number in it is interesting.** A celebrity house
+listing carries a currency unit and a large numeral, so it reads as `concrete`,
+and a photograph always exists, so it takes the image point too. `returns` was
+in the uplift lexicon — as in *returns to the market* — and that combination put
+"Chris Pratt's Pacific Palisades home returns to the market" **second in a pool
+of 380**, above every discovery of the day. There is now an `off_beat` penalty
+for celebrity, entertainment, sport and property vocabulary. It is a penalty and
+not a filter, because the boundary is soft: a studio's results, a housing market
+story and an athlete's contract can all be genuinely on the beat.
+
+**A dying star is not a casualty.** `is_sensitive()` is deliberately broad,
+because putting a cartoon pigeon next to a death toll is the worst thing this
+system can do. But breadth cost real stories: `dead star` routed the single best
+story of a 380-story day — a nebula showing how our own sun ends — to plain
+treatment with no mascot and no wonder framing, on the one story most in need of
+both. Figurative uses (`dead star`, `dying star`, `dead zone`, `heat death`,
+`cell death`) are now subtracted, and only when they account for *every*
+sensitive term in the text, so "earthquake kills 40 near the observatory
+studying a dead star" still routes plainly.
+
+### Why the carousel stopped requiring three outlets
+
+It used to need three independent outlets, one above the house publishing bar,
+on the reasoning that five slides is the biggest claim the account makes in a
+day. The reasoning was sound. The arithmetic was not.
+
+Measured against a real day's pool of 380 stories:
+
+| Bar | Stories that clear it | Of the 20 most interesting |
+|---|---|---|
+| 1 outlet | 380 (100%) | 20 |
+| 2 outlets | 15 (3.9%) | 1 |
+| **3 outlets** | **3 (0.8%)** | **0** |
+
+Corroboration is simply rare in this feed set. Most stories are carried by one
+outlet, and the best ones are often carried by a specialist nobody syndicates.
+So the format was choosing between three wire stories a day — and replayed over
+the last ten days of the archive, the three-outlet floor **skipped the carousel
+entirely on eight of them**. A gate admitting 1% of the pool is not a standard,
+it is an accident of feed overlap.
+
+Corroboration is a **bonus** now rather than a floor
+(`CAROUSEL_SOURCE_BONUS`, default 0.8 per outlet, capped at 3). A well-sourced
+story beats a comparable thin one; a genuinely outstanding single-source story
+still takes the slot.
+
+**The honest trade-off:** on nine of ten sampled days the best story of the day
+had one outlet behind it, so most carousels will now carry a "SINGLE SOURCE"
+strip. That is a real change in what the account claims, and it is a dial rather
+than a decision — set `CAROUSEL_SOURCE_BONUS=2.0` and corroboration leads again.
+Whatever it is set to, the fourth slide tells the truth: the source strip
+already has a `single` state with its own tone and Pip holding a magnifier, so a
+thinly-sourced story is described accurately rather than dressed up or refused.
+
+### What changed, on one real day
+
+Same 380 stories, 18 August. Before, and after:
+
+| | Picked |
+|---|---|
+| Carousel, before | Thom Yorke, Romy and Brian Eno among 200 musicians urging PM to reject new North Sea drilling |
+| Carousel, after | Scientists find dead star that predicts our sun's future |
+| Story card, after | The Moon's shadow raced across the heart of Spain |
+
+The top of the ranking went from prediction markets, a celebrity house listing
+and three Ukraine wire stories to an eclipse seen from space, a plume in the
+East China Sea, Einstein's cosmological constant and 1.7-billion-year-old
+fossils.
+
+---
+
+## Is it actually reaching anyone?
+
+Run this. It reads the committed `content/` folder, so it is correct even when
+the pipeline is the thing that is broken, and it needs no key and no network:
+
+```bash
+python -m headlinne status --days 30
+```
+
+```
+Window            last 30 days, to 2026-08-22
+Last generated    2026-08-18  (4 days ago)
+
+Discovery         a reel went out on 7 of 30 days  (23%)
+
+Slot              days published
+  reel_1            7/30   23% ######  [discovery]
+  reel_2            6/30   20% #####  [discovery]
+  instagram_1      22/30   73% ##################  [owned]
+  ...
+```
+
+It exits non-zero when something is wrong, and `.github/workflows/health.yml`
+runs it once a day so a failure lands in your inbox.
+
+**Why this exists.** Every other workflow here reports on the run it just did.
+None of them can report on a run that never happened, and that is the failure
+that actually costs impressions: the trigger misses, no content is committed,
+every publish slot finds nothing to publish, and every job that does run exits
+zero. The account goes quiet and the repository looks healthy.
+
+It watches two numbers, and neither of them is "did the job exit zero".
+
+**Silence.** Days between the last generated day and today. Nothing can be
+published on a day that was never generated, so this is the first thing to look
+at when the impressions are zero.
+
+**Discovery share.** The share of days that published a reel. Feed posts are
+shown almost entirely to people who already follow you, so on a day with no
+reel a small account reaches nobody new no matter how good the carousel was.
+A carousel published to a hundred followers and a carousel published to nobody
+are close to the same number of impressions, which is why counting posts
+published is not a measure of distribution and counting reel days is.
+
+The contained-failure behaviour everywhere else in the pipeline is the right
+call for one bad format on one day. Repeated over weeks it is also how an
+account quietly becomes a feed-only account without one error being raised.
+This is the thing that says so.
 
 ---
 
@@ -617,6 +785,24 @@ Previews are **silent**: the reel is paced at reading speed and spends no API
 request. Cut points and layout are what a preview is for, and both are honest
 without the voice. A real generate run narrates it.
 
+**Check the account is still reaching people.** Reads the committed content
+folder, needs no key and no network, and exits non-zero when something is wrong:
+
+```bash
+python -m headlinne status --days 30
+```
+
+See [Is it actually reaching anyone?](#is-it-actually-reaching-anyone) for what
+the two numbers mean and why they are the two that matter.
+
+**See Pip's poses and animations.** Writes a GIF of every registered animation
+cycle plus a contact sheet of all 20 poses, which is the only way to spot drift
+between them:
+
+```bash
+python -m headlinne.render.pip
+```
+
 **About ffmpeg.** Reels are encoded with ffmpeg. GitHub's Ubuntu runners already
 ship it, so CI needs nothing extra. Locally, `imageio-ffmpeg` in
 `requirements.txt` carries a static build, so `pip install -r requirements.txt`
@@ -661,6 +847,7 @@ headlinne-social/
 │   ├── pipeline.py          Orchestrates generate and publish
 │   ├── storage.py           Reads and writes the content/ folder
 │   ├── cli.py               Command-line entry point
+│   ├── health.py            Did it post, and did it reach? The silence alarm
 │   ├── news/                Fetch feeds, rank, and corroborate
 │   │   ├── interest.py      Nine-term interest score: is this worth reading?
 │   │   ├── quality.py       The news-worthiness gate: what is not news at all
@@ -677,7 +864,7 @@ headlinne-social/
 │   │   └── story_card.py    The daily walk-through card
 │   ├── render/              Draws every visual with Pillow (video via ffmpeg)
 │   │   ├── theme.py         The design system: paper, masthead, Pip, receipt
-│   │   ├── pip.py           The mascot: 6 poses, 6 animation cycles, 26px wide
+│   │   ├── pip.py           The mascot: 20 poses, 18 animation cycles, 26px wide
 │   │   ├── plate.py         Tilted taped frames and the 4-rung fallback ladder
 │   │   ├── receipt.py       The source strip: ticks, label, state, pose
 │   │   ├── fonts.py         Manrope on its weight axis, plus fitting helpers
@@ -712,6 +899,7 @@ headlinne-social/
 ├── .github/workflows/
 │   ├── generate.yml         Daily generate job
 │   ├── publish.yml          Per-slot publish job
+│   ├── health.yml           Daily distribution check: silence and reach
 │   └── tests.yml            Runs the test suite on every push
 ├── content/                 Generated output, one folder per day (auto-created)
 ├── state/                   Rolling history for de-duplication (auto-created)

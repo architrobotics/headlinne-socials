@@ -109,3 +109,78 @@ def test_the_procedural_verbs_do_not_catch_unrelated_words():
     # why these are listed as explicit forms rather than stems.
     assert I.breakdown("An urgent recall of 40,000 batteries")["procedural"] == 0.0
     assert I.breakdown("The weight of the stage was four tonnes")["procedural"] == 0.0
+
+
+# --------------------------------------------------------------------------- #
+# What the scorer must not mistake for interest
+# --------------------------------------------------------------------------- #
+def test_returns_is_not_uplift():
+    """`returns` is a noun as often as a verb and both senses are neutral. It
+    scored a celebrity house listing as uplifting and put it second in a pool of
+    380, above every discovery in the day."""
+    assert "returns" not in I._UPLIFT
+    listing = "Chris Pratt's Pacific Palisades home returns to the market for just under $25 million"
+    assert I.breakdown(listing, "", True)["uplift"] == 0
+
+
+def test_a_celebrity_house_listing_does_not_outrank_a_discovery():
+    listing = ("Chris Pratt's Pacific Palisades home returns to the market "
+               "for just under $25 million")
+    finding = "Immune cells have a 'sense of touch,' scientists discover"
+    assert I.interest(finding, "", True) > I.interest(listing, "", True)
+
+
+def test_entertainment_and_sport_are_off_the_beat():
+    """The account covers technology, finance and world news. It has already
+    published a story card about Travis Kelce confirming his marriage."""
+    for headline in (
+        "Travis Kelce confirms marriage to Taylor Swift",
+        "Premier League club agrees transfer fee for midfielder",
+        "Oscars 2027: every nomination, ranked",
+    ):
+        assert I.breakdown(headline, "", True)["off_beat"] > 0, headline
+
+
+def test_the_off_beat_penalty_does_not_catch_a_real_business_story():
+    """The boundary is soft on purpose. A studio's results, a housing market
+    story and an athlete's contract can all be genuinely on the beat."""
+    for headline in (
+        "House prices fall for a fourth month as mortgage rates bite",
+        "Warner Bros results fall as streaming losses widen",
+        "Sony raises PlayStation prices after tariff ruling",
+    ):
+        assert I.breakdown(headline, "", True)["off_beat"] == 0, headline
+
+
+# --------------------------------------------------------------------------- #
+# Sensitivity: broad on purpose, but not blind
+# --------------------------------------------------------------------------- #
+def test_a_dying_star_is_not_a_casualty():
+    """The single best story in a real 380-story day was a nebula showing how
+    our own sun ends. "dead star" routed it to plain treatment: no mascot, no
+    wonder framing - on the one story most in need of both."""
+    for headline in (
+        "Scientists find dead star that predicts our sun's future",
+        "Astronomers watch a dying star shed its outer layers",
+        "The ocean's dead zones are spreading faster than models predicted",
+        "How the heat death of the universe actually works",
+    ):
+        assert not I.is_sensitive(headline), headline
+
+
+def test_a_real_disaster_is_still_sensitive():
+    for headline in (
+        "Ferry capsizes off Bali, 40 dead",
+        "At least 6 dead after aerial attack",
+        "Powerful 7.7 earthquake hits eastern Indonesia",
+        "Death toll rises after building collapse",
+    ):
+        assert I.is_sensitive(headline), headline
+
+
+def test_a_figurative_phrase_does_not_launder_a_real_death_toll():
+    """The guard subtracts figurative uses; it must never clear a text that has
+    a genuine casualty term in it as well."""
+    assert I.is_sensitive(
+        "Earthquake kills 40 near the observatory studying a dead star")
+    assert I.is_sensitive("Dead star research halted after lab fire kills two")

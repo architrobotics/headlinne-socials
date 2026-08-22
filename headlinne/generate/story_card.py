@@ -18,6 +18,7 @@ from ..config import BRAND, CATEGORY_LABELS
 from ..gemini.client import GeminiClient
 from ..gemini.prompts import STYLE_GUIDE, stories_block, story_card_prompt
 from ..logging_setup import get_logger
+from ..news.ranking import same_event
 from ..models import NewsDigest, Story, StoryCard, StoryStep
 from ..news.images import best_story_image
 from ..quality.sanitize import sanitize
@@ -59,7 +60,8 @@ _BASE_TAGS = {
 
 
 def pick_story(digest: NewsDigest, *, exclude_urls: set[str] | None = None,
-               prefer_other_than: str | None = None) -> Story | None:
+               prefer_other_than: str | None = None,
+               exclude_stories: list[Story] | None = None) -> Story | None:
     """Choose the article to walk through.
 
     Prefers a category other than the one the news reel already took, so the day
@@ -67,8 +69,12 @@ def pick_story(digest: NewsDigest, *, exclude_urls: set[str] | None = None,
     strongest remaining story when there is nothing else to pick from.
     """
     exclude = exclude_urls or set()
+    taken = exclude_stories or []
+    # By story, not by URL. Two outlets on one event share neither a URL nor
+    # necessarily a category, and the day should still only cover it once.
     pool = [s for stories in digest.by_category.values() for s in stories
-            if s.url not in exclude]
+            if s.url not in exclude
+            and not any(same_event(s, t) for t in taken)]
     if not pool:
         return None
     if prefer_other_than:
@@ -111,10 +117,12 @@ def _hashtags(category: str, model_tags: list[str]) -> list[str]:
 
 def generate(client: GeminiClient, digest: NewsDigest, day: date,
              *, exclude_urls: set[str] | None = None,
-             prefer_other_than: str | None = None) -> StoryCard | None:
+             prefer_other_than: str | None = None,
+             exclude_stories: list[Story] | None = None) -> StoryCard | None:
     """Produce the day's story card, or None when there is nothing to cover."""
     story = pick_story(digest, exclude_urls=exclude_urls,
-                       prefer_other_than=prefer_other_than)
+                       prefer_other_than=prefer_other_than,
+                       exclude_stories=exclude_stories)
     if story is None:
         log.warning("No story available for the story card.")
         return None

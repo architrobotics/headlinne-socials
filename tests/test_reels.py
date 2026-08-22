@@ -189,3 +189,69 @@ def test_the_reel_still_renders_when_no_photograph_resolves():
     assert img.getbbox() is not None
     colours = img.convert("RGB").resize((60, 60)).getcolors(3600) or []
     assert max(c for c, _ in colours) / 3600 < 0.985
+
+
+# --------------------------------------------------------------------------- #
+# The cover frame
+# --------------------------------------------------------------------------- #
+def _reel_with_first_beat(seconds: float):
+    """The sample reel, with its opening beat stretched or squeezed.
+
+    Only the opening beat's length matters to the cover frame, and reusing
+    _reel() keeps this honest about the shape the renderer actually walks.
+    """
+    reel = _reel()
+    reel.beats[0].seconds = seconds
+    return reel
+
+
+def test_the_cover_frame_lands_after_the_hook_has_finished_revealing():
+    """The thumbnail is permanent, so a part-drawn hook is permanent too.
+
+    The check is the renderer's own reveal arithmetic: the line is complete at
+    LINE_REVEAL_FRACTION through the opening beat, so the cover has to be taken
+    later than that for every beat length the generator can produce.
+    """
+    from headlinne.render import reel as R
+
+    for seconds in (0.5, 1.0, 2.0, 3.0, 4.5, 6.0, 9.0, 12.0):
+        offset = R.cover_offset_ms(_reel_with_first_beat(seconds)) / 1000
+        first = max(0.4, seconds)
+        local = offset / first
+        reveal = min(1.0, local / R.LINE_REVEAL_FRACTION)
+        assert reveal >= 1.0, (
+            f"a {seconds}s opening beat covers at {offset:.2f}s, "
+            f"when the line is only {reveal:.0%} drawn")
+
+
+def test_the_cover_frame_stays_inside_the_opening_beat():
+    """Past the first cut the frame shows the second beat, which is not the
+    hook and is not what the grid should advertise."""
+    from headlinne.render import reel as R
+
+    for seconds in (0.5, 1.0, 3.0, 6.0, 12.0):
+        offset = R.cover_offset_ms(_reel_with_first_beat(seconds)) / 1000
+        assert 0 <= offset < max(0.4, seconds), (
+            f"a {seconds}s beat covers at {offset:.2f}s, outside the beat")
+
+
+def test_a_long_narrated_beat_is_the_case_the_fixed_offset_got_wrong():
+    """The regression this replaced. With voiceover on, beats stretch to fit the
+    spoken line, and the old fixed 1200ms froze a half-written hook onto the
+    profile grid."""
+    from headlinne.render import reel as R
+
+    long_beat = _reel_with_first_beat(6.0)
+    assert 1.2 / 6.0 / R.LINE_REVEAL_FRACTION < 1.0      # the old value failed
+    assert R.cover_offset_ms(long_beat) > 1200            # the derived one does not
+
+
+def test_a_reel_with_no_beats_falls_back_rather_than_raising():
+    """Losing a thumbnail choice is a cosmetic problem. Losing the post is not."""
+    from headlinne.render import reel as R
+
+    class Bare:
+        beats = []
+
+    assert R.cover_offset_ms(Bare()) == 1200
+    assert R.cover_offset_ms(object()) == 1200

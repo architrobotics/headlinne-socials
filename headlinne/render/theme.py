@@ -353,8 +353,13 @@ def pose_for_story(story, kind: str = "cover") -> str | None:
     if getattr(story, "sensitive", False):
         return None
     state = _receipt.state(story)
-    if state in ("disputed", "single"):
-        return "puzzled"
+    # The agreement state wins over the slide's own kind: how well the outlets
+    # agree is the more important thing to say, and it is the thing the reader
+    # cannot get from the headline. receipt.POSE owns that mapping so the two
+    # cannot drift apart - "disputed" and "single" mean different things and
+    # now look different, a shrug versus a magnifier.
+    if state in _receipt.POSE and state != "unanimous":
+        return _receipt.POSE[state]
     return pose_for(kind)
 
 
@@ -379,10 +384,25 @@ def pip_frame(cycle: list[str], t: float, fps_cycle: float = 7.0) -> str:
     return cycle[int(t * rate) % len(cycle)]
 
 
+# Every cycle Pip can be given. quality.visual walks this map on every run and
+# asserts each one changes pixels, so registering a cycle here is what puts it
+# under guard - a builder that is not in this map is not checked by anything.
 CYCLES = {
+    # the original six
     "walk": _pip.walk_cycle, "talk": _pip.talk_cycle, "jump": _pip.jump_cycle,
     "point": _pip.point_cycle, "present": _pip.present_cycle,
     "idle": _pip.idle_cycle,
+    # weight, timing and secondary motion
+    "blink": _pip.blink_cycle, "bounce": _pip.bounce_cycle,
+    "flap": _pip.flap_cycle, "peek": _pip.peek_cycle,
+    # the ones that carry meaning: a nod for outlets that agreed, a shake for
+    # outlets that did not, a sweep of the magnifier for a story only one
+    # outlet is running so far
+    "nod": _pip.nod_cycle, "shake": _pip.shake_cycle, "scan": _pip.scan_cycle,
+    # sign-offs and set dressing
+    "cheer": _pip.cheer_cycle, "deliver": _pip.deliver_cycle,
+    "think": _pip.think_cycle, "alarm": _pip.alarm_cycle,
+    "sleep": _pip.sleep_cycle,
 }
 
 

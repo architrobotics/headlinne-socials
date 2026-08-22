@@ -83,11 +83,47 @@ PIP_SCALE_BARE = 14
 # The sign-off pose rotates by day. Same trick generate/hooks.py uses for the
 # hook archetypes: the code owns the variety, so a month of reels never
 # collapses into one look.
-CTA_POSES = ("jump", "present", "point", "walk", "talk")
+CTA_POSES = ("bounce", "present", "point", "cheer", "talk",
+             "flap", "deliver", "walk", "nod", "peek", "jump")
 
 
 def cta_pose(day_ordinal: int = 0) -> str:
     return CTA_POSES[day_ordinal % len(CTA_POSES)]
+
+
+# The kinetic line finishes revealing this far through its beat. Named because
+# the cover frame has to land after it - see cover_offset_ms.
+LINE_REVEAL_FRACTION = 0.34
+
+
+def cover_offset_ms(reel, default_ms: int = 1200) -> int:
+    """Which frame becomes the cover, in milliseconds from the start.
+
+    This frame is the reel's thumbnail in the Reels tab and in the profile
+    grid, so it is the single most-seen frame of the whole video and it is
+    permanent. It has to land after the opening line has finished revealing
+    itself word by word, or the grid keeps a picture of a half-written
+    sentence forever.
+
+    A fixed 1200ms was right only by luck. It works out at 40% through a three
+    second beat, comfortably past the reveal - but beats stretch to fit a
+    spoken line when REEL_VOICEOVER is on, and on a six second opening beat the
+    same 1200ms lands at 59% of the way through the reveal and freezes a
+    part-drawn hook onto the profile grid. Deriving it from the beat removes
+    the coincidence.
+    """
+    beats = getattr(reel, "beats", None)
+    if not beats:
+        return default_ms
+    # The same floor _beat_starts applies, so this agrees with the timeline the
+    # renderer actually walks.
+    first = max(0.4, float(getattr(beats[0], "seconds", 0) or 0))
+    revealed = LINE_REVEAL_FRACTION * first
+    settled = revealed + 0.25          # a moment of air after the last word
+    latest = first - 0.15              # and still inside the opening beat
+    if settled > latest:
+        settled = max(revealed, latest)
+    return int(max(0.0, settled) * 1000)
 
 
 def _ease_out_cubic(t: float) -> float:
@@ -249,7 +285,11 @@ class ReelFrames:
 
         scale = PIP_SCALE_WITH_PLATE if has_plate else PIP_SCALE_BARE
         sprite = _pip.render(grid, scale)
-        travel = int((t / max(self.duration, 0.001))
+        # Eased rather than linear. The crossing takes the whole reel, and at
+        # a constant rate he arrives at the right edge at exactly the speed he
+        # left the left one, which reads as a conveyor belt. The endpoints are
+        # unchanged, so the overlap and safe-zone harness sees the same bounds.
+        travel = int(_pip.ease_in_out_sine(t / max(self.duration, 0.001))
                      * (REEL_W - 2 * MARGIN - sprite.width))
         x = MARGIN - 30 + travel
         y = ground - sprite.height + 4
@@ -287,7 +327,7 @@ class ReelFrames:
         top = y
         y = theme.draw_rich(draw, beat.caption, x=MARGIN, y=y,
                             max_w=REEL_W - 2 * MARGIN, size=58, tone=tone,
-                            reveal=min(1.0, local / 0.34),
+                            reveal=min(1.0, local / LINE_REVEAL_FRACTION),
                             base_fill=theme.hex_to_rgb(
                                 theme.CREAM if self.dark else theme.TEXT_PRIMARY))
         if y > top:

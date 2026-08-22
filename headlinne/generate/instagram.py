@@ -21,10 +21,13 @@ from __future__ import annotations
 import re
 from datetime import date
 
-from ..config import BRAND, CATEGORY_LABELS, INSTAGRAM_MAX_HASHTAGS
+from ..config import (BRAND, CAROUSEL_SOURCE_BONUS,
+                      CAROUSEL_SOURCE_BONUS_CAP, CATEGORY_LABELS,
+                      INSTAGRAM_MAX_HASHTAGS)
 from ..gemini.client import GeminiClient
 from ..gemini.prompts import STYLE_GUIDE, carousel_prompt, stories_block
 from ..logging_setup import get_logger
+from ..news.ranking import same_event
 from ..models import InstagramCarousel, NewsDigest, Slide, Story
 from ..news.images import best_story_image
 from ..quality.sanitize import sanitize
@@ -42,11 +45,29 @@ _BASE_TAGS = {
     "Science": ["Science", "Space", "Discovery", "Research"],
 }
 
-# A story needs this many independent outlets before it earns the carousel.
-# Higher than the two-source publishing bar on purpose: five slides is the
-# biggest claim the account makes in a day, and it should rest on more than the
-# minimum.
-MIN_SOURCES_FOR_CAROUSEL = 3
+# Corroboration is a preference here, not a gate.
+#
+# It used to be a hard floor of three outlets, one above the house publishing
+# bar, on the reasoning that five slides is the biggest claim the account makes
+# in a day. The reasoning was sound and the arithmetic was not: measured against
+# a real day's pool of 380 stories, three outlets left **three** candidates, and
+# not one of the twenty most interesting stories was among them. Two outlets
+# left fifteen. Corroboration is simply rare in this feed set - most stories are
+# carried by one outlet, and the best ones are often carried by a specialist
+# nobody else syndicates.
+#
+# So the format was choosing between three wire stories every day, and that is
+# what a run of forgettable carousels actually was. A gate that admits 1% of the
+# pool is not a standard, it is an accident of feed overlap.
+#
+# The bonus below is worth roughly the gap between an average story and a good
+# one, so a well-sourced story beats a comparable thinly-sourced one and a
+# genuinely outstanding single-source story can still take the slot. When it
+# does, the fourth slide tells the truth about it: the source strip already has
+# a "SINGLE SOURCE" state, its own tone, and Pip holding a magnifier. The format
+# does not need protecting from a story it can describe honestly.
+# Both live in config so the editorial call stays tunable without a code change.
+# See config.CAROUSEL_SOURCE_BONUS for the measured trade-off behind the default.
 
 
 def agreement_line(story: Story) -> str:
@@ -62,31 +83,33 @@ def agreement_line(story: Story) -> str:
     return f"{record.label()}. Outlets: {names}."
 
 
-def pick_story(digest: NewsDigest, *, exclude_urls: set[str] | None = None
-               ) -> Story | None:
+def pick_story(digest: NewsDigest, *, exclude_urls: set[str] | None = None,
+               exclude_stories: list[Story] | None = None) -> Story | None:
     """The one story worth five slides today.
 
-    Ranked by score, but gated on corroboration first: the carousel's fourth
-    slide is the source strip in full, and a story with one outlet behind it
-    turns that slide into an admission rather than a proof.
+    Ranked by the day's score with corroboration added as a bonus rather than
+    imposed as a gate. The carousel's fourth slide is the source strip in full,
+    so a well-sourced story is genuinely worth more here than elsewhere - but
+    see CAROUSEL_SOURCE_BONUS for why that must not be a floor.
     """
     exclude = exclude_urls or set()
+    taken = exclude_stories or []
     candidates = [s for stories in digest.by_category.values() for s in stories
-                  if s.url not in exclude]
-    candidates.sort(key=lambda s: s.score, reverse=True)
+                  if s.url not in exclude
+                  and not any(same_event(s, t) for t in taken)]
+    if not candidates:
+        log.warning("carousel: no candidate stories today, skipping the format")
+        return None
 
-    for story in candidates:
-        if len(receipt_mod.outlets(story)) >= MIN_SOURCES_FOR_CAROUSEL:
-            return story
-    # Nothing well-sourced enough. Fall back to the best verified story rather
-    # than the best story outright, so the format's premise still holds.
-    for story in candidates:
-        if getattr(story, "verified", False):
-            log.info("carousel: no story reached %d outlets, using the best "
-                     "verified one", MIN_SOURCES_FOR_CAROUSEL)
-            return story
-    log.warning("carousel: no corroborated story today, skipping the format")
-    return None
+    def weight(story: Story) -> float:
+        outlets = max(0, len(receipt_mod.outlets(story)) - 1)
+        return story.score + CAROUSEL_SOURCE_BONUS * min(
+            outlets, CAROUSEL_SOURCE_BONUS_CAP)
+
+    best = max(candidates, key=weight)
+    log.info("carousel: picked %r (score %.2f, %d outlet(s))",
+             best.title[:56], best.score, len(receipt_mod.outlets(best)))
+    return best
 
 
 def _hashtags(category: str, model_tags: list[str]) -> list[str]:

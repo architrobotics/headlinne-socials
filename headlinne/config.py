@@ -243,19 +243,68 @@ FEEDS: tuple[Feed, ...] = (
 # How far back a story may be and still count as "today's news".
 MAX_STORY_AGE_HOURS = 30
 
-# Keywords that signal a story is broadly important. Used as one ranking signal.
-# These are intentionally generic; the ranker also rewards cross-source coverage.
+# How much corroboration is worth when the carousel chooses its story.
+#
+# The honest trade-off, measured rather than assumed. The most interesting story
+# on a given day is usually carried by one outlet, because interesting reporting
+# is original reporting - on nine of ten sampled days the best story had a
+# single outlet behind it, while the well-corroborated stories were wire copy
+# about summits and rate decisions.
+#
+# So this number is an editorial dial, not a technical constant:
+#
+#   0.0   pick purely on interest. Most carousels will read "SINGLE SOURCE".
+#   0.8   the default. A well-sourced story beats a comparable thin one; a
+#         genuinely outstanding single-source story still wins.
+#   2.0+  corroboration effectively leads again, and the format returns to
+#         mostly wire stories.
+#
+# Whatever it is set to, the fourth slide tells the truth: the source strip has
+# a SINGLE SOURCE state with its own tone and its own pose, so a thinly-sourced
+# story is described accurately rather than dressed up or refused.
+CAROUSEL_SOURCE_BONUS = _env_number("CAROUSEL_SOURCE_BONUS", 0.8, float)
+CAROUSEL_SOURCE_BONUS_CAP = _env_number("CAROUSEL_SOURCE_BONUS_CAP", 3, int)
+
+# Is this story on our beat? Technology, Finance and Geopolitics, named the way
+# a reader would name them.
+#
+# This is a *topical fit* signal, not an interest signal. The distinction is the
+# whole point: "should anyone care?" is answered by news.interest, which is the
+# primary ranking term. This list only answers "is this the kind of thing we
+# cover", and it is weighted accordingly (see ranking._TOPIC_WEIGHT).
+#
+# Two rules were learned the hard way and both are enforced by tests.
+#
+# 1. Terms are matched on word boundaries, through news._lexicon, exactly like
+#    every other lexicon in the project. They used to be matched with a raw
+#    `k in text` substring test, and "ai" is a substring of said, again,
+#    against, campaign, available, detail, certain, remains and fail - so 46%
+#    of a real day's stories scored as AI stories, against 8% that actually
+#    were. "war" matched warning, warming, toward, award and software; "oil"
+#    matched boiling and spoiled. That noise carried 29% of the ranking's
+#    variance.
+#
+# 2. Nothing here may be a term that news.interest._PAROCHIAL penalises.
+#    earnings, stocks, ipo, merger, acquisition, summit, funding round and
+#    central bank all used to sit in this list while interest.py was docking
+#    them, so the two lexicons spent every run cancelling each other out - and
+#    this one won, because a keyword bonus of up to +3.6 beats a parochial
+#    penalty that can only ever zero out a single 2.6-weight term. That is how
+#    an earnings print outranks a discovery in a system explicitly built not to
+#    do that. A market story earns its place here through what happened, not
+#    through the vocabulary of the trade.
 HIGH_INTEREST_KEYWORDS = (
-    # Tech
-    "apple", "google", "microsoft", "amazon", "meta", "openai", "nvidia", "tesla",
-    "ai", "chip", "semiconductor", "breach", "cyberattack", "outage", "launch",
-    "robot", "quantum", "startup", "acquisition", "funding round",
-    # Finance / economy
-    "fed", "central bank", "interest rate", "inflation", "recession", "earnings",
-    "ipo", "merger", "layoffs", "stocks", "bond", "oil", "trade deal", "default",
-    # Geopolitics / world
-    "election", "war", "ceasefire", "sanctions", "summit", "treaty", "tariff",
-    "ruling", "court", "protest", "strike", "coup", "nuclear", "border",
+    # Technology, as it reaches people rather than as an industry
+    "apple", "google", "microsoft", "amazon", "meta", "openai", "nvidia",
+    "tesla", "ai", "chip", "chips", "semiconductor", "breach", "cyberattack",
+    "outage", "robot", "robots", "quantum", "encryption", "surveillance",
+    # Finance and the economy, as it reaches a household
+    "fed", "central bank", "interest rate", "interest rates", "inflation",
+    "recession", "layoffs", "oil", "tariff", "tariffs", "trade deal",
+    "default", "housing", "wages", "tax", "taxes",
+    # Geopolitics
+    "election", "elections", "war", "ceasefire", "sanctions", "treaty",
+    "coup", "nuclear", "border", "protest", "protests", "referendum",
 )
 
 

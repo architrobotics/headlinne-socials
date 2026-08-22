@@ -107,3 +107,59 @@ def test_breadth_bonus_favours_well_verified_big_stories():
     digest = rank(trusted + scrappy)
     geo = digest.by_category["Geopolitics"]
     assert geo[0].title == "A major treaty is signed today"
+
+
+# --------------------------------------------------------------------------- #
+# Topical fit
+#
+# HIGH_INTEREST_KEYWORDS answers "is this our beat", never "is this
+# interesting". Both of the tests below are regressions from a real run.
+# --------------------------------------------------------------------------- #
+def test_the_topic_lexicon_matches_on_word_boundaries():
+    """`k in text` counted "said" as an AI story.
+
+    Measured on one real day of 380 stories: "ai" matched as a substring in 46%
+    of them while 8% were actually about AI, and the term carried 29% of the
+    ranking's whole variance. "war" matched warning, warming, toward and
+    software; "oil" matched boiling and spoiled.
+    """
+    from headlinne.news.ranking import _TOPIC_RX
+    from headlinne.news._lexicon import distinct_hits
+
+    for innocent in ("said", "again", "against", "campaign", "available",
+                     "detail", "certain", "remains", "chair", "explain",
+                     "toward", "warning", "warming", "award", "software",
+                     "boiling", "spoiled", "recoil"):
+        assert distinct_hits(innocent, _TOPIC_RX) == 0, innocent
+
+    for genuine in ("AI", "an AI model", "the war in Ukraine",
+                    "oil prices", "a nuclear reactor", "the election"):
+        assert distinct_hits(genuine, _TOPIC_RX) > 0, genuine
+
+
+def test_the_topic_lexicon_never_rewards_what_interest_penalises():
+    """Both lexicons are editorial judgement written down, and they used to
+    disagree. earnings, stocks, ipo, merger, acquisition, summit and central
+    bank sat in the topic list while interest._PAROCHIAL docked them, and the
+    topic bonus won because it could add more than the parochial term could
+    ever take away. That is how an earnings print outranked a discovery in a
+    system built specifically not to do that."""
+    from headlinne.config import HIGH_INTEREST_KEYWORDS
+    from headlinne.news.interest import _PAROCHIAL
+
+    clash = {t.rstrip("*") for t in HIGH_INTEREST_KEYWORDS} & {
+        t.rstrip("*") for t in _PAROCHIAL}
+    assert not clash, f"topic list rewards what interest penalises: {sorted(clash)}"
+
+
+def test_topical_fit_cannot_outweigh_the_interest_score():
+    """A tiebreaker, sized like one. The two stories below are equally on-beat
+    in vocabulary and are not equally worth reading."""
+    from headlinne.news.ranking import _TOPIC_CAP, _TOPIC_WEIGHT
+    from headlinne.news.interest import _W_CONCRETE, _W_NOVELTY
+
+    most_topic_can_buy = _TOPIC_WEIGHT * _TOPIC_CAP
+    one_strong_interest_term = min(_W_CONCRETE, _W_NOVELTY)
+    assert most_topic_can_buy < one_strong_interest_term, (
+        f"topical fit is worth {most_topic_can_buy}, which can overturn a "
+        f"{one_strong_interest_term}-weight interest term")
