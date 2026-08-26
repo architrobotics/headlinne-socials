@@ -1,0 +1,252 @@
+{
+  "day": "2026-08-26",
+  "is_promo_day": false,
+  "is_friday": false,
+  "twitter": [
+    {
+      "category": "Geopolitics",
+      "post": "Today's global news in a quick scan.\n• Japan used 1,800 people to manually shift a 360-tonne castle\n• US forces killed two people in a Pacific strike on a drug vessel\n• India's major forest expansion project shows negligible results HEADLINNE.com #Geopolitics #GlobalNews",
+      "hashtags": [
+        "Geopolitics",
+        "GlobalNews"
+      ],
+      "scheduled_time": "2026-08-26T13:00:00+05:30",
+      "kind": "news",
+      "lead": "Today's global news in a quick scan.",
+      "items": [
+        "Japan used 1,800 people to manually shift a 360-tonne castle",
+        "US forces killed two people in a Pacific strike on a drug vessel",
+        "India's major forest expansion project shows negligible results"
+      ],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-26/x/x_1.png"
+    },
+    {
+      "category": "Science",
+      "post": "Today's top science stories in brief.\n• Mineral dust helps clouds freeze, regulating our climate\n• A 7,000-year-old solar observatory found in the Czech Republic\n• Sound waves could help shield delicate quantum data HEADLINNE.com #Science #Research",
+      "hashtags": [
+        "Science",
+        "Research"
+      ],
+      "scheduled_time": "2026-08-26T17:00:00+05:30",
+      "kind": "news",
+      "lead": "Today's top science stories in brief.",
+      "items": [
+        "Mineral dust helps clouds freeze, regulating our climate",
+        "A 7,000-year-old solar observatory found in the Czech Republic",
+        "Sound waves could help shield delicate quantum data"
+      ],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-26/x/x_2.png"
+    }
+  ],
+  "linkedin": {
+    "title": "Most news algorithms get it wrong because they only look at what you click.",
+    "body": "It is easy to assume that a click equals interest. If you open a story about a new tech gadget, the algorithm assumes you love tech gadgets. But maybe you just clicked because the headline was catchy or you were bored for a minute. That is where most personalization goes off the rails.\n\nAt Headlinne, we look at it differently. True personalization is not about tracking every single tap. It is about understanding the intent behind the reading habits you build over time. It is about separating the noise from the signal.\n\nWe built our engine to learn what actually matters to you. It pays attention to the topics you consistently return to and the depth at which you engage with them. It is less about chasing engagement metrics and more about respecting your time.\n\nGood AI should act like a smart editor who knows your taste, not a billboard trying to sell you something you already saw yesterday.",
+    "cta": "See how we are rethinking the way you get your news at HEADLINNE.com.",
+    "scheduled_time": "2026-08-26T18:00:00+05:30",
+    "kind": "product"
+  },
+  "instagram": [],
+  "reels": [
+    {
+      "slot": "reel_1",
+      "kind": "news",
+      "category": "Geopolitics",
+      "title": "Two unvaccinated people die of measles in Pennsylvania",
+      "hook": "Two unvaccinated people die of measles in Pennsylvania",
+      "beats": [
+        {
+          "role": "hook",
+          "caption": "Two unvaccinated people die of measles in Pennsylvania",
+          "detail": "",
+          "narration": "",
+          "seconds": 3.76,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "",
+          "pose": "",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "hook",
+          "caption": "Imagine a forgotten lock suddenly breaking on your front door.",
+          "detail": "It was safe for years.",
+          "narration": "Imagine a lock that worked for decades suddenly failing. That is what is happening with measles right now.",
+          "seconds": 8.47,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "The analogy",
+          "pose": "walk",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "Two people have died from measles in Pennsylvania.",
+          "detail": "Both were unvaccinated individuals.",
+          "narration": "Two people in Pennsylvania have died from measles. Both were unvaccinated.",
+          "seconds": 5.17,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "The news",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "Measles cases have hit their highest point in years.",
+          "detail": "Levels are rising nationwide.",
+          "narration": "This comes as US measles cases hit their highest point since the virus was declared eliminated.",
+          "seconds": 7.52,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "The trend",
+          "pose": "present",
+          "say": "",
+          "plates": [
+            "story"
+          ],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "Falling vaccination rates are opening the door for outbreaks.",
+          "detail": "Fewer people are getting shots.",
+          "narration": "The primary driver is a steady decline in vaccination rates across the country.",
+          "seconds": 6.11,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "The cause",
+          "pose": "jump",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "Measles is extremely contagious and spreads fast.",
+          "detail": "It poses a serious health threat.",
+          "narration": "Measles is incredibly contagious, which makes high vaccination coverage essential for everyone.",
+          "seconds": 5.64,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "The risk",
+          "pose": "talk",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "Stay informed on local health updates.",
+          "detail": "Check your vaccination records.",
+          "narration": "Health experts are urging people to check their vaccination records and stay updated.",
+          "seconds": 6.11,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "The takeaway",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "outro",
+          "caption": "Get the full story at headlinne.com.",
+          "detail": "Read the verified news.",
+          "narration": "For more verified news without the noise, visit headlinne.com. Are you up to date?",
+          "seconds": 6.58,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "Stay current",
+          "pose": "cta",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        }
+      ],
+      "caption": "Two unvaccinated people die of measles in Pennsylvania\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#WorldNews #Geopolitics #GlobalNews #HealthNews",
+      "hashtags": [
+        "WorldNews",
+        "Geopolitics",
+        "GlobalNews",
+        "HealthNews",
+        "Measles",
+        "PublicHealth",
+        "Vaccination",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-08-26T09:30:00+05:30",
+      "first_comment": "#Measles #PublicHealth #Vaccination #Headlinne",
+      "sources": "BBC World",
+      "story_url": "https://www.bbc.co.uk/news/articles/c5yednen30go?at_medium=RSS&at_campaign=rss",
+      "dateline": "WED 26 AUG",
+      "story": null,
+      "duration_seconds": 49.37,
+      "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-26/reels/reel_1.mp4",
+      "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-26/reels/reel_1_cover.png",
+      "audio_file": null,
+      "has_voiceover": true
+    }
+  ],
+  "story_card": {
+    "slot": "story_card",
+    "category": "Science",
+    "headline": "How common dust makes clouds freeze",
+    "standfirst": "Scientists have found why tiny mineral particles act as seeds for ice crystals in the sky.",
+    "steps": [
+      {
+        "label": "What happened",
+        "text": "Researchers discovered how the mineral microcline triggers ice formation in clouds."
+      },
+      {
+        "label": "How we got here",
+        "text": "Pure water usually stays liquid until it hits -38°C. Dust particles help it freeze sooner."
+      },
+      {
+        "label": "Why it matters",
+        "text": "Understanding these ice nucleators helps us track how clouds form and change our weather."
+      },
+      {
+        "label": "What to watch",
+        "text": "Future studies will explore how other mineral dust types affect cloud behavior."
+      }
+    ],
+    "caption": "Scientists at Bielefeld University have identified how the mineral microcline helps clouds form ice crystals.\n\nPure water is stubborn and doesn't freeze until it reaches extreme cold. Tiny particles of dust act as a shortcut, giving ice a surface to grow on at warmer temperatures. This research helps us understand the complex physics happening high above our heads.\n\nDoes learning about the science of clouds change how you look at the weather?\n\nSave this one. Follow for the daily card. Full story on HEADLINNE.com.\n\n#science #weather #clouds #physics",
+    "hashtags": [
+      "science",
+      "weather",
+      "clouds",
+      "physics",
+      "research",
+      "nature",
+      "earthscience",
+      "climate",
+      "minerals",
+      "atmosphere",
+      "sciencefacts",
+      "discovery",
+      "NewsExplained",
+      "Headlinne"
+    ],
+    "scheduled_time": "2026-08-26T21:30:00+05:30",
+    "first_comment": "#research #nature #earthscience #climate #minerals #atmosphere #sciencefacts #discovery #NewsExplained #Headlinne",
+    "sources": "Phys.org",
+    "story_url": "https://phys.org/news/2026-08-microcline-reveals-common-mineral-surface.html",
+    "image_url": "https://scx2.b-cdn.net/gfx/news/2026/breakthrough-in-unders.jpg",
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-26/story_card/story_card.png",
+    "story": null
+  }
+}
