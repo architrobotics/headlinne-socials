@@ -22,18 +22,25 @@ from .common import LINKEDIN_TOPICS
 log = get_logger("generate.linkedin")
 
 
-def _assemble(data: dict, day: date, kind: str) -> LinkedInPost:
-    """Clean the model's fields and guarantee a sensible CTA toward the site."""
+def _assemble(data: dict, day: date, kind: str,
+              link: str | None = None) -> LinkedInPost:
+    """Clean the model's fields and guarantee a sensible CTA toward the site.
+
+    `link` is the CMO's tagged URL for this slot. LinkedIn has room for the full
+    UTM form, so this is the one pipeline surface where a post's contribution
+    can be read back per post rather than per channel.
+    """
     title = sanitize(data.get("title", ""))
     body = sanitize(data.get("body", ""))
     cta = sanitize(data.get("cta", ""))
+    destination = link or WEBSITE
 
     # Make sure the closing line actually points to the website. If the model
     # forgot, add a quiet, non-salesy invite.
     if WEBSITE.lower() not in (cta + " " + body).lower():
-        cta = f"If you like keeping up without the noise, take a look at {WEBSITE}."
+        cta = f"If you like keeping up without the noise, take a look at {destination}."
     if not cta:
-        cta = f"More of the day's news, made personal, over at {WEBSITE}."
+        cta = f"More of the day's news, made personal, over at {destination}."
 
     return LinkedInPost(
         title=title,
@@ -44,28 +51,30 @@ def _assemble(data: dict, day: date, kind: str) -> LinkedInPost:
     )
 
 
-def generate_product(client: GeminiClient, day: date) -> LinkedInPost:
+def generate_product(client: GeminiClient, day: date,
+                     link: str | None = None) -> LinkedInPost:
     """A credibility-building product post on a rotating topic."""
     topic = LINKEDIN_TOPICS[day.toordinal() % len(LINKEDIN_TOPICS)]
     data = client.generate_json(
         system=STYLE_GUIDE,
         prompt=linkedin_product_prompt(topic),
     )
-    post = _assemble(data, day, kind="product")
+    post = _assemble(data, day, kind="product", link=link)
     log.info("LinkedIn product post (%s) %d chars", topic[:32],
              len(post.title) + len(post.body) + len(post.cta))
     return post
 
 
 def generate_roundup(client: GeminiClient, day: date,
-                     week_stories: list[Story]) -> LinkedInPost:
+                     week_stories: list[Story],
+                     link: str | None = None) -> LinkedInPost:
     """The Friday "This Week in Finance & Tech" roundup."""
     stories = week_stories[:8]
     data = client.generate_json(
         system=STYLE_GUIDE,
         prompt=linkedin_roundup_prompt(stories),
     )
-    post = _assemble(data, day, kind="weekly_roundup")
+    post = _assemble(data, day, kind="weekly_roundup", link=link)
     log.info("LinkedIn weekly roundup from %d stories, %d chars",
              len(stories), len(post.title) + len(post.body) + len(post.cta))
     return post
@@ -80,13 +89,15 @@ def _fallback_week_stories(digest: NewsDigest) -> list[Story]:
 
 
 def generate(client: GeminiClient, digest: NewsDigest, day: date,
-             is_friday: bool, week_stories: list[Story] | None = None) -> LinkedInPost:
+             is_friday: bool, week_stories: list[Story] | None = None,
+             links: dict | None = None) -> LinkedInPost:
     """Dispatch to the right LinkedIn post type for the day."""
+    link = (links or {}).get("linkedin")
     if is_friday:
         stories = list(week_stories or [])
         if not stories:
             stories = _fallback_week_stories(digest)
         if stories:
-            return generate_roundup(client, day, stories)
+            return generate_roundup(client, day, stories, link)
         log.info("No stories for roundup, falling back to a product post.")
-    return generate_product(client, day)
+    return generate_product(client, day, link)

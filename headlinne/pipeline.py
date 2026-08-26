@@ -77,6 +77,32 @@ def _x_card_urls(day: date, slot: str) -> list[str] | None:
         return None
 
 
+def _todays_brief(day: date):
+    """The CMO's instruction for today, or None to run the standing mix.
+
+    Every failure is swallowed on purpose. The growth layer is advisory: a
+    missing brief, a malformed one, or an import that fails because the layer is
+    not installed all have to produce the same outcome, which is the day the
+    pipeline would have had anyway. The alternative - a marketing file that can
+    stop the news going out - is a much worse trade than a day with untagged
+    links.
+    """
+    try:
+        from .cmo import brief as cmo_brief
+
+        found = cmo_brief.read(day)
+    except Exception as exc:  # noqa: BLE001 - advisory input must never be fatal
+        log.warning("could not read the CMO brief, running the standing mix: %s",
+                    exc)
+        return None
+    if found is None:
+        log.info("no CMO brief for %s; running the standing mix.", day)
+    else:
+        log.info("CMO brief: %s, bias=%s, %d tagged links",
+                 found.verdict, found.story_bias, len(found.links))
+    return found
+
+
 def _drop_seen(digest: NewsDigest, history: History) -> None:
     """Remove stories already used in recent days from each category in place."""
     for cat in CATEGORIES:
@@ -144,18 +170,30 @@ def generate(day: date | None = None, *, render: bool = True,
     friday = is_friday(day)
     log.info("promo_day=%s friday=%s dominant=%s", promo, friday, digest.dominant_category)
 
+    # 1b. The CMO's brief for today, if there is one.
+    #
+    # This is the whole seam between the growth layer and the factory, and it is
+    # deliberately one optional file. `today_brief` returns None whenever the
+    # brief is missing, malformed or disabled, and every use of it below falls
+    # back to the constant it used before - so the layer can be deleted outright
+    # and the day still goes out exactly as it does today. A growth experiment
+    # must never be able to take the daily run down with it.
+    brief = _todays_brief(day)
+    links = brief.links if brief else {}
+
     client = GeminiClient()
 
     # 2. X (Twitter)
     if promo:
-        twitter_posts = gen_twitter.generate_promo(client, day)
+        twitter_posts = gen_twitter.generate_promo(client, day, links)
     else:
         cats = _twitter_categories(digest)
-        twitter_posts = gen_twitter.generate_news(client, digest, cats, day)
+        twitter_posts = gen_twitter.generate_news(client, digest, cats, day, links)
 
     # 3. LinkedIn
     week_stories = storage.recent_week_stories(day) if friday else []
-    linkedin_post = gen_linkedin.generate(client, digest, day, friday, week_stories)
+    linkedin_post = gen_linkedin.generate(client, digest, day, friday,
+                                          week_stories, links)
 
     # 4. The reel. One a day, on the day's strongest story. It goes first
     #    because it gets first claim on that story: the reel is the only surface

@@ -1,0 +1,109 @@
+name: Growth
+
+# The scoreboard, the brief, and the weekly review.
+#
+# This is not the same check as `Distribution health`, and the difference is the
+# whole reason it exists. That job answers "did it publish, and did it reach",
+# from the committed content folder, with no key and no network. This one
+# answers the question that follows: did any of that produce users.
+#
+# It commits what it reads. Supabase can say how many users there are right now
+# and it cannot say how many there were on 14 September, which is the question
+# every pace calculation is made of. A product that never stored its own growth
+# history has one here, from the first day this runs - which is why the very
+# first run matters more than any later one, and why it is scheduled rather than
+# left to be remembered.
+#
+# It fails only when the plan needs a human: each remaining day now needs twice
+# what it did on day one, or signups are climbing while engagement is not.
+# Merely being behind exits zero on purpose. An alarm that fires every week is
+# an alarm nobody reads.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "30 2 * * *"     # 08:00 IST, after the day's first publish slot
+
+permissions:
+  contents: write            # the ledger and the brief are committed back
+
+concurrency:
+  group: headlinne-growth
+  cancel-in-progress: false
+
+jobs:
+  growth:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install requests python-dotenv
+
+      # Read the scoreboard and append it to the ledger.
+      #
+      # This step must not fail the job on a bad verdict, because the reading
+      # still has to be committed: the day the number looks worst is the day it
+      # is most worth having a record of. The verdict is enforced at the end,
+      # after the commit.
+      - name: Read the scoreboard
+        continue-on-error: true
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+        run: python -m headlinne cmo pace
+
+      # Write the brief. At 08:00 IST this is for tomorrow's generate run, which
+      # fires at 06:00 IST - deliberately, on both counts. A brief built from a
+      # reading taken sixty seconds earlier is built from a number nobody has
+      # looked at, and the daily content run must never wait on the growth layer
+      # to start.
+      #
+      # continue-on-error because the brief is advisory. A day with no brief is
+      # a normal day; a day with no content is not.
+      - name: Write tomorrow's brief
+        continue-on-error: true
+        run: python -m headlinne cmo brief
+
+      - name: Refresh the backlink queue
+        continue-on-error: true
+        run: python -m headlinne cmo backlinks plan
+
+      - name: Commit the reading, the brief and the queue
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if [ -n "$(git status --porcelain state/cmo)" ]; then
+            git add state/cmo
+            git commit -m "Growth reading $(date -u +%Y-%m-%d)"
+            git push
+          else
+            echo "Nothing new to commit."
+          fi
+
+      # Mondays only. The review is a weekly question, and a daily one would be
+      # read for a fortnight and then never again. It runs in this job rather
+      # than its own so it reads the ledger the step above just committed.
+      - name: The weekly review
+        continue-on-error: true
+        run: |
+          if [ "$(date -u +%u)" = "1" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            python -m headlinne cmo review
+          else
+            echo "Not Monday. The review runs weekly."
+          fi
+
+      # The verdict decides the job. Read from the committed ledger with no
+      # network, so this reports on what was actually recorded rather than on
+      # what the fetch happened to return.
+      - name: Verdict
+        run: python -m headlinne cmo pace --no-fetch
+
+      - name: Verdict (machine-readable, for the log)
+        if: always()
+        run: python -m headlinne cmo pace --no-fetch --json

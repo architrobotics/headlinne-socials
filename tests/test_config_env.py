@@ -153,7 +153,7 @@ def test_no_setting_reads_the_environment_directly_any_more():
         "BUFFER_CHANNEL_ID_LINKEDIN", "BUFFER_CHANNEL_ID_INSTAGRAM",
         "META_ACCESS_TOKEN", "IG_USER_ID", "REDDIT_CLIENT_ID",
         "REDDIT_CLIENT_SECRET", "REDDIT_USERNAME", "REDDIT_PASSWORD",
-        "GITHUB_REPOSITORY", "PUBLIC_IMAGE_BASE_URL",
+        "GITHUB_REPOSITORY", "PUBLIC_IMAGE_BASE_URL", "SUPABASE_KEY",
     }
     leaked = sorted(set(raw) - secrets)
     assert not leaked, f"these read the environment directly: {leaked}"

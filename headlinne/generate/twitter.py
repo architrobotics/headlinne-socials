@@ -22,7 +22,8 @@ log = get_logger("generate.twitter")
 
 
 def _news_post(client: GeminiClient, category: str, stories: list[Story],
-               slot: str, day: date) -> TwitterPost:
+               slot: str, day: date,
+               link: str | None = None) -> TwitterPost:
     label = CATEGORY_LABELS[category]
     data = client.generate_json(
         system=STYLE_GUIDE,
@@ -31,7 +32,7 @@ def _news_post(client: GeminiClient, category: str, stories: list[Story],
     lead = data.get("lead", f"Top stories in {label} today")
     items = [it.get("text", "") for it in data.get("items", [])]
     hashtags = data.get("hashtags", [label])
-    post_text = assemble_news_post(lead, items, hashtags)
+    post_text = assemble_news_post(lead, items, hashtags, link)
     # Clean structured pieces kept for the branded card graphic.
     card_lead = sanitize(lead).strip().rstrip(":")
     card_items = [sanitize(it).strip().rstrip(".") for it in items if it and it.strip()][:3]
@@ -48,19 +49,26 @@ def _news_post(client: GeminiClient, category: str, stories: list[Story],
 
 
 def generate_news(client: GeminiClient, digest: NewsDigest,
-                  categories: list[str], day: date) -> list[TwitterPost]:
-    """Two news posts, one per chosen category (slots x_1 and x_2)."""
+                  categories: list[str], day: date,
+                  links: dict | None = None) -> list[TwitterPost]:
+    """Two news posts, one per chosen category (slots x_1 and x_2).
+
+    `links` is the day's brief. An absent one leaves every post pointing at the
+    bare wordmark, exactly as before.
+    """
     posts: list[TwitterPost] = []
     slots = ["x_1", "x_2"]
     for cat, slot in zip(categories, slots):
         stories = digest.by_category.get(cat, [])
         if not stories:
             continue
-        posts.append(_news_post(client, cat, stories, slot, day))
+        posts.append(_news_post(client, cat, stories, slot, day,
+                                (links or {}).get(slot)))
     return posts
 
 
-def generate_promo(client: GeminiClient, day: date) -> list[TwitterPost]:
+def generate_promo(client: GeminiClient, day: date,
+                   links: dict | None = None) -> list[TwitterPost]:
     """One feature-focused promo post (slot x_1)."""
     feature = PROMO_FEATURES[day.toordinal() % len(PROMO_FEATURES)]
     data = client.generate_json(
@@ -69,7 +77,7 @@ def generate_promo(client: GeminiClient, day: date) -> list[TwitterPost]:
     )
     body = sanitize(data.get("post", ""))
     hashtags = data.get("hashtags", ["News"])
-    post_text = fit_simple(body, hashtags)
+    post_text = fit_simple(body, hashtags, (links or {}).get("x_1"))
     # The card shows a short statement rather than the full tweet body.
     card_lead = _card_statement(sanitize(data.get("headline", "")) or body)
     log.info("X promo (%s) %d chars", feature[:30], len(post_text))

@@ -1,0 +1,274 @@
+{
+  "built": "2026-08-26T18:45:55.932882+00:00",
+  "product": {
+    "name": "Headlinne",
+    "url": "https://headlinne.com"
+  },
+  "items": [
+    {
+      "id": "showhn",
+      "name": "Hacker News (Show HN)",
+      "url": "https://news.ycombinator.com/submit",
+      "automation": "prohibited",
+      "cadence": "once",
+      "value": 5,
+      "copy": {
+        "title": "Headlinne - See where the news agrees, and where it doesn't",
+        "text": "Headlinne reads every outlet covering a story and shows you the ones that agree, the ones that disagree, and the exact figure they disagree about. Most news apps pick a version and show you that. This one shows you the spread, so you can tell a settled fact from a contested one before you decide what to think."
+      },
+      "submitted": false,
+      "verified": false
+    },
+    {
+      "id": "producthunt",
+      "name": "Product Hunt",
+      "url": "https://www.producthunt.com/posts/new",
+      "automation": "manual",
+      "cadence": "once",
+      "value": 5,
+      "copy": {
+        "name": "Headlinne",
+        "tagline": "See where the news agrees, and where it doesn't",
+        "description": "Every news app picks a version of the story. Headlinne shows you all of them, side by side, with the points the outlets agree on and the exact figure they do not. A settled fact and a contested one stop looking the same.",
+        "topics": [
+          "News",
+          "Media",
+          "Artificial Intelligence"
+        ]
+      },
+      "submitted": false,
+      "verified": false
+    },
+    {
+      "id": "wikipedia",
+      "name": "Wikipedia / Wikidata",
+      "url": "https://en.wikipedia.org/",
+      "automation": "prohibited",
+      "cadence": "once",
+      "value": 5,
+      "copy": {},
+      "submitted": false,
+      "verified": false
+    },
+    {
+      "id": "indexnow",
+      "name": "IndexNow (Bing, Yandex, Seznam)",
+      "url": "https://api.indexnow.org/indexnow",
+      "automation": "api",
+      "cadence": "recurring",
+      "value": 4,
+      "copy": {},
+      "submitted": false,
+      "verified": false
+    },
+    {
+      "id": "alternativeto",
+      "name": "AlternativeTo",
+      "url": "https://alternativeto.net/manage/add-app/",
+      "automation": "manual",
+      "cadence": "once",
+      "value": 4,
+      "copy": {
+        "name": "Headlinne - See where the news agrees, and where it doesn't",
+        "tagline": "Every outlet on a story, side by side, so you can see where they agree and where they don't",
+        "description": "Headlinne reads every outlet covering a story and shows you the ones that agree, the ones that disagree, and the exact figure they disagree about. Most news apps pick a version and show you that. This one shows you the spread, so you can tell a settled fact from a contested one before you decide what to think."
+      },
+      "submitted": false,
+      "verified": false
+    },
+    {
+      "id": "crunchbase",
+      "name": "Crunchbase",
+      "url": "https://www.crunchbase.com/register",
+      "automation": "manual",
+      "cadence": "once",
+      "value": 4,
+      "copy": {
+        "name": "Headlinne - See where the news agrees, and where it doesn't",
+        "short_description": "Every outlet on a story, side by side, so you can see where they agree and where they don't",
+        "description": "Headlinne reads every outlet covering a story and shows you the ones that agree, the ones that disagree, and the exact figure they disagree about. Most news apps pick a version and show you that. This one shows you the spread, so you can tell a settled fact from a contested one before you decide what to think."
+      },
+      "submitted": false,
+      "verified": false
+    },
+    {
+      "id": "reddit",
+      "name": "Reddit",
+      "url": "https://www.reddit.com/",
+      "automation": "prohibited",
+      "cadence": "recurring",
+      "value": 4,
+      "copy": {},
+      "submitted": false,
+      "verified": false
+    },
+    {
+      "id": "devto",
+      "name": "DEV Community",
+      "url": "https://dev.to/api/articles",
+      "automation": "api",
+      "cadence": "recurring",
+      "value": 3,
+      "copy": {
+        "title": "Headlinne - See where the news agrees, and where it doesn't",
+        "body_markdown": "Headlinne reads every outlet covering a story and shows you the ones that agree, the ones that disagree, and the exact figure they disagree about. Most news apps pick a version and show you that. This one shows you the spread, so you can tell a settled fact from a contested one before you decide what to think.",
+        "tags": [
+          "News",
+          "Media",
+          "Artificial Intelligence",
+          "Productivity"
+        ]
+      },
+      "submitted": false,
+      "verified": false
+    },
+    {
+      "id": "hashnode",
+      "name": "Hashnode",
+      "url": "https://gql.hashnode.com/",
+      "automation": "api",
+      "cadence": "recurring",
+      "value": 3,
+      "copy": {
+        "title": "Headlinne - See where the news agrees, and where it doesn't",
+        "contentMarkdown": "Headlinne reads every outlet covering a story and shows you the ones that agree, the ones that disagree, and the exact figure they disagree about. Most news apps pick a version and show you that. This one shows you the spread, so you can tell a settled fact from a contested one before you decide what to think.",
+        "tags": [
+          "News",
+          "Media",
+          "Artificial Intelligence",
+          "Productivity",
+          "Android"
+        ]
+      },
+      "submitted": false,
+      "verified": false
+    },
+    {
+      "id": "betalist",
+      "name": "BetaList",
+      "url": "https://betalist.com/submit",
+      "automation": "manual",
+      "cadence": "once",
+      "value": 3,
+      "copy": {
+        "name": "Headlinne",
+        "tagline": "Every outlet on a story, side by side, so you can see where they agree and where they",
+        "description": "Headlinne reads every outlet covering a story and shows you the ones that agree, the ones that disagree, and the exact figure they disagree about. Most news apps pick a version and show you that. This one shows you the spread, so you can tell a settled fact from a contested one before you decide what to think."
+      },
+      "submitted": false,
+      "verified": false
+    },
+    {
+      "id": "indiehackers",
+      "name": "Indie Hackers",
+      "url": "https://www.indiehackers.com/products/new",
+      "automation": "manual",
+      "cadence": "once",
+      "value": 3,
+      "copy": {
+        "name": "Headlinne - See where the news agrees, and where it doesn't",
+        "tagline": "Every outlet on a story, side by side, so you can see where they agree and where they don't",
+        "description": "Headlinne reads every outlet covering a story and shows you the ones that agree, the ones that disagree, and the exact figure they disagree about. Most news apps pick a version and show you that. This one shows you the spread, so you can tell a settled fact from a contested one before you decide what to think."
+      },
+      "submitted": false,
+      "verified": false
+    },
+    {
+      "id": "lobsters",
+      "name": "Lobsters",
+      "url": "https://lobste.rs/stories/new",
+      "automation": "prohibited",
+      "cadence": "recurring",
+      "value": 3,
+      "copy": {},
+      "submitted": false,
+      "verified": false
+    },
+    {
+      "id": "f6s",
+      "name": "F6S",
+      "url": "https://www.f6s.com/company/signup",
+      "automation": "manual",
+      "cadence": "once",
+      "value": 2,
+      "copy": {
+        "name": "Headlinne - See where the news agrees, and where it doesn't",
+        "tagline": "Every outlet on a story, side by side, so you can see where they agree and where they don't",
+        "description": "Headlinne reads every outlet covering a story and shows you the ones that agree, the ones that disagree, and the exact figure they disagree about. Most news apps pick a version and show you that. This one shows you the spread, so you can tell a settled fact from a contested one before you decide what to think."
+      },
+      "submitted": false,
+      "verified": false
+    },
+    {
+      "id": "producthuntship",
+      "name": "Product Hunt Ship / upcoming pages",
+      "url": "https://www.producthunt.com/ship",
+      "automation": "manual",
+      "cadence": "once",
+      "value": 2,
+      "copy": {
+        "name": "Headlinne",
+        "tagline": "See where the news agrees, and where it doesn't",
+        "description": "Every news app picks a version of the story. Headlinne shows you all of them, side by side, with the points the outlets agree on and the exact figure they do not. A settled fact and a contested one stop looking the same."
+      },
+      "submitted": false,
+      "verified": false
+    },
+    {
+      "id": "quora",
+      "name": "Quora",
+      "url": "https://www.quora.com/",
+      "automation": "manual",
+      "cadence": "recurring",
+      "value": 2,
+      "copy": {},
+      "submitted": false,
+      "verified": false
+    },
+    {
+      "id": "saashub",
+      "name": "SaaSHub",
+      "url": "https://www.saashub.com/submit",
+      "automation": "manual",
+      "cadence": "once",
+      "value": 2,
+      "copy": {
+        "name": "Headlinne - See where the news agrees, and where it doesn't",
+        "tagline": "Every outlet on a story, side by side, so you can see where they agree and where they don't",
+        "description": "Headlinne reads every outlet covering a story and shows you the ones that agree, the ones that disagree, and the exact figure they disagree about. Most news apps pick a version and show you that. This one shows you the spread, so you can tell a settled fact from a contested one before you decide what to think."
+      },
+      "submitted": false,
+      "verified": false
+    },
+    {
+      "id": "startupstash",
+      "name": "Startup Stash",
+      "url": "https://startupstash.com/add-listing/",
+      "automation": "manual",
+      "cadence": "once",
+      "value": 2,
+      "copy": {
+        "name": "Headlinne - See where the news agrees, and where it doesn't",
+        "tagline": "Every outlet on a story, side by side, so you can see where they agree and where they don't",
+        "description": "Headlinne reads every outlet covering a story and shows you the ones that agree, the ones that disagree, and the exact figure they disagree about. Most news apps pick a version and show you that. This one shows you the spread, so you can tell a settled fact from a contested one before you decide what to think."
+      },
+      "submitted": false,
+      "verified": false
+    },
+    {
+      "id": "sideprojectors",
+      "name": "SideProjectors",
+      "url": "https://www.sideprojectors.com/project/submit",
+      "automation": "manual",
+      "cadence": "once",
+      "value": 1,
+      "copy": {
+        "name": "Headlinne - See where the news agrees, and where it doesn't",
+        "tagline": "Every outlet on a story, side by side, so you can see where they agree and where they don't",
+        "description": "Headlinne reads every outlet covering a story and shows you the ones that agree, the ones that disagree, and the exact figure they disagree about. Most news apps pick a version and show you that. This one shows you the spread, so you can tell a settled fact from a contested one before you decide what to think."
+      },
+      "submitted": false,
+      "verified": false
+    }
+  ]
+}

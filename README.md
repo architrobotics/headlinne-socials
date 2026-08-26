@@ -21,23 +21,31 @@ on its own.
 3. [Why the format mix looks like this](#why-the-format-mix-looks-like-this)
 4. [What the ranker is actually optimising for](#what-the-ranker-is-actually-optimising-for)
 5. [Is it actually reaching anyone?](#is-it-actually-reaching-anyone)
-6. [The writing style](#the-writing-style)
-7. [Hooks and captions](#hooks-and-captions)
-8. [Reddit engagement](#reddit-engagement-opportunity-finder-not-a-spam-bot)
-9. [Prerequisites](#prerequisites)
-10. [Setup](#setup)
+6. [The growth target: 10,000 users by January](#the-growth-target-10000-users-by-january)
+   - [Backlinks](#backlinks)
+   - [The layer, and what it is allowed to do](#the-layer-and-what-it-is-allowed-to-do)
+   - [What it may do without asking](#what-it-may-do-without-asking)
+   - [Half of what it makes cannot be measured](#half-of-what-it-makes-cannot-be-measured)
+   - [Where the signups came from](#where-the-signups-came-from)
+   - [Experiments](#experiments)
+7. [The writing style](#the-writing-style)
+8. [Hooks and captions](#hooks-and-captions)
+9. [Reddit engagement](#reddit-engagement-opportunity-finder-not-a-spam-bot)
+10. [Prerequisites](#prerequisites)
+11. [Setup](#setup)
    - [1. Create the repository](#1-create-the-repository)
    - [2. Get a Gemini API key](#2-get-a-gemini-api-key)
    - [3. Connect Buffer (X and LinkedIn)](#3-connect-buffer-x-and-linkedin)
    - [4. Connect the Meta Graph API (Instagram)](#4-connect-the-meta-graph-api-instagram)
-   - [5. Add GitHub secrets and variables](#5-add-github-secrets-and-variables)
-   - [6. Schedule the daily trigger with cron-job.org](#6-schedule-the-daily-trigger-with-cron-joborg)
-11. [Scheduled mode vs trigger mode](#scheduled-mode-vs-trigger-mode)
-12. [The daily schedule](#the-daily-schedule)
-13. [Running and testing locally](#running-and-testing-locally)
-14. [Project structure](#project-structure)
-15. [Customising](#customising)
-16. [Troubleshooting](#troubleshooting)
+   - [5. Connect Supabase (the growth scoreboard)](#5-connect-supabase-the-growth-scoreboard)
+   - [6. Add GitHub secrets and variables](#6-add-github-secrets-and-variables)
+   - [7. Schedule the daily trigger with cron-job.org](#7-schedule-the-daily-trigger-with-cron-joborg)
+12. [Scheduled mode vs trigger mode](#scheduled-mode-vs-trigger-mode)
+13. [The daily schedule](#the-daily-schedule)
+14. [Running and testing locally](#running-and-testing-locally)
+15. [Project structure](#project-structure)
+16. [Customising](#customising)
+17. [Troubleshooting](#troubleshooting)
 
 ---
 
@@ -502,6 +510,258 @@ This is the thing that says so.
 
 ---
 
+## The growth target: 10,000 users by January
+
+Everything above measures whether the account is *publishing* and whether it is
+*distributing*. Neither answers the question the whole thing exists for, which
+is whether any of it produced a user.
+
+```bash
+python -m headlinne cmo pace
+```
+
+```
+Target            10,000 users by 2027-01-01
+Window            2026-09-01 to 2027-01-01  (122 days)
+Today             2026-10-27  (day 56 of 122, 66 left)
+
+Users             815  [##..........................]   8.2%
+                  +695 since the first reading (2026-09-01)
+On track today    4,655   gap -3,840
+
+Needed per day    139.2   (day one needed 81.0, strain 1.72x)
+Measured per day  12.4
+Needed growth     58% week on week, for 9 weeks
+Lands at          1,634 on 2027-01-01 at the measured pace
+
+DAU / MAU         50 / 344   stickiness 15%
+Activation        42% of users active in 30 days  (baseline 60%)
+
+VERDICT           BEHIND
+
+PROBLEMS (1)
+  * signups are growing but engagement is not: 42% of users were active in the
+    last month, against 60% at baseline. The headline number is moving without
+    the product moving.
+```
+
+`.github/workflows/growth.yml` runs this daily at 08:00 IST and commits the
+reading. Four things about it are deliberate.
+
+**The required pace is recomputed from where you actually are.** A plan that
+says 82 a day on day one and still says 82 a day in November is a wall poster.
+Every user yesterday did not deliver is redistributed across the days that
+remain, so the number climbs when you fall behind. That climb is the alarm.
+
+**It reads four integers and cannot read anything else.** The whole Supabase
+grant is one view:
+
+```bash
+python -m headlinne cmo setup     # prints the SQL, then run it in Supabase
+```
+
+The view returns `users`, `dau`, `mau`, `new_today` and a timestamp. There is no
+table name, path or filter parameter anywhere in `cmo/metrics.py` that a caller
+could pass, only GET is ever issued, and a `service_role` key is refused
+outright by decoding its role claim - that key bypasses row-level security and
+would make every other guarantee here a promise rather than a grant. Use the
+anon key. A view of four counts cannot leak an email address no matter what the
+code does with it, which is a stronger property than any amount of care in the
+code.
+
+**An unreadable scoreboard is never reported as zero.** A growth report that
+prints 0 users because a token expired is worse than one that prints nothing,
+because somebody will act on it.
+
+**A user who never comes back is not a user.** The target is stated in signups
+because that is what you say out loud, but signups is a gameable number and this
+is judged on it. So the activation ratio is checked against its own baseline
+every run, and growth that arrives without engagement is called hollow in the
+same breath as the good news. Without that, a giveaway hits 10,000 and produces
+nothing.
+
+The ledger is append-only, in `state/cmo/ledger.jsonl`, committed like
+everything else. Supabase can say how many users there are now; it cannot say
+how many there were on 14 September, and that is the question every pace
+calculation is made of.
+
+### Backlinks
+
+```bash
+python -m headlinne cmo backlinks plan
+python -m headlinne cmo channels
+python -m headlinne cmo brief --dry-run
+python -m headlinne cmo review
+```
+
+Eighteen places Headlinne can be listed, ordered by what a link there is worth,
+with the copy already cut to each form's own limit - written to
+`state/cmo/backlinks.md` as a checklist you work through. Three of them run
+without a person. Eleven need exactly one click from you. Four must not be
+automated at all, and they are in the registry *because* of that rather than
+omitted:
+
+| | |
+| --- | --- |
+| Hacker News, Reddit, Lobsters | All three ban at the **domain** level, not the account level, and all three treat automated submission as the thing they ban for. Reddit already has a reviewed path here: `headlinne reddit find`, then `reddit post --id <id> --confirm`. |
+| Wikipedia | Adding your own product is against the conflict-of-interest policy, the links are nofollow anyway, and being caught is a lasting problem no traffic pays for. |
+
+A domain ban would take headlinne.com out of the one channel that compounds, so
+`backlinks submit` refuses anything that is not API-automatable and prints the
+copy and the URL instead. Submitting is also never recorded as being listed -
+there is a human reviewer in between, and only one of those two events is a
+backlink:
+
+```bash
+python -m headlinne cmo backlinks done --target betalist --url <listing>
+python -m headlinne cmo backlinks verify    # fetches the page, looks for the link
+```
+
+### The layer, and what it is allowed to do
+
+The growth code is a layer *on top of* the content factory, not a change to it.
+It measures, decides and instructs, and the one thing it writes into the
+pipeline's path is an optional daily brief:
+
+```bash
+python -m headlinne cmo brief      # today's instruction to the factory
+python -m headlinne cmo review     # the weekly review, and what to escalate now
+```
+
+```
+Brief             2026-10-27   campaign 2026-10
+Pace              BEHIND   needs 139.2/day, measured 10.4
+
+Make              reel_1, instagram_1, story_card, x_1, x_2, linkedin
+Lead on           conflict
+
+Tagged links      3 of 6 slots (50%)
+Cannot be tagged  reel_1, instagram_1, story_card  (no clickable link there)
+
+Why
+  815 users against 4,655 on the line (-3,840); each remaining day needs
+  139.2, 1.72x day one. The pace reads behind, so the day leads on conflict
+  rather than on interest.
+  evidence: ledger://2026-09-01..2026-10-27
+```
+
+`pipeline.generate()` reads that file. **Delete the layer and the day is
+unchanged**: a missing, malformed or refused brief all return None, and every
+call site falls back to the constant it used before. A growth experiment must
+never be able to take the news off the air.
+
+**Every instruction cites the ledger rows that justify it.** `reason` and
+`evidence` are not decoration. An autonomous decision that cannot be audited
+four months later is indistinguishable from a guess, and by then nobody will
+remember which it was.
+
+### What it may do without asking
+
+Three rungs, sorted by how hard the action is to undo and by nothing else.
+`headlinne/cmo/policy.py` enforces them, and an action nobody has classified is
+**refused** rather than assumed harmless.
+
+| | |
+| --- | --- |
+| **Acts alone** | Choosing stories, formats, times and copy. Minting links. Assigning experiment arms. Cross-posting an approved asset to a connected surface. Moving effort between running channels. |
+| **Acts, then tells you** | First post to a new surface, a cadence change, retiring a channel, an API listing submission. Each capped per day, each written to `state/cmo/decisions.jsonl` at the moment it happens, each revertable in one commit. |
+| **Never** | Spending money, creating accounts, entering credentials, speaking as the founder, DMs, changing positioning, automating a platform that bans by domain, buying engagement, incentivised signups. |
+
+Money is a refusal rather than a cap of zero. A cap invites someone to raise it;
+a refusal invites a conversation.
+
+The last two reds are the anti-Goodhart pair. Bought engagement and paid signups
+would both move the number this system is judged on, and they are refused
+precisely because moving the number is not the goal.
+
+### Half of what it makes cannot be measured
+
+This is the finding, not a bug in the report:
+
+```
+Tagged links      3 of 6 slots (50%)
+Cannot be tagged  reel_1, instagram_1, story_card
+```
+
+X, LinkedIn and Reddit take a real URL, so they get tagged. **Instagram has no
+clickable link on any surface** - not a caption, not a reel, not a story card.
+The only clickable link on the account is the bio, it is the same for every
+post, and the Graph API cannot change it. So Instagram output returns None and
+prints the bare wordmark, exactly as before, rather than carrying a tracking URL
+that would look measured and never resolve.
+
+`portfolio.py` is built around that. An unmeasurable channel is never treated as
+a failed one - it keeps a minimum allocation and is reported as *blind* rather
+than *unsuccessful*, because a returns-maximising allocator would read "no
+attributed signups" as zero and retire the surface carrying most of the
+audience. There is also a floor reserved for compounding work, which the daily
+arithmetic is not allowed to reach: every listing and article returns nothing on
+the day it is made, so a portfolio judged daily always defunds the only things
+that outlive the sprint.
+
+On X the tag is `?r=x1-1027` rather than five UTM parameters. A full UTM string
+is about 110 characters of a 280 character post, and those characters come
+straight out of the news - a test asserts that the long form drops an item from
+the post and the compact form does not.
+
+### Where the signups came from
+
+```bash
+python -m headlinne cmo channels
+```
+
+```
+Channel          status      posts  signups  slots
+  linkedin       measured      27      121      3
+  directory      exploring      6       19      1
+  instagram      blind         81        -      1
+  x              measured      54       53      1
+
+1 channel(s) cannot be measured at all (instagram).
+```
+
+The two halves of that table come from different places and neither can supply
+the other. **Posts** are counted from `content/<date>/published/*.json` - the
+same committed record `headlinne status` reads, so it stays correct when the
+product is unreachable. **Signups** come from the `cmo_attribution` view. A
+channel with posts and no reading is *exploring*, not failing.
+
+Three states, and keeping them apart is the whole job:
+
+| | |
+| --- | --- |
+| `measured` | Enough posts, and a reading a ref could have come from. Its rate is used. |
+| `exploring` | Clickable, but under 10 posts. Its rate is `None`, however good the early numbers look. |
+| `blind` | No link surface exists. Its signups read `-`, never `0`. |
+
+That last row is the one that took two attempts to get right. Instagram is
+absent from every reading that will ever be taken, because no ref can be minted
+for it. Reading that absence as zero gave it a rate of `0.00` and entered it in
+the performance allocation as the worst earner - which would have retired the
+surface carrying most of the audience, on evidence that was an artefact of the
+measurement.
+
+Refs that do not decode - `direct`, a stray referrer, a truncated string - are
+pooled under `unattributed` rather than spread across the channels. A wrong
+attribution is worse than an absent one, because the wrong one gets acted on.
+
+### Experiments
+
+```bash
+python -m headlinne cmo experiment add   --hypothesis "a question-form CTA converts better"   --slot linkedin --arms control,question --days 21
+```
+
+The stop rule is fixed at registration and hashed into the record. Editing the
+file afterwards breaks the seal, and a broken seal means the result will not be
+called at all. Arm assignment is a hash of the experiment, day and slot rather
+than a random draw, so a regenerated day cannot switch arms mid-flight and the
+whole history is recomputable from the committed record. `decide()` refuses to
+name a winner before both the clock and the per-arm minimum are satisfied, and
+a challenger under 10% ahead of the control loses - a threshold chosen before
+any numbers arrived.
+
+---
+
 ## The writing style
 
 Every post follows the same voice, enforced in code:
@@ -679,7 +939,79 @@ The publish flow uploads each slide as a carousel item, waits for Meta to proces
 it, creates the carousel container, waits again, and then publishes. This is all
 handled for you in `headlinne/publish/meta.py`.
 
-### 5. Add GitHub secrets and variables
+### 5. Connect Supabase (the growth scoreboard)
+
+Only needed for `headlinne cmo pace`. Everything else runs without it.
+
+The grant is one view returning four integers. Run this in the Supabase **SQL
+editor** (`python -m headlinne cmo setup` prints it, so you can pipe it rather
+than copy it):
+
+```sql
+create or replace view public.cmo_metrics
+with (security_invoker = off) as
+select
+  (select count(*) from auth.users)                                  as users,
+  (select count(*) from auth.users
+     where last_sign_in_at > now() - interval '1 day')               as dau,
+  (select count(*) from auth.users
+     where last_sign_in_at > now() - interval '30 days')             as mau,
+  (select count(*) from auth.users
+     where created_at > now() - interval '1 day')                    as new_today,
+  now()                                                              as as_of;
+
+revoke all on public.cmo_metrics from anon, authenticated;
+grant select on public.cmo_metrics to anon;
+```
+
+Adapt the three subqueries to wherever your product actually records users. The
+column names are the contract; where they come from is yours.
+
+Then the second view, which is what turns "the number moved" into "the number
+moved because of that post":
+
+```sql
+create or replace view public.cmo_attribution
+with (security_invoker = off) as
+select
+  coalesce(nullif(trim(raw_user_meta_data->>'ref'), ''), 'direct')  as ref,
+  count(*)                                                          as signups,
+  count(*) filter (
+    where last_sign_in_at > now() - interval '30 days')             as active
+from auth.users
+group by 1;
+
+revoke all on public.cmo_attribution from anon, authenticated;
+grant select on public.cmo_attribution to anon;
+```
+
+This one needs something from the product that the first did not: **the signup
+flow has to read `?r=` (or `utm_source`) off the landing URL and store it on the
+row.** In Supabase auth that is user metadata, set at signup with
+`options.data`. Adapt the first expression to wherever your flow puts it.
+
+Without this view the pace report still works. It just cannot say which post
+produced anything, and `cmo channels` will say so rather than guessing.
+
+Note what is still absent: a ref string and two counts. Somebody who arrived
+from `x_1` on 14 September is a `+1` on one row and cannot be picked back out of
+it.
+
+Then take **Project Settings → API → Project URL** and the **anon / public**
+key.
+
+> **Use the anon key.** Not `service_role`. That key bypasses row-level security
+> and can read and write every table in the project, and `cmo/metrics.py`
+> decodes the role claim and refuses it outright rather than letting the
+> read-only guarantee rest on good intentions. The anon key with `select` on one
+> aggregate view cannot read a user row at all, which is the actual boundary.
+
+```bash
+python -m headlinne cmo pace         # a scoreboard, not "unreadable"
+python -m headlinne cmo channels     # where the signups came from
+```
+
+### 6. Add GitHub secrets and variables
 
 In your repository, go to **Settings → Secrets and variables → Actions**.
 
@@ -688,6 +1020,8 @@ Add these as **secrets** (encrypted, never shown again):
 | Secret | What it is |
 | --- | --- |
 | `GEMINI_API_KEY` | Your Google AI Studio key |
+| `SUPABASE_URL` | Supabase project URL (growth scoreboard only) |
+| `SUPABASE_KEY` | Supabase **anon** key. Never `service_role` |
 | `BUFFER_ACCESS_TOKEN` | Buffer personal access token |
 | `BUFFER_CHANNEL_ID_X` | Buffer channel ID for X |
 | `BUFFER_CHANNEL_ID_LINKEDIN` | Buffer channel ID for LinkedIn |
@@ -735,7 +1069,7 @@ worth creating when you want to *change* something. To turn a feature off, set
 it to `false` rather than clearing it, since clearing it just restores the
 default.
 
-### 6. Schedule the daily trigger with cron-job.org
+### 7. Schedule the daily trigger with cron-job.org
 
 cron-job.org calls the GitHub `workflow_dispatch` API on a schedule. The full
 walkthrough, including the exact request bodies, the IST to UTC conversion table,
@@ -892,6 +1226,20 @@ python -m headlinne generate --no-schedule   # do not touch Buffer
 python -m headlinne publish --target reel-1   # publish one slot
 ```
 
+**Check the growth scoreboard.** Reads Supabase, appends to the ledger, and
+reports against the target. `--no-fetch` reports from the committed ledger with
+no network and no key, which is what a check running without credentials should
+do rather than reporting nothing:
+
+```bash
+python -m headlinne cmo pace
+python -m headlinne cmo pace --no-fetch --json
+python -m headlinne cmo backlinks plan
+python -m headlinne cmo channels
+python -m headlinne cmo brief --dry-run
+python -m headlinne cmo review
+```
+
 **Trigger a run manually on GitHub.** In the Actions tab you can run either
 workflow by hand with "Run workflow", which is the easiest way to confirm your
 keys are set up correctly before relying on the schedule.
@@ -910,6 +1258,18 @@ headlinne-social/
 │   ├── storage.py           Reads and writes the content/ folder
 │   ├── cli.py               Command-line entry point
 │   ├── health.py            Did it post, and did it reach? The silence alarm
+│   ├── cmo/                 Did any of it produce users? 10,000 by 1 Jan 2027
+│   │   ├── goal.py          The clock and the arithmetic. Required pace climbs
+│   │   ├── metrics.py       Supabase, read-only: four integers, one view
+│   │   ├── ledger.py        Append-only history, committed. Every quoted number
+│   │   ├── report.py        The pace report. Exits non-zero when it escalates
+│   │   ├── attribution.py   Tagged links, minting and decoding refs
+│   │   ├── portfolio.py     Where effort goes. Blind is not the same as failed
+│   │   ├── experiments.py   Stop rules sealed at registration, never after
+│   │   ├── policy.py        Green, amber, red. No flag turns a red on
+│   │   ├── brief.py         The daily instruction. The hand on the wheel
+│   │   ├── review.py        The weekly review and the September escalation
+│   │   └── backlinks/       Listings: tailor, submit what may be, verify
 │   ├── news/                Fetch feeds, rank, and corroborate
 │   │   ├── interest.py      Nine-term interest score: is this worth reading?
 │   │   ├── quality.py       The news-worthiness gate: what is not news at all

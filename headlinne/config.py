@@ -740,6 +740,58 @@ REDDIT_SENSITIVE_MARKERS = (
 )
 
 
+# --------------------------------------------------------------------------- #
+# The CMO capability
+# --------------------------------------------------------------------------- #
+# Ten thousand users by 1 January 2027. The target, the window and the
+# arithmetic live in headlinne/cmo/goal.py rather than here, because they are
+# the commitment rather than a setting - a number you can tune is a number that
+# gets tuned in November when it stops being comfortable.
+#
+# What belongs here is only how to reach the scoreboard. SUPABASE_URL is the
+# project URL; the key is a secret and sits in Secrets below. The read surface
+# is a single view of four integers, created by the SQL in
+# `python -m headlinne cmo setup`.
+SUPABASE_URL = _env_str("SUPABASE_URL", "")
+SUPABASE_TIMEOUT = _env_number("SUPABASE_TIMEOUT", 10.0, float)
+
+# The product, in the words a directory listing asks for.
+#
+# Thirty submission forms want the same facts in thirty shapes, and the shape
+# they mostly want is a length. Writing them here once, at the lengths the forms
+# actually use, is what stops each listing from being a fresh improvisation - and
+# it is why the tagline that goes on Product Hunt is the same claim as the one on
+# AlternativeTo rather than a different product described twice.
+#
+# The claim is deliberately the mechanism rather than the category. "A
+# personalised AI news app" describes forty products and is worth nothing in a
+# directory that already lists all forty. What no competitor's listing can say is
+# the source-agreement line, so that is the line.
+PRODUCT_NAME = "Headlinne"
+PRODUCT_URL = "https://headlinne.com"
+PRODUCT_TAGLINE_SHORT = "See where the news agrees, and where it doesn't"   # 46
+PRODUCT_TAGLINE = ("Every outlet on a story, side by side, so you can see "
+                   "where they agree and where they don't")                 # 97
+# Two lengths, both complete thoughts. The long one is for a form with room;
+# the short one exists because truncating the long one to 260 characters ends it
+# mid-sentence, and a directory listing is not something anyone goes back to
+# edit. Cutting on a word boundary stops it ending mid-word - it cannot stop it
+# ending mid-argument, and only a second draft can.
+PRODUCT_PITCH_SHORT = (
+    "Every news app picks a version of the story. Headlinne shows you all of "
+    "them, side by side, with the points the outlets agree on and the exact "
+    "figure they do not. A settled fact and a contested one stop looking the "
+    "same.")
+PRODUCT_PITCH = (
+    "Headlinne reads every outlet covering a story and shows you the ones that "
+    "agree, the ones that disagree, and the exact figure they disagree about. "
+    "Most news apps pick a version and show you that. This one shows you the "
+    "spread, so you can tell a settled fact from a contested one before you "
+    "decide what to think.")
+PRODUCT_CATEGORIES = ("News", "Media", "Artificial Intelligence",
+                      "Productivity", "Android", "iOS")
+
+
 @dataclass(frozen=True)
 class Secrets:
     """All secrets, read from the environment. Never commit real values."""
@@ -755,6 +807,16 @@ class Secrets:
     # Meta Graph API (direct Instagram publishing, see publish/meta.py).
     meta_token: str = field(default_factory=lambda: os.getenv("META_ACCESS_TOKEN", ""))
     ig_user_id: str = field(default_factory=lambda: os.getenv("IG_USER_ID", ""))
+
+    # Supabase, for reading the scoreboard and nothing else.
+    #
+    # This must be the **anon** key, not the service_role key. cmo/metrics.py
+    # decodes the role claim and refuses a service_role key outright: that key
+    # bypasses row-level security and can read and write every table in the
+    # project, and handing it to an autonomous marketing agent would make the
+    # read-only guarantee a matter of trust rather than a matter of grant.
+    # The anon key needs SELECT on one aggregate view and nothing else.
+    supabase_key: str = field(default_factory=lambda: os.getenv("SUPABASE_KEY", ""))
 
     # Reddit (script app: create one at reddit.com/prefs/apps). The tool reads
     # these from the environment only. Never hardcode or commit a token.

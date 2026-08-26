@@ -54,25 +54,38 @@ def hashtag(word: str) -> str:
     return "#" + str(word).lstrip("#").replace(" ", "")
 
 
-def build_tail(hashtags: list[str], n_tags: int) -> str:
+def build_tail(hashtags: list[str], n_tags: int, link: str | None = None) -> str:
+    """The closing line: where to go, then the tags.
+
+    `link` is the CMO's tagged URL for this slot. It defaults to the bare
+    wordmark, which is exactly what this printed before the attribution layer
+    existed, so a day generated without a brief is byte-identical to one
+    generated last week.
+
+    A tagged link is longer than `HEADLINNE.com` and that cost is real: it comes
+    out of the 280 characters the post has to say something in. The fitters
+    below measure the assembled string rather than trusting a reserved constant,
+    so a longer tail costs body text instead of silently breaking the limit.
+    """
     tags = " ".join(hashtag(h) for h in hashtags[:n_tags] if str(h).strip())
-    return (WEBSITE + (" " + tags if tags else "")).strip()
+    return ((link or WEBSITE) + (" " + tags if tags else "")).strip()
 
 
-def fit_simple(body: str, hashtags: list[str]) -> str:
+def fit_simple(body: str, hashtags: list[str], link: str | None = None) -> str:
     """Fit a single body + tail under the X limit, trimming only as last resort."""
     body = body.strip()
     for n in (2, 1, 0):
-        full = (body + " " + build_tail(hashtags, n)).strip()
+        full = (body + " " + build_tail(hashtags, n, link)).strip()
         if len(full) <= TWITTER_LIMIT:
             return full
-    tail = build_tail(hashtags, 0)
+    tail = build_tail(hashtags, 0, link)
     room = TWITTER_LIMIT - len(tail) - 1
     trimmed = body[: max(0, room)].rsplit(" ", 1)[0].rstrip(",.:;- ")
     return (trimmed + " " + tail).strip()
 
 
-def assemble_news_post(lead: str, items: list[str], hashtags: list[str]) -> str:
+def assemble_news_post(lead: str, items: list[str], hashtags: list[str],
+                       link: str | None = None) -> str:
     """Assemble a multi-line news post, dropping items before truncating."""
     lead = sanitize(lead).strip().rstrip(":")
     clean_items = [sanitize(i).strip().rstrip(".") for i in items if i and i.strip()][:3]
@@ -82,9 +95,9 @@ def assemble_news_post(lead: str, items: list[str], hashtags: list[str]) -> str:
         lines = [lead] + ["\u2022 " + it for it in clean_items[:k]]
         body = "\n".join(lines)
         for n in (2, 1, 0):
-            full = (body + " " + build_tail(hashtags, n)).strip()
+            full = (body + " " + build_tail(hashtags, n, link)).strip()
             if len(full) <= TWITTER_LIMIT:
                 return full
         best = body
     # Should not reach here, but guarantee a valid post.
-    return fit_simple(best or lead, hashtags)
+    return fit_simple(best or lead, hashtags, link)

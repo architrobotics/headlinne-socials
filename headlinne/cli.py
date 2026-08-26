@@ -8,6 +8,10 @@ Usage:
   python -m headlinne preview                    # render every format offline
   python -m headlinne preview --no-video         # ... but skip the reels
   python -m headlinne status                     # did it post, and did it reach?
+  python -m headlinne cmo pace                   # did any of it produce users?
+  python -m headlinne cmo setup                  # the SQL for the read-only view
+  python -m headlinne cmo brief                  # today's instruction to the factory
+  python -m headlinne cmo review                 # the weekly review and escalation
 """
 
 from __future__ import annotations
@@ -76,6 +80,185 @@ def _cmd_status(args: argparse.Namespace) -> int:
     report = health.scan(days=args.days)
     print(health.as_json(report) if args.json else health.format_report(report))
     return 1 if report.problems() else 0
+
+
+def _cmd_cmo(args: argparse.Namespace) -> int:
+    """The growth scoreboard: 10,000 users by 1 January 2027.
+
+    Exits non-zero only when the plan needs a human - the target has slipped far
+    enough that each remaining day needs twice what it did on day one, or the
+    signup count is climbing while engagement is not. Being merely behind exits
+    zero on purpose: an alarm that fires every week is an alarm nobody reads.
+    """
+    from .cmo import metrics, report
+
+    if args.cmo_command == "setup":
+        print("Two views. Run both in the Supabase SQL editor. Together they "
+              "are the\nentire read surface: counts and ref strings, and no "
+              "user data of any kind.\n")
+        print("-- 1. The scoreboard. Four integers, one row.\n")
+        print(metrics.SETUP_SQL)
+        print("\n-- 2. Where the signups came from.")
+        print("--")
+        print("-- This one needs something from the product that the first did "
+              "not: the")
+        print("-- signup flow has to read `?r=` (or utm_source) off the landing "
+              "URL and")
+        print("-- store it on the row. In Supabase auth that is user metadata, "
+              "set at")
+        print("-- signup with options.data - adapt the first expression to "
+              "wherever your")
+        print("-- flow actually puts it.")
+        print("--")
+        print("-- Without this view the pace report still works. It just cannot "
+              "say which")
+        print("-- post produced anything.\n")
+        print(metrics.SETUP_SQL_ATTRIBUTION)
+        print("\nThen set SUPABASE_URL and SUPABASE_KEY (the anon key, never "
+              "service_role):\n\n  python -m headlinne cmo pace\n"
+              "  python -m headlinne cmo channels\n")
+        return 0
+
+    if args.cmo_command == "channels":
+        from .cmo import portfolio
+
+        channels = portfolio.from_history()
+        allocation = portfolio.allocate(channels)
+        print(portfolio.report(channels, allocation))
+        if all(c.signups is None for c in channels):
+            print("\nNo attribution reading has ever been taken, so no "
+                  "allocation here is\nevidence-based. `python -m headlinne cmo "
+                  "setup` prints the SQL for the\nsecond view, which is what "
+                  "turns this table into a measurement.")
+            return 1
+        return 0
+
+    if args.cmo_command == "backlinks":
+        return _cmd_backlinks(args)
+
+    if args.cmo_command == "brief":
+        from .cmo import brief as cmo_brief
+
+        today = cmo_brief.build()
+        if not args.dry_run:
+            path = cmo_brief.write(today)
+            log.info("wrote %s", path)
+        print(cmo_brief.format_brief(today))
+        if args.dry_run:
+            print("\n(dry run: nothing written)")
+        return 0
+
+    if args.cmo_command == "review":
+        from .cmo import review as cmo_review
+
+        current = cmo_review.build()
+        print(cmo_review.format_review(current))
+        return 1 if cmo_review.escalation(current) else 0
+
+    if args.cmo_command == "experiment":
+        return _cmd_experiment(args)
+
+    reading = report.build(fetch=not args.no_fetch)
+    print(report.as_json(reading) if args.json else report.format_report(reading))
+    if reading.pace is None:
+        return 1
+    return 1 if reading.pace.escalate else 0
+
+
+def _cmd_experiment(args: argparse.Namespace) -> int:
+    """The experiment register. Stop rules are fixed here and never after."""
+    from .cmo import experiments
+
+    try:
+        if args.experiment_command == "add":
+            exp = experiments.register(args.hypothesis, args.slot,
+                                       args.arms.split(","),
+                                       runs_for_days=args.days)
+            print(f"{exp.id}: {exp.hypothesis}\n"
+                  f"  arms      {', '.join(exp.arms)} (control: {exp.control})\n"
+                  f"  runs to   {exp.ends_on()}, {exp.minimum} days per arm\n"
+                  f"  sealed    {exp.seal}\n\n"
+                  f"The stop rule is fixed now. Editing this record breaks the "
+                  f"seal and the result will not be called.")
+            return 0
+
+        if args.experiment_command == "list":
+            register = experiments.load()
+            if not register.experiments:
+                print("No experiments registered.")
+                return 0
+            for exp in register.experiments:
+                state = ("called: " + (exp.winner or "no winner") if exp.stopped
+                         else f"live to {exp.ends_on()}")
+                seal = "" if exp.sealed else "  [SEAL BROKEN]"
+                print(f"  {exp.id:16} {exp.slot:14} {state}{seal}")
+                print(f"  {'':16} {exp.hypothesis}")
+            return 1 if register.tampered() else 0
+
+        if args.experiment_command == "call":
+            results = {}
+            for pair in args.results.split(","):
+                arm, _, value = pair.partition("=")
+                results[arm.strip()] = float(value or 0)
+            print(experiments.decide(args.id, results))
+            return 0
+    except experiments.ExperimentError as exc:
+        print(exc)
+        return 2
+    return 1
+
+
+def _cmd_backlinks(args: argparse.Namespace) -> int:
+    """Tailor the listing copy, submit what may be submitted, verify what landed.
+
+    `plan` does the work that is actually work and needs no network. `submit`
+    acts only where the platform's own interface is the intended path, and
+    refuses everything else with the copy and the URL rather than an error,
+    because that refusal is the difference between a campaign and a domain ban.
+    """
+    from .cmo import backlinks
+    from .cmo.backlinks.registry import Automation
+
+    if args.backlinks_command == "plan":
+        items = backlinks.plan()
+        json_path, md_path = backlinks.write_queue(items)
+        auto = sum(1 for i in items if i.platform.automatable)
+        manual = sum(1 for i in items if i.platform.automation is Automation.MANUAL)
+        done = sum(1 for i in items if i.done)
+        live = sum(1 for i in items if i.live)
+        print(f"{len(items)} targets: {auto} run on their own, {manual} need "
+              f"one click from you, {len(items) - auto - manual} must not be "
+              f"automated.")
+        print(f"{done} submitted, {live} verified live.\n")
+        for item in items:
+            p = item.platform
+            mark = "live" if item.live else ("sent" if item.done else "    ")
+            print(f"  [{mark}] {'*' * p.value:<5} {p.id:16} {p.automation.value:10} {p.name}")
+        print(f"\nPaste-ready copy, cut to each form's limit: {md_path}")
+        print(f"Machine-readable: {json_path}")
+        return 0
+
+    try:
+        if args.backlinks_command == "submit":
+            print(backlinks.submit(args.target, dry_run=args.dry_run))
+        elif args.backlinks_command == "done":
+            print(backlinks.mark_done(args.target, args.url or ""))
+        elif args.backlinks_command == "verify":
+            checked = backlinks.verify()
+            if not checked:
+                print("Nothing to verify. Record a live URL first:\n"
+                      "  python -m headlinne cmo backlinks done "
+                      "--target <id> --url <listing>")
+                return 0
+            for record in checked:
+                state = "live" if record.verified else "NOT FOUND"
+                print(f"  [{state:9}] {record.platform:16} {record.live_url}")
+            missing = [r for r in checked if not r.verified]
+            return 1 if missing else 0
+    except backlinks.RefusedError as exc:
+        print(exc)
+        return 2
+    return 0
 
 
 def _cmd_preview(args: argparse.Namespace) -> int:
@@ -342,6 +525,65 @@ def build_parser() -> argparse.ArgumentParser:
                     help="how many days back to look (default 30)")
     st.add_argument("--json", action="store_true", help="machine-readable output")
     st.set_defaults(func=_cmd_status)
+
+    c = sub.add_parser("cmo", help="the growth scoreboard: users against the target")
+    csub = c.add_subparsers(dest="cmo_command", required=True)
+    cp = csub.add_parser("pace", help="where the number is, and what the rest of the days need")
+    cp.add_argument("--json", action="store_true", help="machine-readable output")
+    cp.add_argument("--no-fetch", action="store_true",
+                    help="report from the committed ledger without reading Supabase")
+    cp.set_defaults(func=_cmd_cmo)
+    cs = csub.add_parser("setup", help="print the SQL that creates the read-only view")
+    cs.set_defaults(func=_cmd_cmo)
+
+    cch = csub.add_parser("channels",
+                          help="where the signups came from, and where effort goes")
+    cch.set_defaults(func=_cmd_cmo)
+
+    cbr = csub.add_parser("brief",
+                          help="write today's instruction to the content factory")
+    cbr.add_argument("--dry-run", action="store_true",
+                     help="print the brief without writing it")
+    cbr.set_defaults(func=_cmd_cmo)
+
+    crv = csub.add_parser("review",
+                          help="the weekly review, and what needs escalating now")
+    crv.set_defaults(func=_cmd_cmo)
+
+    ce = csub.add_parser("experiment", help="the experiment register")
+    esub = ce.add_subparsers(dest="experiment_command", required=True)
+    ea = esub.add_parser("add", help="register one, with its stop rule fixed now")
+    ea.add_argument("--hypothesis", required=True)
+    ea.add_argument("--slot", required=True, help="the surface it runs on")
+    ea.add_argument("--arms", required=True,
+                    help="comma-separated; the first is the control")
+    ea.add_argument("--days", type=int, default=21, help="how long it runs")
+    ea.set_defaults(func=_cmd_cmo)
+    el = esub.add_parser("list", help="everything registered, live or called")
+    el.set_defaults(func=_cmd_cmo)
+    ec = esub.add_parser("call", help="declare a result, if the stop rule allows")
+    ec.add_argument("--id", required=True)
+    ec.add_argument("--results", required=True, help="arm=signups,arm=signups")
+    ec.set_defaults(func=_cmd_cmo)
+
+    cb = csub.add_parser("backlinks",
+                         help="tailor the listing copy, submit what may be "
+                              "submitted, verify what landed")
+    bsub = cb.add_subparsers(dest="backlinks_command", required=True)
+    bp = bsub.add_parser("plan", help="build the queue (no network, no key)")
+    bp.set_defaults(func=_cmd_cmo)
+    bs = bsub.add_parser("submit", help="submit to ONE API-automatable target")
+    bs.add_argument("--target", required=True, help="platform id from `plan`")
+    bs.add_argument("--dry-run", action="store_true",
+                    help="say what would be sent, send nothing")
+    bs.set_defaults(func=_cmd_cmo)
+    bd = bsub.add_parser("done", help="record that you submitted one yourself")
+    bd.add_argument("--target", required=True, help="platform id from `plan`")
+    bd.add_argument("--url", help="the live listing, once it exists")
+    bd.set_defaults(func=_cmd_cmo)
+    bv = bsub.add_parser("verify",
+                         help="fetch each recorded listing and check the link is on it")
+    bv.set_defaults(func=_cmd_cmo)
 
     r = sub.add_parser("reddit",
                        help="find relevant Reddit threads and draft helpful replies for review")

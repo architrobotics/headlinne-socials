@@ -1,0 +1,45 @@
+name: Distribution health
+
+# The alarm that did not exist.
+#
+# Every other workflow in this repo reports on the run it just did. None of them
+# can report on a run that never happened, which is the failure that actually
+# costs impressions: the generate trigger misses, no content is committed, every
+# publish slot finds nothing to publish, and every job that does run exits zero.
+# The account goes quiet and the repository looks healthy.
+#
+# This job reads the committed content folder instead of running the pipeline,
+# so it is correct even when the pipeline is the thing that is broken. It fails
+# when the account has been silent or when reels - the only surface that reaches
+# people who do not already follow - have stopped going out. A failed scheduled
+# workflow emails the repository owner, which is the notification channel this
+# project already has and costs nothing.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 12 * * *"     # 17:30 IST, after the day's reel and carousel slots
+
+permissions:
+  contents: read
+
+jobs:
+  health:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # No dependencies: the report reads committed JSON and touches neither
+      # the network nor an API key, so it still runs when everything else is
+      # misconfigured. That is the whole point of it.
+      - name: Report
+        run: python -m headlinne status --days 30
+
+      - name: Report (machine-readable, for the log)
+        if: always()
+        run: python -m headlinne status --days 30 --json
