@@ -24,15 +24,15 @@ from datetime import date, timedelta
 from pathlib import Path
 
 from ..logging_setup import get_logger
-from . import (attribution, brief as brief_mod, experiments, ledger, policy,
-               portfolio, report)
+from . import (attribution, brief as brief_mod, experiments, ledger, lift,
+               policy, portfolio, report)
 from .goal import required_weekly_growth
 
 log = get_logger("cmo.review")
 
-# A campaign that has been running this long with most of its output on
-# unmeasurable surfaces is not a campaign, it is a broadcast. Three weeks is
-# roughly the point at which "we are still setting up" stops being true.
+# A campaign that has been running this long with slots nothing can separate is
+# not learning anything. Three weeks is roughly the point at which "we are still
+# setting up" stops being true.
 BLIND_PATIENCE_DAYS = 21
 
 
@@ -43,6 +43,7 @@ class Review:
     week: list[dict]
     decisions: list[dict]
     coverage: attribution.Coverage
+    estimates: dict
     due: list
     tampered: list
 
@@ -67,9 +68,19 @@ def build(today: date | None = None, *, ledger_path: Path | None = None,
         week=rows,
         decisions=policy.decisions(since, path=decisions_path),
         coverage=attribution.coverage(portfolio.DEFAULT_SLOTS),
+        estimates=_estimates(ledger_path),
         due=experiments.due(today, path=experiments_path),
         tampered=experiments.load(path=experiments_path).tampered(),
     )
+
+
+def _estimates(ledger_path) -> dict:
+    """What each slot looks worth, or an empty map when nothing can be read."""
+    signups = ledger.signups_by_day(path=ledger_path)
+    if not signups:
+        return {}
+    return lift.estimate(signups, lift.published_by_day(days=90),
+                         slots=portfolio.DEFAULT_SLOTS)
 
 
 def escalation(review: Review) -> list[str]:
@@ -90,17 +101,36 @@ def escalation(review: Review) -> list[str]:
 
     out.extend(pace.problems())
 
-    # The failure that never announces itself. A blind channel produces no bad
-    # numbers because it produces none, so nothing else in this file can catch
-    # it - the pace looks merely disappointing and the cause stays invisible.
-    if review.coverage.share < 1.0 and review.reading.readings:
+    # The failure that never announces itself.
+    #
+    # A slot published every single day has no day without it, so it can never
+    # be estimated - and it produces no bad numbers to notice, because it
+    # produces none at all. The pace just looks disappointing and the cause
+    # stays invisible. The fix is cheap and counter-intuitive enough that
+    # nobody arrives at it unprompted: skip the slot sometimes. A week of
+    # deliberate absence buys a measurement that no amount of further posting
+    # ever will.
+    if review.reading.readings:
         first = date.fromisoformat(review.reading.first_day)
         running = (review.today - first).days
-        if running >= BLIND_PATIENCE_DAYS:
+        stuck = sorted(slot for slot, est in review.estimates.items()
+                       if "no day without it" in est.caveat)
+        if running >= BLIND_PATIENCE_DAYS and stuck:
             out.append(
-                f"{running} days in, {review.coverage.summary()} Nothing will "
-                f"explain where the users came from until that changes, so the "
-                f"allocation cannot improve no matter how long it runs.")
+                f"{running} days in and {', '.join(stuck)} have published every "
+                f"single day, so there is no day without them to compare "
+                f"against and their contribution cannot be estimated at all. "
+                f"Skipping one for a week would buy a measurement that no "
+                f"amount of further posting will.")
+
+        confounded = sorted(slot for slot, est in review.estimates.items()
+                            if est.confounded_with)
+        if running >= BLIND_PATIENCE_DAYS and confounded:
+            out.append(
+                f"{', '.join(confounded)} publish on nearly the same days, so "
+                f"their effects are one effect wearing several names. Varying "
+                f"their schedules independently is the only thing that "
+                f"separates them.")
 
     if review.tampered:
         names = ", ".join(e.id for e in review.tampered)
@@ -145,8 +175,15 @@ def format_review(review: Review) -> str:
                      f"{pace.days_remaining // 7} weeks")
     lines += ["", f"Verdict           {pace.verdict.replace('_', ' ').upper()}", ""]
 
-    lines.append("What can be measured")
-    lines.append(f"  {review.coverage.summary()}")
+    usable = {s: e for s, e in review.estimates.items() if e.usable}
+    if usable:
+        lines.append("What each slot looks worth (estimated, not measured)")
+        for slot, est in sorted(usable.items(), key=lambda kv: -kv[1].lift):
+            lines.append(f"  {slot:15} {est.lift:+.2f} signups a day it runs "
+                         f"({est.days_with} on, {est.days_without} off)")
+    else:
+        lines.append("What each slot looks worth")
+        lines.append("  nothing separable yet. `cmo lift` shows why.")
     lines.append("")
 
     if review.decisions:

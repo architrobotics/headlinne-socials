@@ -70,6 +70,10 @@ jobs:
         continue-on-error: true
         run: python -m headlinne cmo brief
 
+      - name: What each slot looks worth
+        continue-on-error: true
+        run: python -m headlinne cmo lift
+
       - name: Refresh the backlink queue
         continue-on-error: true
         run: python -m headlinne cmo backlinks plan

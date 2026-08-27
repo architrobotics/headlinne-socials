@@ -26,7 +26,7 @@ on its own.
    - [The layer, and what it is allowed to do](#the-layer-and-what-it-is-allowed-to-do)
    - [What it may do without asking](#what-it-may-do-without-asking)
    - [Half of what it makes cannot be measured](#half-of-what-it-makes-cannot-be-measured)
-   - [Where the signups came from](#where-the-signups-came-from)
+   - [What each slot is worth](#what-each-slot-is-worth)
    - [Experiments](#experiments)
 7. [The writing style](#the-writing-style)
 8. [Hooks and captions](#hooks-and-captions)
@@ -589,6 +589,7 @@ calculation is made of.
 
 ```bash
 python -m headlinne cmo backlinks plan
+python -m headlinne cmo lift
 python -m headlinne cmo channels
 python -m headlinne cmo brief --dry-run
 python -m headlinne cmo review
@@ -704,46 +705,55 @@ is about 110 characters of a 280 character post, and those characters come
 straight out of the news - a test asserts that the long form drops an item from
 the post and the compact form does not.
 
-### Where the signups came from
+### What each slot is worth
 
 ```bash
-python -m headlinne cmo channels
+python -m headlinne cmo lift
 ```
 
 ```
-Channel          status      posts  signups  slots
-  linkedin       measured      27      121      3
-  directory      exploring      6       19      1
-  instagram      blind         81        -      1
-  x              measured      54       53      1
+Slot             days on  days off   with   without    lift  confidence
+  reel_1              30        60  17.00     10.40   +6.60  usable
+  instagram_1         45        45  12.96     12.24   +0.71  weak
+  story_card          72        18  12.50     13.00   -0.50  weak
+  x_1                 90         0  12.60      0.00       -  none
 
-1 channel(s) cannot be measured at all (instagram).
+  instagram_1: the difference is inside the noise of these volumes
+  x_1: published on all 90 days, so there is no day without it to compare against
 ```
 
-The two halves of that table come from different places and neither can supply
-the other. **Posts** are counted from `content/<date>/published/*.json` - the
-same committed record `headlinne status` reads, so it stays correct when the
-product is unreachable. **Signups** come from the `cmo_attribution` view. A
-channel with posts and no reading is *exploring*, not failing.
+**Nothing is recorded at signup.** The estimate comes from two things that
+already exist: signup timestamps, and the committed record of which slots
+published on which day.
 
-Three states, and keeping them apart is the whole job:
+The pipeline is irregular - `headlinne status` reports reels going out on 7 of
+30 days and carousels on 22 - and nobody designed that as a trial, but it is
+one. There are days with a reel and days without, and the difference between
+the signups on each is an estimate of what a reel is worth. The experiment has
+been sitting in git the whole time.
 
-| | |
+**It measures Instagram**, and that is the reason to prefer it rather than a
+consolation for not tagging. Three of the four things this pipeline makes go to
+surfaces with no clickable link, so no tag would ever have resolved for them. A
+signup timestamp does not care whether the reader could tap anything.
+
+What it costs is certainty, and the costs are enforced rather than noted:
+
+| Refusal | When |
 | --- | --- |
-| `measured` | Enough posts, and a reading a ref could have come from. Its rate is used. |
-| `exploring` | Clickable, but under 10 posts. Its rate is `None`, however good the early numbers look. |
-| `blind` | No link surface exists. Its signups read `-`, never `0`. |
+| `none` | The slot ran every day, or never ran, or there are too few signups to split. No comparison exists, so no number is produced. |
+| `confounded` | Two slots run on nearly the same days. Their effect is one effect wearing two names, and no amount of data of this kind separates them. |
+| `weak` | The difference is inside the noise at these volumes. |
 
-That last row is the one that took two attempts to get right. Instagram is
-absent from every reading that will ever be taken, because no ref can be minted
-for it. Reading that absence as zero gave it a rate of `0.00` and entered it in
-the performance allocation as the worst earner - which would have retired the
-surface carrying most of the audience, on evidence that was an artefact of the
-measurement.
+That table is where the real bug was. `usable` originally ignored
+`confounded_with`, so a reel and a carousel publishing on the same days were
+each credited the **full** effect and `by_channel` added them together -
+crediting one reel's worth of signups twice, then moving the day's slots onto
+the double-counted channel.
 
-Refs that do not decode - `direct`, a stray referrer, a truncated string - are
-pooled under `unattributed` rather than spread across the channels. A wrong
-attribution is worse than an absent one, because the wrong one gets acted on.
+And the caveat that never goes away: this is **correlational**. A slot that runs
+on big-news days inherits the news. Every figure carries the word "estimate"
+through to the report, because dropping it is how an association becomes a fact.
 
 ### Experiments
 
@@ -967,35 +977,28 @@ grant select on public.cmo_metrics to anon;
 Adapt the three subqueries to wherever your product actually records users. The
 column names are the contract; where they come from is yours.
 
-Then the second view, which is what turns "the number moved" into "the number
-moved because of that post":
+Then the second view, which is what lets the system tell one slot from another:
 
 ```sql
-create or replace view public.cmo_attribution
+create or replace view public.cmo_signups_hourly
 with (security_invoker = off) as
 select
-  coalesce(nullif(trim(raw_user_meta_data->>'ref'), ''), 'direct')  as ref,
-  count(*)                                                          as signups,
-  count(*) filter (
-    where last_sign_in_at > now() - interval '30 days')             as active
+  date_trunc('hour', created_at) as hour,
+  count(*)                       as signups
 from auth.users
+where created_at > now() - interval '180 days'
 group by 1;
 
-revoke all on public.cmo_attribution from anon, authenticated;
-grant select on public.cmo_attribution to anon;
+revoke all on public.cmo_signups_hourly from anon, authenticated;
+grant select on public.cmo_signups_hourly to anon;
 ```
 
-This one needs something from the product that the first did not: **the signup
-flow has to read `?r=` (or `utm_source`) off the landing URL and store it on the
-row.** In Supabase auth that is user metadata, set at signup with
-`options.data`. Adapt the first expression to wherever your flow puts it.
+**Nothing about your signup flow changes.** This is the same table as the first
+view, one column further: a timestamp bucket and a count. The auth path is not
+touched, and there is no `ref` to store.
 
-Without this view the pace report still works. It just cannot say which post
-produced anything, and `cmo channels` will say so rather than guessing.
-
-Note what is still absent: a ref string and two counts. Somebody who arrived
-from `x_1` on 14 September is a `+1` on one row and cannot be picked back out of
-it.
+Attribution is inferred instead of recorded. See
+[What each slot is worth](#what-each-slot-is-worth).
 
 Then take **Project Settings → API → Project URL** and the **anon / public**
 key.
@@ -1008,7 +1011,7 @@ key.
 
 ```bash
 python -m headlinne cmo pace         # a scoreboard, not "unreadable"
-python -m headlinne cmo channels     # where the signups came from
+python -m headlinne cmo lift         # what each slot looks worth
 ```
 
 ### 6. Add GitHub secrets and variables
@@ -1235,6 +1238,7 @@ do rather than reporting nothing:
 python -m headlinne cmo pace
 python -m headlinne cmo pace --no-fetch --json
 python -m headlinne cmo backlinks plan
+python -m headlinne cmo lift
 python -m headlinne cmo channels
 python -m headlinne cmo brief --dry-run
 python -m headlinne cmo review
@@ -1263,7 +1267,8 @@ headlinne-social/
 │   │   ├── metrics.py       Supabase, read-only: four integers, one view
 │   │   ├── ledger.py        Append-only history, committed. Every quoted number
 │   │   ├── report.py        The pace report. Exits non-zero when it escalates
-│   │   ├── attribution.py   Tagged links, minting and decoding refs
+│   │   ├── attribution.py   Tagged links, and which surfaces carry one
+│   │   ├── lift.py          What a slot is worth: days on vs days off
 │   │   ├── portfolio.py     Where effort goes. Blind is not the same as failed
 │   │   ├── experiments.py   Stop rules sealed at registration, never after
 │   │   ├── policy.py        Green, amber, red. No flag turns a red on

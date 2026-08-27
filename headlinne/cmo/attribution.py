@@ -180,8 +180,9 @@ class Coverage:
         return (f"{len(self.attributable)} of {len(self.slots)} posts carry a "
                 f"tagged link ({self.share:.0%}). The other "
                 f"{len(self.blind)} ({', '.join(self.blind)}) go to surfaces "
-                f"with no clickable link, so their contribution cannot be "
-                f"observed at all.")
+                f"with no clickable link, so a reader cannot be followed from "
+                f"the post to the site - though `cmo lift` still estimates what "
+                f"those slots are worth from the days they ran.")
 
 
 def coverage(slots) -> Coverage:

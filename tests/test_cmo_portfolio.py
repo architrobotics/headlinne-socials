@@ -15,24 +15,24 @@ from headlinne.cmo.portfolio import Channel
 
 def test_every_compounding_name_is_a_real_channel_source():
     """Source names, not slot names. `listing` is the slot; `directory` is what
-    it reports under, and a compounding entry that matches no surface is funded
-    as unmeasurable forever while looking entirely reasonable."""
+    it reports under, and a compounding entry matching no surface never
+    resolves against anything on either side of the join."""
     from headlinne.cmo import attribution
 
     sources = {s.source for s in attribution.SURFACES.values()}
     for name in portfolio.COMPOUNDING:
         assert name in sources, name
-        assert Channel(name).measurable, name
 
 
 def test_no_slot_name_is_mistaken_for_a_channel_name():
-    """The class of bug, not the instance: every channel the allocator builds
-    has to resolve through `measurable`, or it silently reports blind."""
+    """The class of bug, not the instance. Channels are named by source, and a
+    slot name here silently matches nothing."""
     from headlinne.cmo import attribution
 
     slots = set(attribution.SURFACES)
+    sources = {s.source for s in attribution.SURFACES.values()}
     for channel in portfolio.from_history():
-        if channel.name in slots and not Channel(channel.name).measurable:
+        if channel.name in slots and channel.name not in sources:
             raise AssertionError(
                 f"{channel.name} is a slot name being used as a channel name")
 
@@ -50,14 +50,21 @@ def _channels(**kwargs) -> list[Channel]:
 # --------------------------------------------------------------------------- #
 # What a channel actually knows about itself
 # --------------------------------------------------------------------------- #
-def test_a_channel_with_no_link_surface_can_never_be_measured():
-    assert Channel("instagram").measurable is False
-    assert Channel("instagram", posts=500, signups=0).status() == "blind"
+def test_a_channel_with_no_link_surface_is_measurable_now():
+    """It was not under the tag scheme, and that asymmetry was the whole
+    problem: Instagram could never produce evidence, so it had to be specially
+    protected from being scored zero. The day-contrast estimator reads signup
+    timestamps, so a surface with no clickable link produces exactly the same
+    kind of evidence as one with a link, and the special case is gone."""
+    assert Channel("instagram").clickable is False        # still no link
+    channel = Channel("instagram", posts=60, signups=48.0, estimated=True)
+    assert channel.measured is True                       # measured anyway
+    assert channel.status() == "estimated"
+    assert channel.rate == 0.8
 
 
-def test_a_clickable_channel_without_enough_posts_is_exploring_not_failing():
-    channel = Channel("x", posts=3, signups=0)
-    assert channel.measurable is True
+def test_a_channel_without_enough_posts_is_exploring_not_failing():
+    channel = Channel("x", posts=3, signups=0.0)
     assert channel.measured is False
     assert channel.status() == "exploring"
     assert channel.rate is None            # not 0.0: we have not looked enough
@@ -77,17 +84,19 @@ def test_an_unmeasured_channel_has_no_rate_even_with_flattering_early_numbers():
 # --------------------------------------------------------------------------- #
 # The blind channel is not a failed channel
 # --------------------------------------------------------------------------- #
-def test_an_unmeasurable_channel_is_never_retired_for_having_no_data():
-    """The failure mode: a returns-maximising allocator reads "no attributed
-    signups" as zero and defunds the surface carrying most of the audience."""
+def test_a_channel_with_no_estimate_yet_is_never_retired_for_it():
+    """The failure mode outlives the change of method. A returns-maximising
+    allocator reads "no figure" as zero and defunds the surface carrying most
+    of the audience. The reason is now "not enough contrast" rather than "no
+    link", and it still must not be treated as failure."""
     channels = _channels(
-        instagram={"posts": 90},                       # no signups: unmeasurable
-        x={"posts": 60, "signups": 120},               # measured and good
+        instagram={"posts": 90},                       # no estimate yet
+        x={"posts": 60, "signups": 120},
         linkedin={"posts": 60, "signups": 30})
     allocation = portfolio.allocate(channels, slots=6)
 
     assert allocation.slots.get("instagram", 0) >= 1
-    assert "unmeasurable, not unsuccessful" in allocation.reasons["instagram"]
+    assert "exploring" in allocation.reasons["instagram"]
 
 
 def test_the_best_measured_channel_does_not_take_the_whole_day():
@@ -174,23 +183,33 @@ def test_the_slots_collapse_into_the_channels_that_own_them():
     assert "directory" in names          # the compounding floor needs a home
 
 
-def test_a_source_breakdown_is_used_when_it_arrives():
+def test_an_estimate_is_used_when_one_arrives():
     channels = {c.name: c for c in portfolio.from_history(
-        sources={"x": {"posts": 40, "signups": 80}})}
+        sources={"x": {"posts": 40, "estimated_signups": 80.0, "usable": 1}})}
     assert channels["x"].measured is True
+    assert channels["x"].estimated is True
     assert channels["x"].rate == 2.0
 
-    # Once a reading exists, a channel missing from it produced nothing - the
-    # view returns a row per ref that has signups, so absence is a zero. That is
-    # the opposite of the same silence before any reading has been taken, where
-    # it means nobody looked. `test_cmo_sources` pins both sides.
-    assert channels["linkedin"].signups == 0
-    assert channels["linkedin"].rate is None      # 0 posts: nothing to divide
+    # A channel the estimator could not separate stays None, which reads as
+    # exploring. It is never a zero: "we could not tell" and "it produced
+    # nothing" are different claims and only one of them is evidence.
+    assert channels["linkedin"].signups is None
+    assert channels["linkedin"].status() == "exploring"
 
 
-def test_the_report_says_what_could_not_be_measured():
+def test_an_unusable_estimate_is_not_credited():
+    """`lift.by_channel` marks weak and confounded slots unusable. A row that
+    arrives carrying a figure but no usable slot behind it must not become a
+    rate the allocator then divides by."""
+    channels = {c.name: c for c in portfolio.from_history(
+        sources={"x": {"posts": 40, "estimated_signups": 900.0, "usable": 0}})}
+    assert channels["x"].signups is None
+    assert channels["x"].status() == "exploring"
+
+
+def test_the_report_says_what_could_not_be_judged_yet():
     channels = portfolio.from_history()
     allocation = portfolio.allocate(channels)
     text = portfolio.report(channels, allocation)
-    assert "cannot be measured at all" in text
+    assert "Too little contrast to judge yet" in text
     assert "instagram" in text

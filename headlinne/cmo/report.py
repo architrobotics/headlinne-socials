@@ -67,12 +67,12 @@ def build(today: date | None = None, *, path=None, fetch: bool = True,
 
     # The second view, read in the same breath. It is a separate grant and a
     # separate failure: a project that has created cmo_metrics but not
-    # cmo_attribution still gets a working pace report, and simply cannot say
-    # where the users came from.
+    # cmo_signups_hourly still gets a working pace report, and simply cannot say
+    # which slot produced anything.
     if fetch:
-        refs = metrics.read_attribution(today)
-        if refs is not None:
-            ledger.append_attribution(refs, today, path=attribution_path)
+        buckets = metrics.read_hourly()
+        if buckets is not None:
+            ledger.append_hourly(buckets, today, path=attribution_path)
 
     rows = ledger.series(path=path)
     if not rows:
@@ -176,28 +176,25 @@ def format_report(reading: Reading) -> str:
 
 
 def _channel_lines(reading: Reading) -> list[str]:
-    """Where the signups came from, when that can be answered at all."""
-    from . import ledger as _ledger
+    """What each channel looks worth, when that can be estimated at all."""
     from . import portfolio
 
     channels = portfolio.from_history(ledger_path=reading.attribution_path)
     if all(c.signups is None for c in channels):
-        return ["Channels          no attribution reading yet. "
-                "`cmo setup` prints the SQL for the second view.", ""]
+        return ["Channels          not enough contrast to estimate yet. "
+                "`cmo lift` shows why.", ""]
 
     lines = ["Channel          status      posts  signups   per post"]
     for c in sorted(channels, key=lambda c: -(c.signups or 0)):
-        if not c.posts and not c.signups:
+        if not c.posts and c.signups is None:
             continue
         rate = f"{c.rate:.2f}" if c.rate is not None else "-"
-        signups = "-" if c.signups is None else f"{c.signups:,}"
+        signups = "-" if c.signups is None else f"{c.signups:,.0f}"
         lines.append(f"  {c.name:14} {c.status():10} {c.posts:5}  "
                      f"{signups:>7}  {rate:>9}")
-    unattributed = (_ledger.signups_by_channel(path=reading.attribution_path)
-                    or {}).get("unattributed")
-    if unattributed:
-        lines.append(f"  {'unattributed':14} {'':10} {'':5}  "
-                     f"{unattributed['signups']:>7}  {'-':>9}")
+    lines.append("")
+    lines.append("  Estimated from days a slot ran against days it did not. "
+                 "An association, not a cause.")
     lines.append("")
     return lines
 

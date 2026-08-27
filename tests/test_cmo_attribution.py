@@ -115,12 +115,17 @@ def test_an_experiment_arm_rides_along_only_when_there_is_one():
 # --------------------------------------------------------------------------- #
 # The finding
 # --------------------------------------------------------------------------- #
-def test_coverage_reports_the_share_of_a_day_that_can_be_measured_at_all():
+def test_coverage_reports_the_share_of_a_day_carrying_a_link():
+    """Coverage is about links, not about measurement. Those were the same
+    question while attribution depended on a tag; `cmo lift` separated them, so
+    the summary now says a reader cannot be *followed* rather than that the slot
+    cannot be judged - which would be false."""
     coverage = attribution.coverage(
         ["reel_1", "instagram_1", "story_card", "x_1", "x_2", "linkedin"])
     assert coverage.share == 0.5
     assert set(coverage.blind) == {"reel_1", "instagram_1", "story_card"}
-    assert "cannot be observed" in coverage.summary()
+    assert "cannot be followed" in coverage.summary()
+    assert "cmo lift" in coverage.summary()
 
 
 def test_the_pipeline_as_it_runs_today_is_half_blind():

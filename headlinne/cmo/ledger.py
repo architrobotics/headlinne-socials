@@ -142,73 +142,59 @@ def gained_per_day(days: int = 7, *, path: Path | None = None) -> float | None:
 
 
 # --------------------------------------------------------------------------- #
-# Where the signups came from
+# When the signups happened
 # --------------------------------------------------------------------------- #
-ATTRIBUTION_PATH = LEDGER_DIR / "attribution.jsonl"
+HOURLY_PATH = LEDGER_DIR / "hourly.jsonl"
 
 
-def append_attribution(refs, day: date, *, path: Path | None = None) -> Path:
-    """Record one reading of the attribution view. Append-only, like the rest.
+def append_hourly(buckets, day: date, *, path: Path | None = None) -> Path:
+    """Record one reading of the hourly view. Append-only, like the rest.
 
-    One line holds the whole reading rather than one line per ref. The view
-    returns cumulative counts, so a reading only means anything as a set: half
-    of Tuesday's refs and half of Wednesday's is not a picture of either day.
+    The whole reading on one line rather than a line per hour. The view returns
+    a window that slides, so half of Tuesday's buckets and half of Wednesday's
+    is a picture of neither.
     """
-    path = path or ATTRIBUTION_PATH
+    path = path or HOURLY_PATH
     path.parent.mkdir(parents=True, exist_ok=True)
     row = {
         "day": day.isoformat(),
         "recorded_at": datetime.now(timezone.utc).isoformat(),
-        "refs": [r.to_dict() for r in refs],
+        "buckets": [b.to_dict() for b in buckets],
         "source": "supabase",
     }
     with path.open("a", encoding="utf-8") as fh:
         fh.write(json.dumps(row, sort_keys=True) + "\n")
-    log.info("attribution += %d refs on %s", len(row["refs"]), day)
+    log.info("hourly += %d buckets on %s", len(row["buckets"]), day)
     return path
 
 
-def attribution_series(*, path: Path | None = None) -> list[dict]:
-    """One reading per day, latest wins, oldest first."""
+def latest_hourly(*, path: Path | None = None) -> list[dict] | None:
+    """The most recent reading's buckets, or None if there has never been one."""
     by_day: dict[str, dict] = {}
-    for row in read_all(path=path or ATTRIBUTION_PATH):
+    for row in read_all(path=path or HOURLY_PATH):
         day = row.get("day")
-        if day and isinstance(row.get("refs"), list):
+        if day and isinstance(row.get("buckets"), list):
             by_day[day] = row
-    return [by_day[d] for d in sorted(by_day)]
-
-
-def latest_attribution(*, path: Path | None = None) -> list[dict] | None:
-    """The most recent reading's refs, or None when there has never been one.
-
-    None rather than an empty list, and the distinction is the whole point: an
-    empty list is the claim that every channel produced nothing, which is the
-    conclusion that retires a working channel.
-    """
-    rows = attribution_series(path=path)
-    return rows[-1]["refs"] if rows else None
-
-
-def signups_by_channel(*, path: Path | None = None,
-                       today: date | None = None) -> dict[str, dict] | None:
-    """Signups and active users per channel, from the latest reading.
-
-    Refs we never minted - `direct`, a stray referrer, a truncated string - are
-    collected under `unattributed` rather than distributed across the channels.
-    Guessing which channel an unreadable ref belongs to would produce a number
-    that looks measured and is invented, and the invented one gets acted on.
-    """
-    from . import attribution as attr
-
-    refs = latest_attribution(path=path)
-    if refs is None:
+    if not by_day:
         return None
+    return by_day[max(by_day)]["buckets"]
 
-    out: dict[str, dict] = {}
-    for row in refs:
-        parsed = attr.parse_ref(str(row.get("ref", "")), today=today)
-        name = parsed.channel or "unattributed"
-        bucket = out.setdefault(name, {"signups": 0, "active": 0})
-        bucket["signups"] += int(row.get("signups") or 0)
-        bucket["active"] += int(row.get("active") or 0)
-    return out
+
+def signups_by_day(*, path: Path | None = None) -> dict | None:
+    """Signups per IST day, from the latest hourly reading. None when unread."""
+    from types import SimpleNamespace
+
+    from . import lift
+
+    buckets = latest_hourly(path=path)
+    if buckets is None:
+        return None
+    parsed = []
+    for row in buckets:
+        try:
+            parsed.append(SimpleNamespace(
+                hour=datetime.fromisoformat(str(row["hour"]).replace("Z", "+00:00")),
+                signups=int(row["signups"])))
+        except (KeyError, TypeError, ValueError):
+            continue
+    return lift.daily_signups(parsed)

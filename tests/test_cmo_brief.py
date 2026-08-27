@@ -177,25 +177,49 @@ def test_a_review_with_no_readings_escalates_immediately(tmp_path):
     assert "guess wearing a number" in problems[0]
 
 
-def test_a_long_blind_campaign_escalates_even_when_nothing_looks_wrong(tmp_path):
-    """The failure that never announces itself. A channel with no link surface
-    produces no bad numbers because it produces none at all."""
+def test_a_slot_that_never_stops_running_escalates_as_unmeasurable(tmp_path):
+    """The failure that never announces itself. A slot published every single
+    day has no day without it, produces no bad numbers because it produces
+    none, and the fix - skip it for a week - is counter-intuitive enough that
+    nobody arrives at it unprompted."""
+    from datetime import timedelta
+
+    from headlinne.cmo import lift
+
+    signups, published = {}, {}
+    start = date(2026, 9, 1)
+    for i in range(45):
+        day = start + timedelta(days=i)
+        signups[day] = 12
+        published[day] = {"linkedin"}          # every single day
+    estimates = lift.estimate(signups, published, slots=["linkedin"])
+
     path = _ledger(tmp_path, [("2026-09-01", 100, 60), ("2026-10-15", 3000, 1800)])
     current = review.build(date(2026, 10, 15), ledger_path=path,
                            experiments_path=tmp_path / "e.json",
                            decisions_path=tmp_path / "d.jsonl")
+    current.estimates = estimates
     assert current.pace.verdict in ("ahead", "slipping")   # nothing looks wrong
+
     problems = review.escalation(current)
-    assert any("cannot be observed" in p for p in problems)
-    assert any("allocation cannot improve" in p for p in problems)
+    assert any("every single day" in p for p in problems)
+    assert any("Skipping one for a week" in p for p in problems)
 
 
-def test_a_young_campaign_is_not_nagged_about_attribution_yet(tmp_path):
+def test_a_young_campaign_is_not_nagged_about_it_yet(tmp_path):
+    from datetime import timedelta
+
+    from headlinne.cmo import lift
+
+    signups = {date(2026, 9, 1) + timedelta(days=i): 12 for i in range(5)}
+    published = {d: {"linkedin"} for d in signups}
+
     path = _ledger(tmp_path, [("2026-09-01", 100, 60), ("2026-09-05", 200, 120)])
     current = review.build(date(2026, 9, 5), ledger_path=path,
                            experiments_path=tmp_path / "e.json",
                            decisions_path=tmp_path / "d.jsonl")
-    assert not any("cannot be observed" in p for p in review.escalation(current))
+    current.estimates = lift.estimate(signups, published, slots=["linkedin"])
+    assert not any("every single day" in p for p in review.escalation(current))
 
 
 def test_the_review_reports_the_amber_actions_it_took(tmp_path):

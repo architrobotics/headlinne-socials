@@ -48,8 +48,8 @@ log = get_logger("cmo.metrics")
 # functions below take no view argument at all, so there is nothing a caller
 # could pass to reach a third one.
 VIEW = "cmo_metrics"
-ATTRIBUTION_VIEW = "cmo_attribution"
-VIEWS = frozenset({VIEW, ATTRIBUTION_VIEW})
+HOURLY_VIEW = "cmo_signups_hourly"
+VIEWS = frozenset({VIEW, HOURLY_VIEW})
 
 # Run this in the Supabase SQL editor. It is the whole grant.
 #
@@ -76,31 +76,39 @@ grant select on public.cmo_metrics to anon;
 """
 
 
-# The second grant: where signups came from, and nothing about who they are.
+# The second grant: when signups happened. Nothing else.
 #
-# This is what turns "the number moved" into "the number moved because of that
-# post". It needs one thing from the product that the first view did not: the
-# signup flow has to keep the `r` or `utm_source` value off the landing URL and
-# store it on the row. In Supabase auth the natural home is user metadata, set
-# at signup with `options.data`, and the view below reads it from there - adapt
-# the first expression to wherever your flow actually puts it.
+# This replaced a view that read a `ref` the signup flow was supposed to store,
+# which would have meant changing the product's auth path. It does not, and it
+# should not: the growth layer is not worth a change to the one code path that
+# must never break.
 #
-# Note what is still absent. No id, no email, no timestamp per person: a ref
-# string and two counts. Somebody who arrived from x_1 on 14 September is a `+1`
-# on one row and cannot be picked back out of it.
-SETUP_SQL_ATTRIBUTION = """-- Headlinne CMO: where signups came from. Ref strings and counts, no people.
-create or replace view public.cmo_attribution
+# So attribution here is inferred rather than recorded. The pipeline does not
+# publish every slot every day - `headlinne status` shows reels going out on 7
+# of 30 days - and that irregularity is a natural experiment already sitting in
+# the committed record. Signups per hour, joined to which slots actually
+# published on which day, gives a contrast: what a day looks like with a reel
+# against what it looks like without one.
+#
+# It buys something the link-based scheme could never have: **Instagram**. Three
+# of the four things this pipeline makes go to surfaces with no clickable link,
+# so no tag on earth would have measured them. A timestamp measures them all
+# equally, because it does not care whether the reader could tap anything.
+#
+# What it costs is certainty. See `cmo/lift.py` - this is an estimate, it is
+# correlational, and every number derived from it is labelled as one.
+SETUP_SQL_HOURLY = """-- Headlinne CMO: when signups happened. A timestamp bucket and a count.
+create or replace view public.cmo_signups_hourly
 with (security_invoker = off) as
 select
-  coalesce(nullif(trim(raw_user_meta_data->>'ref'), ''), 'direct')  as ref,
-  count(*)                                                          as signups,
-  count(*) filter (
-    where last_sign_in_at > now() - interval '30 days')             as active
+  date_trunc('hour', created_at) as hour,
+  count(*)                       as signups
 from auth.users
+where created_at > now() - interval '180 days'
 group by 1;
 
-revoke all on public.cmo_attribution from anon, authenticated;
-grant select on public.cmo_attribution to anon;
+revoke all on public.cmo_signups_hourly from anon, authenticated;
+grant select on public.cmo_signups_hourly to anon;
 """
 
 
@@ -257,53 +265,50 @@ def read(day: date | None = None, *, session=None) -> Snapshot | None:
 
 
 # --------------------------------------------------------------------------- #
-# Where the signups came from
+# When the signups happened
 # --------------------------------------------------------------------------- #
-# The attribution view can grow a row per ref, and a campaign mints one ref per
-# post per day. Four months of that is a few hundred rows, which is fine - but
-# the ceiling is here so a misconfigured view cannot turn a daily job into a
-# large read of something nobody inspected.
-MAX_REFS = 2000
+# 180 days of hourly buckets is 4,320 rows at the absolute ceiling, and in
+# practice far fewer because an hour with no signups produces no row at all.
+# The cap is here so a view later redefined to return something else cannot
+# turn a daily job into a large read.
+MAX_BUCKETS = 6000
 
 
 @dataclass(frozen=True)
-class RefCount:
-    """One ref string and what it brought. Not a person, and cannot become one."""
+class Bucket:
+    """One hour, and how many people signed up in it."""
 
-    ref: str
+    hour: datetime
     signups: int
-    active: int = 0
 
     def to_dict(self) -> dict:
-        return {"ref": self.ref, "signups": self.signups, "active": self.active}
+        return {"hour": self.hour.isoformat(), "signups": self.signups}
 
 
-def read_attribution(day: date | None = None, *,
-                     session=None) -> list[RefCount] | None:
-    """Signups grouped by the ref they arrived with. None when unreadable.
+def read_hourly(session=None) -> list[Bucket] | None:
+    """Signups per hour. None when the view cannot be read.
 
-    None again means unknown, and it matters more here than anywhere else: an
-    empty list is the claim "every channel produced nothing", which is the exact
-    conclusion that would retire a working channel. A view that cannot be read
-    has to be distinguishable from one that returns zeros.
+    None again means unknown rather than none, and it matters here for the same
+    reason as everywhere else: an empty list is the claim that nobody signed up,
+    which is a claim about the product rather than about the reading.
     """
-    rows = _get(ATTRIBUTION_VIEW, session=session, limit=MAX_REFS)
+    rows = _get(HOURLY_VIEW, session=session, limit=MAX_BUCKETS)
     if rows is None:
         return None
 
-    out: list[RefCount] = []
+    out: list[Bucket] = []
     for row in rows:
         try:
-            ref = str(row["ref"]).strip()
-            if not ref:
-                continue
-            out.append(RefCount(ref=ref,
-                                signups=int(row["signups"]),
-                                active=int(row.get("active") or 0)))
+            raw = str(row["hour"]).replace("Z", "+00:00")
+            when = datetime.fromisoformat(raw)
+            if when.tzinfo is None:
+                when = when.replace(tzinfo=timezone.utc)
+            out.append(Bucket(hour=when, signups=int(row["signups"])))
         except (KeyError, TypeError, ValueError):
-            log.warning("skipping an unusable attribution row: %r", row)
+            log.warning("skipping an unusable hourly row: %r", row)
     if not out:
         return None
-    log.info("attribution: %d refs, %d signups",
-             len(out), sum(r.signups for r in out))
+    out.sort(key=lambda b: b.hour)
+    log.info("hourly: %d buckets, %d signups",
+             len(out), sum(b.signups for b in out))
     return out

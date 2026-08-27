@@ -11,6 +11,7 @@ Usage:
   python -m headlinne cmo pace                   # did any of it produce users?
   python -m headlinne cmo setup                  # the SQL for the read-only view
   python -m headlinne cmo brief                  # today's instruction to the factory
+  python -m headlinne cmo lift                   # what each slot looks worth
   python -m headlinne cmo review                 # the weekly review and escalation
 """
 
@@ -98,26 +99,36 @@ def _cmd_cmo(args: argparse.Namespace) -> int:
               "user data of any kind.\n")
         print("-- 1. The scoreboard. Four integers, one row.\n")
         print(metrics.SETUP_SQL)
-        print("\n-- 2. Where the signups came from.")
+        print("\n-- 2. When the signups happened.")
         print("--")
-        print("-- This one needs something from the product that the first did "
-              "not: the")
-        print("-- signup flow has to read `?r=` (or utm_source) off the landing "
-              "URL and")
-        print("-- store it on the row. In Supabase auth that is user metadata, "
-              "set at")
-        print("-- signup with options.data - adapt the first expression to "
-              "wherever your")
-        print("-- flow actually puts it.")
+        print("-- The same table as the first, one column further: a timestamp")
+        print("-- bucket and a count. Nothing about your signup flow changes "
+              "and the")
+        print("-- auth path is not touched.")
         print("--")
-        print("-- Without this view the pace report still works. It just cannot "
-              "say which")
-        print("-- post produced anything.\n")
-        print(metrics.SETUP_SQL_ATTRIBUTION)
+        print("-- `cmo lift` joins these buckets to the days each slot actually")
+        print("-- published and reads the difference, which is how a surface "
+              "with no")
+        print("-- clickable link gets measured at all.\n")
+        print(metrics.SETUP_SQL_HOURLY)
         print("\nThen set SUPABASE_URL and SUPABASE_KEY (the anon key, never "
               "service_role):\n\n  python -m headlinne cmo pace\n"
+              "  python -m headlinne cmo lift\n"
               "  python -m headlinne cmo channels\n")
         return 0
+
+    if args.cmo_command == "lift":
+        from .cmo import ledger, lift
+
+        signups = ledger.signups_by_day()
+        if not signups:
+            print("No hourly reading yet, so nothing can be estimated.\n"
+                  "`python -m headlinne cmo setup` prints the SQL for the "
+                  "second view.")
+            return 1
+        estimates = lift.estimate(signups, lift.published_by_day(days=args.days))
+        print(lift.format_estimates(estimates))
+        return 0 if any(e.usable for e in estimates.values()) else 1
 
     if args.cmo_command == "channels":
         from .cmo import portfolio
@@ -535,6 +546,13 @@ def build_parser() -> argparse.ArgumentParser:
     cp.set_defaults(func=_cmd_cmo)
     cs = csub.add_parser("setup", help="print the SQL that creates the read-only view")
     cs.set_defaults(func=_cmd_cmo)
+
+    cl = csub.add_parser("lift",
+                         help="what each slot looks worth, from days it ran "
+                              "against days it did not")
+    cl.add_argument("--days", type=int, default=90,
+                    help="how far back to compare (default 90)")
+    cl.set_defaults(func=_cmd_cmo)
 
     cch = csub.add_parser("channels",
                           help="where the signups came from, and where effort goes")
