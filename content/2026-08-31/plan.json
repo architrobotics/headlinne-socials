@@ -1,0 +1,230 @@
+{
+  "day": "2026-08-31",
+  "is_promo_day": true,
+  "is_friday": false,
+  "twitter": [
+    {
+      "category": "Promo",
+      "post": "News moves fast. If a story feels complicated, try our Deep Dive mode. It breaks down complex topics with visuals and lets you ask follow-up questions to get the full picture, not just the headlines. HEADLINNE.com #News #Tech",
+      "hashtags": [
+        "News",
+        "Tech"
+      ],
+      "scheduled_time": "2026-08-31T13:00:00+05:30",
+      "kind": "promo",
+      "lead": "Understand the news, not just headlines",
+      "items": [],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-31/x/x_1.png"
+    }
+  ],
+  "linkedin": {
+    "title": "I started building a news app when I was a teenager because I was tired of missing the stories that actually mattered.",
+    "body": "Most news feeds are designed to keep you scrolling rather than keep you informed. As a student, I found it impossible to separate the noise from the signal. I wanted to know what was happening in the world, but I did not have hours to spend reading through endless headlines or wading through content that was not relevant to me.\n\nThat frustration led to the early versions of what is now Headlinne. The goal was simple. I wanted an editor that worked for the reader, not for the algorithm. It had to be fast, accurate, and truly personal. We started by building tools that could actually understand the substance of a story, rather than just chasing clicks.\n\nBuilding this as a teenager taught me that news is not just about data. It is about trust. If you are going to use AI to filter the world, you have to do it with integrity. You cannot just guess what people want to read. You have to respect their time and their intelligence.\n\nWe are still learning and iterating every single day. The tech landscape changes fast, but the need for clear, honest information stays the same. We are committed to building something that respects your attention span while giving you a better way to stay connected to the world.",
+    "cta": "If you are looking for a smarter way to keep up with the news, you can see what we are building at HEADLINNE.com.",
+    "scheduled_time": "2026-08-31T18:00:00+05:30",
+    "kind": "product"
+  },
+  "instagram": [],
+  "reels": [
+    {
+      "slot": "reel_1",
+      "kind": "news",
+      "category": "Science",
+      "title": "Seven new frog species were hiding beneath Madagascar’s forest floor",
+      "hook": "Seven new frog species were hiding beneath Madagascar’s forest floor",
+      "beats": [
+        {
+          "role": "hook",
+          "caption": "Seven new frog species were hiding beneath Madagascar’s forest floor",
+          "detail": "",
+          "narration": "",
+          "seconds": 4.76,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "",
+          "pose": "",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "hook",
+          "caption": "Here is how scientists identify new species using old museum samples.",
+          "detail": "DNA helps solve biological puzzles.",
+          "narration": "Here is how scientists identify new species by comparing old museum samples to new ones.",
+          "seconds": 7.15,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "How it works",
+          "pose": "walk",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "Researchers just found seven new diamond frog species in Madagascar.",
+          "detail": "They were hiding on the forest floor.",
+          "narration": "They just confirmed seven new species of diamond frogs hiding on the forest floor.",
+          "seconds": 6.67,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "The discovery",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "They used DNA from century-old specimens to confirm the find.",
+          "detail": "Modern science meets old museum collections.",
+          "narration": "They used DNA from century-old museum specimens to confirm the find.",
+          "seconds": 5.24,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "The method",
+          "pose": "present",
+          "say": "",
+          "plates": [
+            "story"
+          ],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "These frogs have been hiding in plain sight for a long time.",
+          "detail": "A long-running biological puzzle is solved.",
+          "narration": "It turns out these frogs have been hiding in plain sight for a long time.",
+          "seconds": 7.15,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "The reality",
+          "pose": "jump",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "This reveal shows surprising diversity in a little-known area.",
+          "detail": "Hidden species are finally being documented.",
+          "narration": "The discovery reveals surprising diversity in a little-known area.",
+          "seconds": 4.29,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "The impact",
+          "pose": "talk",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "This data helps protect these amphibians from habitat loss.",
+          "detail": "Forest habitats are currently disappearing.",
+          "narration": "This data helps protect these rare amphibians as their forest habitats disappear.",
+          "seconds": 5.72,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "Why it matters",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "outro",
+          "caption": "Get the full story at headlinne.com.",
+          "detail": "Smart news for curious minds.",
+          "narration": "Get the full story and keep up with science at headlinne.com.",
+          "seconds": 5.24,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "Stay updated",
+          "pose": "cta",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        }
+      ],
+      "caption": "Seven new frog species were hiding beneath Madagascar’s forest floor\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#ScienceNews #Madagascar #Biology #Nature",
+      "hashtags": [
+        "ScienceNews",
+        "Madagascar",
+        "Biology",
+        "Nature",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-08-31T09:30:00+05:30",
+      "first_comment": "#Headlinne",
+      "sources": "Science Daily",
+      "story_url": "https://www.sciencedaily.com/releases/2026/08/260828082347.htm",
+      "dateline": "MON 31 AUG",
+      "story": null,
+      "duration_seconds": 46.23,
+      "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-31/reels/reel_1.mp4",
+      "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-31/reels/reel_1_cover.png",
+      "audio_file": null,
+      "has_voiceover": true
+    }
+  ],
+  "story_card": {
+    "slot": "story_card",
+    "category": "Technology",
+    "headline": "NASA launches the Nancy Grace Roman Space Telescope",
+    "standfirst": "A new mission has begun to uncover the darkest secrets of our universe.",
+    "steps": [
+      {
+        "label": "What happened",
+        "text": "A SpaceX Falcon Heavy rocket launched NASA’s new space telescope from Florida on Sunday morning."
+      },
+      {
+        "label": "How we got here",
+        "text": "The telescope is now starting a three-month journey to reach an orbit one million miles away."
+      },
+      {
+        "label": "Why it matters",
+        "text": "This advanced tool is designed to help scientists explore the darkest mysteries of the universe."
+      },
+      {
+        "label": "What to watch",
+        "text": "Keep an eye on its three-month journey as it travels to its final destination in space."
+      }
+    ],
+    "caption": "The NASA Nancy Grace Roman Space Telescope has officially launched into space to study the universe.\n\nThis powerful new observatory is currently traveling a million miles to reach its final orbit. It aims to shed light on some of the deepest cosmic mysteries we have yet to solve.\n\nWhat is the biggest question you hope space telescopes answer in our lifetime?\n\nSave this one. Follow for the daily card. Full story on HEADLINNE.com.\n\n#TechNews #Tech #AI #NASA",
+    "hashtags": [
+      "TechNews",
+      "Tech",
+      "AI",
+      "NASA",
+      "SpaceX",
+      "SpaceTelescope",
+      "NancyGraceRoman",
+      "Astronomy",
+      "SpaceExploration",
+      "ScienceNews",
+      "Universe",
+      "SpaceLaunch",
+      "Astrophysics",
+      "FalconHeavy",
+      "NewsExplained",
+      "Headlinne"
+    ],
+    "scheduled_time": "2026-08-31T21:30:00+05:30",
+    "first_comment": "#SpaceX #SpaceTelescope #NancyGraceRoman #Astronomy #SpaceExploration #ScienceNews #Universe #SpaceLaunch #Astrophysics #FalconHeavy #NewsExplained #Headlinne",
+    "sources": "NASA · The Verge · France 24 · Space.com +4",
+    "story_url": "https://www.nasa.gov/news-release/nasas-dark-universe-seeking-nancy-grace-roman-space-telescope-launches/",
+    "image_url": "https://images-assets.nasa.gov/image/NHQ20260830_admin_0002/NHQ20260830_admin_0002~large.jpg?w=1920&amp;h=1279&amp;fit=clip&amp;crop=faces%2Cfocalpoint",
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-08-31/story_card/story_card.png",
+    "story": null
+  }
+}
