@@ -1,0 +1,251 @@
+{
+  "day": "2026-09-01",
+  "is_promo_day": false,
+  "is_friday": false,
+  "twitter": [
+    {
+      "category": "Science",
+      "post": "Today's big science updates.\n• New whale research aims to stop ship collisions and save the species\n• NASA's Roman Telescope is now in space to map billions of galaxies\n• Scientists found that thin diamond membranes can generate electricity HEADLINNE.com #Science #Space",
+      "hashtags": [
+        "Science",
+        "Space"
+      ],
+      "scheduled_time": "2026-09-01T13:00:00+05:30",
+      "kind": "news",
+      "lead": "Today's big science updates.",
+      "items": [
+        "New whale research aims to stop ship collisions and save the species",
+        "NASA's Roman Telescope is now in space to map billions of galaxies",
+        "Scientists found that thin diamond membranes can generate electricity"
+      ],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-01/x/x_1.png"
+    },
+    {
+      "category": "Geopolitics",
+      "post": "Today's headlines in brief\n• A 91-year-old hiker just finished the 2,000-mile Appalachian Trail\n• Netanyahu's team is using a sunken 1948 arms ship for politics\n• Experts say Nepal's floods demand new urban planning strategies HEADLINNE.com #News #World",
+      "hashtags": [
+        "News",
+        "World"
+      ],
+      "scheduled_time": "2026-09-01T17:00:00+05:30",
+      "kind": "news",
+      "lead": "Today's headlines in brief",
+      "items": [
+        "A 91-year-old hiker just finished the 2,000-mile Appalachian Trail",
+        "Netanyahu's team is using a sunken 1948 arms ship for politics",
+        "Experts say Nepal's floods demand new urban planning strategies"
+      ],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-01/x/x_2.png"
+    }
+  ],
+  "linkedin": {
+    "title": "We decided to stop optimizing for time spent in our app.",
+    "body": "Most news feeds are built to keep you scrolling forever. They use engagement metrics to show you content that triggers a reaction, even if it is not actually useful to you. When we started building Headlinne, we realized that model was fundamentally broken for news.\n\nSo we changed the goal of our algorithm. Instead of maximizing your time on screen, we optimize for information density. We want you to understand the world better, not just consume more content. If you open our app, read two stories that actually matter to you, and then feel informed enough to put your phone down, we consider that a success.\n\nThis required a different engineering approach. We had to focus on relevance and summary quality rather than rage bait or clickbait. It is a harder path to build, but it is the only way to make a news product that respects your time instead of stealing it.\n\nWe believe technology should serve your curiosity, not manipulate your attention span.",
+    "cta": "See how we are rethinking the news feed at HEADLINNE.com.",
+    "scheduled_time": "2026-09-01T18:00:00+05:30",
+    "kind": "product"
+  },
+  "instagram": [],
+  "reels": [
+    {
+      "slot": "reel_1",
+      "kind": "news",
+      "category": "Science",
+      "title": "Precise giants: New research reveals how blue whales find food in a vast ocean",
+      "hook": "Precise giants: New research reveals how blue whales find food in a vast ocean",
+      "beats": [
+        {
+          "role": "hook",
+          "caption": "Precise giants: New research reveals how blue whales find food in a vast ocean",
+          "detail": "",
+          "narration": "",
+          "seconds": 6.36,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "",
+          "pose": "",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "hook",
+          "caption": "We might finally stop ships from hitting endangered blue whales.",
+          "detail": "New research changes how we protect them.",
+          "narration": "We might finally stop ships from hitting endangered blue whales. It starts with how they find food.",
+          "seconds": 7.73,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "Safer whale travel",
+          "pose": "walk",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "Despite protections, these giants still risk fatal collisions with ships.",
+          "detail": "Ship strikes remain a major threat.",
+          "narration": "Despite strict protections, these massive animals are still at risk of fatal collisions with cargo ships.",
+          "seconds": 7.27,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "The danger",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "MBARI scientists are now mapping exactly how they hunt for krill.",
+          "detail": "Their technology tracks both whales and food.",
+          "narration": "To help, scientists at MBARI are mapping exactly how whales hunt for krill in Monterey Bay.",
+          "seconds": 7.27,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "Tracking whales",
+          "pose": "present",
+          "say": "",
+          "plates": [
+            "story"
+          ],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "They use a suite of ocean technologies to watch the bay.",
+          "detail": "Advanced sensors monitor the underwater environment.",
+          "narration": "They are using a suite of advanced ocean technologies to watch the bay in real time.",
+          "seconds": 7.27,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "High tech",
+          "pose": "jump",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "This data helps experts predict where whales will be feeding next.",
+          "detail": "Better maps mean smarter shipping routes.",
+          "narration": "This data helps experts predict where whales will be feeding, so we can adjust shipping routes.",
+          "seconds": 7.27,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "Better data",
+          "pose": "talk",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "It gives officials the evidence they need to save the population.",
+          "detail": "Science drives better conservation policy.",
+          "narration": "It gives officials the hard evidence they need to create better conservation policies for the population.",
+          "seconds": 7.27,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "Resource management",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "outro",
+          "caption": "Get the full story and more at headlinne.com.",
+          "detail": "Science news delivered to you.",
+          "narration": "Get the full story and more science news every day at headlinne.com.",
+          "seconds": 5.45,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "Stay informed",
+          "pose": "cta",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        }
+      ],
+      "caption": "Precise giants: New research reveals how blue whales find food in a vast ocean\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#OceanLife #BlueWhales #Conservation #ScienceNews",
+      "hashtags": [
+        "OceanLife",
+        "BlueWhales",
+        "Conservation",
+        "ScienceNews",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-09-01T09:30:00+05:30",
+      "first_comment": "#Headlinne",
+      "sources": "Phys.org",
+      "story_url": "https://phys.org/news/2026-08-precise-giants-reveals-blue-whales.html",
+      "dateline": "TUE 1 SEP",
+      "story": null,
+      "duration_seconds": 55.0,
+      "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-01/reels/reel_1.mp4",
+      "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-01/reels/reel_1_cover.png",
+      "audio_file": null,
+      "has_voiceover": true
+    }
+  ],
+  "story_card": {
+    "slot": "story_card",
+    "category": "Finance",
+    "headline": "Turkmenistan begins fixing massive methane leaks",
+    "standfirst": "The world's worst emitter of this potent greenhouse gas is finally starting repairs.",
+    "steps": [
+      {
+        "label": "What happened",
+        "text": "Turkmenistan has started plugging major methane leaks at its ageing oil and gas facilities."
+      },
+      {
+        "label": "How we got here",
+        "text": "UN data recently exposed the country as the world's worst offender for these mega-leaks."
+      },
+      {
+        "label": "Why it matters",
+        "text": "Methane is a potent greenhouse gas. Stopping these leaks is a huge win for the climate."
+      },
+      {
+        "label": "What to watch",
+        "text": "Whether these repairs continue across all facilities to sustain this breakthrough."
+      }
+    ],
+    "caption": "Turkmenistan has started repair work to stop the massive methane leaks coming from its oil and gas infrastructure.\n\nFor years, the secretive nation has been the leading source of these harmful emissions. New UN data indicates that maintenance is finally underway at their ageing sites. This marks a significant environmental shift for the country.\n\nDo you think international pressure is the best way to get countries to fix their emissions?\n\nSave this one. Follow for the daily card. Full story on HEADLINNE.com.\n\n#Finance #Markets #Economy #Turkmenistan",
+    "hashtags": [
+      "Finance",
+      "Markets",
+      "Economy",
+      "Turkmenistan",
+      "methane",
+      "climatechange",
+      "environment",
+      "greenhousegases",
+      "energy",
+      "oilandgas",
+      "sustainability",
+      "globalwarming",
+      "unitednations",
+      "climateaction",
+      "news",
+      "NewsExplained"
+    ],
+    "scheduled_time": "2026-09-01T21:30:00+05:30",
+    "first_comment": "#methane #climatechange #environment #greenhousegases #energy #oilandgas #sustainability #globalwarming #unitednations #climateaction #news #NewsExplained",
+    "sources": "Guardian Business",
+    "story_url": "https://www.theguardian.com/environment/2026/aug/31/turkmenistan-methane-leaks-un-alerts-mars",
+    "image_url": "https://i.guim.co.uk/img/media/4c93df22ba9642bb5089a4531b5897181444dedd/757_0_4795_3835/master/4795.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=51f1e14769a6ff389fdd977e9d3b6d78",
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-01/story_card/story_card.png",
+    "story": null
+  }
+}
