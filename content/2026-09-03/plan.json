@@ -1,0 +1,100 @@
+{
+  "day": "2026-09-03",
+  "is_promo_day": false,
+  "is_friday": false,
+  "twitter": [
+    {
+      "category": "Science",
+      "post": "Today's science news in brief.\n• Hubble spotted a massive 10-sided storm pattern at Saturn's pole\n• New research shows blood cells replace old brain immune cells\n• Satellite data captured warning signs before the Nepal disaster HEADLINNE.com #Science #Space",
+      "hashtags": [
+        "Science",
+        "Space"
+      ],
+      "scheduled_time": "2026-09-03T13:00:00+05:30",
+      "kind": "news",
+      "lead": "Today's science news in brief.",
+      "items": [
+        "Hubble spotted a massive 10-sided storm pattern at Saturn's pole",
+        "New research shows blood cells replace old brain immune cells",
+        "Satellite data captured warning signs before the Nepal disaster"
+      ],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-03/x/x_1.png"
+    },
+    {
+      "category": "Finance",
+      "post": "Today's top finance stories.\n• Experts question why the UK favors foreign-owned energy infrastructure\n• Barclays faces a complaint over funding a coal plant near the Sundarbans\n• US power grids face blackout risks as a heatwave strains capacity HEADLINNE.com #Finance #Energy",
+      "hashtags": [
+        "Finance",
+        "Energy"
+      ],
+      "scheduled_time": "2026-09-03T17:00:00+05:30",
+      "kind": "news",
+      "lead": "Today's top finance stories.",
+      "items": [
+        "Experts question why the UK favors foreign-owned energy infrastructure",
+        "Barclays faces a complaint over funding a coal plant near the Sundarbans",
+        "US power grids face blackout risks as a heatwave strains capacity"
+      ],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-03/x/x_2.png"
+    }
+  ],
+  "linkedin": {
+    "title": "We are drowning in information but starving for actual insight.",
+    "body": "The problem with the modern news cycle isn't that there is too little news. It is that there is too much noise. Most of us spend our mornings doomscrolling through generic headlines that were written for everyone and therefore end up feeling relevant to no one.\n\nBeing truly informed doesn't mean knowing every single thing that happened in the world today. It means understanding the specific stories that shape your industry, your community, and your personal interests. When you filter out the noise, you finally have the mental space to engage with the news that actually affects your life.\n\nThis is why we built Headlinne. We believe AI should be a tool that acts like a personal editor, not just a content aggregator. It should learn what you care about and help you cut through the clutter so you can focus on the information that truly matters to you.",
+    "cta": "If you want a smarter way to stay on top of the world, see how we are changing the news experience at HEADLINNE.com.",
+    "scheduled_time": "2026-09-03T18:00:00+05:30",
+    "kind": "product"
+  },
+  "instagram": [],
+  "reels": [],
+  "story_card": {
+    "slot": "story_card",
+    "category": "Finance",
+    "headline": "Why Britain prefers foreign-owned public utilities",
+    "standfirst": "The UK is open to public ownership, but typically only when it is backed by foreign",
+    "steps": [
+      {
+        "label": "What happened",
+        "text": "The UK often allows foreign entities to own public infrastructure like energy grids."
+      },
+      {
+        "label": "How we got here",
+        "text": "This pattern stems from historical reliance on private systems, notably for gas boilers."
+      },
+      {
+        "label": "Why it matters",
+        "text": "Experts argue a rapid energy transition requires a new, mutualised approach to ownership."
+      },
+      {
+        "label": "What to watch",
+        "text": "Future debates on whether domestic public control can replace foreign-led models."
+      }
+    ],
+    "caption": "Why is Britain more comfortable with foreign ownership of public utilities than domestic public ownership?\n\nAuthor Arthur Downing notes that our current energy infrastructure relies heavily on legacy systems like gas boilers. Moving toward a green future may require rethinking who actually owns the grid. It is a complex issue of policy and national infrastructure strategy.\n\nDo you think essential services like energy should be owned by the state or private companies?\n\nSave this one. Follow for the daily card. Full story on HEADLINNE.com.\n\n#Finance #Markets #Economy #UKeconomy",
+    "hashtags": [
+      "Finance",
+      "Markets",
+      "Economy",
+      "UKeconomy",
+      "energypolicy",
+      "publicownership",
+      "infrastructure",
+      "gasboilers",
+      "heatpumps",
+      "UKpolitics",
+      "businessnews",
+      "energytransition",
+      "utilities",
+      "Britishnews",
+      "marketanalysis",
+      "NewsExplained"
+    ],
+    "scheduled_time": "2026-09-03T21:30:00+05:30",
+    "first_comment": "#energypolicy #publicownership #infrastructure #gasboilers #heatpumps #UKpolitics #businessnews #energytransition #utilities #Britishnews #marketanalysis #NewsExplained",
+    "sources": "Guardian Business",
+    "story_url": "https://www.theguardian.com/business/2026/sep/02/britain-public-ownership-energy-transition-foreign-powers-arthur-downing",
+    "image_url": "https://i.guim.co.uk/img/media/10e5cecf71f18c14aa8769189794afd329813969/847_0_4233_3387/master/4233.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=f9c331453a76abae9c7570b36a561ef0",
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-03/story_card/story_card.png",
+    "story": null
+  }
+}
