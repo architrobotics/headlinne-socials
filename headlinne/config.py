@@ -147,6 +147,23 @@ CATEGORY_COLORS = {
     "Science": "#5B49B0",      # violet       6.18:1
 }
 
+# The second voice inside a graphic.
+#
+# A device used to draw its whole comparison in one hue: the peak bar in the
+# accent and the others in the accent mixed toward ink, the near side of a split
+# in the accent and the far side in the accent mixed toward muted. Both read as
+# "this one, and this dead one" rather than as two things being compared, which
+# is most of why the diagrams look monotone next to the reference reels - those
+# carry three or four distinct pastels in a single frame.
+#
+# Violet is the choice because it is already in the palette, it is the furthest
+# hue from terracotta, it clears 6.18:1 on paper where the dimmed accent clears
+# nothing, and it is the one accent carrying no other meaning: mint already says
+# corroborated and marigold already says the sources disagree, so either would
+# make a bar chart look like a verdict. Cards stopped being coloured by category
+# in Aug 2026, which is what freed it.
+ACCENT_COUNTERPART = "#5B49B0"     # violet  6.18:1 on paper
+
 # Semantic tones, separate from the category accents. These carry meaning rather
 # than taxonomy: mint says corroborated, marigold says the sources disagree,
 # coral says this is the live one.

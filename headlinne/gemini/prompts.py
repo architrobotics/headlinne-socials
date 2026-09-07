@@ -292,34 +292,15 @@ Provide exactly {num_stories} slides, in the same order as the stories.
 # Shared rules for both reel kinds. Reels are edited in beats and watched muted,
 # so every constraint here exists to protect either the cut or the legibility of
 # burned-in text at phone size.
-REEL_RULES = """
-HOW A REEL IS BUILT
-- It is a sequence of short beats. Each beat is one cut with one idea on screen.
-- "caption" is the big on-screen line. It MUST be under 46 characters. Write it
-  like a headline on a placard, not like a sentence in an article. No trailing
-  full stop.
-- "detail" is the smaller supporting line under it, under 92 characters. It is
-  optional and can be an empty string, but it is where the substance goes.
-- Never split one sentence across two beats. Each beat stands alone.
-- Language stays spoken and plain. Read every line out loud in your head first.
-  If it does not sound like a person talking, rewrite it.
-
-THE NARRATION (this is read aloud by a voice, so it is the most important text)
-- "narration" is what a presenter SAYS over this beat. Under 90 characters.
-- It is NOT the caption repeated. The caption is a placard the viewer glances
-  at, the narration is a person talking to them. Write the sentence you would
-  actually say.
-- Use contractions and normal spoken rhythm. Say "it's" and "that's". Full
-  sentences with ordinary punctuation, because the punctuation controls how the
-  voice paces the line.
-- Each beat's narration should flow on from the previous one, so the whole reel
-  reads as one continuous piece of speech rather than a list of captions.
-- Never read out a symbol or an abbreviation the voice cannot say naturally.
-  Write "per cent" not "%", "and" not "&", "twenty twenty six" not "2026" only
-  where the year would otherwise be misread.
-- Do NOT narrate stage directions, the brand name, or a call to action. The
-  sign-off is added separately.
-
+# The device catalogue, shared by every reel prompt.
+#
+# It used to live inside REEL_RULES, which only the news and education prompts
+# read - and neither of those is the reel that runs. The daily reel is generated
+# by reel_daily_prompt, which offered a bare "counter" field and nothing else,
+# so five of the six devices in render/graphics.py were unreachable from the one
+# format that publishes. Measured over the 23 reels in content/: 163 of 170
+# beats carried no graphic at all. That is why the reels are mostly empty paper.
+GRAPHIC_DEVICES = """
 THE GRAPHIC BEAT
 One beat may carry a graphic instead of a photo. Only use the device you are
 told to use. The available devices and their data shapes:
@@ -347,6 +328,36 @@ told to use. The available devices and their data shapes:
 NEVER invent a number, a date, a percentage or a name for a graphic. If the
 material does not contain a figure, choose a device that does not print one.
 """.strip()
+
+
+REEL_RULES = """
+HOW A REEL IS BUILT
+- It is a sequence of short beats. Each beat is one cut with one idea on screen.
+- "caption" is the big on-screen line. It MUST be under 46 characters. Write it
+  like a headline on a placard, not like a sentence in an article. No trailing
+  full stop.
+- "detail" is the smaller supporting line under it, under 92 characters. It is
+  optional and can be an empty string, but it is where the substance goes.
+- Never split one sentence across two beats. Each beat stands alone.
+- Language stays spoken and plain. Read every line out loud in your head first.
+  If it does not sound like a person talking, rewrite it.
+
+THE NARRATION (this is read aloud by a voice, so it is the most important text)
+- "narration" is what a presenter SAYS over this beat. Under 90 characters.
+- It is NOT the caption repeated. The caption is a placard the viewer glances
+  at, the narration is a person talking to them. Write the sentence you would
+  actually say.
+- Use contractions and normal spoken rhythm. Say "it's" and "that's". Full
+  sentences with ordinary punctuation, because the punctuation controls how the
+  voice paces the line.
+- Each beat's narration should flow on from the previous one, so the whole reel
+  reads as one continuous piece of speech rather than a list of captions.
+- Never read out a symbol or an abbreviation the voice cannot say naturally.
+  Write "per cent" not "%", "and" not "&", "twenty twenty six" not "2026" only
+  where the year would otherwise be misread.
+- Do NOT narrate stage directions, the brand name, or a call to action. The
+  sign-off is added separately.
+""".strip() + "\n\n" + GRAPHIC_DEVICES
 
 
 def reel_news_prompt(story_block: str, hook_brief: str, num_beats: int,
@@ -633,11 +644,18 @@ Each beat needs:
 Flow the beats into each other - because, and, which, so. One thought carried
 through the whole reel, not {num_beats} separate headlines.
 
-If, and only if, the story contains a striking figure, make ONE beat a counter:
-set "counter" to that number with no units or commas, and write the caption as
-the words that follow it ("kilometres per hour."). The figure must appear in the
-story text exactly. If there is no such figure, set "counter" to null on every
-beat rather than inventing one.
+TWO or THREE of these beats must carry a graphic, and the rest must not. A beat
+with no graphic is a line of type on an empty page, and a reel of those is a
+slideshow. Pick the beats where the idea is a shape - a sequence, a contrast, a
+chain of cause and effect, a quantity - and give that shape to the reader
+instead of describing it. Set "graphic" and "data" on those beats only; every
+other beat has "graphic": "" and "data": {{}}.
+
+{GRAPHIC_DEVICES}
+
+A graphic beat still needs its caption, detail and narration. The graphic
+carries the shape of the idea and the caption says what it means; neither is a
+label for the other.
 
 The last beat is the sign-off and must mention headlinne.com.
 
@@ -650,7 +668,7 @@ Return ONLY JSON:
 {{
   "beats": [
     {{"chapter": "...", "caption": "... *emphasis* ...", "detail": "...",
-      "narration": "...", "counter": null}}
+      "narration": "...", "graphic": "", "data": {{}}}}
   ],
   "caption": "3 short paragraphs ending in a genuine question",
   "hashtags": ["Topical", "Tags"]

@@ -56,6 +56,30 @@ SURFACE = {
 # distributed - it is being archived. Not a hard target, a floor.
 DISCOVERY_FLOOR = 0.8
 
+# The owned slots the daily cadence triggers directly and that write a publish
+# record when they succeed, with the setting that turns each one off.
+#
+# Three deliberate absences. X and LinkedIn: in the default scheduled mode they
+# are handed to Buffer during the generate run and never write a record here, so
+# their silence in this folder means nothing. The second reel and second
+# carousel: off by default, so their silence is the correct behaviour. And the
+# reel, because the discovery share above is already its watchdog - a reel
+# outage cannot happen without dragging that number under the floor, and
+# reporting it twice would bury the one problem nothing else is watching.
+TRIGGERED_SLOTS = {
+    "instagram_1": "CAROUSEL_ENABLED",
+    "story_card": "STORY_CARD_ENABLED",
+}
+
+# A format can lose a day: nothing earned it, a render failed, the model was
+# rate limited. Every contained failure in the pipeline looks exactly like that
+# from the outside, which is the gap this closes. Four days in a row is no
+# longer bad luck, it is a break that has stopped announcing itself - the
+# carousel ran silent for seventeen because generate() was raising TypeError
+# into an `except Exception` and returning an empty list, and the aggregate
+# numbers above stayed inside their thresholds the whole time.
+DARK_SLOT_DAYS = 4
+
 # A day with no generated content at all. One is a miss; two in a row is an
 # outage, because the backup cron should have caught the first.
 SILENCE_ALARM_DAYS = 2
@@ -110,6 +134,33 @@ class Report:
                     counts[slot] += 1
         return counts
 
+    def last_published(self, slot: str) -> date | None:
+        days = [d.day for d in self.days if slot in d.published]
+        return max(days) if days else None
+
+    def dark_slots(self) -> list[tuple[str, int]]:
+        """Enabled formats that have stopped publishing, and for how long.
+
+        Only days that generated at all are counted against a slot, so a run of
+        missed generate runs is reported once as silence rather than three more
+        times as three dead formats.
+        """
+        from . import config
+
+        generated = [d.day for d in self.days if d.generated]
+        if not generated:
+            return []
+
+        out = []
+        for slot, setting in TRIGGERED_SLOTS.items():
+            if not getattr(config, setting, True):
+                continue
+            last = self.last_published(slot)
+            dark = sum(1 for day in generated if last is None or day > last)
+            if dark >= DARK_SLOT_DAYS:
+                out.append((slot, dark))
+        return out
+
     # -- verdict ----------------------------------------------------------- #
     def problems(self) -> list[str]:
         """Everything wrong enough to be worth failing a build over."""
@@ -127,6 +178,14 @@ class Report:
                 f"only surface that reaches people who do not already follow, so "
                 f"the other {self.window - self.discovery_days} days reached "
                 f"almost nobody new.")
+        for slot, dark in self.dark_slots():
+            last = self.last_published(slot)
+            out.append(
+                f"{slot} is switched on but has published nothing on the last "
+                f"{dark} generated days (last: "
+                f"{last.isoformat() if last else 'never in this window'}). A "
+                f"format this quiet is broken, not unlucky - check the generate "
+                f"log for the line that drops it.")
         return out
 
 

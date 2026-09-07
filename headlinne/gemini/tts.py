@@ -19,7 +19,6 @@ copy with an advertisement's cadence. The direction lives in
 
 from __future__ import annotations
 
-import re
 import time
 
 from ..config import (REEL_TTS_FALLBACK_MODELS, REEL_TTS_MAX_RETRIES,
@@ -31,20 +30,10 @@ log = get_logger("gemini.tts")
 
 _BYTES_PER_SECOND = TTS_SAMPLE_RATE * TTS_SAMPLE_WIDTH * TTS_CHANNELS
 
-# Gemini returns a "retryDelay": "11s" hint inside a 429 body. Honouring it is
-# far better than guessing with exponential backoff, because it is the server
-# telling us exactly how long its quota window has left to run.
-_RETRY_DELAY = re.compile(r"'?retryDelay'?\s*:\s*'?(\d+(?:\.\d+)?)s")
-
-
-def _retry_after(exc: Exception) -> float | None:
-    match = _RETRY_DELAY.search(str(exc))
-    return float(match.group(1)) if match else None
-
-
-def _is_rate_limit(exc: Exception) -> bool:
-    text = str(exc)
-    return "429" in text or "RESOURCE_EXHAUSTED" in text
+# Quota detection lives in client.py so the text and speech clients cannot
+# disagree about what "out of quota" looks like. It was written here first.
+from .client import is_rate_limit as _is_rate_limit  # noqa: E402
+from .client import retry_after as _retry_after  # noqa: E402
 
 
 def pcm_seconds(pcm: bytes) -> float:

@@ -50,7 +50,7 @@ from ..config import (REEL_FPS, REEL_H, REEL_MAX_SECONDS, REEL_MIN_SECONDS,
                       REEL_TARGET_SECONDS, REEL_W, WEBSITE)
 from ..logging_setup import get_logger
 from ..models import Reel, ReelBeat
-from . import fonts, motion, plate as plate_mod, theme
+from . import fonts, graphics, motion, plate as plate_mod, theme
 from .carousel import default_image_loader
 
 log = get_logger("render.reel")
@@ -76,6 +76,18 @@ PLATE_MAX_W_SINGLE = 520
 PLATE_MAX_W_PAIR = 430
 PLATE_MAX_H = 392
 
+# The stage a graphic beat draws into: the same band a plate would occupy, run
+# down to the bare ground line because the device replaces Pip rather than
+# standing next to him. Splitting the band between the two makes a small diagram
+# and a small bird, and the diagram is the reason the beat exists.
+GRAPHIC_TOP = PLATE_TOP
+GRAPHIC_BOTTOM = GROUND_BARE
+
+# How much of the beat the device spends building. Finishing early leaves the
+# diagram standing while the line is still being read, which is the point: the
+# viewer should end the beat looking at a complete picture, not a moving one.
+GRAPHIC_BUILD_FRACTION = 0.55
+
 # Pip is smaller when a plate is above him, so the two never fight for the eye.
 PIP_SCALE_WITH_PLATE = 12
 PIP_SCALE_BARE = 14
@@ -93,7 +105,17 @@ def cta_pose(day_ordinal: int = 0) -> str:
 
 # The kinetic line finishes revealing this far through its beat. Named because
 # the cover frame has to land after it - see cover_offset_ms.
-LINE_REVEAL_FRACTION = 0.34
+#
+# It was 0.34, and that is the single biggest reason the reels read as static.
+# With REEL_VOICEOVER on, a beat lasts exactly as long as its spoken line, so a
+# third of the way through the cut every word was already on screen and the
+# frame then sat perfectly still while the voice worked through the rest of the
+# sentence - for a six second beat, four seconds of nothing moving. The
+# reference reels keep the caption travelling with the voice for the whole line,
+# and that continuous motion is most of what makes them feel authored rather
+# than assembled. Reveal across the cut instead, leaving the last fifth as
+# settle so the completed line is on screen before the edit lands.
+LINE_REVEAL_FRACTION = 0.78
 
 
 def cover_offset_ms(reel, default_ms: int = 1200) -> int:
@@ -222,8 +244,9 @@ class ReelFrames:
                                              font=fonts.label_font(24, 700)))
 
         ground = self._draw_plates(canvas, beat, local)
-        pip_box = self._draw_pip(canvas, draw, beat, t, ground,
-                                 has_plate=bool(beat.plates))
+        drew_graphic = self._draw_graphic(canvas, beat, local, tone)
+        pip_box = None if drew_graphic else self._draw_pip(
+            canvas, draw, beat, t, ground, has_plate=bool(beat.plates))
         if beat.say and local < 0.74 and pip_box is not None:
             self._draw_bubble(canvas, draw, beat.say, pip_box)
 
@@ -233,6 +256,42 @@ class ReelFrames:
         return canvas.convert("RGB")
 
     # ---- pieces ----------------------------------------------------------- #
+    def _draw_graphic(self, canvas: Image.Image, beat: ReelBeat,
+                      local: float, tone) -> bool:
+        """Draw the beat's device across the stage. True if anything was drawn.
+
+        render/graphics.py has had five of these - bars, counter, flow, timeline
+        and split - since the format was designed, and nothing ever called
+        draw_device. The generator validated a device, wrote it into
+        reels.json, and the renderer drew an empty band where it should have
+        been, which is most of what makes the published reels look like type
+        floating on blank paper.
+
+        "counter" is deliberately not drawn here. It is set at 140px directly
+        above the caption by _draw_line, because a figure that large is part of
+        the sentence rather than a picture beside it.
+        """
+        device = (beat.graphic or "").strip().lower()
+        if not device or device == "counter":
+            return False
+        # The accent is asked for at display size: everything a device prints
+        # is a heading, a chip or a bar label, never body copy, so the
+        # display-only restriction in safe_fill would be answering a question
+        # this caller is not asking.
+        accent = theme.safe_fill(tone, theme.DISPLAY_ONLY_MIN_PX)
+        drawn = graphics.draw_device(
+            canvas, device,
+            _ease_out_cubic(min(1.0, local / GRAPHIC_BUILD_FRACTION)),
+            area=(MARGIN, GRAPHIC_TOP, REEL_W - MARGIN, GRAPHIC_BOTTOM),
+            data=beat.data or {}, accent=accent, dark=self.dark)
+        if drawn:
+            # Noted as the whole stage rather than the drawn extents. It is the
+            # conservative box, so the overlap harness cannot miss a collision
+            # by measuring a diagram tighter than it actually sits.
+            self._note(f"graphic-{device}", MARGIN, GRAPHIC_TOP,
+                       REEL_W - MARGIN, GRAPHIC_BOTTOM)
+        return drawn
+
     def _draw_plates(self, canvas: Image.Image, beat: ReelBeat,
                      local: float) -> int:
         # A sensitive story carries no plate, whatever the beat asks for. The

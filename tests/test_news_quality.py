@@ -58,3 +58,45 @@ def test_the_reason_names_the_rule_and_the_marker():
     reason = Q.reject_reason("Google Workspace Promo Codes: 14% Off")
     assert reason.startswith("commerce:")
     assert ":" in reason
+
+
+# --------------------------------------------------------------------------- #
+# Opinion and diary
+# --------------------------------------------------------------------------- #
+# Both shapes led reels. An opinion column under a source strip claims eight
+# outlets agree with a position only its author holds, and a diary entry has
+# nothing to explain - "Prince William to attend King Harald's funeral in
+# Norway" took the reel off two unexplained hydrogen clouds.
+def test_a_signed_comment_piece_is_not_news():
+    assert Q.reject_reason(
+        "Reform says we need to choose between climate and economy. "
+        "It's wrong | Larry Elliott") == "opinion:byline"
+    assert Q.reject_reason(
+        "We are finally witnessing the decline of corporate Democrats "
+        "| Robert Reich") == "opinion:byline"
+
+
+def test_a_pipe_that_is_not_a_byline_is_left_alone():
+    """Outlets also use the pipe for sections and straplines, and a rule that
+    cannot tell the difference would drop real reporting."""
+    for title in ("Nvidia | Q3 earnings beat expectations",
+                  "Apple unveils M5 | the fastest chip it has shipped",
+                  "Storm Bella makes landfall | live coverage from the coast"):
+        assert Q.reject_reason(title) != "opinion:byline", title
+
+
+def test_a_scheduled_non_event_is_not_a_story():
+    assert Q.reject_reason(
+        "Prince William to attend King Harald's funeral in Norway"
+    ) == "diary:to attend"
+    assert Q.reject_reason(
+        "A guide to this week's election in Zambia") == "diary:a guide to"
+    assert Q.reject_reason("Solar eclipse to occur next week. Here is what to know")
+
+
+def test_the_new_rules_do_not_touch_ordinary_reporting():
+    for title in ("FAST finds two mysterious hydrogen clouds with no visible stars",
+                  "James Webb Space Telescope observes 72 stars and finds planets",
+                  "Germany says Russia behind Leipzig airport drone attack",
+                  "Scientists find a human-only gene that may explain our brainpower"):
+        assert Q.reject_reason(title) is None, title

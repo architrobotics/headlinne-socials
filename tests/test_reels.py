@@ -6,6 +6,8 @@ functions of absolute time; cutting the render at beat boundaries would make
 every segment need to know where the previous one left him.
 """
 
+from datetime import date
+
 from headlinne.config import (REEL_FPS, REEL_H, REEL_MAX_SECONDS,
                               REEL_MIN_SECONDS, REEL_W)
 from headlinne.models import Agreement, Reel, ReelBeat, Story
@@ -255,3 +257,226 @@ def test_a_reel_with_no_beats_falls_back_rather_than_raising():
 
     assert R.cover_offset_ms(Bare()) == 1200
     assert R.cover_offset_ms(object()) == 1200
+
+
+# --------------------------------------------------------------------------- #
+# Graphic devices
+# --------------------------------------------------------------------------- #
+# render/graphics.py has had bars, counter, flow, timeline and split since the
+# format was designed. Nothing ever called draw_device: the generator validated
+# a device, wrote it into reels.json, and the renderer drew nothing where it
+# should have been. Across the 23 reels in content/, 163 of 170 beats carried
+# no graphic and the seven that did rendered as blank paper anyway. Both halves
+# of that are pinned here - the generator must be able to produce a device, and
+# the renderer must actually put it on the frame.
+def _flow_reel():
+    reel = _reel()
+    beat = reel.beats[1]
+    beat.graphic = "flow"
+    beat.data = {"steps": ["Launched in 2015", "Solar activity drags it",
+                           "Orbit decays into the Moon"]}
+    beat.plates = []
+    return reel
+
+
+def test_a_graphic_beat_puts_something_on_the_stage():
+    from headlinne.render.reel import GRAPHIC_BOTTOM, GRAPHIC_TOP
+
+    frames = ReelFrames(_flow_reel(), _story(), loader=lambda _s: None)
+    bare = frames.render(1.5).crop((0, GRAPHIC_TOP, REEL_W, GRAPHIC_BOTTOM))
+    drawn = frames.render(4.9).crop((0, GRAPHIC_TOP, REEL_W, GRAPHIC_BOTTOM))
+
+    changed = sum(1 for a, b in zip(bare.getdata(), drawn.getdata()) if a != b)
+    assert changed > 20000, (
+        f"the flow device changed only {changed} pixels on the stage - "
+        f"draw_device is not being reached")
+
+
+def test_the_daily_reel_can_produce_every_device_and_not_just_a_counter():
+    """The daily prompt offered a bare "counter" field, so five of the six
+    devices were unreachable from the only reel that publishes."""
+    from headlinne.generate.reel import _daily_beats
+
+    data = {"beats": [
+        {"chapter": "Why", "caption": "c", "detail": "d", "narration": "n",
+         "graphic": "flow", "data": {"steps": ["one", "two", "three"]}},
+        {"chapter": "Versus", "caption": "c", "detail": "d", "narration": "n",
+         "graphic": "split", "data": {"left_title": "Was", "left_text": "a",
+                                      "right_title": "Is", "right_text": "b"}},
+        {"chapter": "Read it", "caption": "c", "detail": "d", "narration": "n"},
+    ]}
+    beats = _daily_beats(data, _story())
+
+    assert [b.graphic for b in beats] == ["flow", "split", ""]
+    assert beats[0].data["steps"][0] == "one"
+
+
+def test_the_number_of_graphic_beats_is_capped():
+    """Density is a design decision. The prompt asks for two or three; the cap
+    is what makes that true when the model returns seven."""
+    from headlinne.generate.reel import MAX_GRAPHIC_BEATS, _daily_beats
+
+    data = {"beats": [
+        {"chapter": f"B{i}", "caption": "c", "detail": "d", "narration": "n",
+         "graphic": "flow", "data": {"steps": ["one", "two", "three"]}}
+        for i in range(7)
+    ]}
+    beats = _daily_beats(data, _story())
+
+    assert sum(1 for b in beats if b.graphic) == MAX_GRAPHIC_BEATS
+    assert all(b.caption for b in beats), "a capped beat keeps its words"
+
+
+def test_a_device_panel_is_legible_on_the_ground_it_is_drawn_on():
+    """The chips were filled INK_SOFT and lettered TEXT_PRIMARY: 1.11:1. Each
+    colour is perfectly legal against paper, which is why every contrast check
+    in the suite passed while the text was invisible."""
+    from headlinne.render import theme
+    from headlinne.render.graphics import panel_colours
+
+    for dark in (False, True):
+        panel = panel_colours(theme.hex_to_rgb(theme.BRAND_TERRACOTTA), dark)
+        ratio = theme.contrast_ratio(panel["body"], panel["fill"])
+        assert ratio >= 4.5, f"panel body is {ratio:.2f}:1 on its own fill"
+
+
+def test_a_graphic_beat_drops_pip_rather_than_sharing_the_stage():
+    frames = ReelFrames(_flow_reel(), _story(), loader=lambda _s: None)
+    frames.render(4.9)
+    names = {entry[0] for entry in frames.trace}
+    assert any(n.startswith("graphic-") for n in names)
+    assert "pip" not in names, "Pip and the diagram both shrink if they share"
+
+
+# --------------------------------------------------------------------------- #
+# Which story the reel leads with
+# --------------------------------------------------------------------------- #
+# "Breaking" here means three or more outlets inside eight hours, which measures
+# wire syndication rather than importance. It fired on 16 of the 38 days in
+# content/ and was less interesting than the day's best story on 13 of them.
+def _digest_with(breaking, others):
+    from headlinne.models import NewsDigest
+
+    by_category: dict[str, list] = {}
+    for s in [*others, breaking]:
+        if s is not None:
+            by_category.setdefault(s.category, []).append(s)
+    return NewsDigest(day="2026-09-06", by_category=by_category,
+                      category_weights={}, dominant_category="Science",
+                      breaking=breaking)
+
+
+def _wire(title, score, summary=""):
+    s = _story()
+    s.title, s.summary, s.url, s.score = title, summary, f"http://w/{score}", score
+    s.category = "Geopolitics"
+    return s
+
+
+def _find(title, score, summary=""):
+    s = _story()
+    s.title, s.summary, s.url, s.score = title, summary, f"http://f/{score}", score
+    s.category = "Science"
+    return s
+
+
+def test_a_dull_wire_story_does_not_take_the_reel_off_a_real_one():
+    from headlinne.generate.reel import lead_story
+
+    diary = _wire("Prince William to attend King Harald's funeral in Norway", 9.0)
+    find = _find("FAST finds two mysterious hydrogen clouds with no visible stars",
+                 12.77)
+    assert lead_story(_digest_with(diary, [find])) is find
+
+
+def test_breaking_still_wins_when_it_is_the_best_thing_available():
+    """The original reasoning holds when the breaking story is worth watching:
+    it starts with an audience already searching for it."""
+    from headlinne.generate.reel import lead_story
+
+    big = _wire("Meta fined $567m in largest child safety ruling against social "
+                "media", 11.0)
+    quiet = _find("Researchers tune a mineral surface to trigger ice formation", 9.0)
+    assert lead_story(_digest_with(big, [quiet])) is big
+
+
+def test_the_reel_never_repeats_a_story_it_was_told_to_skip():
+    from headlinne.generate.reel import lead_story
+
+    diary = _wire("Prince William to attend King Harald's funeral", 9.0)
+    find = _find("Seven new frog species were found beneath the forest floor", 12.0)
+    other = _find("A human-only gene may explain our brainpower", 11.0,
+                  "The first gene found only in humans appears to drive the "
+                  "brain growth that separates us from other primates.")
+    picked = lead_story(_digest_with(diary, [find, other]),
+                        exclude_urls={find.url})
+    assert picked is other
+
+
+# --------------------------------------------------------------------------- #
+# A day never loses its only discovery surface
+# --------------------------------------------------------------------------- #
+def test_a_failed_news_reel_falls_back_to_the_evergreen_one():
+    """Reels are the only surface that reaches people who do not follow, and
+    seven of thirty days published none because this one call raised."""
+    from headlinne.generate import reel as gen
+
+    story = _find("FAST finds two mysterious hydrogen clouds", 12.0)
+
+    class _Client:
+        def __init__(self):
+            self.calls = 0
+
+        def generate_json(self, *, system, prompt, **kw):
+            self.calls += 1
+            if "THE STORY" in prompt:          # the daily news prompt
+                raise RuntimeError("429 RESOURCE_EXHAUSTED")
+            return {"beats": [{"chapter": f"B{i}", "caption": f"line {i}",
+                               "detail": "d", "narration": "n"}
+                              for i in range(5)],
+                    "caption": "c", "hashtags": ["Science"]}
+
+    client = _Client()
+    out = gen.generate_daily(client, _digest_with(None, [story]), date(2026, 9, 6))
+
+    assert out is not None, "the day published no reel at all"
+    assert out.slot == "reel_1"
+    assert client.calls == 2, "it should have tried the news reel first"
+
+
+def test_a_comparison_uses_two_hues_and_not_one_dimmed_one():
+    """A two-bar chart drawn in a single hue says "this, and this dead thing".
+    Both sides of a comparison are real, so the far side gets its own colour -
+    and it has to be legible in its own right, which the old accent-mixed-with-
+    ink never was."""
+    from headlinne.render import theme
+    from headlinne.render.graphics import counterpart
+
+    accent = theme.hex_to_rgb(theme.BRAND_TERRACOTTA)
+    other = counterpart(accent)
+
+    assert other != accent
+    assert theme.contrast_ratio(other, theme.SURFACE) >= 4.5, \
+        "the counterpart carries labels, so it clears the body floor"
+    # And it never collides with itself when the accent already is violet.
+    assert counterpart(other) != other
+
+
+def test_the_line_reveals_across_the_cut_rather_than_the_first_third():
+    """With a narration track the beat lasts exactly as long as the spoken line,
+    so a reveal that finished at 34% left the frame motionless for most of every
+    beat."""
+    assert reel_render.LINE_REVEAL_FRACTION >= 0.6
+
+
+def test_the_cover_frame_still_lands_after_the_line_has_settled():
+    """The cover is the reel's permanent thumbnail, and it is derived from the
+    reveal fraction - so lengthening the reveal must not freeze a half-written
+    sentence onto the profile grid."""
+    for seconds in (1.6, 3.0, 6.0, 9.0):
+        reel = _reel()
+        reel.beats[0].seconds = seconds
+        offset = reel_render.cover_offset_ms(reel) / 1000.0
+        assert offset < seconds, f"cover at {offset:.2f}s is outside a {seconds}s beat"
+        assert offset >= min(seconds * 0.5, seconds - 0.2), \
+            f"cover at {offset:.2f}s lands before the line finishes"

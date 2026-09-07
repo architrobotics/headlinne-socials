@@ -52,6 +52,47 @@ def _dim_accent(accent, amount: float = 0.55):
     return theme.mix(accent, theme.hex_to_rgb(theme.INK_SOFT), amount)
 
 
+def counterpart(accent) -> tuple[int, int, int]:
+    """The other side of a comparison: a second hue, not a dimmer first one.
+
+    A two-bar chart in one hue says "this, and this dead thing". The point of a
+    comparison is that both sides are real, so the far side gets its own colour.
+    See config.ACCENT_COUNTERPART for why it is violet. When the accent already
+    *is* the counterpart, fall back to the house accent so the two never collide.
+    """
+    violet = theme.hex_to_rgb(theme.ACCENT_COUNTERPART)
+    if tuple(accent)[:3] == violet:
+        return theme.hex_to_rgb(theme.BRAND_TERRACOTTA)
+    return violet
+
+
+def panel_colours(accent, dark: bool = False) -> dict:
+    """Fill, outline and text for a panel a device draws on the ground.
+
+    Every device that boxes something - a flow chip, a split panel - used to
+    fill it with INK_SOFT and then set its body text in TEXT_PRIMARY. Those are
+    #241D18 and #191310: near-black type on a near-black box, a contrast ratio
+    of about 1.1:1, which is to say invisible. It never showed up because
+    nothing in the codebase called draw_device, so no device was ever drawn on
+    a real frame.
+
+    On paper the fix is not to lighten the type, it is to stop filling the box
+    dark. A boxed label on this ground is a raised piece of paper: pale fill,
+    ink type, a hairline of the accent to carry the colour. The reel keeps its
+    one inverted element - the last chip in a flow, the answer - because that
+    contrast is doing work, and there it is CREAM on the accent rather than ink.
+    """
+    if dark:
+        return {"fill": theme.hex_to_rgb(theme.INK_SOFT),
+                "outline": accent,
+                "title": accent,
+                "body": theme.hex_to_rgb(theme.CREAM)}
+    return {"fill": theme.hex_to_rgb(theme.SURFACE_RAISED),
+            "outline": accent,
+            "title": accent,
+            "body": theme.hex_to_rgb(theme.TEXT_PRIMARY)}
+
+
 def animate_number(label: str, progress: float) -> str:
     """Count the first number in `label` up to its final value.
 
@@ -98,8 +139,9 @@ def _fitted_label(text: str, max_width: int, *, start: int, minimum: int,
 def draw_bars(canvas: Image.Image, t: float, *, area, accent, data: dict) -> None:
     """Labelled bars that grow from a baseline, staggered.
 
-    The tallest bar keeps the full accent and the rest are dimmed, so the eye is
-    pulled to the comparison being made rather than having to work it out.
+    The tallest bar keeps the accent and the rest take the counterpart hue, so
+    the eye is pulled to the comparison being made without the other side of it
+    looking switched off.
     """
     bars = [b for b in (data.get("bars") or []) if isinstance(b, dict)][:3]
     if not bars:
@@ -132,7 +174,7 @@ def draw_bars(canvas: Image.Image, t: float, *, area, accent, data: dict) -> Non
         full_h = int(max_bar_h * (weight / peak))
         bar_h = int(full_h * progress)
         is_peak = weight >= peak - 1e-6
-        colour = accent if is_peak else _dim_accent(accent)
+        colour = accent if is_peak else counterpart(accent)
 
         if bar_h > 6:
             top = baseline - bar_h
@@ -176,7 +218,7 @@ def draw_bars(canvas: Image.Image, t: float, *, area, accent, data: dict) -> Non
 # counter: one figure, counted up
 # --------------------------------------------------------------------------- #
 def draw_counter(canvas: Image.Image, t: float, *, area, accent,
-                 data: dict) -> None:
+                 data: dict, dark: bool = False) -> None:
     """One big number that counts up, with a short line under it."""
     value_label = str(data.get("value_label") or "").strip()
     if not value_label:
@@ -200,11 +242,17 @@ def draw_counter(canvas: Image.Image, t: float, *, area, accent,
     # rather than as loose type in the middle of the frame.
     radius = int(min(w, h) * 0.42 * ease_out_back(window(t, 0.0, 0.5)))
     if radius > 10:
+        # A dimmed accent at half alpha is a warm shadow on the night ground and
+        # a grey blob on paper, with the caption sitting on top of it. On paper
+        # the disc has to be a tint of the accent, not a dilution of the ink.
+        disc_fill = (theme.rgba(_dim_accent(accent, 0.72), 150) if dark else
+                     theme.rgba(theme.mix(accent, theme.hex_to_rgb(theme.SURFACE),
+                                          0.88), 255))
         disc = Image.new("RGBA", canvas.size, (0, 0, 0, 0))
         ImageDraw.Draw(disc).ellipse(
             [cx - radius, y0 + h // 2 - radius - 70,
              cx + radius, y0 + h // 2 + radius - 70],
-            fill=theme.rgba(_dim_accent(accent, 0.72), 150))
+            fill=disc_fill)
         canvas.alpha_composite(disc)
         draw = ImageDraw.Draw(canvas)
 
@@ -225,7 +273,8 @@ def draw_counter(canvas: Image.Image, t: float, *, area, accent,
 # --------------------------------------------------------------------------- #
 # flow: a cause and effect chain
 # --------------------------------------------------------------------------- #
-def draw_flow(canvas: Image.Image, t: float, *, area, accent, data: dict) -> None:
+def draw_flow(canvas: Image.Image, t: float, *, area, accent, data: dict,
+              dark: bool = False) -> None:
     """Stacked chips joined by arrows, revealed one link at a time.
 
     This is the workhorse for explaining mechanisms, and it prints no figures,
@@ -234,6 +283,7 @@ def draw_flow(canvas: Image.Image, t: float, *, area, accent, data: dict) -> Non
     steps = [str(s).strip() for s in (data.get("steps") or []) if str(s).strip()][:3]
     if not steps:
         return
+    panel = panel_colours(accent, dark)
     draw = ImageDraw.Draw(canvas)
     x0, y0, x1, y1, w, h = _dims(area)
 
@@ -266,14 +316,14 @@ def draw_flow(canvas: Image.Image, t: float, *, area, accent, data: dict) -> Non
                 draw.rounded_rectangle([left, top, left + chip_w, top + chip_h],
                                        radius=chip_h // 2,
                                        fill=theme.rgba(accent, alpha))
-                text_fill = theme.rgba(theme.INK, alpha)
+                text_fill = theme.rgba(theme.CREAM, alpha)
             else:
                 draw.rounded_rectangle([left, top, left + chip_w, top + chip_h],
                                        radius=chip_h // 2,
-                                       fill=theme.rgba(theme.INK_SOFT,
-                                                       int(alpha * 0.82)),
-                                       outline=theme.rgba(accent, alpha), width=4)
-                text_fill = theme.rgba(theme.TEXT_PRIMARY, alpha)
+                                       fill=theme.rgba(panel["fill"], alpha),
+                                       outline=theme.rgba(panel["outline"],
+                                                          alpha), width=4)
+                text_fill = theme.rgba(panel["body"], alpha)
 
             font = _fitted_label(step, chip_w - 80, start=52, minimum=30, weight=800)
             lines = fonts.wrap_text(font, step, chip_w - 80)[:2]
@@ -379,7 +429,7 @@ def draw_timeline(canvas: Image.Image, t: float, *, area, accent,
 # split: a direct contrast
 # --------------------------------------------------------------------------- #
 def draw_split(canvas: Image.Image, t: float, *, area, accent,
-               data: dict) -> None:
+               data: dict, dark: bool = False) -> None:
     """Two stacked panels that slide in from opposite sides.
 
     Stacked rather than side by side: on a 9:16 canvas two vertical columns give
@@ -410,13 +460,13 @@ def draw_split(canvas: Image.Image, t: float, *, area, accent,
     right_top = top + left_layout["height"] + divider_band
     right_box = (x0, right_top, x1, right_top + right_layout["height"])
 
+    quiet = counterpart(accent)
     _draw_split_panel(
-        draw, t, box=left_box, layout=left_layout,
-        accent=theme.mix(accent, theme.hex_to_rgb(theme.TEXT_MUTED), 0.45),
-        from_left=True, delay=0.04)
+        draw, t, box=left_box, layout=left_layout, accent=quiet,
+        from_left=True, delay=0.04, panel=panel_colours(quiet, dark))
     _draw_split_panel(
         draw, t, box=right_box, layout=right_layout, accent=accent,
-        from_left=False, delay=0.24)
+        from_left=False, delay=0.24, panel=panel_colours(accent, dark))
 
     # The pivot chip between the panels, which is what makes it read as one
     # comparison rather than two unrelated boxes.
@@ -462,7 +512,8 @@ def _measure_panel(title: str, text: str, width: int, max_height: int) -> dict:
 
 
 def _draw_split_panel(draw: ImageDraw.ImageDraw, t: float, *, box, layout: dict,
-                      accent, from_left: bool, delay: float) -> None:
+                      accent, from_left: bool, delay: float,
+                      panel: dict | None = None) -> None:
     bx0, by0, bx1, by1 = box
     progress = ease_out_quint(window(t, delay, delay + 0.42))
     if progress <= 0.01:
@@ -472,22 +523,23 @@ def _draw_split_panel(draw: ImageDraw.ImageDraw, t: float, *, box, layout: dict,
     bx0 += offset
     bx1 += offset
 
+    panel = panel or panel_colours(accent)
     draw.rounded_rectangle([bx0, by0, bx1, by1], radius=32,
-                           fill=theme.rgba(theme.INK_SOFT, int(alpha * 0.86)),
-                           outline=theme.rgba(accent, alpha), width=4)
+                           fill=theme.rgba(panel["fill"], alpha),
+                           outline=theme.rgba(panel["outline"], alpha), width=4)
 
     y = by0 + _PANEL_PAD
     if layout["title_font"] is not None:
         fonts.draw_tracked(draw, (bx0 + _PANEL_PAD, y), layout["title"].upper(),
-                           layout["title_font"], fill=theme.rgba(accent, alpha),
-                           tracking=2.0)
+                           layout["title_font"],
+                           fill=theme.rgba(panel["title"], alpha), tracking=2.0)
         y += layout["title_h"]
 
     if layout["body_font"] is not None:
         line_h = int(fonts.line_height(layout["body_font"]) * 1.2)
         for line in layout["lines"]:
             draw.text((bx0 + _PANEL_PAD, y), line, font=layout["body_font"],
-                      fill=theme.rgba(theme.TEXT_PRIMARY, alpha))
+                      fill=theme.rgba(panel["body"], alpha))
             y += line_h
 
 
@@ -502,19 +554,27 @@ _RENDERERS = {
     "split": draw_split,
 }
 
+# The devices that box a label and so have to know which ground they are on.
+# The rest draw bars, dots and type straight onto it and read correctly either
+# way, so they are not given a parameter they would ignore.
+_DARK_AWARE = frozenset({"counter", "flow", "split"})
+
 
 def draw_device(canvas: Image.Image, device: str, t: float, *, area, accent,
-                data: dict) -> bool:
+                data: dict, dark: bool = False) -> bool:
     """Draw one device by name. Returns False for an unknown or empty device.
 
     Failing soft matters here: a malformed graphic payload should cost the reel
     its picture, not the whole run.
     """
-    renderer = _RENDERERS.get((device or "").strip().lower())
+    name = (device or "").strip().lower()
+    renderer = _RENDERERS.get(name)
     if renderer is None:
         return False
+    extra = {"dark": dark} if name in _DARK_AWARE else {}
     try:
-        renderer(canvas, clamp01(t), area=area, accent=accent, data=data or {})
+        renderer(canvas, clamp01(t), area=area, accent=accent, data=data or {},
+                 **extra)
     except Exception as exc:  # noqa: BLE001 - a bad payload must not kill a run
         from ..logging_setup import get_logger
 

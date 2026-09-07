@@ -31,6 +31,7 @@ from ..gemini.prompts import (STYLE_GUIDE, reel_daily_prompt,
                               reel_news_prompt, stories_block)
 from ..logging_setup import get_logger
 from ..models import NewsDigest, Reel, ReelBeat, Story
+from ..news import interest as interest_mod
 from ..news.images import best_story_image
 from ..quality.sanitize import sanitize
 from ..render.graphics import DEVICES, LABEL_ONLY_DEVICES
@@ -257,21 +258,68 @@ def _assemble(*, slot: str, kind: str, category: str, title: str, data: dict,
 # --------------------------------------------------------------------------- #
 # News explainer
 # --------------------------------------------------------------------------- #
+# How interesting a breaking story has to be, as a fraction of the best story
+# available, before it takes the reel off that story.
+#
+# Breaking used to win outright, and the reasoning was sound: a reel about the
+# thing people are already searching for starts with an audience. The flaw is
+# what "breaking" means here - three or more outlets inside eight hours, which
+# is not a measure of importance but a measure of wire syndication. Royal diary
+# items, deportations and executive orders clear it every time; a single
+# specialist filing a genuine discovery never does.
+#
+# Measured over the 38 days in content/: a breaking story existed on 16 of them
+# and was *less interesting than the day's best story on 13*, usually by a lot -
+# 1.58 against 10.21 the day "Trump signs order to rename Lake Ontario as Lake
+# America" took the reel off a James Webb planet-formation result, and 2.60
+# against 9.85 the day "Prince William to attend King Harald's funeral" took it
+# off two unexplained hydrogen clouds. This ratio keeps the three cases where
+# breaking genuinely was the best thing available and drops the other thirteen.
+BREAKING_INTEREST_RATIO = 0.7
+
+# And an absolute floor, because the ratio alone is relative to a day that may
+# have nothing in it. On a thin day a funeral diary entry can be 70% of a weak
+# best and take the reel anyway. Of the three days breaking genuinely was the
+# right call it scored 5.59, 5.60 and 8.20, so this clears all of them with room
+# to spare; below it, the reel is better off with whatever else the day has.
+BREAKING_INTEREST_FLOOR = 3.0
+
+
 def lead_story(digest: NewsDigest, *, exclude_urls: set[str] | None = None) -> Story | None:
     """The single most significant story of the day, across all categories.
 
-    Breaking news wins when there is any, because a reel about the thing people
-    are already searching for starts with an audience that a well-made reel about
-    something else does not have.
+    Breaking news is preferred, but only when it is worth watching. A reel needs
+    a story with something to explain, and "who attended a funeral" has an
+    audience without having anything to say to it.
     """
     exclude = exclude_urls or set()
-    if digest.breaking and digest.breaking.url not in exclude:
-        return digest.breaking
     candidates = [s for stories in digest.by_category.values() for s in stories
                   if s.url not in exclude]
     if not candidates:
-        return None
-    return max(candidates, key=lambda s: (s.score, s.source_count))
+        return digest.breaking if (digest.breaking
+                                   and digest.breaking.url not in exclude) else None
+
+    best = max(candidates, key=lambda s: (s.score, s.source_count))
+    breaking = digest.breaking
+    if not breaking or breaking.url in exclude or breaking.url == best.url:
+        return best
+
+    def appeal(story: Story) -> float:
+        return interest_mod.interest(story.title, story.summary,
+                                     has_image=bool(story.image_url))
+
+    breaking_appeal, best_appeal = appeal(breaking), appeal(best)
+    if (breaking_appeal >= BREAKING_INTEREST_FLOOR
+            and breaking_appeal >= best_appeal * BREAKING_INTEREST_RATIO):
+        log.info("reel: leading with the breaking story %r (interest %.2f "
+                 "against the day's best %.2f)", breaking.title[:56],
+                 breaking_appeal, best_appeal)
+        return breaking
+
+    log.info("reel: skipping the breaking story %r (interest %.2f) for %r "
+             "(%.2f) - widely syndicated is not the same as worth watching",
+             breaking.title[:56], breaking_appeal, best.title[:56], best_appeal)
+    return best
 
 
 def generate_news(client: GeminiClient, digest: NewsDigest, day: date,
@@ -357,6 +405,14 @@ def generate_education(client: GeminiClient, day: date) -> Reel:
 # reaches people who do not already follow.
 DAILY_BEATS = 7
 
+# How many of those beats may carry a graphic. Two or three out of seven is the
+# density the format was designed around: enough that the reel is a thing being
+# shown rather than a caption being read, and few enough that the diagrams stay
+# the punctuation of the argument instead of becoming the argument. A cap here
+# rather than trust in the prompt, because "how visual is this account" is a
+# design decision and the model does not get to drift it.
+MAX_GRAPHIC_BEATS = 3
+
 # Below this interest score the day has no story worth thirty seconds, and the
 # reel teaches an evergreen idea instead. An explainer of why a rate rise reaches
 # your loan keeps earning reach for as long as loans exist; a reel about a thin
@@ -367,10 +423,17 @@ WEAK_DAY_SCORE = 6.0
 def _daily_beats(data: dict, story: Story) -> list[ReelBeat]:
     """Turn the model's beats into renderable ones.
 
-    Every figure a counter beat would print is checked against the story text
-    first. Bar *heights* are a soft claim about relative size, but a number set
-    at 140px is a hard one in the most screenshot-able form this account
-    produces, so an unverified figure loses its beat rather than its accuracy.
+    Every figure a graphic would print is checked against the story text first.
+    Bar *heights* are a soft claim about relative size, but a number set at
+    140px is a hard one in the most screenshot-able form this account produces,
+    so an unverified figure loses its beat rather than its accuracy. The
+    devices that print no figures - flow, split, timeline - carry no such risk
+    and pass through untouched, which is why they are the ones a news story can
+    almost always support.
+
+    Sensitive stories keep the sober template: no poses, no plates, and no
+    printed figures, so a death toll is never set at display size and counted
+    up like a scoreboard.
     """
     source_text = f"{story.title} {story.summary}"
     digits = set(_digits(source_text))
@@ -382,19 +445,34 @@ def _daily_beats(data: dict, story: Story) -> list[ReelBeat]:
     poses = ("walk", "point", "present", "jump", "talk", "point", "cta")
 
     beats: list[ReelBeat] = []
+    graphic_beats: list[int] = []
     raw = data.get("beats", []) or []
     for index, item in enumerate(raw[:DAILY_BEATS]):
         caption = clamp_words(sanitize(str(item.get("caption", ""))), 120)
         if not caption:
             continue
+        graphic, payload = verify_graphic(
+            str(item.get("graphic", "")), item.get("data") or {},
+            source_text, allow_figures=not sensitive)
+
+        # The old counter-only field, still honoured so a model that answers in
+        # the previous shape is not silently reduced to plain type.
         counter = item.get("counter")
-        graphic, payload = "", {}
-        if counter not in (None, "", "null"):
+        if not graphic and counter not in (None, "", "null"):
             raw_value = str(counter).replace(",", "").strip()
             if raw_value in digits:
                 graphic, payload = "counter", {"value": raw_value}
             else:
                 log.warning("reel: dropped unverified counter %r", counter)
+
+        if graphic and len(graphic_beats) >= MAX_GRAPHIC_BEATS:
+            # Density is a design decision, not the model's to make. Past this
+            # many the reel stops being a story with diagrams in it.
+            log.info("reel: dropping a %s beat, already at %d graphics",
+                     graphic, MAX_GRAPHIC_BEATS)
+            graphic, payload = "", {}
+        if graphic:
+            graphic_beats.append(index)
 
         role = "hook" if index == 0 else (
             "outro" if index == len(raw[:DAILY_BEATS]) - 1 else
@@ -446,17 +524,35 @@ def generate_daily(client: GeminiClient, digest: NewsDigest, day: date, *,
         reel.dateline = _dateline(day)
         return reel
 
-    data = client.generate_json(
-        system=STYLE_GUIDE,
-        prompt=reel_daily_prompt(stories_block([story]),
-                                 hooks.hook_brief(day, "reel_1"),
-                                 _agreement_line(story), DAILY_BEATS),
-    )
-    beats = _daily_beats(data, story)
+    # The news reel is one model call, and a day that loses it loses the only
+    # surface that reaches anyone who does not already follow. So a failure here
+    # is not the end of the reel, it is the end of *this* reel: the evergreen
+    # explainer below needs no news at all and is already the designed answer to
+    # a day with nothing worth thirty seconds. Seven of thirty days published no
+    # reel because this call raised and nothing caught it.
+    data: dict = {}
+    beats: list[ReelBeat] = []
+    try:
+        data = client.generate_json(
+            system=STYLE_GUIDE,
+            prompt=reel_daily_prompt(stories_block([story]),
+                                     hooks.hook_brief(day, "reel_1"),
+                                     _agreement_line(story), DAILY_BEATS),
+        )
+        beats = _daily_beats(data, story)
+    except Exception as exc:  # noqa: BLE001 - the fallback is the whole point
+        log.error("reel: the news reel could not be written (%s)", exc,
+                  exc_info=True)
+
     if len(beats) < 3:
-        log.error("reel: model returned %d usable beats, too thin to publish",
-                  len(beats))
-        return None
+        log.error("reel: %d usable beats for %r, too thin to publish - "
+                  "teaching an evergreen idea instead", len(beats),
+                  story.title[:56])
+        fallback = generate_education(client, day)
+        fallback.slot = "reel_1"
+        fallback.dateline = _dateline(day)
+        return fallback
+
     _place_plates(beats, story)
 
     reel = _assemble(slot="reel_1", kind="news", category=story.category,

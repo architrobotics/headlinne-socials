@@ -81,6 +81,27 @@ _ARGUABLE = (
     "here's what we know", "rumor roundup", "leak roundup",
 )
 
+# Opinion. A column is one person's argument, and this account's promise is
+# every source side by side. Putting a source strip under a comment piece says
+# eight outlets agree with a claim only its author made. "Reform says we need to
+# choose between climate and economy. It's wrong | Larry Elliott" led a reel.
+_OPINION = (
+    "comment is free", "editorial:", "opinion:", "op-ed", "my view",
+    "the case against", "letters:", "column:",
+)
+
+# Scheduled non-events and orientation pieces. Both are real journalism and
+# neither is a story: there is nothing to explain about a diary entry, and a
+# guide is a summary of things that already happened elsewhere. "Prince William
+# to attend King Harald's funeral in Norway" and "A guide to this week's
+# election in Zambia" both took the reel off a genuine discovery.
+_DIARY = (
+    "a guide to", "your guide to", "what to know", "what you need to know",
+    "how to watch", "how to follow", "what to expect", "what to look for",
+    "to attend", "will attend", "due to attend", "set to attend",
+    "ahead of the", "in the diary", "what happens next",
+)
+
 _RULES: tuple[tuple[str, tuple[str, ...]], ...] = (
     ("commerce", _COMMERCE),
     ("review", _REVIEW),
@@ -88,7 +109,14 @@ _RULES: tuple[tuple[str, tuple[str, ...]], ...] = (
     ("filler", _FILLER),
     ("housekeeping", _HOUSEKEEPING),
     ("arguable", _ARGUABLE),
+    ("opinion", _OPINION),
+    ("diary", _DIARY),
 )
+
+# The Guardian and several others sign a comment piece with " | Author Name" and
+# nothing else distinguishes it from a report. It is the single most reliable
+# opinion marker in this feed set, and it needs a shape rather than a word.
+_OPINION_BYLINE = re.compile(r"\|\s*[A-Z][a-z]+(?:\s+[A-Z][\w'-]+){1,2}\s*$")
 
 
 _COMPILED = tuple((name, compile_terms(bag)) for name, bag in _RULES)
@@ -113,6 +141,8 @@ def reject_reason(title: str, summary: str = "") -> str | None:
     # not a list count.
     if _NUMBERED_LIST.match(title) and not re.match(r"^\s*\d{4}\b", title):
         return "listicle:numbered"
+    if _OPINION_BYLINE.search(title):
+        return "opinion:byline"
     return None
 
 

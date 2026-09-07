@@ -207,10 +207,17 @@ def _slides(data: dict, story: Story) -> list[Slide]:
 
 
 def generate(client: GeminiClient, digest: NewsDigest, day: date, *,
-             exclude_urls: set[str] | None = None
+             exclude_urls: set[str] | None = None,
+             exclude_stories: list[Story] | None = None
              ) -> list[InstagramCarousel]:
-    """The day's single carousel, or an empty list when nothing earns it."""
-    story = pick_story(digest, exclude_urls=exclude_urls)
+    """The day's single carousel, or an empty list when nothing earns it.
+
+    `exclude_stories` is what the reel already took. It is a separate argument
+    from `exclude_urls` because two outlets file the same event under different
+    URLs, and the day should not spend two of its three posts on one story.
+    """
+    story = pick_story(digest, exclude_urls=exclude_urls,
+                       exclude_stories=exclude_stories)
     if story is None:
         return []
 

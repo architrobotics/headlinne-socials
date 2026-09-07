@@ -28,6 +28,7 @@ from ..config import CATEGORIES, HIGH_INTEREST_KEYWORDS
 from ._lexicon import compile_terms, distinct_hits
 from ..logging_setup import get_logger
 from ..models import NewsDigest, Story
+from . import categorise as categorise_mod
 from . import interest as interest_mod
 from . import quality as quality_mod
 
@@ -236,6 +237,16 @@ def rank(stories: list[Story]) -> NewsDigest:
     for s in merged:
         s.verified = s.source_count >= 2
         s.sensitive = interest_mod.is_sensitive(s.title, s.summary)
+        # The feed decides the category, and general feeds carry everything, so
+        # a bone-marrow discovery filed on a world-news feed goes out labelled
+        # Geopolitics with Geopolitics hashtags over it. Correct the clear cases
+        # before the label reaches the weights, since the weights are what the
+        # next format is allowed to cover. See news/categorise.py.
+        corrected = categorise_mod.recategorise(s.title, s.summary, s.category)
+        if corrected != s.category:
+            log.info("Recategorised %r: %s -> %s", s.title[:56], s.category,
+                     corrected)
+            s.category = corrected
         s.score = round(_score(s), 3)
     merged.sort(key=lambda s: s.score, reverse=True)
 

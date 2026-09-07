@@ -1,5 +1,7 @@
 """The daily carousel: what earns it, and how the five slides are assembled."""
 
+from datetime import date
+
 from headlinne.generate.instagram import (_hashtags, _slides, agreement_line,
                                           pick_story, verified_figure)
 from headlinne.models import Agreement, Conflict, NewsDigest, Story
@@ -248,3 +250,48 @@ def test_excluding_by_story_still_honours_the_url_exclusion():
     a = _story("Story A", score=9.0, outlets=4)
     b = _story("Completely different subject matter here", score=8.0, outlets=4)
     assert pick_story(_digest([a, b]), exclude_urls={a.url}) is b
+
+
+# --------------------------------------------------------------------------- #
+# The seam between the pipeline and this module
+# --------------------------------------------------------------------------- #
+# The two tests above pass `exclude_stories` straight to pick_story, which is
+# not how the day actually runs. The pipeline calls generate(), generate()
+# forwards to pick_story(), and for seventeen days it did not: generate() had
+# never been given the argument, so every run raised TypeError inside
+# _generate_carousel's `except Exception`, logged it, and returned [] - a
+# silent, total loss of the carousel that a green test suite kept reporting as
+# healthy. Test the call the pipeline makes, not the one underneath it.
+def test_generate_accepts_everything_the_pipeline_hands_it(monkeypatch):
+    import headlinne.generate.instagram as gen
+
+    monkeypatch.setattr(gen, "best_story_image", lambda story: story.image_url)
+
+    class _Client:
+        def generate_json(self, **_kwargs):
+            return {"cover_headline": "A brand-new type of object",
+                    "caption": "One Science story, explained.",
+                    "hashtags": ["Astronomy"]}
+
+    story = _story("Astronomers discover a black hole star", score=12.0)
+    reel_story = _story("Something the reel took", score=9.0)
+
+    out = gen.generate(_Client(), _digest([story]), date(2026, 8, 23),
+                       exclude_urls={reel_story.url},
+                       exclude_stories=[reel_story])
+
+    assert out, "the pipeline's own call produced no carousel"
+    assert out[0].slot == "instagram_1"
+    assert len(out[0].slides) == 5
+
+
+def test_the_pipeline_calls_generate_with_arguments_it_declares():
+    """A signature check, so a future argument added on one side of the seam
+    fails here rather than in a swallowed exception at 06:00 IST."""
+    import inspect
+
+    from headlinne.generate import instagram as gen
+
+    params = inspect.signature(gen.generate).parameters
+    for name in ("exclude_urls", "exclude_stories"):
+        assert name in params, f"pipeline passes {name}=, generate() drops it"

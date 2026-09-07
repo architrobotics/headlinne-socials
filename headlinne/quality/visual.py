@@ -40,10 +40,11 @@ from typing import Iterable, Optional
 
 from PIL import Image
 
-from ..config import (CATEGORY_COLORS, DISPLAY_ONLY_ACCENTS,
-                      DISPLAY_ONLY_MIN_PX, REEL_H, REEL_W, SLIDE_H, SLIDE_W,
-                      SURFACE, TEXT_MUTED, TEXT_PRIMARY, TEXT_SECONDARY,
-                      TONE_AGREE, TONE_DISPUTE, TONE_LIVE)
+from ..config import (BRAND_TERRACOTTA, CATEGORY_COLORS, CREAM,
+                      DISPLAY_ONLY_ACCENTS, DISPLAY_ONLY_MIN_PX, REEL_H,
+                      REEL_W, SLIDE_H, SLIDE_W, SURFACE, TEXT_MUTED,
+                      TEXT_PRIMARY, TEXT_SECONDARY, TONE_AGREE, TONE_DISPUTE,
+                      TONE_LIVE)
 from ..logging_setup import get_logger
 from ..render import theme
 from .checks import QualityReport
@@ -147,6 +148,34 @@ def check_contrast(report: VisualReport, ground=SURFACE) -> None:
         ratio = theme.contrast_ratio(value, ground)
         report.check(ratio >= CONTRAST_LARGE,
                      f"contrast: category {name} is {ratio:.2f}:1")
+
+    # Type a device sets on its own panel, which is the surface every check
+    # above misses: a panel's colours can each be perfectly legal against the
+    # ground and illegal against each other. draw_flow filled its chips with
+    # INK_SOFT and set their labels in TEXT_PRIMARY - 1.11:1, invisible - and no
+    # test saw it, because neither constant is wrong on paper. Checked on both
+    # grounds, since a device may be drawn on either.
+    from ..render.graphics import panel_colours
+
+    for dark in (False, True):
+        where = "night" if dark else "paper"
+        panel = panel_colours(theme.hex_to_rgb(BRAND_TERRACOTTA), dark)
+        ratio = theme.contrast_ratio(panel["body"], panel["fill"])
+        report.check(ratio >= CONTRAST_BODY,
+                     f"contrast: device panel body is {ratio:.2f}:1 on its own "
+                     f"fill ({where}), needs {CONTRAST_BODY}")
+        ratio = theme.contrast_ratio(panel["title"], panel["fill"])
+        report.check(ratio >= CONTRAST_LARGE,
+                     f"contrast: device panel title is {ratio:.2f}:1 on its own "
+                     f"fill ({where}), needs {CONTRAST_LARGE}")
+
+    # The one inverted element: the last chip of a flow, filled with the accent
+    # to say "this is the consequence". Its label is CREAM, and it is set at
+    # display size, so the large-text floor is the one that applies.
+    inverted = theme.contrast_ratio(CREAM, BRAND_TERRACOTTA)
+    report.check(inverted >= CONTRAST_LARGE,
+                 f"contrast: a filled flow chip sets CREAM on the accent at "
+                 f"{inverted:.2f}:1, below the {CONTRAST_LARGE} floor")
 
     # TEXT_MUTED fails 4.5 by design and is furniture only - never body copy.
     # It is checked so its status is recorded rather than assumed.

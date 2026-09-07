@@ -34,7 +34,8 @@ from typing import Optional
 
 from PIL import Image, ImageDraw, ImageFilter
 
-from ..config import (BRAND_TERRACOTTA, CATEGORY_COLORS, CATEGORY_PILL, CREAM,
+from ..config import (ACCENT_COUNTERPART, BRAND_TERRACOTTA, CATEGORY_COLORS,
+                      CATEGORY_PILL, CREAM,
                       DISPLAY_ONLY_ACCENTS, DISPLAY_ONLY_MIN_PX, INK, INK_SOFT,
                       LOGO_PATH, NIGHT, SURFACE, SURFACE_DEEP, SURFACE_RAISED,
                       TEXT_MUTED, TEXT_PRIMARY, TEXT_SECONDARY, TONE_AGREE,

@@ -40,7 +40,7 @@ def test_a_day_generated_today_is_not_silence(tmp_path):
     today = date(2026, 8, 22)
     for back in range(5):
         d = today - timedelta(days=back)
-        _day(tmp_path, d, published=["reel_1", "instagram_1"])
+        _day(tmp_path, d, published=["reel_1", "instagram_1", "story_card"])
     report = health.scan(days=5, today=today, root=tmp_path)
     assert report.silent_days == 0
     assert report.problems() == []
@@ -71,7 +71,8 @@ def test_a_busy_owned_surface_does_not_count_as_reach(tmp_path):
 def test_a_reel_every_day_clears_the_floor(tmp_path):
     today = date(2026, 8, 22)
     for back in range(20):
-        _day(tmp_path, today - timedelta(days=back), published=["reel_1"])
+        _day(tmp_path, today - timedelta(days=back),
+             published=["reel_1", "instagram_1", "story_card"])
     report = health.scan(days=20, today=today, root=tmp_path)
     assert report.discovery_share == 1.0
     assert report.problems() == []
@@ -91,15 +92,16 @@ def test_the_floor_is_a_floor_and_not_a_target(tmp_path):
     threshold cannot drift without a test saying so."""
     today = date(2026, 8, 22)
     reel_days = round(health.DISCOVERY_FLOOR * 10)
+    owned = ["instagram_1", "story_card"]     # so only the reel share varies
     for back in range(10):
-        slots = ["reel_1"] if back < reel_days else ["instagram_1"]
+        slots = owned + (["reel_1"] if back < reel_days else [])
         _day(tmp_path, today - timedelta(days=back), published=slots)
     assert health.scan(days=10, today=today, root=tmp_path).problems() == []
 
     # one fewer reel day, same window
     other = tmp_path / "less"
     for back in range(10):
-        slots = ["reel_1"] if back < reel_days - 1 else ["instagram_1"]
+        slots = owned + (["reel_1"] if back < reel_days - 1 else [])
         _day(other, today - timedelta(days=back), published=slots)
     assert health.scan(days=10, today=today, root=other).problems()
 
@@ -131,3 +133,69 @@ def test_a_folder_with_no_content_at_all_reports_rather_than_crashes(tmp_path):
     assert len(report.problems()) == 2
     # and it still formats
     assert "never" in health.format_report(report)
+
+
+# --------------------------------------------------------------------------- #
+# A single format going dark
+# --------------------------------------------------------------------------- #
+# The aggregate numbers above are both healthy while one format is completely
+# dead: the days are generated, so silence is zero, and the reel still goes out,
+# so discovery share is fine. That is the exact shape the carousel outage had -
+# seventeen days, every threshold green, no error anywhere. These pin the check
+# that would have caught it on day four.
+def test_a_format_that_stops_publishing_is_a_problem(tmp_path):
+    today = date(2026, 9, 7)
+    for back in range(10):
+        day = today - timedelta(days=back)
+        slots = ["reel_1", "story_card"]
+        if back >= 6:                      # the carousel stops six days ago
+            slots.append("instagram_1")
+        _day(tmp_path, day, published=slots)
+
+    report = health.scan(days=10, today=today, root=tmp_path)
+
+    assert report.silent_days == 0, "the days were all generated"
+    assert report.discovery_share == 1.0, "the reel never missed"
+    assert report.dark_slots() == [("instagram_1", 6)]
+    assert any("instagram_1 is switched on but has published nothing"
+               in p for p in report.problems())
+
+
+def test_one_missed_day_is_not_an_outage(tmp_path):
+    """A format is allowed to lose a day. Contained failure is the design."""
+    today = date(2026, 9, 7)
+    for back in range(10):
+        day = today - timedelta(days=back)
+        slots = ["reel_1", "story_card"]
+        if back != 2:
+            slots.append("instagram_1")
+        _day(tmp_path, day, published=slots)
+
+    assert health.scan(days=10, today=today, root=tmp_path).dark_slots() == []
+
+
+def test_a_format_that_is_switched_off_is_not_reported_as_broken(tmp_path,
+                                                                monkeypatch):
+    from headlinne import config
+
+    monkeypatch.setattr(config, "CAROUSEL_ENABLED", False)
+    today = date(2026, 9, 7)
+    for back in range(10):
+        _day(tmp_path, today - timedelta(days=back),
+             published=["reel_1", "story_card"])
+
+    assert health.scan(days=10, today=today, root=tmp_path).dark_slots() == []
+
+
+def test_days_that_never_generated_are_reported_as_silence_not_dead_formats(tmp_path):
+    """Otherwise one outage is reported four times: once as silence and once
+    per format that could not publish on a day that does not exist."""
+    today = date(2026, 9, 7)
+    for back in range(6, 10):
+        _day(tmp_path, today - timedelta(days=back),
+             published=["reel_1", "instagram_1", "story_card"])
+
+    report = health.scan(days=10, today=today, root=tmp_path)
+
+    assert report.silent_days == 6
+    assert report.dark_slots() == []

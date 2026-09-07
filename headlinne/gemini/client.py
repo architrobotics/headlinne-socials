@@ -13,11 +13,28 @@ import re
 import time
 from typing import Any
 
-from ..config import (GEMINI_MAX_RETRIES, GEMINI_MODEL, GEMINI_TEMPERATURE,
-                      GEMINI_THINKING_LEVEL, SECRETS)
+from ..config import (GEMINI_FALLBACK_MODELS, GEMINI_MAX_RETRIES, GEMINI_MODEL,
+                      GEMINI_TEMPERATURE, GEMINI_THINKING_LEVEL, SECRETS)
 from ..logging_setup import get_logger
 
 log = get_logger("gemini.client")
+
+# Gemini returns a "retryDelay": "11s" hint inside a 429 body. Honouring it is
+# far better than guessing with exponential backoff, because it is the server
+# telling us exactly how long its quota window has left to run. Defined here
+# rather than in tts.py, where they used to live, so the text and speech clients
+# cannot drift apart on what counts as "out of quota".
+_RETRY_DELAY = re.compile(r"'?retryDelay'?\s*:\s*'?(\d+(?:\.\d+)?)s")
+
+
+def retry_after(exc: Exception) -> float | None:
+    match = _RETRY_DELAY.search(str(exc))
+    return float(match.group(1)) if match else None
+
+
+def is_rate_limit(exc: Exception) -> bool:
+    text = str(exc)
+    return "429" in text or "RESOURCE_EXHAUSTED" in text
 
 
 class GeminiError(RuntimeError):
@@ -40,10 +57,36 @@ def _extract_json(text: str) -> Any:
 
 
 class GeminiClient:
-    def __init__(self, api_key: str | None = None, model: str = GEMINI_MODEL):
-        self.model = model
+    """The text model, with the fallback ladder config has always described.
+
+    `GEMINI_FALLBACK_MODELS` has been in config, in .env.example and in the
+    generate workflow's env block since the beginning, and nothing read it.
+    Every text call went to one model and, when that model refused, retried the
+    same model four times and gave up. Quota is counted per model, so the second
+    model is a second daily allowance rather than another go at an empty one -
+    which is exactly the reasoning the TTS client was already built around.
+
+    The cost of not having it is not an error message. It is a format quietly
+    missing for the day: the reel is one large call in the middle of the run, so
+    it is the one that meets the quota wall first, and seven of thirty days went
+    out with no reel at all while every other format on those days succeeded.
+    """
+
+    def __init__(self, api_key: str | None = None, model: str = GEMINI_MODEL,
+                 fallback_models: tuple[str, ...] = GEMINI_FALLBACK_MODELS):
+        # Order matters: best model first, each fallback its own quota.
+        self.models = [model, *(m for m in fallback_models if m and m != model)]
+        # Once a model starts refusing it keeps refusing for the rest of the
+        # run, so remember where we got to instead of rediscovering it on every
+        # call. The generate run makes eight or nine of these.
+        self._model_index = 0
         self._api_key = api_key or SECRETS.gemini_api_key
         self._client = None
+
+    @property
+    def model(self) -> str:
+        """The model currently in use."""
+        return self.models[min(self._model_index, len(self.models) - 1)]
 
     def _ensure_client(self):
         if self._client is not None:
@@ -79,29 +122,57 @@ class GeminiClient:
 
         last_err: Exception | None = None
         attempt_prompt = prompt
-        for attempt in range(1, GEMINI_MAX_RETRIES + 1):
-            try:
-                resp = self._client.models.generate_content(
-                    model=self.model,
-                    contents=attempt_prompt,
-                    config=config,
-                )
-                text = resp.text or ""
-                if not text.strip():
-                    raise GeminiError("empty response")
-                return _extract_json(text)
-            except Exception as exc:  # noqa: BLE001 - we want to retry broadly
-                last_err = exc
-                wait = min(2 ** attempt, 20)
-                log.warning("Gemini attempt %d/%d failed: %s (retrying in %ss)",
-                            attempt, GEMINI_MAX_RETRIES, exc, wait)
-                # On a parse error, nudge the model to return valid JSON only.
-                if isinstance(exc, json.JSONDecodeError):
+        for round_number in range(1, GEMINI_MAX_RETRIES + 1):
+            waits: list[float] = []
+
+            # One pass across every model still worth trying. A refusal from one
+            # is not a reason to wait, because the next has its own quota, so we
+            # move on immediately and only sleep once nothing is left.
+            for index in range(self._model_index, len(self.models)):
+                model = self.models[index]
+                try:
+                    resp = self._client.models.generate_content(
+                        model=model, contents=attempt_prompt, config=config)
+                    text = resp.text or ""
+                    if not text.strip():
+                        raise GeminiError("empty response")
+                    data = _extract_json(text)
+                    if index != self._model_index:
+                        log.info("Gemini now using %s", model)
+                        self._model_index = index
+                    return data
+                except Exception as exc:  # noqa: BLE001 - try the next model
+                    last_err = exc
+
+                # A model that answered with something unparseable is not out of
+                # quota, and the next model would most likely do the same thing.
+                # Nudge this one instead and let the next round use it.
+                if isinstance(last_err, json.JSONDecodeError):
                     attempt_prompt = (
                         prompt
                         + "\n\nIMPORTANT: Respond with valid minified JSON only. "
                           "No commentary, no markdown fences."
                     )
-                time.sleep(wait)
+                    break
+                if is_rate_limit(last_err):
+                    waits.append(retry_after(last_err) or 30.0)
+                    if index + 1 < len(self.models):
+                        log.info("%s is rate limited, trying %s",
+                                 model, self.models[index + 1])
+                    continue
+                break  # a real error, not quota: another model will not help
 
-        raise GeminiError(f"Gemini failed after {GEMINI_MAX_RETRIES} attempts: {last_err}")
+            if round_number >= GEMINI_MAX_RETRIES:
+                break
+
+            # Everything available is refusing, so now the wait is worth it. Use
+            # the shortest window any model offered rather than guessing.
+            wait = (min(waits) + 1.0) if waits else min(2 ** round_number, 20)
+            log.warning("Gemini round %d/%d failed (%s), waiting %.0fs: %s",
+                        round_number, GEMINI_MAX_RETRIES,
+                        "rate limited" if waits else "error", wait, last_err)
+            time.sleep(wait)
+
+        raise GeminiError(
+            f"Gemini failed after {GEMINI_MAX_RETRIES} rounds across "
+            f"{len(self.models)} model(s): {last_err}")
