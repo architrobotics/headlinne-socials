@@ -1,0 +1,241 @@
+{
+  "day": "2026-09-08",
+  "is_promo_day": true,
+  "is_friday": false,
+  "twitter": [
+    {
+      "category": "Promo",
+      "post": "The best way to stay informed is to stop reading news you do not care about. Our feed learns what actually interests you the more you read, so you get a briefing that is tailored to your curiosity, not a generic firehose of headlines. HEADLINNE.com #news #reading",
+      "hashtags": [
+        "news",
+        "reading"
+      ],
+      "scheduled_time": "2026-09-08T13:00:00+05:30",
+      "kind": "promo",
+      "lead": "News that learns what you love",
+      "items": [],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-08/x/x_1.png"
+    }
+  ],
+  "linkedin": {
+    "title": "Most news apps are designed to make you panic",
+    "body": "They rely on endless notifications and sensational headlines to keep you scrolling. It works for ad revenue, but it fails the reader. We built Headlinne because we wanted the opposite. We believe that being informed shouldn't come at the cost of your peace of mind.\n\nOur philosophy is simple. AI should work for you, not against you. Instead of feeding you a firehose of breaking alerts, we use technology to filter out the noise. We focus on understanding what you actually care about, summarizing the context, and delivering it when you are ready to read. It is not about more news. It is about better news.\n\nBuilding a calmer experience means respecting your time. It means stripping away the clickbait and the outrage cycles. We want to help you understand the world without needing to check your phone every five minutes.",
+    "cta": "If you want to see what a quieter approach to news looks like, you can try it at HEADLINNE.com.",
+    "scheduled_time": "2026-09-08T18:00:00+05:30",
+    "kind": "product"
+  },
+  "instagram": [],
+  "reels": [
+    {
+      "slot": "reel_1",
+      "kind": "news",
+      "category": "Technology",
+      "title": "AI cancer cures slowed by chip shortage, says UK's biggest tech boss",
+      "hook": "AI cancer cures slowed by chip shortage, says UK's biggest tech boss",
+      "beats": [
+        {
+          "role": "hook",
+          "caption": "AI cancer cures slowed by chip shortage, says UK's biggest tech boss",
+          "detail": "",
+          "narration": "",
+          "seconds": 5.59,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "",
+          "pose": "",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "hook",
+          "caption": "Here is how computers map cancer markers.",
+          "detail": "Decoding DNA sequences for medicine.",
+          "narration": "Here is how computers map the way cancer impacts our DNA markers.",
+          "seconds": 5.59,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "The mechanism",
+          "pose": "walk",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "But progress is slowing down today.",
+          "detail": "Research needs more computing power.",
+          "narration": "But this critical medical research is slowing down right now.",
+          "seconds": 4.66,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "Current roadblock",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "graphic",
+          "caption": "We are facing a chip shortage.",
+          "detail": "Not enough hardware to run models.",
+          "narration": "The reason is a global shortage of the specialized chips needed to run these models.",
+          "seconds": 6.99,
+          "graphic": "flow",
+          "data": {
+            "steps": [
+              "DNA research",
+              "Chip demand",
+              "Supply limits"
+            ]
+          },
+          "image_url": null,
+          "chapter": "Why exactly",
+          "pose": "present",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "The UK's top tech boss confirms it.",
+          "detail": "Head of chip designer Arm.",
+          "narration": "The head of Arm, a major chip designer, confirmed this bottleneck is blocking progress.",
+          "seconds": 6.53,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "The source",
+          "pose": "jump",
+          "say": "",
+          "plates": [
+            "story"
+          ],
+          "tone": ""
+        },
+        {
+          "role": "graphic",
+          "caption": "Computers will solve this eventually.",
+          "detail": "The potential remains immense.",
+          "narration": "Even so, he believes computers will eventually solve these medical puzzles.",
+          "seconds": 5.13,
+          "graphic": "split",
+          "data": {
+            "left_title": "Today",
+            "left_text": "Models are stalled",
+            "right_title": "Future",
+            "right_text": "Computers solve it"
+          },
+          "image_url": null,
+          "chapter": "Future outlook",
+          "pose": "talk",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "Better data means better cancer cures.",
+          "detail": "Faster processing equals faster medicine.",
+          "narration": "Because faster computing power means faster, more effective cancer cures for everyone.",
+          "seconds": 5.59,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "Why it matters",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "outro",
+          "caption": "Get the full story at headlinne.com.",
+          "detail": "Stay updated on tech news.",
+          "narration": "Get the full story and stay updated on the latest tech news at headlinne.com.",
+          "seconds": 6.53,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "Stay informed",
+          "pose": "cta",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        }
+      ],
+      "caption": "AI cancer cures slowed by chip shortage, says UK's biggest tech boss\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#TechNews #AI #Tech #CancerResearch",
+      "hashtags": [
+        "TechNews",
+        "AI",
+        "Tech",
+        "CancerResearch",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-09-08T09:30:00+05:30",
+      "first_comment": "#Headlinne",
+      "sources": "BBC Technology",
+      "story_url": "https://www.bbc.co.uk/news/articles/c0m39g7xzevo?at_medium=RSS&at_campaign=rss",
+      "dateline": "TUE 8 SEP",
+      "story": null,
+      "duration_seconds": 46.6,
+      "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-08/reels/reel_1.mp4",
+      "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-08/reels/reel_1_cover.png",
+      "audio_file": null,
+      "has_voiceover": true
+    }
+  ],
+  "story_card": {
+    "slot": "story_card",
+    "category": "Geopolitics",
+    "headline": "The food inspector becoming an Indian viral sensation",
+    "standfirst": "A government official is gaining massive attention for his strict restaurant hygiene",
+    "steps": [
+      {
+        "label": "What happened",
+        "text": "Food safety officer Tukaram Mundhe is going viral for his aggressive restaurant inspections."
+      },
+      {
+        "label": "How we got here",
+        "text": "He began conducting surprise checks to uncover hygiene lapses at various local eateries."
+      },
+      {
+        "label": "Why it matters",
+        "text": "His public approach to enforcing food safety standards has struck a chord with Indian diners."
+      },
+      {
+        "label": "What to watch",
+        "text": "Whether his high profile inspections lead to lasting changes in restaurant hygiene protocols."
+      }
+    ],
+    "caption": "Tukaram Mundhe is the food safety officer going viral in India for his restaurant inspections.\n\nMundhe has gained a massive following online by documenting his surprise raids on restaurants. He is actively hunting for hygiene violations to ensure diners are eating safely. It is a rare glimpse into the usually quiet world of food regulation.\n\nDo you think public shaming is an effective way to improve restaurant standards?\n\nSave this one. Follow for the daily card. Full story on HEADLINNE.com.\n\n#WorldNews #Geopolitics #GlobalNews #India",
+    "hashtags": [
+      "WorldNews",
+      "Geopolitics",
+      "GlobalNews",
+      "India",
+      "FoodSafety",
+      "TukaramMundhe",
+      "RestaurantHygiene",
+      "ViralNews",
+      "PublicHealth",
+      "Accountability",
+      "Government",
+      "FoodStandards",
+      "SocialMedia",
+      "Trending",
+      "NewsUpdate",
+      "NewsExplained"
+    ],
+    "scheduled_time": "2026-09-08T21:30:00+05:30",
+    "first_comment": "#FoodSafety #TukaramMundhe #RestaurantHygiene #ViralNews #PublicHealth #Accountability #Government #FoodStandards #SocialMedia #Trending #NewsUpdate #NewsExplained",
+    "sources": "BBC World",
+    "story_url": "https://www.bbc.co.uk/news/articles/c1wx3v11de7o?at_medium=RSS&at_campaign=rss",
+    "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/cd8f/live/dbc835a0-a9fc-11f1-921b-6365210e1c9d.jpg",
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-08/story_card/story_card.png",
+    "story": null
+  }
+}

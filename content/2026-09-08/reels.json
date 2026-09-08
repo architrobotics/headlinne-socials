@@ -1,0 +1,163 @@
+[
+  {
+    "slot": "reel_1",
+    "kind": "news",
+    "category": "Technology",
+    "title": "AI cancer cures slowed by chip shortage, says UK's biggest tech boss",
+    "hook": "AI cancer cures slowed by chip shortage, says UK's biggest tech boss",
+    "beats": [
+      {
+        "role": "hook",
+        "caption": "AI cancer cures slowed by chip shortage, says UK's biggest tech boss",
+        "detail": "",
+        "narration": "",
+        "seconds": 5.59,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "",
+        "pose": "",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "hook",
+        "caption": "Here is how computers map cancer markers.",
+        "detail": "Decoding DNA sequences for medicine.",
+        "narration": "Here is how computers map the way cancer impacts our DNA markers.",
+        "seconds": 5.59,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "The mechanism",
+        "pose": "walk",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "point",
+        "caption": "But progress is slowing down today.",
+        "detail": "Research needs more computing power.",
+        "narration": "But this critical medical research is slowing down right now.",
+        "seconds": 4.66,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "Current roadblock",
+        "pose": "point",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "graphic",
+        "caption": "We are facing a chip shortage.",
+        "detail": "Not enough hardware to run models.",
+        "narration": "The reason is a global shortage of the specialized chips needed to run these models.",
+        "seconds": 6.99,
+        "graphic": "flow",
+        "data": {
+          "steps": [
+            "DNA research",
+            "Chip demand",
+            "Supply limits"
+          ]
+        },
+        "image_url": null,
+        "chapter": "Why exactly",
+        "pose": "present",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "point",
+        "caption": "The UK's top tech boss confirms it.",
+        "detail": "Head of chip designer Arm.",
+        "narration": "The head of Arm, a major chip designer, confirmed this bottleneck is blocking progress.",
+        "seconds": 6.53,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "The source",
+        "pose": "jump",
+        "say": "",
+        "plates": [
+          "story"
+        ],
+        "tone": ""
+      },
+      {
+        "role": "graphic",
+        "caption": "Computers will solve this eventually.",
+        "detail": "The potential remains immense.",
+        "narration": "Even so, he believes computers will eventually solve these medical puzzles.",
+        "seconds": 5.13,
+        "graphic": "split",
+        "data": {
+          "left_title": "Today",
+          "left_text": "Models are stalled",
+          "right_title": "Future",
+          "right_text": "Computers solve it"
+        },
+        "image_url": null,
+        "chapter": "Future outlook",
+        "pose": "talk",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "point",
+        "caption": "Better data means better cancer cures.",
+        "detail": "Faster processing equals faster medicine.",
+        "narration": "Because faster computing power means faster, more effective cancer cures for everyone.",
+        "seconds": 5.59,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "Why it matters",
+        "pose": "point",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "outro",
+        "caption": "Get the full story at headlinne.com.",
+        "detail": "Stay updated on tech news.",
+        "narration": "Get the full story and stay updated on the latest tech news at headlinne.com.",
+        "seconds": 6.53,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "Stay informed",
+        "pose": "cta",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      }
+    ],
+    "caption": "AI cancer cures slowed by chip shortage, says UK's biggest tech boss\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#TechNews #AI #Tech #CancerResearch",
+    "hashtags": [
+      "TechNews",
+      "AI",
+      "Tech",
+      "CancerResearch",
+      "Headlinne"
+    ],
+    "scheduled_time": "2026-09-08T09:30:00+05:30",
+    "first_comment": "#Headlinne",
+    "sources": "BBC Technology",
+    "story_url": "https://www.bbc.co.uk/news/articles/c0m39g7xzevo?at_medium=RSS&at_campaign=rss",
+    "dateline": "TUE 8 SEP",
+    "story": null,
+    "duration_seconds": 46.6,
+    "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-08/reels/reel_1.mp4",
+    "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-08/reels/reel_1_cover.png",
+    "audio_file": null,
+    "has_voiceover": true
+  }
+]
