@@ -1,0 +1,256 @@
+{
+  "day": "2026-09-09",
+  "is_promo_day": false,
+  "is_friday": false,
+  "twitter": [
+    {
+      "category": "Science",
+      "post": "Today's big science stories\n• Astronomers found the most distant galaxy supercluster ever\n• New AI models how carbon moves in deep ocean sediments\n• A 20-meter dinosaur fossil was unearthed in Brazil HEADLINNE.com #Science #Space",
+      "hashtags": [
+        "Science",
+        "Space"
+      ],
+      "scheduled_time": "2026-09-09T13:00:00+05:30",
+      "kind": "news",
+      "lead": "Today's big science stories",
+      "items": [
+        "Astronomers found the most distant galaxy supercluster ever",
+        "New AI models how carbon moves in deep ocean sediments",
+        "A 20-meter dinosaur fossil was unearthed in Brazil"
+      ],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-09/x/x_1.png"
+    },
+    {
+      "category": "Tech",
+      "post": "Today's top tech stories at a glance.\n• EV batteries are holding up better than we thought after 150k km\n• The Exploration Company raised $450M to take on SpaceX\n• SpaceX's latest Starship faces a slow trip back to Texas HEADLINNE.com #TechNews #Space",
+      "hashtags": [
+        "TechNews",
+        "Space"
+      ],
+      "scheduled_time": "2026-09-09T17:00:00+05:30",
+      "kind": "news",
+      "lead": "Today's top tech stories at a glance.",
+      "items": [
+        "EV batteries are holding up better than we thought after 150k km",
+        "The Exploration Company raised $450M to take on SpaceX",
+        "SpaceX's latest Starship faces a slow trip back to Texas"
+      ],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-09/x/x_2.png"
+    }
+  ],
+  "linkedin": {
+    "title": "I started building a news app when I was a teenager because I was tired of missing the stories that actually mattered to me.",
+    "body": "It felt like a paradox. We live in an era of infinite information, yet finding quality news that fits my specific interests felt like digging for gold in a landfill. The algorithms I encountered were designed to keep me clicking, not to keep me informed.\n\nI realized that the problem wasn't a lack of news. It was a lack of curation. I wanted a way to filter out the noise and focus on the topics that shaped my world without having to check twenty different sources every morning.\n\nThat frustration became the foundation for Headlinne. We wanted to build something different. Instead of chasing engagement metrics, we focused on using AI to understand what a reader truly cares about and delivering that directly to them. It is about respecting the reader's time and intelligence.\n\nBuilding this as a teenager taught me that you do not need decades of industry experience to see when a system is broken. Sometimes, you just need to be a curious user who wants a better way to stay informed.",
+    "cta": "If you are tired of the noise, you can see how we are rethinking the news experience at HEADLINNE.com.",
+    "scheduled_time": "2026-09-09T18:00:00+05:30",
+    "kind": "product"
+  },
+  "instagram": [],
+  "reels": [
+    {
+      "slot": "reel_1",
+      "kind": "news",
+      "category": "Science",
+      "title": "Extremely massive galaxy proto-supercluster smashes distance record",
+      "hook": "Extremely massive galaxy proto-supercluster smashes distance record",
+      "beats": [
+        {
+          "role": "hook",
+          "caption": "Extremely massive galaxy proto-supercluster smashes distance record",
+          "detail": "",
+          "narration": "",
+          "seconds": 3.39,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "",
+          "pose": "",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "hook",
+          "caption": "We might soon rewrite how the universe grew.",
+          "detail": "A new discovery changes our cosmic timeline.",
+          "narration": "If this holds, we have to rewrite the history of the universe. Here is why.",
+          "seconds": 7.26,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "Cosmic history",
+          "pose": "walk",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "Astronomers found the most distant galaxy supercluster ever.",
+          "detail": "It is a massive proto-supercluster.",
+          "narration": "Astronomers just spotted the most distant galaxy supercluster ever found. It is massive.",
+          "seconds": 6.29,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "The discovery",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "graphic",
+          "caption": "It smashes the previous distance record.",
+          "detail": "The finding relies on the ODIN survey.",
+          "narration": "It completely smashes the previous distance record for these cosmic structures.",
+          "seconds": 5.33,
+          "graphic": "flow",
+          "data": {
+            "steps": [
+              "Early universe",
+              "Proto-cluster forms",
+              "Record broken"
+            ]
+          },
+          "image_url": null,
+          "chapter": "What happened",
+          "pose": "present",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "It proves how clusters evolve over time.",
+          "detail": "Confirms existing theories of galaxy growth.",
+          "narration": "This discovery matters because it confirms current theories on how galaxy clusters actually grow.",
+          "seconds": 6.78,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "Why it matters",
+          "pose": "jump",
+          "say": "",
+          "plates": [
+            "story"
+          ],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "It reveals the cosmic web in action.",
+          "detail": "Showing how galaxies connect across space.",
+          "narration": "It also reveals exactly how these clusters connect to the larger cosmic web.",
+          "seconds": 6.29,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "The connection",
+          "pose": "talk",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "Data from the ODIN survey made this possible.",
+          "detail": "International team led the research.",
+          "narration": "The team used data from the ODIN survey to map this structure out.",
+          "seconds": 6.29,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "The data",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "outro",
+          "caption": "Get more science news at headlinne.com.",
+          "detail": "Read the full story there.",
+          "narration": "For more science updates like this, check headlinne.com. What do you think this means?",
+          "seconds": 6.78,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "Stay updated",
+          "pose": "cta",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        }
+      ],
+      "caption": "Extremely massive galaxy proto-supercluster smashes distance record\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#Astronomy #Space #ScienceNews #Headlinne",
+      "hashtags": [
+        "Astronomy",
+        "Space",
+        "ScienceNews",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-09-09T09:30:00+05:30",
+      "first_comment": "",
+      "sources": "Phys.org",
+      "story_url": "https://phys.org/news/2026-09-extremely-massive-galaxy-proto-supercluster.html",
+      "dateline": "WED 9 SEP",
+      "story": null,
+      "duration_seconds": 48.4,
+      "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-09/reels/reel_1.mp4",
+      "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-09/reels/reel_1_cover.png",
+      "audio_file": null,
+      "has_voiceover": true
+    }
+  ],
+  "story_card": {
+    "slot": "story_card",
+    "category": "Technology",
+    "headline": "EV batteries hold charge better than expected",
+    "standfirst": "A new study reveals electric vehicle batteries last longer than many drivers feared.",
+    "steps": [
+      {
+        "label": "What happened",
+        "text": "A new study shows used EV batteries keep 90% of their capacity after 150,000 km."
+      },
+      {
+        "label": "How we got here",
+        "text": "Many drivers worried about rapid battery degradation in electric cars over time."
+      },
+      {
+        "label": "Why it matters",
+        "text": "This data suggests EVs have a longer usable lifespan than previously assumed."
+      },
+      {
+        "label": "What to watch",
+        "text": "Future reports on long term battery health as more EVs hit high mileage."
+      }
+    ],
+    "caption": "A new study shows electric vehicle batteries retain 90 percent of their capacity after 150,000 kilometers.\n\nRange anxiety often focuses on how far a car goes on a single charge. However, battery degradation is the hidden concern for second-hand buyers. This data from Ars Technica offers a clearer picture of how these batteries hold up over the long haul.\n\nDoes knowing this make you more likely to consider buying a used electric car?\n\nSave this one. Follow for the daily card. Full story on HEADLINNE.com.\n\n#TechNews #Tech #AI #EV",
+    "hashtags": [
+      "TechNews",
+      "Tech",
+      "AI",
+      "EV",
+      "electricvehicles",
+      "electriccars",
+      "batterylife",
+      "sustainability",
+      "automotive",
+      "greenenergy",
+      "cartech",
+      "transportation",
+      "innovation",
+      "environment",
+      "NewsExplained",
+      "Headlinne"
+    ],
+    "scheduled_time": "2026-09-09T21:30:00+05:30",
+    "first_comment": "#electricvehicles #electriccars #batterylife #sustainability #automotive #greenenergy #cartech #transportation #innovation #environment #NewsExplained #Headlinne",
+    "sources": "Ars Technica",
+    "story_url": "https://arstechnica.com/cars/2026/09/ev-batteries-last-longer-than-drivers-feared/",
+    "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/09/GettyImages-2293339723-1024x648.jpg",
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-09/story_card/story_card.png",
+    "story": null
+  }
+}
