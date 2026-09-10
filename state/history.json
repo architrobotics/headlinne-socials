@@ -1,19 +1,5 @@
 {
   "days": {
-    "2026-08-30": {
-      "story_urls": [
-        "https://www.bbc.co.uk/news/articles/cqlw52vr0dwo?at_medium=RSS&at_campaign=rss",
-        "https://techcrunch.com/2026/08/29/were-not-doing-30-bets-a-year-vijay-pande-on-betting-small-after-running-4-billion-at-a16z/"
-      ],
-      "story_titles": [],
-      "post_texts": [
-        "Right-wing commentator Milo Yiannopoulos deported from US to UK\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#WorldNews #Geopolitics #GlobalNews #News",
-        "Vijay Pande is pivoting from his $4 billion fund at a16z to start a new AI-focused firm called VZVC.\n\nPande believes biology is finally becoming an engineering discipline rather than just a discovery science. He is betting that using AI and shared data will help solve the massive costs that still plague clinical trials today. It is a major shift from the high-volume investing style he used previously.\n\nDo you think AI is the key to finally making drug development cheaper and faster?\n\nSave this one. Follow for the daily card. Full story on HEADLINNE.com.\n\n#TechNews #Tech #AI #biotech",
-        "Here is today's top world news.\n\u2022 The Artemis II crew just received the Congressional Space Medal\n\u2022 New LAPD footage shows officers beating a man who later died in jail\n\u2022 A 9/11 landlord reveals new ties between hijackers and a Saudi spy HEADLINNE.com #News #Space",
-        "Three science stories to start your day\n\u2022 NASA's new Roman Space Telescope launches on a SpaceX rocket Aug 30\n\u2022 Seventeen years of effort created a safe haven for migrating whales\n\u2022 MIT won NASA's challenge to recycle trash on future lunar missions HEADLINNE.com #Science #Space",
-        "Most news apps are built on a simple, flawed premise: the more time you spend scrolling, the better the product is working. This usually means prioritizing sensational headlines and constant alerts that spike your cortisol. It is a race to the bottom that leaves us feeling exhausted rather than informed.\n\nAt Headlinne, we are taking a different approach. We believe AI should be used to filter out the noise, not amplify it. Our goal is to respect your time by cutting straight to the substance of the stories that actually matter to you. You do not need twenty notifications a day to understand what is happening in the world. You just need a clear, concise summary of the events that shape your day.\n\nBuilding a calmer news experience means focusing on clarity over volume. It means giving you control over what you see, so your feed reflects your interests instead of an algorithm's need for engagement. Smart news should feel like a relief, not a chore."
-      ]
-    },
     "2026-08-31": {
       "story_urls": [
         "https://www.sciencedaily.com/releases/2026/08/260828082347.htm",
@@ -143,6 +129,21 @@
         "Today's big science stories\n\u2022 Astronomers found the most distant galaxy supercluster ever\n\u2022 New AI models how carbon moves in deep ocean sediments\n\u2022 A 20-meter dinosaur fossil was unearthed in Brazil HEADLINNE.com #Science #Space",
         "Today's top tech stories at a glance.\n\u2022 EV batteries are holding up better than we thought after 150k km\n\u2022 The Exploration Company raised $450M to take on SpaceX\n\u2022 SpaceX's latest Starship faces a slow trip back to Texas HEADLINNE.com #TechNews #Space",
         "It felt like a paradox. We live in an era of infinite information, yet finding quality news that fits my specific interests felt like digging for gold in a landfill. The algorithms I encountered were designed to keep me clicking, not to keep me informed.\n\nI realized that the problem wasn't a lack of news. It was a lack of curation. I wanted a way to filter out the noise and focus on the topics that shaped my world without having to check twenty different sources every morning.\n\nThat frustration became the foundation for Headlinne. We wanted to build something different. Instead of chasing engagement metrics, we focused on using AI to understand what a reader truly cares about and delivering that directly to them. It is about respecting the reader's time and intelligence.\n\nBuilding this as a teenager taught me that you do not need decades of industry experience to see when a system is broken. Sometimes, you just need to be a curious user who wants a better way to stay informed."
+      ]
+    },
+    "2026-09-10": {
+      "story_urls": [
+        "https://www.theguardian.com/technology/2026/sep/08/apple-new-folding-iphone",
+        "https://phys.org/news/2026-09-alien-civilizations-hyper-efficient-distinct.html"
+      ],
+      "story_titles": [
+        "Apple unveils folding iPhone Duo as new CEO takes center stage"
+      ],
+      "post_texts": [
+        "Scientists are searching for alien life by looking for the energy signals of hyper efficient computers.\n\nAI requires massive amounts of power to run, which creates a noticeable energy footprint. Researchers think alien societies might use similar technology, leaving a detectable trail for us to find.\n\nDo you think we will ever find evidence of advanced life in the universe?\n\nSave this one. Follow for the daily card. Full story on HEADLINNE.com.\n\n#space #astronomy #aliens #science",
+        "Most news stories lean one way or another. Headlinne now flags political bias in articles so you can see the full picture. It is a simple way to spot the spin and understand the context behind the headlines you read every day. HEADLINNE.com #MediaLiteracy #News",
+        "Most news apps are designed to keep you scrolling as long as possible. They prioritize engagement metrics above all else. But we took a different path when building the Headlinne feed. We decided to optimize for relevance instead of duration.\n\nThis meant changing how our AI selects stories. Instead of showing you the most sensational content that might keep you clicking, it looks for the topics you actually care about. If you finish reading a story, we consider that a success. We want you to feel informed, not addicted.\n\nIt is a counterintuitive engineering choice. By design, it means you might spend less time in the app. But we believe that quality news consumption is better than endless scrolling. When the goal is to save you time rather than steal it, the product naturally becomes more useful.",
+        "Apple has officially entered the foldable phone market with the iPhone Duo.\n\nIt marks a departure from the company's traditional design philosophy, representing the biggest structural change in the device's 17-year history.\n\nThe launch arrives during a pivotal moment for the company. John Ternus, who succeeded Tim Cook as CEO only last week, is now overseeing his first major product release.\n\nAt nearly $2,000, the device sits at a premium price point. It aims to compete in a growing market for folding smartphones.\n\nWhat do you think about foldable phones?\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#Tech #TechNews #AI #Innovation"
       ]
     }
   }
