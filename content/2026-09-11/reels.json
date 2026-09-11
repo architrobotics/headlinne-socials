@@ -1,0 +1,158 @@
+[
+  {
+    "slot": "reel_1",
+    "kind": "news",
+    "category": "Science",
+    "title": "Cell wall transport disruption exposes weakness in antibiotic-resistant bacteria",
+    "hook": "Cell wall transport disruption exposes weakness in antibiotic-resistant bacteria",
+    "beats": [
+      {
+        "role": "hook",
+        "caption": "Cell wall transport disruption exposes weakness in antibiotic-resistant bacteria",
+        "detail": "",
+        "narration": "",
+        "seconds": 4.24,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "",
+        "pose": "",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "hook",
+        "caption": "Imagine your front door lock is broken.",
+        "detail": "A simple security flaw.",
+        "narration": "Imagine your front door lock is broken and you cannot keep anyone out. That is bacterial defense.",
+        "seconds": 8.01,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "The analogy",
+        "pose": "walk",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "point",
+        "caption": "Bacteria usually block our best antibiotics.",
+        "detail": "Resistance is a major hurdle.",
+        "narration": "Usually, antibiotic-resistant bacteria are experts at keeping medicine out. They have strong walls to block them.",
+        "seconds": 7.54,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "The problem",
+        "pose": "point",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "point",
+        "caption": "Scientists found a hidden weakness inside.",
+        "detail": "Umeå University research.",
+        "narration": "But researchers at Umeå University just found a hidden weakness inside that protective wall.",
+        "seconds": 6.6,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "The discovery",
+        "pose": "present",
+        "say": "",
+        "plates": [
+          "story"
+        ],
+        "tone": ""
+      },
+      {
+        "role": "graphic",
+        "caption": "Disrupting the transport system changes everything.",
+        "detail": "A new strategy emerges.",
+        "narration": "They discovered that disrupting the cell's transport system makes the bacteria vulnerable again.",
+        "seconds": 6.13,
+        "graphic": "flow",
+        "data": {
+          "steps": [
+            "Normal transport",
+            "System disruption",
+            "Bacteria exposed"
+          ]
+        },
+        "image_url": null,
+        "chapter": "How it works",
+        "pose": "jump",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "point",
+        "caption": "This new strategy could bypass resistance.",
+        "detail": "Fighting back against superbugs.",
+        "narration": "So, instead of banging on the front door, scientists could theoretically target the delivery system inside.",
+        "seconds": 7.54,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "The impact",
+        "pose": "talk",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "point",
+        "caption": "Better ways to treat infections.",
+        "detail": "Developing future medical tools.",
+        "narration": "This insight might help researchers create entirely new ways to treat infections that currently resist drugs.",
+        "seconds": 7.54,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "The goal",
+        "pose": "point",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "outro",
+        "caption": "Get more science news at headlinne.com.",
+        "detail": "Read the full story.",
+        "narration": "For more science updates, check out headlinne.com. How do you think we should solve antibiotic resistance?",
+        "seconds": 7.54,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "Stay updated",
+        "pose": "cta",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      }
+    ],
+    "caption": "Cell wall transport disruption exposes weakness in antibiotic-resistant bacteria\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#ScienceNews #Antibiotics #Biology #HealthTech",
+    "hashtags": [
+      "ScienceNews",
+      "Antibiotics",
+      "Biology",
+      "HealthTech",
+      "Headlinne"
+    ],
+    "scheduled_time": "2026-09-11T09:30:00+05:30",
+    "first_comment": "#Headlinne",
+    "sources": "Phys.org",
+    "story_url": "https://phys.org/news/2026-09-cell-wall-disruption-exposes-weakness.html",
+    "dateline": "FRI 11 SEP",
+    "story": null,
+    "duration_seconds": 55.0,
+    "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-11/reels/reel_1.mp4",
+    "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-11/reels/reel_1_cover.png",
+    "audio_file": null,
+    "has_voiceover": true
+  }
+]

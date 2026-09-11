@@ -1,0 +1,388 @@
+{
+  "day": "2026-09-11",
+  "is_promo_day": false,
+  "is_friday": true,
+  "twitter": [
+    {
+      "category": "Tech",
+      "post": "Today's top tech updates in a flash.\n• NASA and IBM released new open-source tools for mapping the moon\n• Apple Watch Series 12 and Ultra 4 preorders are officially live\n• Amazon's Fire TV Stick 4K is down to $16 at Woot until September 13 HEADLINNE.com #TechNews #Apple",
+      "hashtags": [
+        "TechNews",
+        "Apple"
+      ],
+      "scheduled_time": "2026-09-11T13:00:00+05:30",
+      "kind": "news",
+      "lead": "Today's top tech updates in a flash.",
+      "items": [
+        "NASA and IBM released new open-source tools for mapping the moon",
+        "Apple Watch Series 12 and Ultra 4 preorders are officially live",
+        "Amazon's Fire TV Stick 4K is down to $16 at Woot until September 13"
+      ],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-11/x/x_1.png"
+    },
+    {
+      "category": "Science",
+      "post": "Today's science news in brief.\n• Disrupting a cell wall transport system might finally stop superbugs\n• New eagle fossils found in Bavaria date back 11.6 million years\n• Simulations show how molecular motors walk inside our cells HEADLINNE.com #Science #Biology",
+      "hashtags": [
+        "Science",
+        "Biology"
+      ],
+      "scheduled_time": "2026-09-11T17:00:00+05:30",
+      "kind": "news",
+      "lead": "Today's science news in brief.",
+      "items": [
+        "Disrupting a cell wall transport system might finally stop superbugs",
+        "New eagle fossils found in Bavaria date back 11.6 million years",
+        "Simulations show how molecular motors walk inside our cells"
+      ],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-11/x/x_2.png"
+    }
+  ],
+  "linkedin": {
+    "title": "This Week in Finance & Tech",
+    "body": "The landscape of technology and science shifted significantly this week. Here are the developments you should know.\n\nIn the consumer tech space, Apple has made its biggest design change since 2007. The company unveiled the iPhone Duo, a folding, passport-sized device priced near $2,000. It marks the first major product test for new CEO John Ternus. Meanwhile, if you are planning to test out new software, remember that installing an iOS public beta requires a full data backup first to ensure your information remains secure.\n\nHardware constraints are impacting medical innovation. The head of chip designer Arm noted that a shortage of chips is currently slowing down AI research aimed at cancer treatment. While computers are expected to eventually solve complex DNA modelling, current capacity is limiting progress.\n\nIn the aerospace sector, a German startup called Isar Aerospace successfully launched the first commercial rocket to reach orbit from continental Europe. This is a critical step for Europe as it tries to build independent access to space. On a larger scale, astronomers just released the most detailed map of the universe ever made. It covers 75 percent of the sky and features 4 billion celestial objects. Not to be outdone by Earth, Saturn has also revealed another mysterious, perfect geometric shape in its atmosphere, adding to the list of phenomena scientists are still working to understand.\n\nFinally, in sustainability and automotive news, a new study offers good news for electric vehicle owners. Data suggests that EV batteries retain about 90 percent of their original capacity even after 150,000 km of driving. In the UK, a unique restoration project at Emblehope Moor is testing a new model for land acquisition. The plan aims to provide financial returns to investors before transferring ownership to community or charitable groups.",
+    "cta": "Get the full picture on these stories and more at HEADLINNE.com.",
+    "scheduled_time": "2026-09-11T18:00:00+05:30",
+    "kind": "weekly_roundup"
+  },
+  "instagram": [
+    {
+      "slot": "instagram_1",
+      "category": "Technology",
+      "num_slides": 5,
+      "title": "Apple reveals new Series 12 and Ultra 4",
+      "slides": [
+        {
+          "role": "cover",
+          "headline": "Apple reveals new Series 12 and Ultra 4",
+          "explanation": "",
+          "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/09/268734_iPhone_2026_event_handson_ADiBenedetto_0035.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-11/instagram/instagram_1/slide_1.png",
+          "subtitle": "The iPhone Duo launch overshadowed the wearable news",
+          "sources": "",
+          "index": 1,
+          "kicker": "SOURCES DISAGREE",
+          "pose": "puzzled",
+          "say": "New watches are finally here.",
+          "figure": "",
+          "unit": ""
+        },
+        {
+          "role": "scale",
+          "headline": "",
+          "explanation": "While the iPhone took center stage at the recent event, these two watches represent the primary wearable updates for Apple this year.",
+          "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/09/268734_iPhone_2026_event_handson_ADiBenedetto_0035.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-11/instagram/instagram_1/slide_2.png",
+          "subtitle": "",
+          "sources": "",
+          "index": 2,
+          "kicker": "THE SCALE",
+          "pose": "",
+          "say": "",
+          "figure": "",
+          "unit": ""
+        },
+        {
+          "role": "twist",
+          "headline": "No update for the budget SE model",
+          "explanation": "If you were waiting for a refreshed budget watch, you are out of luck. Apple confirmed there is no SE update planned for 2026.",
+          "image_url": null,
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-11/instagram/instagram_1/slide_3.png",
+          "subtitle": "",
+          "sources": "",
+          "index": 3,
+          "kicker": "WHAT YOU DID NOT KNOW",
+          "pose": "puzzled",
+          "say": "The SE stays the same.",
+          "figure": "",
+          "unit": ""
+        },
+        {
+          "role": "sources",
+          "headline": "",
+          "explanation": "Reporting on model numbers varies, with outlets split between Series 12 and 18. We are tracking the situation closely as more details emerge.",
+          "image_url": null,
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-11/instagram/instagram_1/slide_4.png",
+          "subtitle": "",
+          "sources": "",
+          "index": 4,
+          "kicker": "SOURCES",
+          "pose": "puzzled",
+          "say": "1 of 2 agree",
+          "figure": "",
+          "unit": ""
+        },
+        {
+          "role": "cta",
+          "headline": "",
+          "explanation": "",
+          "image_url": null,
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-11/instagram/instagram_1/slide_5.png",
+          "subtitle": "Tap the link in our bio for the full breakdown.",
+          "sources": "",
+          "index": 5,
+          "kicker": "READ THE FULL STORY",
+          "pose": "carry",
+          "say": "Come and read it.",
+          "figure": "",
+          "unit": ""
+        }
+      ],
+      "caption": "Apple’s latest event was dominated by the new iPhone Duo, but the company also quietly updated its wearable lineup.\n\nThe Series 12 and Ultra 4 are the new flagship options for those looking to upgrade their wrist tech.  However, budget-conscious buyers might be disappointed to learn there is no new SE model coming this year.  Are you planning to upgrade your watch this cycle?\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#Tech #TechNews #AI #Innovation",
+      "hashtags": [
+        "Tech",
+        "TechNews",
+        "AI",
+        "Innovation",
+        "AppleWatch",
+        "AppleEvent",
+        "WearableTech",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-09-11T16:00:00+05:30",
+      "first_comment": "#AppleWatch #AppleEvent #WearableTech #Headlinne",
+      "story": {
+        "title": "Where to preorder the new Apple Watch Series 12 and Ultra 4",
+        "summary": "The iPhone Duo was the unequivocal star of Apple's \"Surprise and shine\" event, but not for people who were mostly paying attention for news on wearables. Thankfully, Apple had a lot to share about its new Apple Watch Series 12 and Ultra 4. There's no update to the SE model for 2026, which isn't necessarily [&#8230;]",
+        "url": "https://www.theverge.com/gadgets/988579/apple-watch-series-12-5g-ultra-4-preorder-buy",
+        "category": "Technology",
+        "source": "The Verge",
+        "tier": 1.1,
+        "published_iso": "2026-09-10T15:00:00+00:00",
+        "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/09/268734_iPhone_2026_event_handson_ADiBenedetto_0035.jpg?quality=90&amp;strip=all&amp;crop=0%2C10.732984293194%2C100%2C78.534031413613&amp;w=1200",
+        "corroborating_sources": [
+          "Wired"
+        ],
+        "score": 10.599,
+        "verified": true,
+        "sensitive": false,
+        "agreement": {
+          "reported": 2,
+          "agree": 1,
+          "conflict": 1,
+          "claim": "12",
+          "claim_unit": "reported",
+          "outlets": [
+            "The Verge",
+            "Wired"
+          ],
+          "conflicts": [
+            {
+              "outlet": "Wired",
+              "value": "18"
+            }
+          ]
+        }
+      },
+      "story_url": "https://www.theverge.com/gadgets/988579/apple-watch-series-12-5g-ultra-4-preorder-buy"
+    }
+  ],
+  "reels": [
+    {
+      "slot": "reel_1",
+      "kind": "news",
+      "category": "Science",
+      "title": "Cell wall transport disruption exposes weakness in antibiotic-resistant bacteria",
+      "hook": "Cell wall transport disruption exposes weakness in antibiotic-resistant bacteria",
+      "beats": [
+        {
+          "role": "hook",
+          "caption": "Cell wall transport disruption exposes weakness in antibiotic-resistant bacteria",
+          "detail": "",
+          "narration": "",
+          "seconds": 4.24,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "",
+          "pose": "",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "hook",
+          "caption": "Imagine your front door lock is broken.",
+          "detail": "A simple security flaw.",
+          "narration": "Imagine your front door lock is broken and you cannot keep anyone out. That is bacterial defense.",
+          "seconds": 8.01,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "The analogy",
+          "pose": "walk",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "Bacteria usually block our best antibiotics.",
+          "detail": "Resistance is a major hurdle.",
+          "narration": "Usually, antibiotic-resistant bacteria are experts at keeping medicine out. They have strong walls to block them.",
+          "seconds": 7.54,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "The problem",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "Scientists found a hidden weakness inside.",
+          "detail": "Umeå University research.",
+          "narration": "But researchers at Umeå University just found a hidden weakness inside that protective wall.",
+          "seconds": 6.6,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "The discovery",
+          "pose": "present",
+          "say": "",
+          "plates": [
+            "story"
+          ],
+          "tone": ""
+        },
+        {
+          "role": "graphic",
+          "caption": "Disrupting the transport system changes everything.",
+          "detail": "A new strategy emerges.",
+          "narration": "They discovered that disrupting the cell's transport system makes the bacteria vulnerable again.",
+          "seconds": 6.13,
+          "graphic": "flow",
+          "data": {
+            "steps": [
+              "Normal transport",
+              "System disruption",
+              "Bacteria exposed"
+            ]
+          },
+          "image_url": null,
+          "chapter": "How it works",
+          "pose": "jump",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "This new strategy could bypass resistance.",
+          "detail": "Fighting back against superbugs.",
+          "narration": "So, instead of banging on the front door, scientists could theoretically target the delivery system inside.",
+          "seconds": 7.54,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "The impact",
+          "pose": "talk",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "Better ways to treat infections.",
+          "detail": "Developing future medical tools.",
+          "narration": "This insight might help researchers create entirely new ways to treat infections that currently resist drugs.",
+          "seconds": 7.54,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "The goal",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "outro",
+          "caption": "Get more science news at headlinne.com.",
+          "detail": "Read the full story.",
+          "narration": "For more science updates, check out headlinne.com. How do you think we should solve antibiotic resistance?",
+          "seconds": 7.54,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "Stay updated",
+          "pose": "cta",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        }
+      ],
+      "caption": "Cell wall transport disruption exposes weakness in antibiotic-resistant bacteria\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#ScienceNews #Antibiotics #Biology #HealthTech",
+      "hashtags": [
+        "ScienceNews",
+        "Antibiotics",
+        "Biology",
+        "HealthTech",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-09-11T09:30:00+05:30",
+      "first_comment": "#Headlinne",
+      "sources": "Phys.org",
+      "story_url": "https://phys.org/news/2026-09-cell-wall-disruption-exposes-weakness.html",
+      "dateline": "FRI 11 SEP",
+      "story": null,
+      "duration_seconds": 55.0,
+      "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-11/reels/reel_1.mp4",
+      "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-11/reels/reel_1_cover.png",
+      "audio_file": null,
+      "has_voiceover": true
+    }
+  ],
+  "story_card": {
+    "slot": "story_card",
+    "category": "Technology",
+    "headline": "NASA and IBM release free moon mapping tools",
+    "standfirst": "New open-source software makes lunar data accessible for everyone.",
+    "steps": [
+      {
+        "label": "What happened",
+        "text": "NASA and IBM released new open-source software to help people map the moon."
+      },
+      {
+        "label": "How we got here",
+        "text": "The two organizations combined their resources to make satellite data easier to use."
+      },
+      {
+        "label": "Why it matters",
+        "text": "Researchers can now study the lunar surface more easily for scientific discovery."
+      },
+      {
+        "label": "What to watch",
+        "text": "See what new lunar discoveries or projects researchers build using these tools."
+      }
+    ],
+    "caption": "NASA and IBM have released open source lunar mapping tools for public use.\n\nBy opening up these tools, the agencies are making it simpler for researchers and developers to analyze satellite data. It is a big step toward democratizing space science and helping us learn more about our closest neighbor.\n\nIf you could design a mission to the moon, what would you want to find?\n\nSave this one. Follow for the daily card. Full story on HEADLINNE.com.\n\n#TechNews #Tech #AI #NASA",
+    "hashtags": [
+      "TechNews",
+      "Tech",
+      "AI",
+      "NASA",
+      "IBM",
+      "Moon",
+      "Space",
+      "Science",
+      "OpenSource",
+      "Software",
+      "Lunar",
+      "Innovation",
+      "SpaceExploration",
+      "Data",
+      "NewsExplained",
+      "Headlinne"
+    ],
+    "scheduled_time": "2026-09-11T21:30:00+05:30",
+    "first_comment": "#IBM #Moon #Space #Science #OpenSource #Software #Lunar #Innovation #SpaceExploration #Data #NewsExplained #Headlinne",
+    "sources": "The Register",
+    "story_url": "https://www.theregister.com/ai-and-ml/2026/09/10/nasa-and-ibm-open-source-lunar-mapping-tools/5295633",
+    "image_url": "https://image.theregister.com/?imageId=255948&width=800",
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-11/story_card/story_card.png",
+    "story": null
+  }
+}
