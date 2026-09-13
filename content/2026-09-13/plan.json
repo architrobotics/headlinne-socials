@@ -1,0 +1,262 @@
+{
+  "day": "2026-09-13",
+  "is_promo_day": false,
+  "is_friday": false,
+  "twitter": [
+    {
+      "category": "Science",
+      "post": "Today's science news in brief.\n• Japan's Hayabusa2 probe just used lasers to map an asteroid\n• Fossilized bird feathers in poop explain how birds survived extinction\n• New AI models are identifying mysterious proteins in the human body HEADLINNE.com #Science #Space",
+      "hashtags": [
+        "Science",
+        "Space"
+      ],
+      "scheduled_time": "2026-09-13T13:00:00+05:30",
+      "kind": "news",
+      "lead": "Today's science news in brief.",
+      "items": [
+        "Japan's Hayabusa2 probe just used lasers to map an asteroid",
+        "Fossilized bird feathers in poop explain how birds survived extinction",
+        "New AI models are identifying mysterious proteins in the human body"
+      ],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-13/x/x_1.png"
+    },
+    {
+      "category": "Tech",
+      "post": "Your daily tech briefing is here.\n• EV batteries fade slowly, so watch for behavior changes\n• NVIDIA's new DLSS 5 is sparking a debate over AI quality\n• Calculate your energy needs before adding solar to an RV HEADLINNE.com #TechNews #EV",
+      "hashtags": [
+        "TechNews",
+        "EV"
+      ],
+      "scheduled_time": "2026-09-13T17:00:00+05:30",
+      "kind": "news",
+      "lead": "Your daily tech briefing is here.",
+      "items": [
+        "EV batteries fade slowly, so watch for behavior changes",
+        "NVIDIA's new DLSS 5 is sparking a debate over AI quality",
+        "Calculate your energy needs before adding solar to an RV"
+      ],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-13/x/x_2.png"
+    }
+  ],
+  "linkedin": {
+    "title": "Most news algorithms get it wrong because they mistake clicks for interest.",
+    "body": "We have all been there. You click on one article about a niche topic, and suddenly your feed is flooded with dozens of similar stories you never asked for. It feels like the machine is guessing, not listening. That is because most recommendation engines prioritize engagement metrics over actual reader value.\n\nAt Headlinne, we take a different approach. Instead of just tracking what you click, our engine looks at the substance of what you read. It learns your preferences by understanding the context, the depth, and the specific topics that keep you coming back. It is about building a profile that evolves as your interests shift.\n\nPersonalization should feel like a curator who knows your taste, not a billboard shouting at you. The goal is to cut through the noise of the daily news cycle and deliver only what matters to you. When the technology works, it stops feeling like an algorithm and starts feeling like a personal assistant.",
+    "cta": "You can see how we are building a better way to read at HEADLINNE.com.",
+    "scheduled_time": "2026-09-13T18:00:00+05:30",
+    "kind": "product"
+  },
+  "instagram": [],
+  "reels": [
+    {
+      "slot": "reel_1",
+      "kind": "news",
+      "category": "Science",
+      "title": "Japan's Hayabusa2 achieves first-ever laser ranging experiment with an asteroid",
+      "hook": "Japan's Hayabusa2 achieves first-ever laser ranging experiment with an asteroid",
+      "beats": [
+        {
+          "role": "hook",
+          "caption": "Japan's Hayabusa2 achieves first-ever laser ranging experiment with an asteroid",
+          "detail": "",
+          "narration": "",
+          "seconds": 4.53,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "",
+          "pose": "",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "hook",
+          "caption": "Most people think space lasers are just for sci-fi movies.",
+          "detail": "They are actually used for science.",
+          "narration": "Most people think space lasers are just for sci-fi movies. They are actually powerful tools for science.",
+          "seconds": 7.71,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "The assumption",
+          "pose": "walk",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "graphic",
+          "caption": "Japan's Hayabusa2 probe just bounced a laser off an asteroid.",
+          "detail": "First successful experiment of its kind.",
+          "narration": "But Japan's Hayabusa2 probe just pulled off the first successful laser ranging experiment on an asteroid.",
+          "seconds": 7.25,
+          "graphic": "flow",
+          "data": {
+            "steps": [
+              "Spacecraft fires laser",
+              "Light hits asteroid",
+              "Distance is measured"
+            ]
+          },
+          "image_url": null,
+          "chapter": "The reality",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "The experiment happened while flying past the asteroid Torifune.",
+          "detail": "A target for the extended mission.",
+          "narration": "This happened while the craft was flying past Torifune, a key target for its extended mission.",
+          "seconds": 7.25,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "The target",
+          "pose": "present",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "This test proves we can measure moving space rocks with precision.",
+          "detail": "A milestone for space agencies.",
+          "narration": "This test proves we can measure moving space rocks with incredible precision from great distances.",
+          "seconds": 6.8,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "Why it matters",
+          "pose": "jump",
+          "say": "",
+          "plates": [
+            "story"
+          ],
+          "tone": ""
+        },
+        {
+          "role": "graphic",
+          "caption": "It is the first time any space agency has done this.",
+          "detail": "Achieved this past summer.",
+          "narration": "It is the first time any space agency has successfully performed this specific experiment.",
+          "seconds": 6.35,
+          "graphic": "split",
+          "data": {
+            "left_title": "Old method",
+            "left_text": "Cameras only",
+            "right_title": "New method",
+            "right_text": "Laser precision"
+          },
+          "image_url": null,
+          "chapter": "The milestone",
+          "pose": "talk",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "This tech helps us navigate deep space more safely.",
+          "detail": "Crucial for future asteroid missions.",
+          "narration": "This kind of technology helps us navigate deep space much more safely and accurately.",
+          "seconds": 6.35,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "The future",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "outro",
+          "caption": "Get more space news at headlinne.com.",
+          "detail": "The news app that learns.",
+          "narration": "For more science updates that cut through the noise, head over to headlinne.com.",
+          "seconds": 5.89,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "Stay updated",
+          "pose": "cta",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        }
+      ],
+      "caption": "Japan's Hayabusa2 achieves first-ever laser ranging experiment with an asteroid\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#Space #Science #Hayabusa2 #Tech",
+      "hashtags": [
+        "Space",
+        "Science",
+        "Hayabusa2",
+        "Tech",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-09-13T09:30:00+05:30",
+      "first_comment": "#Headlinne",
+      "sources": "Phys.org",
+      "story_url": "https://phys.org/news/2026-09-japan-hayabusa2-laser-ranging-asteroid.html",
+      "dateline": "SUN 13 SEP",
+      "story": null,
+      "duration_seconds": 52.13,
+      "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-13/reels/reel_1.mp4",
+      "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-13/reels/reel_1_cover.png",
+      "audio_file": null,
+      "has_voiceover": true
+    }
+  ],
+  "story_card": {
+    "slot": "story_card",
+    "category": "Technology",
+    "headline": "How to spot a dying EV battery",
+    "standfirst": "You don't need to guess if your electric vehicle battery is failing.",
+    "steps": [
+      {
+        "label": "What happened",
+        "text": "EV batteries do not fail all at once. They lose capacity slowly over time."
+      },
+      {
+        "label": "How we got here",
+        "text": "Drivers often assume age is the main factor. Instead, battery health changes gradually."
+      },
+      {
+        "label": "Why it matters",
+        "text": "Recognizing subtle behavioral shifts helps you catch problems before they leave you stranded."
+      },
+      {
+        "label": "What to watch",
+        "text": "Pay attention to how your car performs daily. Small changes are your best early warning sign."
+      }
+    ],
+    "caption": "Knowing how to tell if your electric vehicle battery needs replacing can save you from a major headache.\n\nExperts suggest looking for behavioral changes in your car rather than just counting the years. Since these batteries degrade slowly, staying alert to performance shifts is the smartest way to track your car's health.\n\nHave you noticed any changes in your EV's range or performance lately?\n\nSave this one. Follow for the daily card. Full story on HEADLINNE.com.\n\n#TechNews #Tech #AI #EVtips",
+    "hashtags": [
+      "TechNews",
+      "Tech",
+      "AI",
+      "EVtips",
+      "ElectricVehicles",
+      "CarMaintenance",
+      "BatteryHealth",
+      "Automotive",
+      "EVowners",
+      "GreenTech",
+      "DrivingTips",
+      "CarCare",
+      "ElectricCars",
+      "EVLife",
+      "TechExplainer",
+      "NewsExplained"
+    ],
+    "scheduled_time": "2026-09-13T21:30:00+05:30",
+    "first_comment": "#ElectricVehicles #CarMaintenance #BatteryHealth #Automotive #EVowners #GreenTech #DrivingTips #CarCare #ElectricCars #EVLife #TechExplainer #NewsExplained",
+    "sources": "Engadget",
+    "story_url": "https://www.engadget.com/2252773/how-to-know-time-replace-ev-battery/",
+    "image_url": "https://www.engadget.com/img/gallery/how-to-know-its-time-to-replace-your-ev-battery/l-intro-1787858122.jpg",
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-13/story_card/story_card.png",
+    "story": null
+  }
+}
