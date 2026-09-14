@@ -1,0 +1,163 @@
+[
+  {
+    "slot": "reel_1",
+    "kind": "news",
+    "category": "Science",
+    "title": "James Webb Space Telescope discovers the rings of tiny solar system body Chariklo are",
+    "hook": "James Webb Space Telescope discovers the rings of tiny solar system body Chariklo are",
+    "beats": [
+      {
+        "role": "hook",
+        "caption": "James Webb Space Telescope discovers the rings of tiny solar system body Chariklo are",
+        "detail": "",
+        "narration": "",
+        "seconds": 6.2,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "",
+        "pose": "",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "hook",
+        "caption": "This reshapes how we understand the solar system.",
+        "detail": "It changes our fundamental cosmic map.",
+        "narration": "This quietly changes our map of the solar system and how we think it works.",
+        "seconds": 6.64,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "How science changes",
+        "pose": "walk",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "point",
+        "caption": "Astronomers found something strange near a tiny space rock.",
+        "detail": "Chariklo is a small celestial body.",
+        "narration": "Scientists recently focused the James Webb Space Telescope on a tiny object called Chariklo.",
+        "seconds": 6.2,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "Meet Chariklo",
+        "pose": "point",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "graphic",
+        "caption": "The ring system is more complex than scientists thought.",
+        "detail": "Observations reveal new details about its rings.",
+        "narration": "They realized its ring system is far more dynamic and interesting than they previously believed.",
+        "seconds": 6.64,
+        "graphic": "split",
+        "data": {
+          "left_title": "Old view",
+          "left_text": "Rings were simple.",
+          "right_title": "New view",
+          "right_text": "Rings are changing."
+        },
+        "image_url": null,
+        "chapter": "The rings",
+        "pose": "present",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "point",
+        "caption": "The Webb telescope revealed details we couldn't see before.",
+        "detail": "Infrared technology allows clearer views.",
+        "narration": "Using the James Webb telescope, researchers could see changes that were invisible until now.",
+        "seconds": 6.2,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "Better eyes",
+        "pose": "jump",
+        "say": "",
+        "plates": [
+          "story"
+        ],
+        "tone": ""
+      },
+      {
+        "role": "graphic",
+        "caption": "This discovery updates our cosmic models.",
+        "detail": "New data improves our space knowledge.",
+        "narration": "This helps astronomers refine their models of how solar systems form and evolve over time.",
+        "seconds": 6.64,
+        "graphic": "flow",
+        "data": {
+          "steps": [
+            "Observe rock",
+            "See ring shifts",
+            "Update theory"
+          ]
+        },
+        "image_url": null,
+        "chapter": "Why it matters",
+        "pose": "talk",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "point",
+        "caption": "Multiple independent sources confirm these findings.",
+        "detail": "Space.com and Phys.org report the news.",
+        "narration": "Both Space.com and Phys.org have confirmed this new data about the distant object.",
+        "seconds": 5.76,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "Verified facts",
+        "pose": "point",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "outro",
+        "caption": "Get the facts at headlinne.com.",
+        "detail": "Real news, no fluff.",
+        "narration": "For more updates on space discoveries, check out headlinne.com.",
+        "seconds": 3.98,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "Stay updated",
+        "pose": "cta",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      }
+    ],
+    "caption": "James Webb Space Telescope discovers the rings of tiny solar system body Chariklo are\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#Space #Science #Astronomy #JWST",
+    "hashtags": [
+      "Space",
+      "Science",
+      "Astronomy",
+      "JWST",
+      "Headlinne"
+    ],
+    "scheduled_time": "2026-09-14T09:30:00+05:30",
+    "first_comment": "#Headlinne",
+    "sources": "Space.com · Phys.org",
+    "story_url": "https://www.space.com/astronomy/james-webb-space-telescope/james-webb-space-telescope-discovers-the-rings-of-tiny-solar-system-body-chariklo-are-changing",
+    "dateline": "MON 14 SEP",
+    "story": null,
+    "duration_seconds": 48.27,
+    "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-14/reels/reel_1.mp4",
+    "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-14/reels/reel_1_cover.png",
+    "audio_file": null,
+    "has_voiceover": true
+  }
+]
