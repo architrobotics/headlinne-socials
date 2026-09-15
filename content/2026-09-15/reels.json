@@ -1,0 +1,162 @@
+[
+  {
+    "slot": "reel_1",
+    "kind": "news",
+    "category": "Science",
+    "title": "James Webb Space Telescope and Hubble discover 27 puzzling new objects orbiting the sun",
+    "hook": "James Webb Space Telescope and Hubble discover 27 puzzling new objects orbiting the sun",
+    "beats": [
+      {
+        "role": "hook",
+        "caption": "James Webb Space Telescope and Hubble discover 27 puzzling new objects orbiting the sun",
+        "detail": "",
+        "narration": "",
+        "seconds": 5.8,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "",
+        "pose": "",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "hook",
+        "caption": "That is not just rocks. That is twenty-seven new objects orbiting our sun.",
+        "detail": "Found far beyond the orbit of Neptune.",
+        "narration": "That is not just a few rocks. That is twenty-seven mysterious new objects found orbiting our sun.",
+        "seconds": 7.05,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "The Discovery",
+        "pose": "walk",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "graphic",
+        "caption": "These objects live far beyond the orbit of Neptune.",
+        "detail": "Deep in the dark, cold outer solar system.",
+        "narration": "They are sitting way out past Neptune, in a part of space that is incredibly cold.",
+        "seconds": 6.63,
+        "graphic": "split",
+        "data": {
+          "left_title": "Inner System",
+          "left_text": "Where we live",
+          "right_title": "Outer System",
+          "right_text": "Where they orbit"
+        },
+        "image_url": null,
+        "chapter": "The Location",
+        "pose": "point",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "point",
+        "caption": "Hubble and James Webb spotted these hidden, tiny things.",
+        "detail": "Powerful telescopes working together to see deep.",
+        "narration": "To find them, astronomers used the combined power of the Hubble and James Webb space telescopes.",
+        "seconds": 6.63,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "The Eyes",
+        "pose": "present",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "point",
+        "caption": "Astronomers are puzzled by what these objects actually are.",
+        "detail": "Their origin remains a total mystery.",
+        "narration": "The strange thing is, nobody is quite sure what they are or how they got there.",
+        "seconds": 6.63,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "The Puzzle",
+        "pose": "jump",
+        "say": "",
+        "plates": [
+          "story"
+        ],
+        "tone": ""
+      },
+      {
+        "role": "graphic",
+        "caption": "How we found them in the deep dark.",
+        "detail": "Telescopes capture light from the distant edge.",
+        "narration": "It took some serious detective work to spot such small objects from across the solar system.",
+        "seconds": 6.63,
+        "graphic": "flow",
+        "data": {
+          "steps": [
+            "Telescopes scan",
+            "Capture faint light",
+            "Identify objects"
+          ]
+        },
+        "image_url": null,
+        "chapter": "The Process",
+        "pose": "talk",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "point",
+        "caption": "They could change what we know about our solar system.",
+        "detail": "Helping us understand how planets originally formed.",
+        "narration": "Studying these could help us finally understand how our solar system formed in the first place.",
+        "seconds": 6.63,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "Why Care",
+        "pose": "point",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "outro",
+        "caption": "Get the full story at Headlinne.com.",
+        "detail": "Always accurate, never clickbait.",
+        "narration": "For more updates on space discoveries, check out Headlinne.com for the facts, not the hype.",
+        "seconds": 6.22,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "Stay Updated",
+        "pose": "cta",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      }
+    ],
+    "caption": "James Webb Space Telescope and Hubble discover 27 puzzling new objects orbiting the sun\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#Space #Science #Astronomy #Headlinne",
+    "hashtags": [
+      "Space",
+      "Science",
+      "Astronomy",
+      "Headlinne"
+    ],
+    "scheduled_time": "2026-09-15T09:30:00+05:30",
+    "first_comment": "",
+    "sources": "Space.com",
+    "story_url": "https://www.space.com/astronomy/james-webb-space-telescope/james-webb-space-telescope-and-hubble-discover-27-puzzling-new-objects-orbiting-the-sun-far-beyond-neptune",
+    "dateline": "TUE 15 SEP",
+    "story": null,
+    "duration_seconds": 52.23,
+    "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-15/reels/reel_1.mp4",
+    "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-15/reels/reel_1_cover.png",
+    "audio_file": null,
+    "has_voiceover": true
+  }
+]
