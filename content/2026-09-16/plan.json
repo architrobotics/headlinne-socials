@@ -1,0 +1,248 @@
+{
+  "day": "2026-09-16",
+  "is_promo_day": true,
+  "is_friday": false,
+  "twitter": [
+    {
+      "category": "Promo",
+      "post": "Most news articles are longer than they need to be. If you want the facts without the fluff, our AI summaries break down complex stories into quick, readable points so you can stay informed in half the time. HEADLINNE.com #News #Productivity",
+      "hashtags": [
+        "News",
+        "Productivity"
+      ],
+      "scheduled_time": "2026-09-16T13:00:00+05:30",
+      "kind": "promo",
+      "lead": "Get the News Without the Fluff",
+      "items": [],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-16/x/x_1.png"
+    }
+  ],
+  "linkedin": {
+    "title": "Most news feeds are broken because they are designed to keep you scrolling, not to keep you informed.",
+    "body": "We have all been there. You open an app to catch up on the world and end up trapped in a loop of outrage, celebrity gossip, or headlines that do not actually matter to your life. The algorithm is trying to predict what will make you click, not what will make you smarter.\n\nTrue personalization should be the opposite of that. It should be about respecting your time. It should mean that when you open your feed, you see the stories that actually impact your industry, your interests, and your curiosity. It is not about silencing the world, but about filtering out the noise so you can find the signal.\n\nAt Headlinne, we are building a different approach. We use AI to understand what you care about, not just what you click on. The goal is to give you a news experience that feels like it was curated by a smart editor who knows exactly what you need to know today.",
+    "cta": "You can see how we are rethinking the daily news habit at HEADLINNE.com.",
+    "scheduled_time": "2026-09-16T18:00:00+05:30",
+    "kind": "product"
+  },
+  "instagram": [],
+  "reels": [
+    {
+      "slot": "reel_1",
+      "kind": "news",
+      "category": "Science",
+      "title": "Webb reveals dynamic panorama of star formation, including smallest known brown dwarfs",
+      "hook": "Webb reveals dynamic panorama of star formation, including smallest known brown dwarfs",
+      "beats": [
+        {
+          "role": "hook",
+          "caption": "Webb reveals dynamic panorama of star formation, including smallest known brown dwarfs",
+          "detail": "",
+          "narration": "",
+          "seconds": 5.52,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "",
+          "pose": "",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "hook",
+          "caption": "Here is how a telescope captures hidden space objects.",
+          "detail": "Infrared light reveals what eyes cannot see.",
+          "narration": "Here is how a telescope captures hidden space objects. It uses infrared light to see through cosmic dust.",
+          "seconds": 8.28,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "How Webb sees",
+          "pose": "walk",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "NASA pointed it at the star-forming region IC 348.",
+          "detail": "A busy nursery for young stars.",
+          "narration": "NASA pointed the Webb telescope at a star forming region called IC 348.",
+          "seconds": 5.98,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "New target",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "graphic",
+          "caption": "Astronomers were hunting for tiny brown dwarfs.",
+          "detail": "Objects smaller than the smallest stars.",
+          "narration": "Astronomers used the telescope to hunt for brown dwarfs. These are objects smaller than the smallest stars.",
+          "seconds": 7.82,
+          "graphic": "flow",
+          "data": {
+            "steps": [
+              "Scan star cluster",
+              "Filter out light",
+              "Identify tiny mass"
+            ]
+          },
+          "image_url": null,
+          "chapter": "The search",
+          "pose": "present",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "They found dwarfs twice the mass of Jupiter.",
+          "detail": "Extremely small for these cosmic objects.",
+          "narration": "They actually found brown dwarfs just twice the mass of Jupiter.",
+          "seconds": 5.06,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "The finding",
+          "pose": "jump",
+          "say": "",
+          "plates": [
+            "story"
+          ],
+          "tone": ""
+        },
+        {
+          "role": "graphic",
+          "caption": "Stars are massive compared to these small dwarfs.",
+          "detail": "Visualizing the mass difference.",
+          "narration": "Stars are massive compared to these small dwarfs. The size difference is quite significant.",
+          "seconds": 6.44,
+          "graphic": "bars",
+          "data": {
+            "bars": [
+              {
+                "label": "Smallest Stars",
+                "weight": 0.9
+              },
+              {
+                "label": "Brown Dwarfs",
+                "weight": 0.2
+              }
+            ]
+          },
+          "image_url": null,
+          "chapter": "Size comparison",
+          "pose": "talk",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "This helps us understand how stars actually form.",
+          "detail": "Studying the limits of star creation.",
+          "narration": "Finding these helps us understand the limits of how stars are created in our universe.",
+          "seconds": 6.9,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "Why it matters",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "outro",
+          "caption": "Get more science news at Headlinne.com.",
+          "detail": "Your daily briefing on new discoveries.",
+          "narration": "For more science news that matters, check out Headlinne.com. What do you think of this discovery?",
+          "seconds": 7.36,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "Stay updated",
+          "pose": "cta",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        }
+      ],
+      "caption": "Webb reveals dynamic panorama of star formation, including smallest known brown dwarfs\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#NASA #JWST #Space #Astronomy",
+      "hashtags": [
+        "NASA",
+        "JWST",
+        "Space",
+        "Astronomy",
+        "ScienceNews",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-09-16T09:30:00+05:30",
+      "first_comment": "#ScienceNews #Headlinne",
+      "sources": "Phys.org · Live Science",
+      "story_url": "https://phys.org/news/2026-09-webb-reveals-dynamic-panorama-star.html",
+      "dateline": "WED 16 SEP",
+      "story": null,
+      "duration_seconds": 53.37,
+      "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-16/reels/reel_1.mp4",
+      "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-16/reels/reel_1_cover.png",
+      "audio_file": null,
+      "has_voiceover": true
+    }
+  ],
+  "story_card": {
+    "slot": "story_card",
+    "category": "Technology",
+    "headline": "Scaling your startup at TechCrunch Disrupt 2026",
+    "standfirst": "Learn how to turn your prototype into a real product with industry experts.",
+    "steps": [
+      {
+        "label": "What happened",
+        "text": "TechCrunch announced a new workshop series at Disrupt 2026 focused on scaling startups."
+      },
+      {
+        "label": "How we got here",
+        "text": "Founders often struggle to move from early prototypes to full production models."
+      },
+      {
+        "label": "Why it matters",
+        "text": "Experts from Foxglove, MBRYONICS, and Bedrock Robotics will share their scaling blueprints."
+      },
+      {
+        "label": "What to watch",
+        "text": "Register by September 25 to secure your spot and save up to $200 on your ticket."
+      }
+    ],
+    "caption": "TechCrunch Disrupt 2026 is hosting workshops to help startup founders take their prototypes to production.\n\nScaling a business is notoriously difficult. This event connects founders with leaders from companies like Bedrock Robotics to learn the actual process of growth. You can save $200 if you sign up before the September 25 deadline.\n\nWhat is the biggest hurdle you face when trying to scale a new product?\n\nSave this one. Follow for the daily card. Full story on HEADLINNE.com.\n\n#TechNews #Tech #AI #TechCrunchDisrupt",
+    "hashtags": [
+      "TechNews",
+      "Tech",
+      "AI",
+      "TechCrunchDisrupt",
+      "StartupLife",
+      "Founders",
+      "Scaling",
+      "BusinessGrowth",
+      "Entrepreneurship",
+      "TechEvents",
+      "StartupTips",
+      "PrototypeToProduction",
+      "TechConference",
+      "BusinessStrategy",
+      "NewsExplained",
+      "Headlinne"
+    ],
+    "scheduled_time": "2026-09-16T21:30:00+05:30",
+    "first_comment": "#StartupLife #Founders #Scaling #BusinessGrowth #Entrepreneurship #TechEvents #StartupTips #PrototypeToProduction #TechConference #BusinessStrategy #NewsExplained #Headlinne",
+    "sources": "TechCrunch",
+    "story_url": "https://techcrunch.com/2026/09/15/discover-how-to-take-your-startup-from-prototype-to-production-at-techcrunch-disrupt-2026/",
+    "image_url": "https://techcrunch.com/wp-content/uploads/2026/09/TCD26_3-Speaker-MacNeil-Sofman-Mackey-16x9-Dark.png?resize=1200,675",
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-16/story_card/story_card.png",
+    "story": null
+  }
+}
