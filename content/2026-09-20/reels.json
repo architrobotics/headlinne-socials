@@ -1,0 +1,162 @@
+[
+  {
+    "slot": "reel_1",
+    "kind": "news",
+    "category": "Science",
+    "title": "A humpback whale was spotted in a California river, 60 miles from its Pacific Ocean home",
+    "hook": "A humpback whale was spotted in a California river, 60 miles from its Pacific Ocean home",
+    "beats": [
+      {
+        "role": "hook",
+        "caption": "A humpback whale was spotted in a California river, 60 miles from its Pacific Ocean home",
+        "detail": "",
+        "narration": "",
+        "seconds": 6.45,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "",
+        "pose": "",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "hook",
+        "caption": "Three odd stories this week. The third one is the most confusing.",
+        "detail": "Fishing trips usually go according to plan.",
+        "narration": "Three strange things happened this week. But the third one is truly the most confusing of them all.",
+        "seconds": 7.26,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "Three strange things",
+        "pose": "walk",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "point",
+        "caption": "Denny Glover went fishing, hoping for a big catch.",
+        "detail": "He was on the Sacramento River.",
+        "narration": "Denny Glover went out on the Sacramento River, just hoping for a normal, quiet day of fishing.",
+        "seconds": 6.85,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "A quiet day",
+        "pose": "point",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "graphic",
+        "caption": "He found a humpback whale instead of a fish.",
+        "detail": "The animal was fully grown.",
+        "narration": "Instead of the usual catch, he spotted something massive. A fully grown humpback whale, right there.",
+        "seconds": 6.45,
+        "graphic": "flow",
+        "data": {
+          "steps": [
+            "Fishing trip",
+            "Surprise sighting",
+            "Huge whale"
+          ]
+        },
+        "image_url": null,
+        "chapter": "The unexpected guest",
+        "pose": "present",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "point",
+        "caption": "It was sixty miles from the ocean.",
+        "detail": "The whale was deep inland.",
+        "narration": "This whale was sixty miles away from the Pacific Ocean. That is a long way from home.",
+        "seconds": 6.85,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "Miles away",
+        "pose": "jump",
+        "say": "",
+        "plates": [
+          "story"
+        ],
+        "tone": ""
+      },
+      {
+        "role": "graphic",
+        "caption": "The whale left its saltwater home for the river.",
+        "detail": "It is an unusual detour.",
+        "narration": "It is rare to see a whale leave the salt water to wander so deep into a river.",
+        "seconds": 7.26,
+        "graphic": "split",
+        "data": {
+          "left_title": "Pacific Ocean",
+          "left_text": "Natural habitat for these giants",
+          "right_title": "Sacramento River",
+          "right_text": "An unexpected place for a whale"
+        },
+        "image_url": null,
+        "chapter": "River vs Ocean",
+        "pose": "talk",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "point",
+        "caption": "We are keeping an eye on this developing story.",
+        "detail": "More details will follow.",
+        "narration": "We are tracking this story as it develops. It is a rare sight that leaves many questions.",
+        "seconds": 6.85,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "Getting answers",
+        "pose": "point",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "outro",
+        "caption": "Get the facts at headlinne.com.",
+        "detail": "News, simplified.",
+        "narration": "For more updates on stories like this, head over to headlinne.com. Have you ever seen something this strange?",
+        "seconds": 7.26,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "Stay updated",
+        "pose": "cta",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      }
+    ],
+    "caption": "A humpback whale was spotted in a California river, 60 miles from its Pacific Ocean home\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#Wildlife #California #Nature #Headlinne",
+    "hashtags": [
+      "Wildlife",
+      "California",
+      "Nature",
+      "Headlinne"
+    ],
+    "scheduled_time": "2026-09-20T09:30:00+05:30",
+    "first_comment": "",
+    "sources": "Phys.org",
+    "story_url": "https://phys.org/news/2026-09-humpback-whale-california-river-miles.html",
+    "dateline": "SUN 20 SEP",
+    "story": null,
+    "duration_seconds": 55.0,
+    "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-20/reels/reel_1.mp4",
+    "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-20/reels/reel_1_cover.png",
+    "audio_file": null,
+    "has_voiceover": true
+  }
+]
