@@ -1,0 +1,264 @@
+{
+  "day": "2026-09-21",
+  "is_promo_day": false,
+  "is_friday": false,
+  "twitter": [
+    {
+      "category": "Science",
+      "post": "Today's top science stories to know\n• T. rex had a body temp of 97 degrees, proving it was warm-blooded\n• New 4D AI models of cells could make drug discovery much faster\n• A million cubic meters of magma caused a recent Tanzanian volcano bulge HEADLINNE.com #Science #Tech",
+      "hashtags": [
+        "Science",
+        "Tech"
+      ],
+      "scheduled_time": "2026-09-21T13:00:00+05:30",
+      "kind": "news",
+      "lead": "Today's top science stories to know",
+      "items": [
+        "T. rex had a body temp of 97 degrees, proving it was warm-blooded",
+        "New 4D AI models of cells could make drug discovery much faster",
+        "A million cubic meters of magma caused a recent Tanzanian volcano bulge"
+      ],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-21/x/x_1.png"
+    },
+    {
+      "category": "Tech",
+      "post": "Tech tips to make your life easier\n• You can join FaceTime calls from Android or Windows devices\n• Wipe your old laptop clean before recycling it to protect data\n• Use your phone as a smart TV remote via Bluetooth or Wi-Fi HEADLINNE.com #TechTips #LifeHacks",
+      "hashtags": [
+        "TechTips",
+        "LifeHacks"
+      ],
+      "scheduled_time": "2026-09-21T17:00:00+05:30",
+      "kind": "news",
+      "lead": "Tech tips to make your life easier",
+      "items": [
+        "You can join FaceTime calls from Android or Windows devices",
+        "Wipe your old laptop clean before recycling it to protect data",
+        "Use your phone as a smart TV remote via Bluetooth or Wi-Fi"
+      ],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-21/x/x_2.png"
+    }
+  ],
+  "linkedin": {
+    "title": "Most people consume news by accident, not by design.",
+    "body": "We scroll through social feeds or click on whatever happens to be trending. The result is a chaotic mix of information that often leaves us feeling overwhelmed and under-informed. We end up knowing a little bit about everything, but rarely enough about the things that actually matter to our lives or our work.\n\nTrue information literacy isn't about reading more. It is about reading better. When you filter out the noise and focus on the stories that align with your genuine interests, you stop reacting to the news cycle and start understanding it. You move from passive consumption to active learning.\n\nThis is where AI changes the game. It isn't about creating echo chambers or hiding opposing views. It is about efficiency. Good technology should act as a curator, not a filter bubble. It should help you surface the deep-dive reporting, the niche industry updates, and the global context you would otherwise miss in the flood of daily headlines.\n\nStaying informed shouldn't feel like a second job. It should be a seamless part of your day that actually adds value rather than just taking up your time.",
+    "cta": "If you want to take control of your reading habits, you can see how we are rethinking the experience at HEADLINNE.com.",
+    "scheduled_time": "2026-09-21T18:00:00+05:30",
+    "kind": "product"
+  },
+  "instagram": [],
+  "reels": [
+    {
+      "slot": "reel_1",
+      "kind": "news",
+      "category": "Science",
+      "title": "A 66-million-year-old tooth reveals T. rex was nearly as warm as a human",
+      "hook": "A 66-million-year-old tooth reveals T. rex was nearly as warm as a human",
+      "beats": [
+        {
+          "role": "hook",
+          "caption": "A 66-million-year-old tooth reveals T. rex was nearly as warm as a human",
+          "detail": "",
+          "narration": "",
+          "seconds": 6.34,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "",
+          "pose": "",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "hook",
+          "caption": "We thought dinosaurs were cold-blooded.",
+          "detail": "Turns out that is wrong.",
+          "narration": "We always assumed dinosaurs were cold-blooded reptiles. Turns out that is completely wrong.",
+          "seconds": 6.34,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "The assumption",
+          "pose": "walk",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "A 66-million-year-old tooth changed everything.",
+          "detail": "Scientists analyzed chemical clues inside.",
+          "narration": "New evidence from a 66 million year old fossilized tooth has changed everything.",
+          "seconds": 6.34,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "New evidence",
+          "pose": "point",
+          "say": "",
+          "plates": [
+            "story"
+          ],
+          "tone": ""
+        },
+        {
+          "role": "graphic",
+          "caption": "Its body heat was shockingly familiar.",
+          "detail": "Compare the T. rex to a human.",
+          "narration": "The chemical data shows the T. rex maintained a temperature nearly identical to our own.",
+          "seconds": 7.31,
+          "graphic": "split",
+          "data": {
+            "left_title": "Human",
+            "left_text": "Average body temperature",
+            "right_title": "T. Rex",
+            "right_text": "Maintained similar heat"
+          },
+          "image_url": null,
+          "chapter": "The comparison",
+          "pose": "present",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "graphic",
+          "caption": "It stayed at 97 degrees.",
+          "detail": "Just like a modern human.",
+          "narration": "It hovered right around 97 degrees Fahrenheit.",
+          "seconds": 3.41,
+          "graphic": "counter",
+          "data": {
+            "value_label": "97°F",
+            "caption": "T. rex body temp"
+          },
+          "image_url": null,
+          "chapter": "The number",
+          "pose": "jump",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "graphic",
+          "caption": "This warm-blooded trait was a survival hack.",
+          "detail": "It explains how they stayed active.",
+          "narration": "Being warm-blooded gave the predator the energy it needed to hunt and survive in cold climates.",
+          "seconds": 7.8,
+          "graphic": "flow",
+          "data": {
+            "steps": [
+              "Warm blood",
+              "More energy",
+              "Better survival"
+            ]
+          },
+          "image_url": null,
+          "chapter": "Why it matters",
+          "pose": "talk",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "It proves they were far more active.",
+          "detail": "A massive predator always ready to move.",
+          "narration": "This confirms the T. rex was a highly active hunter, not some sluggish reptile.",
+          "seconds": 6.82,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "The big picture",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "outro",
+          "caption": "Get the full story at headlinne.com.",
+          "detail": "Daily news, simplified.",
+          "narration": "For more science stories like this, check out headlinne.com.",
+          "seconds": 4.39,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "Stay updated",
+          "pose": "cta",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        }
+      ],
+      "caption": "A 66-million-year-old tooth reveals T. rex was nearly as warm as a human\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#Science #Dinosaurs #Paleontology #Headlinne",
+      "hashtags": [
+        "Science",
+        "Dinosaurs",
+        "Paleontology",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-09-21T09:30:00+05:30",
+      "first_comment": "",
+      "sources": "Science Daily",
+      "story_url": "https://www.sciencedaily.com/releases/2026/09/260919031020.htm",
+      "dateline": "MON 21 SEP",
+      "story": null,
+      "duration_seconds": 48.73,
+      "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-21/reels/reel_1.mp4",
+      "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-21/reels/reel_1_cover.png",
+      "audio_file": null,
+      "has_voiceover": true
+    }
+  ],
+  "story_card": {
+    "slot": "story_card",
+    "category": "Technology",
+    "headline": "Use FaceTime on Android or Windows",
+    "standfirst": "You do not need an Apple device to jump on a FaceTime call anymore.",
+    "steps": [
+      {
+        "label": "What happened",
+        "text": "You can now join FaceTime calls from Android phones or Windows computers."
+      },
+      {
+        "label": "How we got here",
+        "text": "Apple opened up the service, allowing non-Apple users to connect via a browser link."
+      },
+      {
+        "label": "Why it matters",
+        "text": "It breaks down the walled garden, making it easier to chat with friends on any device."
+      },
+      {
+        "label": "What to watch",
+        "text": "Note that this is not the full experience, just a way to join existing calls."
+      }
+    ],
+    "caption": "How to join a FaceTime call on Android or Windows devices.\n\nFaceTime is no longer limited to Apple hardware. While you cannot host a call from these devices, you can easily jump into one using a web link. It is a simple way to stay connected without needing an iPhone.\n\nDoes this make you more likely to use FaceTime, or do you prefer other apps?\n\nSave this one. Follow for the daily card. Full story on HEADLINNE.com.\n\n#TechNews #Tech #AI #Apple",
+    "hashtags": [
+      "TechNews",
+      "Tech",
+      "AI",
+      "Apple",
+      "FaceTime",
+      "Android",
+      "Windows",
+      "TechTips",
+      "Communication",
+      "VideoCalls",
+      "Smartphone",
+      "Software",
+      "Connectivity",
+      "TechTrends",
+      "NewsExplained",
+      "Headlinne"
+    ],
+    "scheduled_time": "2026-09-21T21:30:00+05:30",
+    "first_comment": "#FaceTime #Android #Windows #TechTips #Communication #VideoCalls #Smartphone #Software #Connectivity #TechTrends #NewsExplained #Headlinne",
+    "sources": "Engadget",
+    "story_url": "https://www.engadget.com/2260287/how-to-join-facetime-call-android-phone-windows-pc/",
+    "image_url": "https://www.engadget.com/img/gallery/how-to-join-a-facetime-call-with-your-android-phone-or-windows-pc/l-intro-1789574175.jpg",
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-21/story_card/story_card.png",
+    "story": null
+  }
+}
