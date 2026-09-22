@@ -1,0 +1,247 @@
+{
+  "day": "2026-09-22",
+  "is_promo_day": true,
+  "is_friday": false,
+  "twitter": [
+    {
+      "category": "Promo",
+      "post": "Most news feeds are a noisy mess. The best way to stay informed is to let your reading habits guide the algorithm. The more you read, the better your feed becomes at finding stories you actually care about. HEADLINNE.com #News #Tech",
+      "hashtags": [
+        "News",
+        "Tech"
+      ],
+      "scheduled_time": "2026-09-22T13:00:00+05:30",
+      "kind": "promo",
+      "lead": "A feed that learns from you",
+      "items": [],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-22/x/x_1.png"
+    }
+  ],
+  "linkedin": {
+    "title": "Most news feeds are designed to keep you scrolling, not to keep you informed.",
+    "body": "It is a subtle but important difference. When an algorithm is built solely for engagement, it often prioritizes outrage or sensationalism because those topics trigger immediate reactions. But a recommendation engine can be built differently. It can be built to learn what you actually care about over time.\n\nAt Headlinne, we look at personalization as a way to respect your time. Instead of guessing what might make you click based on broad demographics, our system learns from your reading habits. If you skip a story on tech policy but dive deep into renewable energy updates, the engine adjusts. It is not about creating a filter bubble. It is about curation that evolves alongside your interests.\n\nTrue personalization means you see the stories that matter to you without having to hunt for them. It is the difference between being bombarded with noise and having a digital assistant that knows your priorities.",
+    "cta": "You can see how we are building a better way to read at HEADLINNE.com.",
+    "scheduled_time": "2026-09-22T18:00:00+05:30",
+    "kind": "product"
+  },
+  "instagram": [],
+  "reels": [
+    {
+      "slot": "reel_1",
+      "kind": "news",
+      "category": "Finance",
+      "title": "‘RAMageddon’: tech crunch hikes the price of your next iPhone by £100",
+      "hook": "‘RAMageddon’: tech crunch hikes the price of your next iPhone by £100",
+      "beats": [
+        {
+          "role": "hook",
+          "caption": "‘RAMageddon’: tech crunch hikes the price of your next iPhone by £100",
+          "detail": "",
+          "narration": "",
+          "seconds": 5.37,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "",
+          "pose": "",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "hook",
+          "caption": "Your next phone just got a lot more expensive.",
+          "detail": "A hundred pound price jump is here.",
+          "narration": "Your next phone just got a lot more expensive. Prices are jumping by one hundred pounds.",
+          "seconds": 7.17,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "The hidden cost",
+          "pose": "walk",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "graphic",
+          "caption": "A shortage of chips is driving this trend.",
+          "detail": "Memory components are becoming scarce.",
+          "narration": "The reason is a shortage of memory chips and other critical components.",
+          "seconds": 5.37,
+          "graphic": "flow",
+          "data": {
+            "steps": [
+              "Chip shortage",
+              "Supply drops",
+              "Prices rise"
+            ]
+          },
+          "image_url": null,
+          "chapter": "Why it happened",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "This reverses the long trend of cheaper electronics.",
+          "detail": "The era of falling prices has stalled.",
+          "narration": "This completely reverses the long-standing trend of electronics getting cheaper over time.",
+          "seconds": 5.37,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "The reversal",
+          "pose": "present",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "Apple’s latest event hid this nasty surprise.",
+          "detail": "The folding phone debut masked the hike.",
+          "narration": "Apple’s recent launch event featured a shiny new folding phone that hid this nasty surprise.",
+          "seconds": 6.72,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "The launch",
+          "pose": "jump",
+          "say": "",
+          "plates": [
+            "story"
+          ],
+          "tone": ""
+        },
+        {
+          "role": "graphic",
+          "caption": "Every model is seeing a price increase.",
+          "detail": "A flat hundred pound rise across the board.",
+          "narration": "Every single iPhone model is seeing a hundred pound price increase.",
+          "seconds": 4.93,
+          "graphic": "bars",
+          "data": {
+            "bars": [
+              {
+                "label": "Old Price",
+                "weight": 0.4
+              },
+              {
+                "label": "New Price",
+                "weight": 0.7
+              }
+            ]
+          },
+          "image_url": null,
+          "chapter": "The price hike",
+          "pose": "talk",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "This is not limited to just one model.",
+          "detail": "The entire lineup is affected.",
+          "narration": "It is not limited to just one model. The entire lineup is feeling the squeeze.",
+          "seconds": 6.72,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "Broad impact",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "outro",
+          "caption": "Get the full story at headlinne.com.",
+          "detail": "Smart news for curious people.",
+          "narration": "For the full story on how tech markets shift, check headlinne.com.",
+          "seconds": 4.93,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "Stay updated",
+          "pose": "cta",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        }
+      ],
+      "caption": "‘RAMageddon’: tech crunch hikes the price of your next iPhone by £100\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#Finance #Markets #Economy #TechNews",
+      "hashtags": [
+        "Finance",
+        "Markets",
+        "Economy",
+        "TechNews",
+        "Apple",
+        "iPhone",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-09-22T09:30:00+05:30",
+      "first_comment": "#Apple #iPhone #Headlinne",
+      "sources": "Guardian Business",
+      "story_url": "https://www.theguardian.com/money/2026/sep/21/ramageddon-apple-iphone-price-increase-chip-shortage",
+      "dateline": "TUE 22 SEP",
+      "story": null,
+      "duration_seconds": 46.57,
+      "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-22/reels/reel_1.mp4",
+      "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-22/reels/reel_1_cover.png",
+      "audio_file": null,
+      "has_voiceover": true
+    }
+  ],
+  "story_card": {
+    "slot": "story_card",
+    "category": "Science",
+    "headline": "How human cells fix broken DNA",
+    "standfirst": "Scientists have captured a rare look at how our bodies repair dangerous genetic damage.",
+    "steps": [
+      {
+        "label": "What happened",
+        "text": "Researchers at Johns Hopkins University mapped how cells fix double-strand DNA breaks."
+      },
+      {
+        "label": "How we got here",
+        "text": "Two new scientific studies used advanced imaging to observe this complex repair process."
+      },
+      {
+        "label": "Why it matters",
+        "text": "These breaks are among the most dangerous types of genetic damage for our cells."
+      },
+      {
+        "label": "What to watch",
+        "text": "Future research will likely build on these findings to better understand cell health."
+      }
+    ],
+    "caption": "Scientists at Johns Hopkins University have discovered how human cells repair DNA double strand breaks.\n\nThis research provides a new look at a vital process that keeps our genetic code intact. Understanding these emergency repairs could lead to better insights into how our bodies protect themselves from serious damage.\n\nDoes the complexity of human biology surprise you?\n\nSave this one. Follow for the daily card. Full story on HEADLINNE.com.\n\n#science #biology #DNA #genetics",
+    "hashtags": [
+      "science",
+      "biology",
+      "DNA",
+      "genetics",
+      "JohnsHopkins",
+      "research",
+      "cells",
+      "health",
+      "medicalnews",
+      "scienceexplained",
+      "discovery",
+      "stemcells",
+      "NewsExplained",
+      "Headlinne"
+    ],
+    "scheduled_time": "2026-09-22T21:30:00+05:30",
+    "first_comment": "#JohnsHopkins #research #cells #health #medicalnews #scienceexplained #discovery #stemcells #NewsExplained #Headlinne",
+    "sources": "Phys.org",
+    "story_url": "https://phys.org/news/2026-09-scientists-reveal-cells-emergency-dna.html",
+    "image_url": "https://scx2.b-cdn.net/gfx/news/2026/scientists-reveal-how-10.jpg",
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-22/story_card/story_card.png",
+    "story": null
+  }
+}
