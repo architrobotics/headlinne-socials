@@ -1,0 +1,261 @@
+{
+  "day": "2026-09-23",
+  "is_promo_day": false,
+  "is_friday": false,
+  "twitter": [
+    {
+      "category": "Science",
+      "post": "Science updates from around the globe\n• An amateur spotter found a 390-million-year-old crater in Quebec\n• A massive new 700-foot crater on the moon could aid lunar research\n• Genetic tests reveal a new penguin species, but climate risks loom HEADLINNE.com #Science #Space",
+      "hashtags": [
+        "Science",
+        "Space"
+      ],
+      "scheduled_time": "2026-09-23T13:00:00+05:30",
+      "kind": "news",
+      "lead": "Science updates from around the globe",
+      "items": [
+        "An amateur spotter found a 390-million-year-old crater in Quebec",
+        "A massive new 700-foot crater on the moon could aid lunar research",
+        "Genetic tests reveal a new penguin species, but climate risks loom"
+      ],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-23/x/x_1.png"
+    },
+    {
+      "category": "Tech",
+      "post": "Today's tech news in a nutshell.\n• Motorola is first to use Qualcomm's powerful new Elite chip\n• Qualcomm's new chips can run complex AI models entirely offline\n• Paramount must ramp up production following its massive merger HEADLINNE.com #TechNews #AI",
+      "hashtags": [
+        "TechNews",
+        "AI"
+      ],
+      "scheduled_time": "2026-09-23T17:00:00+05:30",
+      "kind": "news",
+      "lead": "Today's tech news in a nutshell.",
+      "items": [
+        "Motorola is first to use Qualcomm's powerful new Elite chip",
+        "Qualcomm's new chips can run complex AI models entirely offline",
+        "Paramount must ramp up production following its massive merger"
+      ],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-23/x/x_2.png"
+    }
+  ],
+  "linkedin": {
+    "title": "AI search is changing how we read the news, but not for the reasons you might think.",
+    "body": "For years, we have trained ourselves to search for news like we search for products. We type a few keywords into a box, scan a list of blue links, and hope the right answer is somewhere in the first three results. It is a slow, manual process that treats news like static data rather than a flowing conversation.\n\nAI changes that dynamic. Instead of hunting for the right article, you can now ask for the right context. You aren't just looking for a headline anymore. You are looking for the story behind the data, the perspective that matters to you, and the synthesis of multiple viewpoints.\n\nThe real shift here is moving from search to discovery. When we stop asking 'what happened' and start asking 'what does this mean for me,' the quality of our information improves. We stop chasing the same viral links as everyone else and start building a news diet that actually informs our decisions.\n\nOf course, the technology is only as good as the sources it reads. The goal shouldn't just be speed. It should be clarity.",
+    "cta": "We are building Headlinne to bridge that gap between smart AI and reliable reporting, so come take a look at HEADLINNE.com.",
+    "scheduled_time": "2026-09-23T18:00:00+05:30",
+    "kind": "product"
+  },
+  "instagram": [],
+  "reels": [
+    {
+      "slot": "reel_1",
+      "kind": "news",
+      "category": "Science",
+      "title": "A strange circle on satellite maps turned out to be a 390-million-year-old impact crater",
+      "hook": "A strange circle on satellite maps turned out to be a 390-million-year-old impact crater",
+      "beats": [
+        {
+          "role": "hook",
+          "caption": "A strange circle on satellite maps turned out to be a 390-million-year-old impact crater",
+          "detail": "",
+          "narration": "",
+          "seconds": 6.49,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "",
+          "pose": "",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "hook",
+          "caption": "That circle is the size of a large city.",
+          "detail": "Spanning 25 kilometers across",
+          "narration": "That circle on the map is not a small town. It is the size of a large city.",
+          "seconds": 8.34,
+          "graphic": "counter",
+          "data": {
+            "value_label": "25km",
+            "caption": "Crater diameter"
+          },
+          "image_url": null,
+          "chapter": "The scale",
+          "pose": "walk",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "An amateur astronomer found it by accident.",
+          "detail": "Searching for a camping spot",
+          "narration": "An amateur astronomer was searching satellite maps for a camping spot when they stumbled upon it.",
+          "seconds": 7.41,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "The discovery",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "graphic",
+          "caption": "It is a massive impact crater from space.",
+          "detail": "Blasted into Earth long ago",
+          "narration": "It turns out to be a massive impact crater, blasted into the Earth's crust ages ago.",
+          "seconds": 7.41,
+          "graphic": "flow",
+          "data": {
+            "steps": [
+              "Space rock hits",
+              "Crust is shattered",
+              "Crater is formed"
+            ]
+          },
+          "image_url": null,
+          "chapter": "How it happened",
+          "pose": "present",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "This event happened 390 million years ago.",
+          "detail": "Way before humans existed",
+          "narration": "Scientists confirmed this impact occurred roughly 390 million years ago.",
+          "seconds": 4.63,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "The timeline",
+          "pose": "jump",
+          "say": "",
+          "plates": [
+            "story"
+          ],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "They found shatter cones in the rock.",
+          "detail": "Evidence of extreme pressure",
+          "narration": "They found shatter cones, which are rock formations created by extreme pressure, confirming the site's origin.",
+          "seconds": 7.41,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "The proof",
+          "pose": "talk",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "The crater is hidden in Quebec.",
+          "detail": "Found on satellite imagery",
+          "narration": "The crater is located in Quebec, sitting quietly on satellite maps until now.",
+          "seconds": 6.02,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "The location",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "outro",
+          "caption": "Get more stories at headlinne.com.",
+          "detail": "Stay informed every day",
+          "narration": "For more stories like this one, visit headlinne.com to stay informed.",
+          "seconds": 5.1,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "Get the news",
+          "pose": "cta",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        }
+      ],
+      "caption": "A strange circle on satellite maps turned out to be a 390-million-year-old impact crater\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#Science #Space #Quebec #Astronomy",
+      "hashtags": [
+        "Science",
+        "Space",
+        "Quebec",
+        "Astronomy",
+        "Geology",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-09-23T09:30:00+05:30",
+      "first_comment": "#Geology #Headlinne",
+      "sources": "Science Daily",
+      "story_url": "https://www.sciencedaily.com/releases/2026/09/260921081101.htm",
+      "dateline": "WED 23 SEP",
+      "story": null,
+      "duration_seconds": 52.8,
+      "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-23/reels/reel_1.mp4",
+      "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-23/reels/reel_1_cover.png",
+      "audio_file": null,
+      "has_voiceover": true
+    }
+  ],
+  "story_card": {
+    "slot": "story_card",
+    "category": "Technology",
+    "headline": "Motorola debuts its new Signature 27 smartphone",
+    "standfirst": "The device is the first to feature Qualcomm's latest high-end mobile processor.",
+    "steps": [
+      {
+        "label": "What happened",
+        "text": "Motorola revealed the Signature 27, its upcoming flagship phone."
+      },
+      {
+        "label": "How we got here",
+        "text": "It is the first device to use Qualcomm's new Snapdragon 8 Elite Extreme Gen 6 chip."
+      },
+      {
+        "label": "Why it matters",
+        "text": "This processor represents the most advanced tech currently available for mobile phones."
+      },
+      {
+        "label": "What to watch",
+        "text": "We are still waiting on the official price, release date, and full spec sheet."
+      }
+    ],
+    "caption": "Motorola has officially announced the Signature 27 smartphone running the new Qualcomm Snapdragon 8 Elite Extreme chip.\n\nThis marks a major performance push for the company. While the hardware looks promising, we still need more details before we can judge how it stacks up against other flagships.\n\nAre you waiting for a specific feature before upgrading your phone?\n\nSave this one. Follow for the daily card. Full story on HEADLINNE.com.\n\n#TechNews #Tech #AI #Motorola",
+    "hashtags": [
+      "TechNews",
+      "Tech",
+      "AI",
+      "Motorola",
+      "Signature27",
+      "Qualcomm",
+      "Snapdragon",
+      "MobileTech",
+      "Android",
+      "Smartphone",
+      "TechUpdate",
+      "NewPhone",
+      "Gadgets",
+      "Innovation",
+      "TechTrends",
+      "NewsExplained"
+    ],
+    "scheduled_time": "2026-09-23T21:30:00+05:30",
+    "first_comment": "#Signature27 #Qualcomm #Snapdragon #MobileTech #Android #Smartphone #TechUpdate #NewPhone #Gadgets #Innovation #TechTrends #NewsExplained",
+    "sources": "The Verge · Engadget",
+    "story_url": "https://www.theverge.com/tech/998844/motorola-signature-27-specs-snapdragon-8-elite-extreme-gen-6",
+    "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/09/motorola-signature-27-green-hand.jpg?quality=90&amp;strip=all&amp;crop=0%2C10.740572122316%2C100%2C78.518855755368&amp;w=1200",
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-23/story_card/story_card.png",
+    "story": null
+  }
+}
