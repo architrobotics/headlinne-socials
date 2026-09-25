@@ -1,0 +1,389 @@
+{
+  "day": "2026-09-25",
+  "is_promo_day": false,
+  "is_friday": true,
+  "twitter": [
+    {
+      "category": "Tech",
+      "post": "Tech news you can actually use today.\n• Google Photos now lets you build a digital closet from your pictures\n• Qualcomm's new chip could finally keep your earbuds connected via Wi-Fi\n• Meta is launching tools to help you build games using AI prompts HEADLINNE.com #TechNews #AI",
+      "hashtags": [
+        "TechNews",
+        "AI"
+      ],
+      "scheduled_time": "2026-09-25T13:00:00+05:30",
+      "kind": "news",
+      "lead": "Tech news you can actually use today.",
+      "items": [
+        "Google Photos now lets you build a digital closet from your pictures",
+        "Qualcomm's new chip could finally keep your earbuds connected via Wi-Fi",
+        "Meta is launching tools to help you build games using AI prompts"
+      ],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-25/x/x_1.png"
+    },
+    {
+      "category": "Science",
+      "post": "Today's big science updates.\n• New DNA repair insights could lead to better cancer treatments\n• NASA is studying how spaceflight changes blood flow and clotting\n• Scientists are mapping Arctic sounds to track environmental shifts HEADLINNE.com #Science #Space",
+      "hashtags": [
+        "Science",
+        "Space"
+      ],
+      "scheduled_time": "2026-09-25T17:00:00+05:30",
+      "kind": "news",
+      "lead": "Today's big science updates.",
+      "items": [
+        "New DNA repair insights could lead to better cancer treatments",
+        "NASA is studying how spaceflight changes blood flow and clotting",
+        "Scientists are mapping Arctic sounds to track environmental shifts"
+      ],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-25/x/x_2.png"
+    }
+  ],
+  "linkedin": {
+    "title": "This Week in Finance & Tech",
+    "body": "It has been a busy week for tech and science. Here is the latest on what is moving the needle.\n\nHardware prices are on the rise. A shortage of memory chips and key components has led to a £100 price increase across Apple's iPhone lineup. Meanwhile, Apple is also facing a $250 million settlement regarding claims that it failed to deliver on promised AI upgrades for Siri. If you bought an iPhone 15 Pro, 15 Pro Max, or any iPhone 16 model in the US since June 10, 2024, you may be eligible to file a claim.\n\nIn other product news, Meta is moving away from cameras with its latest AI glasses. These new models focus on being lighter and offer up to 12 hours of battery life. Browsers are also seeing shifts as Firefox 156 launches alongside a growing ecosystem of alternative browsers like LibreWolf and Waterfox for users who want different features.\n\nLooking at space and science, SpaceX has scheduled the 14th test flight for Starship on September 28. This mission aims to have the craft orbit Earth multiple times over a 10-hour period. In lunar news, NASA's Lunar Reconnaissance Orbiter has captured images of a 728-foot impact crater on the moon, a rare event that typically happens only once a century.\n\nOn the sustainability front, Barber’s Farmhouse Cheesemakers in the UK is using a clever heat pump system. They are now drawing heat from fresh milk to boil water, significantly cutting their carbon emissions. Researchers have also made progress in neuroscience, identifying rare brain cells that appear to be responsible for triggering sleep.",
+    "cta": "Get the full picture on the stories that matter at HEADLINNE.com.",
+    "scheduled_time": "2026-09-25T18:00:00+05:30",
+    "kind": "weekly_roundup"
+  },
+  "instagram": [
+    {
+      "slot": "instagram_1",
+      "category": "Science",
+      "num_slides": 5,
+      "title": "NASA is studying astronaut health on Crew-13",
+      "slides": [
+        {
+          "role": "cover",
+          "headline": "NASA is studying astronaut health on Crew-13",
+          "explanation": "",
+          "image_url": "https://images-assets.nasa.gov/image/jsc2026e040446/jsc2026e040446~large.jpg?w=1920&amp;h=1280&amp;fit=clip&amp;crop=faces%2Cfocalpoint",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-25/instagram/instagram_1/slide_1.png",
+          "subtitle": "The mission includes new research on spaceflight blood clotting",
+          "sources": "",
+          "index": 1,
+          "kicker": "SCIENCE",
+          "pose": "alert",
+          "say": "Science in orbit continues.",
+          "figure": "",
+          "unit": ""
+        },
+        {
+          "role": "scale",
+          "headline": "",
+          "explanation": "The International Space Station orbits about 250 miles above Earth. This mission focuses on the subtle ways that living in such a unique environment changes the human body over time.",
+          "image_url": "https://images-assets.nasa.gov/image/jsc2026e040446/jsc2026e040446~large.jpg?w=1920&amp;h=1280&amp;fit=clip&amp;crop=faces%2Cfocalpoint",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-25/instagram/instagram_1/slide_2.png",
+          "subtitle": "",
+          "sources": "",
+          "index": 2,
+          "kicker": "THE SCALE",
+          "pose": "",
+          "say": "",
+          "figure": "",
+          "unit": ""
+        },
+        {
+          "role": "twist",
+          "headline": "Spaceflight might change how our blood behaves",
+          "explanation": "Beyond general health checks, astronauts are specifically investigating how blood flows and clots in microgravity. They are also testing manual piloting skills to see how space travel",
+          "image_url": null,
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-25/instagram/instagram_1/slide_3.png",
+          "subtitle": "",
+          "sources": "",
+          "index": 3,
+          "kicker": "WHAT YOU DID NOT KNOW",
+          "pose": "puzzled",
+          "say": "Gravity changes everything.",
+          "figure": "",
+          "unit": ""
+        },
+        {
+          "role": "sources",
+          "headline": "",
+          "explanation": "Both NASA and Phys.org report on these specific biomedical investigations, confirming that this research is a primary focus for the upcoming mission.",
+          "image_url": null,
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-25/instagram/instagram_1/slide_4.png",
+          "subtitle": "",
+          "sources": "",
+          "index": 4,
+          "kicker": "SOURCES",
+          "pose": "verified",
+          "say": "2 of 2 agree",
+          "figure": "",
+          "unit": ""
+        },
+        {
+          "role": "cta",
+          "headline": "",
+          "explanation": "",
+          "image_url": null,
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-25/instagram/instagram_1/slide_5.png",
+          "subtitle": "Read the full breakdown on Headlinne.",
+          "sources": "",
+          "index": 5,
+          "kicker": "READ THE FULL STORY",
+          "pose": "carry",
+          "say": "Come and read it.",
+          "figure": "",
+          "unit": ""
+        }
+      ],
+      "caption": "The SpaceX Crew-13 mission is heading to the International Space Station with a heavy research agenda.\n\nWhile we often think of space missions in terms of rockets and orbits, the human element remains the most complex variable.\n\nNASA is using this opportunity to study how the body adapts to life without gravity. This includes monitoring blood flow and clotting, which are critical factors for long-term space travel.\n\nThey are also testing manual piloting skills during the mission. It is a practical look at how the body maintains performance in a weightless environment.\n\nWhat do you think is the biggest challenge for human health in space?\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#Science #Space #Discovery #Research",
+      "hashtags": [
+        "Science",
+        "Space",
+        "Discovery",
+        "Research",
+        "NASA",
+        "SpaceX",
+        "SpaceScience",
+        "Astronauts",
+        "ISS",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-09-25T16:00:00+05:30",
+      "first_comment": "#NASA #SpaceX #SpaceScience #Astronauts #ISS #Headlinne",
+      "story": {
+        "title": "NASA to Study Human Health, Performance During Crew-13 Mission",
+        "summary": "During NASA’s SpaceX Crew‑13 mission aboard the International Space Station, astronauts will support a series of biomedical and human performance investigations, including a new collaborative effort to study how spaceflight affects blood flow and clotting. NASA also is testing crew members’ manual piloting skills, evaluating methods to counter vision and brain changes, gathering essential health [&#8230;]",
+        "url": "https://www.nasa.gov/humans-in-space/nasa-to-study-human-health-performance-during-crew-13-mission/",
+        "category": "Science",
+        "source": "NASA",
+        "tier": 1.3,
+        "published_iso": "2026-09-24T13:53:48+00:00",
+        "image_url": "https://images-assets.nasa.gov/image/jsc2026e040446/jsc2026e040446~large.jpg?w=1920&amp;h=1280&amp;fit=clip&amp;crop=faces%2Cfocalpoint",
+        "corroborating_sources": [
+          "Phys.org"
+        ],
+        "score": 11.685,
+        "verified": true,
+        "sensitive": false,
+        "agreement": {
+          "reported": 2,
+          "agree": 2,
+          "conflict": 0,
+          "claim": "13",
+          "claim_unit": "reported",
+          "outlets": [
+            "NASA",
+            "Phys.org"
+          ],
+          "conflicts": []
+        }
+      },
+      "story_url": "https://www.nasa.gov/humans-in-space/nasa-to-study-human-health-performance-during-crew-13-mission/"
+    }
+  ],
+  "reels": [
+    {
+      "slot": "reel_1",
+      "kind": "news",
+      "category": "Science",
+      "title": "New findings explain how cells assemble machinery to repair damaged DNA",
+      "hook": "New findings explain how cells assemble machinery to repair damaged DNA",
+      "beats": [
+        {
+          "role": "hook",
+          "caption": "New findings explain how cells assemble machinery to repair damaged DNA",
+          "detail": "",
+          "narration": "",
+          "seconds": 5.01,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "",
+          "pose": "",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "hook",
+          "caption": "Future cancer treatments could become far more precise",
+          "detail": "Based on recent biology research",
+          "narration": "If this holds, cancer treatments could become far more precise. Here is the chain of events.",
+          "seconds": 7.28,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "The future impact",
+          "pose": "walk",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "graphic",
+          "caption": "Cells constantly repair their own broken DNA",
+          "detail": "A fundamental biological process",
+          "narration": "It starts with our cells. They are constantly working to fix broken DNA strands.",
+          "seconds": 6.37,
+          "graphic": "flow",
+          "data": {
+            "steps": [
+              "DNA gets damaged",
+              "Cell builds tools",
+              "Damage is fixed"
+            ]
+          },
+          "image_url": null,
+          "chapter": "How it works",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "Scientists just found how cells assemble their repair machinery",
+          "detail": "A missing piece of the puzzle",
+          "narration": "Researchers just discovered exactly how cells assemble the machinery needed to make those repairs.",
+          "seconds": 6.37,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "New discovery",
+          "pose": "present",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "graphic",
+          "caption": "Understanding this helps us fight disease better",
+          "detail": "Turning biology into medicine",
+          "narration": "This matters because understanding the mechanism is the first step toward controlling it.",
+          "seconds": 5.92,
+          "graphic": "split",
+          "data": {
+            "left_title": "Biology",
+            "left_text": "Cells repairing themselves naturally",
+            "right_title": "Medicine",
+            "right_text": "Targeting cancer with precision therapies"
+          },
+          "image_url": null,
+          "chapter": "Why it matters",
+          "pose": "jump",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "We have studied these mechanisms for decades now",
+          "detail": "Building on previous scientific work",
+          "narration": "We have been unravelling these biological processes for years, which has already changed how we treat patients.",
+          "seconds": 7.74,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "The progress",
+          "pose": "talk",
+          "say": "",
+          "plates": [
+            "story"
+          ],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "This new insight opens doors to new therapies",
+          "detail": "Better tools for doctors",
+          "narration": "So, this new insight gives us better tools to design therapies that target damaged cells directly.",
+          "seconds": 7.28,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "The result",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "outro",
+          "caption": "Get the full story at headlinne.com",
+          "detail": "Your daily source for news",
+          "narration": "For more on how science is changing medicine, check out headlinne.com.",
+          "seconds": 5.01,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "Stay updated",
+          "pose": "cta",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        }
+      ],
+      "caption": "New findings explain how cells assemble machinery to repair damaged DNA\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#Science #CancerResearch #Biology #Headlinne",
+      "hashtags": [
+        "Science",
+        "CancerResearch",
+        "Biology",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-09-25T09:30:00+05:30",
+      "first_comment": "",
+      "sources": "Phys.org",
+      "story_url": "https://phys.org/news/2026-09-cells-machinery-dna.html",
+      "dateline": "FRI 25 SEP",
+      "story": null,
+      "duration_seconds": 50.97,
+      "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-25/reels/reel_1.mp4",
+      "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-25/reels/reel_1_cover.png",
+      "audio_file": null,
+      "has_voiceover": true
+    }
+  ],
+  "story_card": {
+    "slot": "story_card",
+    "category": "Finance",
+    "headline": "UK food and drink trade gap hits record high",
+    "standfirst": "The country is importing far more food than it sells abroad, nearing levels not seen",
+    "steps": [
+      {
+        "label": "What happened",
+        "text": "The UK's food and drink trade deficit has reached £21 billion. This is the largest gap since 2000."
+      },
+      {
+        "label": "How we got here",
+        "text": "Brexit, war in the Middle East, and US tariffs hurt exports. Meanwhile, import costs have soared."
+      },
+      {
+        "label": "Why it matters",
+        "text": "Industry leaders worry about food security. They are asking the government to protect local produce."
+      },
+      {
+        "label": "What to watch",
+        "text": "Look for government policy changes aimed at supporting homegrown food production."
+      }
+    ],
+    "caption": "The UK food and drink trade deficit has reached its highest point since the year 2000.\n\nBritain is currently spending £21 billion more on food imports than it earns from selling goods abroad. Industry experts are urging ministers to prioritize domestic production to ensure national security remains stable.\n\nDo you think the government should prioritize local food production even if it costs more?\n\nSave this one. Follow for the daily card. Full story on HEADLINNE.com.\n\n#Finance #Markets #Economy #UKeconomy",
+    "hashtags": [
+      "Finance",
+      "Markets",
+      "Economy",
+      "UKeconomy",
+      "foodsecurity",
+      "trade",
+      "businessnews",
+      "UKpolitics",
+      "foodanddrink",
+      "imports",
+      "exports",
+      "economics",
+      "farming",
+      "agriculture",
+      "marketnews",
+      "NewsExplained"
+    ],
+    "scheduled_time": "2026-09-25T21:30:00+05:30",
+    "first_comment": "#foodsecurity #trade #businessnews #UKpolitics #foodanddrink #imports #exports #economics #farming #agriculture #marketnews #NewsExplained",
+    "sources": "Guardian Business",
+    "story_url": "https://www.theguardian.com/business/2026/sep/25/uk-food-drink-trade-deficit-homegrown-produce-national-security",
+    "image_url": "https://i.guim.co.uk/img/media/3172af30eef264bc61c6f7a2080329ce57527524/471_0_4708_3767/master/4708.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=5935e9bb1ff810bcb112386bb3f4530d",
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-25/story_card/story_card.png",
+    "story": null
+  }
+}
