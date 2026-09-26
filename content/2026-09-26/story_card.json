@@ -1,0 +1,48 @@
+{
+  "slot": "story_card",
+  "category": "Technology",
+  "headline": "Meta's Muse AI accidentally exposed its internal files",
+  "standfirst": "A security slip allowed users to see how the chatbot works under the hood.",
+  "steps": [
+    {
+      "label": "What happened",
+      "text": "Meta's Muse chatbot accidentally revealed its internal filesystem to users."
+    },
+    {
+      "label": "How we got here",
+      "text": "Curious users prodded the system, causing it to display data it was meant to hide."
+    },
+    {
+      "label": "Why it matters",
+      "text": "The leak offers a rare, unauthorized look at the inner workings of an AI chatbot."
+    },
+    {
+      "label": "What to watch",
+      "text": "How Meta secures its AI systems against similar accidental data disclosures."
+    }
+  ],
+  "caption": "Meta AI chatbot Muse accidentally exposed its internal filesystem to users yesterday.\n\nThe files were discovered after users prodded the AI, revealing information the system was not supposed to share. This glimpse under the hood provides a rare look at how the chatbot functions.\n\nDoes this reveal change your trust in how AI chatbots handle internal data?\n\nSave this one. Follow for the daily card. Full story on HEADLINNE.com.\n\n#TechNews #Tech #AI #Meta",
+  "hashtags": [
+    "TechNews",
+    "Tech",
+    "AI",
+    "Meta",
+    "Muse",
+    "ArtificialIntelligence",
+    "CyberSecurity",
+    "DataPrivacy",
+    "Chatbots",
+    "TechUpdates",
+    "SiliconValley",
+    "SoftwareSecurity",
+    "NewsExplained",
+    "Headlinne"
+  ],
+  "scheduled_time": "2026-09-26T21:30:00+05:30",
+  "first_comment": "#Muse #ArtificialIntelligence #CyberSecurity #DataPrivacy #Chatbots #TechUpdates #SiliconValley #SoftwareSecurity #NewsExplained #Headlinne",
+  "sources": "The Verge",
+  "story_url": "https://www.theverge.com/ai-artificial-intelligence/1000784/meta-muse-filesystem",
+  "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/09/STKB394_MUSE_AI_CVIRGINIA_D.png?quality=90&amp;strip=all&amp;crop=0%2C9.9676601489831%2C100%2C80.064679702034&amp;w=1200",
+  "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-26/story_card/story_card.png",
+  "story": null
+}
