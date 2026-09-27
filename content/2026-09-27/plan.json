@@ -1,0 +1,261 @@
+{
+  "day": "2026-09-27",
+  "is_promo_day": false,
+  "is_friday": false,
+  "twitter": [
+    {
+      "category": "Science",
+      "post": "Today's top science discoveries\n• Old Earth clues might be from magma, not global climate shifts\n• REM sleep drains brain energy even as fuel supplies climb\n• Parasites actively build their own doorways to invade cells HEADLINNE.com #Science #Research",
+      "hashtags": [
+        "Science",
+        "Research"
+      ],
+      "scheduled_time": "2026-09-27T13:00:00+05:30",
+      "kind": "news",
+      "lead": "Today's top science discoveries",
+      "items": [
+        "Old Earth clues might be from magma, not global climate shifts",
+        "REM sleep drains brain energy even as fuel supplies climb",
+        "Parasites actively build their own doorways to invade cells"
+      ],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-27/x/x_1.png"
+    },
+    {
+      "category": "Geopolitics",
+      "post": "Today's top stories in brief.\n• Six people died after an apartment building collapsed in Athens\n• Pope Leo drew 700,000 people to an open-air mass in Paris\n• A massive storm left 100,000 homes without power across the US HEADLINNE.com #News #World",
+      "hashtags": [
+        "News",
+        "World"
+      ],
+      "scheduled_time": "2026-09-27T17:00:00+05:30",
+      "kind": "news",
+      "lead": "Today's top stories in brief.",
+      "items": [
+        "Six people died after an apartment building collapsed in Athens",
+        "Pope Leo drew 700,000 people to an open-air mass in Paris",
+        "A massive storm left 100,000 homes without power across the US"
+      ],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-27/x/x_2.png"
+    }
+  ],
+  "linkedin": {
+    "title": "I started building a news app when I was a teenager because I was tired of missing the stories that actually mattered.",
+    "body": "It felt like every time I opened a news site, I was bombarded by headlines designed only to get a click. The real stories were buried under layers of noise. I knew there had to be a better way to stay informed without feeling overwhelmed or manipulated.\n\nBuilding Headlinne wasn't about reinventing the news itself. It was about changing how we interact with it. I wanted to use AI not to replace editors, but to act as a filter. The goal was simple: create a feed that learns what you care about and delivers it without the fluff.\n\nStarting this journey young taught me that technology is only useful when it solves a human problem. You do not need more information. You need the right information, at the right time, presented in a way that respects your intelligence. We are still learning, iterating, and trying to build something that makes the daily news cycle a little less exhausting.",
+    "cta": "If you want to see how we are rethinking the news experience, take a look at HEADLINNE.com.",
+    "scheduled_time": "2026-09-27T18:00:00+05:30",
+    "kind": "product"
+  },
+  "instagram": [],
+  "reels": [
+    {
+      "slot": "reel_1",
+      "kind": "news",
+      "category": "Science",
+      "title": "Scientists may have misread a 2-billion-year-old clue about Earth",
+      "hook": "Scientists may have misread a 2-billion-year-old clue about Earth",
+      "beats": [
+        {
+          "role": "hook",
+          "caption": "Scientists may have misread a 2-billion-year-old clue about Earth",
+          "detail": "",
+          "narration": "",
+          "seconds": 4.06,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "",
+          "pose": "",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "hook",
+          "caption": "Imagine finding a diary and mistaking it for a history textbook.",
+          "detail": "We read the Earth like a document.",
+          "narration": "Imagine finding a diary and mistaking it for a history textbook. Sometimes science does the exact same thing.",
+          "seconds": 8.11,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "The misunderstanding",
+          "pose": "walk",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "Scientists found a chemical signature dating back two billion years.",
+          "detail": "A clue from deep in the past.",
+          "narration": "Scientists found a chemical signature in the rocks dating back two billion years.",
+          "seconds": 5.86,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "Two billion years",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "graphic",
+          "caption": "We thought it proved a massive shift in the carbon cycle.",
+          "detail": "Global change was the assumed cause.",
+          "narration": "They thought it proved a massive shift in the global carbon cycle.",
+          "seconds": 5.41,
+          "graphic": "flow",
+          "data": {
+            "steps": [
+              "Chemical clue found",
+              "Assumed global change",
+              "Carbon cycle shifts"
+            ]
+          },
+          "image_url": null,
+          "chapter": "The old theory",
+          "pose": "present",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "But new research challenges that entire interpretation.",
+          "detail": "It might be a local event.",
+          "narration": "But new research challenges that entire interpretation, suggesting the signal is not global at all.",
+          "seconds": 6.76,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "A new look",
+          "pose": "jump",
+          "say": "",
+          "plates": [
+            "story"
+          ],
+          "tone": ""
+        },
+        {
+          "role": "graphic",
+          "caption": "It was likely a local event rather than a worldwide change.",
+          "detail": "Local factors created the signature.",
+          "narration": "It was likely a local event, created by magma, hydrocarbons, and hungry microbes.",
+          "seconds": 5.86,
+          "graphic": "split",
+          "data": {
+            "left_title": "Old theory",
+            "left_text": "A massive, global shift in carbon",
+            "right_title": "New finding",
+            "right_text": "Local magma and methane microbes"
+          },
+          "image_url": null,
+          "chapter": "The difference",
+          "pose": "talk",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "This changes what we know about oxygen levels back then.",
+          "detail": "Questions raised about Earth's history.",
+          "narration": "This changes what we know about oxygen levels back then, raising big questions about our planet's history.",
+          "seconds": 7.66,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "Why it matters",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "outro",
+          "caption": "Get the full story at Headlinne.com.",
+          "detail": "Science updates every day.",
+          "narration": "For more updates on how we understand our world, visit Headlinne.com.",
+          "seconds": 4.96,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "Stay curious",
+          "pose": "cta",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        }
+      ],
+      "caption": "Scientists may have misread a 2-billion-year-old clue about Earth\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#Science #Geology #EarthHistory #Headlinne",
+      "hashtags": [
+        "Science",
+        "Geology",
+        "EarthHistory",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-09-27T09:30:00+05:30",
+      "first_comment": "",
+      "sources": "Science Daily",
+      "story_url": "https://www.sciencedaily.com/releases/2026/09/260925093201.htm",
+      "dateline": "SUN 27 SEP",
+      "story": null,
+      "duration_seconds": 48.67,
+      "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-27/reels/reel_1.mp4",
+      "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-27/reels/reel_1_cover.png",
+      "audio_file": null,
+      "has_voiceover": true
+    }
+  ],
+  "story_card": {
+    "slot": "story_card",
+    "category": "Geopolitics",
+    "headline": "Pope Leo leads massive Paris mass",
+    "standfirst": "Hundreds of thousands gathered in Paris for the Pope's first official French visit in 18",
+    "steps": [
+      {
+        "label": "What happened",
+        "text": "Pope Leo held an open-air mass for 700,000 people at the Place de la Concorde in Paris."
+      },
+      {
+        "label": "How we got here",
+        "text": "This is the Pope's first official papal visit to France in nearly two decades."
+      },
+      {
+        "label": "Why it matters",
+        "text": "The massive turnout highlights the enduring public interest in the pontiff's rare French visit."
+      },
+      {
+        "label": "What to watch",
+        "text": "The Vatican will likely continue tracking the scale of public engagement throughout the trip."
+      }
+    ],
+    "caption": "Pope Leo has visited Paris for an open-air mass attended by 700000 people.\n\nThe massive crowd lined the Avenue des Champs-Élysées on the second day of the pontiff's trip. It marks a significant moment as this is the first official papal visit to France in 18 years.\n\nDoes a visit like this change how you view the influence of the Vatican in modern Europe?\n\nSave this one. Follow for the daily card. Full story on HEADLINNE.com.\n\n#WorldNews #Geopolitics #GlobalNews #PopeLeo",
+    "hashtags": [
+      "WorldNews",
+      "Geopolitics",
+      "GlobalNews",
+      "PopeLeo",
+      "Paris",
+      "France",
+      "Vatican",
+      "CatholicChurch",
+      "ChampsElysees",
+      "Religion",
+      "News",
+      "Europe",
+      "PapalVisit",
+      "Faith",
+      "NewsExplained",
+      "Headlinne"
+    ],
+    "scheduled_time": "2026-09-27T21:30:00+05:30",
+    "first_comment": "#Paris #France #Vatican #CatholicChurch #ChampsElysees #Religion #News #Europe #PapalVisit #Faith #NewsExplained #Headlinne",
+    "sources": "Guardian World · France 24",
+    "story_url": "https://www.theguardian.com/world/2026/sep/26/pope-leo-celebrates-open-air-mass-before-700000-people-in-paris",
+    "image_url": "https://i.guim.co.uk/img/media/bbefde4e437129a3c3c51f00b15e11a00d97d766/267_0_4583_3667/master/4583.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=106a16d8f3e56bbfc912bba51ec35a2d",
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-27/story_card/story_card.png",
+    "story": null
+  }
+}
