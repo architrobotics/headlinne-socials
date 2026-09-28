@@ -1,0 +1,162 @@
+[
+  {
+    "slot": "reel_1",
+    "kind": "news",
+    "category": "Science",
+    "title": "1.7-billion-year-old fossils reveal a crucial clue to the rise of complex life",
+    "hook": "1.7-billion-year-old fossils reveal a crucial clue to the rise of complex life",
+    "beats": [
+      {
+        "role": "hook",
+        "caption": "1.7-billion-year-old fossils reveal a crucial clue to the rise of complex life",
+        "detail": "",
+        "narration": "",
+        "seconds": 5.53,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "",
+        "pose": "",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "hook",
+        "caption": "Three discoveries hit the journals this week.",
+        "detail": "The last one matters most.",
+        "narration": "Three major science stories dropped this week. But the third one is the big one.",
+        "seconds": 6.91,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "New science",
+        "pose": "walk",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "point",
+        "caption": "We found 12,000 ancient fossils.",
+        "detail": "Dating back 1.7 billion years.",
+        "narration": "Scientists found over twelve thousand fossils in Australia that are 1.7 billion years old.",
+        "seconds": 6.45,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "Ancient fossils",
+        "pose": "point",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "graphic",
+        "caption": "Oxygen was the turning point.",
+        "detail": "Complex cells only survived with it.",
+        "narration": "It turns out these complex cells had a specific requirement for where they could live.",
+        "seconds": 6.91,
+        "graphic": "split",
+        "data": {
+          "left_title": "With Oxygen",
+          "left_text": "Complex life thrives",
+          "right_title": "Without Oxygen",
+          "right_text": "Only simple microbes exist"
+        },
+        "image_url": null,
+        "chapter": "The divide",
+        "pose": "present",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "point",
+        "caption": "They lived in coastal mudflats.",
+        "detail": "And throughout the open sea.",
+        "narration": "They were found everywhere from mudflats to the open ocean, showing where life first took hold.",
+        "seconds": 7.37,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "Where they lived",
+        "pose": "jump",
+        "say": "",
+        "plates": [
+          "story"
+        ],
+        "tone": ""
+      },
+      {
+        "role": "graphic",
+        "caption": "This creates a clear map of evolution.",
+        "detail": "Biology followed the available oxygen.",
+        "narration": "This map shows exactly how oxygen availability dictated the rise of complex life forms early on.",
+        "seconds": 7.37,
+        "graphic": "flow",
+        "data": {
+          "steps": [
+            "Oxygen appears",
+            "Complex cells thrive",
+            "Life diversifies"
+          ]
+        },
+        "image_url": null,
+        "chapter": "Why it matters",
+        "pose": "talk",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "point",
+        "caption": "It is just one important clue.",
+        "detail": "We are still piecing the puzzle together.",
+        "narration": "It is just one piece of a massive puzzle, but it helps explain how life became complex.",
+        "seconds": 7.83,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "A new clue",
+        "pose": "point",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "outro",
+        "caption": "Get the full story at Headlinne.com.",
+        "detail": "We verify the facts for you.",
+        "narration": "For more science news you can actually trust, check out Headlinne.com.",
+        "seconds": 5.07,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "Stay informed",
+        "pose": "cta",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      }
+    ],
+    "caption": "1.7-billion-year-old fossils reveal a crucial clue to the rise of complex life\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#Science #Evolution #History #Headlinne",
+    "hashtags": [
+      "Science",
+      "Evolution",
+      "History",
+      "Headlinne"
+    ],
+    "scheduled_time": "2026-09-28T09:30:00+05:30",
+    "first_comment": "",
+    "sources": "Science Daily",
+    "story_url": "https://www.sciencedaily.com/releases/2026/09/260925005447.htm",
+    "dateline": "MON 28 SEP",
+    "story": null,
+    "duration_seconds": 53.43,
+    "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-28/reels/reel_1.mp4",
+    "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-28/reels/reel_1_cover.png",
+    "audio_file": null,
+    "has_voiceover": true
+  }
+]
