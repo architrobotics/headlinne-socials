@@ -1,0 +1,394 @@
+{
+  "day": "2026-09-29",
+  "is_promo_day": false,
+  "is_friday": false,
+  "twitter": [
+    {
+      "category": "Tech",
+      "post": "Your daily tech news roundup is here.\n• Scientists fixed a typo in an 1841 space weather report\n• Here is how to tell if your iPhone battery is failing\n• A startup plans to beam energy between two spacecraft HEADLINNE.com #TechNews #Science",
+      "hashtags": [
+        "TechNews",
+        "Science"
+      ],
+      "scheduled_time": "2026-09-29T13:00:00+05:30",
+      "kind": "news",
+      "lead": "Your daily tech news roundup is here.",
+      "items": [
+        "Scientists fixed a typo in an 1841 space weather report",
+        "Here is how to tell if your iPhone battery is failing",
+        "A startup plans to beam energy between two spacecraft"
+      ],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-29/x/x_1.png"
+    },
+    {
+      "category": "Science",
+      "post": "Three science updates for your feed.\n• Hibernating bacteria are nearly indestructible but have a weak spot\n• Coffee might boost your mood by changing your gut bacteria activity\n• A new fossil reveals a 40-year mistake about mammal evolution HEADLINNE.com #Science #News",
+      "hashtags": [
+        "Science",
+        "News"
+      ],
+      "scheduled_time": "2026-09-29T17:00:00+05:30",
+      "kind": "news",
+      "lead": "Three science updates for your feed.",
+      "items": [
+        "Hibernating bacteria are nearly indestructible but have a weak spot",
+        "Coffee might boost your mood by changing your gut bacteria activity",
+        "A new fossil reveals a 40-year mistake about mammal evolution"
+      ],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-29/x/x_2.png"
+    }
+  ],
+  "linkedin": {
+    "title": "Personalized news is currently broken, but it is about to get much better.",
+    "body": "Most news feeds today are built to keep you scrolling rather than to keep you informed. They prioritize outrage and volume because that is what their algorithms are trained to optimize for. We think that is the wrong approach to staying connected to the world.\n\nAt Headlinne, we are mapping out a different path. The future of news isn't about feeding you more content. It is about distilling the noise so you can actually understand the stories that matter to you. We are moving toward a model where your news feed acts more like a personal editor than a firehose of headlines.\n\nThis means building systems that respect your time. It means surfacing the context behind a story so you don't have to jump between five different tabs to get the full picture. True personalization should make you smarter, not just keep you occupied. We are currently building the tools to make that kind of clarity the new standard for how we consume information.",
+    "cta": "You can see what we are building at HEADLINNE.com.",
+    "scheduled_time": "2026-09-29T18:00:00+05:30",
+    "kind": "product"
+  },
+  "instagram": [
+    {
+      "slot": "instagram_1",
+      "category": "Technology",
+      "num_slides": 5,
+      "title": "AMD is buying AI startup World Labs",
+      "slides": [
+        {
+          "role": "cover",
+          "headline": "AMD is buying AI startup World Labs",
+          "explanation": "",
+          "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/09/gettyimages-2279092788.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-29/instagram/instagram_1/slide_1.png",
+          "subtitle": "The all-stock deal is valued at $8.2 billion.",
+          "sources": "",
+          "index": 1,
+          "kicker": "DEVELOPING",
+          "pose": "alert",
+          "say": "Big moves in AI.",
+          "figure": "",
+          "unit": ""
+        },
+        {
+          "role": "scale",
+          "headline": "",
+          "explanation": "This price tag is massive for a company that only launched in 2024. To put it in perspective, the startup reached a $1 billion valuation just months after opening its doors.",
+          "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/09/gettyimages-2279092788.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-29/instagram/instagram_1/slide_2.png",
+          "subtitle": "",
+          "sources": "",
+          "index": 2,
+          "kicker": "HOW BIG",
+          "pose": "",
+          "say": "",
+          "figure": "8.2",
+          "unit": "billion dollars"
+        },
+        {
+          "role": "twist",
+          "headline": "The startup is led by a legendary AI researcher",
+          "explanation": "World Labs was co-founded by Dr. Fei-Fei Li. Her involvement is a major reason why the company became so valuable in such a short amount of time.",
+          "image_url": null,
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-29/instagram/instagram_1/slide_3.png",
+          "subtitle": "",
+          "sources": "",
+          "index": 3,
+          "kicker": "WHAT YOU DID NOT KNOW",
+          "pose": "puzzled",
+          "say": "Expertise drives the value.",
+          "figure": "",
+          "unit": ""
+        },
+        {
+          "role": "sources",
+          "headline": "",
+          "explanation": "Five independent news outlets including The Verge and TechCrunch have confirmed the details of this acquisition. When multiple major tech publications report the same figures, we can be",
+          "image_url": null,
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-29/instagram/instagram_1/slide_4.png",
+          "subtitle": "",
+          "sources": "",
+          "index": 4,
+          "kicker": "SOURCES",
+          "pose": "puzzled",
+          "say": "3 sources agree",
+          "figure": "",
+          "unit": ""
+        },
+        {
+          "role": "cta",
+          "headline": "",
+          "explanation": "",
+          "image_url": null,
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-29/instagram/instagram_1/slide_5.png",
+          "subtitle": "Get the full story on Headlinne.",
+          "sources": "",
+          "index": 5,
+          "kicker": "READ THE FULL STORY",
+          "pose": "carry",
+          "say": "Come and read it.",
+          "figure": "",
+          "unit": ""
+        }
+      ],
+      "caption": "AMD is making a massive bet on the future of artificial intelligence by acquiring World Labs.\n\nThe deal is valued at over $8 billion, a huge sum for a company that has only existed for less than a year.\n\nWorld Labs was co-founded by Dr. Fei-Fei Li, who is widely considered a giant in the field of AI research. Her leadership helped the startup skyrocket to a billion-dollar valuation almost immediately after launching.\n\nThis move signals that AMD is looking to aggressively compete in the rapidly changing AI market. It is a clear sign that they are prioritizing top-tier research talent to drive their future products.\n\nWhat do you think this acquisition means for the future of AMD?\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#Tech #TechNews #AI #Innovation",
+      "hashtags": [
+        "Tech",
+        "TechNews",
+        "AI",
+        "Innovation",
+        "AMD",
+        "WorldLabs",
+        "Business",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-09-29T16:00:00+05:30",
+      "first_comment": "#AMD #WorldLabs #Business #Headlinne",
+      "story": {
+        "title": "AMD is acquiring AI company World Labs in a deal worth more than $8 billion",
+        "summary": "AMD announced today that it's acquiring World Labs, an AI research lab co-founded by the prominent researcher Dr. Fei-Fei Li, in an all-stock deal worth approximately $8.2 billion. World Labs launched in 2024 and was valued at $1 billion in a matter of months. The startup launched its first commercial product, a world generation model [&#8230;]",
+        "url": "https://www.theverge.com/tech/1001749/amd-world-labs-ai-acquisition-deal",
+        "category": "Technology",
+        "source": "The Verge",
+        "tier": 1.1,
+        "published_iso": "2026-09-28T21:31:35+00:00",
+        "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/09/gettyimages-2279092788.jpg?quality=90&amp;strip=all&amp;crop=0%2C10.723165084465%2C100%2C78.55366983107&amp;w=1200",
+        "corroborating_sources": [
+          "Investing.com",
+          "MarketWatch Top",
+          "TechCrunch",
+          "The Register"
+        ],
+        "score": 10.356,
+        "verified": true,
+        "sensitive": false,
+        "agreement": {
+          "reported": 5,
+          "agree": 3,
+          "conflict": 0,
+          "claim": "8,000,000,000",
+          "claim_unit": "reported",
+          "outlets": [
+            "The Verge",
+            "The Register",
+            "MarketWatch Top",
+            "TechCrunch",
+            "Investing.com"
+          ],
+          "conflicts": []
+        }
+      },
+      "story_url": "https://www.theverge.com/tech/1001749/amd-world-labs-ai-acquisition-deal"
+    }
+  ],
+  "reels": [
+    {
+      "slot": "reel_1",
+      "kind": "news",
+      "category": "Technology",
+      "title": "Scientists solve 1840s space weather mystery",
+      "hook": "Scientists solve 1840s space weather mystery",
+      "beats": [
+        {
+          "role": "hook",
+          "caption": "Scientists solve 1840s space weather mystery",
+          "detail": "",
+          "narration": "",
+          "seconds": 2.88,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "",
+          "pose": "",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "hook",
+          "caption": "Everyone thought space weather stopped a train.",
+          "detail": "History got it wrong.",
+          "narration": "Everyone thought a space weather event stopped a train in 1841. It turns out history got it wrong.",
+          "seconds": 8.65,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "The mystery",
+          "pose": "walk",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "A 19th-century train was delayed for hours.",
+          "detail": "Records blamed a storm.",
+          "narration": "A 19th-century train was delayed for hours, and historical records blamed a massive geomagnetic storm.",
+          "seconds": 7.21,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "The event",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "Nature published the account years later.",
+          "detail": "Scientists trusted the report.",
+          "narration": "Nature published the account years later, and scientists took the report as solid fact.",
+          "seconds": 6.73,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "The evidence",
+          "pose": "present",
+          "say": "",
+          "plates": [
+            "story"
+          ],
+          "tone": ""
+        },
+        {
+          "role": "graphic",
+          "caption": "New analysis reveals a simple mistake.",
+          "detail": "The timeline of error.",
+          "narration": "But new analysis reveals a simple mistake changed the entire story.",
+          "seconds": 5.29,
+          "graphic": "flow",
+          "data": {
+            "steps": [
+              "Original report",
+              "Typo introduced",
+              "False history"
+            ]
+          },
+          "image_url": null,
+          "chapter": "The correction",
+          "pose": "jump",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "The year was written down incorrectly.",
+          "detail": "A typo caused confusion.",
+          "narration": "The year was simply written down incorrectly, creating a mystery that never really happened.",
+          "seconds": 6.73,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "The typo",
+          "pose": "talk",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "graphic",
+          "caption": "History versus the facts.",
+          "detail": "A clear contrast.",
+          "narration": "When you look at the old belief versus the new reality, the typo becomes clear.",
+          "seconds": 7.21,
+          "graphic": "split",
+          "data": {
+            "left_title": "Old belief",
+            "left_text": "Space weather storm",
+            "right_title": "New reality",
+            "right_text": "Simple written typo"
+          },
+          "image_url": null,
+          "chapter": "The reality",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "outro",
+          "caption": "Get the truth at headlinne.com.",
+          "detail": "Accurate news daily.",
+          "narration": "For more stories that get the facts right, visit headlinne.com.",
+          "seconds": 4.81,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "Stay updated",
+          "pose": "cta",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        }
+      ],
+      "caption": "Scientists solve 1840s space weather mystery\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#TechNews #AI #Tech #Science",
+      "hashtags": [
+        "TechNews",
+        "AI",
+        "Tech",
+        "Science",
+        "History",
+        "News",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-09-29T09:30:00+05:30",
+      "first_comment": "#History #News #Headlinne",
+      "sources": "Ars Technica",
+      "story_url": "https://arstechnica.com/science/2026/09/scientists-solve-1840s-space-weather-mystery/",
+      "dateline": "TUE 29 SEP",
+      "story": null,
+      "duration_seconds": 49.5,
+      "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-29/reels/reel_1.mp4",
+      "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-29/reels/reel_1_cover.png",
+      "audio_file": null,
+      "has_voiceover": true
+    }
+  ],
+  "story_card": {
+    "slot": "story_card",
+    "category": "Science",
+    "headline": "The hidden weakness of indestructible bacteria",
+    "standfirst": "Scientists have found a potential chink in the armor of bacteria that can survive almost",
+    "steps": [
+      {
+        "label": "What happened",
+        "text": "Researchers are studying bacterial spores, which are survival capsules designed to endure anything."
+      },
+      {
+        "label": "How we got here",
+        "text": "Bacteria create these spores by drying out and wrapping themselves in tough protein armor."
+      },
+      {
+        "label": "Why it matters",
+        "text": "These spores resist boiling, radiation, and space travel. They can even invade hospital environments."
+      },
+      {
+        "label": "What to watch",
+        "text": "New research into their energy budgets could reveal how to finally break their hibernation cycle."
+      }
+    ],
+    "caption": "Scientists are investigating how hibernating bacteria spores survive extreme conditions like space and boiling.\n\nThese spores act like a survival capsule, shutting down chemical processes to stay alive when environments turn hostile. By studying their energy usage, researchers hope to find a way to stop these germs from invading hospitals.\n\nDoes the idea of bacteria surviving in outer space surprise you?\n\nSave this one. Follow for the daily card. Full story on HEADLINNE.com.\n\n#science #bacteria #biology #microbiology",
+    "hashtags": [
+      "science",
+      "bacteria",
+      "biology",
+      "microbiology",
+      "research",
+      "health",
+      "hospitals",
+      "space",
+      "scienceexplained",
+      "nature",
+      "microbes",
+      "discovery",
+      "NewsExplained",
+      "Headlinne"
+    ],
+    "scheduled_time": "2026-09-29T21:30:00+05:30",
+    "first_comment": "#research #health #hospitals #space #scienceexplained #nature #microbes #discovery #NewsExplained #Headlinne",
+    "sources": "Phys.org",
+    "story_url": "https://phys.org/news/2026-09-hibernating-bacteria-invade-hospitals-survive.html",
+    "image_url": "https://scx2.b-cdn.net/gfx/news/hires/2026/microscopy-image-of-th.jpg",
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-29/story_card/story_card.png",
+    "story": null
+  }
+}
