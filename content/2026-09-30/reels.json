@@ -1,0 +1,163 @@
+[
+  {
+    "slot": "reel_1",
+    "kind": "news",
+    "category": "Science",
+    "title": "This suitcase-sized spacecraft could hear the universe before stars existed",
+    "hook": "This suitcase-sized spacecraft could hear the universe before stars existed",
+    "beats": [
+      {
+        "role": "hook",
+        "caption": "This suitcase-sized spacecraft could hear the universe before stars existed",
+        "detail": "",
+        "narration": "",
+        "seconds": 4.43,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "",
+        "pose": "",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "hook",
+        "caption": "This reshapes what we know about the early universe.",
+        "detail": "A new mission targets the cosmic dark ages.",
+        "narration": "This small satellite could fundamentally change how we understand the very beginning of time.",
+        "seconds": 6.2,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "The stakes",
+        "pose": "walk",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "point",
+        "caption": "It is a suitcase-sized satellite called CosmoCube.",
+        "detail": "Small enough to fit in a suitcase.",
+        "narration": "It is called CosmoCube, and it is only about the size of a suitcase.",
+        "seconds": 6.2,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "The craft",
+        "pose": "point",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "graphic",
+        "caption": "It uses the Moon to block Earth’s noise.",
+        "detail": "Earth is too loud for radio signals.",
+        "narration": "Earth is incredibly noisy with radio signals, so it hides behind the Moon for silence.",
+        "seconds": 6.64,
+        "graphic": "flow",
+        "data": {
+          "steps": [
+            "Noisy Earth",
+            "Moon blocks radio",
+            "Clear cosmic signal"
+          ]
+        },
+        "image_url": null,
+        "chapter": "The method",
+        "pose": "present",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "point",
+        "caption": "It hunts for signals before the first stars.",
+        "detail": "Searching the cosmic dark ages.",
+        "narration": "It is searching for faint signals from a time before the first stars even existed.",
+        "seconds": 6.64,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "The goal",
+        "pose": "jump",
+        "say": "",
+        "plates": [
+          "story"
+        ],
+        "tone": ""
+      },
+      {
+        "role": "graphic",
+        "caption": "This helps explain how dark matter built galaxies.",
+        "detail": "Connecting the dots of cosmic history.",
+        "narration": "This data could finally show us how dark matter helped build the very first galaxies.",
+        "seconds": 6.64,
+        "graphic": "split",
+        "data": {
+          "left_title": "Stars today",
+          "left_text": "Visible light and galaxies everywhere",
+          "right_title": "Cosmic dark ages",
+          "right_text": "The mysterious time before stars appeared"
+        },
+        "image_url": null,
+        "chapter": "The mystery",
+        "pose": "talk",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "point",
+        "caption": "It listens for the universe's oldest echoes.",
+        "detail": "Turning the Moon into a radio shield.",
+        "narration": "By turning the Moon into a shield, we can hear the oldest echoes of the universe.",
+        "seconds": 7.08,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "The result",
+        "pose": "point",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "outro",
+        "caption": "Read the full story at headlinne.com.",
+        "detail": "Stay informed with daily AI summaries.",
+        "narration": "Get the full story and more science updates at headlinne.com.",
+        "seconds": 4.43,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "Stay updated",
+        "pose": "cta",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      }
+    ],
+    "caption": "This suitcase-sized spacecraft could hear the universe before stars existed\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#Space #Science #Astronomy #CosmoCube",
+    "hashtags": [
+      "Space",
+      "Science",
+      "Astronomy",
+      "CosmoCube",
+      "Headlinne"
+    ],
+    "scheduled_time": "2026-09-30T09:30:00+05:30",
+    "first_comment": "#Headlinne",
+    "sources": "Science Daily",
+    "story_url": "https://www.sciencedaily.com/releases/2026/09/260927225034.htm",
+    "dateline": "WED 30 SEP",
+    "story": null,
+    "duration_seconds": 48.27,
+    "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-30/reels/reel_1.mp4",
+    "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-30/reels/reel_1_cover.png",
+    "audio_file": null,
+    "has_voiceover": true
+  }
+]

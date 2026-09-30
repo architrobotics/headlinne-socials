@@ -1,0 +1,241 @@
+{
+  "day": "2026-09-30",
+  "is_promo_day": true,
+  "is_friday": false,
+  "twitter": [
+    {
+      "category": "Promo",
+      "post": "Most news articles are packed with fluff. We use AI to strip that away and give you the core facts in seconds. It saves time and helps you actually understand what is happening without reading through endless paragraphs. HEADLINNE.com #News #Productivity",
+      "hashtags": [
+        "News",
+        "Productivity"
+      ],
+      "scheduled_time": "2026-09-30T13:00:00+05:30",
+      "kind": "promo",
+      "lead": "Get The News Without The Fluff",
+      "items": [],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-30/x/x_1.png"
+    }
+  ],
+  "linkedin": {
+    "title": "Most news feeds are designed to keep you scrolling, not to keep you informed.",
+    "body": "It is easy to feel like you are drowning in information while starving for actual insight. We have all been there. You open an app, scroll through a dozen headlines, and five minutes later you realize you have not really learned anything new. The problem is that most news algorithms prioritize engagement over understanding. They show you what is loud, not what is relevant to your life.\n\nTrue personalization should be the opposite of an echo chamber. It should not just feed you more of what you already think. Instead, it should help you connect the dots on the topics that actually matter to you, in a way that respects your time. You should be able to dig deep into complex stories without having to sift through the noise.\n\nWe built Headlinne because we believe technology can make us smarter, not just distracted. By using AI to curate and clarify the news, we aim to give you back control over your attention. It is about getting the full picture, quickly, so you can spend your energy on the things that actually require your focus.",
+    "cta": "If you want a news experience that values your intelligence, take a look at HEADLINNE.com.",
+    "scheduled_time": "2026-09-30T18:00:00+05:30",
+    "kind": "product"
+  },
+  "instagram": [],
+  "reels": [
+    {
+      "slot": "reel_1",
+      "kind": "news",
+      "category": "Science",
+      "title": "This suitcase-sized spacecraft could hear the universe before stars existed",
+      "hook": "This suitcase-sized spacecraft could hear the universe before stars existed",
+      "beats": [
+        {
+          "role": "hook",
+          "caption": "This suitcase-sized spacecraft could hear the universe before stars existed",
+          "detail": "",
+          "narration": "",
+          "seconds": 4.43,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "",
+          "pose": "",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "hook",
+          "caption": "This reshapes what we know about the early universe.",
+          "detail": "A new mission targets the cosmic dark ages.",
+          "narration": "This small satellite could fundamentally change how we understand the very beginning of time.",
+          "seconds": 6.2,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "The stakes",
+          "pose": "walk",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "It is a suitcase-sized satellite called CosmoCube.",
+          "detail": "Small enough to fit in a suitcase.",
+          "narration": "It is called CosmoCube, and it is only about the size of a suitcase.",
+          "seconds": 6.2,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "The craft",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "graphic",
+          "caption": "It uses the Moon to block Earth’s noise.",
+          "detail": "Earth is too loud for radio signals.",
+          "narration": "Earth is incredibly noisy with radio signals, so it hides behind the Moon for silence.",
+          "seconds": 6.64,
+          "graphic": "flow",
+          "data": {
+            "steps": [
+              "Noisy Earth",
+              "Moon blocks radio",
+              "Clear cosmic signal"
+            ]
+          },
+          "image_url": null,
+          "chapter": "The method",
+          "pose": "present",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "It hunts for signals before the first stars.",
+          "detail": "Searching the cosmic dark ages.",
+          "narration": "It is searching for faint signals from a time before the first stars even existed.",
+          "seconds": 6.64,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "The goal",
+          "pose": "jump",
+          "say": "",
+          "plates": [
+            "story"
+          ],
+          "tone": ""
+        },
+        {
+          "role": "graphic",
+          "caption": "This helps explain how dark matter built galaxies.",
+          "detail": "Connecting the dots of cosmic history.",
+          "narration": "This data could finally show us how dark matter helped build the very first galaxies.",
+          "seconds": 6.64,
+          "graphic": "split",
+          "data": {
+            "left_title": "Stars today",
+            "left_text": "Visible light and galaxies everywhere",
+            "right_title": "Cosmic dark ages",
+            "right_text": "The mysterious time before stars appeared"
+          },
+          "image_url": null,
+          "chapter": "The mystery",
+          "pose": "talk",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "It listens for the universe's oldest echoes.",
+          "detail": "Turning the Moon into a radio shield.",
+          "narration": "By turning the Moon into a shield, we can hear the oldest echoes of the universe.",
+          "seconds": 7.08,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "The result",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "outro",
+          "caption": "Read the full story at headlinne.com.",
+          "detail": "Stay informed with daily AI summaries.",
+          "narration": "Get the full story and more science updates at headlinne.com.",
+          "seconds": 4.43,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "Stay updated",
+          "pose": "cta",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        }
+      ],
+      "caption": "This suitcase-sized spacecraft could hear the universe before stars existed\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#Space #Science #Astronomy #CosmoCube",
+      "hashtags": [
+        "Space",
+        "Science",
+        "Astronomy",
+        "CosmoCube",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-09-30T09:30:00+05:30",
+      "first_comment": "#Headlinne",
+      "sources": "Science Daily",
+      "story_url": "https://www.sciencedaily.com/releases/2026/09/260927225034.htm",
+      "dateline": "WED 30 SEP",
+      "story": null,
+      "duration_seconds": 48.27,
+      "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-30/reels/reel_1.mp4",
+      "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-30/reels/reel_1_cover.png",
+      "audio_file": null,
+      "has_voiceover": true
+    }
+  ],
+  "story_card": {
+    "slot": "story_card",
+    "category": "Technology",
+    "headline": "BMW reveals new details for the electric i3 sedan",
+    "standfirst": "The automaker is finally sharing specs on its upcoming Neue Klasse electric vehicle.",
+    "steps": [
+      {
+        "label": "What happened",
+        "text": "BMW shared new details about its revamped i3 sedan. It now expects a range of up to 468 miles."
+      },
+      {
+        "label": "How we got here",
+        "text": "BMW previously announced the i3 would move to its new Neue Klasse platform. Initial reveals lacked"
+      },
+      {
+        "label": "Why it matters",
+        "text": "Range anxiety is a major hurdle for EV buyers. High mileage figures could make this a strong competitor."
+      },
+      {
+        "label": "What to watch",
+        "text": "The company has yet to confirm the final price. Keep an eye out for official pricing announcements."
+      }
+    ],
+    "caption": "BMW has released more information about the upcoming electric i3 sedan and its expected range.\n\nThe German automaker is slowly filling in the gaps about this four-door model built on the Neue Klasse platform. While we still do not have a final price, the 468-mile range estimate is a significant update for potential buyers. We are waiting to see how the final sticker price compares to other EVs.\n\nWould a 468-mile range change your mind about switching to an electric car?\n\nSave this one. Follow for the daily card. Full story on HEADLINNE.com.\n\n#TechNews #Tech #AI #BMW",
+    "hashtags": [
+      "TechNews",
+      "Tech",
+      "AI",
+      "BMW",
+      "i3",
+      "electricvehicle",
+      "EV",
+      "automotive",
+      "NeueKlasse",
+      "electriccar",
+      "futuretech",
+      "cartech",
+      "transportation",
+      "bmwi3",
+      "NewsExplained",
+      "Headlinne"
+    ],
+    "scheduled_time": "2026-09-30T21:30:00+05:30",
+    "first_comment": "#i3 #electricvehicle #EV #automotive #NeueKlasse #electriccar #futuretech #cartech #transportation #bmwi3 #NewsExplained #Headlinne",
+    "sources": "The Verge",
+    "story_url": "https://www.theverge.com/transportation/1002173/bmws-revamped-i3-boasts-up-to-468-miles-of-range",
+    "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/09/26_03_BMW_Preview-Gruppe.jpg?quality=90&amp;strip=all&amp;crop=0%2C10.752556637471%2C100%2C78.494886725057&amp;w=1200",
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-09-30/story_card/story_card.png",
+    "story": null
+  }
+}
