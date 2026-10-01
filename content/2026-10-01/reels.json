@@ -1,0 +1,163 @@
+[
+  {
+    "slot": "reel_1",
+    "kind": "news",
+    "category": "Science",
+    "title": "Astronomers discover 'backward' planet orbiting its star in the wrong direction",
+    "hook": "Astronomers discover 'backward' planet orbiting its star in the wrong direction",
+    "beats": [
+      {
+        "role": "hook",
+        "caption": "Astronomers discover 'backward' planet orbiting its star in the wrong direction",
+        "detail": "",
+        "narration": "",
+        "seconds": 5.17,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "",
+        "pose": "",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "hook",
+        "caption": "Imagine a carousel spinning where one horse runs the opposite way.",
+        "detail": "That is how this new planet moves.",
+        "narration": "Imagine a carousel spinning. Now imagine one horse running the opposite direction. That is this planet.",
+        "seconds": 7.52,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "The anomaly",
+        "pose": "walk",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "graphic",
+        "caption": "Astronomers found a planet orbiting its star in the wrong direction.",
+        "detail": "It defies our standard models of space.",
+        "narration": "Astronomers just found an exoplanet that orbits its star in the completely wrong direction.",
+        "seconds": 6.58,
+        "graphic": "split",
+        "data": {
+          "left_title": "Normal Orbit",
+          "left_text": "Planets follow their star's spin",
+          "right_title": "This Planet",
+          "right_text": "Moves against the star's rotation"
+        },
+        "image_url": null,
+        "chapter": "Backward orbit",
+        "pose": "point",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "point",
+        "caption": "This mystery helps us understand how planetary systems actually form.",
+        "detail": "It challenges what we think we know.",
+        "narration": "This is huge because it challenges everything we thought we knew about how solar systems form.",
+        "seconds": 7.52,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "Why care",
+        "pose": "present",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "graphic",
+        "caption": "We do not know why it acts this way yet.",
+        "detail": "Science is still hunting for the cause.",
+        "narration": "We still do not know why it acts this way, but the hunt for answers is on.",
+        "seconds": 7.99,
+        "graphic": "flow",
+        "data": {
+          "steps": [
+            "Planet spotted",
+            "Orbit confirmed",
+            "Origins studied"
+          ]
+        },
+        "image_url": null,
+        "chapter": "The mystery",
+        "pose": "jump",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "point",
+        "caption": "Studying this system could reveal secrets about complex space environments.",
+        "detail": "It opens a new door for research.",
+        "narration": "Studying this system could finally unlock secrets about how complex planetary environments come to exist.",
+        "seconds": 7.05,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "Future research",
+        "pose": "talk",
+        "say": "",
+        "plates": [
+          "story"
+        ],
+        "tone": ""
+      },
+      {
+        "role": "point",
+        "caption": "Live Science reports this finding is not yet corroborated elsewhere.",
+        "detail": "We are keeping a close watch.",
+        "narration": "Live Science reports this finding, though it is not yet corroborated by other teams.",
+        "seconds": 6.58,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "The source",
+        "pose": "point",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "outro",
+        "caption": "Get more science updates at headlinne.com every single day.",
+        "detail": "Facts delivered without the noise.",
+        "narration": "Get more science updates at headlinne.com every single day.",
+        "seconds": 4.23,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "Stay updated",
+        "pose": "cta",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      }
+    ],
+    "caption": "Astronomers discover 'backward' planet orbiting its star in the wrong direction\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#Space #Astronomy #ScienceNews #Exoplanet",
+    "hashtags": [
+      "Space",
+      "Astronomy",
+      "ScienceNews",
+      "Exoplanet",
+      "Headlinne"
+    ],
+    "scheduled_time": "2026-10-01T09:30:00+05:30",
+    "first_comment": "#Headlinne",
+    "sources": "Live Science",
+    "story_url": "https://www.livescience.com/space/exoplanets/we-may-need-to-think-differently-star-system-with-backward-planet-moving-the-wrong-way-around-its-star-has-scientists-puzzled",
+    "dateline": "THU 1 OCT",
+    "story": null,
+    "duration_seconds": 52.63,
+    "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-01/reels/reel_1.mp4",
+    "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-01/reels/reel_1_cover.png",
+    "audio_file": null,
+    "has_voiceover": true
+  }
+]
