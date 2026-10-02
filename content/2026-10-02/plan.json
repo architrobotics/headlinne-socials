@@ -1,0 +1,240 @@
+{
+  "day": "2026-10-02",
+  "is_promo_day": true,
+  "is_friday": true,
+  "twitter": [
+    {
+      "category": "Promo",
+      "post": "Finding the news you actually care about shouldn't feel like a chore. With our swipe interface, you can quickly breeze past stories that don't matter and dive deeper into the ones that do. It is news at your own pace. HEADLINNE.com #News #Tech",
+      "hashtags": [
+        "News",
+        "Tech"
+      ],
+      "scheduled_time": "2026-10-02T13:00:00+05:30",
+      "kind": "promo",
+      "lead": "Read the news at your own pace",
+      "items": [],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-02/x/x_1.png"
+    }
+  ],
+  "linkedin": {
+    "title": "This Week in Finance & Tech",
+    "body": "The gap between UK food exports and imports has hit its widest point since 2000, reaching a £21bn deficit. Industry leaders are now urging the government to prioritize domestic produce for national security as Brexit, global conflict, and tariffs strain trade. Meanwhile, in South America, Bolivia faces a tough economic crossroads. As its fossil gas boom fades, the country is grappling with rising inflation and trying to determine if relying on commodity exports like soy and gold is a sustainable path forward.\n\nIn the automotive world, BMW is sharing more details on its upcoming i3 sedan. Built on the new Neue Klasse platform, the car is expected to offer a range of up to 468 miles. Elsewhere in EV tech, the gap in charging speeds is widening. China has demonstrated a new LFP battery capable of charging from 10 to 70 percent in just 4.5 minutes, highlighting a significant lead over current US charging infrastructure.\n\nIn tech news, Meta's Muse filesystem was briefly exposed, giving some users a rare look at the inner workings of an AI chatbot. If you are noticing your iPhone acting sluggish, it might be time to check your battery health, as degradation is a common culprit for declining performance over time.\n\nFinally, some fascinating science and engineering updates. Researchers have finally corrected a typo in a 19th-century record, solving a mystery about a geomagnetic storm that delayed a train in 1841. Looking to the future, a startup called Star Catcher is preparing to test space lasers designed to beam energy between two separate spacecraft for the first time.",
+    "cta": "Get the full picture and stay informed at HEADLINNE.com.",
+    "scheduled_time": "2026-10-02T18:00:00+05:30",
+    "kind": "weekly_roundup"
+  },
+  "instagram": [],
+  "reels": [
+    {
+      "slot": "reel_1",
+      "kind": "news",
+      "category": "Technology",
+      "title": "Exclusive: Neurable’s First Brain-Scanning Headphones Want to Fine-Tune Your Focus",
+      "hook": "Exclusive: Neurable’s First Brain-Scanning Headphones Want to Fine-Tune Your Focus",
+      "beats": [
+        {
+          "role": "hook",
+          "caption": "Exclusive: Neurable’s First Brain-Scanning Headphones Want to Fine-Tune Your Focus",
+          "detail": "",
+          "narration": "",
+          "seconds": 4.39,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "",
+          "pose": "",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "hook",
+          "caption": "Here is how these headphones read your brain.",
+          "detail": "Sensors inside the earcups track neural activity.",
+          "narration": "Here is how these new headphones from Neurable actually read your brain activity while you listen to music.",
+          "seconds": 7.91,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "The mechanism",
+          "pose": "walk",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "graphic",
+          "caption": "They translate electrical signals into focus data.",
+          "detail": "The device detects your mental state in real-time.",
+          "narration": "They use built-in sensors to translate electrical signals from your head into actual focus data.",
+          "seconds": 6.59,
+          "graphic": "flow",
+          "data": {
+            "steps": [
+              "Scan brain waves",
+              "Track mental state",
+              "Adjust your focus"
+            ]
+          },
+          "image_url": null,
+          "chapter": "The function",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "The app keeps you in the zone.",
+          "detail": "It aims to minimize distractions while you work.",
+          "narration": "The goal is to keep you in the zone by monitoring your mental output throughout the day.",
+          "seconds": 7.47,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "Staying focused",
+          "pose": "present",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "It tells you when to take a break.",
+          "detail": "The software identifies your peak productivity windows.",
+          "narration": "It even calculates the best time to take a break before you actually burn out.",
+          "seconds": 6.59,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "Knowing limits",
+          "pose": "jump",
+          "say": "",
+          "plates": [
+            "story"
+          ],
+          "tone": ""
+        },
+        {
+          "role": "graphic",
+          "caption": "It monitors your mental fatigue levels.",
+          "detail": "The system tracks when your brain needs recharging.",
+          "narration": "It monitors your mental battery so you know exactly when your brain needs to recharge.",
+          "seconds": 6.59,
+          "graphic": "split",
+          "data": {
+            "left_title": "High energy",
+            "left_text": "You are ready for deep work tasks.",
+            "right_title": "Brain drain",
+            "right_text": "Time to step away and rest."
+          },
+          "image_url": null,
+          "chapter": "The battery",
+          "pose": "talk",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "This is about working smarter.",
+          "detail": "Technology aims to optimize your daily workflow.",
+          "narration": "This is essentially about working smarter by letting technology optimize your personal workflow.",
+          "seconds": 5.71,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "The goal",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "outro",
+          "caption": "Get more tech news at headlinne.com.",
+          "detail": "We break down the latest innovations daily.",
+          "narration": "For more on the latest tech innovations, head over to headlinne.com to see what matters.",
+          "seconds": 6.59,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "Stay updated",
+          "pose": "cta",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        }
+      ],
+      "caption": "Exclusive: Neurable’s First Brain-Scanning Headphones Want to Fine-Tune Your Focus\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#TechNews #AI #Tech #Productivity",
+      "hashtags": [
+        "TechNews",
+        "AI",
+        "Tech",
+        "Productivity",
+        "WearableTech",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-10-02T09:30:00+05:30",
+      "first_comment": "#WearableTech #Headlinne",
+      "sources": "Wired",
+      "story_url": "https://www.wired.com/story/exclusive-neurable-one-brain-scanning-headphones-want-to-fix-your-focus/",
+      "dateline": "FRI 2 OCT",
+      "story": null,
+      "duration_seconds": 51.83,
+      "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-02/reels/reel_1.mp4",
+      "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-02/reels/reel_1_cover.png",
+      "audio_file": null,
+      "has_voiceover": true
+    }
+  ],
+  "story_card": {
+    "slot": "story_card",
+    "category": "Science",
+    "headline": "Curiosity rover finds new rock textures on Mars",
+    "standfirst": "NASA's Mars rover just encountered a sudden change in the planet's geology.",
+    "steps": [
+      {
+        "label": "What happened",
+        "text": "The Curiosity rover unexpectedly found rocks with a new texture this week."
+      },
+      {
+        "label": "How we got here",
+        "text": "The rover had been exploring smooth, layered bedrock in a sulfate-rich area."
+      },
+      {
+        "label": "Why it matters",
+        "text": "Unexpected geological shifts can reveal new details about the history of Mars."
+      },
+      {
+        "label": "What to watch",
+        "text": "Scientists are currently planning the next steps for the rover as of September 18."
+      }
+    ],
+    "caption": "NASA Curiosity rover scientists report a surprising change in rock texture on Mars.\n\nThe team at NASA Goddard Space Flight Center noted the shift while exploring a sulfate unit. This unexpected discovery marks a departure from the finely layered bedrock blocks Curiosity has been studying recently.\n\nWhat do you think is the most exciting thing we could find on Mars?\n\nSave this one. Follow for the daily card. Full story on HEADLINNE.com.\n\n#NASA #Mars #CuriosityRover #Space",
+    "hashtags": [
+      "NASA",
+      "Mars",
+      "CuriosityRover",
+      "Space",
+      "Geology",
+      "Science",
+      "Astronomy",
+      "MarsExploration",
+      "PlanetaryScience",
+      "SpaceNews",
+      "RedPlanet",
+      "NASAExplores",
+      "NewsExplained",
+      "Headlinne"
+    ],
+    "scheduled_time": "2026-10-02T21:30:00+05:30",
+    "first_comment": "#Geology #Science #Astronomy #MarsExploration #PlanetaryScience #SpaceNews #RedPlanet #NASAExplores #NewsExplained #Headlinne",
+    "sources": "NASA",
+    "story_url": "https://science.nasa.gov/blog/curiosity-blog-sols-5016-5021-fantastic-minerals-and-how-to-detect-them/",
+    "image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/missions/msl/2026/curiosity-rover-updates/september/https___mars.nasa.gov_msl-raw-images_msss_05016_mhli_5016MH0001930001804259R00_DXXX.jpg?w=1584&#038;h=1184&#038;fit=clip&#038;crop=faces%2Cfocalpoint",
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-02/story_card/story_card.png",
+    "story": null
+  }
+}
