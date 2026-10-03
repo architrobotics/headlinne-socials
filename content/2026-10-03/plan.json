@@ -1,0 +1,394 @@
+{
+  "day": "2026-10-03",
+  "is_promo_day": false,
+  "is_friday": false,
+  "twitter": [
+    {
+      "category": "Science",
+      "post": "Today's science news in a nutshell.\n• Marine biologists found a new type of plankton off the Oregon coast\n• Physicists found a superconductor that breaks time-reversal laws\n• NASA used special paint to see how air flows over new aircraft wings HEADLINNE.com #Science #Tech",
+      "hashtags": [
+        "Science",
+        "Tech"
+      ],
+      "scheduled_time": "2026-10-03T13:00:00+05:30",
+      "kind": "news",
+      "lead": "Today's science news in a nutshell.",
+      "items": [
+        "Marine biologists found a new type of plankton off the Oregon coast",
+        "Physicists found a superconductor that breaks time-reversal laws",
+        "NASA used special paint to see how air flows over new aircraft wings"
+      ],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-03/x/x_1.png"
+    },
+    {
+      "category": "Tech",
+      "post": "Today's top tech stories in brief\n• Nacon's new PS5 controller has a screen to mix audio and adjust settings\n• NYC is using battery packs to help window AC units stay cool efficiently\n• Apple may build a smart home camera that uses AI but never records video HEADLINNE.com",
+      "hashtags": [
+        "TechNews",
+        "Gadgets"
+      ],
+      "scheduled_time": "2026-10-03T17:00:00+05:30",
+      "kind": "news",
+      "lead": "Today's top tech stories in brief",
+      "items": [
+        "Nacon's new PS5 controller has a screen to mix audio and adjust settings",
+        "NYC is using battery packs to help window AC units stay cool efficiently",
+        "Apple may build a smart home camera that uses AI but never records video"
+      ],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-03/x/x_2.png"
+    }
+  ],
+  "linkedin": {
+    "title": "Most news apps are designed to keep you scrolling, not to keep you informed.",
+    "body": "We noticed a pattern in how people consume information. You read a headline, maybe a few sentences, and then you move on to the next thing. You get the update, but you rarely get the context. That is why we built Deep Dive Mode at Headlinne.\n\nDeep Dive Mode isn't about giving you more news. It is about slowing down the process. When you want to understand the 'why' behind a story, you can toggle it on. The app then connects the dots, explains the history, and lays out the different perspectives that usually get buried in a standard feed.\n\nIt changes the goal from 'did you see this?' to 'do you understand this?' We believe the future of news isn't about speed. It is about clarity. AI should be a tool that helps us cut through the noise, not one that adds to it.",
+    "cta": "You can see how it works for yourself at HEADLINNE.com.",
+    "scheduled_time": "2026-10-03T18:00:00+05:30",
+    "kind": "product"
+  },
+  "instagram": [
+    {
+      "slot": "instagram_1",
+      "category": "Finance",
+      "num_slides": 5,
+      "title": "SpaceX crew reaches ISS in record time",
+      "slides": [
+        {
+          "role": "cover",
+          "headline": "SpaceX crew reaches ISS in record time",
+          "explanation": "",
+          "image_url": "https://i.guim.co.uk/img/media/30ee35475e62cb104f1583c4f61e0383013ceeaa/734_0_5308_4248/master/5308.jpg?width=700&quality=85&auto=format&fit=max&s=8751f0142336861900367eeb10d73575",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-03/instagram/instagram_1/slide_1.png",
+          "subtitle": "The express flight took just eight hours to complete.",
+          "sources": "",
+          "index": 1,
+          "kicker": "FINANCE",
+          "pose": "alert",
+          "say": "A new speed record set.",
+          "figure": "",
+          "unit": ""
+        },
+        {
+          "role": "scale",
+          "headline": "",
+          "explanation": "An eight-hour trip to the International Space Station is roughly the same time it takes to fly from New York to London. This is a significant improvement over previous, longer docking",
+          "image_url": "https://i.guim.co.uk/img/media/30ee35475e62cb104f1583c4f61e0383013ceeaa/734_0_5308_4248/master/5308.jpg?width=700&quality=85&auto=format&fit=max&s=8751f0142336861900367eeb10d73575",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-03/instagram/instagram_1/slide_2.png",
+          "subtitle": "",
+          "sources": "",
+          "index": 2,
+          "kicker": "THE SCALE",
+          "pose": "",
+          "say": "",
+          "figure": "",
+          "unit": ""
+        },
+        {
+          "role": "twist",
+          "headline": "Historic leadership for the SpaceX mission",
+          "explanation": "This mission is led by Jessica Watkins. She is the first Black woman to command a SpaceX flight to the space station.",
+          "image_url": null,
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-03/instagram/instagram_1/slide_3.png",
+          "subtitle": "",
+          "sources": "",
+          "index": 3,
+          "kicker": "WHAT YOU DID NOT KNOW",
+          "pose": "puzzled",
+          "say": "History made in orbit.",
+          "figure": "",
+          "unit": ""
+        },
+        {
+          "role": "sources",
+          "headline": "",
+          "explanation": "NASA, Guardian Business, Sky World, and Ars Technica all confirm these flight details. When four independent outlets report the same facts, we can be confident in the timeline.",
+          "image_url": null,
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-03/instagram/instagram_1/slide_4.png",
+          "subtitle": "",
+          "sources": "",
+          "index": 4,
+          "kicker": "SOURCES",
+          "pose": "verified",
+          "say": "4 of 4 agree",
+          "figure": "",
+          "unit": ""
+        },
+        {
+          "role": "cta",
+          "headline": "",
+          "explanation": "",
+          "image_url": null,
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-03/instagram/instagram_1/slide_5.png",
+          "subtitle": "Read the full breakdown on Headlinne.",
+          "sources": "",
+          "index": 5,
+          "kicker": "READ THE FULL STORY",
+          "pose": "carry",
+          "say": "Come and read it.",
+          "figure": "",
+          "unit": ""
+        }
+      ],
+      "caption": "SpaceX just set a new US speed record for getting astronauts to the International Space Station.\n\nThe crew arrived in just eight hours.\n\nThis mission is also notable for its commander, Jessica Watkins. She is the first Black woman to lead a SpaceX flight to the orbiting lab.\n\nIt is a major milestone for both aerospace engineering and representation in space exploration.\n\nWhat part of this mission interests you most?\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#Finance #Markets #Business #Economy",
+      "hashtags": [
+        "Finance",
+        "Markets",
+        "Business",
+        "Economy",
+        "SpaceX",
+        "SpaceNews",
+        "Astronomy",
+        "History",
+        "JessicaWatkins",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-10-03T16:00:00+05:30",
+      "first_comment": "#SpaceX #SpaceNews #Astronomy #History #JessicaWatkins #Headlinne",
+      "story": {
+        "title": "‘An amazing ride’: SpaceX flight led by first Black female commander sets US speed record",
+        "summary": "Four astronauts pulled up at International Space Station after eight-hour express flight led by Jessica Watkins Four astronauts pulled up at the International Space Station (ISS) on Thursday after launching on an eight-hour express that set a US speed record, and that created further history with the first Black woman to lead a crew to orbit. SpaceX launched commander Jessica Watkins and her crew for Nasa after a three-week delay to fix their Dragon capsule’s leaking fuel system. Thick clouds threatened all morning to halt the countdown but skies cleared enough to allow a safe liftoff from Cap",
+        "url": "https://www.theguardian.com/science/2026/oct/01/spacex-speed-record-first-black-female-commander",
+        "category": "Finance",
+        "source": "Guardian Business",
+        "tier": 1.1,
+        "published_iso": "2026-10-02T03:18:45+00:00",
+        "image_url": "https://i.guim.co.uk/img/media/30ee35475e62cb104f1583c4f61e0383013ceeaa/734_0_5308_4248/master/5308.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=39b45539286099e7eb98601179ab4d07",
+        "corroborating_sources": [
+          "Ars Technica",
+          "NASA",
+          "Sky World"
+        ],
+        "score": 9.058,
+        "verified": true,
+        "sensitive": false,
+        "agreement": {
+          "reported": 4,
+          "agree": 4,
+          "conflict": 0,
+          "claim": "",
+          "claim_unit": "",
+          "outlets": [
+            "Guardian Business",
+            "Sky World",
+            "Ars Technica",
+            "NASA"
+          ],
+          "conflicts": []
+        }
+      },
+      "story_url": "https://www.theguardian.com/science/2026/oct/01/spacex-speed-record-first-black-female-commander"
+    }
+  ],
+  "reels": [
+    {
+      "slot": "reel_1",
+      "kind": "news",
+      "category": "Science",
+      "title": "Marine biologists discover new plankton off Oregon coast",
+      "hook": "Marine biologists discover new plankton off Oregon coast",
+      "beats": [
+        {
+          "role": "hook",
+          "caption": "Marine biologists discover new plankton off Oregon coast",
+          "detail": "",
+          "narration": "",
+          "seconds": 3.66,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "",
+          "pose": "",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "hook",
+          "caption": "If this holds, we redefine marine life.",
+          "detail": "A discovery off the Oregon coast.",
+          "narration": "If this holds, we might need to rewrite the textbooks on how marine ecosystems actually function.",
+          "seconds": 7.31,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "Future impact",
+          "pose": "walk",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "Biologists just found a new plankton species.",
+          "detail": "Spotted along the Oregon shoreline.",
+          "narration": "Marine biologists have officially identified a previously unknown species of plankton swimming off the Oregon coast.",
+          "seconds": 7.31,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "The discovery",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "graphic",
+          "caption": "It started with daily Pacific beach walks.",
+          "detail": "Research conducted at the Oregon Institute.",
+          "narration": "The discovery came from a routine, morning ritual of collecting samples right at the high tide line.",
+          "seconds": 7.77,
+          "graphic": "flow",
+          "data": {
+            "steps": [
+              "Morning beach walk",
+              "Collecting samples",
+              "Identifying species"
+            ]
+          },
+          "image_url": null,
+          "chapter": "The process",
+          "pose": "present",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "Nicole Nakata made the breakthrough discovery.",
+          "detail": "Doctoral student at the Oregon Institute.",
+          "narration": "It was the work of Nicole Nakata, a doctoral student who spent her mornings studying microscopic life.",
+          "seconds": 7.77,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "The researcher",
+          "pose": "jump",
+          "say": "",
+          "plates": [
+            "story"
+          ],
+          "tone": ""
+        },
+        {
+          "role": "point",
+          "caption": "They are tiny, brittle star larvae.",
+          "detail": "Microscopic organisms found in the ocean.",
+          "narration": "She was specifically looking at brittle star larvae, which are microscopic organisms that drift in the currents.",
+          "seconds": 7.77,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "The subject",
+          "pose": "talk",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "graphic",
+          "caption": "This changes our understanding of biodiversity.",
+          "detail": "Every new species adds a puzzle piece.",
+          "narration": "Identifying new species helps us understand the health and complexity of our ocean environments.",
+          "seconds": 6.4,
+          "graphic": "split",
+          "data": {
+            "left_title": "Known life",
+            "left_text": "The species we already have documented.",
+            "right_title": "New findings",
+            "right_text": "The hidden life we are just discovering."
+          },
+          "image_url": null,
+          "chapter": "Why it matters",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        },
+        {
+          "role": "outro",
+          "caption": "Get the facts at headlinne.com.",
+          "detail": "The news you need, simplified.",
+          "narration": "For more science news explained clearly, head over to headlinne.com and see what else we found.",
+          "seconds": 7.31,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "Stay updated",
+          "pose": "cta",
+          "say": "",
+          "plates": [],
+          "tone": ""
+        }
+      ],
+      "caption": "Marine biologists discover new plankton off Oregon coast\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#Science #MarineBiology #Oregon #OceanLife",
+      "hashtags": [
+        "Science",
+        "MarineBiology",
+        "Oregon",
+        "OceanLife",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-10-03T09:30:00+05:30",
+      "first_comment": "#Headlinne",
+      "sources": "Phys.org",
+      "story_url": "https://phys.org/news/2026-10-marine-biologists-plankton-oregon-coast.html",
+      "dateline": "SAT 3 OCT",
+      "story": null,
+      "duration_seconds": 55.0,
+      "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-03/reels/reel_1.mp4",
+      "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-03/reels/reel_1_cover.png",
+      "audio_file": null,
+      "has_voiceover": true
+    }
+  ],
+  "story_card": {
+    "slot": "story_card",
+    "category": "Technology",
+    "headline": "Nacon launches a PS5 controller with a built-in screen",
+    "standfirst": "This new gamepad lets you tweak settings and mix audio without leaving your game.",
+    "steps": [
+      {
+        "label": "What happened",
+        "text": "Nacon revealed the Revolution 5 Unlimited. It is the first officially licensed PS5 controller with a"
+      },
+      {
+        "label": "How we got here",
+        "text": "Gamers usually have to open menus or use phone apps to change controller settings. This changes that."
+      },
+      {
+        "label": "Why it matters",
+        "text": "The built-in screen lets you adjust joystick sensitivity and remap buttons directly on the device."
+      },
+      {
+        "label": "What to watch",
+        "text": "The screen also mixes audio from your phone and console, letting you hear both sources at once."
+      }
+    ],
+    "caption": "The new Nacon Revolution 5 Unlimited is the first officially licensed PlayStation 5 controller with a built-in screen.\n\nThis design allows players to adjust sensitivity and map buttons without pausing the action. Plus, you can mix audio from your phone and console simultaneously. It is a unique approach to peripheral hardware.\n\nWould you prefer adjusting your controller settings on a screen or through an app?\n\nSave this one. Follow for the daily card. Full story on HEADLINNE.com.\n\n#TechNews #Tech #AI #Nacon",
+    "hashtags": [
+      "TechNews",
+      "Tech",
+      "AI",
+      "Nacon",
+      "PS5",
+      "PlayStation5",
+      "GamingNews",
+      "ConsoleGaming",
+      "TechHardware",
+      "GamingGear",
+      "Revolution5Unlimited",
+      "Controller",
+      "PlayStation",
+      "GamingSetup",
+      "NewsExplained",
+      "Headlinne"
+    ],
+    "scheduled_time": "2026-10-03T21:30:00+05:30",
+    "first_comment": "#PS5 #PlayStation5 #GamingNews #ConsoleGaming #TechHardware #GamingGear #Revolution5Unlimited #Controller #PlayStation #GamingSetup #NewsExplained #Headlinne",
+    "sources": "The Verge",
+    "story_url": "https://www.theverge.com/tech/1004053/nacon-sony-playstation-licensed-revolution-5-unlimited-wireless-controller",
+    "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/10/nacon1.jpg?quality=90&amp;strip=all&amp;crop=0%2C10.741589819318%2C100%2C78.516820361363&amp;w=1200",
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-03/story_card/story_card.png",
+    "story": null
+  }
+}
