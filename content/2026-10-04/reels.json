@@ -1,0 +1,162 @@
+[
+  {
+    "slot": "reel_1",
+    "kind": "news",
+    "category": "Science",
+    "title": "Chang’e-6 lunar soil contains a surprising magnetic time capsule",
+    "hook": "Chang’e-6 lunar soil contains a surprising magnetic time capsule",
+    "beats": [
+      {
+        "role": "hook",
+        "caption": "Chang’e-6 lunar soil contains a surprising magnetic time capsule",
+        "detail": "",
+        "narration": "",
+        "seconds": 3.86,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "",
+        "pose": "",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "hook",
+        "caption": "How can a handful of moon dirt act like a time machine?",
+        "detail": "Scientists are analyzing new Chang’e-6 soil samples.",
+        "narration": "How can a handful of moon dirt act like a time machine? Scientists are asking that right now.",
+        "seconds": 7.72,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "The Mystery",
+        "pose": "walk",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "point",
+        "caption": "The mission found a secret magnetic mineral inside.",
+        "detail": "Hidden within tiny impact glass particles.",
+        "narration": "The Chang’e-6 mission brought back samples containing a magnetic mineral never seen before in natural moon soil.",
+        "seconds": 7.29,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "The Discovery",
+        "pose": "point",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "graphic",
+        "caption": "It is a rare metallic iron called gamma-iron.",
+        "detail": "Formed during meteorite impacts.",
+        "narration": "This mineral is a specific form of metallic iron called gamma-iron, which forms inside tiny impact glass.",
+        "seconds": 7.29,
+        "graphic": "flow",
+        "data": {
+          "steps": [
+            "Meteorite impact",
+            "Glass forms",
+            "Iron trapped"
+          ]
+        },
+        "image_url": null,
+        "chapter": "How it forms",
+        "pose": "present",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "point",
+        "caption": "This iron can lock in a stable magnetic signal.",
+        "detail": "Acting as a microscopic fossil.",
+        "narration": "Because it is stable, this iron essentially locks in a magnetic signal from the moment it formed.",
+        "seconds": 7.29,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "The Function",
+        "pose": "jump",
+        "say": "",
+        "plates": [
+          "story"
+        ],
+        "tone": ""
+      },
+      {
+        "role": "graphic",
+        "caption": "It gives us a fossil of the moon’s magnetic past.",
+        "detail": "A window into ancient lunar conditions.",
+        "narration": "It serves as a fossil of the moon’s magnetic history, providing a window into ancient lunar conditions.",
+        "seconds": 7.29,
+        "graphic": "split",
+        "data": {
+          "left_title": "Then",
+          "left_text": "Ancient magnetic field",
+          "right_title": "Now",
+          "right_text": "Frozen in glass"
+        },
+        "image_url": null,
+        "chapter": "The History",
+        "pose": "talk",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "point",
+        "caption": "This helps us reconstruct the moon's early history.",
+        "detail": "Decoding the magnetic signals.",
+        "narration": "Researchers hope this discovery helps them reconstruct what the moon's magnetic field looked like long ago.",
+        "seconds": 6.86,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "The Impact",
+        "pose": "point",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "outro",
+        "caption": "Get the full story on headlinne.com today.",
+        "detail": "Your daily news, smarter.",
+        "narration": "You can get the full story on headlinne.com.",
+        "seconds": 3.43,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "The Sign-off",
+        "pose": "cta",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      }
+    ],
+    "caption": "Chang’e-6 lunar soil contains a surprising magnetic time capsule\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#Science #Space #Moon #Headlinne",
+    "hashtags": [
+      "Science",
+      "Space",
+      "Moon",
+      "Headlinne"
+    ],
+    "scheduled_time": "2026-10-04T09:30:00+05:30",
+    "first_comment": "",
+    "sources": "Science Daily",
+    "story_url": "https://www.sciencedaily.com/releases/2026/10/261001214015.htm",
+    "dateline": "SUN 4 OCT",
+    "story": null,
+    "duration_seconds": 51.03,
+    "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-04/reels/reel_1.mp4",
+    "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-04/reels/reel_1_cover.png",
+    "audio_file": null,
+    "has_voiceover": true
+  }
+]
