@@ -282,47 +282,10 @@ MAX_STORY_AGE_HOURS = 30
 CAROUSEL_SOURCE_BONUS = _env_number("CAROUSEL_SOURCE_BONUS", 0.8, float)
 CAROUSEL_SOURCE_BONUS_CAP = _env_number("CAROUSEL_SOURCE_BONUS_CAP", 3, int)
 
-# Is this story on our beat? Technology, Finance and Geopolitics, named the way
-# a reader would name them.
-#
-# This is a *topical fit* signal, not an interest signal. The distinction is the
-# whole point: "should anyone care?" is answered by news.interest, which is the
-# primary ranking term. This list only answers "is this the kind of thing we
-# cover", and it is weighted accordingly (see ranking._TOPIC_WEIGHT).
-#
-# Two rules were learned the hard way and both are enforced by tests.
-#
-# 1. Terms are matched on word boundaries, through news._lexicon, exactly like
-#    every other lexicon in the project. They used to be matched with a raw
-#    `k in text` substring test, and "ai" is a substring of said, again,
-#    against, campaign, available, detail, certain, remains and fail - so 46%
-#    of a real day's stories scored as AI stories, against 8% that actually
-#    were. "war" matched warning, warming, toward, award and software; "oil"
-#    matched boiling and spoiled. That noise carried 29% of the ranking's
-#    variance.
-#
-# 2. Nothing here may be a term that news.interest._PAROCHIAL penalises.
-#    earnings, stocks, ipo, merger, acquisition, summit, funding round and
-#    central bank all used to sit in this list while interest.py was docking
-#    them, so the two lexicons spent every run cancelling each other out - and
-#    this one won, because a keyword bonus of up to +3.6 beats a parochial
-#    penalty that can only ever zero out a single 2.6-weight term. That is how
-#    an earnings print outranks a discovery in a system explicitly built not to
-#    do that. A market story earns its place here through what happened, not
-#    through the vocabulary of the trade.
-HIGH_INTEREST_KEYWORDS = (
-    # Technology, as it reaches people rather than as an industry
-    "apple", "google", "microsoft", "amazon", "meta", "openai", "nvidia",
-    "tesla", "ai", "chip", "chips", "semiconductor", "breach", "cyberattack",
-    "outage", "robot", "robots", "quantum", "encryption", "surveillance",
-    # Finance and the economy, as it reaches a household
-    "fed", "central bank", "interest rate", "interest rates", "inflation",
-    "recession", "layoffs", "oil", "tariff", "tariffs", "trade deal",
-    "default", "housing", "wages", "tax", "taxes",
-    # Geopolitics
-    "election", "elections", "war", "ceasefire", "sanctions", "treaty",
-    "coup", "nuclear", "border", "protest", "protests", "referendum",
-)
+# The topical-fit keyword list (HIGH_INTEREST_KEYWORDS) that used to sit here
+# was removed in Oct 2026. Ranking is news.significance now, whose stakes and
+# actors lexicons do the same job inside one weighted model, on word
+# boundaries, without a second list that could disagree with it.
 
 
 # --------------------------------------------------------------------------- #
@@ -416,6 +379,14 @@ REEL_MAX_SECONDS = 55
 # an encoder. Instagram re-encodes everything on upload anyway, so the extra
 # bitrate a fast preset spends never reaches a viewer.
 REEL_CRF = _env_number("REEL_CRF", 20, int)
+
+# The studio style is textured - paper grain, film grain, a camera that never
+# stops moving - and at CRF 20 that came out at 25 MB for 25 seconds, against
+# about 2 MB for the flat style. Reels are committed to the repository, so
+# that is roughly 9 GB of history a year. Measured on a six-second clip: CRF 23
+# with light grain is 0.59 MB, smaller than no grain at all at CRF 20 (0.93 MB),
+# and Instagram re-encodes every upload to well below either.
+REEL_STUDIO_CRF = _env_number("REEL_STUDIO_CRF", 23, int)
 REEL_PRESET = _env_str("REEL_PRESET", "veryfast")
 
 # Every reel burns in its own captions, because most reels are watched muted and
@@ -428,6 +399,28 @@ REEL_PRESET = _env_str("REEL_PRESET", "veryfast")
 # long as its spoken line plus a little air, so REEL_TARGET_SECONDS below only
 # governs the silent fallback.
 REEL_VOICEOVER = _env_flag("REEL_VOICEOVER", True)
+
+# Which renderer draws the reel.
+#
+#   studio  (default) render/studio: every beat is a cut-paper set with Pip
+#           built as a papercraft figure inside it, a title on taped paper, a
+#           counting stat card, the spoken words on torn chips, a TV lower
+#           third and a stamp. The look the founder asked for in Oct 2026,
+#           from the @nocodealex reels, with news in place of AI tools.
+#   paper   render/reel.ReelFrames: the earlier flat paper page with a walking
+#           pixel Pip and diagrams. REEL_COLLAGE below only affects this one.
+REEL_STYLE = _env_str("REEL_STYLE", "studio").lower()
+
+# Which renderer draws the carousel. studio (default) puts each of the five
+# slides on a cut-paper set with papercraft Pip, a taped title and the words on
+# paper cards (render/studio/carousel.py); paper is the earlier flat page.
+CAROUSEL_STYLE = _env_str("CAROUSEL_STYLE", "studio").lower()
+
+# The cut-paper treatment on the paper style (render/collage.py): grained
+# paper, the chapter on a strip of tape, the line's marked words on torn chips,
+# Pip as a die-cut sticker. Set REEL_COLLAGE=false to render the flat approved
+# samples. Ignored by the studio style.
+REEL_COLLAGE = _env_flag("REEL_COLLAGE", True)
 REEL_TTS_MODEL = _env_str("REEL_TTS_MODEL", "gemini-3.1-flash-tts-preview")
 
 # Speech quota is counted per model, so a second model is a second allowance.

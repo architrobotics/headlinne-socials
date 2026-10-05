@@ -61,6 +61,8 @@ jobs:
           SECOND_REEL: ${{ vars.SECOND_REEL }}
           GEMINI_FALLBACK_MODELS: ${{ vars.GEMINI_FALLBACK_MODELS }}
           FEED_TIMEOUT_SECONDS: ${{ vars.FEED_TIMEOUT_SECONDS }}
+          REEL_STYLE: ${{ vars.REEL_STYLE }}
+          CAROUSEL_STYLE: ${{ vars.CAROUSEL_STYLE }}
           REEL_VOICEOVER: ${{ vars.REEL_VOICEOVER }}
           REEL_TTS_MODEL: ${{ vars.REEL_TTS_MODEL }}
           REEL_VOICE_NEWS: ${{ vars.REEL_VOICE_NEWS }}

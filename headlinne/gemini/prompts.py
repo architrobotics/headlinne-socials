@@ -474,7 +474,8 @@ Return JSON exactly like this:
   "hook_detail": "...",
   "hook_narration": "the spoken version of the opening, under 90 characters",
   "beats": [
-    {{"caption": "...", "detail": "...", "narration": "...", "graphic": "", "data": {{}}}}
+    {{"chapter": "2-5 word title for this beat", "caption": "...", "detail": "...",
+      "narration": "...", "graphic": "", "data": {{}}}}
   ],
   "payoff": "one short closing line, under 46 characters",
   "payoff_narration": "the spoken version of the closing line, under 90 characters",
@@ -576,7 +577,8 @@ write five versions of the same thing.
    person can picture ("about the size of a school bus"). `figure` is just the
    number, `unit` is what it counts. If the story has no real number, set both
    to empty strings and explain the scale of the thing in words instead. Never
-   invent a figure.
+   invent a figure, and never say that there is no figure: start with the
+   comparison itself. At most 150 characters, so it ends on a full sentence.
 3. TWIST - the thing a reader does not already know. A prior mistake, a
    correction, a surprising cause, an unnoticed consequence. This is the slide
    that earns the share, so it must be genuinely new information from the story
@@ -609,19 +611,35 @@ Return ONLY JSON:
 }}"""
 
 
+# The studio reel's art direction vocabulary. Kept beside the prompt that asks
+# for it; render/studio/direction.py validates every value against the same
+# lists, so a word the renderer does not know is replaced, never drawn wrong.
+STUDIO_SETS = ("newsroom", "parliament", "courtroom", "street", "skyline",
+               "trading", "harbour", "lab", "server", "maproom", "space", "home",
+               "board")
+STUDIO_HATS = ("press", "hardhat", "cap", "grad", "crown", "tophat", "beanie",
+               "none")
+STUDIO_POSES = ("talk", "point", "present", "nod", "shake", "scan", "think",
+                "alarm", "bounce", "jump", "cheer", "deliver")
+
+
 def reel_daily_prompt(story_block: str, hook_brief: str, agreement_line: str,
                       num_beats: int = 7) -> str:
     """The single daily reel: a story explained across `num_beats` cuts.
 
-    Two lines per beat, and they are not the same sentence. The on-screen line
-    is read at a glance; the spoken line is heard. Writing one and using it for
-    both produces copy that is stilted in one medium or the other.
+    Written for the studio style (render/studio): every beat is a scene with
+    Pip in it, a title on a strip of tape, and the spoken words on paper chips.
+    So the narration is now the main on-screen text as well as the audio, and
+    each beat also carries its own art direction from a closed vocabulary.
 
-    `*asterisks*` mark the words the renderer sets in the accent colour at a
-    heavier weight. They are the emphasis a variable font makes possible, so
-    exactly one span per beat, on the word that carries the meaning.
+    `*asterisks*` in the caption still mark the emphasis for the paper style,
+    which REEL_STYLE=paper keeps available.
     """
-    return f"""Write a {num_beats}-beat vertical video explaining one story.
+    return f"""Write a {num_beats}-beat vertical news video explaining one story.
+The format: every beat is a little cut-paper set (a newsroom, a parliament, a
+street, a harbour...) with our mascot Pip, a small papercraft pigeon reporter,
+standing in it. A title strip sits at the top, and the narration appears word
+by word on paper chips as it is spoken.
 
 THE STORY
 {story_block}
@@ -633,43 +651,67 @@ OPENING
 {hook_brief}
 
 Each beat needs:
-  chapter   1-3 words naming the question this beat answers ("What happened",
-            "Where", "How fast", "The correction"). It appears above the line.
-  caption   the on-screen line. At most 14 words. Wrap ONE span in *asterisks*
-            to mark the words that carry the meaning - exactly one per beat.
-  detail    a supporting line of at most 9 words. It is scanned, not read.
-  narration what is said aloud. Written to be spoken, so it may differ from the
-            caption entirely. At most 20 words.
+  chapter   the title strip: 2-6 words, at most 30 characters, in the style of a
+            punchy headline that names what this beat is about ("BRAZIL GOES TO
+            A RUN-OFF", "WHO CAME FIRST", "WHY IT MATTERS"). Consecutive beats
+            may share a chapter; the set changes when the chapter does. The FIRST
+            chapter is the video's title card - make it the strongest line.
+  narration what is said aloud, and what appears on the chips. At most 20 words.
+            Short spoken sentences. Plain words. No symbols the voice cannot say.
+  caption   the same idea as an on-screen line, at most 14 words. Wrap ONE span
+            in *asterisks* to mark the words that carry the meaning.
+  detail    a supporting line of at most 9 words.
+  stat      OPTIONAL. One striking figure for the counting card:
+            {{"value": "43%", "label": "first-round vote"}}. The value MUST appear
+            exactly in the story material above. Label under 24 characters. Use
+            on at most two beats. Omit it (or use {{}}) when there is no figure.
+  fact      OPTIONAL. A TV-style lower third: one hard fact in at most 6 words
+            ("RUN-OFF SET FOR 25 OCTOBER"). Only facts stated in the material.
+            Use on at most two beats.
+  stamp     OPTIONAL. One word, at most 10 characters, slammed onto the frame
+            like a rubber stamp ("RUN-OFF", "BANNED", "QUITS", "APPROVED"). Use
+            on at most one beat, on the turn of the story. With "stamp_tone":
+            "good", "bad" or "neutral".
+  scene     art direction: {{"set": ..., "hat": ..., "pose": ...}}
+            set  one of {", ".join(STUDIO_SETS)}
+                 Pick the place the story happens: parliament for elections and
+                 laws, courtroom for rulings, street for protests and strikes,
+                 harbour for oil, trade and shipping, trading for markets and
+                 prices, server for AI and tech companies, maproom for war and
+                 diplomacy, home for household costs, lab for science and
+                 health, space for space. Use two to four different sets across
+                 the video.
+            hat  one of {", ".join(STUDIO_HATS)}
+            pose one of {", ".join(STUDIO_POSES)}
+            trend "up" or "down": which way the chart on the trading set
+                  points, when this beat is about something rising or falling
 
 Flow the beats into each other - because, and, which, so. One thought carried
 through the whole reel, not {num_beats} separate headlines.
 
-TWO or THREE of these beats must carry a graphic, and the rest must not. A beat
-with no graphic is a line of type on an empty page, and a reel of those is a
-slideshow. Pick the beats where the idea is a shape - a sequence, a contrast, a
-chain of cause and effect, a quantity - and give that shape to the reader
-instead of describing it. Set "graphic" and "data" on those beats only; every
-other beat has "graphic": "" and "data": {{}}.
+ONE or TWO beats may carry a graphic drawn on a board in the set. Pick the beat
+where the idea is a shape - a sequence, a contrast, a chain of cause and effect.
+Set "graphic" and "data" on those beats only; every other beat has
+"graphic": "" and "data": {{}}.
 
 {GRAPHIC_DEVICES}
-
-A graphic beat still needs its caption, detail and narration. The graphic
-carries the shape of the idea and the caption says what it means; neither is a
-label for the other.
 
 The last beat is the sign-off and must mention headlinne.com.
 
 VOICE
-Informational. The interest lives in the facts, not the delivery. A four-tonne
-rocket hitting the Moon does not need help being interesting. No jokes, no
-"here's my favourite part", no hype.
+Informational and quick, like a smart friend catching you up. The interest
+lives in the facts, not the delivery. No jokes, no hype, no "here's my
+favourite part".
 
 Return ONLY JSON:
 {{
   "beats": [
-    {{"chapter": "...", "caption": "... *emphasis* ...", "detail": "...",
-      "narration": "...", "graphic": "", "data": {{}}}}
+    {{"chapter": "...", "narration": "...", "caption": "... *emphasis* ...",
+      "detail": "...", "stat": {{}}, "fact": "", "stamp": "", "stamp_tone": "",
+      "scene": {{"set": "...", "hat": "...", "pose": "..."}},
+      "graphic": "", "data": {{}}}}
   ],
   "caption": "3 short paragraphs ending in a genuine question",
+  "question": "that question again, at most 30 characters",
   "hashtags": ["Topical", "Tags"]
 }}"""

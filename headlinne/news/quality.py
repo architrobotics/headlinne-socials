@@ -40,8 +40,15 @@ _COMMERCE = (
     "promo code", "coupon", "% off", "percent off", "discount code", "deal of",
     "best deals", "on sale now", "save up to", "lowest price", "price drop",
     "black friday", "prime day", "cyber monday", "affiliate", "buying guide",
-    "shop the", "where to buy", "our expert thinks", "we recommend",
+    "shop the", "where to buy", "where to preorder", "where to pre-order",
+    "our expert thinks", "we recommend",
     "will delight", "worth your money", "should you buy",
+    # "Amazon's Fire TV Stick 4K is over half off at under $20" was the best
+    # Technology story of 2026-09-11 by the interest score.
+    # Not "half price" or "under $X": those are also how a fare policy, a
+    # government contract and a car's starting price are reported.
+    "half off", "for just $*", "for just £*", "lowest-ever price",
+    "all-time low",
 )
 
 # Reviews and product comparisons. A verdict on a phone is not an event.
@@ -72,6 +79,8 @@ _HOUSEKEEPING = (
     "live updates", "as it happened", "open thread", "weekly roundup",
     "editor's note", "correction:", "we're hiring", "sponsored", "paid post",
     "advertisement", "partner content", "promoted",
+    # A broadcaster's video of an event it already reported in words.
+    "replay:", "video:", "watch live",
 )
 
 # Arguable. Kept deliberately narrow: these shapes are usually filler but
@@ -88,6 +97,11 @@ _ARGUABLE = (
 _OPINION = (
     "comment is free", "editorial:", "opinion:", "op-ed", "my view",
     "the case against", "letters:", "column:",
+    # A verdict on a person's argument is the column's own headline shape:
+    # "Bernie Sanders is right about the four-day workweek - but wrong ...".
+    "is right about", "is wrong about", "are right about", "are wrong about",
+    # The Guardian's unsigned editorial; "staffers react" is a panel of views.
+    "the guardian view", "staffers react", "what we love",
 )
 
 # Scheduled non-events and orientation pieces. Both are real journalism and
@@ -102,6 +116,16 @@ _DIARY = (
     "ahead of the", "in the diary", "what happens next",
 )
 
+# Event marketing. A conference selling tickets writes its sessions up as
+# discoveries: "Discover how to take your startup from prototype to production
+# at TechCrunch Disrupt" scored novelty and uplift off "discover" and
+# "breakthrough", and went out as the 2026-09-16 story card.
+_EVENT_PROMO = (
+    "discover how to", "learn how to", "register now", "save your seat",
+    "early-bird", "early bird", "webinar", "techcrunch disrupt",
+    "tickets on sale",
+)
+
 _RULES: tuple[tuple[str, tuple[str, ...]], ...] = (
     ("commerce", _COMMERCE),
     ("review", _REVIEW),
@@ -111,12 +135,26 @@ _RULES: tuple[tuple[str, tuple[str, ...]], ...] = (
     ("arguable", _ARGUABLE),
     ("opinion", _OPINION),
     ("diary", _DIARY),
+    ("event_promo", _EVENT_PROMO),
 )
 
 # The Guardian and several others sign a comment piece with " | Author Name" and
 # nothing else distinguishes it from a report. It is the single most reliable
 # opinion marker in this feed set, and it needs a shape rather than a word.
 _OPINION_BYLINE = re.compile(r"\|\s*[A-Z][a-z]+(?:\s+[A-Z][\w'-]+){1,2}\s*$")
+
+# A live blog names itself at the end of the headline, not the start: "French
+# education minister says up to 500 schools will remain closed - Europe live".
+# It is the day's running file, not a story, and on 2026-10-05 it would have
+# taken the reel.
+_LIVE_SUFFIX = re.compile(r"[–—-]\s*(?:[\w'’]+\s+){0,3}live\s*$", re.I)
+# ... and some name it at the start: "Iran war live: Tehran awaits official
+# response". Same running file, different house style.
+_LIVE_PREFIX = re.compile(r"^\s*(?:[\w'’-]+\s+){0,4}live\s*:", re.I)
+
+# "The MacBook Air M5 is $200 off for the first time in months". A price cut
+# expressed as an amount, which "% off" in _COMMERCE cannot see.
+_AMOUNT_OFF = re.compile(r"[$£€]\s?\d[\d,.]*\s*(?:k\s+)?off\b", re.I)
 
 
 _COMPILED = tuple((name, compile_terms(bag)) for name, bag in _RULES)
@@ -143,6 +181,10 @@ def reject_reason(title: str, summary: str = "") -> str | None:
         return "listicle:numbered"
     if _OPINION_BYLINE.search(title):
         return "opinion:byline"
+    if _LIVE_SUFFIX.search(title) or _LIVE_PREFIX.search(title):
+        return "housekeeping:live"
+    if _AMOUNT_OFF.search(title):
+        return "commerce:amount_off"
     return None
 
 

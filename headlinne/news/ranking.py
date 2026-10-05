@@ -7,11 +7,11 @@ Two jobs:
    independent, reputable sources is both better verified and (as a proxy)
    higher discussion volume. This is how we avoid posting an unverified scoop.
 
-2. Scoring and category weighting. Each cluster gets a composite score from
-   source count, source reputability, importance keywords and a gentle recency
-   term. We deliberately keep recency a minor factor so significance beats
-   "just published". From the scores we derive how much attention each category
-   earned today and which category dominates.
+2. Scoring and category weighting. Each cluster is scored by
+   news.significance - how many publishers ran the event, what is at stake,
+   who is involved - plus a gentle recency term. Recency stays minor so
+   significance beats "just published". From the scores we derive how much
+   attention each category earned today and which category dominates.
 
 No paid APIs or embeddings: similarity is computed from token overlap plus a
 sequence ratio, which is robust enough for headline matching.
@@ -24,36 +24,23 @@ import re
 from datetime import datetime, timezone
 from difflib import SequenceMatcher
 
-from ..config import CATEGORIES, HIGH_INTEREST_KEYWORDS
-from ._lexicon import compile_terms, distinct_hits
+from ..config import CATEGORIES
 from ..logging_setup import get_logger
 from ..models import NewsDigest, Story
 from . import categorise as categorise_mod
 from . import interest as interest_mod
 from . import quality as quality_mod
+from . import significance as significance_mod
 
 log = get_logger("news.ranking")
 
 # Tuning knobs.
 _SIM_THRESHOLD = 0.52          # how alike two headlines must be to merge
-# Cross-source coverage used to be the heaviest term at 3.2, which meant the top
-# story was always the one the most outlets ran: a central bank, a summit, an
-# earnings print. That is a measure of attendance, not of interest. It is now a
-# small tiebreaker between stories the interest score rates equally, and the real
-# verification signal moved to Story.verified, where it gates rather than ranks.
-_SOURCE_WEIGHT = 0.6           # tiebreaker only; see news/interest.py
-_INTEREST_WEIGHT = 1.0         # the primary ranking signal
-_TIER_WEIGHT = 1.6             # weight on best source reputability
-# Topical fit, not interest - see config.HIGH_INTEREST_KEYWORDS. Weighted and
-# capped so it can rank two comparably interesting stories against each other
-# and never overturn the interest score itself. At 0.9 x 4 it contributed 29% of
-# the ranking's variance while the interest score contributed 68%, which made a
-# vocabulary match worth more than half of what the whole editorial model was
-# worth. It is a tiebreaker now, and sized like one.
-_TOPIC_WEIGHT = 0.35           # per distinct on-beat term
-_TOPIC_CAP = 3                 # distinct terms that count
+# The weights that used to sit here - source count as a tiebreaker, interest
+# as the primary signal, a topical-fit bonus and a breadth bonus - are gone.
+# Ranking is news.significance now: coverage, stakes, actors, scale and
+# reputability in one place, with interest as a small term inside it.
 _RECENCY_WEIGHT = 1.0          # small recency nudge
-_BREADTH_BONUS = 0.7           # bonus for a big story verified by trusted outlets
 _LOW_VALUE_PENALTY = 1.15      # docked per soft/low-value marker (capped)
 _BREAKING_MIN_SOURCES = 3
 _BREAKING_AGE_HOURS = 8
@@ -171,34 +158,24 @@ def _low_value_penalty(text: str) -> float:
     return _LOW_VALUE_PENALTY * min(hits, 2)
 
 
-_TOPIC_RX = compile_terms(HIGH_INTEREST_KEYWORDS)
+def _score(story: Story, outlets: int = 1) -> float:
+    """Significance first, then a small nudge for freshness.
 
-def _score(story: Story) -> float:
-    sources = story.source_count
-    verification = _SOURCE_WEIGHT * math.log2(sources + 1)
-    reputability = _TIER_WEIGHT * story.tier
-
+    Until 2026-10 the primary term was news.interest - "would a curious person
+    enjoy this?" - and the reel spent a month on single-outlet science papers
+    while elections, wars and price shocks ranked underneath. The primary term
+    is now news.significance - "does this matter in the world today?" - which
+    leads with how many publishers ran the event. Interest survives inside it
+    as a small vividness tiebreaker. See news/significance.py for the replay.
+    """
     text = story.title + " " + story.summary
-    # Distinct on-beat terms, matched on word boundaries. `k in text` counted
-    # "said" as an AI story - see config.HIGH_INTEREST_KEYWORDS.
-    topic = _TOPIC_WEIGHT * min(distinct_hits(text, _TOPIC_RX), _TOPIC_CAP)
-
     age = _hours_old(story)
     recency = _RECENCY_WEIGHT * math.exp(-age / 18.0)  # gentle decay
-
-    # Reward the sweet spot: a story that is both widely covered and carried by
-    # a reputable outlet is the kind of significant, verified news we want to
-    # lead with (this is a proxy for genuine importance, not just volume).
-    breadth = _BREADTH_BONUS if (sources >= 3 and story.tier >= 1.2) else 0.0
-
     penalty = _low_value_penalty(text.lower())
-
-    # The primary signal: would a person who is not obliged to read this want to?
-    appeal = _INTEREST_WEIGHT * interest_mod.interest(
-        story.title, story.summary, has_image=bool(story.image_url))
-
-    return (appeal + verification + reputability + topic + recency
-            + breadth - penalty)
+    weight = significance_mod.significance(
+        story.title, story.summary, outlets=outlets, tier=story.tier,
+        has_image=bool(story.image_url), category=story.category)
+    return weight + recency - penalty
 
 
 def rank(stories: list[Story]) -> NewsDigest:
@@ -234,7 +211,10 @@ def rank(stories: list[Story]) -> NewsDigest:
 
     clusters = _cluster(stories)
     merged = [_merge(c) for c in clusters]
-    for s in merged:
+    # Publishers carrying each event, counted generously across clusters. A
+    # ranking input only - never printed, never a claim of agreement.
+    coverage = significance_mod.coverage(merged)
+    for s, outlets in zip(merged, coverage):
         s.verified = s.source_count >= 2
         s.sensitive = interest_mod.is_sensitive(s.title, s.summary)
         # The feed decides the category, and general feeds carry everything, so
@@ -247,7 +227,7 @@ def rank(stories: list[Story]) -> NewsDigest:
             log.info("Recategorised %r: %s -> %s", s.title[:56], s.category,
                      corrected)
             s.category = corrected
-        s.score = round(_score(s), 3)
+        s.score = round(_score(s, outlets), 3)
     merged.sort(key=lambda s: s.score, reverse=True)
 
     log.info("Clustered %d stories into %d events", len(stories), len(merged))
@@ -349,15 +329,17 @@ def _log_decisions(by_category: dict[str, list[Story]], top: int = 3) -> None:
     """
     for category, stories in by_category.items():
         for rank_i, s in enumerate(stories[:top], 1):
-            b = interest_mod.breakdown(s.title, s.summary, bool(s.image_url))
+            b = significance_mod.breakdown(
+                s.title, s.summary, outlets=s.source_count, tier=s.tier,
+                has_image=bool(s.image_url), category=s.category)
             log.info(
-                "rank %s#%d score=%.2f interest=%.2f sources=%d verified=%s "
-                "sensitive=%s | conc=%.2f univ=%.2f use=%.2f nov=%.2f surp=%.2f "
-                "upl=%.2f proc=%.2f | %s",
-                category, rank_i, s.score, b["total"], s.source_count,
-                s.verified, s.sensitive, b["concrete"], b["universal"],
-                b["useful"], b["novelty"], b["surprise"], b["uplift"],
-                b["procedural"], s.title[:70])
+                "rank %s#%d score=%.2f sources=%d verified=%s sensitive=%s | "
+                "stakes=%.0f actors=%.0f scale=%.0f decision=%.0f interest=%.1f "
+                "consumer=%.0f niche=%.0f feature=%.0f | %s",
+                category, rank_i, s.score, s.source_count, s.verified,
+                s.sensitive, b["stakes"], b["actors"], b["scale"], b["decision"],
+                b["interest"], b["consumer"], b["niche"], b["feature"],
+                s.title[:70])
 
 
 # How alike two headlines must be for the day to treat them as one event when
@@ -388,7 +370,16 @@ def same_event(a: Story, b: Story) -> bool:
     ta, tb = _tokens(a.title), _tokens(b.title)
     if not ta or not tb:
         return False
-    return len(ta & tb) / len(ta | tb) >= SAME_EVENT_SIM
+    if len(ta & tb) / len(ta | tb) >= SAME_EVENT_SIM:
+        return True
+    # Paraphrases share names, not wording: "OpenAI agent hacked Australia
+    # government portal" and "Australia to investigate if OpenAI hack of
+    # government health website broke the law" took the reel, the carousel and
+    # the story card on one replayed day once significance began ranking the
+    # day's real news, which is exactly the kind of story every outlet words
+    # differently. The same generous match coverage uses applies here.
+    return significance_mod.same_event_loose(significance_mod._keys(a.title),
+                                             significance_mod._keys(b.title))
 
 
 def strongest_categories(digest: NewsDigest, n: int = 2) -> list[str]:

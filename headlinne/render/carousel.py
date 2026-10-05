@@ -65,6 +65,12 @@ def _upgrade_candidates(url: str) -> list[str]:
     if not url:
         return []
     candidates: list[str] = []
+    # Phys.org (and its Medical Xpress / Tech Xplore siblings) put a 90x90
+    # thumbnail in the feed under /news/tmb/ and the 800px original under
+    # /news/800a/. About one top story in seven comes from them, and every one
+    # fell below MIN_PHOTO_PX and drew a generated scene instead of its photo.
+    if "/csz/news/tmb/" in url:
+        candidates.append(url.replace("/csz/news/tmb/", "/csz/news/800a/"))
     stripped = re.sub(r"-\d{2,4}x\d{2,4}(?=\.(?:jpg|jpeg|png|webp)\b)", "", url,
                       flags=re.I)
     if stripped != url:
@@ -178,16 +184,50 @@ def _headline(draw: ImageDraw.ImageDraw, text: str, *, y: int,
 
 
 def _body(draw: ImageDraw.ImageDraw, text: str, *, y: int, size: int = 42,
-          weight: int = 500, fill=None) -> int:
+          weight: int = 500, fill=None, max_lines: int | None = None) -> int:
     if not text:
         return y
     font = fonts.body_font(size, weight)
     lh = int(size * 1.3)
-    for line in fonts.wrap_text(font, text, SLIDE_W - 2 * MARGIN):
+    for line in fonts.wrap_text(font, text, SLIDE_W - 2 * MARGIN)[:max_lines]:
         draw.text((MARGIN, y), line, font=font,
                   fill=fill or theme.hex_to_rgb(theme.TEXT_SECONDARY))
         y += lh
     return y
+
+
+# Space a headline's last line needs below its line box before anything else
+# can start, as a fraction of the type size. Line height is 1.14 em and the
+# descenders of g, y and p reach past it: at 18px of fixed gap the 2026-10-04
+# cover set "energy" on top of the line beneath it.
+DESCENDER_GAP = 0.3
+
+# The lowest point any slide content may reach: the footer rule, less air.
+CONTENT_FLOOR = SLIDE_H - theme.FOOTER_RULE_FROM_BOTTOM - 48
+
+
+def _fit_headline_and_sub(headline: str, subtitle: str, *, top: int, bottom: int,
+                          start: int, min_size: int = 56, max_lines: int = 3,
+                          sub_size: int = 42) -> tuple[int, int]:
+    """The largest headline size, and subtitle line count, that fit `top..bottom`.
+
+    The headline shrinks first; the subtitle loses lines only once the headline
+    is already at its floor. Returns (headline_size, subtitle_lines).
+    """
+    width = SLIDE_W - 2 * MARGIN
+    sub_lines = (len(fonts.wrap_text(fonts.body_font(sub_size, 500), subtitle, width))
+                 if subtitle else 0)
+    sub_lh = int(sub_size * 1.3)
+    for keep in range(min(sub_lines, 2), -1, -1):
+        size = start
+        while size >= min_size:
+            lines = fonts.wrap_text(fonts.title_font(size, 800), headline, width)
+            height = (len(lines) * int(size * 1.14) + int(size * DESCENDER_GAP)
+                      + keep * sub_lh)
+            if len(lines) <= max_lines and top + height <= bottom:
+                return size, keep
+            size -= 4
+    return min_size, 0
 
 
 def _pip_and_bubble(canvas: Image.Image, draw: ImageDraw.ImageDraw, *,
@@ -211,10 +251,19 @@ def _render_cover(slide: Slide, carousel: InstagramCarousel, story, tone,
     canvas, draw = _open_slide(carousel, tone)
     _pip_and_bubble(canvas, draw, pose=slide.pose, say=slide.say, scale=15)
 
-    y = theme.draw_kicker(draw, slide.kicker or carousel.category,
-                          x=MARGIN, y=KICKER_Y, tone=tone)
-    y = _headline(draw, slide.headline, y=HEADLINE_Y, start=92, max_lines=3)
-    _body(draw, slide.subtitle, y=y + 18)
+    theme.draw_kicker(draw, slide.kicker or carousel.category,
+                      x=MARGIN, y=KICKER_Y, tone=tone)
+    # The receipt owns the bottom of the slide. Everything above it is fitted
+    # to the space that is left, rather than drawn at fixed offsets and left to
+    # collide: a three-line headline and a two-line subtitle used to run
+    # straight through the receipt's tick strip.
+    bottom = (SLIDE_H - RECEIPT_FROM_BOTTOM - 28) if story is not None else CONTENT_FLOOR
+    size, sub_lines = _fit_headline_and_sub(slide.headline, slide.subtitle,
+                                            top=HEADLINE_Y, bottom=bottom, start=92)
+    y = _headline(draw, slide.headline, y=HEADLINE_Y, start=size, min_size=size,
+                  max_lines=3)
+    _body(draw, slide.subtitle, y=y + int(size * DESCENDER_GAP),
+          max_lines=sub_lines)
 
     if story is not None:
         theme.draw_receipt(canvas, draw, story, x=MARGIN,
@@ -244,18 +293,38 @@ def _render_scale(slide: Slide, carousel: InstagramCarousel, story, tone,
             draw.text((MARGIN + width + 40, 420), unit,
                       font=fonts.title_font(64, 700),
                       fill=theme.hex_to_rgb(theme.TEXT_PRIMARY))
+        y = _body(draw, slide.explanation, y=620, size=46)
+    else:
+        # No number to set at 280px, so the comparison is the slide. It takes
+        # the figure's place in display weight rather than sitting at y=620
+        # under 350px of nothing, which is how a figureless scale slide read
+        # until 2026-10.
+        y = _body(draw, slide.explanation, y=290, size=52, weight=600,
+                  fill=theme.hex_to_rgb(theme.TEXT_PRIMARY))
 
-    y = _body(draw, slide.explanation, y=620, size=46)
-
-    plate_img, rung = plate_mod.for_story(story, loader, width=PLATE_W,
-                                          height=PLATE_H) if story else (None, "none")
+    # The plate gets whatever is left above the footer, and is scaled to it.
+    # It used to be placed below the text at its full size regardless, so a
+    # long paragraph pushed it across the footer and off the canvas.
+    room = CONTENT_FLOOR - (y + 40)
+    plate_h = min(PLATE_H if figure else 520, room - 30)
+    plate_img = None
+    if story is not None and plate_h >= 240:
+        plate_w = int(plate_h * PLATE_W / PLATE_H)
+        plate_img, _rung = plate_mod.for_story(story, loader, width=plate_w,
+                                               height=plate_h)
+    if plate_img is not None and plate_img.height > room:
+        # Tilt, tape and shadow make the finished plate taller than asked for.
+        ratio = room / plate_img.height
+        plate_img = plate_img.resize((int(plate_img.width * ratio), room),
+                                     Image.LANCZOS)
     if plate_img is not None:
-        px = SLIDE_W - MARGIN - plate_img.width
-        py = min(SLIDE_H - RECEIPT_FROM_BOTTOM - plate_img.height - 40, y + 40)
-        canvas.alpha_composite(plate_img, (max(MARGIN, px), max(y + 20, py)))
-    elif slide.say and slide.pose:
+        px = (SLIDE_W - plate_img.width) // 2 if not figure \
+            else SLIDE_W - MARGIN - plate_img.width
+        py = y + 40 + max(0, (room - plate_img.height) // 2)
+        canvas.alpha_composite(plate_img, (max(MARGIN - 20, px), py))
+    elif slide.say and slide.pose and room >= 420:
         _pip_and_bubble(canvas, draw, pose=slide.pose, say=slide.say,
-                        scale=12, y=SLIDE_H - 620)
+                        scale=12, y=CONTENT_FLOOR - 400)
     return _close_slide(canvas, draw)
 
 
@@ -327,9 +396,24 @@ SLIDE_ORDER = ("cover", "scale", "twist", "sources", "cta")
 # Public entry point
 # --------------------------------------------------------------------------- #
 def render_carousel(carousel: InstagramCarousel, out_dir: Path,
-                    image_loader: ImageLoader | None = None) -> list[Path]:
-    """Render every slide to a PNG, returning the file paths in order."""
+                    image_loader: ImageLoader | None = None, *,
+                    style: str | None = None) -> list[Path]:
+    """Render every slide to a PNG, returning the file paths in order.
+
+    CAROUSEL_STYLE picks the look. The studio renderer is new, so if it fails
+    for any reason the carousel is drawn in the paper style rather than lost.
+    """
+    from ..config import CAROUSEL_STYLE
+
     loader = image_loader or default_image_loader
+    if (style or CAROUSEL_STYLE) == "studio":
+        from .studio.carousel import render_carousel as render_studio
+
+        try:
+            return render_studio(carousel, out_dir, loader)
+        except Exception as exc:  # noqa: BLE001 - fall back, never lose the post
+            log.error("studio carousel failed (%s), drawing the paper style",
+                      exc, exc_info=True)
     out_dir.mkdir(parents=True, exist_ok=True)
     story = carousel.story
 

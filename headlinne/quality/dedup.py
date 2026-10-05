@@ -50,7 +50,7 @@ class History:
     def load(cls) -> "History":
         if HISTORY_PATH.exists():
             try:
-                data = json.loads(HISTORY_PATH.read_text())
+                data = json.loads(HISTORY_PATH.read_text(encoding="utf-8"))
                 return cls(data.get("days", {}))
             except Exception as exc:  # pragma: no cover
                 log.warning("history unreadable, starting fresh: %s", exc)
@@ -58,7 +58,8 @@ class History:
 
     def save(self) -> None:
         STATE_DIR.mkdir(parents=True, exist_ok=True)
-        HISTORY_PATH.write_text(json.dumps({"days": self.days}, indent=2))
+        HISTORY_PATH.write_text(json.dumps({"days": self.days}, indent=2),
+                                encoding="utf-8")
 
     def prune(self, today: date) -> None:
         cutoff = today - timedelta(days=HISTORY_DAYS)

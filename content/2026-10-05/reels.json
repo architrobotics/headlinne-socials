@@ -19,7 +19,12 @@
         "pose": "",
         "say": "",
         "plates": [],
-        "tone": ""
+        "tone": "",
+        "scene": {},
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": ""
       },
       {
         "role": "hook",
@@ -34,7 +39,12 @@
         "pose": "walk",
         "say": "",
         "plates": [],
-        "tone": ""
+        "tone": "",
+        "scene": {},
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": ""
       },
       {
         "role": "point",
@@ -49,7 +59,12 @@
         "pose": "point",
         "say": "",
         "plates": [],
-        "tone": ""
+        "tone": "",
+        "scene": {},
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": ""
       },
       {
         "role": "graphic",
@@ -70,7 +85,12 @@
         "pose": "present",
         "say": "",
         "plates": [],
-        "tone": ""
+        "tone": "",
+        "scene": {},
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": ""
       },
       {
         "role": "point",
@@ -87,7 +107,12 @@
         "plates": [
           "story"
         ],
-        "tone": ""
+        "tone": "",
+        "scene": {},
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": ""
       },
       {
         "role": "graphic",
@@ -107,7 +132,12 @@
         "pose": "talk",
         "say": "",
         "plates": [],
-        "tone": ""
+        "tone": "",
+        "scene": {},
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": ""
       },
       {
         "role": "point",
@@ -122,7 +152,12 @@
         "pose": "point",
         "say": "",
         "plates": [],
-        "tone": ""
+        "tone": "",
+        "scene": {},
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": ""
       },
       {
         "role": "outro",
@@ -137,7 +172,12 @@
         "pose": "cta",
         "say": "",
         "plates": [],
-        "tone": ""
+        "tone": "",
+        "scene": {},
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": ""
       }
     ],
     "caption": "Hidden X-ray phase revealed in likely neutron star merger\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#Astronomy #Space #ScienceNews #Headlinne",
@@ -158,5 +198,231 @@
     "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-05/reels/reel_1_cover.png",
     "audio_file": null,
     "has_voiceover": true
+  },
+  {
+    "slot": "reel_2",
+    "kind": "news",
+    "category": "Geopolitics",
+    "title": "G7 to release 100 million barrels of oil and diesel after Trump export ban threat",
+    "hook": "G7 opens the oil reserves",
+    "beats": [
+      {
+        "role": "hook",
+        "caption": "G7 releases up to *100 million barrels* of oil and diesel",
+        "detail": "",
+        "narration": "The G7 is releasing up to 100 million barrels of emergency oil and diesel.",
+        "seconds": 3.0,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "G7 opens the oil reserves",
+        "pose": "present",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "harbour",
+          "hat": "hardhat"
+        },
+        "stat": {
+          "value": "100m",
+          "label": "barrels from reserves"
+        },
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": ""
+      },
+      {
+        "role": "point",
+        "caption": "Fuel prices *surged* as the Iran war hit Gulf supplies",
+        "detail": "",
+        "narration": "Fuel prices surged after the war on Iran disrupted Gulf oil supplies.",
+        "seconds": 3.0,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "Why now",
+        "pose": "talk",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "trading",
+          "trend": "up"
+        },
+        "stat": {},
+        "fact": "UK diesel hits a record £2 a litre",
+        "stamp": "",
+        "stamp_tone": ""
+      },
+      {
+        "role": "point",
+        "caption": "UK diesel: a record *£2 a litre*",
+        "detail": "",
+        "narration": "In Britain, diesel just hit a record two pounds a litre.",
+        "seconds": 3.0,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "Why now",
+        "pose": "point",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {},
+        "stat": {
+          "value": "40.5%",
+          "label": "UK diesel since Feb"
+        },
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": ""
+      },
+      {
+        "role": "point",
+        "caption": "Trump threatened to *ban US diesel exports*",
+        "detail": "",
+        "narration": "Then Trump threatened to ban US diesel exports, to cut prices before November's elections.",
+        "seconds": 3.0,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "Trump's threat",
+        "pose": "alarm",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "parliament",
+          "hat": "press"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "THREAT",
+        "stamp_tone": "bad"
+      },
+      {
+        "role": "graphic",
+        "caption": "Pressure, crisis talks, then a *coordinated release*",
+        "detail": "",
+        "narration": "After crisis talks, G7 leaders agreed a coordinated release over four months.",
+        "seconds": 3.0,
+        "graphic": "flow",
+        "data": {
+          "steps": [
+            "US pressures Europe",
+            "G7 crisis talks",
+            "Reserves released"
+          ]
+        },
+        "image_url": null,
+        "chapter": "The deal",
+        "pose": "point",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "maproom"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": ""
+      },
+      {
+        "role": "point",
+        "caption": "Oil fell as much as *5%* on the news",
+        "detail": "",
+        "narration": "Oil fell as much as five percent on the news. Will pumps follow?",
+        "seconds": 3.0,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "What happened next",
+        "pose": "think",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "trading",
+          "trend": "down"
+        },
+        "stat": {},
+        "fact": "Oil fell as much as 5% on the news",
+        "stamp": "",
+        "stamp_tone": ""
+      },
+      {
+        "role": "outro",
+        "caption": "Every source, side by side: *headlinne.com*",
+        "detail": "",
+        "narration": "Every source on this story is on headlinne dot com.",
+        "seconds": 3.0,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "Follow the fuel shock",
+        "pose": "cta",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "newsroom"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": ""
+      }
+    ],
+    "caption": "The G7 is releasing up to 100 million barrels of emergency oil and diesel.\n\nDiesel hit a record £2 a litre in the UK after the Iran war disrupted Gulf supplies, and President Trump threatened to ban US diesel exports. G7 leaders agreed a coordinated release over the next four months, and oil prices fell as much as 5% on the news.\n\nWill it reach the pump?\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#OilPrices #Diesel #G7 #Energy",
+    "hashtags": [
+      "OilPrices",
+      "Diesel",
+      "G7",
+      "Energy",
+      "FuelPrices",
+      "Economy",
+      "WorldNews",
+      "Headlinne"
+    ],
+    "scheduled_time": "2026-10-05T20:00:00+05:30",
+    "first_comment": "#FuelPrices #Economy #WorldNews #Headlinne",
+    "sources": "BBC · Guardian · NPR · France 24 · MarketWatch",
+    "story_url": "https://www.bbc.co.uk/news/articles/ck87zg8jnwngo?at_medium=RSS&at_campaign=rss",
+    "dateline": "MON 5 OCT",
+    "story": {
+      "title": "G7 to release 100 million barrels of oil and diesel after Trump export ban threat",
+      "summary": "The coordinated release is aimed at heading off further price spikes and avoiding a ban on US diesel exports.",
+      "url": "https://www.bbc.co.uk/news/articles/ck87zg8jnwngo?at_medium=RSS&at_campaign=rss",
+      "category": "Geopolitics",
+      "source": "BBC Business",
+      "tier": 1.4,
+      "published_iso": "2026-10-02T11:15:16+00:00",
+      "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/1c16/live/be292300-be89-11f1-babe-4199b0e7ccea.jpg",
+      "corroborating_sources": [
+        "BBC World",
+        "France 24"
+      ],
+      "score": 9.218,
+      "verified": false,
+      "sensitive": false,
+      "agreement": {
+        "reported": 1,
+        "agree": 1,
+        "conflict": 0,
+        "claim": "100,000,000",
+        "claim_unit": "reported",
+        "outlets": [
+          "BBC Business"
+        ],
+        "conflicts": []
+      }
+    },
+    "duration_seconds": 0.0,
+    "video_file": null,
+    "cover_file": null,
+    "audio_file": null,
+    "has_voiceover": false
   }
 ]

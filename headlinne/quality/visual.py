@@ -177,6 +177,19 @@ def check_contrast(report: VisualReport, ground=SURFACE) -> None:
                  f"contrast: a filled flow chip sets CREAM on the accent at "
                  f"{inverted:.2f}:1, below the {CONTRAST_LARGE} floor")
 
+    # A torn-paper chip (render/collage.py) sets its word on the accent, and
+    # picks CREAM or INK by contrast. Checked for every tone a chip can be
+    # filled with, so a new category colour cannot ship an illegible chip.
+    from ..render.collage import chip_text_fill
+
+    for value in (*CATEGORY_COLORS.values(), BRAND_TERRACOTTA, TONE_AGREE,
+                  TONE_DISPUTE, TONE_LIVE):
+        fill = theme.safe_fill(value, DISPLAY_ONLY_MIN_PX)
+        ratio = theme.contrast_ratio(chip_text_fill(fill), fill)
+        report.check(ratio >= CONTRAST_LARGE,
+                     f"contrast: a chip on {value} sets its word at "
+                     f"{ratio:.2f}:1, below the {CONTRAST_LARGE} floor")
+
     # TEXT_MUTED fails 4.5 by design and is furniture only - never body copy.
     # It is checked so its status is recorded rather than assumed.
     muted = theme.contrast_ratio(TEXT_MUTED, ground)
@@ -251,8 +264,15 @@ def check_carousel(carousel, images: Iterable[Image.Image]) -> VisualReport:
                      or all(not s.pose and not s.say for s in carousel.slides),
                      "carousel: a sensitive story is carrying the mascot or a "
                      "speech bubble")
-        report.check(getattr(story, "verified", False),
-                     "carousel: story has not reached two independent outlets")
+        # A warning, not an error. Corroboration is a preference for this
+        # format and not a floor (config.CAROUSEL_SOURCE_BONUS), and the
+        # receipt has a SINGLE SOURCE state that says so on the slide. As a
+        # hard check this line outlived that decision and silently dropped the
+        # carousel on 25 of the 35 days to 2026-10-05, after it had been
+        # written and rendered.
+        report.soft_check(getattr(story, "verified", False),
+                          "carousel: story has not reached two independent "
+                          "outlets - publishing with the SINGLE SOURCE strip")
 
     for i, img in enumerate(images, 1):
         check_canvas(img, (SLIDE_W, SLIDE_H), f"slide {i}", report)
@@ -297,7 +317,10 @@ def check_reel_frames(frames, *, sample_every: int = 6,
             report.check(y1 <= theme.REEL_SAFE_BOTTOM,
                          f"{where}: {name!r} bottom {y1} is below the safe zone "
                          f"({theme.REEL_SAFE_BOTTOM}), where Instagram's UI sits")
-            report.check(x0 >= theme.MARGIN - 34,
+            # A "bleed-" element is designed to run off the frame edge (the
+            # studio reel's lower third enters from the left like a TV
+            # chyron), so only its right edge is held to the margin.
+            report.check(x0 >= theme.MARGIN - 34 or name.startswith("bleed-"),
                          f"{where}: {name!r} left {x0} crosses the margin")
             report.check(x1 <= REEL_W - theme.MARGIN + 34,
                          f"{where}: {name!r} right {x1} crosses the margin")

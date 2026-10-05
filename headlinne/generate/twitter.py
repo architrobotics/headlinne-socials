@@ -44,6 +44,7 @@ def _news_post(client: GeminiClient, category: str, stories: list[Story],
         kind="news",
         lead=card_lead,
         items=card_items,
+        story=stories[0] if stories else None,
     )
 
 

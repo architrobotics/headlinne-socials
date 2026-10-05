@@ -271,7 +271,7 @@ def for_story(story, loader=None, *, width: int = 560, height: int = 380,
                       font=caption_font), "chart"
 
     # Rung 2: a generated scene, always captioned as an illustration.
-    if category in SCENES:
+    if category in SCENES and _scene_fits(story, category):
         scene = scene_for(category, w=width, h=height,
                           seed=_seed_for(getattr(story, "title", "") or category))
         return tilted(scene, angle=angle, caption=ILLUSTRATION_CAPTION,
@@ -279,6 +279,23 @@ def for_story(story, loader=None, *, width: int = 560, height: int = 380,
 
     # Rung 4.
     return None, "none"
+
+
+def _scene_fits(story, category: str) -> bool:
+    """Whether the category's scene depicts what the story is about.
+
+    Science's scene is a lunar crater, and it was drawn beside every Science
+    story without a usable photo - plankton, mitochondria, Alzheimer's. The
+    caption says illustration, but an illustration of the wrong thing is still
+    the wrong picture. Outside space stories, Science takes rung 4 instead.
+    """
+    if SCENES.get(category) is not moon_scene:
+        return True
+    from ..news.fatigue import families
+
+    return bool(families(getattr(story, "title", "") or "",
+                         getattr(story, "summary", "") or "")
+                & {"astronomy", "spaceflight"})
 
 
 _MAX_CHART_BARS = 7

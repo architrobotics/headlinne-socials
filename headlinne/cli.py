@@ -32,10 +32,22 @@ def _cmd_generate(args: argparse.Namespace) -> int:
 
 
 def _cmd_publish(args: argparse.Namespace) -> int:
+    from datetime import date as _date
+
     from .pipeline import publish
 
-    publish(args.target)
+    publish(args.target, _date.fromisoformat(args.day) if args.day else None)
     return 0
+
+
+def _cmd_render_reel(args: argparse.Namespace) -> int:
+    """Render a hand-written reel already sitting in a day's reels.json."""
+    from datetime import date as _date
+
+    from .pipeline import render_prepared_reel
+
+    day = _date.fromisoformat(args.day) if args.day else None
+    return 0 if render_prepared_reel(args.slot, day) else 1
 
 
 def _cmd_reddit(args: argparse.Namespace) -> int:
@@ -231,7 +243,7 @@ def _preview_reels(out_root: Path, args: argparse.Namespace | None = None) -> li
     from .quality import visual
     from .render import render_reel
     from .render.motion import ffmpeg_available
-    from .render.reel import ReelFrames, plan_durations
+    from .render.reel import plan_durations, reel_frames
 
     if not ffmpeg_available():
         print("Skipping the reel preview: ffmpeg not found. Install it, "
@@ -255,22 +267,26 @@ def _preview_reels(out_root: Path, args: argparse.Namespace | None = None) -> li
         slot="reel_1", kind="news", category="Science", title="Moon impact",
         hook="A four-tonne rocket stage just hit the Moon",
         beats=[
-            ReelBeat(role="hook", chapter="What happened", pose="walk",
+            ReelBeat(role="hook", chapter="A rocket hit the Moon", pose="walk",
+                     stat={"value": "4", "label": "tonnes of rocket"},
+                     scene={"set": "space"},
                      caption="On Tuesday a *four-tonne* rocket stage struck the Moon.",
                      detail="A Falcon 9 second stage.",
                      narration="On Tuesday a four-tonne rocket stage struck the Moon."),
-            ReelBeat(role="point", chapter="Why", pose="point",
-                     say="Not deliberate.",
+            ReelBeat(role="point", chapter="Why it was there", pose="point",
+                     say="Not deliberate.", scene={"set": "newsroom"},
                      caption="It was up there because solar activity pulled it *off course*.",
                      detail="Nobody planned this.",
                      narration="It was up there because solar activity had pulled it off course."),
-            ReelBeat(role="graphic", chapter="Where", pose="present",
-                     plates=["story"],
+            ReelBeat(role="graphic", chapter="Where it landed", pose="present",
+                     plates=["story"], fact="Near Einstein Crater, far side",
+                     scene={"set": "space"},
                      caption="It came down near *Einstein Crater*, on the far side.",
                      detail="Out of view from Earth.",
                      narration="It came down near Einstein Crater, on the far side."),
             ReelBeat(role="graphic", chapter="How fast", pose="jump",
                      graphic="counter", data={"value": "8700"},
+                     stat={"value": "8700", "label": "km per hour"},
                      caption="kilometres per hour.",
                      detail="About six times a rifle bullet.",
                      narration="Eight thousand seven hundred kilometres per hour."),
@@ -284,7 +300,7 @@ def _preview_reels(out_root: Path, args: argparse.Namespace | None = None) -> li
                      narration="Solar activity had been dragging it off course "
                                "for years."),
             ReelBeat(role="graphic", chapter="The correction", pose="talk",
-                     graphic="split",
+                     graphic="split", stamp="CORRECTED", stamp_tone="neutral",
                      data={"left_title": "Reported as",
                            "left_text": "A SpaceX Falcon 9 second stage",
                            "right_title": "Actually was",
@@ -306,7 +322,7 @@ def _preview_reels(out_root: Path, args: argparse.Namespace | None = None) -> li
 
     plan_durations(reel)
     pace = visual.check_pace(reel)
-    frames = ReelFrames(reel, story, loader=lambda _src: None)
+    frames = reel_frames(reel, story, loader=lambda _src: None)
     geometry = visual.check_reel_frames(frames, sample_every=12, story=story)
     for message in pace.errors + geometry.errors:
         print(f"  visual gate: {message}")
@@ -339,6 +355,8 @@ def build_parser() -> argparse.ArgumentParser:
                    choices=["x-1", "x-2", "linkedin", "instagram-1", "instagram-2",
                             "reel-1", "reel-2", "story-card"],
                    help="which slot to publish")
+    p.add_argument("--day", help="YYYY-MM-DD (IST) of the content to publish; "
+                                 "default today")
     p.set_defaults(func=_cmd_publish)
 
     pv = sub.add_parser("preview",
@@ -349,6 +367,14 @@ def build_parser() -> argparse.ArgumentParser:
                     help="skip the reel previews (they need ffmpeg and take "
                          "about two minutes each)")
     pv.set_defaults(func=_cmd_preview)
+
+    rr = sub.add_parser("render-reel",
+                        help="render (with narration) a reel whose script is "
+                             "already in a day's reels.json")
+    rr.add_argument("--slot", required=True, choices=["reel-1", "reel-2"],
+                    help="which reel slot to render")
+    rr.add_argument("--day", help="YYYY-MM-DD (IST); default today")
+    rr.set_defaults(func=_cmd_render_reel)
 
     st = sub.add_parser("status",
                         help="is the account still generating, and still reaching?")

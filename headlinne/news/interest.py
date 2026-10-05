@@ -185,7 +185,74 @@ _OFF_BEAT = ("actor", "actress", "singer", "rapper", "celebrity", "celebrities",
              "listed for sale", "returns to the market", "asking price",
              "premier league", "transfer fee", "world cup squad",
              "nfl draft", "nba finals", "grand slam", "formula one",
-             "box set", "streaming series", "season finale", "tour dates")
+             "box set", "streaming series", "season finale", "tour dates",
+             # "Celine Dion fever hits Paris!" carried none of the words above
+             # and was the 2026-09-12 story card. Pope Leo's Paris mass was
+             # the 2026-09-27 one. Ceremony and spectacle, not news on this
+             # account's beat; a papal statement on AI still clears the bar,
+             # it just pays the same soft price as a film studio's earnings.
+             "concert", "concerts", "comeback tour", "world tour", "sold-out",
+             "sold out shows", "fans flock", "fever hits",
+             "pope", "papal", "pontiff", "popemobile", "open-air mass")
+
+# "First" that marks a return rather than a first. "Her first concert since
+# 2020" and "the first papal visit to France in 18 years" both scored the full
+# novelty term, which is how a comeback tour and a pope's itinerary outscored
+# real findings. Removed from the text before novelty is counted, and only
+# novelty: the rest of the headline is scored as written.
+_RETURN_NOT_FIRST = re.compile(
+    r"\bfirst(?:\s+\w+){0,5}\s+(?:since\b|in\s+(?:\d+|a|over|more\s+than|nearly)"
+    r"\b[^.]{0,20}?\b(?:years?|decades?|months?)\b)", re.I)
+
+# A routine product launch: a launch verb and a product noun in one headline.
+# Each half alone is fine - "launches" is also how a rocket story reads, and
+# "phone" is how a privacy story reads - but together they describe a spec
+# sheet. Motorola's Signature 27, Nacon's PS5 controller, Firefox 156 and BMW's
+# revamped i3 were four of the month's story cards, each the strongest
+# non-Science story of its day only because `concrete` rewards the model number
+# and `universal` rewards the word phone. A genuine first ("Apple launches its
+# first folding iPhone") still earns novelty, which offsets most of this.
+_LAUNCH_VERB = ("unveil*", "debut*", "launches", "launched", "introduces",
+                "introduced", "announces", "announced", "revamped", "refresh*",
+                "arrives", "now available", "goes on sale", "pre-order*",
+                "preorder*", "runs", "boasts", "teases", "leaked", "leaks",
+                "adds", "gets")
+# "Nacon's new PS5 controller", "Apple's next iPad": the possessive does the
+# work of the launch verb.
+_POSSESSIVE_NEW = re.compile(r"\w['’]s\s+(?:new|latest|next|upcoming)\b", re.I)
+_PRODUCT = ("phone", "phones", "smartphone*", "iphone", "pixel", "laptop*",
+            "tablet", "ipad", "macbook", "headphones", "earbuds", "controller",
+            "console", "smartwatch*", "watch", "glasses", "headset", "tv",
+            "monitor", "router", "browser", "chip", "chips", "chipset",
+            "chipsets", "processor", "flagship", "lineup", "model", "edition",
+            "beta", "suv", "sedan", "hatchback", "trim", "range")
+# A name with a version number is a product even when no product noun is
+# present: "Firefox 156 arrives", "Signature 27 runs", "iPhone 18 Pro adds".
+# Two or three digits, so "Artemis 2 launches" stays a rocket story.
+_VERSIONED = re.compile(r"\b(?:[A-Z]|i[A-Z])\w+\s\d{2,3}\b(?!\s*(?:%|years?|"
+                        r"million|billion|people|days|hours|miles|km))")
+
+# Words a general reader does not know, in a headline. The reel's writer can
+# translate one of them, but a headline built from three is a press release for
+# specialists, and it was leading the account: "Hidden X-ray phase revealed in
+# likely neutron star merger", "Scientists discover first type I
+# superconductor that breaks time-reversal". Small and capped - the point is to
+# break ties toward the story a person can picture, not to keep science out.
+_JARGON = ("phase", "merger", "superconduct*", "time-reversal", "symmetry",
+           "neutrino*", "isotope*", "x-ray", "spectr*", "catalys*", "polymer*",
+           "genom*", "transcription", "receptor*", "peptide*", "ligand*",
+           "plasma", "magnetar*", "pulsar*", "quasar*", "boson*", "lattice",
+           "topolog*", "nanoparticle*", "metabol*", "organoid*", "enzyme*",
+           "protein*", "molecul*", "proto-supercluster", "glitches",
+           "transport", "invasion", "machinery", "gatekeeper", "type i",
+           "dynamics", "mechanism", "pathway*", "substrate*", "coupling",
+           "cryo-em", "in vivo", "in vitro", "preclinical")
+
+# Service journalism. Useful, and the right shape for the evening explainer,
+# but there is no event in it, and a story card or a news reel is the account
+# telling someone what happened today.
+_SERVICE = re.compile(r"^\s*(?:how\s+to\b|here's\s+how\s+to\b|what\s+to\s+do\b"
+                      r"|think\s+you\b)|\balways\s+do\s+this\b", re.I)
 
 # Death and disaster. Not a disqualification - a routing decision.
 _SENSITIVE = ("dead", "death", "deaths", "killed", "kills", "killing",
@@ -203,6 +270,7 @@ _W_CONCRETE, _W_NOVELTY, _W_SURPRISE = 3.0, 2.4, 2.2
 _W_UNIVERSAL, _W_USEFUL, _W_UPLIFT = 2.6, 2.0, 1.8
 _W_IMAGE, _W_STANDALONE, _W_PROCEDURAL = 1.4, 1.2, 3.0
 _W_OFF_BEAT = 2.2
+_W_LAUNCH, _W_JARGON, _W_SERVICE = 2.4, 1.6, 1.8
 
 
 _RX = {name: compile_terms(bag) for name, bag in (
@@ -210,7 +278,8 @@ _RX = {name: compile_terms(bag) for name, bag in (
     ("universal", _UNIVERSAL), ("parochial", _PAROCHIAL), ("uplift", _UPLIFT),
     ("useful", _USEFUL), ("procedural", _PROCEDURAL),
     ("context", _CONTEXT_DEPENDENT), ("sensitive", _SENSITIVE),
-    ("off_beat", _OFF_BEAT),
+    ("off_beat", _OFF_BEAT), ("launch_verb", _LAUNCH_VERB),
+    ("product", _PRODUCT), ("jargon", _JARGON),
 )}
 
 
@@ -261,11 +330,12 @@ def is_sensitive(title: str, summary: str = "") -> bool:
 def _terms(title: str, summary: str, has_image: bool) -> dict[str, float]:
     """Every term, normalised to 0..1 (procedural is a penalty, same scale)."""
     text = f"{title} {summary}"
+    novel_text = _RETURN_NOT_FIRST.sub(" ", text)
     return {
         "concrete": min(1.0, _hits(text, "physical") * 0.45
                         + len(_UNITS.findall(text.lower())) * 0.3
                         + (0.25 if re.search(r"\d", title) else 0.0)),
-        "novelty": min(1.0, _hits(text, "novelty") * 0.5),
+        "novelty": min(1.0, _hits(novel_text, "novelty") * 0.5),
         "surprise": min(1.0, _hits(text, "surprise") * 0.55),
         "universal": max(0.0, min(1.0, _hits(text, "universal") * 0.4
                                   - _hits(text, "parochial") * 0.5)),
@@ -275,6 +345,15 @@ def _terms(title: str, summary: str, has_image: bool) -> dict[str, float]:
         "standalone": max(0.0, 1.0 - _hits(text, "context") * 0.5),
         "procedural": min(1.0, _hits(text, "procedural") * 0.34),
         "off_beat": min(1.0, _hits(text, "off_beat") * 0.5),
+        # Headline only, for all three: a summary describes the product it is
+        # about and explains its own terms, so testing it penalises the stories
+        # that do the explaining.
+        "launch": 1.0 if ((_hits(title, "launch_verb")
+                           or _POSSESSIVE_NEW.search(title))
+                          and (_hits(title, "product")
+                               or _VERSIONED.search(title))) else 0.0,
+        "jargon": min(1.0, _hits(title, "jargon") * 0.5),
+        "service": 1.0 if _SERVICE.search(title) else 0.0,
     }
 
 
@@ -290,7 +369,10 @@ def interest(title: str, summary: str = "", has_image: bool = False) -> float:
             + _W_IMAGE * t["image"]
             + _W_STANDALONE * t["standalone"]
             - _W_PROCEDURAL * t["procedural"]
-            - _W_OFF_BEAT * t["off_beat"])
+            - _W_OFF_BEAT * t["off_beat"]
+            - _W_LAUNCH * t["launch"]
+            - _W_JARGON * t["jargon"]
+            - _W_SERVICE * t["service"])
 
 
 def is_universal(title: str, summary: str = "") -> bool:

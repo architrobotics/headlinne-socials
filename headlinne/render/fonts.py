@@ -100,6 +100,52 @@ def label_font(size: int, weight: int = 700) -> ImageFont.FreeTypeFont:
     return ImageFont.truetype(str(_DEJAVU_BOLD), size)
 
 
+SERIF_PATH = FONTS_DIR / "DejaVuSerif-Bold.ttf"
+FRAUNCES_PATH = FONTS_DIR / "Fraunces-Variable.ttf"
+ANTON_PATH = FONTS_DIR / "Anton-Regular.ttf"
+
+# Fraunces axes, in the file's order: optical size, weight, softness, wonk.
+# Large optical size, heavy, fully soft and not wonky is the rounded display
+# serif the reference reels set their word chips in.
+_FRAUNCES_AXES = (72.0, 800.0, 100.0, 0.0)
+
+
+@lru_cache(maxsize=64)
+def chip_font(size: int) -> ImageFont.FreeTypeFont:
+    """The bold soft serif on the studio reel's torn-paper word chips.
+
+    The reference reels set the spoken words in a heavy soft serif, and the
+    contrast with the sans on the tape title is a large part of why the two
+    read as different jobs. Fraunces (OFL, licence beside it in assets) at
+    full softness is that face; DejaVu Serif Bold stays as the fallback.
+    """
+    try:
+        font = ImageFont.truetype(str(FRAUNCES_PATH), size)
+        font.set_variation_by_axes(list(_FRAUNCES_AXES))
+        return font
+    except Exception as exc:  # pragma: no cover
+        log.warning("Fraunces unavailable (%s), using DejaVu Serif.", exc)
+    try:
+        return ImageFont.truetype(str(SERIF_PATH), size)
+    except Exception as exc:  # pragma: no cover
+        log.warning("serif load failed (%s), using Manrope.", exc)
+        return label_font(size, 800)
+
+
+@lru_cache(maxsize=32)
+def chyron_font(size: int) -> ImageFont.FreeTypeFont:
+    """Condensed caps for the studio reel's lower third.
+
+    The one place Anton comes back: a TV news chyron is condensed capitals by
+    convention, and the lower third is quoting that convention on purpose.
+    """
+    try:
+        return ImageFont.truetype(str(ANTON_PATH), size)
+    except Exception as exc:  # pragma: no cover
+        log.warning("Anton load failed (%s), using Manrope.", exc)
+        return label_font(size, 800)
+
+
 def text_width(font: ImageFont.FreeTypeFont, text: str) -> int:
     bbox = font.getbbox(text)
     return bbox[2] - bbox[0]

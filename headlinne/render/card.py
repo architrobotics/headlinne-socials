@@ -245,6 +245,11 @@ def render_twitter_card(post: TwitterPost, out_path: Path, story=None,
     elif layout == "receipt":
         img = render_receipt_card(story, post)
     else:
+        # Default to fetching, as the carousel does. Passed through as None, the
+        # plate ladder skipped the photo rung outright and every plate card
+        # drew a generated scene beside a story that had a photograph.
+        if image_loader is None:
+            from .carousel import default_image_loader as image_loader
         img = render_plate_card(story, image_loader)
     img.convert("RGB").save(out_path, "PNG")
     post.image_file = str(out_path)

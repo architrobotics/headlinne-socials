@@ -100,3 +100,36 @@ def test_the_new_rules_do_not_touch_ordinary_reporting():
                   "Germany says Russia behind Leipzig airport drone attack",
                   "Scientists find a human-only gene that may explain our brainpower"):
         assert Q.reject_reason(title) is None, title
+
+
+def test_event_marketing_is_not_news():
+    assert Q.reject_reason(
+        "Discover how to take your startup from prototype to production at "
+        "TechCrunch Disrupt 2026").startswith("event_promo")
+    # A finding phrased with the same verb is untouched.
+    assert Q.reject_reason("Scientists discover how the brain stores fear") is None
+
+
+def test_a_price_cut_as_an_amount_is_commerce():
+    assert Q.reject_reason("The MacBook Air M5 is $200 off for the first time in months")
+    assert Q.reject_reason("Amazon’s Fire TV Stick 4K is over half off")
+    # A fare policy and a government contract are reported the same way, and
+    # are news.
+    assert Q.reject_reason("Half price rail travel extended to 18-year-olds") is None
+    assert Q.reject_reason("Anthropic and Gov. Newsom forge deal allowing California "
+                           "government to use Claude at half price") is None
+
+
+def test_a_live_blog_names_itself_at_the_end():
+    assert Q.reject_reason("French education minister says up to 500 schools will "
+                           "remain closed – Europe live") == "housekeeping:live"
+    assert Q.reject_reason("Bats live far longer than their size predicts") is None
+
+
+def test_editorials_and_reaction_panels_are_opinion():
+    assert Q.reject_reason("The Guardian view on global inequality: extreme wealth "
+                           "threatens democracy").startswith("opinion")
+    assert Q.reject_reason("Bernie Sanders is right about the four-day workweek – "
+                           "but wrong about how").startswith("opinion")
+    # "join US" is a country, not an event invitation.
+    assert Q.reject_reason("Iran threatens countries that join US ‘economic D-Day’") is None

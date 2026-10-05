@@ -8,6 +8,8 @@ varied across days.
 
 from __future__ import annotations
 
+import re
+
 from ..config import TWITTER_LIMIT, WEBSITE
 from ..quality.sanitize import sanitize
 
@@ -48,6 +50,24 @@ def clamp_words(text: str, max_chars: int) -> str:
         return text
     cut = text[:max_chars].rsplit(" ", 1)[0]
     return cut.rstrip(",.:;- ").strip() or text[:max_chars]
+
+
+def clamp_sentences(text: str, max_chars: int) -> str:
+    """Trim a paragraph to its last whole sentence under `max_chars`.
+
+    clamp_words is right for a headline and wrong for a paragraph: it stopped
+    the 2026-10-04 carousel's scale slide at "Think of them as", which reads as
+    a rendering fault. A paragraph keeps as many whole sentences as fit; only
+    when not even the first one does is it cut at a word with an ellipsis.
+    """
+    text = (text or "").strip()
+    if len(text) <= max_chars:
+        return text
+    head = text[:max_chars]
+    ends = [m.end() for m in re.finditer(r"[.!?](?=\s|$)", head)]
+    if ends:
+        return head[:ends[-1]].strip()
+    return clamp_words(text, max_chars - 1) + "…"
 
 
 def hashtag(word: str) -> str:

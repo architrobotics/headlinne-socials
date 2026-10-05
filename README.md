@@ -713,7 +713,10 @@ Add these as **variables** (plain, non-secret):
 | `SECOND_REEL` | `false` | Set `true` to add an evening educational reel |
 | `GEMINI_FALLBACK_MODELS` | `gemini-3.1-flash,...` | Models to fall through to when the primary hits its daily cap |
 | `FEED_TIMEOUT_SECONDS` | `12` | Per-feed socket timeout, so one stalled publisher cannot hang the run |
-| `REEL_CRF` | `20` | x264 quality for reels (lower is better and bigger) |
+| `REEL_STYLE` | `studio` | `studio`: Pip on a cut-paper set with taped titles, word chips and a lower third. `paper`: the earlier flat page |
+| `REEL_CRF` | `20` | x264 quality for paper-style reels (lower is better and bigger) |
+| `REEL_STUDIO_CRF` | `23` | x264 quality for studio reels, whose textures cost more bitrate |
+| `CAROUSEL_STYLE` | `studio` | `studio`: each slide on a cut-paper set with paper cards and papercraft Pip. `paper`: the earlier flat page |
 | `REEL_PRESET` | `veryfast` | x264 speed preset |
 | `REEL_VOICEOVER` | `true` | Narrate reels with Gemini TTS |
 | `REEL_TTS_MODEL` | `gemini-3.1-flash-tts-preview` | Speech model |
@@ -1081,3 +1084,18 @@ store via `PUBLIC_IMAGE_BASE_URL` instead of committing it.
 
 Built as a foundation to grow with Headlinne. The code favours clear, readable
 structure over cleverness, so it is easy to extend as the product evolves.
+
+## Publishing a hand-written reel
+
+For an extra reel outside the daily run - a story you want out today, a
+re-cut - write its script into `content/<day>/reels.json` under slot `reel_2`
+(same shape as the daily reel: chapter, narration, caption, and optionally
+stat, fact, stamp and scene per beat). Every printed figure must appear in the
+source articles; `generate.reel.verified_stat` and `verified_fact` check it.
+
+Then run **Actions -> Render and publish a prepared reel** (`reel.yml`) with
+slot `reel-2`. It narrates and renders the reel in CI (where the Gemini key
+lives) with `python -m headlinne render-reel --slot reel-2`, commits the MP4,
+waits until the file is publicly served, and publishes it through Buffer.
+Untick "publish" to render only.
+

@@ -46,11 +46,12 @@ from typing import Callable, Optional
 
 from PIL import Image, ImageDraw
 
-from ..config import (REEL_FPS, REEL_H, REEL_MAX_SECONDS, REEL_MIN_SECONDS,
-                      REEL_TARGET_SECONDS, REEL_W, WEBSITE)
+from ..config import (CATEGORY_PILL, REEL_COLLAGE, REEL_FPS, REEL_H,
+                      REEL_MAX_SECONDS, REEL_MIN_SECONDS, REEL_TARGET_SECONDS,
+                      REEL_W, WEBSITE)
 from ..logging_setup import get_logger
 from ..models import Reel, ReelBeat
-from . import fonts, graphics, motion, plate as plate_mod, theme
+from . import collage, fonts, graphics, motion, plate as plate_mod, theme
 from .carousel import default_image_loader
 
 log = get_logger("render.reel")
@@ -61,6 +62,7 @@ MARGIN = theme.MARGIN
 MASTHEAD_Y = 70
 PROGRESS_Y = 126
 CHAPTER_Y = 160
+TAPE_TOP = 140          # the tape label's visible top, under the progress rule
 PLATE_TOP = 214
 GROUND_WITH_PLATE = 944
 GROUND_BARE = 838
@@ -87,6 +89,17 @@ GRAPHIC_BOTTOM = GROUND_BARE
 # diagram standing while the line is still being read, which is the point: the
 # viewer should end the beat looking at a complete picture, not a moving one.
 GRAPHIC_BUILD_FRACTION = 0.55
+
+# The opening beat is the reel's cover: Buffer picks its thumbnail from inside
+# it (cover_offset_ms), so it is the frame on the profile grid for good. Until
+# 2026-10 it was set exactly like every other caption - 58px at body weight on
+# an empty stage under a "01 · HOOK" label - and the grid was a column of grey
+# sentences on blank paper. It is a title card now: the largest of these sizes
+# that fits above the detail line, at display weight, with Pip on stage.
+HOOK_SIZES = (88, 80, 72, 64, 58)
+HOOK_WEIGHT = 750
+HOOK_POSE = "present"
+HOOK_PIP_SCALE = 18           # the stage has nothing else in it on this beat
 
 # Pip is smaller when a plate is above him, so the two never fight for the eye.
 PIP_SCALE_WITH_PLATE = 12
@@ -162,8 +175,10 @@ class ReelFrames:
     """
 
     def __init__(self, reel: Reel, story=None, *, loader=None,
-                 day_ordinal: int = 0, dark: bool = False):
+                 day_ordinal: int = 0, dark: bool = False,
+                 collage_style: bool | None = None):
         self.reel = reel
+        self.collage = REEL_COLLAGE if collage_style is None else collage_style
         self.story = story
         self.loader = loader
         self.day_ordinal = day_ordinal
@@ -230,18 +245,25 @@ class ReelFrames:
         tone = theme.tone_for(self.story, category=self.reel.category,
                               role=beat.tone or beat.role)
 
-        canvas = theme.night(REEL_W, REEL_H) if self.dark else theme.paper(REEL_W, REEL_H)
+        if self.collage:
+            canvas = collage.ground(REEL_W, REEL_H, dark=self.dark)
+        else:
+            canvas = (theme.night(REEL_W, REEL_H) if self.dark
+                      else theme.paper(REEL_W, REEL_H))
         draw = ImageDraw.Draw(canvas)
 
         theme.draw_masthead(canvas, draw, tone=tone, date_text=self.reel.dateline,
                             y=MASTHEAD_Y, progress=t / max(self.duration, 0.001),
                             dark=self.dark)
 
-        chapter = f"{index + 1:02d} · {(beat.chapter or beat.role).upper()}"
-        draw.text((MARGIN, CHAPTER_Y), chapter, font=fonts.label_font(24, 700),
-                  fill=theme.safe_fill(tone, 24))
-        self._note("chapter", *draw.textbbox((MARGIN, CHAPTER_Y), chapter,
-                                             font=fonts.label_font(24, 700)))
+        if index == 0 and beat.role == "hook":
+            # The category, not the beat's production name. "HOOK" is what the
+            # pipeline calls it; nobody watching needs to be told.
+            chapter = CATEGORY_PILL.get(self.reel.category,
+                                        (self.reel.category or "").upper())
+        else:
+            chapter = f"{index + 1:02d} · {(beat.chapter or beat.role).upper()}"
+        self._draw_chapter(canvas, draw, chapter, tone)
 
         ground = self._draw_plates(canvas, beat, local)
         drew_graphic = self._draw_graphic(canvas, beat, local, tone)
@@ -250,12 +272,35 @@ class ReelFrames:
         if beat.say and local < 0.74 and pip_box is not None:
             self._draw_bubble(canvas, draw, beat.say, pip_box)
 
-        y = self._draw_line(draw, beat, local, tone)
+        y = self._draw_line(canvas, draw, beat, local, tone)
         self._draw_detail(draw, beat, y)
         self._draw_strip(canvas, draw)
         return canvas.convert("RGB")
 
     # ---- pieces ----------------------------------------------------------- #
+    def _draw_chapter(self, canvas: Image.Image, draw: ImageDraw.ImageDraw,
+                      chapter: str, tone) -> None:
+        if not self.collage:
+            draw.text((MARGIN, CHAPTER_Y), chapter, font=fonts.label_font(24, 700),
+                      fill=theme.safe_fill(tone, 24))
+            self._note("chapter", *draw.textbbox((MARGIN, CHAPTER_Y), chapter,
+                                                 font=fonts.label_font(24, 700)))
+            return
+        # On tape. The strip is the same image for every frame of the beat, so
+        # it is built once. Its visible top is pinned just under the progress
+        # rule, so a taller label grows towards the stage, never into the rule.
+        label = self._tape(chapter)
+        top = (label.getbbox() or (0, 0, 0, 0))[1]
+        box = collage.place(canvas, label, MARGIN - 12, TAPE_TOP - top)
+        self._note("chapter", *box)
+
+    def _tape(self, text: str) -> Image.Image:
+        key = f"tape:{text}"
+        if key not in self._plates:
+            self._plates[key] = collage.tape_label(
+                text, max_w=REEL_W - 2 * MARGIN + 24)
+        return self._plates[key]
+
     def _draw_graphic(self, canvas: Image.Image, beat: ReelBeat,
                       local: float, tone) -> bool:
         """Draw the beat's device across the stage. True if anything was drawn.
@@ -333,6 +378,8 @@ class ReelFrames:
         draw.rectangle([0, ground, REEL_W, ground + 5], fill=rule)
 
         pose = beat.pose
+        if not pose and beat.role == "hook":
+            pose = HOOK_POSE
         if pose == "cta":
             pose = cta_pose(self.day_ordinal)
         if not pose or getattr(self.story, "sensitive", False):
@@ -343,17 +390,30 @@ class ReelFrames:
         from . import pip as _pip
 
         scale = PIP_SCALE_WITH_PLATE if has_plate else PIP_SCALE_BARE
-        sprite = _pip.render(grid, scale)
+        if beat.role == "hook" and not has_plate:
+            scale = HOOK_PIP_SCALE
+        sprite = _pip.render(grid, scale).convert("RGBA")
+        # As a sticker his border takes room on every side. He is inset by it
+        # so the border's outer edge runs exactly where the bare sprite used
+        # to, and lifted by it so the border - not his feet - meets the ground.
+        border = collage.STICKER_BORDER if self.collage else 0
         # Eased rather than linear. The crossing takes the whole reel, and at
         # a constant rate he arrives at the right edge at exactly the speed he
         # left the left one, which reads as a conveyor belt. The endpoints are
         # unchanged, so the overlap and safe-zone harness sees the same bounds.
         travel = int(_pip.ease_in_out_sine(t / max(self.duration, 0.001))
-                     * (REEL_W - 2 * MARGIN - sprite.width))
-        x = MARGIN - 30 + travel
-        y = ground - sprite.height + 4
-        canvas.alpha_composite(sprite.convert("RGBA"), (x, y))
-        box = (x, y, x + sprite.width, ground + 4)
+                     * (REEL_W - 2 * MARGIN - sprite.width - 2 * border))
+        x = MARGIN - 30 + border + travel
+        y = ground - sprite.height + 4 - border
+        if self.collage:
+            pad = collage.STICKER_BORDER + 8
+            canvas.alpha_composite(collage.sticker(sprite), (x - pad, y - pad))
+        else:
+            canvas.alpha_composite(sprite, (x, y))
+        # Traced as the sticker's paper, not its shadow. The shadow is a soft
+        # halo a few percent dark, and counting it would report Pip touching
+        # the line on every plate beat when nothing visible does.
+        box = (x - border, y - border, x + sprite.width + border, ground + 4)
         self._note("pip", *box)
         return box
 
@@ -365,8 +425,8 @@ class ReelFrames:
                                   max_w=520)
         self._note("bubble", *box)
 
-    def _draw_line(self, draw: ImageDraw.ImageDraw, beat: ReelBeat,
-                   local: float, tone) -> int:
+    def _draw_line(self, canvas: Image.Image, draw: ImageDraw.ImageDraw,
+                   beat: ReelBeat, local: float, tone) -> int:
         y = LINE_Y
         if beat.graphic == "counter" and beat.data.get("value"):
             # The figure counts up. Every printed figure is verified against the
@@ -384,14 +444,49 @@ class ReelFrames:
             y = box[3] + 16
 
         top = y
+        size, weight = 58, 450
+        if beat.role == "hook":
+            size, weight = self._hook_size(draw, beat, top, tone)
         y = theme.draw_rich(draw, beat.caption, x=MARGIN, y=y,
-                            max_w=REEL_W - 2 * MARGIN, size=58, tone=tone,
+                            max_w=REEL_W - 2 * MARGIN, size=size, tone=tone,
                             reveal=min(1.0, local / LINE_REVEAL_FRACTION),
+                            base_weight=weight,
                             base_fill=theme.hex_to_rgb(
-                                theme.CREAM if self.dark else theme.TEXT_PRIMARY))
+                                theme.CREAM if self.dark else theme.TEXT_PRIMARY),
+                            chips=self.collage, canvas=canvas)
         if y > top:
             self._note("line", MARGIN, top, REEL_W - MARGIN, y)
         return y
+
+    def _hook_size(self, draw: ImageDraw.ImageDraw, beat: ReelBeat, top: int,
+                   tone) -> tuple[int, int]:
+        """(size, weight) for the hook: the largest display size whose block
+        ends above the detail line, or the ordinary caption style if none does.
+
+        Measured by laying the line out on a scratch canvas, so it agrees with
+        draw_rich to the pixel. The detail is positioned from where the line
+        ends and clamped to DETAIL_FLOOR, so a line that ran past its room
+        would push the detail up into it.
+        """
+        reserve = 0
+        if beat.detail:
+            box = draw.textbbox((0, 0), beat.detail, font=fonts.body_font(30, 450))
+            reserve = 26 + (box[3] - box[1])
+        scratch = ImageDraw.Draw(Image.new("RGB", (1, 1)))
+        # Display weight first. Heavier type is wider, so a hook too long for
+        # it drops to caption weight - and keeps stepping down, because a hook
+        # that falls back to the article title can be 90 characters, which at
+        # 58px with a detail line overlapped the detail and failed the gate.
+        ladder = [(size, HOOK_WEIGHT) for size in HOOK_SIZES] + [
+            (58, 450), (52, 450), (48, 450)]
+        for size, weight in ladder:
+            end = theme.draw_rich(scratch, beat.caption, x=0, y=top,
+                                  max_w=REEL_W - 2 * MARGIN, size=size,
+                                  tone=tone, base_weight=weight,
+                                  chips=self.collage)
+            if end + reserve <= DETAIL_FLOOR:
+                return size, weight
+        return ladder[-1]
 
     def _draw_detail(self, draw: ImageDraw.ImageDraw, beat: ReelBeat,
                      y: int) -> None:
@@ -434,6 +529,23 @@ class ReelFrames:
 # --------------------------------------------------------------------------- #
 # Public entry point
 # --------------------------------------------------------------------------- #
+def reel_frames(reel: Reel, story=None, *, style: str | None = None, **kwargs):
+    """The frame renderer for the configured REEL_STYLE.
+
+    Both renderers share an interface - render(t), trace, duration, beat_at -
+    so the geometry gate, the cover and the encoder never need to know which
+    one drew the reel.
+    """
+    from ..config import REEL_STYLE
+
+    style = (style or REEL_STYLE or "studio").lower()
+    if style == "studio":
+        from .studio.frames import StudioFrames
+
+        return StudioFrames(reel, story, **kwargs)
+    return ReelFrames(reel, story, **kwargs)
+
+
 def plan_durations(reel: Reel, track=None) -> list[float]:
     """Set each beat's length, and return them.
 
@@ -498,7 +610,7 @@ class _ContinuousScene(motion.Scene):
 def render_reel(reel: Reel, out_dir: Path, story=None, *,
                 image_loader: Callable | None = None, day_ordinal: int = 0,
                 audio_path: Path | None = None, voiceover: bool | None = None,
-                tts_client=None) -> Path:
+                tts_client=None, style: str | None = None) -> Path:
     """Encode the reel to MP4 and write its cover, returning the video path.
 
     When the voiceover is on, the narration is built first and the beat lengths
@@ -525,21 +637,28 @@ def render_reel(reel: Reel, out_dir: Path, story=None, *,
     elif not reel.beats or not any(b.seconds for b in reel.beats):
         plan_durations(reel)
 
-    frames = ReelFrames(reel, story, loader=image_loader or default_image_loader,
-                        day_ordinal=day_ordinal)
+    frames = reel_frames(reel, story, style=style,
+                         loader=image_loader or default_image_loader,
+                         day_ordinal=day_ordinal)
     scene = _ContinuousScene(frames)
 
     video_path = out_dir / f"{reel.slot}.mp4"
     cover_path = out_dir / f"{reel.slot}_cover.png"
 
-    # The cover is the frame the Reels tab shows before anyone presses play, so
-    # it is taken from partway into the opening beat - by which point the line
-    # has revealed and Pip has moved, and it looks like the reel rather than
-    # like an empty first frame.
-    motion.save_cover(scene, cover_path, t=min(0.12, 1.0))
+    # The cover is the frame the Reels tab shows before anyone presses play.
+    # It is the same frame Buffer's thumbnail offset picks, so the file and the
+    # published thumbnail agree. It was t=0.12 of the whole reel, which on a
+    # thirty second reel is 3.6s in - past a voiced opening beat, so the saved
+    # cover showed beat two while the grid showed beat one.
+    motion.save_cover(scene, cover_path,
+                      t=min(1.0, cover_offset_ms(reel) / 1000 / scene.duration))
 
+    from ..config import REEL_CRF, REEL_STUDIO_CRF
+    from .studio.frames import StudioFrames
+
+    crf = REEL_STUDIO_CRF if isinstance(frames, StudioFrames) else REEL_CRF
     duration = motion.render_scenes([scene], video_path, size=(REEL_W, REEL_H),
-                                    fps=REEL_FPS, audio_path=audio_path)
+                                    fps=REEL_FPS, audio_path=audio_path, crf=crf)
     reel.video_file = str(video_path)
     reel.cover_file = str(cover_path)
     reel.duration_seconds = round(duration, 2)

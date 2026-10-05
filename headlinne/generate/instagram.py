@@ -8,8 +8,9 @@ the call to action lives.
 
 Selection is the other half. The carousel gets one story a day and it has to be
 worth five slides, so the choice is made against the ranker's interest score
-*and* the sourcing: an uncorroborated story never gets the format, because four
-of its five slides would be making claims the source strip cannot back.
+*and* the sourcing: a well-sourced story is preferred, and a single-source one
+can still win, in which case the source strip says SINGLE SOURCE on the slide
+rather than the format refusing it. See config.CAROUSEL_SOURCE_BONUS.
 
 The renderer draws everything. The model only produces the text that fills the
 template, and every figure it returns is checked against the story before it is
@@ -34,7 +35,7 @@ from ..quality.sanitize import sanitize
 from ..render import receipt as receipt_mod
 from ..scheduling import slot_iso
 from . import hooks
-from .common import clamp_words
+from .common import clamp_sentences, clamp_words
 
 log = get_logger("generate.instagram")
 
@@ -184,15 +185,15 @@ def _slides(data: dict, story: Story) -> list[Slide]:
               image_url=story.image_url, index=1),
         Slide(role="scale", headline="", kicker="HOW BIG" if figure else "THE SCALE",
               figure=figure, unit=unit,
-              explanation=clamp_words(sanitize(data.get("scale_text", "")), 190),
+              explanation=clamp_sentences(sanitize(data.get("scale_text", "")), 190),
               image_url=story.image_url, index=2),
         Slide(role="twist",
               headline=twist_headline or "There is more to it than the headline.",
               kicker="WHAT YOU DID NOT KNOW",
-              explanation=clamp_words(sanitize(data.get("twist_text", "")), 190),
+              explanation=clamp_sentences(sanitize(data.get("twist_text", "")), 190),
               pose=pose("puzzled"), say=say("twist_say"), index=3),
         Slide(role="sources", headline="", kicker="SOURCES",
-              explanation=clamp_words(sanitize(data.get("sources_text", "")), 190),
+              explanation=clamp_sentences(sanitize(data.get("sources_text", "")), 190),
               pose=pose("verified" if state == "unanimous" else "puzzled"),
               say=say("sources_say") or ("" if sensitive else
                                          receipt_mod.short_label(story)),

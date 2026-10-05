@@ -184,3 +184,52 @@ def test_a_figurative_phrase_does_not_launder_a_real_death_toll():
     assert I.is_sensitive(
         "Earthquake kills 40 near the observatory studying a dead star")
     assert I.is_sensitive("Dead star research halted after lab fire kills two")
+
+
+# --------------------------------------------------------------------------- #
+# The October 2026 pass. Every headline here was a story card or a reel, or
+# would have been one on replay, and should not have been.
+# --------------------------------------------------------------------------- #
+def test_a_return_is_not_a_first():
+    comeback = I.breakdown("Celine Dion plays her first concert since 2020")
+    visit = I.breakdown("The first papal visit to France in 18 years")
+    assert comeback["novelty"] == 0.0
+    assert visit["novelty"] == 0.0
+    # A real first is untouched.
+    assert I.breakdown("The first-ever image of a black hole's shadow")["novelty"] > 0
+
+
+def test_a_routine_product_launch_is_docked():
+    for title in ("Motorola’s wild-looking Signature 27 runs Qualcomm’s new Extreme chipset",
+                  "Nacon’s new PS5 controller can mix audio from your phone and console",
+                  "Firefox 156 arrives with a forest of forks in its wake",
+                  "BMW’s revamped i3 boasts up to 468 miles of range"):
+        assert I.breakdown(title)["launch"] == 1.0, title
+
+
+def test_a_launch_verb_or_a_number_alone_is_not_a_product_launch():
+    for title in ("Germany launches first commercial rocket into space",
+                  "NASA launches 30 satellites",
+                  "Ukraine launches over 600 drones at Moscow region",
+                  "UN adds 61 firms to settlements blacklist",
+                  "What to know about Trump’s new tariffs on more than 80 countries",
+                  "Artemis 2 launches crew around the Moon"):
+        assert I.breakdown(title)["launch"] == 0.0, title
+
+
+def test_off_beat_spectacle_is_docked():
+    assert I.breakdown("Celine Dion fever hits Paris as comeback tour opens")["off_beat"] > 0
+    assert I.breakdown("Pope Leo celebrates open-air mass before 700,000 people")["off_beat"] > 0
+
+
+def test_a_headline_of_jargon_scores_below_the_same_finding_in_plain_words():
+    jargon = I.interest("Hidden X-ray phase revealed in likely neutron star merger")
+    plain = I.interest("Hidden flash revealed in likely collision of two dead stars")
+    assert plain > jargon
+
+
+def test_a_how_to_is_service_not_news():
+    assert I.breakdown("How to know it's time to replace your EV battery")["service"] == 1.0
+    assert I.breakdown("Think you maxed out your 401(k)? The real limit is higher")["service"] == 1.0
+    # "Here's how you can see it" is a finding with a viewing tip, not a how-to.
+    assert I.breakdown("A star is exploding - here's how you can see it")["service"] == 0.0

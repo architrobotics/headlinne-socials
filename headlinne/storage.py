@@ -75,13 +75,14 @@ def story_card_path(day: date) -> Path:
 
 def _write_json(path: Path, data) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(data, indent=2, ensure_ascii=False))
+    path.write_text(json.dumps(data, indent=2, ensure_ascii=False),
+                    encoding="utf-8")
 
 
 def _read_json(path: Path):
     if not path.exists():
         return None
-    return json.loads(path.read_text())
+    return json.loads(path.read_text(encoding="utf-8"))
 
 
 # --------------------------------------------------------------------------- #
@@ -105,7 +106,7 @@ def save_twitter(day: date, posts: list[TwitterPost]) -> None:
 
 def load_twitter(day: date) -> list[TwitterPost]:
     data = _read_json(content_dir_for(day) / "twitter.json") or []
-    return [TwitterPost(**p) for p in data]
+    return [TwitterPost.from_dict(p) for p in data]
 
 
 def save_linkedin(day: date, post: LinkedInPost) -> None:
@@ -242,3 +243,43 @@ def recent_week_stories(day: date, days_back: int = 7,
     log.info("Collected %d stories from the past %d days for the roundup",
              len(collected), days_back)
     return collected
+
+
+# --------------------------------------------------------------------------- #
+# What the account actually published lately, for news.fatigue
+# --------------------------------------------------------------------------- #
+_PICK_FILES = ("reels.json", "story_card.json", "instagram.json")
+
+
+def recent_picks(day: date, days_back: int = 5) -> list[tuple[int, str, str]]:
+    """(days_ago, title, summary) for every story a format covered lately.
+
+    The day files keep the story's URL but not the story (`story` is not
+    serialised), so the URL is looked up in that day's saved digest for its
+    headline and summary, falling back to the post's own title. A day that is
+    missing or unreadable contributes nothing; this never raises.
+    """
+    picks: list[tuple[int, str, str]] = []
+    for i in range(1, days_back + 1):
+        d = day - timedelta(days=i)
+        folder = content_dir_for(d)
+        try:
+            digest = load_digest(d)
+        except (OSError, ValueError):
+            digest = None
+        by_url = ({s.url: s for c in digest.by_category.values() for s in c}
+                  if digest else {})
+        for name in _PICK_FILES:
+            try:
+                data = _read_json(folder / name)
+            except (OSError, ValueError):
+                continue
+            for item in data if isinstance(data, list) else [data]:
+                if not isinstance(item, dict):
+                    continue
+                story = by_url.get(item.get("story_url") or "")
+                if story is not None:
+                    picks.append((i, story.title, story.summary))
+                elif item.get("title") or item.get("headline"):
+                    picks.append((i, item.get("title") or item.get("headline"), ""))
+    return picks

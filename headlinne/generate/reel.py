@@ -31,7 +31,6 @@ from ..gemini.prompts import (STYLE_GUIDE, reel_daily_prompt,
                               reel_news_prompt, stories_block)
 from ..logging_setup import get_logger
 from ..models import NewsDigest, Reel, ReelBeat, Story
-from ..news import interest as interest_mod
 from ..news.images import best_story_image
 from ..quality.sanitize import sanitize
 from ..render.graphics import DEVICES, LABEL_ONLY_DEVICES
@@ -214,7 +213,9 @@ def _beats_from(data: dict, *, source_text: str, allow_figures: bool,
                     break
         beats.append(ReelBeat(role="graphic" if device else "point",
                               caption=caption, detail=detail,
-                              narration=narration, graphic=device, data=payload))
+                              narration=narration, graphic=device, data=payload,
+                              chapter=clamp_words(sanitize(str(raw.get("chapter") or "")),
+                                                  CHAPTER_CHARS)))
     return beats
 
 
@@ -258,39 +259,24 @@ def _assemble(*, slot: str, kind: str, category: str, title: str, data: dict,
 # --------------------------------------------------------------------------- #
 # News explainer
 # --------------------------------------------------------------------------- #
-# How interesting a breaking story has to be, as a fraction of the best story
-# available, before it takes the reel off that story.
+# How close to the day's best a breaking story has to score to take the reel
+# instead of it.
 #
-# Breaking used to win outright, and the reasoning was sound: a reel about the
-# thing people are already searching for starts with an audience. The flaw is
-# what "breaking" means here - three or more outlets inside eight hours, which
-# is not a measure of importance but a measure of wire syndication. Royal diary
-# items, deportations and executive orders clear it every time; a single
-# specialist filing a genuine discovery never does.
-#
-# Measured over the 38 days in content/: a breaking story existed on 16 of them
-# and was *less interesting than the day's best story on 13*, usually by a lot -
-# 1.58 against 10.21 the day "Trump signs order to rename Lake Ontario as Lake
-# America" took the reel off a James Webb planet-formation result, and 2.60
-# against 9.85 the day "Prince William to attend King Harald's funeral" took it
-# off two unexplained hydrogen clouds. This ratio keeps the three cases where
-# breaking genuinely was the best thing available and drops the other thirteen.
-BREAKING_INTEREST_RATIO = 0.7
-
-# And an absolute floor, because the ratio alone is relative to a day that may
-# have nothing in it. On a thin day a funeral diary entry can be 70% of a weak
-# best and take the reel anyway. Of the three days breaking genuinely was the
-# right call it scored 5.59, 5.60 and 8.20, so this clears all of them with room
-# to spare; below it, the reel is better off with whatever else the day has.
-BREAKING_INTEREST_FLOOR = 3.0
+# This used to compare news.interest scores, and that comparison is how the
+# reel came to skip the news: an election result or a court ruling always
+# scored low on a wonder vocabulary, so "breaking" lost to a telescope result
+# on 13 of 16 days. Ranking is news.significance now, which already puts a
+# story most publishers ran near the top, so breaking only needs to be close
+# to the best to win - when it is, it is fresher and people are already
+# searching for it.
+BREAKING_SCORE_RATIO = 0.9
 
 
 def lead_story(digest: NewsDigest, *, exclude_urls: set[str] | None = None) -> Story | None:
     """The single most significant story of the day, across all categories.
 
-    Breaking news is preferred, but only when it is worth watching. A reel needs
-    a story with something to explain, and "who attended a funeral" has an
-    audience without having anything to say to it.
+    Breaking news is preferred when it scores within BREAKING_SCORE_RATIO of
+    the best story; otherwise the best story leads.
     """
     exclude = exclude_urls or set()
     candidates = [s for stories in digest.by_category.values() for s in stories
@@ -303,22 +289,12 @@ def lead_story(digest: NewsDigest, *, exclude_urls: set[str] | None = None) -> S
     breaking = digest.breaking
     if not breaking or breaking.url in exclude or breaking.url == best.url:
         return best
-
-    def appeal(story: Story) -> float:
-        return interest_mod.interest(story.title, story.summary,
-                                     has_image=bool(story.image_url))
-
-    breaking_appeal, best_appeal = appeal(breaking), appeal(best)
-    if (breaking_appeal >= BREAKING_INTEREST_FLOOR
-            and breaking_appeal >= best_appeal * BREAKING_INTEREST_RATIO):
-        log.info("reel: leading with the breaking story %r (interest %.2f "
-                 "against the day's best %.2f)", breaking.title[:56],
-                 breaking_appeal, best_appeal)
+    if breaking.score >= best.score * BREAKING_SCORE_RATIO:
+        log.info("reel: leading with the breaking story %r (%.2f against the "
+                 "day's best %.2f)", breaking.title[:56], breaking.score, best.score)
         return breaking
-
-    log.info("reel: skipping the breaking story %r (interest %.2f) for %r "
-             "(%.2f) - widely syndicated is not the same as worth watching",
-             breaking.title[:56], breaking_appeal, best.title[:56], best_appeal)
+    log.info("reel: %r (%.2f) over the breaking story %r (%.2f)",
+             best.title[:56], best.score, breaking.title[:56], breaking.score)
     return best
 
 
@@ -413,6 +389,55 @@ DAILY_BEATS = 7
 # design decision and the model does not get to drift it.
 MAX_GRAPHIC_BEATS = 3
 
+# The studio furniture, capped like the graphics: a stat card on every beat is
+# a spreadsheet, and a stamp on every beat stops meaning "this is the turn".
+MAX_STAT_BEATS = 2
+MAX_FACT_BEATS = 2
+MAX_STAMP_BEATS = 1
+STAT_LABEL_CHARS = 24
+FACT_CHARS = 40
+STAMP_CHARS = 10
+CHAPTER_CHARS = 32
+_STAMP_TONES = ("good", "bad", "neutral")
+
+
+def verified_stat(raw, source_digits: set[str], *, allow_figures: bool) -> dict:
+    """The stat card's payload, or {} if its figure is not in the source.
+
+    The card prints a number at 78px and counts it up, which is the most
+    screenshot-able claim a reel makes, so it is held to the same rule as the
+    counter device: every digit run must appear in the story text.
+    """
+    if not allow_figures or not isinstance(raw, dict):
+        return {}
+    value = clamp_words(sanitize(str(raw.get("value") or "")), 12)
+    if not value or not any(ch.isdigit() for ch in value):
+        return {}
+    if not all(run in source_digits for run in _digits(value)):
+        log.info("reel: dropping stat %r, figure not in the source", value)
+        return {}
+    label = clamp_words(sanitize(str(raw.get("label") or "")), STAT_LABEL_CHARS)
+    return {"value": value, "label": label}
+
+
+def verified_fact(raw, source_digits: set[str], *, allow_figures: bool) -> str:
+    """The lower third, or "" if it prints a figure the source does not."""
+    fact = clamp_words(sanitize(str(raw or "")), FACT_CHARS)
+    runs = _digits(fact)
+    if runs and (not allow_figures or not all(r in source_digits for r in runs)):
+        log.info("reel: dropping lower third %r, figure not in the source", fact)
+        return ""
+    return fact
+
+
+def _scene(raw) -> dict:
+    """Art direction, kept as strings; render/studio/direction.py validates it."""
+    if not isinstance(raw, dict):
+        return {}
+    return {k: str(raw.get(k) or "").strip().lower()[:16]
+            for k in ("set", "hat", "pose", "time", "trend") if raw.get(k)}
+
+
 # Below this interest score the day has no story worth thirty seconds, and the
 # reel teaches an evergreen idea instead. An explainer of why a rate rise reaches
 # your loan keeps earning reach for as long as loans exist; a reel about a thin
@@ -446,6 +471,7 @@ def _daily_beats(data: dict, story: Story) -> list[ReelBeat]:
 
     beats: list[ReelBeat] = []
     graphic_beats: list[int] = []
+    stats = facts = stamps = 0
     raw = data.get("beats", []) or []
     for index, item in enumerate(raw[:DAILY_BEATS]):
         caption = clamp_words(sanitize(str(item.get("caption", ""))), 120)
@@ -477,9 +503,30 @@ def _daily_beats(data: dict, story: Story) -> list[ReelBeat]:
         role = "hook" if index == 0 else (
             "outro" if index == len(raw[:DAILY_BEATS]) - 1 else
             ("graphic" if graphic else "point"))
+
+        stat = verified_stat(item.get("stat"), digits, allow_figures=not sensitive)
+        if stat and stats >= MAX_STAT_BEATS:
+            stat = {}
+        stats += bool(stat)
+        fact = verified_fact(item.get("fact"), digits, allow_figures=not sensitive)
+        if fact and facts >= MAX_FACT_BEATS:
+            fact = ""
+        facts += bool(fact)
+        # A stamp is a verdict in a joke's clothes; a story about a death
+        # does not get one.
+        stamp = "" if sensitive else clamp_words(
+            sanitize(str(item.get("stamp") or "")), STAMP_CHARS)
+        if stamp and (stamps >= MAX_STAMP_BEATS or " " in stamp.strip()):
+            stamp = ""
+        stamps += bool(stamp)
+        tone = str(item.get("stamp_tone") or "").strip().lower()
+
         beats.append(ReelBeat(
             role=role,
-            chapter=clamp_words(sanitize(str(item.get("chapter", ""))), 26),
+            stat=stat, fact=fact, stamp=stamp.upper(),
+            stamp_tone=tone if tone in _STAMP_TONES else "neutral",
+            scene=_scene(item.get("scene")),
+            chapter=clamp_words(sanitize(str(item.get("chapter", ""))), CHAPTER_CHARS),
             caption=caption,
             detail=clamp_words(sanitize(str(item.get("detail", ""))), 70),
             narration=clamp_words(sanitize(str(item.get("narration", ""))), 150),

@@ -39,6 +39,7 @@ from .generate import twitter as gen_twitter
 from .logging_setup import get_logger
 from .models import DayPlan, NewsDigest
 from .news import corroborate, fetch_all, rank, strongest_categories
+from .news import fatigue
 from .quality import (History, check_instagram, check_linkedin, check_reel,
                       check_story_card, check_twitter)
 from .quality.dedup import History as _History  # noqa: F401  (re-export friendliness)
@@ -83,6 +84,32 @@ def _drop_seen(digest: NewsDigest, history: History) -> None:
         kept = [s for s in digest.by_category.get(cat, [])
                 if not history.story_seen(s.url, s.title)]
         digest.by_category[cat] = kept
+
+
+def _apply_fatigue(digest: NewsDigest, day: date) -> None:
+    """Dock stories on a subject the account covered in the last few days.
+
+    Deletable in the same way the growth brief is: anything that goes wrong
+    reading the past days leaves the ranking exactly as rank() produced it.
+    See news/fatigue.py for why this exists.
+    """
+    try:
+        recent = storage.recent_picks(day, fatigue.WINDOW_DAYS)
+    except Exception as exc:  # noqa: BLE001 - a freshness nudge must not sink the run
+        log.warning("fatigue: could not read recent picks, ranking unchanged: %s", exc)
+        return
+    if not recent:
+        return
+    docked = 0
+    for cat in CATEGORIES:
+        stories = digest.by_category.get(cat, [])
+        for s in stories:
+            cost = fatigue.penalty(s.title, s.summary, recent)
+            if cost:
+                s.score = round(s.score - cost, 3)
+                docked += 1
+        stories.sort(key=lambda s: s.score, reverse=True)
+    log.info("fatigue: %d recent picks, docked %d candidates", len(recent), docked)
 
 
 def _corroborate_selected(digest: NewsDigest, corpus: list) -> None:
@@ -137,6 +164,7 @@ def generate(day: date | None = None, *, render: bool = True,
     stories = fetch_all()
     digest = rank(stories)
     _drop_seen(digest, history)
+    _apply_fatigue(digest, day)
     _corroborate_selected(digest, stories)
     storage.save_digest(day, digest)
 
@@ -204,7 +232,8 @@ def generate(day: date | None = None, *, render: bool = True,
         for i, post in enumerate(twitter_posts):
             slot = "x_1" if i == 0 else "x_2"
             try:
-                render_twitter_card(post, storage.x_card_path(day, slot))
+                render_twitter_card(post, storage.x_card_path(day, slot),
+                                    story=post.story)
             except Exception as exc:  # pragma: no cover - never fail the run on a card
                 log.warning("X card render failed for %s: %s", slot, exc)
 
@@ -375,8 +404,9 @@ def _render_reels(day: date, reels: list) -> list:
                   "Install ffmpeg or `pip install imageio-ffmpeg`.")
         return []
 
+    from .config import REEL_STYLE
     from .quality import visual
-    from .render.reel import ReelFrames
+    from .render.reel import reel_frames
 
     rendered = []
     for reel in reels:
@@ -384,24 +414,71 @@ def _render_reels(day: date, reels: list) -> list:
         # Validate the geometry before spending two minutes encoding it. A reel
         # that breaks the safe zone is going to break it on every one of its
         # nine hundred frames, so finding out before the encoder runs is free.
+        #
+        # The studio style is new and draws far more furniture, so a reel that
+        # fails its gate is retried in the paper style before it is dropped:
+        # a layout bug in the new renderer must cost the day its look, not
+        # its only reel.
         pace = visual.check_pace(reel)
-        frames = ReelFrames(reel, story)
-        geometry = visual.check_reel_frames(frames, sample_every=12, story=story)
-        for warning in pace.warnings + geometry.warnings:
+        style = None
+        failures: list[str] = []
+        for candidate in dict.fromkeys([REEL_STYLE, "paper"]):
+            frames = reel_frames(reel, story, style=candidate,
+                                 day_ordinal=day.toordinal())
+            geometry = visual.check_reel_frames(frames, sample_every=12, story=story)
+            for warning in geometry.warnings:
+                log.warning("visual: %s", warning)
+            if geometry.ok:
+                style = candidate
+                break
+            failures = geometry.errors
+            log.error("reel %s fails the %s gate (%s)%s", reel.slot, candidate,
+                      failures[0] if failures else "?",
+                      ", trying the paper style" if candidate != "paper" else "")
+        for warning in pace.warnings:
             log.warning("visual: %s", warning)
-        if not (pace.ok and geometry.ok):
-            for error in (pace.errors + geometry.errors)[:6]:
+        if not pace.ok or style is None:
+            for error in (pace.errors + failures)[:6]:
                 log.error("dropping reel %s: %s", reel.slot, error)
             continue
         try:
             # render_reel builds the narration itself, in one speech request,
             # and takes the beat lengths from it.
             render_reel(reel, storage.reel_dir(day), story=story,
-                        day_ordinal=day.toordinal())
+                        day_ordinal=day.toordinal(), style=style)
             rendered.append(reel)
         except Exception as exc:  # noqa: BLE001
             log.error("reel render failed for %s: %s", reel.slot, exc, exc_info=True)
     return rendered
+
+
+def render_prepared_reel(slot: str, day: date | None = None) -> bool:
+    """Render a reel whose script is already written into the day's reels.json.
+
+    For a reel made by hand rather than by the daily run - an extra story the
+    founder wants out, a re-cut of one that went wrong - so it gets exactly
+    what a generated reel gets: one narration request, the geometry gate with
+    its paper-style fallback, the same encoder and the same cover. Nothing is
+    published here; `publish --target reel-2` does that, from the committed
+    file, like every other slot.
+
+    Returns True if a video was written.
+    """
+    day = day or today_ist()
+    slot = slot.replace("-", "_").lower()
+    reels = storage.load_reels(day)
+    reel = next((r for r in reels if r.slot == slot), None)
+    if reel is None:
+        log.error("render-reel: no %s in %s's reels.json", slot, day.isoformat())
+        return False
+    rendered = _render_reels(day, [reel])
+    if not rendered:
+        log.error("render-reel: %s did not render", slot)
+        return False
+    storage.save_reels(day, reels)
+    log.info("render-reel: %s rendered (%.1fs, voiceover=%s)", slot,
+             reel.duration_seconds, reel.has_voiceover)
+    return True
 
 
 def _story_for_reel(reel):

@@ -40,7 +40,7 @@ from ..config import (ACCENT_COUNTERPART, BRAND_TERRACOTTA, CATEGORY_COLORS,
                       LOGO_PATH, NIGHT, SURFACE, SURFACE_DEEP, SURFACE_RAISED,
                       TEXT_MUTED, TEXT_PRIMARY, TEXT_SECONDARY, TONE_AGREE,
                       TONE_DISPUTE, TONE_LIVE)
-from . import fonts, pip as _pip, receipt as _receipt
+from . import collage as _collage, fonts, pip as _pip, receipt as _receipt
 
 # --------------------------------------------------------------------------- #
 # Layout constants
@@ -518,7 +518,8 @@ def tokenize(text: str) -> list[tuple[str, bool]]:
 def draw_rich(draw: ImageDraw.ImageDraw, text: str, *, x: int, y: int,
               max_w: int, size: int, tone, reveal: float = 1.0,
               base_weight: int = 450, hero_weight: int = 800,
-              base_fill=None) -> int:
+              base_fill=None, chips: bool = False,
+              canvas: Optional[Image.Image] = None) -> int:
     """Wrapped copy where `*marked*` words carry the accent and extra weight.
 
     This is what the variable weight axis bought. Anton had one weight, so every
@@ -528,6 +529,12 @@ def draw_rich(draw: ImageDraw.ImageDraw, text: str, *, x: int, y: int,
     `reveal` draws only the first fraction of the words, which is how the reel
     reveals a line word by word without re-wrapping it as it goes: the layout is
     computed for the whole line and only the drawing is withheld.
+
+    `chips` sets each marked word on a torn-paper chip in the accent instead of
+    in accent-coloured type (render/collage.py). The layout reserves the chip's
+    padding and a taller line either way, so a caller measuring on a scratch
+    canvas gets the same block height as the frame it will draw; the chips
+    themselves are only drawn when `canvas` is given.
     """
     tokens = tokenize(text)
     if not tokens:
@@ -537,13 +544,18 @@ def draw_rich(draw: ImageDraw.ImageDraw, text: str, *, x: int, y: int,
     hero_fill = safe_fill(tone, size)
 
     space = draw.textlength(" ", font=fonts.label_font(size, base_weight))
+    hero_size = size if chips else int(size * 1.08)
     lines: list[list] = []
     current: list = []
     current_w = 0.0
     for index, (word, hero) in enumerate(tokens):
-        font = fonts.label_font(int(size * 1.08), hero_weight) if hero \
+        font = fonts.label_font(hero_size, hero_weight) if hero \
             else fonts.label_font(size, base_weight)
         tw = draw.textlength(word, font=font)
+        if hero and chips:
+            core, tail = _chip_split(word)
+            tw = _collage.chip_extent(core, font)[0] + draw.textlength(
+                tail, font=fonts.label_font(size, base_weight))
         if current_w + tw > max_w and current:
             lines.append(current)
             current, current_w = [], 0.0
@@ -552,16 +564,52 @@ def draw_rich(draw: ImageDraw.ImageDraw, text: str, *, x: int, y: int,
     if current:
         lines.append(current)
 
+    # The same leading with or without chips. Chips stacked on consecutive
+    # lines may touch, paper on paper, but never cover a glyph below; any more
+    # leading cost the hook a size step on the cover, which is the frame that
+    # stays on the profile grid.
     lh = int(size * 1.16)
+    # Chips are composited after the line's type, so a chip's shadow falls on
+    # the paper rather than over a neighbouring word.
+    pending: list = []
     for line in lines:
         cx = x
         for word, hero, font, tw, index in line:
             if index < shown:
-                draw.text((cx, y), word, font=font,
-                          fill=hero_fill if hero else base_fill)
+                if hero and chips:
+                    if canvas is not None:
+                        pending.append((word, font, cx, y, tw, index))
+                else:
+                    draw.text((cx, y), word, font=font,
+                              fill=hero_fill if hero else base_fill)
             cx += tw + space
         y += lh
+    if pending:
+        # The chip is a filled shape at display size, so the display-size
+        # accent is the right one whatever size the line is set at.
+        chip_fill = safe_fill(tone, DISPLAY_ONLY_MIN_PX)
+        arrived = len(tokens) * reveal
+        for word, font, cx, top, tw, index in pending:
+            pop = 1.0 if reveal >= 1 else min(1.0, arrived - index)
+            core, tail = _chip_split(word)
+            img, (ox, oy) = _collage.chip(core, font, chip_fill, seed=index,
+                                          pop=pop)
+            box = font.getbbox(core)
+            chip_w = _collage.chip_extent(core, font)[0]
+            canvas.alpha_composite(
+                img, (int(cx + chip_w / 2 - ox),
+                      int(top + (box[1] + box[3]) / 2 - oy)))
+            if tail:
+                draw.text((cx + chip_w + 2, top), tail,
+                          font=fonts.label_font(size, base_weight), fill=base_fill)
     return y
+
+
+def _chip_split(word: str) -> tuple[str, str]:
+    """("course", ".") from "course." - punctuation stays on the paper, because
+    a full stop torn out with the word reads as part of it."""
+    match = re.match(r"^(.+?)([,.;:!?]+)$", word)
+    return (match.group(1), match.group(2)) if match else (word, "")
 
 
 # --------------------------------------------------------------------------- #

@@ -247,9 +247,19 @@ class TwitterPost:
     lead: str = ""                          # headline / lead line for the card
     items: list[str] = field(default_factory=list)  # story lines (news cards)
     image_file: Optional[str] = None        # rendered card PNG, relative to day folder
+    # The first item's story. The card carries its proof - who reported it and
+    # whether they agree - rather than repeating the tweet; without it every
+    # news card fell through to the promo layout.
+    story: Optional[Story] = None
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
+
+    @classmethod
+    def from_dict(cls, d: dict[str, Any]) -> "TwitterPost":
+        d = dict(d)
+        story = d.pop("story", None)
+        return cls(story=Story.from_dict(story) if story else None, **d)
 
 
 @dataclass
@@ -372,6 +382,22 @@ class ReelBeat:
     # Override the tone this beat takes. Empty means "derive it from the role",
     # which is what gives the reel its colour rhythm without authoring one.
     tone: str = ""
+
+    # The studio style (render/studio). All optional: a beat without them is
+    # dressed from the story by render/studio/direction.py.
+    #
+    # scene  art direction from the script writer - {"set", "time", "hat",
+    #        "pose"} - each value from a closed vocabulary, validated later.
+    # stat   {"value": "43%", "label": "first-round vote"} for the counting
+    #        card. The figure is verified against the source before it lands.
+    # fact   the lower third: one hard fact in a few words. Any digits in it
+    #        are verified against the source the same way.
+    # stamp  one word slammed onto the frame, and the ink it is slammed in.
+    scene: dict[str, Any] = field(default_factory=dict)
+    stat: dict[str, Any] = field(default_factory=dict)
+    fact: str = ""
+    stamp: str = ""
+    stamp_tone: str = ""
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
