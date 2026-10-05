@@ -1,0 +1,162 @@
+[
+  {
+    "slot": "reel_1",
+    "kind": "news",
+    "category": "Science",
+    "title": "Hidden X-ray phase revealed in likely neutron star merger",
+    "hook": "Hidden X-ray phase revealed in likely neutron star merger",
+    "beats": [
+      {
+        "role": "hook",
+        "caption": "Hidden X-ray phase revealed in likely neutron star merger",
+        "detail": "",
+        "narration": "",
+        "seconds": 3.71,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "",
+        "pose": "",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "hook",
+        "caption": "Imagine a firework that glows again after the main blast is over.",
+        "detail": "Astronomers spotted a strange, hidden phase.",
+        "narration": "Imagine a firework that glows again after the main blast is over. That is happening in deep space.",
+        "seconds": 7.42,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "The mystery",
+        "pose": "walk",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "point",
+        "caption": "When two massive neutron stars smash together, they usually stop there.",
+        "detail": "Space debris crashes with immense force.",
+        "narration": "When two massive neutron stars smash together, scientists usually expect the activity to just stop there.",
+        "seconds": 6.6,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "Star collision",
+        "pose": "point",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "graphic",
+        "caption": "But researchers found a hidden X-ray stage following the merger.",
+        "detail": "A new high-energy phase was revealed.",
+        "narration": "But researchers just found a hidden X-ray stage that happens immediately after that initial collision.",
+        "seconds": 6.19,
+        "graphic": "flow",
+        "data": {
+          "steps": [
+            "Stars collide",
+            "Main explosion",
+            "Hidden X-ray glow"
+          ]
+        },
+        "image_url": null,
+        "chapter": "New finding",
+        "pose": "present",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "point",
+        "caption": "An international team of astronomers spotted this high-energy activity.",
+        "detail": "Researchers from HKU led the study.",
+        "narration": "An international team of astronomers led by researchers from Hong Kong spotted this high-energy activity.",
+        "seconds": 6.19,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "International team",
+        "pose": "jump",
+        "say": "",
+        "plates": [
+          "story"
+        ],
+        "tone": ""
+      },
+      {
+        "role": "graphic",
+        "caption": "This challenges what we thought we knew about star deaths.",
+        "detail": "Our understanding of physics is evolving.",
+        "narration": "This challenges what we previously thought we knew about how stars die and behave after colliding.",
+        "seconds": 6.6,
+        "graphic": "split",
+        "data": {
+          "left_title": "Old Theory",
+          "left_text": "Mergers end quickly",
+          "right_title": "New Theory",
+          "right_text": "Extended X-ray phase"
+        },
+        "image_url": null,
+        "chapter": "Changing theories",
+        "pose": "talk",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "point",
+        "caption": "Which helps us understand the physics of these extreme events.",
+        "detail": "More data will clarify the timeline.",
+        "narration": "Which helps us better understand the physics behind these extreme events that occur across the universe.",
+        "seconds": 6.6,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "Future science",
+        "pose": "point",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      },
+      {
+        "role": "outro",
+        "caption": "So check Headlinne.com for more science news every day.",
+        "detail": "Stay informed with our app.",
+        "narration": "So check Headlinne.com to stay updated with more science news every single day.",
+        "seconds": 5.36,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "Stay updated",
+        "pose": "cta",
+        "say": "",
+        "plates": [],
+        "tone": ""
+      }
+    ],
+    "caption": "Hidden X-ray phase revealed in likely neutron star merger\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#Astronomy #Space #ScienceNews #Headlinne",
+    "hashtags": [
+      "Astronomy",
+      "Space",
+      "ScienceNews",
+      "Headlinne"
+    ],
+    "scheduled_time": "2026-10-05T09:30:00+05:30",
+    "first_comment": "",
+    "sources": "Phys.org",
+    "story_url": "https://phys.org/news/2026-09-hidden-ray-phase-revealed-neutron.html",
+    "dateline": "MON 5 OCT",
+    "story": null,
+    "duration_seconds": 48.67,
+    "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-05/reels/reel_1.mp4",
+    "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-05/reels/reel_1_cover.png",
+    "audio_file": null,
+    "has_voiceover": true
+  }
+]
