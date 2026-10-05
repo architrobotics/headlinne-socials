@@ -177,8 +177,11 @@ TONE_LIVE = "#CE3E22"           # coral      4.31:1  - display sizes only
 DISPLAY_ONLY_ACCENTS = (BRAND_TERRACOTTA, TONE_LIVE)
 DISPLAY_ONLY_MIN_PX = 24
 
-# Public social handle, shown in the slide furniture and CTA.
-INSTAGRAM_HANDLE = "@headlinne"
+# Public social handle, shown in the slide furniture and CTA. This is the
+# account the pipeline publishes to (instagram.com/headlinnedotcom). Until
+# 2026-10-05 it read "@headlinne", so every caption's "Follow ..." line pointed
+# at an account that is not ours.
+INSTAGRAM_HANDLE = "@headlinnedotcom"
 
 
 
