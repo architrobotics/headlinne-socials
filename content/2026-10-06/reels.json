@@ -1,0 +1,231 @@
+[
+  {
+    "slot": "reel_1",
+    "kind": "news",
+    "category": "Geopolitics",
+    "title": "Right-wing Flávio Bolsonaro wins first round of Brazil election",
+    "hook": "Right-wing Flávio Bolsonaro wins first round of Brazil election",
+    "beats": [
+      {
+        "role": "hook",
+        "caption": "Right-wing Flávio Bolsonaro wins first round of Brazil election",
+        "detail": "",
+        "narration": "",
+        "seconds": 3.92,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "",
+        "pose": "",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {},
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": ""
+      },
+      {
+        "role": "hook",
+        "caption": "Three updates, but one matters most.",
+        "detail": "Focusing on the Brazil election results.",
+        "narration": "Three global updates today. The third one is the one that really changes things.",
+        "seconds": 6.1,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "BRAZIL ELECTION UPDATE",
+        "pose": "walk",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "parliament",
+          "hat": "press",
+          "pose": "present"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "Bolsonaro wins the first round.",
+        "detail": "He led the field in the initial vote.",
+        "narration": "Flávio Bolsonaro has won the first round of the Brazil election.",
+        "seconds": 4.8,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "FLAVIO BOLSONARO WINS",
+        "pose": "point",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "parliament",
+          "hat": "press",
+          "pose": "point"
+        },
+        "stat": {},
+        "fact": "BOLSONARO WINS FIRST ROUND",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "No candidate hit the majority mark.",
+        "detail": "The results were split between candidates.",
+        "narration": "But he did not reach the fifty percent needed for an outright win.",
+        "seconds": 5.67,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "NO CLEAR WINNER",
+        "pose": "present",
+        "say": "",
+        "plates": [
+          "story"
+        ],
+        "tone": "",
+        "scene": {
+          "set": "parliament",
+          "hat": "press",
+          "pose": "think"
+        },
+        "stat": {
+          "value": "50%",
+          "label": "vote threshold"
+        },
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "graphic",
+        "caption": "The race moves to a new phase.",
+        "detail": "The election process is not yet finished.",
+        "narration": "Because no one secured a majority, the race continues.",
+        "seconds": 3.92,
+        "graphic": "timeline",
+        "data": {
+          "stops": [
+            "First round",
+            "Run-off",
+            "Final result"
+          ],
+          "note": "The election moves to a second stage."
+        },
+        "image_url": null,
+        "chapter": "THE PATH FORWARD",
+        "pose": "jump",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "maproom",
+          "hat": "none",
+          "pose": "talk"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "A run-off is now confirmed.",
+        "detail": "Voters will head back to the polls soon.",
+        "narration": "The election will now go to a run-off on October 25.",
+        "seconds": 4.8,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "RUN-OFF SET",
+        "pose": "talk",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "maproom",
+          "hat": "none",
+          "pose": "talk"
+        },
+        "stat": {},
+        "fact": "RUN-OFF ON 25 OCTOBER",
+        "stamp": "RUN-OFF",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "The country's future is at stake.",
+        "detail": "Every vote counts in the second round.",
+        "narration": "This vote determines the future direction of the country.",
+        "seconds": 3.92,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "WHY IT MATTERS",
+        "pose": "point",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "maproom",
+          "hat": "none",
+          "pose": "present"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "outro",
+        "caption": "Follow the news at headlinne.com.",
+        "detail": "Keep up with the latest updates.",
+        "narration": "Get the full story and more at headlinne.com.",
+        "seconds": 3.49,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "STAY UPDATED",
+        "pose": "cta",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "maproom",
+          "hat": "none",
+          "pose": "cheer"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      }
+    ],
+    "caption": "Right-wing Flávio Bolsonaro wins first round of Brazil election\n\nWho will win the final round?\n\nFollow @headlinnedotcom for a daily brief. Full story on HEADLINNE.com.\n\n#WorldNews #Geopolitics #GlobalNews #Brazil",
+    "hashtags": [
+      "WorldNews",
+      "Geopolitics",
+      "GlobalNews",
+      "Brazil",
+      "Election",
+      "Headlinne"
+    ],
+    "scheduled_time": "2026-10-06T09:30:00+05:30",
+    "first_comment": "#Election #Headlinne",
+    "sources": "BBC World · Guardian World · France 24",
+    "story_url": "https://www.bbc.co.uk/news/articles/ck1l34ed592no?at_medium=RSS&at_campaign=rss",
+    "dateline": "TUE 6 OCT",
+    "story": null,
+    "duration_seconds": 36.63,
+    "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-06/reels/reel_1.mp4",
+    "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-06/reels/reel_1_cover.png",
+    "audio_file": null,
+    "has_voiceover": true
+  }
+]
