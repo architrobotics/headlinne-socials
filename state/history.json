@@ -1,22 +1,5 @@
 {
   "days": {
-    "2026-09-26": {
-      "story_urls": [
-        "https://www.theguardian.com/technology/2026/sep/26/openai-hack-australian-government-anxiety-global-dilemma-artificial-intelligence",
-        "https://phys.org/news/2026-09-webb-ammonia-unexpected-chill-distant.html",
-        "https://www.theverge.com/ai-artificial-intelligence/1000784/meta-muse-filesystem"
-      ],
-      "story_titles": [
-        "OpenAI hack on Australian government reveals anxiety at heart of global artificial intelligence dilemma"
-      ],
-      "post_texts": [
-        "Webb detects ammonia and unexpected chill on a distant giant planet\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#Space #JWST #Science #Astronomy",
-        "Meta AI chatbot Muse accidentally exposed its internal filesystem to users yesterday.\n\nThe files were discovered after users prodded the AI, revealing information the system was not supposed to share. This glimpse under the hood provides a rare look at how the chatbot functions.\n\nDoes this reveal change your trust in how AI chatbots handle internal data?\n\nSave this one. Follow for the daily card. Full story on HEADLINNE.com.\n\n#TechNews #Tech #AI #Meta",
-        "Ever read a news story and wonder what the actual impact is on your life? We add a 'Why It Matters' section to every article on Headlinne so you get the context without needing to dig for it. It saves time and clears up the confusion. HEADLINNE.com #news #reading",
-        "We decided to build something different. When we started Headlinne, we realized that the problem with modern news isn't a lack of information. It is the overwhelming flood of it. Most algorithms are designed to maximize your time on screen. They prioritize outrage and breaking alerts because those things grab attention. But that approach rarely leaves you feeling informed.\n\nOur philosophy is simple. You should control the news, not the other way around. We use AI not to feed you more content, but to filter out the noise. The goal is to give you a clear, concise summary of what matters to you personally, so you can catch up in minutes and move on with your day.\n\nWe believe intelligence in software means respecting your time. A smart news experience should be quiet, focused, and efficient. It should help you understand the world better without demanding your constant attention.",
-        "The Australian government is dealing with a security breach linked to OpenAI tools.\n\nThis is the first time a government has confirmed such an incident, raising major questions about the security of the platforms we use every day.\n\nAt the same time, the global landscape is shifting. The UN says current safeguards are falling apart, yet political leaders in the US are pushing to speed up AI development rather than slow it down.\n\nIt creates a difficult dilemma for nations trying to balance innovation with national security. How do we keep systems safe when the technology evolves faster than the rules?\n\nFollow @headlinne for a daily brief. Full story on HEADLINNE.com.\n\n#WorldNews #Geopolitics #GlobalNews #Politics"
-      ]
-    },
     "2026-09-27": {
       "story_urls": [
         "https://www.sciencedaily.com/releases/2026/09/260925093201.htm",
@@ -166,6 +149,24 @@
         "The best news apps don't just show you headlines. They learn your interests over time so you see more of what actually matters to you. It is a smarter way to stay informed without digging through the noise. HEADLINNE.com #News #Tech",
         "It felt like the news landscape was broken. We were either bombarded with sensational headlines meant to trigger a reaction or buried under an endless stream of noise that felt disconnected from my life. I wanted something that respected my time and my intelligence.\n\nBuilding Headlinne wasn't about trying to disrupt the industry or chasing the latest hype cycle. It was about solving a personal problem. I wanted a way to filter out the noise and find the signal. I wanted technology that worked for me, not against my attention span.\n\nWe built this using AI, not because AI is popular, but because it is the only way to genuinely personalize the experience at scale. It allows us to learn what you care about and deliver news that actually fits your interests. It is about making information useful again rather than just abundant.\n\nThe journey has taught me that the best products often come from the simplest frustrations. We are still learning and iterating every single day, but the goal remains the same: to make staying informed feel like a privilege instead of a chore.",
         "Brazil is preparing for a high-stakes presidential run-off election.\n\nThe country's electoral authority confirmed that President Luiz Inacio Lula da Silva will face Senator Flavio Bolsonaro on October 25.\n\nThis matchup represents a significant moment for the country's political future. Both candidates have distinct visions for Brazil, and this final vote will decide who leads the nation.\n\nWe have cross-referenced this report with five independent sources to provide you with the facts without the noise.\n\nWhat do you think is the biggest issue facing Brazil right now?\n\nFollow @headlinnedotcom for a daily brief. Full story on HEADLINNE.com.\n\n#WorldNews #Geopolitics #GlobalNews #Politics"
+      ]
+    },
+    "2026-10-07": {
+      "story_urls": [
+        "https://www.theguardian.com/business/2026/oct/06/paramount-warner-bros-skydance-merger",
+        "https://www.theguardian.com/world/2026/oct/06/plague-epidemic-risk-russia-low-death-darya-shipilova-who",
+        "https://www.theguardian.com/australia-news/video/2026/oct/06/openai-australia-parliamentary-inquiry-jason-kwon-video"
+      ],
+      "story_titles": [
+        "Paramount completes $111bn acquisition of Warner Bros to form new media empire Skydance"
+      ],
+      "post_texts": [
+        "Plague epidemic risk in Russia low after death of lab technician, WHO says\n\nHow do you stay updated?\n\nFollow @headlinnedotcom for a daily brief. Full story on HEADLINNE.com.\n\n#WorldNews #Geopolitics #GlobalNews #Russia",
+        "OpenAI faces scrutiny after its AI agents accessed Australian government websites without direct notice.\n\nDuring a parliamentary inquiry, OpenAI's chief strategy officer Jason Kwon was questioned about these events. The core issue is whether a generic department email is sufficient when AI tools interact with sensitive government data. This highlights the ongoing tension between rapid AI development and official oversight.\n\nShould AI companies be required to get explicit permission before scraping government data?\n\nSave this one. Follow for the daily card. Full story on HEADLINNE.com.\n\n#Finance #Markets #Economy #OpenAI",
+        "Your global news briefing for today\n\u2022 The WHO says the risk of a plague outbreak in Russia is currently low\n\u2022 Kenya reports its first Ebola death following an outbreak in the DRC\n\u2022 Paramount bought Warner Bros for 81 billion to form a media giant HEADLINNE.com #GlobalNews",
+        "Big moves in Hollywood today\n\u2022 Paramount just bought Warner Bros for $111 billion\n\u2022 The massive merger creates a new media giant called Skydance\n\u2022 We are watching to see if this leads to higher streaming prices HEADLINNE.com #Finance #Media",
+        "When we started building the feed for Headlinne, it would have been easy to follow the standard playbook. Most algorithms prioritize engagement metrics above all else. They want to show you whatever will keep your eyes on the screen for the longest amount of time, regardless of whether that content actually adds value to your day.\n\nWe made a different choice. Instead of optimizing for time spent, we engineered our system to prioritize signal over noise. We treat your time as a finite resource rather than a commodity to be mined. This meant building an AI model that focuses on relevance and brevity rather than just volume.\n\nThe hardest part wasn't teaching the AI to find news. The hard part was teaching it to know when to stop. We wanted to build a feed that feels like a quick, smart conversation with an editor who knows exactly what you care about, then lets you get back to your life.\n\nIt is a subtle shift in philosophy, but it changes everything about how you consume information. We believe the future of news isn't about more content. It is about better content, delivered faster.",
+        "Paramount has officially completed its acquisition of Warner Bros.\n\nDiscovery. This creates a new media conglomerate led by David Ellison and Ynon Kreiz.\n\nThe deal combines some of the most recognizable studios and news outlets in the world. It marks a major turning point for the future of entertainment and journalism.\n\nWhat do you think this means for the future of streaming services?\n\nFollow @headlinnedotcom for a daily brief. Full story on HEADLINNE.com.\n\n#Finance #Markets #Business #Economy"
       ]
     }
   }

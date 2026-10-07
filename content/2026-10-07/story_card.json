@@ -1,0 +1,50 @@
+{
+  "slot": "story_card",
+  "category": "Finance",
+  "headline": "OpenAI grilled over Australian government data access",
+  "standfirst": "The company faced questions about how it notifies officials when its AI scrapes public",
+  "steps": [
+    {
+      "label": "What happened",
+      "text": "OpenAI admitted its handling of AI agents accessing Australian government sites was a misstep."
+    },
+    {
+      "label": "How we got here",
+      "text": "In June, OpenAI agents scraped government data. The company relied on a generic email for notice."
+    },
+    {
+      "label": "Why it matters",
+      "text": "Lawmakers want to know why OpenAI didn't contact the government directly regarding this access."
+    },
+    {
+      "label": "What to watch",
+      "text": "Senator David Pocock is pressing OpenAI on its notification policies during parliamentary inquiries."
+    }
+  ],
+  "caption": "OpenAI faces scrutiny after its AI agents accessed Australian government websites without direct notice.\n\nDuring a parliamentary inquiry, OpenAI's chief strategy officer Jason Kwon was questioned about these events. The core issue is whether a generic department email is sufficient when AI tools interact with sensitive government data. This highlights the ongoing tension between rapid AI development and official oversight.\n\nShould AI companies be required to get explicit permission before scraping government data?\n\nSave this one. Follow for the daily card. Full story on HEADLINNE.com.\n\n#Finance #Markets #Economy #OpenAI",
+  "hashtags": [
+    "Finance",
+    "Markets",
+    "Economy",
+    "OpenAI",
+    "ArtificialIntelligence",
+    "TechNews",
+    "AustralianPolitics",
+    "DataPrivacy",
+    "AIRegulation",
+    "TechPolicy",
+    "Government",
+    "DigitalSafety",
+    "TechEthics",
+    "JasonKwon",
+    "DavidPocock",
+    "NewsExplained"
+  ],
+  "scheduled_time": "2026-10-07T21:30:00+05:30",
+  "first_comment": "#ArtificialIntelligence #TechNews #AustralianPolitics #DataPrivacy #AIRegulation #TechPolicy #Government #DigitalSafety #TechEthics #JasonKwon #DavidPocock #NewsExplained",
+  "sources": "Guardian Business · BBC Business",
+  "story_url": "https://www.theguardian.com/australia-news/video/2026/oct/06/openai-australia-parliamentary-inquiry-jason-kwon-video",
+  "image_url": "https://i.guim.co.uk/img/media/9f3c49ed886fe6452020bb458ef7a0bd5b62a8fe/1131_926_2152_1722/master/2152.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=c93a84002d5b7801657acc63b4dc9ce4",
+  "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-07/story_card/story_card.png",
+  "story": null
+}

@@ -1,0 +1,96 @@
+[
+  {
+    "category": "Geopolitics",
+    "post": "Your global news briefing for today\n• The WHO says the risk of a plague outbreak in Russia is currently low\n• Kenya reports its first Ebola death following an outbreak in the DRC\n• Paramount bought Warner Bros for 81 billion to form a media giant HEADLINNE.com #GlobalNews",
+    "hashtags": [
+      "GlobalNews",
+      "Headlines"
+    ],
+    "scheduled_time": "2026-10-07T13:00:00+05:30",
+    "kind": "news",
+    "lead": "Your global news briefing for today",
+    "items": [
+      "The WHO says the risk of a plague outbreak in Russia is currently low",
+      "Kenya reports its first Ebola death following an outbreak in the DRC",
+      "Paramount bought Warner Bros for 81 billion to form a media giant"
+    ],
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-07/x/x_1.png",
+    "story": {
+      "title": "Plague epidemic risk in Russia low after death of lab technician, WHO says",
+      "summary": "World Health Organization detects no sign of further outbreak since Darya Shipilova died last week The World Health Organization has said the risk of an epidemic in Russia is low after the sudden death of a lab technician who worked at a plague research institute in Siberia. Darya Shipilova, who was 28, died last week, two days after falling ill. Russian media reports suggested she may have become infected after an accident at her workplace , where dangerous pathogens are kept and studied. Continue reading...",
+      "url": "https://www.theguardian.com/world/2026/oct/06/plague-epidemic-risk-russia-low-death-darya-shipilova-who",
+      "category": "Geopolitics",
+      "source": "Guardian World",
+      "tier": 1.1,
+      "published_iso": "2026-10-06T23:14:32+00:00",
+      "image_url": "https://i.guim.co.uk/img/media/462785441d219322c6970ad4fcf8cbeb444cc616/116_0_1706_1365/master/1706.jpg?width=700&quality=85&auto=format&fit=max&s=436fd6109e5b3442b69eedaee91a92dc",
+      "corroborating_sources": [
+        "France 24",
+        "Sky World"
+      ],
+      "score": 12.443,
+      "verified": true,
+      "sensitive": true,
+      "agreement": {
+        "reported": 3,
+        "agree": 1,
+        "conflict": 0,
+        "claim": "28",
+        "claim_unit": "reported",
+        "outlets": [
+          "Guardian World",
+          "France 24",
+          "Sky World"
+        ],
+        "conflicts": []
+      }
+    }
+  },
+  {
+    "category": "Finance",
+    "post": "Big moves in Hollywood today\n• Paramount just bought Warner Bros for $111 billion\n• The massive merger creates a new media giant called Skydance\n• We are watching to see if this leads to higher streaming prices HEADLINNE.com #Finance #Media",
+    "hashtags": [
+      "Finance",
+      "Media"
+    ],
+    "scheduled_time": "2026-10-07T17:00:00+05:30",
+    "kind": "news",
+    "lead": "Big moves in Hollywood today",
+    "items": [
+      "Paramount just bought Warner Bros for $111 billion",
+      "The massive merger creates a new media giant called Skydance",
+      "We are watching to see if this leads to higher streaming prices"
+    ],
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-07/x/x_2.png",
+    "story": {
+      "title": "Paramount takes over Warner Bros in $110bn Hollywood merger",
+      "summary": "The merger of two of Hollywood's biggest movie studios comes after months of legal disputes and concern over competition.",
+      "url": "https://www.bbc.co.uk/news/articles/cxj0604d33qzo?at_medium=RSS&at_campaign=rss",
+      "category": "Finance",
+      "source": "BBC Business",
+      "tier": 1.4,
+      "published_iso": "2026-10-06T20:18:58+00:00",
+      "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/2e88/live/f4495f40-c136-11f1-bcd8-493e192378a4.jpg",
+      "corroborating_sources": [
+        "Guardian Business",
+        "Guardian World"
+      ],
+      "score": 12.296,
+      "verified": true,
+      "sensitive": false,
+      "agreement": {
+        "reported": 3,
+        "agree": 3,
+        "conflict": 0,
+        "claim": "110",
+        "claim_unit": "reported",
+        "outlets": [
+          "BBC Business",
+          "Guardian Business",
+          "Guardian World"
+        ],
+        "conflicts": []
+      }
+    }
+  }
+]

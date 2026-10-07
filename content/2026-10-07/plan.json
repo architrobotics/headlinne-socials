@@ -1,0 +1,537 @@
+{
+  "day": "2026-10-07",
+  "is_promo_day": false,
+  "is_friday": false,
+  "twitter": [
+    {
+      "category": "Geopolitics",
+      "post": "Your global news briefing for today\n• The WHO says the risk of a plague outbreak in Russia is currently low\n• Kenya reports its first Ebola death following an outbreak in the DRC\n• Paramount bought Warner Bros for 81 billion to form a media giant HEADLINNE.com #GlobalNews",
+      "hashtags": [
+        "GlobalNews",
+        "Headlines"
+      ],
+      "scheduled_time": "2026-10-07T13:00:00+05:30",
+      "kind": "news",
+      "lead": "Your global news briefing for today",
+      "items": [
+        "The WHO says the risk of a plague outbreak in Russia is currently low",
+        "Kenya reports its first Ebola death following an outbreak in the DRC",
+        "Paramount bought Warner Bros for 81 billion to form a media giant"
+      ],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-07/x/x_1.png",
+      "story": {
+        "title": "Plague epidemic risk in Russia low after death of lab technician, WHO says",
+        "summary": "World Health Organization detects no sign of further outbreak since Darya Shipilova died last week The World Health Organization has said the risk of an epidemic in Russia is low after the sudden death of a lab technician who worked at a plague research institute in Siberia. Darya Shipilova, who was 28, died last week, two days after falling ill. Russian media reports suggested she may have become infected after an accident at her workplace , where dangerous pathogens are kept and studied. Continue reading...",
+        "url": "https://www.theguardian.com/world/2026/oct/06/plague-epidemic-risk-russia-low-death-darya-shipilova-who",
+        "category": "Geopolitics",
+        "source": "Guardian World",
+        "tier": 1.1,
+        "published_iso": "2026-10-06T23:14:32+00:00",
+        "image_url": "https://i.guim.co.uk/img/media/462785441d219322c6970ad4fcf8cbeb444cc616/116_0_1706_1365/master/1706.jpg?width=700&quality=85&auto=format&fit=max&s=436fd6109e5b3442b69eedaee91a92dc",
+        "corroborating_sources": [
+          "France 24",
+          "Sky World"
+        ],
+        "score": 12.443,
+        "verified": true,
+        "sensitive": true,
+        "agreement": {
+          "reported": 3,
+          "agree": 1,
+          "conflict": 0,
+          "claim": "28",
+          "claim_unit": "reported",
+          "outlets": [
+            "Guardian World",
+            "France 24",
+            "Sky World"
+          ],
+          "conflicts": []
+        }
+      }
+    },
+    {
+      "category": "Finance",
+      "post": "Big moves in Hollywood today\n• Paramount just bought Warner Bros for $111 billion\n• The massive merger creates a new media giant called Skydance\n• We are watching to see if this leads to higher streaming prices HEADLINNE.com #Finance #Media",
+      "hashtags": [
+        "Finance",
+        "Media"
+      ],
+      "scheduled_time": "2026-10-07T17:00:00+05:30",
+      "kind": "news",
+      "lead": "Big moves in Hollywood today",
+      "items": [
+        "Paramount just bought Warner Bros for $111 billion",
+        "The massive merger creates a new media giant called Skydance",
+        "We are watching to see if this leads to higher streaming prices"
+      ],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-07/x/x_2.png",
+      "story": {
+        "title": "Paramount takes over Warner Bros in $110bn Hollywood merger",
+        "summary": "The merger of two of Hollywood's biggest movie studios comes after months of legal disputes and concern over competition.",
+        "url": "https://www.bbc.co.uk/news/articles/cxj0604d33qzo?at_medium=RSS&at_campaign=rss",
+        "category": "Finance",
+        "source": "BBC Business",
+        "tier": 1.4,
+        "published_iso": "2026-10-06T20:18:58+00:00",
+        "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/2e88/live/f4495f40-c136-11f1-bcd8-493e192378a4.jpg",
+        "corroborating_sources": [
+          "Guardian Business",
+          "Guardian World"
+        ],
+        "score": 12.296,
+        "verified": true,
+        "sensitive": false,
+        "agreement": {
+          "reported": 3,
+          "agree": 3,
+          "conflict": 0,
+          "claim": "110",
+          "claim_unit": "reported",
+          "outlets": [
+            "BBC Business",
+            "Guardian Business",
+            "Guardian World"
+          ],
+          "conflicts": []
+        }
+      }
+    }
+  ],
+  "linkedin": {
+    "title": "Most news feeds are designed to keep you scrolling forever, but we decided to optimize for something else.",
+    "body": "When we started building the feed for Headlinne, it would have been easy to follow the standard playbook. Most algorithms prioritize engagement metrics above all else. They want to show you whatever will keep your eyes on the screen for the longest amount of time, regardless of whether that content actually adds value to your day.\n\nWe made a different choice. Instead of optimizing for time spent, we engineered our system to prioritize signal over noise. We treat your time as a finite resource rather than a commodity to be mined. This meant building an AI model that focuses on relevance and brevity rather than just volume.\n\nThe hardest part wasn't teaching the AI to find news. The hard part was teaching it to know when to stop. We wanted to build a feed that feels like a quick, smart conversation with an editor who knows exactly what you care about, then lets you get back to your life.\n\nIt is a subtle shift in philosophy, but it changes everything about how you consume information. We believe the future of news isn't about more content. It is about better content, delivered faster.",
+    "cta": "You can see how this approach feels in practice by visiting HEADLINNE.com.",
+    "scheduled_time": "2026-10-07T18:00:00+05:30",
+    "kind": "product"
+  },
+  "instagram": [
+    {
+      "slot": "instagram_1",
+      "category": "Finance",
+      "num_slides": 5,
+      "title": "Paramount and Warner Bros. Discovery have merged",
+      "slides": [
+        {
+          "role": "cover",
+          "headline": "Paramount and Warner Bros. Discovery have merged",
+          "explanation": "",
+          "image_url": "https://i.guim.co.uk/img/media/9a282f79db8e6ffa47a3059b463463be690f1508/118_0_6864_5489/master/6864.jpg?width=700&quality=85&auto=format&fit=max&s=1dd3f004f2e63f7e857fd45a5105acf5",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-07/instagram/instagram_1/slide_1.png",
+          "subtitle": "The deal is valued at $111 billion.",
+          "sources": "",
+          "index": 1,
+          "kicker": "SOURCES DISAGREE",
+          "pose": "puzzled",
+          "say": "A massive media shift.",
+          "figure": "",
+          "unit": ""
+        },
+        {
+          "role": "scale",
+          "headline": "",
+          "explanation": "This deal is roughly the cost of building 300 modern hospital complexes. It is a massive consolidation of global media assets.",
+          "image_url": "https://i.guim.co.uk/img/media/9a282f79db8e6ffa47a3059b463463be690f1508/118_0_6864_5489/master/6864.jpg?width=700&quality=85&auto=format&fit=max&s=1dd3f004f2e63f7e857fd45a5105acf5",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-07/instagram/instagram_1/slide_2.png",
+          "subtitle": "",
+          "sources": "",
+          "index": 2,
+          "kicker": "HOW BIG",
+          "pose": "",
+          "say": "",
+          "figure": "111",
+          "unit": "billion dollars"
+        },
+        {
+          "role": "twist",
+          "headline": "The deal beat out a bid from Netflix",
+          "explanation": "Netflix was one of the primary competitors during the bidding war. The acquisition brings HBO Max, CNN, and CBS under one roof.",
+          "image_url": null,
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-07/instagram/instagram_1/slide_3.png",
+          "subtitle": "",
+          "sources": "",
+          "index": 3,
+          "kicker": "WHAT YOU DID NOT KNOW",
+          "pose": "puzzled",
+          "say": "Netflix lost the bid.",
+          "figure": "",
+          "unit": ""
+        },
+        {
+          "role": "sources",
+          "headline": "",
+          "explanation": "We cross-referenced this with nine independent sources. While reports on the exact valuation vary, the core consolidation of these studios is confirmed.",
+          "image_url": null,
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-07/instagram/instagram_1/slide_4.png",
+          "subtitle": "",
+          "sources": "",
+          "index": 4,
+          "kicker": "SOURCES",
+          "pose": "puzzled",
+          "say": "3 of 6 agree",
+          "figure": "",
+          "unit": ""
+        },
+        {
+          "role": "cta",
+          "headline": "",
+          "explanation": "",
+          "image_url": null,
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-07/instagram/instagram_1/slide_5.png",
+          "subtitle": "Get the full breakdown on Headlinne.",
+          "sources": "",
+          "index": 5,
+          "kicker": "READ THE FULL STORY",
+          "pose": "carry",
+          "say": "Come and read it.",
+          "figure": "",
+          "unit": ""
+        }
+      ],
+      "caption": "Paramount has officially completed its acquisition of Warner Bros.\n\nDiscovery. This creates a new media conglomerate led by David Ellison and Ynon Kreiz.\n\nThe deal combines some of the most recognizable studios and news outlets in the world. It marks a major turning point for the future of entertainment and journalism.\n\nWhat do you think this means for the future of streaming services?\n\nFollow @headlinnedotcom for a daily brief. Full story on HEADLINNE.com.\n\n#Finance #Markets #Business #Economy",
+      "hashtags": [
+        "Finance",
+        "Markets",
+        "Business",
+        "Economy",
+        "BusinessNews",
+        "MediaIndustry",
+        "Paramount",
+        "WarnerBros",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-10-07T16:00:00+05:30",
+      "first_comment": "#BusinessNews #MediaIndustry #Paramount #WarnerBros #Headlinne",
+      "story": {
+        "title": "Paramount completes $111bn acquisition of Warner Bros to form new media empire Skydance",
+        "summary": "David Ellison and ex-Mattel CEO Ynon Kreiz to oversee both film studios, HBO Max, CNN and CBS News as co-executives Paramount completed its $111bn acquisition of Warner Bros Discovery on Tuesday, consolidating some of the world’s most recognizable studios and news outlets after a bidding war with Netflix and months of legal turmoil. The new company, now called Skydance, will have David Ellison, the son of a billionaire tech mogul, at its helm, with the former CEO of Mattel, Ynon Kreiz, as co-executive. They will oversee Paramount and Warner Bros’ movie studios, HBO Max, CBS News and CNN. Conti",
+        "url": "https://www.theguardian.com/business/2026/oct/06/paramount-warner-bros-skydance-merger",
+        "category": "Finance",
+        "source": "Guardian Business",
+        "tier": 1.1,
+        "published_iso": "2026-10-06T14:14:56+00:00",
+        "image_url": "https://i.guim.co.uk/img/media/9a282f79db8e6ffa47a3059b463463be690f1508/118_0_6864_5489/master/6864.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=04d99981f535df59425ede2979af1f57",
+        "corroborating_sources": [
+          "Al Jazeera",
+          "Ars Technica",
+          "BBC Business",
+          "Deutsche Welle",
+          "Engadget",
+          "France 24",
+          "Guardian World",
+          "Sky World"
+        ],
+        "score": 12.178,
+        "verified": true,
+        "sensitive": false,
+        "agreement": {
+          "reported": 9,
+          "agree": 3,
+          "conflict": 3,
+          "claim": "111",
+          "claim_unit": "reported",
+          "outlets": [
+            "Guardian Business",
+            "France 24",
+            "Deutsche Welle",
+            "Guardian World",
+            "Engadget",
+            "Al Jazeera",
+            "Sky World",
+            "BBC Business",
+            "Ars Technica"
+          ],
+          "conflicts": [
+            {
+              "outlet": "France 24",
+              "value": "12"
+            },
+            {
+              "outlet": "Deutsche Welle",
+              "value": "81,000,000,000"
+            },
+            {
+              "outlet": "Sky World",
+              "value": "81"
+            }
+          ]
+        }
+      },
+      "story_url": "https://www.theguardian.com/business/2026/oct/06/paramount-warner-bros-skydance-merger"
+    }
+  ],
+  "reels": [
+    {
+      "slot": "reel_1",
+      "kind": "news",
+      "category": "Geopolitics",
+      "title": "Plague epidemic risk in Russia low after death of lab technician, WHO says",
+      "hook": "Plague epidemic risk in Russia low after death of lab technician, WHO says",
+      "beats": [
+        {
+          "role": "hook",
+          "caption": "Plague epidemic risk in Russia low after death of lab technician, WHO says",
+          "detail": "",
+          "narration": "",
+          "seconds": 5.92,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "",
+          "pose": "",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {},
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": ""
+        },
+        {
+          "role": "hook",
+          "caption": "Plague fears are currently low.",
+          "detail": "No signs of further outbreak.",
+          "narration": "People feared a plague outbreak in Russia. The data shows the risk is low.",
+          "seconds": 6.37,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "PLAGUE FEARS EASED",
+          "pose": "",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "lab",
+            "hat": "press",
+            "pose": "present"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "Darya Shipilova died suddenly.",
+          "detail": "She worked at a research institute.",
+          "narration": "A twenty-eight year old lab technician passed away last week.",
+          "seconds": 4.55,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "THE LAB TRAGEDY",
+          "pose": "",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "lab",
+            "hat": "press",
+            "pose": "think"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "WHO monitors the situation.",
+          "detail": "No signs of further outbreak.",
+          "narration": "The World Health Organization stepped in to monitor the situation.",
+          "seconds": 4.55,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "WHO INVESTIGATES",
+          "pose": "",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "maproom",
+            "hat": "press",
+            "pose": "scan"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "graphic",
+          "caption": "No further outbreak detected.",
+          "detail": "Investigation confirms containment.",
+          "narration": "Their investigation found no evidence of a wider outbreak.",
+          "seconds": 4.1,
+          "graphic": "split",
+          "data": {
+            "left_title": "Lab risk",
+            "left_text": "One isolated case",
+            "right_title": "Public risk",
+            "right_text": "No wider outbreak found"
+          },
+          "image_url": null,
+          "chapter": "NO SPREAD DETECTED",
+          "pose": "",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "maproom",
+            "hat": "press",
+            "pose": "point"
+          },
+          "stat": {},
+          "fact": "RISK IS LOW",
+          "stamp": "",
+          "stamp_tone": "good"
+        },
+        {
+          "role": "point",
+          "caption": "Work at a Siberian facility.",
+          "detail": "Facility remains under scrutiny.",
+          "narration": "The technician worked at a plague research facility in Siberia.",
+          "seconds": 4.55,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "SIBERIA RESEARCH",
+          "pose": "",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "lab",
+            "hat": "press",
+            "pose": "talk"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "Findings verified across sources.",
+          "detail": "Independent confirmation provided.",
+          "narration": "Multiple independent sources have verified these findings.",
+          "seconds": 3.19,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "VERIFIED REPORTS",
+          "pose": "",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "newsroom",
+            "hat": "press",
+            "pose": "nod"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "outro",
+          "caption": "Check Headlinne.com for more.",
+          "detail": "Reliable news, delivered fast.",
+          "narration": "Get the full story and more at Headlinne dot com.",
+          "seconds": 4.55,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "STAY INFORMED",
+          "pose": "",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "newsroom",
+            "hat": "press",
+            "pose": "deliver"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        }
+      ],
+      "caption": "Plague epidemic risk in Russia low after death of lab technician, WHO says\n\nHow do you stay updated?\n\nFollow @headlinnedotcom for a daily brief. Full story on HEADLINNE.com.\n\n#WorldNews #Geopolitics #GlobalNews #Russia",
+      "hashtags": [
+        "WorldNews",
+        "Geopolitics",
+        "GlobalNews",
+        "Russia",
+        "HealthNews",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-10-07T09:30:00+05:30",
+      "first_comment": "#HealthNews #Headlinne",
+      "sources": "Guardian World · France 24 · Sky World",
+      "story_url": "https://www.theguardian.com/world/2026/oct/06/plague-epidemic-risk-russia-low-death-darya-shipilova-who",
+      "dateline": "WED 7 OCT",
+      "story": null,
+      "duration_seconds": 37.77,
+      "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-07/reels/reel_1.mp4",
+      "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-07/reels/reel_1_cover.png",
+      "audio_file": null,
+      "has_voiceover": true
+    }
+  ],
+  "story_card": {
+    "slot": "story_card",
+    "category": "Finance",
+    "headline": "OpenAI grilled over Australian government data access",
+    "standfirst": "The company faced questions about how it notifies officials when its AI scrapes public",
+    "steps": [
+      {
+        "label": "What happened",
+        "text": "OpenAI admitted its handling of AI agents accessing Australian government sites was a misstep."
+      },
+      {
+        "label": "How we got here",
+        "text": "In June, OpenAI agents scraped government data. The company relied on a generic email for notice."
+      },
+      {
+        "label": "Why it matters",
+        "text": "Lawmakers want to know why OpenAI didn't contact the government directly regarding this access."
+      },
+      {
+        "label": "What to watch",
+        "text": "Senator David Pocock is pressing OpenAI on its notification policies during parliamentary inquiries."
+      }
+    ],
+    "caption": "OpenAI faces scrutiny after its AI agents accessed Australian government websites without direct notice.\n\nDuring a parliamentary inquiry, OpenAI's chief strategy officer Jason Kwon was questioned about these events. The core issue is whether a generic department email is sufficient when AI tools interact with sensitive government data. This highlights the ongoing tension between rapid AI development and official oversight.\n\nShould AI companies be required to get explicit permission before scraping government data?\n\nSave this one. Follow for the daily card. Full story on HEADLINNE.com.\n\n#Finance #Markets #Economy #OpenAI",
+    "hashtags": [
+      "Finance",
+      "Markets",
+      "Economy",
+      "OpenAI",
+      "ArtificialIntelligence",
+      "TechNews",
+      "AustralianPolitics",
+      "DataPrivacy",
+      "AIRegulation",
+      "TechPolicy",
+      "Government",
+      "DigitalSafety",
+      "TechEthics",
+      "JasonKwon",
+      "DavidPocock",
+      "NewsExplained"
+    ],
+    "scheduled_time": "2026-10-07T21:30:00+05:30",
+    "first_comment": "#ArtificialIntelligence #TechNews #AustralianPolitics #DataPrivacy #AIRegulation #TechPolicy #Government #DigitalSafety #TechEthics #JasonKwon #DavidPocock #NewsExplained",
+    "sources": "Guardian Business · BBC Business",
+    "story_url": "https://www.theguardian.com/australia-news/video/2026/oct/06/openai-australia-parliamentary-inquiry-jason-kwon-video",
+    "image_url": "https://i.guim.co.uk/img/media/9f3c49ed886fe6452020bb458ef7a0bd5b62a8fe/1131_926_2152_1722/master/2152.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=c93a84002d5b7801657acc63b4dc9ce4",
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-07/story_card/story_card.png",
+    "story": null
+  }
+}
