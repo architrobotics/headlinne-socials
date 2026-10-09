@@ -1,0 +1,101 @@
+[
+  {
+    "category": "Geopolitics",
+    "post": "Today's top global headlines\n• US prosecutors charged Nicolas Maduro and his wife with torture\n• South Korea is investigating alleged illegal fuel shipments to Russia HEADLINNE.com #Geopolitics #WorldNews",
+    "hashtags": [
+      "Geopolitics",
+      "WorldNews"
+    ],
+    "scheduled_time": "2026-10-09T13:00:00+05:30",
+    "kind": "news",
+    "lead": "Today's top global headlines",
+    "items": [
+      "US prosecutors charged Nicolas Maduro and his wife with torture",
+      "South Korea is investigating alleged illegal fuel shipments to Russia"
+    ],
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-09/x/x_1.png",
+    "story": {
+      "title": "US files new torture charges against Venezuela's Nicolas Maduro and wife Cilia Flores",
+      "summary": "The United States on Thursday charged ousted Venezuelan president Nicolas Maduro and his wife Cilia Flores with conspiracy to commit torture, adding to drug trafficking and firearms charges. Prosecutors allege detainees, including US citizens, suffered waterboarding, rape and beatings. The pair remain in US custody following a January military raid.",
+      "url": "https://www.france24.com/en/americas/20261008-us-files-new-torture-charges-venezuela-nicolas-maduro-cilia-flores",
+      "category": "Geopolitics",
+      "source": "France 24",
+      "tier": 1.0,
+      "published_iso": "2026-10-08T23:56:36+00:00",
+      "image_url": "https://s.france24.com/media/display/98c20c5a-c337-11f1-a0bd-f50f6d982dc3/w:1024/p:16x9/2be2ec58aeeef8ac14d762080f9c1624a8e8fcec.jpg",
+      "corroborating_sources": [
+        "Al Jazeera",
+        "Guardian World",
+        "NPR World",
+        "Sky World"
+      ],
+      "score": 16.262,
+      "verified": true,
+      "sensitive": false,
+      "agreement": {
+        "reported": 5,
+        "agree": 5,
+        "conflict": 0,
+        "claim": "",
+        "claim_unit": "",
+        "outlets": [
+          "France 24",
+          "Sky World",
+          "Guardian World",
+          "Al Jazeera",
+          "NPR World"
+        ],
+        "conflicts": []
+      }
+    }
+  },
+  {
+    "category": "Tech",
+    "post": "Your quick tech and news update.\n• The US plans to livestream the execution of Nidal Hasan\n• Microsoft is blocked from a key foreign worker visa program\n• The White House says Microsoft and Adobe abused hiring rules HEADLINNE.com #TechNews #Headlinne",
+    "hashtags": [
+      "TechNews",
+      "Headlinne"
+    ],
+    "scheduled_time": "2026-10-09T17:00:00+05:30",
+    "kind": "news",
+    "lead": "Your quick tech and news update.",
+    "items": [
+      "The US plans to livestream the execution of Nidal Hasan",
+      "Microsoft is blocked from a key foreign worker visa program",
+      "The White House says Microsoft and Adobe abused hiring rules"
+    ],
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-09/x/x_2.png",
+    "story": {
+      "title": "US plans livestream of execution by firing squad",
+      "summary": "The United States' execution of the Fort Hood shooter will be livestreamed, anonymous officials from the Defense Department told the BBC and Associated Press. The planned execution of Nidal Hasan, the former US Army major convicted of killing 13 people at the Texas military base, was announced this week. He is scheduled to be executed [&#8230;]",
+      "url": "https://www.theverge.com/tech/1008530/us-government-livestream-execution-firing-squad-fort-hood",
+      "category": "Technology",
+      "source": "The Verge",
+      "tier": 1.1,
+      "published_iso": "2026-10-08T22:32:04+00:00",
+      "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/10/gettyimages-2298331635.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
+      "corroborating_sources": [
+        "Al Jazeera",
+        "France 24",
+        "Guardian World"
+      ],
+      "score": 13.726,
+      "verified": true,
+      "sensitive": true,
+      "agreement": {
+        "reported": 4,
+        "agree": 3,
+        "conflict": 0,
+        "claim": "13 people",
+        "claim_unit": "people",
+        "outlets": [
+          "The Verge",
+          "Guardian World",
+          "France 24",
+          "Al Jazeera"
+        ],
+        "conflicts": []
+      }
+    }
+  }
+]
