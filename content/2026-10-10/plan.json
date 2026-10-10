@@ -1,0 +1,306 @@
+{
+  "day": "2026-10-10",
+  "is_promo_day": true,
+  "is_friday": false,
+  "twitter": [
+    {
+      "category": "Promo",
+      "post": "Most news tells you what happened, but not why it hits your wallet or your daily life. We add a 'Why It Matters' note to every story so you can cut through the noise and understand the real impact in seconds. HEADLINNE.com #News #MediaLiteracy",
+      "hashtags": [
+        "News",
+        "MediaLiteracy"
+      ],
+      "scheduled_time": "2026-10-10T13:00:00+05:30",
+      "kind": "promo",
+      "lead": "Understand the news behind the headlines",
+      "items": [],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-10/x/x_1.png",
+      "story": null
+    }
+  ],
+  "linkedin": {
+    "title": "Most news apps guess what you want based on what you click.",
+    "body": "That approach is flawed. Clicking on a sensational headline doesn't mean you actually care about the topic. It often just means the headline was designed to grab your attention for a split second.\n\nAt Headlinne, we built our recommendation engine differently. Instead of tracking fleeting clicks, we focus on the stories you read from start to finish. We look at the depth of your engagement. If you read a complex piece about climate policy or local infrastructure all the way through, that tells us something real about your interests. It is about quality over quantity.\n\nWe also know that interests change. You might be obsessed with tech news this month but focused on urban planning the next. Our AI adapts to those shifts in real time. It does not box you into a permanent category based on a search you made three years ago.\n\nBuilding a news feed this way takes more work, but it respects your time. It means your feed stays relevant to who you are today, not who you were last week.",
+    "cta": "See how a more thoughtful feed feels at HEADLINNE.com.",
+    "scheduled_time": "2026-10-10T18:00:00+05:30",
+    "kind": "product"
+  },
+  "instagram": [],
+  "reels": [
+    {
+      "slot": "reel_1",
+      "kind": "news",
+      "category": "Finance",
+      "title": "Trump announces deal for Russian diesel as Zelensky calls it a gift to Putin",
+      "hook": "Trump announces deal for Russian diesel as Zelensky calls it a gift to Putin",
+      "beats": [
+        {
+          "role": "hook",
+          "caption": "Trump announces deal for Russian diesel as Zelensky calls it a gift to Putin",
+          "detail": "",
+          "narration": "",
+          "seconds": 6.22,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "",
+          "pose": "",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {},
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": ""
+        },
+        {
+          "role": "hook",
+          "caption": "See how energy trade shifts the balance.",
+          "detail": "Energy markets influence global politics directly.",
+          "narration": "Here is how energy trade can physically impact a war.",
+          "seconds": 4.44,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "HOW ENERGY DEALS WORK",
+          "pose": "walk",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "trading",
+            "hat": "none",
+            "pose": "present"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "A new deal for Russian diesel.",
+          "detail": "The announcement comes amid global market shifts.",
+          "narration": "Donald Trump has announced a deal for Russian diesel.",
+          "seconds": 4.0,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "THE DIESEL ANNOUNCEMENT",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "trading",
+            "hat": "none",
+            "pose": "talk"
+          },
+          "stat": {},
+          "fact": "TRUMP ANNOUNCES RUSSIAN DIESEL DEAL",
+          "stamp": "DEAL",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "Zelensky calls the deal a gift.",
+          "detail": "He opposes the new energy arrangement.",
+          "narration": "Ukraine’s president has sharply criticized the move.",
+          "seconds": 3.11,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "ZELENSKY'S CRITICISM",
+          "pose": "present",
+          "say": "",
+          "plates": [
+            "story"
+          ],
+          "tone": "",
+          "scene": {
+            "set": "maproom",
+            "hat": "none",
+            "pose": "alarm"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "graphic",
+          "caption": "A clash over the diesel deal.",
+          "detail": "The deal faces heavy diplomatic opposition.",
+          "narration": "He sees this as an investment in the war.",
+          "seconds": 4.0,
+          "graphic": "split",
+          "data": {
+            "left_title": "THE DEAL",
+            "left_text": "Trump announces Russian diesel supply",
+            "right_title": "THE CRITICISM",
+            "right_text": "Zelensky calls it an investment in war"
+          },
+          "image_url": null,
+          "chapter": "TWO PERSPECTIVES",
+          "pose": "jump",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "maproom",
+            "hat": "none",
+            "pose": "think"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "It must be ended not prolonged.",
+          "detail": "Zelensky warns against fueling the war effort.",
+          "narration": "He claims it prolongs the conflict instead of ending it.",
+          "seconds": 4.44,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "THE WAR IMPACT",
+          "pose": "talk",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "maproom",
+            "hat": "none",
+            "pose": "point"
+          },
+          "stat": {},
+          "fact": "ZELENSKY CRITICISES DEAL",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "Verified by four independent sources.",
+          "detail": "Newsrooms agree on the details reported.",
+          "narration": "Four independent outlets have confirmed the reports.",
+          "seconds": 3.11,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "REPORTING CONFIRMED",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "newsroom",
+            "hat": "press",
+            "pose": "talk"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "outro",
+          "caption": "Get more at headlinne.com.",
+          "detail": "Stay updated with our daily news.",
+          "narration": "Get the full story at headlinne.com.",
+          "seconds": 2.67,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "STAY INFORMED",
+          "pose": "cta",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "newsroom",
+            "hat": "press",
+            "pose": "present"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        }
+      ],
+      "caption": "Trump announces deal for Russian diesel as Zelensky calls it a gift to Putin\n\nDoes this change the war?\n\nFollow @headlinnedotcom for a daily brief. Full story on HEADLINNE.com.\n\n#Finance #Markets #Economy #News",
+      "hashtags": [
+        "Finance",
+        "Markets",
+        "Economy",
+        "News",
+        "Energy",
+        "Ukraine",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-10-10T09:30:00+05:30",
+      "first_comment": "#Energy #Ukraine #Headlinne",
+      "sources": "BBC Business · Guardian World · NPR World",
+      "story_url": "https://www.bbc.co.uk/news/articles/cm1dwgr666wno?at_medium=RSS&at_campaign=rss",
+      "dateline": "SAT 10 OCT",
+      "story": null,
+      "duration_seconds": 32.0,
+      "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-10/reels/reel_1.mp4",
+      "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-10/reels/reel_1_cover.png",
+      "audio_file": null,
+      "has_voiceover": true
+    }
+  ],
+  "story_card": {
+    "slot": "story_card",
+    "category": "Geopolitics",
+    "headline": "Navi Pillay awarded Nobel Peace Prize",
+    "standfirst": "The former UN human rights chief is recognized for her work in international law.",
+    "steps": [
+      {
+        "label": "What happened",
+        "text": "South African judge Navi Pillay has been awarded the Nobel Peace Prize."
+      },
+      {
+        "label": "How we got here",
+        "text": "Pillay chaired a UN commission that concluded Israel committed genocide in Gaza."
+      },
+      {
+        "label": "Why it matters",
+        "text": "The committee is honoring her long career dedicated to promoting international law."
+      },
+      {
+        "label": "What to watch",
+        "text": "The global response to the committee's decision and her continued legal advocacy."
+      }
+    ],
+    "caption": "Navi Pillay has been awarded the Nobel Peace Prize for her work in international law.\n\nThe Nobel committee recognized Pillay for her lifelong commitment to human rights. This includes her recent role chairing the UN commission that investigated the conflict in Gaza.\n\nDoes this award change how you view the role of international law in global conflicts?\n\nSave this one. Follow for the daily card. Full story on HEADLINNE.com.\n\n#WorldNews #Geopolitics #GlobalNews #NaviPillay",
+    "hashtags": [
+      "WorldNews",
+      "Geopolitics",
+      "GlobalNews",
+      "NaviPillay",
+      "NobelPeacePrize",
+      "HumanRights",
+      "InternationalLaw",
+      "UN",
+      "SouthAfrica",
+      "Gaza",
+      "NobelPrize",
+      "PeacePrize",
+      "Justice",
+      "CurrentEvents",
+      "NewsExplained",
+      "Headlinne"
+    ],
+    "scheduled_time": "2026-10-10T21:30:00+05:30",
+    "first_comment": "#NobelPeacePrize #HumanRights #InternationalLaw #UN #SouthAfrica #Gaza #NobelPrize #PeacePrize #Justice #CurrentEvents #NewsExplained #Headlinne",
+    "sources": "Guardian World · France 24 · BBC World · Al Jazeera +2",
+    "story_url": "https://www.theguardian.com/world/2026/oct/09/navanethem-navi-pillay-wins-nobel-peace-prize",
+    "image_url": "https://i.guim.co.uk/img/media/1af4719571646d49b58a7ed6e715293e288fb0b4/221_146_6359_5087/master/6359.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=a4608d3f12acd7731f0129c173241ad5",
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-10/story_card/story_card.png",
+    "story": null
+  }
+}
