@@ -1,0 +1,112 @@
+[
+  {
+    "category": "Geopolitics",
+    "post": "Today's big global headlines.\n• Twelve killed in a Houthi attack on a Riyadh airport\n• Trump says Ukraine needs new leadership after diesel deal HEADLINNE.com #Geopolitics #News",
+    "hashtags": [
+      "Geopolitics",
+      "News"
+    ],
+    "scheduled_time": "2026-10-11T13:00:00+05:30",
+    "kind": "news",
+    "lead": "Today's big global headlines.",
+    "items": [
+      "Twelve killed in a Houthi attack on a Riyadh airport",
+      "Trump says Ukraine needs new leadership after diesel deal"
+    ],
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-11/x/x_1.png",
+    "story": {
+      "title": "Twelve killed in attack on airport in Saudi capital Riyadh",
+      "summary": "Another 309 people are injured, with the Saudi-led coalition saying the attack by Yemen's Houthis is \"war crime\".",
+      "url": "https://www.bbc.co.uk/news/articles/cw33x4y8k82no?at_medium=RSS&at_campaign=rss",
+      "category": "Geopolitics",
+      "source": "BBC World",
+      "tier": 1.4,
+      "published_iso": "2026-10-11T00:21:52+00:00",
+      "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/5c68/live/40a0f7d0-c507-11f1-a64c-550be9e3c66b.jpg",
+      "corroborating_sources": [
+        "Al Jazeera",
+        "France 24",
+        "Guardian World",
+        "NPR World"
+      ],
+      "score": 15.672,
+      "verified": true,
+      "sensitive": true,
+      "agreement": {
+        "reported": 5,
+        "agree": 1,
+        "conflict": 1,
+        "claim": "309 people",
+        "claim_unit": "people",
+        "outlets": [
+          "BBC World",
+          "Guardian World",
+          "France 24",
+          "NPR World",
+          "Al Jazeera"
+        ],
+        "conflicts": [
+          {
+            "outlet": "Guardian World",
+            "value": "12 people"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "category": "Finance",
+    "post": "Today's big moves in the fuel market\n• Trump is buying Russian diesel to cut prices, upsetting Ukraine\n• The deal aims to lower US fuel costs right before the midterms\n• Rising fuel costs are a major concern for voters this month HEADLINNE.com #Finance #Economy",
+    "hashtags": [
+      "Finance",
+      "Economy"
+    ],
+    "scheduled_time": "2026-10-11T17:00:00+05:30",
+    "kind": "news",
+    "lead": "Today's big moves in the fuel market",
+    "items": [
+      "Trump is buying Russian diesel to cut prices, upsetting Ukraine",
+      "The deal aims to lower US fuel costs right before the midterms",
+      "Rising fuel costs are a major concern for voters this month"
+    ],
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-11/x/x_2.png",
+    "story": {
+      "title": "Zelenskyy furious as Trump announces deal to buy Russian diesel",
+      "summary": "US president says agreement needed to lower fuel prices, but move likely to create fresh crisis with Ukraine and Nato allies Donald Trump is on a fresh collision course with Volodymyr Zelenskyy and European allies after his stunning agreement to buy Russian diesel upended years of US and western pressure on the Kremlin to end its war against Ukraine. Zelenskyy reacted furiously to Trump’s announcement of the deal with Vladimir Putin on Friday, calling it “absolutely terrible” and “not fair and not honest”. Continue reading...",
+      "url": "https://www.theguardian.com/us-news/2026/oct/09/trump-putin-russian-diesel-ukraine",
+      "category": "Finance",
+      "source": "Guardian Business",
+      "tier": 1.1,
+      "published_iso": "2026-10-10T10:09:46+00:00",
+      "image_url": "https://i.guim.co.uk/img/media/e29aa72f0ab1f4d0fff1cdad48794d44d329f308/1376_0_6880_5504/master/6880.jpg?width=700&quality=85&auto=format&fit=max&s=ed1ec2b9b3572bd4b1a688a7e3c17106",
+      "corroborating_sources": [
+        "Al Jazeera",
+        "BBC Business",
+        "BBC World",
+        "France 24",
+        "Guardian World",
+        "NPR World"
+      ],
+      "score": 13.172,
+      "verified": true,
+      "sensitive": false,
+      "agreement": {
+        "reported": 7,
+        "agree": 7,
+        "conflict": 0,
+        "claim": "",
+        "claim_unit": "",
+        "outlets": [
+          "Guardian Business",
+          "Guardian World",
+          "BBC Business",
+          "NPR World",
+          "France 24",
+          "Al Jazeera",
+          "BBC World"
+        ],
+        "conflicts": []
+      }
+    }
+  }
+]
