@@ -1,0 +1,386 @@
+{
+  "day": "2026-10-13",
+  "is_promo_day": false,
+  "is_friday": false,
+  "twitter": [
+    {
+      "category": "Geopolitics",
+      "post": "Here is today's global news roundup.\n• Russian attacks hit Ukraine gas sites despite ceasefire claims\n• The UK suspects Iran was behind the recent RAF Fairford scare\n• Starlink's India launch is stuck in regulatory limbo HEADLINNE.com #Geopolitics #News",
+      "hashtags": [
+        "Geopolitics",
+        "News"
+      ],
+      "scheduled_time": "2026-10-13T13:00:00+05:30",
+      "kind": "news",
+      "lead": "Here is today's global news roundup.",
+      "items": [
+        "Russian attacks hit Ukraine gas sites despite ceasefire claims",
+        "The UK suspects Iran was behind the recent RAF Fairford scare",
+        "Starlink's India launch is stuck in regulatory limbo"
+      ],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-13/x/x_1.png",
+      "story": {
+        "title": "Russia hits Ukraine gas facilities after Trump claims 'energy ceasefire'",
+        "summary": "Trump said he had brokered a cease-fire to protect energy infrastructure in Russia and Ukraine. But Ukrainian officials say bombs kept falling overnight on gas facilities, wounding 33 people.",
+        "url": "https://www.npr.org/2026/10/12/nx-s1-5998614/trump-russia-ukraine-energy-ceasefire",
+        "category": "Geopolitics",
+        "source": "NPR World",
+        "tier": 1.0,
+        "published_iso": "2026-10-12T06:41:57+00:00",
+        "image_url": "https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-5998614",
+        "corroborating_sources": [
+          "BBC World",
+          "France 24",
+          "Guardian Business"
+        ],
+        "score": 13.407,
+        "verified": true,
+        "sensitive": false,
+        "agreement": {
+          "reported": 4,
+          "agree": 1,
+          "conflict": 0,
+          "claim": "33 people",
+          "claim_unit": "people",
+          "outlets": [
+            "NPR World",
+            "Guardian Business",
+            "BBC World",
+            "France 24"
+          ],
+          "conflicts": []
+        }
+      }
+    },
+    {
+      "category": "Finance",
+      "post": "Here is today's financial snapshot.\n• French supermarkets lost millions after hackers heated fridges to 50C\n• Meta stock rose 3% following the release of new Wonder AI models HEADLINNE.com #Finance #Tech",
+      "hashtags": [
+        "Finance",
+        "Tech"
+      ],
+      "scheduled_time": "2026-10-13T17:00:00+05:30",
+      "kind": "news",
+      "lead": "Here is today's financial snapshot.",
+      "items": [
+        "French supermarkets lost millions after hackers heated fridges to 50C",
+        "Meta stock rose 3% following the release of new Wonder AI models"
+      ],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-13/x/x_2.png",
+      "story": {
+        "title": "Fridges in French supermarkets hit by cyber attack",
+        "summary": "Hundreds of stores were targeted by the overnight hack, which spoiled fresh and frozen food estimated to be worth millions of euros.",
+        "url": "https://www.bbc.co.uk/news/articles/crq5nzxv9q4yo?at_medium=RSS&at_campaign=rss",
+        "category": "Finance",
+        "source": "BBC Business",
+        "tier": 1.4,
+        "published_iso": "2026-10-12T18:31:32+00:00",
+        "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/cfaf/live/a3ced500-c63a-11f1-b99d-0127a94fa1d0.jpg",
+        "corroborating_sources": [
+          "BBC World"
+        ],
+        "score": 13.247,
+        "verified": false,
+        "sensitive": false,
+        "agreement": {
+          "reported": 1,
+          "agree": 1,
+          "conflict": 0,
+          "claim": "",
+          "claim_unit": "",
+          "outlets": [
+            "BBC Business"
+          ],
+          "conflicts": []
+        }
+      }
+    }
+  ],
+  "linkedin": {
+    "title": "Most people feel overwhelmed by the news, not informed.",
+    "body": "We live in an era of infinite content, yet finding what actually matters to your specific life feels harder than ever. The current model relies on engagement metrics that prioritize outrage and broad appeal. This approach treats every reader the same, which is a mistake.\n\nTrue personalization is not about creating a filter bubble that hides the world. It is about respecting your time and your intelligence. It means delivering the stories that connect to your professional interests, your curiosity, and your goals, without the noise of irrelevant updates.\n\nWhen we use AI to curate news, we are not trying to replace human judgment. We are trying to augment it. A system that learns what you value allows you to stay informed on the topics that shape your industry and your world, rather than just reacting to the loudest headlines of the day.\n\nWe believe the future of news is quiet, relevant, and centered on the individual reader. It is time to stop scrolling through endless feeds and start reading what actually moves the needle for you.",
+    "cta": "You can see how we are rethinking the daily briefing at HEADLINNE.com.",
+    "scheduled_time": "2026-10-13T18:00:00+05:30",
+    "kind": "product"
+  },
+  "instagram": [],
+  "reels": [
+    {
+      "slot": "reel_1",
+      "kind": "news",
+      "category": "Geopolitics",
+      "title": "Russia hits Ukraine gas facilities after Trump claims 'energy ceasefire'",
+      "hook": "Russia hits Ukraine gas facilities after Trump claims 'energy ceasefire'",
+      "beats": [
+        {
+          "role": "hook",
+          "caption": "Russia hits Ukraine gas facilities after Trump claims 'energy ceasefire'",
+          "detail": "",
+          "narration": "",
+          "seconds": 4.84,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "",
+          "pose": "",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {},
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": ""
+        },
+        {
+          "role": "hook",
+          "caption": "Imagine a deal that does not hold.",
+          "detail": "A new energy truce is under fire.",
+          "narration": "Imagine you sign a peace deal for your home, but the roof gets smashed in anyway.",
+          "seconds": 7.75,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "ENERGY CEASEFIRE BROKEN",
+          "pose": "walk",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "home",
+            "hat": "none",
+            "pose": "present"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "Trump claimed he brokered a ceasefire.",
+          "detail": "The goal was protecting energy infrastructure.",
+          "narration": "Donald Trump recently said he brokered a ceasefire to protect energy sites in Ukraine and Russia.",
+          "seconds": 7.75,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "THE TRUMP PROMISE",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "maproom",
+            "hat": "press",
+            "pose": "talk"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "Attacks continued despite the claim.",
+          "detail": "Explosions struck critical energy infrastructure.",
+          "narration": "But the peace did not last. Ukrainian officials report that bombs kept hitting gas facilities overnight.",
+          "seconds": 7.75,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "BOMBS KEEP FALLING",
+          "pose": "present",
+          "say": "",
+          "plates": [
+            "story"
+          ],
+          "tone": "",
+          "scene": {
+            "set": "maproom",
+            "hat": "press",
+            "pose": "alarm"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "BROKEN",
+          "stamp_tone": "bad"
+        },
+        {
+          "role": "graphic",
+          "caption": "A contrast between claims and facts.",
+          "detail": "Promises versus the reality of war.",
+          "narration": "The promise of safety clashes with the reality on the ground for those living there.",
+          "seconds": 7.26,
+          "graphic": "split",
+          "data": {
+            "left_title": "THE CLAIM",
+            "left_text": "Energy sites will be safe under a new ceasefire deal.",
+            "right_title": "THE REALITY",
+            "right_text": "Bombs struck gas facilities overnight in Ukraine."
+          },
+          "image_url": null,
+          "chapter": "THE GAP IN REALITY",
+          "pose": "jump",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "maproom",
+            "hat": "press",
+            "pose": "point"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "Thirty-three people were wounded.",
+          "detail": "The toll from the latest strikes.",
+          "narration": "The impact is real. Officials say thirty-three people were wounded in the overnight attacks.",
+          "seconds": 6.78,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "THE HUMAN COST",
+          "pose": "talk",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "street",
+            "hat": "hardhat",
+            "pose": "think"
+          },
+          "stat": {
+            "value": "33",
+            "label": "people wounded"
+          },
+          "fact": "33 PEOPLE WOUNDED",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "Four outlets confirm the details.",
+          "detail": "Reporting verified by NPR, BBC, and others.",
+          "narration": "Four independent news outlets have confirmed these events across the region.",
+          "seconds": 5.33,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "VERIFIED REPORTS",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "newsroom",
+            "hat": "press",
+            "pose": "nod"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "outro",
+          "caption": "Verify the facts at Headlinne.com.",
+          "detail": "Real news, verified by experts.",
+          "narration": "Get the full story and verify the facts for yourself at Headlinne.com.",
+          "seconds": 5.81,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "STAY INFORMED",
+          "pose": "cta",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "newsroom",
+            "hat": "none",
+            "pose": "cheer"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        }
+      ],
+      "caption": "Russia hits Ukraine gas facilities after Trump claims 'energy ceasefire'\n\nIs the ceasefire real?\n\nFollow @headlinnedotcom for a daily brief. Full story on HEADLINNE.com.\n\n#WorldNews #Geopolitics #GlobalNews #Ukraine",
+      "hashtags": [
+        "WorldNews",
+        "Geopolitics",
+        "GlobalNews",
+        "Ukraine",
+        "News",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-10-13T09:30:00+05:30",
+      "first_comment": "#News #Headlinne",
+      "sources": "NPR World · Guardian Business · BBC World · France 24",
+      "story_url": "https://www.npr.org/2026/10/12/nx-s1-5998614/trump-russia-ukraine-energy-ceasefire",
+      "dateline": "TUE 13 OCT",
+      "story": null,
+      "duration_seconds": 53.27,
+      "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-13/reels/reel_1.mp4",
+      "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-13/reels/reel_1_cover.png",
+      "audio_file": null,
+      "has_voiceover": true
+    }
+  ],
+  "story_card": {
+    "slot": "story_card",
+    "category": "Finance",
+    "headline": "Cyberattack hits French supermarket fridges",
+    "standfirst": "Hundreds of stores are dealing with spoiled inventory after an overnight digital hack.",
+    "steps": [
+      {
+        "label": "What happened",
+        "text": "A cyberattack targeted supermarket refrigeration systems across France overnight."
+      },
+      {
+        "label": "How we got here",
+        "text": "Hackers breached the store networks. This caused the cooling systems to fail entirely."
+      },
+      {
+        "label": "Why it matters",
+        "text": "The failure ruined massive amounts of fresh and frozen food worth millions of euros."
+      },
+      {
+        "label": "What to watch",
+        "text": "Authorities are investigating the scope of the damage and who is responsible."
+      }
+    ],
+    "caption": "A major cyberattack on French supermarket cooling systems has caused millions of euros in food waste.\n\nHundreds of locations were hit by the hack, which knocked out refrigeration overnight. This serves as a stark reminder of how vulnerable modern supply chains are to digital interference.\n\nDo you think businesses are doing enough to secure their physical infrastructure against cyber threats?\n\nSave this one. Follow for the daily card. Full story on HEADLINNE.com.\n\n#Finance #Markets #Economy #France",
+    "hashtags": [
+      "Finance",
+      "Markets",
+      "Economy",
+      "France",
+      "CyberSecurity",
+      "TechNews",
+      "Retail",
+      "FoodWaste",
+      "Supermarket",
+      "BusinessNews",
+      "DigitalSecurity",
+      "Europe",
+      "SupplyChain",
+      "Hacking",
+      "Tech",
+      "NewsExplained"
+    ],
+    "scheduled_time": "2026-10-13T21:30:00+05:30",
+    "first_comment": "#CyberSecurity #TechNews #Retail #FoodWaste #Supermarket #BusinessNews #DigitalSecurity #Europe #SupplyChain #Hacking #Tech #NewsExplained",
+    "sources": "BBC Business",
+    "story_url": "https://www.bbc.co.uk/news/articles/crq5nzxv9q4yo?at_medium=RSS&at_campaign=rss",
+    "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/cfaf/live/a3ced500-c63a-11f1-b99d-0127a94fa1d0.jpg",
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-13/story_card/story_card.png",
+    "story": null
+  }
+}

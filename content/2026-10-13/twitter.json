@@ -1,0 +1,94 @@
+[
+  {
+    "category": "Geopolitics",
+    "post": "Here is today's global news roundup.\n• Russian attacks hit Ukraine gas sites despite ceasefire claims\n• The UK suspects Iran was behind the recent RAF Fairford scare\n• Starlink's India launch is stuck in regulatory limbo HEADLINNE.com #Geopolitics #News",
+    "hashtags": [
+      "Geopolitics",
+      "News"
+    ],
+    "scheduled_time": "2026-10-13T13:00:00+05:30",
+    "kind": "news",
+    "lead": "Here is today's global news roundup.",
+    "items": [
+      "Russian attacks hit Ukraine gas sites despite ceasefire claims",
+      "The UK suspects Iran was behind the recent RAF Fairford scare",
+      "Starlink's India launch is stuck in regulatory limbo"
+    ],
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-13/x/x_1.png",
+    "story": {
+      "title": "Russia hits Ukraine gas facilities after Trump claims 'energy ceasefire'",
+      "summary": "Trump said he had brokered a cease-fire to protect energy infrastructure in Russia and Ukraine. But Ukrainian officials say bombs kept falling overnight on gas facilities, wounding 33 people.",
+      "url": "https://www.npr.org/2026/10/12/nx-s1-5998614/trump-russia-ukraine-energy-ceasefire",
+      "category": "Geopolitics",
+      "source": "NPR World",
+      "tier": 1.0,
+      "published_iso": "2026-10-12T06:41:57+00:00",
+      "image_url": "https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-5998614",
+      "corroborating_sources": [
+        "BBC World",
+        "France 24",
+        "Guardian Business"
+      ],
+      "score": 13.407,
+      "verified": true,
+      "sensitive": false,
+      "agreement": {
+        "reported": 4,
+        "agree": 1,
+        "conflict": 0,
+        "claim": "33 people",
+        "claim_unit": "people",
+        "outlets": [
+          "NPR World",
+          "Guardian Business",
+          "BBC World",
+          "France 24"
+        ],
+        "conflicts": []
+      }
+    }
+  },
+  {
+    "category": "Finance",
+    "post": "Here is today's financial snapshot.\n• French supermarkets lost millions after hackers heated fridges to 50C\n• Meta stock rose 3% following the release of new Wonder AI models HEADLINNE.com #Finance #Tech",
+    "hashtags": [
+      "Finance",
+      "Tech"
+    ],
+    "scheduled_time": "2026-10-13T17:00:00+05:30",
+    "kind": "news",
+    "lead": "Here is today's financial snapshot.",
+    "items": [
+      "French supermarkets lost millions after hackers heated fridges to 50C",
+      "Meta stock rose 3% following the release of new Wonder AI models"
+    ],
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-13/x/x_2.png",
+    "story": {
+      "title": "Fridges in French supermarkets hit by cyber attack",
+      "summary": "Hundreds of stores were targeted by the overnight hack, which spoiled fresh and frozen food estimated to be worth millions of euros.",
+      "url": "https://www.bbc.co.uk/news/articles/crq5nzxv9q4yo?at_medium=RSS&at_campaign=rss",
+      "category": "Finance",
+      "source": "BBC Business",
+      "tier": 1.4,
+      "published_iso": "2026-10-12T18:31:32+00:00",
+      "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/cfaf/live/a3ced500-c63a-11f1-b99d-0127a94fa1d0.jpg",
+      "corroborating_sources": [
+        "BBC World"
+      ],
+      "score": 13.247,
+      "verified": false,
+      "sensitive": false,
+      "agreement": {
+        "reported": 1,
+        "agree": 1,
+        "conflict": 0,
+        "claim": "",
+        "claim_unit": "",
+        "outlets": [
+          "BBC Business"
+        ],
+        "conflicts": []
+      }
+    }
+  }
+]
