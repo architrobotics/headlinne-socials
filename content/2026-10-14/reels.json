@@ -1,0 +1,227 @@
+[
+  {
+    "slot": "reel_1",
+    "kind": "news",
+    "category": "Finance",
+    "title": "Saudi man charged with planting 'sophisticated' recording device in OpenAI office",
+    "hook": "Saudi man charged with planting 'sophisticated' recording device in OpenAI office",
+    "beats": [
+      {
+        "role": "hook",
+        "caption": "Saudi man charged with planting 'sophisticated' recording device in OpenAI office",
+        "detail": "",
+        "narration": "",
+        "seconds": 5.31,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "",
+        "pose": "",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {},
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": ""
+      },
+      {
+        "role": "hook",
+        "caption": "Three tech updates this week.",
+        "detail": "A strange incident at OpenAI.",
+        "narration": "Three tech updates this week. The third one is the weirdest.",
+        "seconds": 5.31,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "THREE TECH UPDATES",
+        "pose": "walk",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "server",
+          "hat": "press",
+          "pose": "present"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "Security breach at OpenAI.",
+        "detail": "Prosecutors are now involved.",
+        "narration": "It started inside the OpenAI office. A serious security breach was reported.",
+        "seconds": 5.8,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "AN OPENAI OFFICE",
+        "pose": "point",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "server",
+          "hat": "press",
+          "pose": "point"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "A hidden recording device.",
+        "detail": "Found in an executive conference room.",
+        "narration": "Staff found a recording device attached to the back of a TV.",
+        "seconds": 5.8,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "THE HIDDEN DEVICE",
+        "pose": "present",
+        "say": "",
+        "plates": [
+          "story"
+        ],
+        "tone": "",
+        "scene": {
+          "set": "server",
+          "hat": "press",
+          "pose": "scan"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "graphic",
+        "caption": "Hidden in toilet paper.",
+        "detail": "Stuck into a USB port.",
+        "narration": "It was hidden in a very simple way. Wrapped in toilet paper.",
+        "seconds": 5.8,
+        "graphic": "flow",
+        "data": {
+          "steps": [
+            "Device found",
+            "Wrapped in paper",
+            "Stuck in TV"
+          ]
+        },
+        "image_url": null,
+        "chapter": "A STRANGE HIDING SPOT",
+        "pose": "jump",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "server",
+          "hat": "press",
+          "pose": "think"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "A man has been charged.",
+        "detail": "Prosecutors call the device sophisticated.",
+        "narration": "A Saudi man has been charged for planting it.",
+        "seconds": 4.35,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "CHARGES FILED",
+        "pose": "talk",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "courtroom",
+          "hat": "none",
+          "pose": "talk"
+        },
+        "stat": {},
+        "fact": "SAUDI MAN CHARGED",
+        "stamp": "CHARGED",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "Why security matters.",
+        "detail": "Protecting proprietary information is key.",
+        "narration": "OpenAI is home to sensitive AI data. Security is critical here.",
+        "seconds": 5.31,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "WHY IT MATTERS",
+        "pose": "point",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "courtroom",
+          "hat": "none",
+          "pose": "nod"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "outro",
+        "caption": "Read more at Headlinne.com.",
+        "detail": "Stay informed on tech news.",
+        "narration": "Get the full story and more at Headlinne dot com.",
+        "seconds": 4.83,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "STAY UPDATED",
+        "pose": "cta",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "courtroom",
+          "hat": "none",
+          "pose": "deliver"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      }
+    ],
+    "caption": "Saudi man charged with planting 'sophisticated' recording device in OpenAI office\n\nHow do companies stop this?\n\nFollow @headlinnedotcom for a daily brief. Full story on HEADLINNE.com.\n\n#Finance #Markets #Economy #OpenAI",
+    "hashtags": [
+      "Finance",
+      "Markets",
+      "Economy",
+      "OpenAI",
+      "TechNews",
+      "Headlinne"
+    ],
+    "scheduled_time": "2026-10-14T09:30:00+05:30",
+    "first_comment": "#TechNews #Headlinne",
+    "sources": "BBC Business",
+    "story_url": "https://www.bbc.co.uk/news/articles/cwg5jq4vlddzo?at_medium=RSS&at_campaign=rss",
+    "dateline": "WED 14 OCT",
+    "story": null,
+    "duration_seconds": 42.5,
+    "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-14/reels/reel_1.mp4",
+    "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-14/reels/reel_1_cover.png",
+    "audio_file": null,
+    "has_voiceover": true
+  }
+]
