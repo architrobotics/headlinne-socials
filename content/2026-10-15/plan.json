@@ -1,0 +1,516 @@
+{
+  "day": "2026-10-15",
+  "is_promo_day": false,
+  "is_friday": false,
+  "twitter": [
+    {
+      "category": "Geopolitics",
+      "post": "Ukraine's Starlink standoff deepens\n• Kyiv's reliance on Starlink for defense is now under scrutiny\n• Throttled internet access may weaken Ukraine's air defenses\n• Zelenskyy says he feels betrayed by Trump over access limits HEADLINNE.com #Ukraine #Starlink",
+      "hashtags": [
+        "Ukraine",
+        "Starlink"
+      ],
+      "scheduled_time": "2026-10-15T13:00:00+05:30",
+      "kind": "news",
+      "lead": "Ukraine's Starlink standoff deepens",
+      "items": [
+        "Kyiv's reliance on Starlink for defense is now under scrutiny",
+        "Throttled internet access may weaken Ukraine's air defenses",
+        "Zelenskyy says he feels betrayed by Trump over access limits"
+      ],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-15/x/x_1.png",
+      "story": {
+        "title": "Starlink restriction 'no surprise' after Musk condemned Ukraine strikes on Russian data centres",
+        "summary": "Restrictions reported by Ukraine on its use of the US satellite internet system Starlink have exposed Kyiv's reliance on the technology for both offensive and defensive operations in its fight against Russia'a invasion, analysts and observers say. Speaking with FRANCE 24's Mark Owen, David Galbreath Professor of War and Technology at the University of Bath, says that \"we always knew that allowing a private organisation like Starlink to have such a big impact on the combat operations in Ukraine was going to be challenging\", explaining that \"it is no surprise\" that Starlink services had been thr",
+        "url": "https://www.france24.com/en/starlink-restriction-no-surprise-after-musk-condemned-ukraine-strikes-on-russian-data-centres",
+        "category": "Geopolitics",
+        "source": "France 24",
+        "tier": 1.0,
+        "published_iso": "2026-10-14T19:49:17+00:00",
+        "image_url": "https://s.france24.com/media/display/7652471c-c804-11f1-ac63-6313a763b466/w:1024/p:16x9/EN-20261014-210507-211251-CS.jpg",
+        "corroborating_sources": [
+          "Ars Technica",
+          "Guardian World"
+        ],
+        "score": 13.407,
+        "verified": true,
+        "sensitive": false,
+        "agreement": {
+          "reported": 3,
+          "agree": 1,
+          "conflict": 0,
+          "claim": "24",
+          "claim_unit": "reported",
+          "outlets": [
+            "France 24",
+            "Guardian World",
+            "Ars Technica"
+          ],
+          "conflicts": []
+        }
+      }
+    },
+    {
+      "category": "Finance",
+      "post": "Bank of America is having a rough day\n• Shares are down after missing third-quarter revenue targets\n• The bank faces a $1.2 billion fine from the Treasury\n• Regulators say the bank failed to flag money laundering risks HEADLINNE.com #Finance #Banking",
+      "hashtags": [
+        "Finance",
+        "Banking"
+      ],
+      "scheduled_time": "2026-10-15T17:00:00+05:30",
+      "kind": "news",
+      "lead": "Bank of America is having a rough day",
+      "items": [
+        "Shares are down after missing third-quarter revenue targets",
+        "The bank faces a $1.2 billion fine from the Treasury",
+        "Regulators say the bank failed to flag money laundering risks"
+      ],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-15/x/x_2.png",
+      "story": {
+        "title": "Bank of America adds a profit miss to the misery of a $1.2 billion government fine",
+        "summary": "Bank of America’s stock falls as investor disappointment over the $1.2 billion government fine added to the bank’s downbeat earnings report.",
+        "url": "https://www.marketwatch.com/story/bank-of-america-adds-a-profit-miss-to-the-misery-of-a-1-2-billion-government-fine-d4420bfa?mod=mw_rss_topstories",
+        "category": "Finance",
+        "source": "MarketWatch Top",
+        "tier": 1.1,
+        "published_iso": "2026-10-14T21:40:00+00:00",
+        "image_url": "https://images.mktw.net/im-86270203",
+        "corroborating_sources": [],
+        "score": 13.235,
+        "verified": false,
+        "sensitive": false,
+        "agreement": {
+          "reported": 1,
+          "agree": 1,
+          "conflict": 0,
+          "claim": "1,200,000,000",
+          "claim_unit": "reported",
+          "outlets": [
+            "MarketWatch Top"
+          ],
+          "conflicts": []
+        }
+      }
+    }
+  ],
+  "linkedin": {
+    "title": "I started building a news app in my bedroom when I was a teenager.",
+    "body": "Most people told me the industry was already full. They said the big legacy players had won and that nobody wanted a new way to read the news. But I saw something different. I saw people overwhelmed by noise and struggling to find signal in a feed that was designed to keep them scrolling rather than informed.\n\nBuilding Headlinne wasn't about disrupting an industry for the sake of it. It was about solving a personal frustration. I wanted a news experience that respected my time and actually tailored itself to what I cared about, rather than what an algorithm thought would keep me angry or distracted.\n\nBeing a young founder meant I had to learn the hard way. I had to figure out how to build AI that actually works, how to handle editorial integrity, and how to make technology feel human. It forced me to focus on the basics of good journalism and smart engineering. I stopped worrying about viral trends and started focusing on utility.\n\nWe are now at a point where AI can finally do what we were promised it would. It can act as a personal editor that cuts through the clutter, not just a content generator. The goal has always been simple: help people understand the world better without the headache.",
+    "cta": "If you want to see what a cleaner, smarter way to read the news looks like, come take a look at HEADLINNE.com.",
+    "scheduled_time": "2026-10-15T18:00:00+05:30",
+    "kind": "product"
+  },
+  "instagram": [
+    {
+      "slot": "instagram_1",
+      "category": "Geopolitics",
+      "num_slides": 5,
+      "title": "Starlink restrictions in Ukraine threaten air defense systems",
+      "slides": [
+        {
+          "role": "cover",
+          "headline": "Starlink restrictions in Ukraine threaten air defense systems",
+          "explanation": "",
+          "image_url": "https://i.guim.co.uk/img/media/e8990bf376e8e1b165ba1ff98381c304d2cfe4b3/0_0_7200_5760/master/7200.jpg?width=700&quality=85&auto=format&fit=max&s=44f8b269164ef956b88a5a45873334bf",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-15/instagram/instagram_1/slide_1.png",
+          "subtitle": "Throttling mobile internet disrupts critical defense operations",
+          "sources": "",
+          "index": 1,
+          "kicker": "GEOPOLITICS",
+          "pose": "",
+          "say": "",
+          "figure": "",
+          "unit": ""
+        },
+        {
+          "role": "scale",
+          "headline": "",
+          "explanation": "The impact goes beyond battlefield tactics. It threatens the stability of air defense networks that protect civilian areas across the country.",
+          "image_url": "https://i.guim.co.uk/img/media/e8990bf376e8e1b165ba1ff98381c304d2cfe4b3/0_0_7200_5760/master/7200.jpg?width=700&quality=85&auto=format&fit=max&s=44f8b269164ef956b88a5a45873334bf",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-15/instagram/instagram_1/slide_2.png",
+          "subtitle": "",
+          "sources": "",
+          "index": 2,
+          "kicker": "THE SCALE",
+          "pose": "",
+          "say": "",
+          "figure": "",
+          "unit": ""
+        },
+        {
+          "role": "twist",
+          "headline": "The biggest risk is to defense, not offense",
+          "explanation": "While many focus on how this limits Ukraine's ability to strike oil refineries, experts warn the real danger is degrading the country's shield against air attacks.",
+          "image_url": null,
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-15/instagram/instagram_1/slide_3.png",
+          "subtitle": "",
+          "sources": "",
+          "index": 3,
+          "kicker": "WHAT YOU DID NOT KNOW",
+          "pose": "",
+          "say": "",
+          "figure": "",
+          "unit": ""
+        },
+        {
+          "role": "sources",
+          "headline": "",
+          "explanation": "We compared reports from six independent outlets including the BBC and Deutsche Welle. They all confirm that connection throttling poses a serious risk to defense operations.",
+          "image_url": null,
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-15/instagram/instagram_1/slide_4.png",
+          "subtitle": "",
+          "sources": "",
+          "index": 4,
+          "kicker": "SOURCES",
+          "pose": "",
+          "say": "",
+          "figure": "",
+          "unit": ""
+        },
+        {
+          "role": "cta",
+          "headline": "",
+          "explanation": "",
+          "image_url": null,
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-15/instagram/instagram_1/slide_5.png",
+          "subtitle": "Read the full briefing on the Headlinne app.",
+          "sources": "",
+          "index": 5,
+          "kicker": "READ THE FULL STORY",
+          "pose": "",
+          "say": "",
+          "figure": "",
+          "unit": ""
+        }
+      ],
+      "caption": "Ukraine is facing a new, quiet challenge as restrictions on the Starlink mobile internet system begin to take hold.\n\nWhile much of the conversation focuses on offensive operations, the real concern is defensive.\n\nExperts agree that throttling these connections will likely disrupt the air defense systems that keep Ukrainian cities safe. This adds another layer of uncertainty to an already volatile situation.\n\nWith military strategy and civilian safety so closely tied to connectivity, how do you think this shift will change the war's trajectory?\n\nFollow @headlinnedotcom for a daily brief. Full story on HEADLINNE.com.\n\n#WorldNews #Geopolitics #GlobalNews #Politics",
+      "hashtags": [
+        "WorldNews",
+        "Geopolitics",
+        "GlobalNews",
+        "Politics",
+        "Ukraine",
+        "Starlink",
+        "Technology",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-10-15T16:00:00+05:30",
+      "first_comment": "#Ukraine #Starlink #Technology #Headlinne",
+      "story": {
+        "title": "In Ukraine, civilian casualties were already rising. Restrictions on Starlink will only worsen the death toll",
+        "summary": "Throttling of mobile internet system will affect Kyiv’s air defences more than its strikes on oil refineries. Now Zelenskyy must be hoping that US intel holds In Ukraine the situation was already jittery enough. Donald Trump has been inventing ceasefires and buying Russian diesel to shore up his flagging popularity, while a sinister new wave of faster, jet-powered drones are breaking through Kyiv’s stretched air defences. Casualties are rising as the weather turns. Overnight, Russia bombed three power plants that supply Kyiv, aiming to cut off heating and electricity to the city. According to ",
+        "url": "https://www.theguardian.com/world/2026/oct/14/ukraine-starlink-civilian-casualties-death-toll",
+        "category": "Geopolitics",
+        "source": "Guardian World",
+        "tier": 1.1,
+        "published_iso": "2026-10-14T18:54:34+00:00",
+        "image_url": "https://i.guim.co.uk/img/media/e8990bf376e8e1b165ba1ff98381c304d2cfe4b3/0_0_7200_5760/master/7200.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=230a457edcf78b7315ef41dd14496005",
+        "corroborating_sources": [
+          "BBC World",
+          "Deutsche Welle",
+          "France 24",
+          "Guardian Business",
+          "NPR World"
+        ],
+        "score": 12.556,
+        "verified": true,
+        "sensitive": true,
+        "agreement": {
+          "reported": 6,
+          "agree": 6,
+          "conflict": 0,
+          "claim": "",
+          "claim_unit": "",
+          "outlets": [
+            "Guardian World",
+            "France 24",
+            "Guardian Business",
+            "BBC World",
+            "NPR World",
+            "Deutsche Welle"
+          ],
+          "conflicts": []
+        }
+      },
+      "story_url": "https://www.theguardian.com/world/2026/oct/14/ukraine-starlink-civilian-casualties-death-toll"
+    }
+  ],
+  "reels": [
+    {
+      "slot": "reel_1",
+      "kind": "news",
+      "category": "Geopolitics",
+      "title": "Starlink restriction 'no surprise' after Musk condemned Ukraine strikes on Russian data",
+      "hook": "Starlink restriction 'no surprise' after Musk condemned Ukraine strikes on Russian data",
+      "beats": [
+        {
+          "role": "hook",
+          "caption": "Starlink restriction 'no surprise' after Musk condemned Ukraine strikes on Russian data",
+          "detail": "",
+          "narration": "",
+          "seconds": 5.72,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "",
+          "pose": "",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {},
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": ""
+        },
+        {
+          "role": "hook",
+          "caption": "Starlink is more than just internet.",
+          "detail": "Satellite tech powers the battlefield.",
+          "narration": "People thought Starlink was just for web browsing. In Ukraine, it is a critical military lifeline.",
+          "seconds": 7.62,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "STARLINK AT WAR",
+          "pose": "walk",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "maproom",
+            "hat": "press",
+            "pose": "present"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "Kyiv heavily relies on satellites.",
+          "detail": "Tech is used for offensive and defensive moves.",
+          "narration": "Ukraine relies on the system for defense. It helps run operations against Russian forces.",
+          "seconds": 6.67,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "A VITAL LINK",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "maproom",
+            "hat": "press",
+            "pose": "point"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "Access was recently restricted by Musk.",
+          "detail": "The move followed specific military strikes.",
+          "narration": "But access was limited recently. Reports link this to strikes on Russian data centers.",
+          "seconds": 6.67,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "RESTRICTIONS IMPOSED",
+          "pose": "present",
+          "say": "",
+          "plates": [
+            "story"
+          ],
+          "tone": "",
+          "scene": {
+            "set": "server",
+            "hat": "cap",
+            "pose": "talk"
+          },
+          "stat": {},
+          "fact": "STRIKES IMPACTED SATELLITE ACCESS",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "graphic",
+          "caption": "The risks of reliance are clear.",
+          "detail": "One company controls the connection.",
+          "narration": "This creates a difficult chain of events for Ukraine.",
+          "seconds": 4.29,
+          "graphic": "flow",
+          "data": {
+            "steps": [
+              "Ukraine uses tech",
+              "Strikes hit Russia",
+              "Access is limited"
+            ]
+          },
+          "image_url": null,
+          "chapter": "THE RELIANCE CHAIN",
+          "pose": "jump",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "server",
+            "hat": "cap",
+            "pose": "think"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "Analysts say it is no surprise.",
+          "detail": "Reliance brings inherent strategic risks.",
+          "narration": "Experts say this limit was expected. It shows the danger of depending on one company.",
+          "seconds": 7.15,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "NO SURPRISE",
+          "pose": "talk",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "parliament",
+            "hat": "none",
+            "pose": "nod"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "EXPECTED",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "Tech decisions shape the war.",
+          "detail": "The conflict is changing how tech works.",
+          "narration": "It exposes how deep the dependence goes. Tech decisions now shape the battlefield.",
+          "seconds": 6.19,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "WHY IT MATTERS",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "parliament",
+            "hat": "none",
+            "pose": "present"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "outro",
+          "caption": "Get more updates at headlinne.com.",
+          "detail": "We keep you informed.",
+          "narration": "Get the full story on this at headlinne.com. Stay updated with us.",
+          "seconds": 5.72,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "STAY INFORMED",
+          "pose": "cta",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "newsroom",
+            "hat": "press",
+            "pose": "cheer"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        }
+      ],
+      "caption": "Starlink restriction 'no surprise' after Musk condemned Ukraine strikes on Russian data\n\nWho controls the internet?\n\nFollow @headlinnedotcom for a daily brief. Full story on HEADLINNE.com.\n\n#WorldNews #Geopolitics #GlobalNews #Starlink",
+      "hashtags": [
+        "WorldNews",
+        "Geopolitics",
+        "GlobalNews",
+        "Starlink",
+        "Ukraine",
+        "TechNews",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-10-15T09:30:00+05:30",
+      "first_comment": "#Ukraine #TechNews #Headlinne",
+      "sources": "France 24 · Guardian World · Ars Technica",
+      "story_url": "https://www.france24.com/en/starlink-restriction-no-surprise-after-musk-condemned-ukraine-strikes-on-russian-data-centres",
+      "dateline": "THU 15 OCT",
+      "story": null,
+      "duration_seconds": 50.03,
+      "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-15/reels/reel_1.mp4",
+      "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-15/reels/reel_1_cover.png",
+      "audio_file": null,
+      "has_voiceover": true
+    }
+  ],
+  "story_card": {
+    "slot": "story_card",
+    "category": "Finance",
+    "headline": "Bank of America stock drops after earnings miss",
+    "standfirst": "Investors are reacting to a double hit of poor profits and a massive regulatory fine.",
+    "steps": [
+      {
+        "label": "What happened",
+        "text": "Bank of America shares fell today. Investors are reacting to a disappointing earnings report."
+      },
+      {
+        "label": "How we got here",
+        "text": "The bank was hit with a $1.2 billion government fine. This added to the negative investor sentiment."
+      },
+      {
+        "label": "Why it matters",
+        "text": "A major bank missing profit expectations signals wider uncertainty for the financial sector."
+      },
+      {
+        "label": "What to watch",
+        "text": "Keep an eye on how the bank adjusts its strategy to manage these regulatory and profit pressures."
+      }
+    ],
+    "caption": "Bank of America stock is falling following a disappointing earnings report and a major government fine.\n\nThe bank is dealing with the fallout of a $1.2 billion penalty alongside lower than expected profits. Investors are clearly concerned about how these combined issues affect the company's outlook.\n\nDo you think big banks can easily bounce back from billion-dollar fines?\n\nSave this one. Follow for the daily card. Full story on HEADLINNE.com.\n\n#Finance #Markets #Economy #BankOfAmerica",
+    "hashtags": [
+      "Finance",
+      "Markets",
+      "Economy",
+      "BankOfAmerica",
+      "BAC",
+      "StockMarket",
+      "FinanceNews",
+      "Investing",
+      "WallStreet",
+      "Banking",
+      "MarketUpdate",
+      "BusinessNews",
+      "FinancialRegulation",
+      "MarketAnalysis",
+      "NewsExplained",
+      "Headlinne"
+    ],
+    "scheduled_time": "2026-10-15T21:30:00+05:30",
+    "first_comment": "#BAC #StockMarket #FinanceNews #Investing #WallStreet #Banking #MarketUpdate #BusinessNews #FinancialRegulation #MarketAnalysis #NewsExplained #Headlinne",
+    "sources": "MarketWatch Top",
+    "story_url": "https://www.marketwatch.com/story/bank-of-america-adds-a-profit-miss-to-the-misery-of-a-1-2-billion-government-fine-d4420bfa?mod=mw_rss_topstories",
+    "image_url": "https://images.mktw.net/im-86270203",
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-15/story_card/story_card.png",
+    "story": null
+  }
+}

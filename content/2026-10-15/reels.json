@@ -1,0 +1,228 @@
+[
+  {
+    "slot": "reel_1",
+    "kind": "news",
+    "category": "Geopolitics",
+    "title": "Starlink restriction 'no surprise' after Musk condemned Ukraine strikes on Russian data",
+    "hook": "Starlink restriction 'no surprise' after Musk condemned Ukraine strikes on Russian data",
+    "beats": [
+      {
+        "role": "hook",
+        "caption": "Starlink restriction 'no surprise' after Musk condemned Ukraine strikes on Russian data",
+        "detail": "",
+        "narration": "",
+        "seconds": 5.72,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "",
+        "pose": "",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {},
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": ""
+      },
+      {
+        "role": "hook",
+        "caption": "Starlink is more than just internet.",
+        "detail": "Satellite tech powers the battlefield.",
+        "narration": "People thought Starlink was just for web browsing. In Ukraine, it is a critical military lifeline.",
+        "seconds": 7.62,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "STARLINK AT WAR",
+        "pose": "walk",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "maproom",
+          "hat": "press",
+          "pose": "present"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "Kyiv heavily relies on satellites.",
+        "detail": "Tech is used for offensive and defensive moves.",
+        "narration": "Ukraine relies on the system for defense. It helps run operations against Russian forces.",
+        "seconds": 6.67,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "A VITAL LINK",
+        "pose": "point",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "maproom",
+          "hat": "press",
+          "pose": "point"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "Access was recently restricted by Musk.",
+        "detail": "The move followed specific military strikes.",
+        "narration": "But access was limited recently. Reports link this to strikes on Russian data centers.",
+        "seconds": 6.67,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "RESTRICTIONS IMPOSED",
+        "pose": "present",
+        "say": "",
+        "plates": [
+          "story"
+        ],
+        "tone": "",
+        "scene": {
+          "set": "server",
+          "hat": "cap",
+          "pose": "talk"
+        },
+        "stat": {},
+        "fact": "STRIKES IMPACTED SATELLITE ACCESS",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "graphic",
+        "caption": "The risks of reliance are clear.",
+        "detail": "One company controls the connection.",
+        "narration": "This creates a difficult chain of events for Ukraine.",
+        "seconds": 4.29,
+        "graphic": "flow",
+        "data": {
+          "steps": [
+            "Ukraine uses tech",
+            "Strikes hit Russia",
+            "Access is limited"
+          ]
+        },
+        "image_url": null,
+        "chapter": "THE RELIANCE CHAIN",
+        "pose": "jump",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "server",
+          "hat": "cap",
+          "pose": "think"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "Analysts say it is no surprise.",
+        "detail": "Reliance brings inherent strategic risks.",
+        "narration": "Experts say this limit was expected. It shows the danger of depending on one company.",
+        "seconds": 7.15,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "NO SURPRISE",
+        "pose": "talk",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "parliament",
+          "hat": "none",
+          "pose": "nod"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "EXPECTED",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "Tech decisions shape the war.",
+        "detail": "The conflict is changing how tech works.",
+        "narration": "It exposes how deep the dependence goes. Tech decisions now shape the battlefield.",
+        "seconds": 6.19,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "WHY IT MATTERS",
+        "pose": "point",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "parliament",
+          "hat": "none",
+          "pose": "present"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "outro",
+        "caption": "Get more updates at headlinne.com.",
+        "detail": "We keep you informed.",
+        "narration": "Get the full story on this at headlinne.com. Stay updated with us.",
+        "seconds": 5.72,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "STAY INFORMED",
+        "pose": "cta",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "newsroom",
+          "hat": "press",
+          "pose": "cheer"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      }
+    ],
+    "caption": "Starlink restriction 'no surprise' after Musk condemned Ukraine strikes on Russian data\n\nWho controls the internet?\n\nFollow @headlinnedotcom for a daily brief. Full story on HEADLINNE.com.\n\n#WorldNews #Geopolitics #GlobalNews #Starlink",
+    "hashtags": [
+      "WorldNews",
+      "Geopolitics",
+      "GlobalNews",
+      "Starlink",
+      "Ukraine",
+      "TechNews",
+      "Headlinne"
+    ],
+    "scheduled_time": "2026-10-15T09:30:00+05:30",
+    "first_comment": "#Ukraine #TechNews #Headlinne",
+    "sources": "France 24 · Guardian World · Ars Technica",
+    "story_url": "https://www.france24.com/en/starlink-restriction-no-surprise-after-musk-condemned-ukraine-strikes-on-russian-data-centres",
+    "dateline": "THU 15 OCT",
+    "story": null,
+    "duration_seconds": 50.03,
+    "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-15/reels/reel_1.mp4",
+    "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-15/reels/reel_1_cover.png",
+    "audio_file": null,
+    "has_voiceover": true
+  }
+]
