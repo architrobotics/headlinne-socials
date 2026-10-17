@@ -1,0 +1,229 @@
+[
+  {
+    "slot": "reel_1",
+    "kind": "news",
+    "category": "Geopolitics",
+    "title": "Ukraine president targets Trump, Putin at EU summit",
+    "hook": "Ukraine president targets Trump, Putin at EU summit",
+    "beats": [
+      {
+        "role": "hook",
+        "caption": "Ukraine president targets Trump, Putin at EU summit",
+        "detail": "",
+        "narration": "",
+        "seconds": 3.48,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "",
+        "pose": "",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {},
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": ""
+      },
+      {
+        "role": "hook",
+        "caption": "Russia's ambitions could spread beyond Ukraine.",
+        "detail": "Zelenskyy spoke at the EU summit.",
+        "narration": "That is not just a border dispute. That is a fire that threatens to jump the fence.",
+        "seconds": 7.4,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "A FIRE BEYOND BORDERS",
+        "pose": "walk",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "maproom",
+          "hat": "press",
+          "pose": "present"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "The president speaks at the summit.",
+        "detail": "He targeted Trump and Putin.",
+        "narration": "Zelenskyy just addressed European leaders. He is calling out two names specifically.",
+        "seconds": 5.22,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "ZELENSKYY AT EU SUMMIT",
+        "pose": "point",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "maproom",
+          "hat": "press",
+          "pose": "talk"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "Zelenskyy challenges Trump and Putin.",
+        "detail": "The comments came during the EU summit.",
+        "narration": "He is taking aim at Donald Trump and Vladimir Putin directly.",
+        "seconds": 4.79,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "TARGETING THE LEADERS",
+        "pose": "present",
+        "say": "",
+        "plates": [
+          "story"
+        ],
+        "tone": "",
+        "scene": {
+          "set": "maproom",
+          "hat": "press",
+          "pose": "point"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "Russia's aims are not limited.",
+        "detail": "He claims the threat is expanding.",
+        "narration": "He warns Russia wants much more than just the eastern part of his country.",
+        "seconds": 6.1,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "BEYOND EASTERN UKRAINE",
+        "pose": "jump",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "maproom",
+          "hat": "press",
+          "pose": "think"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "graphic",
+        "caption": "The chain of escalation.",
+        "detail": "He says drones are the primary tool.",
+        "narration": "Here is how he sees the threat unfolding across the continent.",
+        "seconds": 4.79,
+        "graphic": "flow",
+        "data": {
+          "steps": [
+            "Russia's ambition",
+            "More drone attacks",
+            "Threat to NATO"
+          ]
+        },
+        "image_url": null,
+        "chapter": "THE ESCALATION RISK",
+        "pose": "talk",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "maproom",
+          "hat": "press",
+          "pose": "present"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "WARNING",
+        "stamp_tone": "bad"
+      },
+      {
+        "role": "point",
+        "caption": "He warns of NATO risks.",
+        "detail": "Sources confirm the drone warnings.",
+        "narration": "The drones are a direct threat to NATO territory, he says.",
+        "seconds": 4.79,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "A WARNING TO EUROPE",
+        "pose": "point",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "maproom",
+          "hat": "press",
+          "pose": "alarm"
+        },
+        "stat": {},
+        "fact": "DRONES THREATEN NATO SECURITY",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "outro",
+        "caption": "Get news that matters.",
+        "detail": "We verify every single story.",
+        "narration": "Keep up with the story at headlinne.com.",
+        "seconds": 3.05,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "STAY INFORMED",
+        "pose": "cta",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "maproom",
+          "hat": "press",
+          "pose": "nod"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      }
+    ],
+    "caption": "Ukraine president targets Trump, Putin at EU summit\n\nHow will Europe respond?\n\nFollow @headlinnedotcom for a daily brief. Full story on HEADLINNE.com.\n\n#WorldNews #Geopolitics #GlobalNews #Ukraine",
+    "hashtags": [
+      "WorldNews",
+      "Geopolitics",
+      "GlobalNews",
+      "Ukraine",
+      "Zelenskyy",
+      "NATO",
+      "News",
+      "Headlinne"
+    ],
+    "scheduled_time": "2026-10-17T09:30:00+05:30",
+    "first_comment": "#Zelenskyy #NATO #News #Headlinne",
+    "sources": "Al Jazeera · France 24 · Deutsche Welle",
+    "story_url": "https://www.aljazeera.com/video/newsfeed/2026/10/16/ukraine-president-targets-trump-putin-at-eu-summit?traffic_source=rss",
+    "dateline": "SAT 17 OCT",
+    "story": null,
+    "duration_seconds": 39.63,
+    "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-17/reels/reel_1.mp4",
+    "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-17/reels/reel_1_cover.png",
+    "audio_file": null,
+    "has_voiceover": true
+  }
+]

@@ -1,0 +1,91 @@
+[
+  {
+    "category": "Geopolitics",
+    "post": "Today's big global stories in brief.\n• Zelenskyy warned EU leaders that Russian drones threaten NATO\n• China urged Israel to halt new settlements in the West Bank\n• A French MEP publicly criticized Trump over Ukraine comments HEADLINNE.com #Geopolitics #WorldNews",
+    "hashtags": [
+      "Geopolitics",
+      "WorldNews"
+    ],
+    "scheduled_time": "2026-10-17T13:00:00+05:30",
+    "kind": "news",
+    "lead": "Today's big global stories in brief.",
+    "items": [
+      "Zelenskyy warned EU leaders that Russian drones threaten NATO",
+      "China urged Israel to halt new settlements in the West Bank",
+      "A French MEP publicly criticized Trump over Ukraine comments"
+    ],
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-17/x/x_1.png",
+    "story": {
+      "title": "Ukraine president targets Trump, Putin at EU summit",
+      "summary": "President Zelenskyy warned Russia’s ambitions extend beyond eastern Ukraine, saying its drone attack threaten NATO.",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/10/16/ukraine-president-targets-trump-putin-at-eu-summit?traffic_source=rss",
+      "category": "Geopolitics",
+      "source": "Al Jazeera",
+      "tier": 1.1,
+      "published_iso": "2026-10-16T17:59:48+00:00",
+      "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/10/WIDE-THUMB-1610-ZELENSKYY-1792173529.png?resize=1920%2C1080&amp;quality=80",
+      "corroborating_sources": [
+        "Deutsche Welle",
+        "France 24"
+      ],
+      "score": 13.198,
+      "verified": true,
+      "sensitive": false,
+      "agreement": {
+        "reported": 3,
+        "agree": 3,
+        "conflict": 0,
+        "claim": "",
+        "claim_unit": "",
+        "outlets": [
+          "Al Jazeera",
+          "France 24",
+          "Deutsche Welle"
+        ],
+        "conflicts": []
+      }
+    }
+  },
+  {
+    "category": "Tech",
+    "post": "Tesla is making cars fly, sort of.\n• The new Roadster uses thrusters to jump over other Tesla vehicles\n• This trick relies on compressed gas tech used for decades\n• It is a wild nod to old missile defense systems HEADLINNE.com #Tesla #Tech",
+    "hashtags": [
+      "Tesla",
+      "Tech"
+    ],
+    "scheduled_time": "2026-10-17T17:00:00+05:30",
+    "kind": "news",
+    "lead": "Tesla is making cars fly, sort of.",
+    "items": [
+      "The new Roadster uses thrusters to jump over other Tesla vehicles",
+      "This trick relies on compressed gas tech used for decades",
+      "It is a wild nod to old missile defense systems"
+    ],
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-17/x/x_2.png",
+    "story": {
+      "title": "A 'flying' Tesla Roadster sounds impossible, until you see what Lockheed Martin built decades ago",
+      "summary": "Thrusters are as good at flipping cars as they are at hunting ballistic missiles.",
+      "url": "https://www.engadget.com/2289307/flying-tesla-roadster-lockheed-martin-mokv-technology-comparison/",
+      "category": "Technology",
+      "source": "Engadget",
+      "tier": 0.9,
+      "published_iso": "2026-10-16T20:50:28+00:00",
+      "image_url": "https://www.engadget.com/img/gallery/flying-tesla-roadster-lockheed-martin-mokv-technology-comparison/l-intro-1792184255.jpg",
+      "corroborating_sources": [],
+      "score": 12.52,
+      "verified": false,
+      "sensitive": false,
+      "agreement": {
+        "reported": 1,
+        "agree": 1,
+        "conflict": 0,
+        "claim": "",
+        "claim_unit": "",
+        "outlets": [
+          "Engadget"
+        ],
+        "conflicts": []
+      }
+    }
+  }
+]
