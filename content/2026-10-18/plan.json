@@ -1,0 +1,309 @@
+{
+  "day": "2026-10-18",
+  "is_promo_day": true,
+  "is_friday": false,
+  "twitter": [
+    {
+      "category": "Promo",
+      "post": "Ever find yourself deep in a rabbit hole trying to verify a news story? Our AI search now answers complex questions and links directly to the original sources so you can check the facts yourself. HEADLINNE.com #News #FactCheck",
+      "hashtags": [
+        "News",
+        "FactCheck"
+      ],
+      "scheduled_time": "2026-10-18T13:00:00+05:30",
+      "kind": "promo",
+      "lead": "Get answers with sources, not just links",
+      "items": [],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-18/x/x_1.png",
+      "story": null
+    }
+  ],
+  "linkedin": {
+    "title": "Most people feel overwhelmed by the news, not informed.",
+    "body": "It is easy to blame the algorithm for this, but the real problem is that we treat information consumption like a firehose. We scroll through everything, hoping that by sheer volume, we will somehow absorb what matters. It rarely works.\n\nThe truth is that we are all interested in different things. A software engineer, a small business owner, and a student have different priorities. When news is presented as a one-size-fits-all feed, it is bound to miss the mark for everyone.\n\nPersonalised news is not about filtering out the world to create an echo chamber. It is about filtering out the noise so you can actually engage with the topics that shape your specific life and work. When you cut through the clutter, you stop skimming and start understanding.\n\nWe built Headlinne to solve this. We use AI to help you find the stories that are relevant to you, not just the ones that generate the most clicks. It is a better way to stay sharp without the burnout.",
+    "cta": "You can see how we are doing it at HEADLINNE.com.",
+    "scheduled_time": "2026-10-18T18:00:00+05:30",
+    "kind": "product"
+  },
+  "instagram": [],
+  "reels": [
+    {
+      "slot": "reel_1",
+      "kind": "news",
+      "category": "Geopolitics",
+      "title": "Violent clashes, looting and buildings ablaze in France as over 1,000 arrested after",
+      "hook": "Violent clashes, looting and buildings ablaze in France as over 1,000 arrested after",
+      "beats": [
+        {
+          "role": "hook",
+          "caption": "Violent clashes, looting and buildings ablaze in France as over 1,000 arrested after",
+          "detail": "",
+          "narration": "",
+          "seconds": 6.09,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "",
+          "pose": "",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {},
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": ""
+        },
+        {
+          "role": "hook",
+          "caption": "See how public anger shifts into street disorder.",
+          "detail": "Events unfolded across cities in France.",
+          "narration": "Here is how a mass protest turns into widespread chaos.",
+          "seconds": 4.69,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "HOW PROTESTS ESCALATE",
+          "pose": "walk",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "street",
+            "hat": "press",
+            "pose": "present"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "Massive crowds rally against rising costs across France.",
+          "detail": "Protests were reported across the country.",
+          "narration": "It started with half a million people marching against the cost of living.",
+          "seconds": 6.09,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "THE CAUSE",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "street",
+            "hat": "press",
+            "pose": "talk"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "graphic",
+          "caption": "The situation turned from marching to violent clashes.",
+          "detail": "Tensions escalated rapidly during the day.",
+          "narration": "But peaceful movement quickly shifted into something much more volatile and dangerous.",
+          "seconds": 5.62,
+          "graphic": "flow",
+          "data": {
+            "steps": [
+              "Peaceful march",
+              "Tensions rise",
+              "Violent clashes"
+            ]
+          },
+          "image_url": null,
+          "chapter": "FROM MARCH TO CHAOS",
+          "pose": "present",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "street",
+            "hat": "press",
+            "pose": "point"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "Reports show looting and fires breaking out citywide.",
+          "detail": "Disorder spread across multiple French cities.",
+          "narration": "Looting broke out in cities. Buildings were set on fire.",
+          "seconds": 4.69,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "BUILDINGS ABLAZE",
+          "pose": "jump",
+          "say": "",
+          "plates": [
+            "story"
+          ],
+          "tone": "",
+          "scene": {
+            "set": "street",
+            "hat": "hardhat",
+            "pose": "alarm"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "CHAOS",
+          "stamp_tone": "bad"
+        },
+        {
+          "role": "point",
+          "caption": "Authorities have confirmed over 1,000 arrests so far.",
+          "detail": "The situation remains tense.",
+          "narration": "Police moved in to control the crowds. Over one thousand people were arrested.",
+          "seconds": 6.09,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "THE ARRESTS",
+          "pose": "talk",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "newsroom",
+            "hat": "none",
+            "pose": "talk"
+          },
+          "stat": {
+            "value": "1,000",
+            "label": "arrested"
+          },
+          "fact": "1,000 ARRESTED NATIONWIDE",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "The government faces rising pressure to restore order.",
+          "detail": "BBC World reported on the unfolding events.",
+          "narration": "This creates a difficult situation for the government to manage right now.",
+          "seconds": 5.62,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "FRANCE IN TURMOIL",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "parliament",
+            "hat": "none",
+            "pose": "think"
+          },
+          "stat": {},
+          "fact": "GOVERNMENT FACES PRESSURE",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "outro",
+          "caption": "Keep up with the latest updates at headlinne.com.",
+          "detail": "Check our app for more.",
+          "narration": "We track the facts. Get the full story at headlinne.com.",
+          "seconds": 4.69,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "STAY INFORMED",
+          "pose": "cta",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "newsroom",
+            "hat": "none",
+            "pose": "present"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        }
+      ],
+      "caption": "Violent clashes, looting and buildings ablaze in France as over 1,000 arrested after\n\nHow will the government react?\n\nFollow @headlinnedotcom for a daily brief. Full story on HEADLINNE.com.\n\n#WorldNews #Geopolitics #GlobalNews #France",
+      "hashtags": [
+        "WorldNews",
+        "Geopolitics",
+        "GlobalNews",
+        "France",
+        "News",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-10-18T09:30:00+05:30",
+      "first_comment": "#News #Headlinne",
+      "sources": "BBC World",
+      "story_url": "https://www.bbc.co.uk/news/articles/c6d937wedj7jo?at_medium=RSS&at_campaign=rss",
+      "dateline": "SUN 18 OCT",
+      "story": null,
+      "duration_seconds": 43.57,
+      "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-18/reels/reel_1.mp4",
+      "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-18/reels/reel_1_cover.png",
+      "audio_file": null,
+      "has_voiceover": true
+    }
+  ],
+  "story_card": {
+    "slot": "story_card",
+    "category": "Finance",
+    "headline": "Bank of England chief exits IMF meeting over Russia",
+    "standfirst": "Andrew Bailey joined a protest against Russian involvement during a finance summit.",
+    "steps": [
+      {
+        "label": "What happened",
+        "text": "Bank of England governor Andrew Bailey walked out of an IMF meeting in Bangkok."
+      },
+      {
+        "label": "How we got here",
+        "text": "The exit was a protest against the Russian finance minister speaking to the group."
+      },
+      {
+        "label": "Why it matters",
+        "text": "It shows finance leaders are using their presence to signal opposition to Russia."
+      },
+      {
+        "label": "What to watch",
+        "text": "Future international summits to see if these protests continue or escalate."
+      }
+    ],
+    "caption": "Bank of England governor Andrew Bailey walked out of an IMF meeting in protest against Russia.\n\nBailey was among several finance leaders who left the session as the Russian finance minister began to address the group. This move highlights the ongoing diplomatic tensions within global financial institutions.\n\nDo you think these kinds of protests at international summits are effective?\n\nSave this one. Follow for the daily card. Full story on HEADLINNE.com.\n\n#Finance #Markets #Economy #BankofEngland",
+    "hashtags": [
+      "Finance",
+      "Markets",
+      "Economy",
+      "BankofEngland",
+      "AndrewBailey",
+      "IMF",
+      "InternationalMonetaryFund",
+      "Russia",
+      "FinanceNews",
+      "GlobalEconomy",
+      "Geopolitics",
+      "Bangkok",
+      "EconomicDiplomacy",
+      "WorldNews",
+      "Headlinne",
+      "NewsExplained"
+    ],
+    "scheduled_time": "2026-10-18T21:30:00+05:30",
+    "first_comment": "#AndrewBailey #IMF #InternationalMonetaryFund #Russia #FinanceNews #GlobalEconomy #Geopolitics #Bangkok #EconomicDiplomacy #WorldNews #Headlinne #NewsExplained",
+    "sources": "Guardian Business",
+    "story_url": "https://www.theguardian.com/business/2026/oct/17/bank-of-england-governor-andrew-bailey-walks-out-imf-summit-protest-russia",
+    "image_url": "https://i.guim.co.uk/img/media/b7f570960c857dd93996e2237ca55227749d3842/169_0_2372_1897/master/2372.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=0ed2039e9cd17c1ceda858ac001bf099",
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-18/story_card/story_card.png",
+    "story": null
+  }
+}
