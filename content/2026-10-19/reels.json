@@ -1,0 +1,231 @@
+[
+  {
+    "slot": "reel_1",
+    "kind": "news",
+    "category": "Geopolitics",
+    "title": "Macron criticises ‘unbridled violence’ after days of unrest and 2,400 arrests across",
+    "hook": "Macron criticises ‘unbridled violence’ after days of unrest and 2,400 arrests across",
+    "beats": [
+      {
+        "role": "hook",
+        "caption": "Macron criticises ‘unbridled violence’ after days of unrest and 2,400 arrests across",
+        "detail": "",
+        "narration": "",
+        "seconds": 5.47,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "",
+        "pose": "",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {},
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": ""
+      },
+      {
+        "role": "hook",
+        "caption": "France faces a major political crisis if the current unrest continues.",
+        "detail": "Nationwide instability creates political deadlock.",
+        "narration": "If this unrest holds, the French government faces a total political deadlock. Here is why.",
+        "seconds": 6.84,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "FRANCE AT A BREAKING POINT",
+        "pose": "walk",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "parliament",
+          "hat": "press",
+          "pose": "present"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "Public buildings are burning as unrest spreads across the country.",
+        "detail": "Violence leaves public buildings burned.",
+        "narration": "France has seen days of intense violence. Public buildings are burned and shops are being destroyed.",
+        "seconds": 7.29,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "DAYS OF UNREST",
+        "pose": "point",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "street",
+          "hat": "press",
+          "pose": "alarm"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "2,400 arrests have been made following recent clashes.",
+        "detail": "Police report thousands of arrests.",
+        "narration": "The scope is massive. Police have made two thousand four hundred arrests in just a few days.",
+        "seconds": 7.75,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "THE SCALE OF ARRESTS",
+        "pose": "present",
+        "say": "",
+        "plates": [
+          "story"
+        ],
+        "tone": "",
+        "scene": {
+          "set": "street",
+          "hat": "press",
+          "pose": "scan"
+        },
+        "stat": {
+          "value": "2,400",
+          "label": "arrests made"
+        },
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "graphic",
+        "caption": "The chain of events shows a breakdown in order.",
+        "detail": "Crisis talks follow state failure.",
+        "narration": "It is a sequence of events. First violence, then arrests, leading to a failure of the state.",
+        "seconds": 7.75,
+        "graphic": "flow",
+        "data": {
+          "steps": [
+            "Violent unrest",
+            "Mass arrests",
+            "State failure"
+          ]
+        },
+        "image_url": null,
+        "chapter": "A STATE UNDER PRESSURE",
+        "pose": "jump",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "maproom",
+          "hat": "none",
+          "pose": "point"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "Macron has condemned the ongoing unbridled violence.",
+        "detail": "President speaks out on unrest.",
+        "narration": "President Emmanuel Macron has spoken out. He is criticising what he calls unbridled violence.",
+        "seconds": 6.38,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "MACRON RESPONDS",
+        "pose": "talk",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "parliament",
+          "hat": "press",
+          "pose": "talk"
+        },
+        "stat": {},
+        "fact": "MACRON CRITICISES UNBRIDLED VIOLENCE",
+        "stamp": "CRITICAL",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "Ministers are holding crisis talks as pressure mounts on officials.",
+        "detail": "Government officials face intense pressure.",
+        "narration": "Now ministers and police are under pressure. They are holding crisis talks to manage the chaos.",
+        "seconds": 7.29,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "OFFICIALS UNDER FIRE",
+        "pose": "point",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "parliament",
+          "hat": "press",
+          "pose": "think"
+        },
+        "stat": {},
+        "fact": "CRISIS TALKS HELD",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "outro",
+        "caption": "Track the latest updates on this story at headlinne.com.",
+        "detail": "Get the full story.",
+        "narration": "We are tracking this story closely. Get the full context on this and more at headlinne.com.",
+        "seconds": 7.29,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "STAY INFORMED",
+        "pose": "cta",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "newsroom",
+          "hat": "press",
+          "pose": "present"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      }
+    ],
+    "caption": "Macron criticises ‘unbridled violence’ after days of unrest and 2,400 arrests across\n\nCan order be restored?\n\nFollow @headlinnedotcom for a daily brief. Full story on HEADLINNE.com.\n\n#WorldNews #Geopolitics #GlobalNews #France",
+    "hashtags": [
+      "WorldNews",
+      "Geopolitics",
+      "GlobalNews",
+      "France",
+      "Macron",
+      "News",
+      "Headlinne"
+    ],
+    "scheduled_time": "2026-10-19T09:30:00+05:30",
+    "first_comment": "#Macron #News #Headlinne",
+    "sources": "Guardian World · France 24 · Al Jazeera · BBC World",
+    "story_url": "https://www.theguardian.com/world/2026/oct/18/french-government-crisis-talks-violent-unrest-policing-macron",
+    "dateline": "MON 19 OCT",
+    "story": null,
+    "duration_seconds": 55.0,
+    "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-19/reels/reel_1.mp4",
+    "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-19/reels/reel_1_cover.png",
+    "audio_file": null,
+    "has_voiceover": true
+  }
+]
