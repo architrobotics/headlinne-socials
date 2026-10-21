@@ -1,0 +1,511 @@
+{
+  "day": "2026-10-21",
+  "is_promo_day": false,
+  "is_friday": false,
+  "twitter": [
+    {
+      "category": "Tech",
+      "post": "Here is the tech news you need today.\n• A judge dismissed the lawsuit against Sam Altman after his sister missed medical exams\n• Google fixed a cloud outage that disrupted major UK banking services HEADLINNE.com #TechNews #Google",
+      "hashtags": [
+        "TechNews",
+        "Google"
+      ],
+      "scheduled_time": "2026-10-21T13:00:00+05:30",
+      "kind": "news",
+      "lead": "Here is the tech news you need today.",
+      "items": [
+        "A judge dismissed the lawsuit against Sam Altman after his sister missed medical exams",
+        "Google fixed a cloud outage that disrupted major UK banking services"
+      ],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-21/x/x_1.png",
+      "story": {
+        "title": "OpenAI CEO Sam Altman wins dismissal of sister's lawsuit",
+        "summary": "A US district judge dismissed the case after Ann Altman had refused to attend an independent medical examination.",
+        "url": "https://www.bbc.co.uk/news/articles/c94g1502el58o?at_medium=RSS&at_campaign=rss",
+        "category": "Technology",
+        "source": "BBC Technology",
+        "tier": 1.4,
+        "published_iso": "2026-10-20T19:42:32+00:00",
+        "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/4b56/live/9be50560-cc9f-11f1-94e6-edd4c60b2e1d.jpg",
+        "corroborating_sources": [
+          "BBC Business",
+          "Engadget",
+          "The Verge"
+        ],
+        "score": 13.727,
+        "verified": true,
+        "sensitive": false,
+        "agreement": {
+          "reported": 3,
+          "agree": 3,
+          "conflict": 0,
+          "claim": "",
+          "claim_unit": "",
+          "outlets": [
+            "BBC Technology",
+            "The Verge",
+            "Engadget"
+          ],
+          "conflicts": []
+        }
+      }
+    },
+    {
+      "category": "Geopolitics",
+      "post": "Today's top global headlines\n• DOJ charges 28 with voting crimes as Election Day approaches\n• TikTok allegedly ignored staff warnings on child safety\n• Alberta voters decisively reject plans to leave Canada HEADLINNE.com #Geopolitics #News",
+      "hashtags": [
+        "Geopolitics",
+        "News"
+      ],
+      "scheduled_time": "2026-10-21T17:00:00+05:30",
+      "kind": "news",
+      "lead": "Today's top global headlines",
+      "items": [
+        "DOJ charges 28 with voting crimes as Election Day approaches",
+        "TikTok allegedly ignored staff warnings on child safety",
+        "Alberta voters decisively reject plans to leave Canada"
+      ],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-21/x/x_2.png",
+      "story": {
+        "title": "DOJ charges 28 with voting crimes. And, TikTok ignored staff's child safety concerns",
+        "summary": "The Justice Department has charged 28 people in California with voting crimes as Election Day nears. And, TikTok staff raised child safety concerns with executives, who failed to act, court records show.",
+        "url": "https://www.npr.org/2026/10/20/g-s1-148877/up-first-newsletter-california-elections-doj-midterms-trump-tiktok",
+        "category": "Geopolitics",
+        "source": "NPR World",
+        "tier": 1.0,
+        "published_iso": "2026-10-20T11:04:49+00:00",
+        "image_url": "https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=g-s1-148877",
+        "corroborating_sources": [],
+        "score": 13.061,
+        "verified": false,
+        "sensitive": false,
+        "agreement": {
+          "reported": 1,
+          "agree": 1,
+          "conflict": 0,
+          "claim": "28",
+          "claim_unit": "reported",
+          "outlets": [
+            "NPR World"
+          ],
+          "conflicts": []
+        }
+      }
+    }
+  ],
+  "linkedin": {
+    "title": "Most news apps are designed to feed you headlines, not context.",
+    "body": "We all know the feeling of scrolling through a feed and reading five different articles on the same topic, yet still feeling like we don't understand the full picture. Headlines are built to capture attention for a few seconds. They rarely help you build a mental map of why a story actually matters.\n\nThat is exactly why we built Deep Dive Mode at Headlinne. Instead of just giving you another summary, it acts like a filter for noise. It pulls together the essential background, connects the dots between related events, and strips away the repetitive fluff that clutters most news feeds.\n\nTrue understanding comes from seeing the relationship between facts, not just consuming them in isolation. We believe AI should be used to make you smarter, not just keep you scrolling longer.\n\nI am curious to hear how you manage information overload. Do you find yourself digging deeper into stories, or do you stick to the surface?",
+    "cta": "You can see how we are rethinking the reading experience at HEADLINNE.com.",
+    "scheduled_time": "2026-10-21T18:00:00+05:30",
+    "kind": "product"
+  },
+  "instagram": [
+    {
+      "slot": "instagram_1",
+      "category": "Geopolitics",
+      "num_slides": 5,
+      "title": "Alberta voters consider separating from Canada",
+      "slides": [
+        {
+          "role": "cover",
+          "headline": "Alberta voters consider separating from Canada",
+          "explanation": "",
+          "image_url": "https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-6005810",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-21/instagram/instagram_1/slide_1.png",
+          "subtitle": "The oil-rich province is holding a referendum on independence.",
+          "sources": "",
+          "index": 1,
+          "kicker": "GEOPOLITICS",
+          "pose": "alert",
+          "say": "This is a major decision.",
+          "figure": "",
+          "unit": ""
+        },
+        {
+          "role": "scale",
+          "headline": "",
+          "explanation": "Alberta is Canada's primary energy hub. Its potential departure would fundamentally reshape the country's economy and its internal political map.",
+          "image_url": "https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-6005810",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-21/instagram/instagram_1/slide_2.png",
+          "subtitle": "",
+          "sources": "",
+          "index": 2,
+          "kicker": "THE SCALE",
+          "pose": "",
+          "say": "",
+          "figure": "",
+          "unit": ""
+        },
+        {
+          "role": "twist",
+          "headline": "Prime Minister Mark Carney is warning against it",
+          "explanation": "While voters weigh their options, the Prime Minister has publicly intervened, arguing that the move poses a direct threat to Canadian unity.",
+          "image_url": null,
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-21/instagram/instagram_1/slide_3.png",
+          "subtitle": "",
+          "sources": "",
+          "index": 3,
+          "kicker": "WHAT YOU DID NOT KNOW",
+          "pose": "puzzled",
+          "say": "Unity is at stake here.",
+          "figure": "",
+          "unit": ""
+        },
+        {
+          "role": "sources",
+          "headline": "",
+          "explanation": "Four independent news outlets including the BBC and NPR confirm these developments, ensuring you are getting the full picture of the situation.",
+          "image_url": null,
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-21/instagram/instagram_1/slide_4.png",
+          "subtitle": "",
+          "sources": "",
+          "index": 4,
+          "kicker": "SOURCES",
+          "pose": "verified",
+          "say": "4 of 4 agree",
+          "figure": "",
+          "unit": ""
+        },
+        {
+          "role": "cta",
+          "headline": "",
+          "explanation": "",
+          "image_url": null,
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-21/instagram/instagram_1/slide_5.png",
+          "subtitle": "Read the full breakdown on Headlinne.",
+          "sources": "",
+          "index": 5,
+          "kicker": "READ THE FULL STORY",
+          "pose": "carry",
+          "say": "Come and read it.",
+          "figure": "",
+          "unit": ""
+        }
+      ],
+      "caption": "Alberta is currently at a political crossroads.\n\nVoters in the province are heading to the polls for a referendum that could set them on a path toward separation from Canada.\n\nThis isn't just a local dispute. Because Alberta is the heart of Canada's oil industry, the economic and political ripples of a potential split would be felt across the entire nation.\n\nPrime Minister Mark Carney has already issued warnings about the impact on national unity, signaling just how seriously the federal government is taking this vote. It is a rare moment of constitutional tension.\n\nWhat do you think is driving this push for independence?\n\nFollow @headlinnedotcom for a daily brief. Full story on HEADLINNE.com.\n\n#WorldNews #Geopolitics #GlobalNews #Politics",
+      "hashtags": [
+        "WorldNews",
+        "Geopolitics",
+        "GlobalNews",
+        "Politics",
+        "Alberta",
+        "Canada",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-10-21T16:00:00+05:30",
+      "first_comment": "#Alberta #Canada #Headlinne",
+      "story": {
+        "title": "Alberta voters decide whether to take a step toward separating from Canada",
+        "summary": "In Canada, the oil-rich province of Alberta votes in a referendum that could set it on a path toward separation, as Prime Minister Mark Carney warns of threats to Canadian unity.",
+        "url": "https://www.npr.org/2026/10/19/nx-s1-6005810/alberta-voters-decide-whether-to-take-a-step-toward-separating-from-canada",
+        "category": "Geopolitics",
+        "source": "NPR World",
+        "tier": 1.0,
+        "published_iso": "2026-10-19T22:29:57+00:00",
+        "image_url": "https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-6005810",
+        "corroborating_sources": [
+          "BBC World",
+          "Guardian World",
+          "Sky World"
+        ],
+        "score": 12.839,
+        "verified": true,
+        "sensitive": false,
+        "agreement": {
+          "reported": 4,
+          "agree": 4,
+          "conflict": 0,
+          "claim": "",
+          "claim_unit": "",
+          "outlets": [
+            "NPR World",
+            "Guardian World",
+            "Sky World",
+            "BBC World"
+          ],
+          "conflicts": []
+        }
+      },
+      "story_url": "https://www.npr.org/2026/10/19/nx-s1-6005810/alberta-voters-decide-whether-to-take-a-step-toward-separating-from-canada"
+    }
+  ],
+  "reels": [
+    {
+      "slot": "reel_1",
+      "kind": "news",
+      "category": "Technology",
+      "title": "OpenAI CEO Sam Altman wins dismissal of sister's lawsuit",
+      "hook": "OpenAI CEO Sam Altman wins dismissal of sister's lawsuit",
+      "beats": [
+        {
+          "role": "hook",
+          "caption": "OpenAI CEO Sam Altman wins dismissal of sister's lawsuit",
+          "detail": "",
+          "narration": "",
+          "seconds": 3.92,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "",
+          "pose": "",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {},
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": ""
+        },
+        {
+          "role": "hook",
+          "caption": "Family disputes can get messy fast.",
+          "detail": "Legal systems rely on specific procedures.",
+          "narration": "Imagine your sibling files a lawsuit against you but refuses to follow the court rules.",
+          "seconds": 6.54,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "FAMILY COURT DRAMA",
+          "pose": "walk",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "courtroom",
+            "hat": "none",
+            "pose": "present"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "The OpenAI CEO faced a lawsuit.",
+          "detail": "The case involved the tech leader.",
+          "narration": "That is the situation for OpenAI boss Sam Altman. His sister Ann Altman sued him.",
+          "seconds": 6.54,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "ALTMAN VS ALTMAN",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "courtroom",
+            "hat": "press",
+            "pose": "talk"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "The judge dismissed the case.",
+          "detail": "The ruling came from a US court.",
+          "narration": "A US judge just tossed that case out. The legal battle is officially over.",
+          "seconds": 6.1,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "CASE DISMISSED",
+          "pose": "present",
+          "say": "",
+          "plates": [
+            "story"
+          ],
+          "tone": "",
+          "scene": {
+            "set": "courtroom",
+            "hat": "none",
+            "pose": "nod"
+          },
+          "stat": {},
+          "fact": "CASE DISMISSED",
+          "stamp": "DISMISSED",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "She refused a required medical exam.",
+          "detail": "The court ordered an independent check.",
+          "narration": "It happened because Ann Altman refused to attend a required independent medical exam.",
+          "seconds": 5.67,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "WHY IT ENDED",
+          "pose": "jump",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "courtroom",
+            "hat": "none",
+            "pose": "think"
+          },
+          "stat": {},
+          "fact": "EXAM REFUSED",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "graphic",
+          "caption": "The legal chain of events.",
+          "detail": "Procedural rules must be followed.",
+          "narration": "Courts require cooperation. When that stops, the case often falls apart immediately.",
+          "seconds": 5.23,
+          "graphic": "flow",
+          "data": {
+            "steps": [
+              "Lawsuit filed",
+              "Exam requested",
+              "Refusal leads to end"
+            ]
+          },
+          "image_url": null,
+          "chapter": "HOW IT HAPPENED",
+          "pose": "talk",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "courtroom",
+            "hat": "none",
+            "pose": "point"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "The ruling was procedural.",
+          "detail": "The judge did not review the claims.",
+          "narration": "The judge did not rule on the merits of the claims. The case simply ended.",
+          "seconds": 6.54,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "THE OUTCOME",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "courtroom",
+            "hat": "press",
+            "pose": "scan"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "outro",
+          "caption": "Read more at headlinne.com.",
+          "detail": "Real news for curious people.",
+          "narration": "Get the facts on this and other tech news at headlinne.com.",
+          "seconds": 4.8,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "STAY INFORMED",
+          "pose": "cta",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "newsroom",
+            "hat": "none",
+            "pose": "cheer"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        }
+      ],
+      "caption": "OpenAI CEO Sam Altman wins dismissal of sister's lawsuit\n\nShould court rules be strict?\n\nFollow @headlinnedotcom for a daily brief. Full story on HEADLINNE.com.\n\n#TechNews #AI #Tech #OpenAI",
+      "hashtags": [
+        "TechNews",
+        "AI",
+        "Tech",
+        "OpenAI",
+        "SamAltman",
+        "Lawsuit",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-10-21T09:30:00+05:30",
+      "first_comment": "#SamAltman #Lawsuit #Headlinne",
+      "sources": "BBC Technology · The Verge · Engadget",
+      "story_url": "https://www.bbc.co.uk/news/articles/c94g1502el58o?at_medium=RSS&at_campaign=rss",
+      "dateline": "WED 21 OCT",
+      "story": null,
+      "duration_seconds": 45.33,
+      "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-21/reels/reel_1.mp4",
+      "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-21/reels/reel_1_cover.png",
+      "audio_file": null,
+      "has_voiceover": true
+    }
+  ],
+  "story_card": {
+    "slot": "story_card",
+    "category": "Geopolitics",
+    "headline": "DOJ Charges 28 in California Voting Case",
+    "standfirst": "Plus, court records reveal TikTok ignored internal warnings about child safety.",
+    "steps": [
+      {
+        "label": "What happened",
+        "text": "The DOJ charged 28 people in California with voting crimes. Separately, TikTok ignored safety warnings."
+      },
+      {
+        "label": "How we got here",
+        "text": "Court records show TikTok staff flagged child safety risks to executives who failed to act."
+      },
+      {
+        "label": "Why it matters",
+        "text": "Voting integrity is under scrutiny near Election Day. Meanwhile, tech accountability is in focus."
+      },
+      {
+        "label": "What to watch",
+        "text": "Updates on the California legal proceedings and any further disclosures regarding TikTok policy."
+      }
+    ],
+    "caption": "The Department of Justice is charging 28 people with voting crimes in California as Election Day approaches.\n\nIn a separate development, new court records suggest TikTok executives were warned by staff about child safety issues but did not take action. Both stories highlight growing concerns over election security and tech platform responsibility.\n\nDo you think social media companies should face stricter legal penalties for ignoring internal safety warnings?\n\nSave this one. Follow for the daily card. Full story on HEADLINNE.com.\n\n#WorldNews #Geopolitics #GlobalNews #DOJ",
+    "hashtags": [
+      "WorldNews",
+      "Geopolitics",
+      "GlobalNews",
+      "DOJ",
+      "California",
+      "Elections",
+      "VotingRights",
+      "TikTok",
+      "ChildSafety",
+      "TechNews",
+      "SocialMedia",
+      "LegalNews",
+      "Election2024",
+      "PlatformAccountability",
+      "NPR",
+      "NewsExplained"
+    ],
+    "scheduled_time": "2026-10-21T21:30:00+05:30",
+    "first_comment": "#California #Elections #VotingRights #TikTok #ChildSafety #TechNews #SocialMedia #LegalNews #Election2024 #PlatformAccountability #NPR #NewsExplained",
+    "sources": "NPR World",
+    "story_url": "https://www.npr.org/2026/10/20/g-s1-148877/up-first-newsletter-california-elections-doj-midterms-trump-tiktok",
+    "image_url": "https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=g-s1-148877",
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-21/story_card/story_card.png",
+    "story": null
+  }
+}

@@ -1,0 +1,91 @@
+[
+  {
+    "category": "Tech",
+    "post": "Here is the tech news you need today.\n• A judge dismissed the lawsuit against Sam Altman after his sister missed medical exams\n• Google fixed a cloud outage that disrupted major UK banking services HEADLINNE.com #TechNews #Google",
+    "hashtags": [
+      "TechNews",
+      "Google"
+    ],
+    "scheduled_time": "2026-10-21T13:00:00+05:30",
+    "kind": "news",
+    "lead": "Here is the tech news you need today.",
+    "items": [
+      "A judge dismissed the lawsuit against Sam Altman after his sister missed medical exams",
+      "Google fixed a cloud outage that disrupted major UK banking services"
+    ],
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-21/x/x_1.png",
+    "story": {
+      "title": "OpenAI CEO Sam Altman wins dismissal of sister's lawsuit",
+      "summary": "A US district judge dismissed the case after Ann Altman had refused to attend an independent medical examination.",
+      "url": "https://www.bbc.co.uk/news/articles/c94g1502el58o?at_medium=RSS&at_campaign=rss",
+      "category": "Technology",
+      "source": "BBC Technology",
+      "tier": 1.4,
+      "published_iso": "2026-10-20T19:42:32+00:00",
+      "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/4b56/live/9be50560-cc9f-11f1-94e6-edd4c60b2e1d.jpg",
+      "corroborating_sources": [
+        "BBC Business",
+        "Engadget",
+        "The Verge"
+      ],
+      "score": 13.727,
+      "verified": true,
+      "sensitive": false,
+      "agreement": {
+        "reported": 3,
+        "agree": 3,
+        "conflict": 0,
+        "claim": "",
+        "claim_unit": "",
+        "outlets": [
+          "BBC Technology",
+          "The Verge",
+          "Engadget"
+        ],
+        "conflicts": []
+      }
+    }
+  },
+  {
+    "category": "Geopolitics",
+    "post": "Today's top global headlines\n• DOJ charges 28 with voting crimes as Election Day approaches\n• TikTok allegedly ignored staff warnings on child safety\n• Alberta voters decisively reject plans to leave Canada HEADLINNE.com #Geopolitics #News",
+    "hashtags": [
+      "Geopolitics",
+      "News"
+    ],
+    "scheduled_time": "2026-10-21T17:00:00+05:30",
+    "kind": "news",
+    "lead": "Today's top global headlines",
+    "items": [
+      "DOJ charges 28 with voting crimes as Election Day approaches",
+      "TikTok allegedly ignored staff warnings on child safety",
+      "Alberta voters decisively reject plans to leave Canada"
+    ],
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-21/x/x_2.png",
+    "story": {
+      "title": "DOJ charges 28 with voting crimes. And, TikTok ignored staff's child safety concerns",
+      "summary": "The Justice Department has charged 28 people in California with voting crimes as Election Day nears. And, TikTok staff raised child safety concerns with executives, who failed to act, court records show.",
+      "url": "https://www.npr.org/2026/10/20/g-s1-148877/up-first-newsletter-california-elections-doj-midterms-trump-tiktok",
+      "category": "Geopolitics",
+      "source": "NPR World",
+      "tier": 1.0,
+      "published_iso": "2026-10-20T11:04:49+00:00",
+      "image_url": "https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=g-s1-148877",
+      "corroborating_sources": [],
+      "score": 13.061,
+      "verified": false,
+      "sensitive": false,
+      "agreement": {
+        "reported": 1,
+        "agree": 1,
+        "conflict": 0,
+        "claim": "28",
+        "claim_unit": "reported",
+        "outlets": [
+          "NPR World"
+        ],
+        "conflicts": []
+      }
+    }
+  }
+]
