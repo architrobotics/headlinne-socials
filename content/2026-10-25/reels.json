@@ -1,0 +1,235 @@
+[
+  {
+    "slot": "reel_1",
+    "kind": "news",
+    "category": "Geopolitics",
+    "title": "Almost 1,000 arrested as clashes follow another day of mass protests across France",
+    "hook": "Almost 1,000 arrested as clashes follow another day of mass protests across France",
+    "beats": [
+      {
+        "role": "hook",
+        "caption": "Almost 1,000 arrested as clashes follow another day of mass protests across France",
+        "detail": "",
+        "narration": "",
+        "seconds": 5.61,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "",
+        "pose": "",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {},
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": ""
+      },
+      {
+        "role": "hook",
+        "caption": "Hundreds of thousands take to streets in France.",
+        "detail": "Mass demonstrations are occurring nationwide.",
+        "narration": "That is enough people to fill ten entire football stadiums, all marching at once across France.",
+        "seconds": 6.91,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "FRANCE IN PROTEST",
+        "pose": "walk",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "street",
+          "hat": "press",
+          "pose": "present"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "graphic",
+        "caption": "Huge crowds gather without major violence reported.",
+        "detail": "Officials avoided a repeat of recent rioting.",
+        "narration": "The sheer number of protesters is immense, but the mood has remained calm today.",
+        "seconds": 6.05,
+        "graphic": "split",
+        "data": {
+          "left_title": "THE CROWDS",
+          "left_text": "Massive numbers of people marching peacefully.",
+          "right_title": "THE OUTCOME",
+          "right_text": "No repeat of the recent looting and rioting."
+        },
+        "image_url": null,
+        "chapter": "THE SCALE",
+        "pose": "point",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "street",
+          "hat": "press",
+          "pose": "scan"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "Almost 1,000 people arrested during protests.",
+        "detail": "Police maintain heavy presence across French cities.",
+        "narration": "Despite the calm, police have detained nearly 1,000 people across the country today.",
+        "seconds": 5.61,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "ARRESTS MADE",
+        "pose": "present",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "parliament",
+          "hat": "press",
+          "pose": "alarm"
+        },
+        "stat": {
+          "value": "1,000",
+          "label": "arrests made"
+        },
+        "fact": "1,000 arrested nationwide",
+        "stamp": "ARRESTED",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "Authorities aim to keep order during unrest.",
+        "detail": "Preventing looting remains a top priority.",
+        "narration": "Officials have been working hard to prevent a return to last weekend's chaos.",
+        "seconds": 5.61,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "POLICE RESPONSE",
+        "pose": "jump",
+        "say": "",
+        "plates": [
+          "story"
+        ],
+        "tone": "",
+        "scene": {
+          "set": "parliament",
+          "hat": "press",
+          "pose": "point"
+        },
+        "stat": {},
+        "fact": "Police monitor mass demonstrations",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "graphic",
+        "caption": "Balancing protest rights and public order.",
+        "detail": "Tensions remain high across French cities.",
+        "narration": "It is a tense balance between the right to protest and the need for public safety.",
+        "seconds": 6.91,
+        "graphic": "flow",
+        "data": {
+          "steps": [
+            "Mass demonstrations",
+            "Police monitoring",
+            "Order maintained"
+          ]
+        },
+        "image_url": null,
+        "chapter": "THE SITUATION",
+        "pose": "talk",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "parliament",
+          "hat": "press",
+          "pose": "think"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "Follow the latest updates with Headlinne.",
+        "detail": "Get the facts without the noise.",
+        "narration": "We are watching these developments closely to see what happens next in France.",
+        "seconds": 5.61,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "STAY INFORMED",
+        "pose": "point",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "newsroom",
+          "hat": "press",
+          "pose": "nod"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "outro",
+        "caption": "Visit headlinne.com for more news.",
+        "detail": "Your daily news, made simple.",
+        "narration": "Download our app at headlinne.com for the full story as it unfolds.",
+        "seconds": 5.18,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "GET THE FULL STORY",
+        "pose": "cta",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "newsroom",
+          "hat": "none",
+          "pose": "present"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      }
+    ],
+    "caption": "Almost 1,000 arrested as clashes follow another day of mass protests across France\n\nWill the situation stay calm?\n\nFollow @headlinnedotcom for a daily brief. Full story on HEADLINNE.com.\n\n#WorldNews #Geopolitics #GlobalNews #France",
+    "hashtags": [
+      "WorldNews",
+      "Geopolitics",
+      "GlobalNews",
+      "France",
+      "News",
+      "Headlinne"
+    ],
+    "scheduled_time": "2026-10-25T09:30:00+05:30",
+    "first_comment": "#News #Headlinne",
+    "sources": "BBC World",
+    "story_url": "https://www.bbc.co.uk/news/articles/c95ynd587ynzo?at_medium=RSS&at_campaign=rss",
+    "dateline": "SUN 25 OCT",
+    "story": null,
+    "duration_seconds": 47.5,
+    "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-25/reels/reel_1.mp4",
+    "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-25/reels/reel_1_cover.png",
+    "audio_file": null,
+    "has_voiceover": true
+  }
+]

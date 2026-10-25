@@ -1,0 +1,385 @@
+{
+  "day": "2026-10-25",
+  "is_promo_day": false,
+  "is_friday": false,
+  "twitter": [
+    {
+      "category": "Geopolitics",
+      "post": "France faces a weekend of unrest\n• Nearly 1,000 people were arrested as protests swept across France\n• Mass marches demand better schools and more teachers nationwide\n• Thousands protested in Orléans against the far-right party HEADLINNE.com #France #News",
+      "hashtags": [
+        "France",
+        "News"
+      ],
+      "scheduled_time": "2026-10-25T13:00:00+05:30",
+      "kind": "news",
+      "lead": "France faces a weekend of unrest",
+      "items": [
+        "Nearly 1,000 people were arrested as protests swept across France",
+        "Mass marches demand better schools and more teachers nationwide",
+        "Thousands protested in Orléans against the far-right party"
+      ],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-25/x/x_1.png",
+      "story": {
+        "title": "Almost 1,000 arrested as clashes follow another day of mass protests across France",
+        "summary": "Officials have so far managed to avoid a repeat of last weekend's rioting and looting as hundreds of thousands took part in demonstrations.",
+        "url": "https://www.bbc.co.uk/news/articles/c95ynd587ynzo?at_medium=RSS&at_campaign=rss",
+        "category": "Geopolitics",
+        "source": "BBC World",
+        "tier": 1.4,
+        "published_iso": "2026-10-24T21:09:27+00:00",
+        "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/3d00/live/edf93830-cffb-11f1-b444-6fb1f13f8d87.jpg",
+        "corroborating_sources": [],
+        "score": 15.316,
+        "verified": false,
+        "sensitive": false,
+        "agreement": {
+          "reported": 1,
+          "agree": 1,
+          "conflict": 0,
+          "claim": "1,000",
+          "claim_unit": "reported",
+          "outlets": [
+            "BBC World"
+          ],
+          "conflicts": []
+        }
+      }
+    },
+    {
+      "category": "Tech",
+      "post": "Here is today's top tech news.\n• The UK is spending £100m on an AI lab to spot bio-threats\n• This new facility will help speed up vaccine development\n• Starlink access appears restored for users in Ukraine HEADLINNE.com #TechNews #AI",
+      "hashtags": [
+        "TechNews",
+        "AI"
+      ],
+      "scheduled_time": "2026-10-25T17:00:00+05:30",
+      "kind": "news",
+      "lead": "Here is today's top tech news.",
+      "items": [
+        "The UK is spending £100m on an AI lab to spot bio-threats",
+        "This new facility will help speed up vaccine development",
+        "Starlink access appears restored for users in Ukraine"
+      ],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-25/x/x_2.png",
+      "story": {
+        "title": "UK to invest £100m in 'world first' AI Biosecurity Lab",
+        "summary": "The chancellor will unveil AI spending aimed at shoring up the UK's defences in Wednesday's Budget.",
+        "url": "https://www.bbc.co.uk/news/articles/cqdjv8xllvyyo?at_medium=RSS&at_campaign=rss",
+        "category": "Technology",
+        "source": "BBC Technology",
+        "tier": 1.4,
+        "published_iso": "2026-10-24T00:05:45+00:00",
+        "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/43e7/live/343404d0-cf00-11f1-accf-3309656ad0bb.jpg",
+        "corroborating_sources": [
+          "BBC Business"
+        ],
+        "score": 10.268,
+        "verified": false,
+        "sensitive": false,
+        "agreement": {
+          "reported": 1,
+          "agree": 1,
+          "conflict": 0,
+          "claim": "100",
+          "claim_unit": "reported",
+          "outlets": [
+            "BBC Technology"
+          ],
+          "conflicts": []
+        }
+      }
+    }
+  ],
+  "linkedin": {
+    "title": "We decided to stop optimizing our feed for engagement time.",
+    "body": "Most news apps are built to keep you scrolling as long as possible. They want you stuck in the app because that looks good on a metric sheet. But we realized that if you are spending two hours reading the news, we probably failed you.\n\nWe built Headlinne with a different goal in mind. We want to get you the information you actually care about as quickly as possible so you can get on with your day. That meant changing how our AI ranks stories. Instead of looking for what triggers a reaction, it looks for what matches your specific interests and depth of knowledge.\n\nThis engineering choice makes our feed look different. It is often shorter. It is less chaotic. It is designed to be finished. We believe that respecting your time is the most important feature we can offer.\n\nBuilding an algorithm that prioritizes utility over addiction is harder than it sounds. It requires us to constantly refine how we measure success. But we think it is the only way to build a product that people actually trust.",
+    "cta": "You can see how we are doing things differently at HEADLINNE.com.",
+    "scheduled_time": "2026-10-25T18:00:00+05:30",
+    "kind": "product"
+  },
+  "instagram": [],
+  "reels": [
+    {
+      "slot": "reel_1",
+      "kind": "news",
+      "category": "Geopolitics",
+      "title": "Almost 1,000 arrested as clashes follow another day of mass protests across France",
+      "hook": "Almost 1,000 arrested as clashes follow another day of mass protests across France",
+      "beats": [
+        {
+          "role": "hook",
+          "caption": "Almost 1,000 arrested as clashes follow another day of mass protests across France",
+          "detail": "",
+          "narration": "",
+          "seconds": 5.61,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "",
+          "pose": "",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {},
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": ""
+        },
+        {
+          "role": "hook",
+          "caption": "Hundreds of thousands take to streets in France.",
+          "detail": "Mass demonstrations are occurring nationwide.",
+          "narration": "That is enough people to fill ten entire football stadiums, all marching at once across France.",
+          "seconds": 6.91,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "FRANCE IN PROTEST",
+          "pose": "walk",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "street",
+            "hat": "press",
+            "pose": "present"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "graphic",
+          "caption": "Huge crowds gather without major violence reported.",
+          "detail": "Officials avoided a repeat of recent rioting.",
+          "narration": "The sheer number of protesters is immense, but the mood has remained calm today.",
+          "seconds": 6.05,
+          "graphic": "split",
+          "data": {
+            "left_title": "THE CROWDS",
+            "left_text": "Massive numbers of people marching peacefully.",
+            "right_title": "THE OUTCOME",
+            "right_text": "No repeat of the recent looting and rioting."
+          },
+          "image_url": null,
+          "chapter": "THE SCALE",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "street",
+            "hat": "press",
+            "pose": "scan"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "Almost 1,000 people arrested during protests.",
+          "detail": "Police maintain heavy presence across French cities.",
+          "narration": "Despite the calm, police have detained nearly 1,000 people across the country today.",
+          "seconds": 5.61,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "ARRESTS MADE",
+          "pose": "present",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "parliament",
+            "hat": "press",
+            "pose": "alarm"
+          },
+          "stat": {
+            "value": "1,000",
+            "label": "arrests made"
+          },
+          "fact": "1,000 arrested nationwide",
+          "stamp": "ARRESTED",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "Authorities aim to keep order during unrest.",
+          "detail": "Preventing looting remains a top priority.",
+          "narration": "Officials have been working hard to prevent a return to last weekend's chaos.",
+          "seconds": 5.61,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "POLICE RESPONSE",
+          "pose": "jump",
+          "say": "",
+          "plates": [
+            "story"
+          ],
+          "tone": "",
+          "scene": {
+            "set": "parliament",
+            "hat": "press",
+            "pose": "point"
+          },
+          "stat": {},
+          "fact": "Police monitor mass demonstrations",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "graphic",
+          "caption": "Balancing protest rights and public order.",
+          "detail": "Tensions remain high across French cities.",
+          "narration": "It is a tense balance between the right to protest and the need for public safety.",
+          "seconds": 6.91,
+          "graphic": "flow",
+          "data": {
+            "steps": [
+              "Mass demonstrations",
+              "Police monitoring",
+              "Order maintained"
+            ]
+          },
+          "image_url": null,
+          "chapter": "THE SITUATION",
+          "pose": "talk",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "parliament",
+            "hat": "press",
+            "pose": "think"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "Follow the latest updates with Headlinne.",
+          "detail": "Get the facts without the noise.",
+          "narration": "We are watching these developments closely to see what happens next in France.",
+          "seconds": 5.61,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "STAY INFORMED",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "newsroom",
+            "hat": "press",
+            "pose": "nod"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "outro",
+          "caption": "Visit headlinne.com for more news.",
+          "detail": "Your daily news, made simple.",
+          "narration": "Download our app at headlinne.com for the full story as it unfolds.",
+          "seconds": 5.18,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "GET THE FULL STORY",
+          "pose": "cta",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "newsroom",
+            "hat": "none",
+            "pose": "present"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        }
+      ],
+      "caption": "Almost 1,000 arrested as clashes follow another day of mass protests across France\n\nWill the situation stay calm?\n\nFollow @headlinnedotcom for a daily brief. Full story on HEADLINNE.com.\n\n#WorldNews #Geopolitics #GlobalNews #France",
+      "hashtags": [
+        "WorldNews",
+        "Geopolitics",
+        "GlobalNews",
+        "France",
+        "News",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-10-25T09:30:00+05:30",
+      "first_comment": "#News #Headlinne",
+      "sources": "BBC World",
+      "story_url": "https://www.bbc.co.uk/news/articles/c95ynd587ynzo?at_medium=RSS&at_campaign=rss",
+      "dateline": "SUN 25 OCT",
+      "story": null,
+      "duration_seconds": 47.5,
+      "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-25/reels/reel_1.mp4",
+      "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-25/reels/reel_1_cover.png",
+      "audio_file": null,
+      "has_voiceover": true
+    }
+  ],
+  "story_card": {
+    "slot": "story_card",
+    "category": "Technology",
+    "headline": "UK government plans £100m AI biosecurity lab",
+    "standfirst": "The chancellor is set to announce a new facility focused on AI risks in the upcoming",
+    "steps": [
+      {
+        "label": "What happened",
+        "text": "The UK government is investing £100 million into a new, world-first AI biosecurity lab."
+      },
+      {
+        "label": "How we got here",
+        "text": "This funding is being unveiled as part of the chancellor's upcoming Budget announcement."
+      },
+      {
+        "label": "Why it matters",
+        "text": "The goal is to strengthen the UK's national defences against potential threats from AI."
+      },
+      {
+        "label": "What to watch",
+        "text": "Look for further details on the lab's specific operations during Wednesday's Budget speech."
+      }
+    ],
+    "caption": "The UK government is investing one hundred million pounds into a new AI biosecurity lab.\n\nThis facility is designed to address security concerns linked to artificial intelligence. It marks a significant financial commitment to national safety ahead of the Budget announcement.\n\nDo you think governments should focus more on AI safety or AI innovation right now?\n\nSave this one. Follow for the daily card. Full story on HEADLINNE.com.\n\n#TechNews #Tech #AI #UKNews",
+    "hashtags": [
+      "TechNews",
+      "Tech",
+      "AI",
+      "UKNews",
+      "ArtificialIntelligence",
+      "Biosecurity",
+      "UKBudget",
+      "TechPolicy",
+      "GovernmentSpending",
+      "NationalSecurity",
+      "Technology",
+      "Innovation",
+      "FutureTech",
+      "NewsExplained",
+      "Headlinne"
+    ],
+    "scheduled_time": "2026-10-25T21:30:00+05:30",
+    "first_comment": "#ArtificialIntelligence #Biosecurity #UKBudget #TechPolicy #GovernmentSpending #NationalSecurity #Technology #Innovation #FutureTech #NewsExplained #Headlinne",
+    "sources": "BBC Technology",
+    "story_url": "https://www.bbc.co.uk/news/articles/cqdjv8xllvyyo?at_medium=RSS&at_campaign=rss",
+    "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/43e7/live/343404d0-cf00-11f1-accf-3309656ad0bb.jpg",
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-25/story_card/story_card.png",
+    "story": null
+  }
+}

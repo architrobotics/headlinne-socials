@@ -1,0 +1,88 @@
+[
+  {
+    "category": "Geopolitics",
+    "post": "France faces a weekend of unrest\n• Nearly 1,000 people were arrested as protests swept across France\n• Mass marches demand better schools and more teachers nationwide\n• Thousands protested in Orléans against the far-right party HEADLINNE.com #France #News",
+    "hashtags": [
+      "France",
+      "News"
+    ],
+    "scheduled_time": "2026-10-25T13:00:00+05:30",
+    "kind": "news",
+    "lead": "France faces a weekend of unrest",
+    "items": [
+      "Nearly 1,000 people were arrested as protests swept across France",
+      "Mass marches demand better schools and more teachers nationwide",
+      "Thousands protested in Orléans against the far-right party"
+    ],
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-25/x/x_1.png",
+    "story": {
+      "title": "Almost 1,000 arrested as clashes follow another day of mass protests across France",
+      "summary": "Officials have so far managed to avoid a repeat of last weekend's rioting and looting as hundreds of thousands took part in demonstrations.",
+      "url": "https://www.bbc.co.uk/news/articles/c95ynd587ynzo?at_medium=RSS&at_campaign=rss",
+      "category": "Geopolitics",
+      "source": "BBC World",
+      "tier": 1.4,
+      "published_iso": "2026-10-24T21:09:27+00:00",
+      "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/3d00/live/edf93830-cffb-11f1-b444-6fb1f13f8d87.jpg",
+      "corroborating_sources": [],
+      "score": 15.316,
+      "verified": false,
+      "sensitive": false,
+      "agreement": {
+        "reported": 1,
+        "agree": 1,
+        "conflict": 0,
+        "claim": "1,000",
+        "claim_unit": "reported",
+        "outlets": [
+          "BBC World"
+        ],
+        "conflicts": []
+      }
+    }
+  },
+  {
+    "category": "Tech",
+    "post": "Here is today's top tech news.\n• The UK is spending £100m on an AI lab to spot bio-threats\n• This new facility will help speed up vaccine development\n• Starlink access appears restored for users in Ukraine HEADLINNE.com #TechNews #AI",
+    "hashtags": [
+      "TechNews",
+      "AI"
+    ],
+    "scheduled_time": "2026-10-25T17:00:00+05:30",
+    "kind": "news",
+    "lead": "Here is today's top tech news.",
+    "items": [
+      "The UK is spending £100m on an AI lab to spot bio-threats",
+      "This new facility will help speed up vaccine development",
+      "Starlink access appears restored for users in Ukraine"
+    ],
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-25/x/x_2.png",
+    "story": {
+      "title": "UK to invest £100m in 'world first' AI Biosecurity Lab",
+      "summary": "The chancellor will unveil AI spending aimed at shoring up the UK's defences in Wednesday's Budget.",
+      "url": "https://www.bbc.co.uk/news/articles/cqdjv8xllvyyo?at_medium=RSS&at_campaign=rss",
+      "category": "Technology",
+      "source": "BBC Technology",
+      "tier": 1.4,
+      "published_iso": "2026-10-24T00:05:45+00:00",
+      "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/43e7/live/343404d0-cf00-11f1-accf-3309656ad0bb.jpg",
+      "corroborating_sources": [
+        "BBC Business"
+      ],
+      "score": 10.268,
+      "verified": false,
+      "sensitive": false,
+      "agreement": {
+        "reported": 1,
+        "agree": 1,
+        "conflict": 0,
+        "claim": "100",
+        "claim_unit": "reported",
+        "outlets": [
+          "BBC Technology"
+        ],
+        "conflicts": []
+      }
+    }
+  }
+]
