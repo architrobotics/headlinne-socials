@@ -1,0 +1,306 @@
+{
+  "day": "2026-10-26",
+  "is_promo_day": true,
+  "is_friday": false,
+  "twitter": [
+    {
+      "category": "Promo",
+      "post": "News moves fast and it is easy to miss the context. Deep Dive Mode breaks down complex stories with visuals and lets you ask follow-up questions so you can actually understand what is happening. HEADLINNE.com #News #Learning",
+      "hashtags": [
+        "News",
+        "Learning"
+      ],
+      "scheduled_time": "2026-10-26T13:00:00+05:30",
+      "kind": "promo",
+      "lead": "Understand the news, not just headlines",
+      "items": [],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-26/x/x_1.png",
+      "story": null
+    }
+  ],
+  "linkedin": {
+    "title": "Personalised news is currently broken.",
+    "body": "Most news apps today rely on simplistic algorithms that just feed you more of what you already clicked on. It creates an echo chamber rather than a window into the world. You end up reading the same perspective over and over again, which is the opposite of being informed.\n\nAt Headlinne, we are building something different. The roadmap for the next generation of news isn't about feeding you more of the same. It is about nuance. We are working on AI that helps you understand the full context of a story, not just the headline that gets the most clicks. Our goal is to connect the dots between complex events so you can see the bigger picture.\n\nTrue personalisation should challenge your assumptions, not confirm them. It should give you the time back you spend scrolling by delivering the essential facts first. We want to move past the noise and focus on quality, depth, and genuine understanding.",
+    "cta": "See how we are rethinking the way you stay informed at HEADLINNE.com.",
+    "scheduled_time": "2026-10-26T18:00:00+05:30",
+    "kind": "product"
+  },
+  "instagram": [],
+  "reels": [
+    {
+      "slot": "reel_1",
+      "kind": "news",
+      "category": "Geopolitics",
+      "title": "Brazil election 2026: Full second round results as Lula wins comeback against Flávio",
+      "hook": "Brazil election 2026: Full second round results as Lula wins comeback against Flávio",
+      "beats": [
+        {
+          "role": "hook",
+          "caption": "Brazil election 2026: Full second round results as Lula wins comeback against Flávio",
+          "detail": "",
+          "narration": "",
+          "seconds": 6.29,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "",
+          "pose": "",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {},
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": ""
+        },
+        {
+          "role": "hook",
+          "caption": "Popular vote decides the winner.",
+          "detail": "A winner needs over 50 percent of votes.",
+          "narration": "Here is how the Brazilian election works. It is simple popular vote math.",
+          "seconds": 6.29,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "HOW BRAZIL VOTES",
+          "pose": "walk",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "parliament",
+            "hat": "press",
+            "pose": "present"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "The first round was a surprise defeat.",
+          "detail": "Lula faced an unexpected initial setback.",
+          "narration": "But the first round provided a shock. It did not go as expected.",
+          "seconds": 6.29,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "THE FIRST ROUND",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "parliament",
+            "hat": "press",
+            "pose": "think"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "graphic",
+          "caption": "Lula managed a dramatic turnaround.",
+          "detail": "He secured the win after the initial loss.",
+          "narration": "So the incumbent president staged a major comeback. He turned the results around.",
+          "seconds": 6.29,
+          "graphic": "flow",
+          "data": {
+            "steps": [
+              "First round loss",
+              "Campaign intensifies",
+              "Runoff victory"
+            ]
+          },
+          "image_url": null,
+          "chapter": "THE BIG COMEBACK",
+          "pose": "present",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "parliament",
+            "hat": "press",
+            "pose": "point"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "The incumbent president secures the runoff.",
+          "detail": "He defeated challenger Flávio Bolsonaro.",
+          "narration": "Now the results are in. Luiz Inácio Lula da Silva has officially won.",
+          "seconds": 6.29,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "LULA WINS",
+          "pose": "jump",
+          "say": "",
+          "plates": [
+            "story"
+          ],
+          "tone": "",
+          "scene": {
+            "set": "parliament",
+            "hat": "press",
+            "pose": "cheer"
+          },
+          "stat": {},
+          "fact": "LULA WINS RUNOFF",
+          "stamp": "WINNER",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "Voters faced a stark choice.",
+          "detail": "Both sides campaigned hard for every vote.",
+          "narration": "It was a tight race against Flávio Bolsonaro. The country was clearly divided.",
+          "seconds": 6.29,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "THE OPPOSITION",
+          "pose": "talk",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "parliament",
+            "hat": "press",
+            "pose": "scan"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "The entire country watches the tally.",
+          "detail": "Popular vote makes every ballot essential.",
+          "narration": "This result decides the future of Brazil. Every single vote counts in this system.",
+          "seconds": 6.78,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "WHY IT MATTERS",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "parliament",
+            "hat": "press",
+            "pose": "present"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "outro",
+          "caption": "See the full election analysis today.",
+          "detail": "We verify news across five sources.",
+          "narration": "Get the full breakdown and analysis on headlinne.com. Thanks for watching.",
+          "seconds": 5.32,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "STAY INFORMED",
+          "pose": "cta",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "parliament",
+            "hat": "press",
+            "pose": "present"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        }
+      ],
+      "caption": "Brazil election 2026: Full second round results as Lula wins comeback against Flávio\n\nWhat is next for Brazil?\n\nFollow @headlinnedotcom for a daily brief. Full story on HEADLINNE.com.\n\n#WorldNews #Geopolitics #GlobalNews #BrazilElection",
+      "hashtags": [
+        "WorldNews",
+        "Geopolitics",
+        "GlobalNews",
+        "BrazilElection",
+        "Lula",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-10-26T09:30:00+05:30",
+      "first_comment": "#Lula #Headlinne",
+      "sources": "Guardian World · France 24 · Sky World · Al Jazeera +1",
+      "story_url": "https://www.theguardian.com/world/ng-interactive/2026/oct/25/brazil-election-2026-live-second-round-results",
+      "dateline": "MON 26 OCT",
+      "story": null,
+      "duration_seconds": 49.83,
+      "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-26/reels/reel_1.mp4",
+      "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-26/reels/reel_1_cover.png",
+      "audio_file": null,
+      "has_voiceover": true
+    }
+  ],
+  "story_card": {
+    "slot": "story_card",
+    "category": "Finance",
+    "headline": "Audi to build its first US factory in Georgia",
+    "standfirst": "The German automaker is investing $4 billion despite major challenges back home.",
+    "steps": [
+      {
+        "label": "What happened",
+        "text": "Audi plans to build a $4 billion SUV factory in the US. The project will create 4,500 new jobs."
+      },
+      {
+        "label": "How we got here",
+        "text": "Parent company Volkswagen is facing high tariffs, tough Chinese competition and high EV costs."
+      },
+      {
+        "label": "Why it matters",
+        "text": "The move comes even as Volkswagen is cutting jobs in Germany to deal with financial struggles."
+      },
+      {
+        "label": "What to watch",
+        "text": "Watch how Volkswagen balances this US expansion with its ongoing restructuring in Germany."
+      }
+    ],
+    "caption": "Volkswagen is building a new Audi factory in the United States while cutting jobs in Germany.\n\nThe automaker is navigating a difficult landscape, balancing high costs for electric vehicles with pressure from Chinese competitors and new tariffs. This $4 billion investment in Georgia marks a major shift in their global strategy.\n\nDo you think car companies should prioritize local jobs or focus on global cost-cutting?\n\nSave this one. Follow for the daily card. Full story on HEADLINNE.com.\n\n#Finance #Markets #Economy #Volkswagen",
+    "hashtags": [
+      "Finance",
+      "Markets",
+      "Economy",
+      "Volkswagen",
+      "Audi",
+      "BusinessNews",
+      "Automotive",
+      "GeorgiaJobs",
+      "Manufacturing",
+      "ElectricVehicles",
+      "GlobalTrade",
+      "CarIndustry",
+      "FinancialNews",
+      "CorporateStrategy",
+      "NewsExplained",
+      "Headlinne"
+    ],
+    "scheduled_time": "2026-10-26T21:30:00+05:30",
+    "first_comment": "#Audi #BusinessNews #Automotive #GeorgiaJobs #Manufacturing #ElectricVehicles #GlobalTrade #CarIndustry #FinancialNews #CorporateStrategy #NewsExplained #Headlinne",
+    "sources": "Guardian Business · Investing.com",
+    "story_url": "https://www.theguardian.com/business/2026/oct/25/volkswagen-to-build-4bn-audi-suv-factory-in-us-despite-job-cuts-at-home",
+    "image_url": "https://i.guim.co.uk/img/media/3505a53736aa93c5c0c6865e0b06b5c8b49159c8/292_0_2917_2333/master/2917.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=1c53e9936a3252778f1397e4b99185dc",
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-26/story_card/story_card.png",
+    "story": null
+  }
+}
