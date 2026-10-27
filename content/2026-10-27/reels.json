@@ -1,0 +1,224 @@
+[
+  {
+    "slot": "reel_1",
+    "kind": "news",
+    "category": "Science",
+    "title": "Brazil election: many scientists relieved as Lula wins surprise victory",
+    "hook": "Brazil election: many scientists relieved as Lula wins surprise victory",
+    "beats": [
+      {
+        "role": "hook",
+        "caption": "Brazil election: many scientists relieved as Lula wins surprise victory",
+        "detail": "",
+        "narration": "",
+        "seconds": 5.03,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "",
+        "pose": "",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {},
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": ""
+      },
+      {
+        "role": "hook",
+        "caption": "Brazil's election result is changing the future of science.",
+        "detail": "Incumbent wins in a surprise run-off.",
+        "narration": "If this holds, Brazil's science policy shifts. Here is the chain.",
+        "seconds": 5.54,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "BRAZIL ELECTION RESULTS",
+        "pose": "walk",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "parliament",
+          "hat": "press",
+          "pose": "present"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "The incumbent defied expectations to win the run-off.",
+        "detail": "Victory follows a tense run-off election.",
+        "narration": "The incumbent president just won a surprise victory in the run-off election.",
+        "seconds": 6.04,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "THE ELECTION SURPRISE",
+        "pose": "point",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "parliament",
+          "hat": "press",
+          "pose": "talk"
+        },
+        "stat": {},
+        "fact": "INCUMBENT WINS RUN-OFF",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "Many scientists are relieved by the election outcome.",
+        "detail": "Researchers supported the incumbent president.",
+        "narration": "Scientific organizations across the country had rallied behind him.",
+        "seconds": 4.53,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "WHY SCIENTISTS CARE",
+        "pose": "present",
+        "say": "",
+        "plates": [
+          "story"
+        ],
+        "tone": "",
+        "scene": {
+          "set": "lab",
+          "hat": "grad",
+          "pose": "think"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "graphic",
+        "caption": "See how the political landscape shifted for researchers.",
+        "detail": "Relief follows the surprise victory.",
+        "narration": "The mood is one of relief after a tense and unexpected race.",
+        "seconds": 6.04,
+        "graphic": "flow",
+        "data": {
+          "steps": [
+            "Election held",
+            "Scientists rally",
+            "Surprise victory"
+          ]
+        },
+        "image_url": null,
+        "chapter": "THE CHAIN OF EVENTS",
+        "pose": "jump",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "lab",
+          "hat": "grad",
+          "pose": "point"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "The race was unexpectedly close for the incumbent.",
+        "detail": "The results were confirmed by three sources.",
+        "narration": "It was a close battle that kept the country waiting until the very end.",
+        "seconds": 7.05,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "A TENSE RACE",
+        "pose": "talk",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "street",
+          "hat": "cap",
+          "pose": "scan"
+        },
+        "stat": {},
+        "fact": "RESULTS CONFIRMED",
+        "stamp": "VICTORY",
+        "stamp_tone": "good"
+      },
+      {
+        "role": "point",
+        "caption": "We verified this report across three independent sources.",
+        "detail": "Nature News, France 24, and Guardian World.",
+        "narration": "Three major outlets confirmed the results.",
+        "seconds": 3.02,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "VERIFIED NEWS",
+        "pose": "point",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "newsroom",
+          "hat": "press",
+          "pose": "deliver"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "outro",
+        "caption": "Stay ahead of the news with headlinne.com.",
+        "detail": "Find the latest updates on our app.",
+        "narration": "Get the full story and more updates at headlinne.com.",
+        "seconds": 4.53,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "STAY INFORMED",
+        "pose": "cta",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "newsroom",
+          "hat": "press",
+          "pose": "cheer"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      }
+    ],
+    "caption": "Brazil election: many scientists relieved as Lula wins surprise victory\n\nDoes this change your view?\n\nFollow @headlinnedotcom for a daily brief. Full story on HEADLINNE.com.\n\n#BrazilElection #ScienceNews #Headlinne",
+    "hashtags": [
+      "BrazilElection",
+      "ScienceNews",
+      "Headlinne"
+    ],
+    "scheduled_time": "2026-10-27T09:30:00+05:30",
+    "first_comment": "",
+    "sources": "Nature News · Guardian World · France 24",
+    "story_url": "https://www.nature.com/articles/d41586-026-03446-9",
+    "dateline": "TUE 27 OCT",
+    "story": null,
+    "duration_seconds": 41.77,
+    "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-27/reels/reel_1.mp4",
+    "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-27/reels/reel_1_cover.png",
+    "audio_file": null,
+    "has_voiceover": true
+  }
+]
