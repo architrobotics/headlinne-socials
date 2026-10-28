@@ -1,0 +1,306 @@
+{
+  "day": "2026-10-28",
+  "is_promo_day": true,
+  "is_friday": false,
+  "twitter": [
+    {
+      "category": "Promo",
+      "post": "Ever feel like there is too much news to read and not enough time? We use AI to pull out the key points from every article. It is like having a personal editor who helps you get the gist of the story in seconds. HEADLINNE.com #News #Productivity",
+      "hashtags": [
+        "News",
+        "Productivity"
+      ],
+      "scheduled_time": "2026-10-28T13:00:00+05:30",
+      "kind": "promo",
+      "lead": "Read Less and Know More",
+      "items": [],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-28/x/x_1.png",
+      "story": null
+    }
+  ],
+  "linkedin": {
+    "title": "Most news algorithms are designed to keep you scrolling, not to keep you informed.",
+    "body": "It is a subtle but important difference. When an engine is built to maximize engagement, it ends up feeding you outrage or whatever is trending, regardless of whether it actually matters to your life or your work. That is why your feed often feels like a messy loop of noise.\n\nAt Headlinne, we took a different approach. Instead of tracking how long you stare at a screen, we built a recommendation engine that learns from the specific topics and nuances you actually engage with over time. It is not about keeping you trapped in the app. It is about respecting your time by filtering out the noise and highlighting the signal.\n\nGood AI in news should be like a great editor. It should know what you care about, understand your blind spots, and present information that helps you form your own opinions rather than telling you what to think. We believe technology should work for the reader, not the other way around.",
+    "cta": "If you are tired of the noise, you can see how we are doing things differently at HEADLINNE.com.",
+    "scheduled_time": "2026-10-28T18:00:00+05:30",
+    "kind": "product"
+  },
+  "instagram": [],
+  "reels": [
+    {
+      "slot": "reel_1",
+      "kind": "news",
+      "category": "Geopolitics",
+      "title": "Israel's election turnout soars, lifting opposition hopes of beating Netanyahu",
+      "hook": "Israel's election turnout soars, lifting opposition hopes of beating Netanyahu",
+      "beats": [
+        {
+          "role": "hook",
+          "caption": "Israel's election turnout soars, lifting opposition hopes of beating Netanyahu",
+          "detail": "",
+          "narration": "",
+          "seconds": 4.39,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "",
+          "pose": "",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {},
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": ""
+        },
+        {
+          "role": "hook",
+          "caption": "A record turnout in Israel's tense national election.",
+          "detail": "Voters are deciding the country's political future.",
+          "narration": "Why are so many Israelis heading to the polls right now? It is a record-breaking turnout.",
+          "seconds": 7.03,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "ISRAEL VOTES",
+          "pose": "walk",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "parliament",
+            "hat": "press",
+            "pose": "present"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "The highest voter turnout in over twenty years.",
+          "detail": "Citizens are clearly engaged in this tense election.",
+          "narration": "Voters showed up in higher numbers than we have seen in over two decades.",
+          "seconds": 6.15,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "THE TURNOUT",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "parliament",
+            "hat": "press",
+            "pose": "talk"
+          },
+          "stat": {},
+          "fact": "HIGHEST TURNOUT IN TWO DECADES",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "Voters decide the fate of the current governing coalition.",
+          "detail": "Netanyahu's leadership is the central issue here.",
+          "narration": "The big question is whether to keep Benjamin Netanyahu's far-right coalition in power.",
+          "seconds": 5.71,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "THE STAKES",
+          "pose": "present",
+          "say": "",
+          "plates": [
+            "story"
+          ],
+          "tone": "",
+          "scene": {
+            "set": "parliament",
+            "hat": "press",
+            "pose": "think"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "graphic",
+          "caption": "High engagement boosts opposition hopes for a change.",
+          "detail": "More voters could mean a shift in power.",
+          "narration": "This surge in voting has sparked real hope for the opposition parties.",
+          "seconds": 5.27,
+          "graphic": "split",
+          "data": {
+            "left_title": "NETANYAHU",
+            "left_text": "Seeking to maintain his far-right coalition.",
+            "right_title": "OPPOSITION",
+            "right_text": "Hoping the high turnout signals a shift."
+          },
+          "image_url": null,
+          "chapter": "THE OPPOSITION",
+          "pose": "jump",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "street",
+            "hat": "none",
+            "pose": "point"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "A tense atmosphere as the nation casts ballots.",
+          "detail": "Political divisions are clearly on full display.",
+          "narration": "The atmosphere is tense as the country decides which path to take.",
+          "seconds": 5.27,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "THE CLIMATE",
+          "pose": "talk",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "street",
+            "hat": "none",
+            "pose": "scan"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "TENSE",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "Counting begins to see if power will shift hands.",
+          "detail": "Results will determine the next governing coalition.",
+          "narration": "Now the counting begins to see if the status quo holds.",
+          "seconds": 4.83,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "WHAT COMES NEXT",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "parliament",
+            "hat": "press",
+            "pose": "nod"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "outro",
+          "caption": "Check headlinne.com for the latest election results.",
+          "detail": "We keep you informed on breaking news.",
+          "narration": "Get the latest updates on this story and more at headlinne.com.",
+          "seconds": 4.83,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "STAY INFORMED",
+          "pose": "cta",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "parliament",
+            "hat": "press",
+            "pose": "present"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        }
+      ],
+      "caption": "Israel's election turnout soars, lifting opposition hopes of beating Netanyahu\n\nCan the opposition win?\n\nFollow @headlinnedotcom for a daily brief. Full story on HEADLINNE.com.\n\n#WorldNews #Geopolitics #GlobalNews #Israel",
+      "hashtags": [
+        "WorldNews",
+        "Geopolitics",
+        "GlobalNews",
+        "Israel",
+        "Election",
+        "Netanyahu",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-10-28T09:30:00+05:30",
+      "first_comment": "#Election #Netanyahu #Headlinne",
+      "sources": "NPR World · France 24 · Guardian World",
+      "story_url": "https://www.npr.org/2026/10/27/nx-s1-6019381/israel-elections",
+      "dateline": "WED 28 OCT",
+      "story": null,
+      "duration_seconds": 43.47,
+      "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-28/reels/reel_1.mp4",
+      "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-28/reels/reel_1_cover.png",
+      "audio_file": null,
+      "has_voiceover": true
+    }
+  ],
+  "story_card": {
+    "slot": "story_card",
+    "category": "Technology",
+    "headline": "iPhone Duo screens are failing",
+    "standfirst": "Early reports suggest the new device's unique folding hinge is damaging displays.",
+    "steps": [
+      {
+        "label": "What happened",
+        "text": "Some users report their iPhone Duo screens are breaking. Apple confirms the issue."
+      },
+      {
+        "label": "How we got here",
+        "text": "The device features a precision-engineered hinge. This mechanism is damaging the screens."
+      },
+      {
+        "label": "Why it matters",
+        "text": "Two independent sources confirmed the problem. It raises questions about long-term durability."
+      },
+      {
+        "label": "What to watch",
+        "text": "Apple says only a small number of units are affected. We are waiting for repair updates."
+      }
+    ],
+    "caption": "Some iPhone Duo screens are already failing due to a hinge issue.\n\nReports from Ars Technica and The Guardian suggest that the precision-engineered hinge is causing damage to the displays. While Apple maintains that the number of affected units is small, it is a significant setback for the new hardware. We will keep an eye on how the company handles repairs.\n\nWould you buy a folding phone if there was a risk of screen damage?\n\nSave this one. Follow for the daily card. Full story on HEADLINNE.com.\n\n#TechNews #Tech #AI #Apple",
+    "hashtags": [
+      "TechNews",
+      "Tech",
+      "AI",
+      "Apple",
+      "iPhoneDuo",
+      "Smartphone",
+      "FoldingPhone",
+      "MobileTech",
+      "Hardware",
+      "AppleNews",
+      "Gadgets",
+      "TechUpdate",
+      "Innovation",
+      "ConsumerTech",
+      "NewsExplained",
+      "Headlinne"
+    ],
+    "scheduled_time": "2026-10-28T21:30:00+05:30",
+    "first_comment": "#iPhoneDuo #Smartphone #FoldingPhone #MobileTech #Hardware #AppleNews #Gadgets #TechUpdate #Innovation #ConsumerTech #NewsExplained #Headlinne",
+    "sources": "Ars Technica · Guardian Business",
+    "story_url": "https://arstechnica.com/gadgets/2026/10/some-iphone-duo-screens-are-already-failing/",
+    "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/10/iphone-duo-oops-1152x648.jpg",
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-28/story_card/story_card.png",
+    "story": null
+  }
+}
