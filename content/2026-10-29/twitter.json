@@ -1,0 +1,97 @@
+[
+  {
+    "category": "Geopolitics",
+    "post": "The world is moving fast today.\n• Flavio Bolsonaro has fled to the US and claimed leadership of Brazil\n• PM Sanchez visited a train crash site in Spain caused by a computer error\n• Israel's election is deadlocked as Ebola cases top 10,000 HEADLINNE.com #Geopolitics #News",
+    "hashtags": [
+      "Geopolitics",
+      "News"
+    ],
+    "scheduled_time": "2026-10-29T13:00:00+05:30",
+    "kind": "news",
+    "lead": "The world is moving fast today.",
+    "items": [
+      "Flavio Bolsonaro has fled to the US and claimed leadership of Brazil",
+      "PM Sanchez visited a train crash site in Spain caused by a computer error",
+      "Israel's election is deadlocked as Ebola cases top 10,000"
+    ],
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-29/x/x_1.png",
+    "story": {
+      "title": "Flavio Bolsonaro lands in US, declares himself 'leader' of Brazil",
+      "summary": "Flavio Bolsonaro declared himself the rightful leader of his country despite losing the presidential election runoff on Sunday. He and his family have fled to the US.",
+      "url": "https://www.dw.com/en/flavio-bolsonaro-lands-in-us-declares-himself-leader-of-brazil/a-79788659?maca=en-rss-en-world-4025-rdf",
+      "category": "Geopolitics",
+      "source": "Deutsche Welle",
+      "tier": 1.0,
+      "published_iso": "2026-10-28T22:26:00+00:00",
+      "image_url": "https://static.dw.com/image/79790316_6.jpg",
+      "corroborating_sources": [
+        "Al Jazeera",
+        "France 24",
+        "Guardian World",
+        "NPR World",
+        "Sky World"
+      ],
+      "score": 14.915,
+      "verified": true,
+      "sensitive": false,
+      "agreement": {
+        "reported": 6,
+        "agree": 6,
+        "conflict": 0,
+        "claim": "",
+        "claim_unit": "",
+        "outlets": [
+          "Deutsche Welle",
+          "Guardian World",
+          "France 24",
+          "Sky World",
+          "Al Jazeera",
+          "NPR World"
+        ],
+        "conflicts": []
+      }
+    }
+  },
+  {
+    "category": "Finance",
+    "post": "Today's top business stories.\n• Chancellor Healey's new budget includes a £100 energy bill rebate\n• Critics say the new tax and spending plans lack necessary ambition\n• Luxury cruise passengers are stuck in Cambodia as fuel costs rise HEADLINNE.com #Finance #Economy",
+    "hashtags": [
+      "Finance",
+      "Economy"
+    ],
+    "scheduled_time": "2026-10-29T17:00:00+05:30",
+    "kind": "news",
+    "lead": "Today's top business stories.",
+    "items": [
+      "Chancellor Healey's new budget includes a £100 energy bill rebate",
+      "Critics say the new tax and spending plans lack necessary ambition",
+      "Luxury cruise passengers are stuck in Cambodia as fuel costs rise"
+    ],
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-29/x/x_2.png",
+    "story": {
+      "title": "Healey unveils £100 for energy bills and bank tax in first Budget",
+      "summary": "The chancellor targets the cost of living amid global economic turmoil but opposition parties say he has not been bold enough.",
+      "url": "https://www.bbc.co.uk/news/articles/cqpvgxz3y49go?at_medium=RSS&at_campaign=rss",
+      "category": "Finance",
+      "source": "BBC Business",
+      "tier": 1.4,
+      "published_iso": "2026-10-28T18:45:09+00:00",
+      "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/ab01/live/ce128db0-d2fc-11f1-a701-fddedf244c16.jpg",
+      "corroborating_sources": [],
+      "score": 12.352,
+      "verified": false,
+      "sensitive": false,
+      "agreement": {
+        "reported": 1,
+        "agree": 1,
+        "conflict": 0,
+        "claim": "100",
+        "claim_unit": "reported",
+        "outlets": [
+          "BBC Business"
+        ],
+        "conflicts": []
+      }
+    }
+  }
+]
