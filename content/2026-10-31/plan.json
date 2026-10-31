@@ -1,0 +1,577 @@
+{
+  "day": "2026-10-31",
+  "is_promo_day": false,
+  "is_friday": false,
+  "twitter": [
+    {
+      "category": "Tech",
+      "post": "Today's biggest tech stories\n• Binance lost $6.3 billion in a massive crypto theft\n• North Korean hackers are the prime suspects in the breach\n• The attackers likely compromised a Binance employee laptop HEADLINNE.com #Crypto #Security",
+      "hashtags": [
+        "Crypto",
+        "Security"
+      ],
+      "scheduled_time": "2026-10-31T13:00:00+05:30",
+      "kind": "news",
+      "lead": "Today's biggest tech stories",
+      "items": [
+        "Binance lost $6.3 billion in a massive crypto theft",
+        "North Korean hackers are the prime suspects in the breach",
+        "The attackers likely compromised a Binance employee laptop"
+      ],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-31/x/x_1.png",
+      "story": {
+        "title": "Hackers steal $6.3 billion from Binance in record crypto heist",
+        "summary": "Binance scrambles to freeze billions after record-breaking hack linked to North Korea.",
+        "url": "https://arstechnica.com/security/2026/10/hackers-steal-6-3-billion-from-binance-in-record-crypto-heist/",
+        "category": "Technology",
+        "source": "Ars Technica",
+        "tier": 1.1,
+        "published_iso": "2026-10-30T13:46:39+00:00",
+        "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/10/binance-1024x648.jpg",
+        "corroborating_sources": [
+          "BBC Business",
+          "France 24",
+          "Guardian Business",
+          "NPR World",
+          "TechCrunch",
+          "Wired"
+        ],
+        "score": 13.433,
+        "verified": true,
+        "sensitive": false,
+        "agreement": {
+          "reported": 7,
+          "agree": 1,
+          "conflict": 1,
+          "claim": "6,300,000,000",
+          "claim_unit": "reported",
+          "outlets": [
+            "Ars Technica",
+            "Guardian Business",
+            "Wired",
+            "France 24",
+            "TechCrunch",
+            "BBC Business",
+            "NPR World"
+          ],
+          "conflicts": [
+            {
+              "outlet": "TechCrunch",
+              "value": "6.30"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "category": "Geopolitics",
+      "post": "Today's top global headlines\n• Binance lost $6.3B in a massive hack linked to North Korea\n• Cost of living protests are hitting Germany and France this weekend\n• France is deploying 70,000 police to manage expected unrest HEADLINNE.com #Geopolitics #News",
+      "hashtags": [
+        "Geopolitics",
+        "News"
+      ],
+      "scheduled_time": "2026-10-31T17:00:00+05:30",
+      "kind": "news",
+      "lead": "Today's top global headlines",
+      "items": [
+        "Binance lost $6.3B in a massive hack linked to North Korea",
+        "Cost of living protests are hitting Germany and France this weekend",
+        "France is deploying 70,000 police to manage expected unrest"
+      ],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-31/x/x_2.png",
+      "story": {
+        "title": "Biggest hack in history: Cryptocurrency giant Binance loses $6.3 billion",
+        "summary": "Cryptocurrency exchange giant Binance has been targeted by a record-breaking $6.3 billion cyber heist, with blockchain intelligence firms linking the attack to North Korea. By Thursday night in the US, a coordinated effort by major crypto platforms successfully froze roughly $3 billion of the stolen assets during a high-stakes race to track and secure the digital funds.",
+        "url": "https://www.france24.com/en/video/20261030-biggest-hack-in-history-cryptocurrency-giant-binance-loses-6-3-billion",
+        "category": "Geopolitics",
+        "source": "France 24",
+        "tier": 1.0,
+        "published_iso": "2026-10-30T15:34:46+00:00",
+        "image_url": "https://s.france24.com/media/display/45b28188-d472-11f1-9c12-bf1914cabd52/w:1024/p:16x9/capture-d6a713ea.jpg",
+        "corroborating_sources": [
+          "Ars Technica",
+          "BBC Business",
+          "BBC Technology",
+          "Guardian Business",
+          "Guardian World",
+          "NPR World",
+          "Wired"
+        ],
+        "score": 13.776,
+        "verified": true,
+        "sensitive": false,
+        "agreement": {
+          "reported": 8,
+          "agree": 1,
+          "conflict": 3,
+          "claim": "6,300,000,000",
+          "claim_unit": "reported",
+          "outlets": [
+            "France 24",
+            "NPR World",
+            "Guardian Business",
+            "Wired",
+            "Ars Technica",
+            "BBC Business",
+            "BBC Technology",
+            "Guardian World"
+          ],
+          "conflicts": [
+            {
+              "outlet": "Wired",
+              "value": "20"
+            },
+            {
+              "outlet": "BBC Business",
+              "value": "6.30"
+            },
+            {
+              "outlet": "BBC Technology",
+              "value": "6.30"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "linkedin": {
+    "title": "Most news feeds are broken because they treat you like a demographic instead of a person.",
+    "body": "We have all been there. You open a news app and get flooded with headlines about things you do not care about. The algorithms are built to keep you clicking, not to help you understand the world. They chase trends and outrage rather than your actual interests.\n\nTrue personalization is not about guessing what you might click on next. It is about respecting your time. It means delivering the stories that matter to you, in a way that helps you stay informed without the noise. When technology is used to filter out the clutter instead of adding to it, you stop scrolling and start learning.\n\nBuilding a news feed that actually works requires a shift in how we think about AI. It should not be a megaphone for the loudest voices on the internet. It should be a quiet, efficient curator that learns what you value. That is the philosophy we are testing every day.",
+    "cta": "You can see how we are rethinking the daily news cycle at HEADLINNE.com.",
+    "scheduled_time": "2026-10-31T18:00:00+05:30",
+    "kind": "product"
+  },
+  "instagram": [
+    {
+      "slot": "instagram_1",
+      "category": "Geopolitics",
+      "num_slides": 5,
+      "title": "Binance hit by massive cyber heist",
+      "slides": [
+        {
+          "role": "cover",
+          "headline": "Binance hit by massive cyber heist",
+          "explanation": "",
+          "image_url": "https://s.france24.com/media/display/45b28188-d472-11f1-9c12-bf1914cabd52/w:1024/p:16x9/capture-d6a713ea.jpg",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-31/instagram/instagram_1/slide_1.png",
+          "subtitle": "$6.3 billion in cryptocurrency stolen",
+          "sources": "",
+          "index": 1,
+          "kicker": "SOURCES DISAGREE",
+          "pose": "puzzled",
+          "say": "This is a serious security breach.",
+          "figure": "",
+          "unit": ""
+        },
+        {
+          "role": "scale",
+          "headline": "",
+          "explanation": "Major platforms have already managed to freeze $3 billion of the stolen funds. That is roughly half of the total amount taken in the attack.",
+          "image_url": "https://s.france24.com/media/display/45b28188-d472-11f1-9c12-bf1914cabd52/w:1024/p:16x9/capture-d6a713ea.jpg",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-31/instagram/instagram_1/slide_2.png",
+          "subtitle": "",
+          "sources": "",
+          "index": 2,
+          "kicker": "THE SCALE",
+          "pose": "",
+          "say": "",
+          "figure": "",
+          "unit": ""
+        },
+        {
+          "role": "twist",
+          "headline": "Evidence points toward North Korean hackers",
+          "explanation": "Blockchain analysts have linked the attack to North Korea. This suggests the heist may be a state-sponsored effort to generate revenue.",
+          "image_url": null,
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-31/instagram/instagram_1/slide_3.png",
+          "subtitle": "",
+          "sources": "",
+          "index": 3,
+          "kicker": "WHAT YOU DID NOT KNOW",
+          "pose": "puzzled",
+          "say": "The trail leads to state actors.",
+          "figure": "",
+          "unit": ""
+        },
+        {
+          "role": "sources",
+          "headline": "",
+          "explanation": "Eight independent news outlets have verified the details of this hack. While estimates on the total amount vary, the core facts remain consistent.",
+          "image_url": null,
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-31/instagram/instagram_1/slide_4.png",
+          "subtitle": "",
+          "sources": "",
+          "index": 4,
+          "kicker": "SOURCES",
+          "pose": "puzzled",
+          "say": "1 of 4 agree",
+          "figure": "",
+          "unit": ""
+        },
+        {
+          "role": "cta",
+          "headline": "",
+          "explanation": "",
+          "image_url": null,
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-31/instagram/instagram_1/slide_5.png",
+          "subtitle": "Get the full story on Headlinne.",
+          "sources": "",
+          "index": 5,
+          "kicker": "READ THE FULL STORY",
+          "pose": "carry",
+          "say": "Come and read it.",
+          "figure": "",
+          "unit": ""
+        }
+      ],
+      "caption": "Cryptocurrency exchange Binance has been targeted in a record-breaking cyber heist.\n\nInitial reports indicate that $6.3 billion worth of digital assets were taken during the attack.\n\nIn a rare win for security, major platforms acted quickly to freeze $3 billion of the stolen funds by Thursday night. Blockchain intelligence firms are now tracing the activity back to North Korea, raising questions about state-sponsored cyber warfare.\n\nDo you think crypto exchanges are doing enough to prevent these massive hacks?\n\nFollow @headlinnedotcom for a daily brief. Full story on HEADLINNE.com.\n\n#WorldNews #Geopolitics #GlobalNews #Politics",
+      "hashtags": [
+        "WorldNews",
+        "Geopolitics",
+        "GlobalNews",
+        "Politics",
+        "Binance",
+        "CryptoNews",
+        "CyberSecurity",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-10-31T16:00:00+05:30",
+      "first_comment": "#Binance #CryptoNews #CyberSecurity #Headlinne",
+      "story": {
+        "title": "Biggest hack in history: Cryptocurrency giant Binance loses $6.3 billion",
+        "summary": "Cryptocurrency exchange giant Binance has been targeted by a record-breaking $6.3 billion cyber heist, with blockchain intelligence firms linking the attack to North Korea. By Thursday night in the US, a coordinated effort by major crypto platforms successfully froze roughly $3 billion of the stolen assets during a high-stakes race to track and secure the digital funds.",
+        "url": "https://www.france24.com/en/video/20261030-biggest-hack-in-history-cryptocurrency-giant-binance-loses-6-3-billion",
+        "category": "Geopolitics",
+        "source": "France 24",
+        "tier": 1.0,
+        "published_iso": "2026-10-30T15:34:46+00:00",
+        "image_url": "https://s.france24.com/media/display/45b28188-d472-11f1-9c12-bf1914cabd52/w:1024/p:16x9/capture-d6a713ea.jpg",
+        "corroborating_sources": [
+          "Ars Technica",
+          "BBC Business",
+          "BBC Technology",
+          "Guardian Business",
+          "Guardian World",
+          "NPR World",
+          "Wired"
+        ],
+        "score": 13.776,
+        "verified": true,
+        "sensitive": false,
+        "agreement": {
+          "reported": 8,
+          "agree": 1,
+          "conflict": 3,
+          "claim": "6,300,000,000",
+          "claim_unit": "reported",
+          "outlets": [
+            "France 24",
+            "NPR World",
+            "Guardian Business",
+            "Wired",
+            "Ars Technica",
+            "BBC Business",
+            "BBC Technology",
+            "Guardian World"
+          ],
+          "conflicts": [
+            {
+              "outlet": "Wired",
+              "value": "20"
+            },
+            {
+              "outlet": "BBC Business",
+              "value": "6.30"
+            },
+            {
+              "outlet": "BBC Technology",
+              "value": "6.30"
+            }
+          ]
+        }
+      },
+      "story_url": "https://www.france24.com/en/video/20261030-biggest-hack-in-history-cryptocurrency-giant-binance-loses-6-3-billion"
+    }
+  ],
+  "reels": [
+    {
+      "slot": "reel_1",
+      "kind": "news",
+      "category": "Finance",
+      "title": "Crypto giant Binance attempting to recover $6.3bn stolen in hack linked to North Korea",
+      "hook": "Crypto giant Binance attempting to recover $6.3bn stolen in hack linked to North Korea",
+      "beats": [
+        {
+          "role": "hook",
+          "caption": "Crypto giant Binance attempting to recover $6.3bn stolen in hack linked to North Korea",
+          "detail": "",
+          "narration": "",
+          "seconds": 6.48,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "",
+          "pose": "",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {},
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": ""
+        },
+        {
+          "role": "hook",
+          "caption": "Crypto is not as safe as people assume.",
+          "detail": "A record-breaking security breach occurred.",
+          "narration": "Most think crypto is immune to theft. A massive new hack proves that is wrong.",
+          "seconds": 6.95,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "CRYPTO HACK RECOVERY",
+          "pose": "walk",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "server",
+            "hat": "press",
+            "pose": "present"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "A staggering amount of money was taken.",
+          "detail": "The largest hack of its kind.",
+          "narration": "Binance is now trying to recover billions. It is a complex, massive digital heist.",
+          "seconds": 6.48,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "THE SCALE",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "server",
+            "hat": "none",
+            "pose": "talk"
+          },
+          "stat": {
+            "value": "$6.3bn",
+            "label": "stolen funds"
+          },
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "graphic",
+          "caption": "The hackers used a complex method.",
+          "detail": "Security experts are analyzing the breach.",
+          "narration": "The attack was highly complex. It involved multiple steps to move the stolen assets.",
+          "seconds": 6.48,
+          "graphic": "flow",
+          "data": {
+            "steps": [
+              "Security breach",
+              "Funds transferred",
+              "Recovery attempt"
+            ]
+          },
+          "image_url": null,
+          "chapter": "HOW IT HAPPENED",
+          "pose": "present",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "server",
+            "hat": "none",
+            "pose": "point"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "Investigators point to North Korean actors.",
+          "detail": "Cyber attacks are linked to state actors.",
+          "narration": "Reports link this attack to North Korea. This is a common pattern in major hacks.",
+          "seconds": 6.95,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "THE SUSPECT",
+          "pose": "jump",
+          "say": "",
+          "plates": [
+            "story"
+          ],
+          "tone": "",
+          "scene": {
+            "set": "maproom",
+            "hat": "beanie",
+            "pose": "think"
+          },
+          "stat": {},
+          "fact": "NORTH KOREA LINKED TO HACK",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "The exchange is fighting to recover.",
+          "detail": "They are tracing the stolen assets now.",
+          "narration": "Binance is not giving up. They are working hard to track the funds down.",
+          "seconds": 6.48,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "THE RECOVERY",
+          "pose": "talk",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "trading",
+            "hat": "none",
+            "pose": "scan"
+          },
+          "stat": {},
+          "fact": "RECOVERY ATTEMPT UNDERWAY",
+          "stamp": "RECOVERY",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "Digital assets face real security threats.",
+          "detail": "Investors should stay aware of risks.",
+          "narration": "This shows the risks in the crypto market. Security is still a major, ongoing challenge.",
+          "seconds": 6.95,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "WHY IT MATTERS",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "trading",
+            "hat": "none",
+            "pose": "nod"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "outro",
+          "caption": "See the full report on Headlinne.com.",
+          "detail": "Accurate news without the noise.",
+          "narration": "Get the full story on Headlinne.com. We keep you updated on the latest news.",
+          "seconds": 6.48,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "STAY INFORMED",
+          "pose": "cta",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "newsroom",
+            "hat": "press",
+            "pose": "present"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        }
+      ],
+      "caption": "Crypto giant Binance attempting to recover $6.3bn stolen in hack linked to North Korea\n\nCan crypto ever be safe?\n\nFollow @headlinnedotcom for a daily brief. Full story on HEADLINNE.com.\n\n#Finance #Markets #Economy #Crypto",
+      "hashtags": [
+        "Finance",
+        "Markets",
+        "Economy",
+        "Crypto",
+        "Binance",
+        "CyberSecurity",
+        "TechNews",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-10-31T09:30:00+05:30",
+      "first_comment": "#Binance #CyberSecurity #TechNews #Headlinne",
+      "sources": "BBC Business · Guardian Business · France 24 · BBC Technology +3",
+      "story_url": "https://www.bbc.co.uk/news/articles/cwe8lp7zy07zo?at_medium=RSS&at_campaign=rss",
+      "dateline": "SAT 31 OCT",
+      "story": null,
+      "duration_seconds": 53.27,
+      "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-31/reels/reel_1.mp4",
+      "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-31/reels/reel_1_cover.png",
+      "audio_file": null,
+      "has_voiceover": true
+    }
+  ],
+  "story_card": {
+    "slot": "story_card",
+    "category": "Geopolitics",
+    "headline": "Cost of living protests surge across Europe",
+    "standfirst": "Activists are organizing new demonstrations in Germany and France this weekend.",
+    "steps": [
+      {
+        "label": "What happened",
+        "text": "Protests over living costs are hitting Germany and reigniting across France this Saturday."
+      },
+      {
+        "label": "How we got here",
+        "text": "Activists say public services like housing and education are failing, fueling widespread anger."
+      },
+      {
+        "label": "Why it matters",
+        "text": "These demonstrations highlight growing public frustration with economic and social conditions."
+      },
+      {
+        "label": "What to watch",
+        "text": "Police are on high alert for potential looting or rioting on the fringes of these events."
+      }
+    ],
+    "caption": "New cost of living protests are planned for Germany and France this weekend.\n\nActivists are organizing these demonstrations to voice concerns over the state of public services. Authorities are preparing for potential unrest on the fringes of the marches.\n\nDo you think public protests are an effective way to drive change for cost of living issues?\n\nSave this one. Follow for the daily card. Full story on HEADLINNE.com.\n\n#WorldNews #Geopolitics #GlobalNews #Europe",
+    "hashtags": [
+      "WorldNews",
+      "Geopolitics",
+      "GlobalNews",
+      "Europe",
+      "Germany",
+      "France",
+      "Protests",
+      "CostOfLiving",
+      "Economy",
+      "CurrentEvents",
+      "News",
+      "PublicServices",
+      "Policy",
+      "NewsExplained",
+      "Headlinne"
+    ],
+    "scheduled_time": "2026-10-31T21:30:00+05:30",
+    "first_comment": "#Germany #France #Protests #CostOfLiving #Economy #CurrentEvents #News #PublicServices #Policy #NewsExplained #Headlinne",
+    "sources": "Guardian World · Al Jazeera · Phys.org",
+    "story_url": "https://www.theguardian.com/world/2026/oct/30/cost-of-living-protests-to-spread-to-germany-and-reignite-in-france-on-halloween",
+    "image_url": "https://i.guim.co.uk/img/media/f9bcca919390196c72d4b51a3bee7cfc21271ac9/356_0_6772_5418/master/6772.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=c0336ea9aba00dca6f64e878b7b979db",
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-31/story_card/story_card.png",
+    "story": null
+  }
+}

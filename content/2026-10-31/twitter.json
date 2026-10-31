@@ -1,0 +1,132 @@
+[
+  {
+    "category": "Tech",
+    "post": "Today's biggest tech stories\n• Binance lost $6.3 billion in a massive crypto theft\n• North Korean hackers are the prime suspects in the breach\n• The attackers likely compromised a Binance employee laptop HEADLINNE.com #Crypto #Security",
+    "hashtags": [
+      "Crypto",
+      "Security"
+    ],
+    "scheduled_time": "2026-10-31T13:00:00+05:30",
+    "kind": "news",
+    "lead": "Today's biggest tech stories",
+    "items": [
+      "Binance lost $6.3 billion in a massive crypto theft",
+      "North Korean hackers are the prime suspects in the breach",
+      "The attackers likely compromised a Binance employee laptop"
+    ],
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-31/x/x_1.png",
+    "story": {
+      "title": "Hackers steal $6.3 billion from Binance in record crypto heist",
+      "summary": "Binance scrambles to freeze billions after record-breaking hack linked to North Korea.",
+      "url": "https://arstechnica.com/security/2026/10/hackers-steal-6-3-billion-from-binance-in-record-crypto-heist/",
+      "category": "Technology",
+      "source": "Ars Technica",
+      "tier": 1.1,
+      "published_iso": "2026-10-30T13:46:39+00:00",
+      "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/10/binance-1024x648.jpg",
+      "corroborating_sources": [
+        "BBC Business",
+        "France 24",
+        "Guardian Business",
+        "NPR World",
+        "TechCrunch",
+        "Wired"
+      ],
+      "score": 13.433,
+      "verified": true,
+      "sensitive": false,
+      "agreement": {
+        "reported": 7,
+        "agree": 1,
+        "conflict": 1,
+        "claim": "6,300,000,000",
+        "claim_unit": "reported",
+        "outlets": [
+          "Ars Technica",
+          "Guardian Business",
+          "Wired",
+          "France 24",
+          "TechCrunch",
+          "BBC Business",
+          "NPR World"
+        ],
+        "conflicts": [
+          {
+            "outlet": "TechCrunch",
+            "value": "6.30"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "category": "Geopolitics",
+    "post": "Today's top global headlines\n• Binance lost $6.3B in a massive hack linked to North Korea\n• Cost of living protests are hitting Germany and France this weekend\n• France is deploying 70,000 police to manage expected unrest HEADLINNE.com #Geopolitics #News",
+    "hashtags": [
+      "Geopolitics",
+      "News"
+    ],
+    "scheduled_time": "2026-10-31T17:00:00+05:30",
+    "kind": "news",
+    "lead": "Today's top global headlines",
+    "items": [
+      "Binance lost $6.3B in a massive hack linked to North Korea",
+      "Cost of living protests are hitting Germany and France this weekend",
+      "France is deploying 70,000 police to manage expected unrest"
+    ],
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-10-31/x/x_2.png",
+    "story": {
+      "title": "Biggest hack in history: Cryptocurrency giant Binance loses $6.3 billion",
+      "summary": "Cryptocurrency exchange giant Binance has been targeted by a record-breaking $6.3 billion cyber heist, with blockchain intelligence firms linking the attack to North Korea. By Thursday night in the US, a coordinated effort by major crypto platforms successfully froze roughly $3 billion of the stolen assets during a high-stakes race to track and secure the digital funds.",
+      "url": "https://www.france24.com/en/video/20261030-biggest-hack-in-history-cryptocurrency-giant-binance-loses-6-3-billion",
+      "category": "Geopolitics",
+      "source": "France 24",
+      "tier": 1.0,
+      "published_iso": "2026-10-30T15:34:46+00:00",
+      "image_url": "https://s.france24.com/media/display/45b28188-d472-11f1-9c12-bf1914cabd52/w:1024/p:16x9/capture-d6a713ea.jpg",
+      "corroborating_sources": [
+        "Ars Technica",
+        "BBC Business",
+        "BBC Technology",
+        "Guardian Business",
+        "Guardian World",
+        "NPR World",
+        "Wired"
+      ],
+      "score": 13.776,
+      "verified": true,
+      "sensitive": false,
+      "agreement": {
+        "reported": 8,
+        "agree": 1,
+        "conflict": 3,
+        "claim": "6,300,000,000",
+        "claim_unit": "reported",
+        "outlets": [
+          "France 24",
+          "NPR World",
+          "Guardian Business",
+          "Wired",
+          "Ars Technica",
+          "BBC Business",
+          "BBC Technology",
+          "Guardian World"
+        ],
+        "conflicts": [
+          {
+            "outlet": "Wired",
+            "value": "20"
+          },
+          {
+            "outlet": "BBC Business",
+            "value": "6.30"
+          },
+          {
+            "outlet": "BBC Technology",
+            "value": "6.30"
+          }
+        ]
+      }
+    }
+  }
+]
