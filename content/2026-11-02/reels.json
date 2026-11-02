@@ -1,0 +1,227 @@
+[
+  {
+    "slot": "reel_1",
+    "kind": "news",
+    "category": "Geopolitics",
+    "title": "Judge dismisses Trump attempt to block Alaska Senate race results if Republican loses",
+    "hook": "Judge dismisses Trump attempt to block Alaska Senate race results if Republican loses",
+    "beats": [
+      {
+        "role": "hook",
+        "caption": "Judge dismisses Trump attempt to block Alaska Senate race results if Republican loses",
+        "detail": "",
+        "narration": "",
+        "seconds": 5.52,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "",
+        "pose": "",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {},
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": ""
+      },
+      {
+        "role": "hook",
+        "caption": "This wasn't just a legal dispute.",
+        "detail": "The Alaska Senate race certification was targeted.",
+        "narration": "That is not a simple legal debate. That is a direct challenge to how an entire state counts its votes.",
+        "seconds": 8.5,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "ELECTION CHALLENGE",
+        "pose": "walk",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "maproom",
+          "hat": "press",
+          "pose": "present"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "Trump tried to stop certification.",
+        "detail": "The lawsuit targeted the election outcome.",
+        "narration": "A Trump backed lawsuit tried to block the results of the Alaska Senate race.",
+        "seconds": 5.95,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "THE ALASKA CASE",
+        "pose": "point",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "maproom",
+          "hat": "press",
+          "pose": "talk"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "graphic",
+        "caption": "The goal was to block the outcome.",
+        "detail": "Trump ordered the lawsuit to be filed.",
+        "narration": "Donald Trump wanted to stop the results if the Republican incumbent Dan Sullivan happened to lose.",
+        "seconds": 6.8,
+        "graphic": "flow",
+        "data": {
+          "steps": [
+            "Trump orders suit",
+            "Target Senate race",
+            "Goal: block if lost"
+          ]
+        },
+        "image_url": null,
+        "chapter": "THE DEMAND",
+        "pose": "present",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "parliament",
+          "hat": "cap",
+          "pose": "point"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "Sullivan vowed to accept the results.",
+        "detail": "He called the lawsuit an unprecedented intervention.",
+        "narration": "Incumbent Dan Sullivan stepped in. He said he would accept the election results regardless of the outcome.",
+        "seconds": 7.22,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "SULLIVAN RESPONDS",
+        "pose": "jump",
+        "say": "",
+        "plates": [
+          "story"
+        ],
+        "tone": "",
+        "scene": {
+          "set": "parliament",
+          "hat": "cap",
+          "pose": "nod"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "The judge dismissed the lawsuit.",
+        "detail": "The legal challenge was successfully thrown out.",
+        "narration": "A judge has now dismissed the case. The attempt to block the certification is over.",
+        "seconds": 6.37,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "JUDGE RULES",
+        "pose": "talk",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "courtroom",
+          "hat": "grad",
+          "pose": "present"
+        },
+        "stat": {},
+        "fact": "LAWSUIT DISMISSED BY JUDGE",
+        "stamp": "DISMISSED",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "The process moves forward.",
+        "detail": "Alaska election results remain on track.",
+        "narration": "This ruling keeps the certification process moving forward in Alaska without legal interference from the former president.",
+        "seconds": 7.22,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "WHY IT MATTERS",
+        "pose": "point",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "courtroom",
+          "hat": "grad",
+          "pose": "talk"
+        },
+        "stat": {},
+        "fact": "CERTIFICATION PROCESS CONTINUES",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "outro",
+        "caption": "Read more at headlinne.com.",
+        "detail": "We keep you updated on the news.",
+        "narration": "Get the full context on this and other stories at headlinne.com.",
+        "seconds": 4.67,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "STAY INFORMED",
+        "pose": "cta",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "newsroom",
+          "hat": "none",
+          "pose": "present"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      }
+    ],
+    "caption": "Judge dismisses Trump attempt to block Alaska Senate race results if Republican loses\n\nWhat does this mean for elections?\n\nFollow @headlinnedotcom for a daily brief. Full story on HEADLINNE.com.\n\n#WorldNews #Geopolitics #GlobalNews #Alaska",
+    "hashtags": [
+      "WorldNews",
+      "Geopolitics",
+      "GlobalNews",
+      "Alaska",
+      "Politics",
+      "Headlinne"
+    ],
+    "scheduled_time": "2026-11-02T09:30:00+05:30",
+    "first_comment": "#Politics #Headlinne",
+    "sources": "Guardian World · Al Jazeera · BBC World",
+    "story_url": "https://www.theguardian.com/us-news/2026/nov/01/alaska-senate-race-republican-dan-sullivan",
+    "dateline": "MON 2 NOV",
+    "story": null,
+    "duration_seconds": 52.27,
+    "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-02/reels/reel_1.mp4",
+    "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-02/reels/reel_1_cover.png",
+    "audio_file": null,
+    "has_voiceover": true
+  }
+]

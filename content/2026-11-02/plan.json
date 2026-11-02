@@ -1,0 +1,388 @@
+{
+  "day": "2026-11-02",
+  "is_promo_day": false,
+  "is_friday": false,
+  "twitter": [
+    {
+      "category": "Geopolitics",
+      "post": "Today's big global headlines.\n• A judge tossed Trump's bid to block Alaska's Senate results\n• Russian strikes hit Ukrainian power grids after a brief truce\n• Iran warns a new conflict with the US could be long and intense HEADLINNE.com #Geopolitics #News",
+      "hashtags": [
+        "Geopolitics",
+        "News"
+      ],
+      "scheduled_time": "2026-11-02T13:00:00+05:30",
+      "kind": "news",
+      "lead": "Today's big global headlines.",
+      "items": [
+        "A judge tossed Trump's bid to block Alaska's Senate results",
+        "Russian strikes hit Ukrainian power grids after a brief truce",
+        "Iran warns a new conflict with the US could be long and intense"
+      ],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-02/x/x_1.png",
+      "story": {
+        "title": "Judge dismisses Trump attempt to block Alaska Senate race results if Republican loses",
+        "summary": "Incumbent Dan Sullivan says he will accept election results after ‘unprecedented intervention’ by Trump’s DoJ A judge has dismissed the Donald Trump-backed lawsuit seeking to block certification of Alaska’s US Senate race if Republican incumbent Dan Sullivan loses. Trump said on 23 October that he had ordered the justice department to file the lawsuit in a move that voting rights experts called an “unprecedented intervention” by the federal government with control of Congress in the balance. Continue reading...",
+        "url": "https://www.theguardian.com/us-news/2026/nov/01/alaska-senate-race-republican-dan-sullivan",
+        "category": "Geopolitics",
+        "source": "Guardian World",
+        "tier": 1.1,
+        "published_iso": "2026-11-01T20:10:27+00:00",
+        "image_url": "https://i.guim.co.uk/img/media/905c40bae467f184fb98410952a04dd275140865/379_0_4588_3668/master/4588.jpg?width=700&quality=85&auto=format&fit=max&s=e6a876a7f109e18698ab0e5a6c32b626",
+        "corroborating_sources": [
+          "Al Jazeera",
+          "BBC World"
+        ],
+        "score": 14.801,
+        "verified": true,
+        "sensitive": false,
+        "agreement": {
+          "reported": 3,
+          "agree": 1,
+          "conflict": 1,
+          "claim": "23",
+          "claim_unit": "reported",
+          "outlets": [
+            "Guardian World",
+            "Al Jazeera",
+            "BBC World"
+          ],
+          "conflicts": [
+            {
+              "outlet": "Al Jazeera",
+              "value": "39"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "category": "Finance",
+      "post": "Today's top finance headlines.\n• National Grid plans the UK's largest substation to power AI growth\n• Binance users rush to withdraw funds after a $6.3 billion hack HEADLINNE.com #Finance #Tech",
+      "hashtags": [
+        "Finance",
+        "Tech"
+      ],
+      "scheduled_time": "2026-11-02T17:00:00+05:30",
+      "kind": "news",
+      "lead": "Today's top finance headlines.",
+      "items": [
+        "National Grid plans the UK's largest substation to power AI growth",
+        "Binance users rush to withdraw funds after a $6.3 billion hack"
+      ],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-02/x/x_2.png",
+      "story": {
+        "title": "National Grid sparks deal to pave way for giant UK data centre",
+        "summary": "National Grid has struck a deal paving the way for Britain’s biggest electricity substation to be built on Teesside as the government races to avoid missing out on global demand for AI infrastructure development.",
+        "url": "https://news.sky.com/story/national-grid-sparks-deal-to-pave-way-for-giant-uk-data-centre-13606573",
+        "category": "Finance",
+        "source": "Sky Business",
+        "tier": 1.0,
+        "published_iso": "2026-11-01T07:43:00+00:00",
+        "image_url": "https://e3.365dm.com/22/08/1920x1080/skynews-national-grid-energy_5873373.jpg?20220823075455",
+        "corroborating_sources": [
+          "Guardian Business"
+        ],
+        "score": 9.469,
+        "verified": true,
+        "sensitive": false,
+        "agreement": {
+          "reported": 2,
+          "agree": 2,
+          "conflict": 0,
+          "claim": "",
+          "claim_unit": "",
+          "outlets": [
+            "Sky Business",
+            "Guardian Business"
+          ],
+          "conflicts": []
+        }
+      }
+    }
+  ],
+  "linkedin": {
+    "title": "I started building a news app while I was still in high school.",
+    "body": "It started with a simple frustration. I was tired of reading headlines that felt designed to make me angry or anxious. I wanted to know what was happening in the world without having to wade through clickbait or endless doomscrolling.\n\nMy friends and I were constantly sharing links, but we rarely had time to actually read the articles. We needed a way to get the facts quickly and personally. That gap is what led to Headlinne.\n\nBuilding this as a teenager taught me that news isn't just about information. It is about relevance. The internet is flooded with content, but it is starving for context. We built an AI that doesn't just aggregate links but actually understands what you care about so you can spend less time searching and more time understanding.\n\nIt is not about replacing human editors or journalism. It is about using technology to make sure the right information finds the right person at the right time.",
+    "cta": "You can see how we are rethinking the daily news cycle at HEADLINNE.com.",
+    "scheduled_time": "2026-11-02T18:00:00+05:30",
+    "kind": "product"
+  },
+  "instagram": [],
+  "reels": [
+    {
+      "slot": "reel_1",
+      "kind": "news",
+      "category": "Geopolitics",
+      "title": "Judge dismisses Trump attempt to block Alaska Senate race results if Republican loses",
+      "hook": "Judge dismisses Trump attempt to block Alaska Senate race results if Republican loses",
+      "beats": [
+        {
+          "role": "hook",
+          "caption": "Judge dismisses Trump attempt to block Alaska Senate race results if Republican loses",
+          "detail": "",
+          "narration": "",
+          "seconds": 5.52,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "",
+          "pose": "",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {},
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": ""
+        },
+        {
+          "role": "hook",
+          "caption": "This wasn't just a legal dispute.",
+          "detail": "The Alaska Senate race certification was targeted.",
+          "narration": "That is not a simple legal debate. That is a direct challenge to how an entire state counts its votes.",
+          "seconds": 8.5,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "ELECTION CHALLENGE",
+          "pose": "walk",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "maproom",
+            "hat": "press",
+            "pose": "present"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "Trump tried to stop certification.",
+          "detail": "The lawsuit targeted the election outcome.",
+          "narration": "A Trump backed lawsuit tried to block the results of the Alaska Senate race.",
+          "seconds": 5.95,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "THE ALASKA CASE",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "maproom",
+            "hat": "press",
+            "pose": "talk"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "graphic",
+          "caption": "The goal was to block the outcome.",
+          "detail": "Trump ordered the lawsuit to be filed.",
+          "narration": "Donald Trump wanted to stop the results if the Republican incumbent Dan Sullivan happened to lose.",
+          "seconds": 6.8,
+          "graphic": "flow",
+          "data": {
+            "steps": [
+              "Trump orders suit",
+              "Target Senate race",
+              "Goal: block if lost"
+            ]
+          },
+          "image_url": null,
+          "chapter": "THE DEMAND",
+          "pose": "present",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "parliament",
+            "hat": "cap",
+            "pose": "point"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "Sullivan vowed to accept the results.",
+          "detail": "He called the lawsuit an unprecedented intervention.",
+          "narration": "Incumbent Dan Sullivan stepped in. He said he would accept the election results regardless of the outcome.",
+          "seconds": 7.22,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "SULLIVAN RESPONDS",
+          "pose": "jump",
+          "say": "",
+          "plates": [
+            "story"
+          ],
+          "tone": "",
+          "scene": {
+            "set": "parliament",
+            "hat": "cap",
+            "pose": "nod"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "The judge dismissed the lawsuit.",
+          "detail": "The legal challenge was successfully thrown out.",
+          "narration": "A judge has now dismissed the case. The attempt to block the certification is over.",
+          "seconds": 6.37,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "JUDGE RULES",
+          "pose": "talk",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "courtroom",
+            "hat": "grad",
+            "pose": "present"
+          },
+          "stat": {},
+          "fact": "LAWSUIT DISMISSED BY JUDGE",
+          "stamp": "DISMISSED",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "The process moves forward.",
+          "detail": "Alaska election results remain on track.",
+          "narration": "This ruling keeps the certification process moving forward in Alaska without legal interference from the former president.",
+          "seconds": 7.22,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "WHY IT MATTERS",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "courtroom",
+            "hat": "grad",
+            "pose": "talk"
+          },
+          "stat": {},
+          "fact": "CERTIFICATION PROCESS CONTINUES",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "outro",
+          "caption": "Read more at headlinne.com.",
+          "detail": "We keep you updated on the news.",
+          "narration": "Get the full context on this and other stories at headlinne.com.",
+          "seconds": 4.67,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "STAY INFORMED",
+          "pose": "cta",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "newsroom",
+            "hat": "none",
+            "pose": "present"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        }
+      ],
+      "caption": "Judge dismisses Trump attempt to block Alaska Senate race results if Republican loses\n\nWhat does this mean for elections?\n\nFollow @headlinnedotcom for a daily brief. Full story on HEADLINNE.com.\n\n#WorldNews #Geopolitics #GlobalNews #Alaska",
+      "hashtags": [
+        "WorldNews",
+        "Geopolitics",
+        "GlobalNews",
+        "Alaska",
+        "Politics",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-11-02T09:30:00+05:30",
+      "first_comment": "#Politics #Headlinne",
+      "sources": "Guardian World · Al Jazeera · BBC World",
+      "story_url": "https://www.theguardian.com/us-news/2026/nov/01/alaska-senate-race-republican-dan-sullivan",
+      "dateline": "MON 2 NOV",
+      "story": null,
+      "duration_seconds": 52.27,
+      "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-02/reels/reel_1.mp4",
+      "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-02/reels/reel_1_cover.png",
+      "audio_file": null,
+      "has_voiceover": true
+    }
+  ],
+  "story_card": {
+    "slot": "story_card",
+    "category": "Technology",
+    "headline": "Judge clears path for NAACP lawsuit against xAI over pollution",
+    "standfirst": "A legal battle over alleged air quality violations at an AI data center is moving ahead.",
+    "steps": [
+      {
+        "label": "What happened",
+        "text": "A judge ruled that a lawsuit against Elon Musk's AI company, xAI, can proceed."
+      },
+      {
+        "label": "How we got here",
+        "text": "The NAACP filed the suit, claiming the company's data center operations violate the Clean Air Act."
+      },
+      {
+        "label": "Why it matters",
+        "text": "It highlights growing tension between the massive energy needs of AI and local environmental concerns."
+      },
+      {
+        "label": "What to watch",
+        "text": "We will see how xAI defends its operations as the legal process continues in court."
+      }
+    ],
+    "caption": "The NAACP lawsuit against the xAI data center is moving forward after a judge's recent ruling.\n\nThe organization alleges that the facility is not following federal clean air standards. This case brings new scrutiny to the environmental impact of building massive AI infrastructure.\n\nDo you think tech companies should be held more accountable for their environmental footprint?\n\nSave this one. Follow for the daily card. Full story on HEADLINNE.com.\n\n#TechNews #Tech #AI #xAI",
+    "hashtags": [
+      "TechNews",
+      "Tech",
+      "AI",
+      "xAI",
+      "NAACP",
+      "techlaw",
+      "environment",
+      "pollution",
+      "CleanAirAct",
+      "data",
+      "ElonMusk",
+      "techethics",
+      "lawsuit",
+      "energy",
+      "climate",
+      "NewsExplained"
+    ],
+    "scheduled_time": "2026-11-02T21:30:00+05:30",
+    "first_comment": "#NAACP #techlaw #environment #pollution #CleanAirAct #data #ElonMusk #techethics #lawsuit #energy #climate #NewsExplained",
+    "sources": "TechCrunch",
+    "story_url": "https://techcrunch.com/2026/10/31/judge-allows-naacp-lawsuit-over-xai-data-center-pollution-to-move-forward/",
+    "image_url": "https://techcrunch.com/wp-content/uploads/2025/06/GettyImages-2217198328.jpeg?resize=1200,800",
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-02/story_card/story_card.png",
+    "story": null
+  }
+}

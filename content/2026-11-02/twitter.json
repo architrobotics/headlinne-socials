@@ -1,0 +1,98 @@
+[
+  {
+    "category": "Geopolitics",
+    "post": "Today's big global headlines.\n• A judge tossed Trump's bid to block Alaska's Senate results\n• Russian strikes hit Ukrainian power grids after a brief truce\n• Iran warns a new conflict with the US could be long and intense HEADLINNE.com #Geopolitics #News",
+    "hashtags": [
+      "Geopolitics",
+      "News"
+    ],
+    "scheduled_time": "2026-11-02T13:00:00+05:30",
+    "kind": "news",
+    "lead": "Today's big global headlines.",
+    "items": [
+      "A judge tossed Trump's bid to block Alaska's Senate results",
+      "Russian strikes hit Ukrainian power grids after a brief truce",
+      "Iran warns a new conflict with the US could be long and intense"
+    ],
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-02/x/x_1.png",
+    "story": {
+      "title": "Judge dismisses Trump attempt to block Alaska Senate race results if Republican loses",
+      "summary": "Incumbent Dan Sullivan says he will accept election results after ‘unprecedented intervention’ by Trump’s DoJ A judge has dismissed the Donald Trump-backed lawsuit seeking to block certification of Alaska’s US Senate race if Republican incumbent Dan Sullivan loses. Trump said on 23 October that he had ordered the justice department to file the lawsuit in a move that voting rights experts called an “unprecedented intervention” by the federal government with control of Congress in the balance. Continue reading...",
+      "url": "https://www.theguardian.com/us-news/2026/nov/01/alaska-senate-race-republican-dan-sullivan",
+      "category": "Geopolitics",
+      "source": "Guardian World",
+      "tier": 1.1,
+      "published_iso": "2026-11-01T20:10:27+00:00",
+      "image_url": "https://i.guim.co.uk/img/media/905c40bae467f184fb98410952a04dd275140865/379_0_4588_3668/master/4588.jpg?width=700&quality=85&auto=format&fit=max&s=e6a876a7f109e18698ab0e5a6c32b626",
+      "corroborating_sources": [
+        "Al Jazeera",
+        "BBC World"
+      ],
+      "score": 14.801,
+      "verified": true,
+      "sensitive": false,
+      "agreement": {
+        "reported": 3,
+        "agree": 1,
+        "conflict": 1,
+        "claim": "23",
+        "claim_unit": "reported",
+        "outlets": [
+          "Guardian World",
+          "Al Jazeera",
+          "BBC World"
+        ],
+        "conflicts": [
+          {
+            "outlet": "Al Jazeera",
+            "value": "39"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "category": "Finance",
+    "post": "Today's top finance headlines.\n• National Grid plans the UK's largest substation to power AI growth\n• Binance users rush to withdraw funds after a $6.3 billion hack HEADLINNE.com #Finance #Tech",
+    "hashtags": [
+      "Finance",
+      "Tech"
+    ],
+    "scheduled_time": "2026-11-02T17:00:00+05:30",
+    "kind": "news",
+    "lead": "Today's top finance headlines.",
+    "items": [
+      "National Grid plans the UK's largest substation to power AI growth",
+      "Binance users rush to withdraw funds after a $6.3 billion hack"
+    ],
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-02/x/x_2.png",
+    "story": {
+      "title": "National Grid sparks deal to pave way for giant UK data centre",
+      "summary": "National Grid has struck a deal paving the way for Britain’s biggest electricity substation to be built on Teesside as the government races to avoid missing out on global demand for AI infrastructure development.",
+      "url": "https://news.sky.com/story/national-grid-sparks-deal-to-pave-way-for-giant-uk-data-centre-13606573",
+      "category": "Finance",
+      "source": "Sky Business",
+      "tier": 1.0,
+      "published_iso": "2026-11-01T07:43:00+00:00",
+      "image_url": "https://e3.365dm.com/22/08/1920x1080/skynews-national-grid-energy_5873373.jpg?20220823075455",
+      "corroborating_sources": [
+        "Guardian Business"
+      ],
+      "score": 9.469,
+      "verified": true,
+      "sensitive": false,
+      "agreement": {
+        "reported": 2,
+        "agree": 2,
+        "conflict": 0,
+        "claim": "",
+        "claim_unit": "",
+        "outlets": [
+          "Sky Business",
+          "Guardian Business"
+        ],
+        "conflicts": []
+      }
+    }
+  }
+]
