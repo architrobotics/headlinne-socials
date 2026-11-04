@@ -1,0 +1,89 @@
+[
+  {
+    "category": "Tech",
+    "post": "Today's tech news in brief\n• Hackers used fake job interviews to pull off the massive $6.3bn Binance heist\n• The attack involved malware and internal AI tools over several months\n• Google is blocking Search AI access for students in schools that ban it HEADLINNE.com #TechNews",
+    "hashtags": [
+      "TechNews",
+      "Security"
+    ],
+    "scheduled_time": "2026-11-04T13:00:00+05:30",
+    "kind": "news",
+    "lead": "Today's tech news in brief",
+    "items": [
+      "Hackers used fake job interviews to pull off the massive $6.3bn Binance heist",
+      "The attack involved malware and internal AI tools over several months",
+      "Google is blocking Search AI access for students in schools that ban it"
+    ],
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-04/x/x_1.png",
+    "story": {
+      "title": "Binance says hackers used fake job interviews and an internal AI tool to pull off the $6.3 billion heist",
+      "summary": "The largest crypto theft to date was pulled off by combining some well-known hacking techniques over the course of a few months, according to Binance. A postmortem from the company says the process started in June with one developer downloading a tampered installer apparently spread by a malicious Google ad, exposing details about the engineers [&#8230;]",
+      "url": "https://www.theverge.com/news/1025576/binance-cyrpto-theft-explained",
+      "category": "Technology",
+      "source": "The Verge",
+      "tier": 1.1,
+      "published_iso": "2026-11-03T22:04:02+00:00",
+      "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/23932848/acastro_STK018__02.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
+      "corroborating_sources": [],
+      "score": 14.293,
+      "verified": false,
+      "sensitive": false,
+      "agreement": {
+        "reported": 1,
+        "agree": 1,
+        "conflict": 0,
+        "claim": "6,300,000,000",
+        "claim_unit": "reported",
+        "outlets": [
+          "The Verge"
+        ],
+        "conflicts": []
+      }
+    }
+  },
+  {
+    "category": "Geopolitics",
+    "post": "Here is today's global news recap.\n• Russian airstrikes on a Ukrainian aid center killed 31 people\n• Zelenskyy says the upcoming US elections will shape the war\n• The US plans to drop Rwanda and South Africa from a trade deal HEADLINNE.com #Geopolitics #Ukraine",
+    "hashtags": [
+      "Geopolitics",
+      "Ukraine"
+    ],
+    "scheduled_time": "2026-11-04T17:00:00+05:30",
+    "kind": "news",
+    "lead": "Here is today's global news recap.",
+    "items": [
+      "Russian airstrikes on a Ukrainian aid center killed 31 people",
+      "Zelenskyy says the upcoming US elections will shape the war",
+      "The US plans to drop Rwanda and South Africa from a trade deal"
+    ],
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-04/x/x_2.png",
+    "story": {
+      "title": "Russian bombing kills 31 people at Ukraine aid centre, Kyiv says",
+      "summary": "Officials say at least nine 3,000kg aerial bombs hit a southern Ukrainian village in what the president calls an \"utterly horrific\" attack.",
+      "url": "https://www.bbc.co.uk/news/articles/cjy56dndlyz0o?at_medium=RSS&at_campaign=rss",
+      "category": "Geopolitics",
+      "source": "BBC World",
+      "tier": 1.4,
+      "published_iso": "2026-11-03T13:26:19+00:00",
+      "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/ee1e/live/8480acc0-d6eb-11f1-a741-236ee91c2e25.png",
+      "corroborating_sources": [
+        "France 24"
+      ],
+      "score": 12.206,
+      "verified": true,
+      "sensitive": true,
+      "agreement": {
+        "reported": 2,
+        "agree": 2,
+        "conflict": 0,
+        "claim": "31 people",
+        "claim_unit": "people",
+        "outlets": [
+          "BBC World",
+          "France 24"
+        ],
+        "conflicts": []
+      }
+    }
+  }
+]

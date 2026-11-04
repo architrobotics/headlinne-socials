@@ -1,0 +1,381 @@
+{
+  "day": "2026-11-04",
+  "is_promo_day": false,
+  "is_friday": false,
+  "twitter": [
+    {
+      "category": "Tech",
+      "post": "Today's tech news in brief\n• Hackers used fake job interviews to pull off the massive $6.3bn Binance heist\n• The attack involved malware and internal AI tools over several months\n• Google is blocking Search AI access for students in schools that ban it HEADLINNE.com #TechNews",
+      "hashtags": [
+        "TechNews",
+        "Security"
+      ],
+      "scheduled_time": "2026-11-04T13:00:00+05:30",
+      "kind": "news",
+      "lead": "Today's tech news in brief",
+      "items": [
+        "Hackers used fake job interviews to pull off the massive $6.3bn Binance heist",
+        "The attack involved malware and internal AI tools over several months",
+        "Google is blocking Search AI access for students in schools that ban it"
+      ],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-04/x/x_1.png",
+      "story": {
+        "title": "Binance says hackers used fake job interviews and an internal AI tool to pull off the $6.3 billion heist",
+        "summary": "The largest crypto theft to date was pulled off by combining some well-known hacking techniques over the course of a few months, according to Binance. A postmortem from the company says the process started in June with one developer downloading a tampered installer apparently spread by a malicious Google ad, exposing details about the engineers [&#8230;]",
+        "url": "https://www.theverge.com/news/1025576/binance-cyrpto-theft-explained",
+        "category": "Technology",
+        "source": "The Verge",
+        "tier": 1.1,
+        "published_iso": "2026-11-03T22:04:02+00:00",
+        "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/23932848/acastro_STK018__02.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
+        "corroborating_sources": [],
+        "score": 14.293,
+        "verified": false,
+        "sensitive": false,
+        "agreement": {
+          "reported": 1,
+          "agree": 1,
+          "conflict": 0,
+          "claim": "6,300,000,000",
+          "claim_unit": "reported",
+          "outlets": [
+            "The Verge"
+          ],
+          "conflicts": []
+        }
+      }
+    },
+    {
+      "category": "Geopolitics",
+      "post": "Here is today's global news recap.\n• Russian airstrikes on a Ukrainian aid center killed 31 people\n• Zelenskyy says the upcoming US elections will shape the war\n• The US plans to drop Rwanda and South Africa from a trade deal HEADLINNE.com #Geopolitics #Ukraine",
+      "hashtags": [
+        "Geopolitics",
+        "Ukraine"
+      ],
+      "scheduled_time": "2026-11-04T17:00:00+05:30",
+      "kind": "news",
+      "lead": "Here is today's global news recap.",
+      "items": [
+        "Russian airstrikes on a Ukrainian aid center killed 31 people",
+        "Zelenskyy says the upcoming US elections will shape the war",
+        "The US plans to drop Rwanda and South Africa from a trade deal"
+      ],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-04/x/x_2.png",
+      "story": {
+        "title": "Russian bombing kills 31 people at Ukraine aid centre, Kyiv says",
+        "summary": "Officials say at least nine 3,000kg aerial bombs hit a southern Ukrainian village in what the president calls an \"utterly horrific\" attack.",
+        "url": "https://www.bbc.co.uk/news/articles/cjy56dndlyz0o?at_medium=RSS&at_campaign=rss",
+        "category": "Geopolitics",
+        "source": "BBC World",
+        "tier": 1.4,
+        "published_iso": "2026-11-03T13:26:19+00:00",
+        "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/ee1e/live/8480acc0-d6eb-11f1-a741-236ee91c2e25.png",
+        "corroborating_sources": [
+          "France 24"
+        ],
+        "score": 12.206,
+        "verified": true,
+        "sensitive": true,
+        "agreement": {
+          "reported": 2,
+          "agree": 2,
+          "conflict": 0,
+          "claim": "31 people",
+          "claim_unit": "people",
+          "outlets": [
+            "BBC World",
+            "France 24"
+          ],
+          "conflicts": []
+        }
+      }
+    }
+  ],
+  "linkedin": {
+    "title": "Personalised news is moving past simple topic tagging.",
+    "body": "For years, news apps have relied on basic keywords to figure out what you want to read. If you clicked on a tech article, you got more tech articles. It worked for a while, but it feels outdated today. We are entering a phase where the technology needs to actually understand the nuance of your curiosity.\n\nThe roadmap for Headlinne isn't about feeding you more of the same. It is about building a system that understands context. We are working to make sure the app can distinguish between you tracking a specific market trend and you simply wanting a quick update on the morning headlines. It is the difference between a feed that repeats itself and a feed that evolves with your interests.\n\nWe believe the future of news consumption is less about algorithms that chase clicks and more about tools that respect your time. We are building for the reader who wants depth without the noise. It is a slow, thoughtful process, but it is the only way to get this right.",
+    "cta": "You can see how we are building this at HEADLINNE.com.",
+    "scheduled_time": "2026-11-04T18:00:00+05:30",
+    "kind": "product"
+  },
+  "instagram": [],
+  "reels": [
+    {
+      "slot": "reel_1",
+      "kind": "news",
+      "category": "Technology",
+      "title": "Binance says hackers used fake job interviews and an internal AI tool to pull off the",
+      "hook": "Binance says hackers used fake job interviews and an internal AI tool to pull off the",
+      "beats": [
+        {
+          "role": "hook",
+          "caption": "Binance says hackers used fake job interviews and an internal AI tool to pull off the",
+          "detail": "",
+          "narration": "",
+          "seconds": 7.21,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "",
+          "pose": "",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {},
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": ""
+        },
+        {
+          "role": "hook",
+          "caption": "Your next job interview could be a security risk.",
+          "detail": "Hackers are using new methods.",
+          "narration": "If this holds, your remote job interview might be a trap. Here is the chain.",
+          "seconds": 6.76,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "THE $6 BILLION HEIST",
+          "pose": "walk",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "newsroom",
+            "hat": "press",
+            "pose": "present"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "WARNING",
+          "stamp_tone": "bad"
+        },
+        {
+          "role": "point",
+          "caption": "Hackers stole billions using clever social engineering.",
+          "detail": "The heist totaled 6.3 billion dollars.",
+          "narration": "Binance says hackers pulled off the largest crypto theft ever using simple tricks.",
+          "seconds": 5.86,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "THE $6 BILLION HEIST",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "trading",
+            "hat": "press",
+            "pose": "talk"
+          },
+          "stat": {
+            "value": "$6.3 billion",
+            "label": "crypto theft"
+          },
+          "fact": "Largest crypto theft to date",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "graphic",
+          "caption": "The attack began with a fake job interview.",
+          "detail": "Targeted a developer in June.",
+          "narration": "It started in June with a fake job interview for a developer.",
+          "seconds": 5.41,
+          "graphic": "flow",
+          "data": {
+            "steps": [
+              "Fake job offer",
+              "Malicious software",
+              "Systems breached"
+            ]
+          },
+          "image_url": null,
+          "chapter": "HOW THEY DID IT",
+          "pose": "present",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "server",
+            "hat": "none",
+            "pose": "point"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "A fake ad led to a compromised system.",
+          "detail": "The installer seemed legitimate to the developer.",
+          "narration": "The developer downloaded a tampered installer from a malicious Google ad.",
+          "seconds": 4.96,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "HOW THEY DID IT",
+          "pose": "jump",
+          "say": "",
+          "plates": [
+            "story"
+          ],
+          "tone": "",
+          "scene": {
+            "set": "server",
+            "hat": "none",
+            "pose": "talk"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "Hackers deployed an internal AI tool to evade detection.",
+          "detail": "Used to bypass security measures.",
+          "narration": "Once inside, the hackers used an internal AI tool to hide their tracks.",
+          "seconds": 5.86,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "THE AI TWIST",
+          "pose": "talk",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "server",
+            "hat": "none",
+            "pose": "think"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "New AI tools make old scams much harder to spot.",
+          "detail": "Security protocols are now being tested.",
+          "narration": "This combination of old hacking tricks and new AI tools is a major warning.",
+          "seconds": 6.31,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "STAYING SAFE",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "newsroom",
+            "hat": "press",
+            "pose": "nod"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "outro",
+          "caption": "Get the full story at headlinne.com.",
+          "detail": "We track the news that matters.",
+          "narration": "Stay updated on the latest tech threats at headlinne.com.",
+          "seconds": 4.06,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "GET THE FULL STORY",
+          "pose": "cta",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "newsroom",
+            "hat": "press",
+            "pose": "bounce"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        }
+      ],
+      "caption": "Binance says hackers used fake job interviews and an internal AI tool to pull off the\n\nAre you safe online?\n\nFollow @headlinnedotcom for a daily brief. Full story on HEADLINNE.com.\n\n#TechNews #AI #Tech #Binance",
+      "hashtags": [
+        "TechNews",
+        "AI",
+        "Tech",
+        "Binance",
+        "CyberSecurity",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-11-04T09:30:00+05:30",
+      "first_comment": "#CyberSecurity #Headlinne",
+      "sources": "The Verge",
+      "story_url": "https://www.theverge.com/news/1025576/binance-cyrpto-theft-explained",
+      "dateline": "WED 4 NOV",
+      "story": null,
+      "duration_seconds": 46.43,
+      "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-04/reels/reel_1.mp4",
+      "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-04/reels/reel_1_cover.png",
+      "audio_file": null,
+      "has_voiceover": true
+    }
+  ],
+  "story_card": {
+    "slot": "story_card",
+    "category": "Geopolitics",
+    "headline": "Russian airstrikes hit Ukrainian aid center",
+    "standfirst": "Officials report 31 deaths after heavy bombs struck a village in southern Ukraine.",
+    "steps": [
+      {
+        "label": "What happened",
+        "text": "At least nine massive 3,000kg aerial bombs struck a village in southern Ukraine."
+      },
+      {
+        "label": "How we got here",
+        "text": "The attack targeted a local aid center, leading to 31 confirmed deaths."
+      },
+      {
+        "label": "Why it matters",
+        "text": "The Ukrainian president described the strike as an utterly horrific act of violence."
+      },
+      {
+        "label": "What to watch",
+        "text": "Look for updates from officials as they assess the damage and identify victims."
+      }
+    ],
+    "caption": "Russian airstrikes on a Ukrainian aid center have resulted in 31 deaths according to local officials.\n\nAt least nine 3,000kg bombs were dropped on the southern village. The Ukrainian president has condemned the attack as a horrific tragedy.\n\nHow should the international community respond to attacks on humanitarian sites?\n\nSave this one. Follow for the daily card. Full story on HEADLINNE.com.\n\n#WorldNews #Geopolitics #GlobalNews #Ukraine",
+    "hashtags": [
+      "WorldNews",
+      "Geopolitics",
+      "GlobalNews",
+      "Ukraine",
+      "Russia",
+      "War",
+      "News",
+      "InternationalRelations",
+      "Conflict",
+      "Humanitarian",
+      "GlobalAffairs",
+      "CurrentEvents",
+      "Kyiv",
+      "NewsExplained",
+      "Headlinne"
+    ],
+    "scheduled_time": "2026-11-04T21:30:00+05:30",
+    "first_comment": "#Russia #War #News #InternationalRelations #Conflict #Humanitarian #GlobalAffairs #CurrentEvents #Kyiv #NewsExplained #Headlinne",
+    "sources": "BBC World · France 24",
+    "story_url": "https://www.bbc.co.uk/news/articles/cjy56dndlyz0o?at_medium=RSS&at_campaign=rss",
+    "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/ee1e/live/8480acc0-d6eb-11f1-a741-236ee91c2e25.png",
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-04/story_card/story_card.png",
+    "story": null
+  }
+}
