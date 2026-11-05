@@ -1,0 +1,306 @@
+{
+  "day": "2026-11-05",
+  "is_promo_day": true,
+  "is_friday": false,
+  "twitter": [
+    {
+      "category": "Promo",
+      "post": "Most news stories have a hidden slant. We built a tool that highlights the political bias in articles so you can see the full picture. It helps you spot where a reporter might be nudging your opinion one way or another. HEADLINNE.com #MediaLiteracy #News",
+      "hashtags": [
+        "MediaLiteracy",
+        "News"
+      ],
+      "scheduled_time": "2026-11-05T13:00:00+05:30",
+      "kind": "promo",
+      "lead": "Spot The Bias In Your News",
+      "items": [],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-05/x/x_1.png",
+      "story": null
+    }
+  ],
+  "linkedin": {
+    "title": "The biggest problem with the news today isn't that there is too much of it.",
+    "body": "It is that most of it is irrelevant to your specific life, work, and interests. We are constantly bombarded with headlines that demand our attention but offer nothing in return. This leads to noise, not knowledge.\n\nTrue information isn't about reading everything. It is about reading the right things at the right time. When you filter out the clutter, you actually get a clearer picture of the world. You stop guessing what matters and start understanding why it matters to you.\n\nPersonalisation, when done right, is just a tool for focus. It respects your time by learning what you actually care about, rather than guessing based on mass-market trends. It turns the overwhelming firehose of global news into a steady, useful stream of insight.\n\nWe built Headlinne to prove that you can stay informed without feeling overwhelmed.",
+    "cta": "You can see how we are rethinking the news feed at HEADLINNE.com.",
+    "scheduled_time": "2026-11-05T18:00:00+05:30",
+    "kind": "product"
+  },
+  "instagram": [],
+  "reels": [
+    {
+      "slot": "reel_1",
+      "kind": "news",
+      "category": "Geopolitics",
+      "title": "What the Democrats' midterms win means for the US economy and Trump",
+      "hook": "What the Democrats' midterms win means for the US economy and Trump",
+      "beats": [
+        {
+          "role": "hook",
+          "caption": "What the Democrats' midterms win means for the US economy and Trump",
+          "detail": "",
+          "narration": "",
+          "seconds": 6.16,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "",
+          "pose": "",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {},
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": ""
+        },
+        {
+          "role": "hook",
+          "caption": "Economic concerns drove the crushing defeat.",
+          "detail": "Voters clearly prioritized cost and stability.",
+          "narration": "Why did the economy cost Trump's party the midterms?",
+          "seconds": 4.62,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "WHY REPUBLICANS LOST",
+          "pose": "walk",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "parliament",
+            "hat": "press",
+            "pose": "present"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "Voters felt the squeeze on their wallets.",
+          "detail": "Energy costs and debt caused real anxiety.",
+          "narration": "High oil prices and mounting debt were major factors.",
+          "seconds": 4.62,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "THE ECONOMIC HURDLES",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "trading",
+            "hat": "hardhat",
+            "pose": "talk"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "graphic",
+          "caption": "Several key factors hurt the GOP.",
+          "detail": "From oil prices to data centers.",
+          "narration": "It was a mix of energy costs and infrastructure strain.",
+          "seconds": 5.13,
+          "graphic": "flow",
+          "data": {
+            "steps": [
+              "High oil prices",
+              "Data center growth",
+              "Mounting national debt"
+            ]
+          },
+          "image_url": null,
+          "chapter": "WHAT DROVE THE LOSS",
+          "pose": "present",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "trading",
+            "hat": "none",
+            "pose": "point"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "Trade policy created significant voter doubt.",
+          "detail": "Economic anxiety turned into a clear vote.",
+          "narration": "Policies like tariffs also weighed heavily on voters.",
+          "seconds": 4.11,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "TARIFFS AND DEBT",
+          "pose": "jump",
+          "say": "",
+          "plates": [
+            "story"
+          ],
+          "tone": "",
+          "scene": {
+            "set": "trading",
+            "hat": "none",
+            "pose": "think"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "Now the pressure is on them.",
+          "detail": "Solving these issues is the new challenge.",
+          "narration": "The Democrats won the midterms. Now they face these problems.",
+          "seconds": 5.13,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "CAN DEMOCRATS DELIVER",
+          "pose": "talk",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "parliament",
+            "hat": "none",
+            "pose": "nod"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "CHALLENGE",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "No easy solutions exist for these issues.",
+          "detail": "The economy is complex and difficult.",
+          "narration": "Can they make a difference? It remains an open question.",
+          "seconds": 5.13,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "THE ROAD AHEAD",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "parliament",
+            "hat": "none",
+            "pose": "scan"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "outro",
+          "caption": "Stay informed with daily news updates.",
+          "detail": "Visit headlinne.com for verified reports.",
+          "narration": "Track the economic impact at headlinne.com.",
+          "seconds": 3.08,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "GET THE FULL STORY",
+          "pose": "cta",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "newsroom",
+            "hat": "press",
+            "pose": "cheer"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        }
+      ],
+      "caption": "What the Democrats' midterms win means for the US economy and Trump\n\nCan Democrats fix the economy?\n\nFollow @headlinnedotcom for a daily brief. Full story on HEADLINNE.com.\n\n#WorldNews #Geopolitics #GlobalNews #Economy",
+      "hashtags": [
+        "WorldNews",
+        "Geopolitics",
+        "GlobalNews",
+        "Economy",
+        "Midterms",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-11-05T09:30:00+05:30",
+      "first_comment": "#Midterms #Headlinne",
+      "sources": "Deutsche Welle · Guardian Business · France 24 · Al Jazeera +2",
+      "story_url": "https://www.dw.com/en/what-the-democrats-midterms-win-means-for-the-us-economy-and-trump/a-79853716?maca=en-rss-en-world-4025-rdf",
+      "dateline": "THU 5 NOV",
+      "story": null,
+      "duration_seconds": 37.97,
+      "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-05/reels/reel_1.mp4",
+      "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-05/reels/reel_1_cover.png",
+      "audio_file": null,
+      "has_voiceover": true
+    }
+  ],
+  "story_card": {
+    "slot": "story_card",
+    "category": "Finance",
+    "headline": "Trump enters a lame duck period",
+    "standfirst": "The global economy is bracing for the final two years of a presidency facing new",
+    "steps": [
+      {
+        "label": "What happened",
+        "text": "Republicans lost control of both the House and Senate in the recent midterm elections."
+      },
+      {
+        "label": "How we got here",
+        "text": "Democrats swept aside the Republican majority, leaving the president with limited legislative power."
+      },
+      {
+        "label": "Why it matters",
+        "text": "The shift creates uncertainty for global markets, inflation, interest rates, and economic growth."
+      },
+      {
+        "label": "What to watch",
+        "text": "Keep an eye on how the president navigates the final two years of his term."
+      }
+    ],
+    "caption": "How the US midterm election results could impact the global economy during a lame duck presidency.\n\nLosing control of Congress changes the president's ability to pass laws. Markets and economists are now watching closely for potential shifts in inflation and interest rate policy as the administration enters its final phase.\n\nDo you think a divided government helps or hurts the economy?\n\nSave this one. Follow for the daily card. Full story on HEADLINNE.com.\n\n#Finance #Markets #Economy #useconomy",
+    "hashtags": [
+      "Finance",
+      "Markets",
+      "Economy",
+      "useconomy",
+      "midterms",
+      "globalmarkets",
+      "politics",
+      "inflation",
+      "interestrates",
+      "whitehouse",
+      "congress",
+      "financialnews",
+      "breakingnews",
+      "uselection",
+      "economicpolicy",
+      "NewsExplained"
+    ],
+    "scheduled_time": "2026-11-05T21:30:00+05:30",
+    "first_comment": "#midterms #globalmarkets #politics #inflation #interestrates #whitehouse #congress #financialnews #breakingnews #uselection #economicpolicy #NewsExplained",
+    "sources": "Guardian Business · Guardian World · France 24 · Deutsche Welle +1",
+    "story_url": "https://www.theguardian.com/us-news/2026/nov/04/explainer-midterms-trump-us-global-economy-markets",
+    "image_url": "https://i.guim.co.uk/img/media/2a93f1501ef9ad49bab6fef5ee59dc4a5af2e1b6/785_0_5678_4542/master/5678.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=0ddafcfb33a9933137b8637e387b9109",
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-05/story_card/story_card.png",
+    "story": null
+  }
+}

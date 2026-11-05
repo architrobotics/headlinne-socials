@@ -1,19 +1,5 @@
 {
   "days": {
-    "2026-10-25": {
-      "story_urls": [
-        "https://www.bbc.co.uk/news/articles/c95ynd587ynzo?at_medium=RSS&at_campaign=rss",
-        "https://www.bbc.co.uk/news/articles/cqdjv8xllvyyo?at_medium=RSS&at_campaign=rss"
-      ],
-      "story_titles": [],
-      "post_texts": [
-        "Almost 1,000 arrested as clashes follow another day of mass protests across France\n\nWill the situation stay calm?\n\nFollow @headlinnedotcom for a daily brief. Full story on HEADLINNE.com.\n\n#WorldNews #Geopolitics #GlobalNews #France",
-        "The UK government is investing one hundred million pounds into a new AI biosecurity lab.\n\nThis facility is designed to address security concerns linked to artificial intelligence. It marks a significant financial commitment to national safety ahead of the Budget announcement.\n\nDo you think governments should focus more on AI safety or AI innovation right now?\n\nSave this one. Follow for the daily card. Full story on HEADLINNE.com.\n\n#TechNews #Tech #AI #UKNews",
-        "France faces a weekend of unrest\n\u2022 Nearly 1,000 people were arrested as protests swept across France\n\u2022 Mass marches demand better schools and more teachers nationwide\n\u2022 Thousands protested in Orl\u00e9ans against the far-right party HEADLINNE.com #France #News",
-        "Here is today's top tech news.\n\u2022 The UK is spending \u00a3100m on an AI lab to spot bio-threats\n\u2022 This new facility will help speed up vaccine development\n\u2022 Starlink access appears restored for users in Ukraine HEADLINNE.com #TechNews #AI",
-        "Most news apps are built to keep you scrolling as long as possible. They want you stuck in the app because that looks good on a metric sheet. But we realized that if you are spending two hours reading the news, we probably failed you.\n\nWe built Headlinne with a different goal in mind. We want to get you the information you actually care about as quickly as possible so you can get on with your day. That meant changing how our AI ranks stories. Instead of looking for what triggers a reaction, it looks for what matches your specific interests and depth of knowledge.\n\nThis engineering choice makes our feed look different. It is often shorter. It is less chaotic. It is designed to be finished. We believe that respecting your time is the most important feature we can offer.\n\nBuilding an algorithm that prioritizes utility over addiction is harder than it sounds. It requires us to constantly refine how we measure success. But we think it is the only way to build a product that people actually trust."
-      ]
-    },
     "2026-10-26": {
       "story_urls": [
         "https://www.theguardian.com/world/ng-interactive/2026/oct/25/brazil-election-2026-live-second-round-results",
@@ -171,6 +157,19 @@
         "Today's tech news in brief\n\u2022 Hackers used fake job interviews to pull off the massive $6.3bn Binance heist\n\u2022 The attack involved malware and internal AI tools over several months\n\u2022 Google is blocking Search AI access for students in schools that ban it HEADLINNE.com #TechNews",
         "Here is today's global news recap.\n\u2022 Russian airstrikes on a Ukrainian aid center killed 31 people\n\u2022 Zelenskyy says the upcoming US elections will shape the war\n\u2022 The US plans to drop Rwanda and South Africa from a trade deal HEADLINNE.com #Geopolitics #Ukraine",
         "For years, news apps have relied on basic keywords to figure out what you want to read. If you clicked on a tech article, you got more tech articles. It worked for a while, but it feels outdated today. We are entering a phase where the technology needs to actually understand the nuance of your curiosity.\n\nThe roadmap for Headlinne isn't about feeding you more of the same. It is about building a system that understands context. We are working to make sure the app can distinguish between you tracking a specific market trend and you simply wanting a quick update on the morning headlines. It is the difference between a feed that repeats itself and a feed that evolves with your interests.\n\nWe believe the future of news consumption is less about algorithms that chase clicks and more about tools that respect your time. We are building for the reader who wants depth without the noise. It is a slow, thoughtful process, but it is the only way to get this right."
+      ]
+    },
+    "2026-11-05": {
+      "story_urls": [
+        "https://www.dw.com/en/what-the-democrats-midterms-win-means-for-the-us-economy-and-trump/a-79853716?maca=en-rss-en-world-4025-rdf",
+        "https://www.theguardian.com/us-news/2026/nov/04/explainer-midterms-trump-us-global-economy-markets"
+      ],
+      "story_titles": [],
+      "post_texts": [
+        "What the Democrats' midterms win means for the US economy and Trump\n\nCan Democrats fix the economy?\n\nFollow @headlinnedotcom for a daily brief. Full story on HEADLINNE.com.\n\n#WorldNews #Geopolitics #GlobalNews #Economy",
+        "How the US midterm election results could impact the global economy during a lame duck presidency.\n\nLosing control of Congress changes the president's ability to pass laws. Markets and economists are now watching closely for potential shifts in inflation and interest rate policy as the administration enters its final phase.\n\nDo you think a divided government helps or hurts the economy?\n\nSave this one. Follow for the daily card. Full story on HEADLINNE.com.\n\n#Finance #Markets #Economy #useconomy",
+        "Most news stories have a hidden slant. We built a tool that highlights the political bias in articles so you can see the full picture. It helps you spot where a reporter might be nudging your opinion one way or another. HEADLINNE.com #MediaLiteracy #News",
+        "It is that most of it is irrelevant to your specific life, work, and interests. We are constantly bombarded with headlines that demand our attention but offer nothing in return. This leads to noise, not knowledge.\n\nTrue information isn't about reading everything. It is about reading the right things at the right time. When you filter out the clutter, you actually get a clearer picture of the world. You stop guessing what matters and start understanding why it matters to you.\n\nPersonalisation, when done right, is just a tool for focus. It respects your time by learning what you actually care about, rather than guessing based on mass-market trends. It turns the overwhelming firehose of global news into a steady, useful stream of insight.\n\nWe built Headlinne to prove that you can stay informed without feeling overwhelmed."
       ]
     }
   }
