@@ -1,0 +1,227 @@
+[
+  {
+    "slot": "reel_1",
+    "kind": "news",
+    "category": "Technology",
+    "title": "France blames Iran for mass-hacks targeting freezers in grocery stores and blood banks",
+    "hook": "France blames Iran for mass-hacks targeting freezers in grocery stores and blood banks",
+    "beats": [
+      {
+        "role": "hook",
+        "caption": "France blames Iran for mass-hacks targeting freezers in grocery stores and blood banks",
+        "detail": "",
+        "narration": "",
+        "seconds": 5.0,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "",
+        "pose": "",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {},
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": ""
+      },
+      {
+        "role": "hook",
+        "caption": "Cooling systems across Europe hit by hackers.",
+        "detail": "France points the finger at Iran.",
+        "narration": "Imagine every freezer in your local shop going dark. This is not a glitch. It is a hack.",
+        "seconds": 3.2,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "ATTACK ON EUROPE'S COOLERS",
+        "pose": "walk",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "server",
+          "hat": "press",
+          "pose": "present"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "Thousands of industrial units targeted in waves.",
+        "detail": "Attackers focused on fridges and freezers.",
+        "narration": "That is not a random error. That is two waves of digital strikes hitting industrial cooling units.",
+        "seconds": 3.2,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "A TARGETED CAMPAIGN",
+        "pose": "point",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "server",
+          "hat": "press",
+          "pose": "point"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "France formally blames Iran for hacks.",
+        "detail": "Foreign ministry confirms the source.",
+        "narration": "The French foreign minister has officially blamed Iran for orchestrating these cyberattacks on critical infrastructure.",
+        "seconds": 2.9,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "FRANCE BLAMES IRAN",
+        "pose": "present",
+        "say": "",
+        "plates": [
+          "story"
+        ],
+        "tone": "",
+        "scene": {
+          "set": "maproom",
+          "hat": "none",
+          "pose": "talk"
+        },
+        "stat": {},
+        "fact": "FRANCE BLAMES IRAN",
+        "stamp": "ATTACKED",
+        "stamp_tone": "bad"
+      },
+      {
+        "role": "point",
+        "caption": "Essential food and medical supplies targeted.",
+        "detail": "Attackers breached industrial refrigeration systems.",
+        "narration": "The hackers targeted grocery store freezers, but also blood banks. This puts food and medical supplies at risk.",
+        "seconds": 2.9,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "WHAT THEY HIT",
+        "pose": "jump",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "lab",
+          "hat": "none",
+          "pose": "alarm"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "Attacks impacted wider Europe beyond France.",
+        "detail": "Cross-border cyber security incident.",
+        "narration": "This was not just a French problem. The cyberattack spread across wider Europe, affecting multiple nations simultaneously.",
+        "seconds": 2.9,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "BEYOND FRANCE",
+        "pose": "talk",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "maproom",
+          "hat": "none",
+          "pose": "scan"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "graphic",
+        "caption": "A coordinated chain of digital sabotage.",
+        "detail": "Security experts confirm the method.",
+        "narration": "First they identify the industrial systems, then they launch the digital strike, causing the cooling to fail.",
+        "seconds": 2.9,
+        "graphic": "flow",
+        "data": {
+          "steps": [
+            "Identify cooling tech",
+            "Launch digital strike",
+            "Systems fail"
+          ]
+        },
+        "image_url": null,
+        "chapter": "HOW IT WORKED",
+        "pose": "point",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "server",
+          "hat": "hardhat",
+          "pose": "present"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "outro",
+        "caption": "Get the full story at headlinne.com.",
+        "detail": "Accurate news, no noise.",
+        "narration": "For more on how digital security impacts our daily lives, check the latest at headlinne.com.",
+        "seconds": 2.9,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "STAY INFORMED",
+        "pose": "cta",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "newsroom",
+          "hat": "none",
+          "pose": "nod"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      }
+    ],
+    "caption": "France blames Iran for mass-hacks targeting freezers in grocery stores and blood banks\n\nAre our systems safe?\n\nFollow @headlinnedotcom for a daily brief. Full story on HEADLINNE.com.\n\n#TechNews #AI #Tech #Cybersecurity",
+    "hashtags": [
+      "TechNews",
+      "AI",
+      "Tech",
+      "Cybersecurity",
+      "France",
+      "Headlinne"
+    ],
+    "scheduled_time": "2026-11-10T09:30:00+05:30",
+    "first_comment": "#France #Headlinne",
+    "sources": "TechCrunch · Guardian World",
+    "story_url": "https://techcrunch.com/2026/11/09/france-blames-iran-for-mass-hacks-targeting-freezers-in-grocery-stores-and-blood-banks/",
+    "dateline": "TUE 10 NOV",
+    "story": null,
+    "duration_seconds": 25.9,
+    "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-10/reels/reel_1.mp4",
+    "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-10/reels/reel_1_cover.png",
+    "audio_file": null,
+    "has_voiceover": false
+  }
+]

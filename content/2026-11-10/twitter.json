@@ -1,0 +1,104 @@
+[
+  {
+    "category": "Tech",
+    "post": "Today's top tech stories in focus.\n• France says Iran hacked freezers in grocery stores and blood banks\n• Trump says the FBI is looking into Nvidia CEO Jensen Huang's affair\n• Nvidia has launched an investigation following Huang's admission HEADLINNE.com #TechNews #CyberSecurity",
+    "hashtags": [
+      "TechNews",
+      "CyberSecurity"
+    ],
+    "scheduled_time": "2026-11-10T13:00:00+05:30",
+    "kind": "news",
+    "lead": "Today's top tech stories in focus.",
+    "items": [
+      "France says Iran hacked freezers in grocery stores and blood banks",
+      "Trump says the FBI is looking into Nvidia CEO Jensen Huang's affair",
+      "Nvidia has launched an investigation following Huang's admission"
+    ],
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-10/x/x_1.png",
+    "story": {
+      "title": "France blames Iran for mass-hacks targeting freezers in grocery stores and blood banks",
+      "summary": "France's foreign minister blamed Iran for launching at least two waves of cyberattacks targeting industrial refrigerated and freezer units across France and wider Europe.",
+      "url": "https://techcrunch.com/2026/11/09/france-blames-iran-for-mass-hacks-targeting-freezers-in-grocery-stores-and-blood-banks/",
+      "category": "Technology",
+      "source": "TechCrunch",
+      "tier": 1.0,
+      "published_iso": "2026-11-09T19:19:24+00:00",
+      "image_url": "https://techcrunch.com/wp-content/uploads/2026/11/freezer-hack-2302721358.jpg?resize=1200,858",
+      "corroborating_sources": [
+        "Guardian World"
+      ],
+      "score": 15.854,
+      "verified": true,
+      "sensitive": false,
+      "agreement": {
+        "reported": 2,
+        "agree": 2,
+        "conflict": 0,
+        "claim": "",
+        "claim_unit": "",
+        "outlets": [
+          "TechCrunch",
+          "Guardian World"
+        ],
+        "conflicts": []
+      }
+    }
+  },
+  {
+    "category": "Geopolitics",
+    "post": "Here is the latest in global news.\n• Nvidia shares fell 8% after an investigation into its CEO\n• France says Iran hacked supermarket freezers last month\n• The cyberattack spoiled tons of food across French stores HEADLINNE.com #Geopolitics #TechNews",
+    "hashtags": [
+      "Geopolitics",
+      "TechNews"
+    ],
+    "scheduled_time": "2026-11-10T17:00:00+05:30",
+    "kind": "news",
+    "lead": "Here is the latest in global news.",
+    "items": [
+      "Nvidia shares fell 8% after an investigation into its CEO",
+      "France says Iran hacked supermarket freezers last month",
+      "The cyberattack spoiled tons of food across French stores"
+    ],
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-10/x/x_2.png",
+    "story": {
+      "title": "Nvidia shares tumble after spy probe announced",
+      "summary": "Shares of artificial intelligence leader Nvidia tumbled early Monday after the chip company said it launched an investigation of CEO Jensen Huang following reports he was targeted by Chinese intelligence. Nvidia shares were down more than eight percent in opening trading after its board announced that a committee of independent directors assisted by outside counsel would undertake the probe.",
+      "url": "https://www.france24.com/en/video/20261109-nvidia-shares-tumble-after-spy-probe-announced",
+      "category": "Geopolitics",
+      "source": "France 24",
+      "tier": 1.0,
+      "published_iso": "2026-11-09T16:47:19+00:00",
+      "image_url": "https://s.france24.com/media/display/bfd386b6-dc5a-11f1-81dc-d18c5759e759/w:1024/p:16x9/capture-1cc6b77f.jpg",
+      "corroborating_sources": [
+        "BBC Business",
+        "Guardian Business",
+        "MarketWatch Top",
+        "TechCrunch",
+        "The Register",
+        "The Verge",
+        "Wired"
+      ],
+      "score": 15.787,
+      "verified": true,
+      "sensitive": false,
+      "agreement": {
+        "reported": 8,
+        "agree": 8,
+        "conflict": 0,
+        "claim": "",
+        "claim_unit": "",
+        "outlets": [
+          "France 24",
+          "Guardian Business",
+          "The Register",
+          "TechCrunch",
+          "The Verge",
+          "BBC Business",
+          "Wired",
+          "MarketWatch Top"
+        ],
+        "conflicts": []
+      }
+    }
+  }
+]
