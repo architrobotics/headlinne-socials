@@ -1,0 +1,226 @@
+[
+  {
+    "slot": "reel_1",
+    "kind": "news",
+    "category": "Technology",
+    "title": "Microsoft 'deeply sorry' for global outage after almost 24 hours of disruption",
+    "hook": "Microsoft 'deeply sorry' for global outage after almost 24 hours of disruption",
+    "beats": [
+      {
+        "role": "hook",
+        "caption": "Microsoft 'deeply sorry' for global outage after almost 24 hours of disruption",
+        "detail": "",
+        "narration": "",
+        "seconds": 4.7,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "",
+        "pose": "",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {},
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": ""
+      },
+      {
+        "role": "hook",
+        "caption": "Imagine if one switch controlled the world.",
+        "detail": "That is basically what happened with Microsoft.",
+        "narration": "Imagine if one light switch turned off power for the whole world at once.",
+        "seconds": 3.2,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "ONE SWITCH FOR EVERYTHING",
+        "pose": "walk",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "home",
+          "hat": "none",
+          "pose": "talk"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "Systems went dark for twenty four hours.",
+        "detail": "Global disruption hit businesses and travelers everywhere.",
+        "narration": "Microsoft systems went dark, causing chaos for nearly twenty four hours straight.",
+        "seconds": 3.2,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "GLOBAL TECH OUTAGE",
+        "pose": "point",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "server",
+          "hat": "press",
+          "pose": "alarm"
+        },
+        "stat": {},
+        "fact": "GLOBAL DISRUPTION FOR 24 HOURS",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "graphic",
+        "caption": "One failure caused a massive ripple effect.",
+        "detail": "The world depends on few tech giants.",
+        "narration": "A single tech failure rippled out, breaking systems that rely on these providers.",
+        "seconds": 3.2,
+        "graphic": "flow",
+        "data": {
+          "steps": [
+            "Tech update fails",
+            "Systems crash globally",
+            "World grinds down"
+          ]
+        },
+        "image_url": null,
+        "chapter": "A CHAIN REACTION",
+        "pose": "present",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "server",
+          "hat": "press",
+          "pose": "present"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "Microsoft is deeply sorry for the mess.",
+        "detail": "The company acknowledged the widespread disruption caused.",
+        "narration": "Microsoft has issued an apology, saying they are deeply sorry for the global mess.",
+        "seconds": 3.2,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "MICROSOFT RESPONDS",
+        "pose": "jump",
+        "say": "",
+        "plates": [
+          "story"
+        ],
+        "tone": "",
+        "scene": {
+          "set": "trading",
+          "hat": "none",
+          "pose": "nod"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "SORRY",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "This is a stark reminder for everyone.",
+        "detail": "We depend on a small group today.",
+        "narration": "Experts say this is a stark reminder of how much we rely on big tech.",
+        "seconds": 3.2,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "WHY IT MATTERS",
+        "pose": "talk",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "newsroom",
+          "hat": "none",
+          "pose": "point"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "The world feels the shake when they slip.",
+        "detail": "Reliance on big tech creates fragile systems.",
+        "narration": "When a few companies hold the keys, the whole world feels the shake when they slip.",
+        "seconds": 3.5,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "TOO BIG TO FAIL",
+        "pose": "point",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "newsroom",
+          "hat": "none",
+          "pose": "think"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "outro",
+        "caption": "Get the full story at headlinne.com today.",
+        "detail": "Stay informed with our AI powered app.",
+        "narration": "Get the full breakdown on these tech trends and more at headlinne dot com.",
+        "seconds": 3.2,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "GET THE FULL STORY",
+        "pose": "cta",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "newsroom",
+          "hat": "none",
+          "pose": "cheer"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      }
+    ],
+    "caption": "Microsoft 'deeply sorry' for global outage after almost 24 hours of disruption\n\nIs big tech too fragile?\n\nFollow @headlinnedotcom for a daily brief. Full story on HEADLINNE.com.\n\n#TechNews #AI #Tech #Microsoft",
+    "hashtags": [
+      "TechNews",
+      "AI",
+      "Tech",
+      "Microsoft",
+      "Headlinne"
+    ],
+    "scheduled_time": "2026-11-14T09:30:00+05:30",
+    "first_comment": "#Headlinne",
+    "sources": "BBC Technology",
+    "story_url": "https://www.bbc.co.uk/news/articles/c6rrg51rkz09o?at_medium=RSS&at_campaign=rss",
+    "dateline": "SAT 14 NOV",
+    "story": null,
+    "duration_seconds": 27.4,
+    "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-14/reels/reel_1.mp4",
+    "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-14/reels/reel_1_cover.png",
+    "audio_file": null,
+    "has_voiceover": false
+  }
+]

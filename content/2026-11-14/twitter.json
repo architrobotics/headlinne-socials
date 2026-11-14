@@ -1,0 +1,99 @@
+[
+  {
+    "category": "Tech",
+    "post": "Tech systems are finally recovering.\n• The NHS and police were hit by the global Microsoft outage\n• Microsoft apologized after the crash disrupted services for a day\n• A bad update caused the chaos, not a cyberattack HEADLINNE.com #Microsoft #TechNews",
+    "hashtags": [
+      "Microsoft",
+      "TechNews"
+    ],
+    "scheduled_time": "2026-11-14T13:00:00+05:30",
+    "kind": "news",
+    "lead": "Tech systems are finally recovering.",
+    "items": [
+      "The NHS and police were hit by the global Microsoft outage",
+      "Microsoft apologized after the crash disrupted services for a day",
+      "A bad update caused the chaos, not a cyberattack"
+    ],
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-14/x/x_1.png",
+    "story": {
+      "title": "NHS, schools and police forces hit by Microsoft outage",
+      "summary": "Major airports and intelligence services are unaffected, while the government is still assessing the impact.",
+      "url": "https://www.bbc.co.uk/news/articles/c6vg2ljjpj32o?at_medium=RSS&at_campaign=rss",
+      "category": "Technology",
+      "source": "BBC Technology",
+      "tier": 1.4,
+      "published_iso": "2026-11-13T13:41:25+00:00",
+      "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/84f9/live/ddcb76c0-df51-11f1-8364-2717a13d3b08.jpg",
+      "corroborating_sources": [],
+      "score": 16.713,
+      "verified": false,
+      "sensitive": false,
+      "agreement": {
+        "reported": 1,
+        "agree": 1,
+        "conflict": 0,
+        "claim": "",
+        "claim_unit": "",
+        "outlets": [
+          "BBC Technology"
+        ],
+        "conflicts": []
+      }
+    }
+  },
+  {
+    "category": "Geopolitics",
+    "post": "Here is what is moving the world today.\n• Microsoft is restoring services after a massive global outage\n• Business and government operations are slowly coming back online\n• A Trump advisor is blaming the commerce department for chip exports HEADLINNE.com #TechNews #Geopolitics",
+    "hashtags": [
+      "TechNews",
+      "Geopolitics"
+    ],
+    "scheduled_time": "2026-11-14T17:00:00+05:30",
+    "kind": "news",
+    "lead": "Here is what is moving the world today.",
+    "items": [
+      "Microsoft is restoring services after a massive global outage",
+      "Business and government operations are slowly coming back online",
+      "A Trump advisor is blaming the commerce department for chip exports"
+    ],
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-14/x/x_2.png",
+    "story": {
+      "title": "Microsoft outage: company scrambles to fix global issue that took down Outlook and Teams",
+      "summary": "Tech firm says it is ‘deeply sorry’ for disruption that took services down and has now addressed the underlying issue What caused the outage and when will it be fixed? Microsoft outage hits UK hospitals, GPs, schools and police Tell us: have you been affected by the outage? Microsoft has said it is “deeply sorry” for a widespread outage that caused disruption to millions of users, organisations and businesses across the globe – and that it has “addressed the underlying issue”. The company said the outage was a “technical issue” not related to cyber-attacks or AI agents, and that it continued t",
+      "url": "https://www.theguardian.com/technology/2026/nov/13/microsoft-outage-outlook-teams-word-excel-reports",
+      "category": "Geopolitics",
+      "source": "Guardian World",
+      "tier": 1.1,
+      "published_iso": "2026-11-13T17:41:15+00:00",
+      "image_url": "https://i.guim.co.uk/img/media/dfa589c16097054908f431498d8161b7edbee12f/399_0_6288_5030/master/6288.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=5398c6a3ac99671c1a70455ff7ddfe51",
+      "corroborating_sources": [
+        "BBC Business",
+        "BBC Technology",
+        "BBC World",
+        "Engadget",
+        "Guardian Business",
+        "TechCrunch"
+      ],
+      "score": 16.349,
+      "verified": true,
+      "sensitive": false,
+      "agreement": {
+        "reported": 7,
+        "agree": 7,
+        "conflict": 0,
+        "claim": "",
+        "claim_unit": "",
+        "outlets": [
+          "Guardian World",
+          "Guardian Business",
+          "Engadget",
+          "BBC Technology",
+          "BBC World",
+          "TechCrunch",
+          "BBC Business"
+        ],
+        "conflicts": []
+      }
+    }
+  }
+]

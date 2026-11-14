@@ -1,0 +1,524 @@
+{
+  "day": "2026-11-14",
+  "is_promo_day": false,
+  "is_friday": false,
+  "twitter": [
+    {
+      "category": "Tech",
+      "post": "Tech systems are finally recovering.\n• The NHS and police were hit by the global Microsoft outage\n• Microsoft apologized after the crash disrupted services for a day\n• A bad update caused the chaos, not a cyberattack HEADLINNE.com #Microsoft #TechNews",
+      "hashtags": [
+        "Microsoft",
+        "TechNews"
+      ],
+      "scheduled_time": "2026-11-14T13:00:00+05:30",
+      "kind": "news",
+      "lead": "Tech systems are finally recovering.",
+      "items": [
+        "The NHS and police were hit by the global Microsoft outage",
+        "Microsoft apologized after the crash disrupted services for a day",
+        "A bad update caused the chaos, not a cyberattack"
+      ],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-14/x/x_1.png",
+      "story": {
+        "title": "NHS, schools and police forces hit by Microsoft outage",
+        "summary": "Major airports and intelligence services are unaffected, while the government is still assessing the impact.",
+        "url": "https://www.bbc.co.uk/news/articles/c6vg2ljjpj32o?at_medium=RSS&at_campaign=rss",
+        "category": "Technology",
+        "source": "BBC Technology",
+        "tier": 1.4,
+        "published_iso": "2026-11-13T13:41:25+00:00",
+        "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/84f9/live/ddcb76c0-df51-11f1-8364-2717a13d3b08.jpg",
+        "corroborating_sources": [],
+        "score": 16.713,
+        "verified": false,
+        "sensitive": false,
+        "agreement": {
+          "reported": 1,
+          "agree": 1,
+          "conflict": 0,
+          "claim": "",
+          "claim_unit": "",
+          "outlets": [
+            "BBC Technology"
+          ],
+          "conflicts": []
+        }
+      }
+    },
+    {
+      "category": "Geopolitics",
+      "post": "Here is what is moving the world today.\n• Microsoft is restoring services after a massive global outage\n• Business and government operations are slowly coming back online\n• A Trump advisor is blaming the commerce department for chip exports HEADLINNE.com #TechNews #Geopolitics",
+      "hashtags": [
+        "TechNews",
+        "Geopolitics"
+      ],
+      "scheduled_time": "2026-11-14T17:00:00+05:30",
+      "kind": "news",
+      "lead": "Here is what is moving the world today.",
+      "items": [
+        "Microsoft is restoring services after a massive global outage",
+        "Business and government operations are slowly coming back online",
+        "A Trump advisor is blaming the commerce department for chip exports"
+      ],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-14/x/x_2.png",
+      "story": {
+        "title": "Microsoft outage: company scrambles to fix global issue that took down Outlook and Teams",
+        "summary": "Tech firm says it is ‘deeply sorry’ for disruption that took services down and has now addressed the underlying issue What caused the outage and when will it be fixed? Microsoft outage hits UK hospitals, GPs, schools and police Tell us: have you been affected by the outage? Microsoft has said it is “deeply sorry” for a widespread outage that caused disruption to millions of users, organisations and businesses across the globe – and that it has “addressed the underlying issue”. The company said the outage was a “technical issue” not related to cyber-attacks or AI agents, and that it continued t",
+        "url": "https://www.theguardian.com/technology/2026/nov/13/microsoft-outage-outlook-teams-word-excel-reports",
+        "category": "Geopolitics",
+        "source": "Guardian World",
+        "tier": 1.1,
+        "published_iso": "2026-11-13T17:41:15+00:00",
+        "image_url": "https://i.guim.co.uk/img/media/dfa589c16097054908f431498d8161b7edbee12f/399_0_6288_5030/master/6288.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=5398c6a3ac99671c1a70455ff7ddfe51",
+        "corroborating_sources": [
+          "BBC Business",
+          "BBC Technology",
+          "BBC World",
+          "Engadget",
+          "Guardian Business",
+          "TechCrunch"
+        ],
+        "score": 16.349,
+        "verified": true,
+        "sensitive": false,
+        "agreement": {
+          "reported": 7,
+          "agree": 7,
+          "conflict": 0,
+          "claim": "",
+          "claim_unit": "",
+          "outlets": [
+            "Guardian World",
+            "Guardian Business",
+            "Engadget",
+            "BBC Technology",
+            "BBC World",
+            "TechCrunch",
+            "BBC Business"
+          ],
+          "conflicts": []
+        }
+      }
+    }
+  ],
+  "linkedin": {
+    "title": "Most people feel overwhelmed by the news because they are reading the wrong things for them.",
+    "body": "It is not that there is too much information in the world. It is that the information we consume is rarely curated for our specific interests or needs. When you open a standard news app, you are often fed a firehose of headlines designed to trigger a reaction rather than build understanding.\n\nTrue information literacy is not about reading everything. It is about reading the right things. Personalization should not mean creating a bubble where you only hear what you agree with. It should mean filtering out the noise so you can focus on the topics that actually impact your work, your life, and your curiosity.\n\nWe built Headlinne to change the dynamic. By using AI to learn what you actually care about, we help you cut through the clutter. You get a briefing that respects your time and intelligence, helping you stay informed without the usual digital fatigue.",
+    "cta": "If you want to reclaim your news feed, you can take a look at how we do it at HEADLINNE.com.",
+    "scheduled_time": "2026-11-14T18:00:00+05:30",
+    "kind": "product"
+  },
+  "instagram": [
+    {
+      "slot": "instagram_1",
+      "category": "Geopolitics",
+      "num_slides": 5,
+      "title": "Microsoft outage disrupts global tech services",
+      "slides": [
+        {
+          "role": "cover",
+          "headline": "Microsoft outage disrupts global tech services",
+          "explanation": "",
+          "image_url": "https://i.guim.co.uk/img/media/dfa589c16097054908f431498d8161b7edbee12f/399_0_6288_5030/master/6288.jpg?width=700&quality=85&auto=format&fit=max&s=24baa62a29a6c107e87007fdadf5f26e",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-14/instagram/instagram_1/slide_1.png",
+          "subtitle": "Outlook and Teams services are currently recovering",
+          "sources": "",
+          "index": 1,
+          "kicker": "GEOPOLITICS",
+          "pose": "alert",
+          "say": "Tech services are slowly",
+          "figure": "",
+          "unit": ""
+        },
+        {
+          "role": "scale",
+          "headline": "",
+          "explanation": "The outage was widespread enough to impact essential public services including hospitals, GP surgeries, schools, and police forces across the UK.",
+          "image_url": "https://i.guim.co.uk/img/media/dfa589c16097054908f431498d8161b7edbee12f/399_0_6288_5030/master/6288.jpg?width=700&quality=85&auto=format&fit=max&s=24baa62a29a6c107e87007fdadf5f26e",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-14/instagram/instagram_1/slide_2.png",
+          "subtitle": "",
+          "sources": "",
+          "index": 2,
+          "kicker": "THE SCALE",
+          "pose": "",
+          "say": "",
+          "figure": "",
+          "unit": ""
+        },
+        {
+          "role": "twist",
+          "headline": "The underlying cause has been addressed",
+          "explanation": "Microsoft says they have fixed the core issue that took down their services, though they remain deeply sorry for the global disruption caused to users.",
+          "image_url": null,
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-14/instagram/instagram_1/slide_3.png",
+          "subtitle": "",
+          "sources": "",
+          "index": 3,
+          "kicker": "WHAT YOU DID NOT KNOW",
+          "pose": "puzzled",
+          "say": "The fix is rolling out.",
+          "figure": "",
+          "unit": ""
+        },
+        {
+          "role": "sources",
+          "headline": "",
+          "explanation": "Seven independent news outlets, including the BBC and TechCrunch, have verified the details of this outage and Microsoft's response.",
+          "image_url": null,
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-14/instagram/instagram_1/slide_4.png",
+          "subtitle": "",
+          "sources": "",
+          "index": 4,
+          "kicker": "SOURCES",
+          "pose": "verified",
+          "say": "7 of 7 agree",
+          "figure": "",
+          "unit": ""
+        },
+        {
+          "role": "cta",
+          "headline": "",
+          "explanation": "",
+          "image_url": null,
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-14/instagram/instagram_1/slide_5.png",
+          "subtitle": "Read the full story on Headlinne.",
+          "sources": "",
+          "index": 5,
+          "kicker": "READ THE FULL STORY",
+          "pose": "carry",
+          "say": "Come and read it.",
+          "figure": "",
+          "unit": ""
+        }
+      ],
+      "caption": "A major Microsoft outage briefly took down key communication tools like Outlook and Teams, leaving users worldwide unable to\n\naccess their accounts.\n\nThe disruption was significant enough to affect critical public infrastructure, including schools and medical services.\n\nMicrosoft has since confirmed that the underlying issue is resolved and services are coming back online. They have issued an apology for the inconvenience caused by the downtime.\n\nDid you experience any issues with your work tools today?\n\nFollow @headlinnedotcom for a daily brief. Full story on HEADLINNE.com.\n\n#WorldNews #Geopolitics #GlobalNews #Politics",
+      "hashtags": [
+        "WorldNews",
+        "Geopolitics",
+        "GlobalNews",
+        "Politics",
+        "Microsoft",
+        "TechNews",
+        "Outage",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-11-14T16:00:00+05:30",
+      "first_comment": "#Microsoft #TechNews #Outage #Headlinne",
+      "story": {
+        "title": "Microsoft outage: company scrambles to fix global issue that took down Outlook and Teams",
+        "summary": "Tech firm says it is ‘deeply sorry’ for disruption that took services down and has now addressed the underlying issue What caused the outage and when will it be fixed? Microsoft outage hits UK hospitals, GPs, schools and police Tell us: have you been affected by the outage? Microsoft has said it is “deeply sorry” for a widespread outage that caused disruption to millions of users, organisations and businesses across the globe – and that it has “addressed the underlying issue”. The company said the outage was a “technical issue” not related to cyber-attacks or AI agents, and that it continued t",
+        "url": "https://www.theguardian.com/technology/2026/nov/13/microsoft-outage-outlook-teams-word-excel-reports",
+        "category": "Geopolitics",
+        "source": "Guardian World",
+        "tier": 1.1,
+        "published_iso": "2026-11-13T17:41:15+00:00",
+        "image_url": "https://i.guim.co.uk/img/media/dfa589c16097054908f431498d8161b7edbee12f/399_0_6288_5030/master/6288.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=5398c6a3ac99671c1a70455ff7ddfe51",
+        "corroborating_sources": [
+          "BBC Business",
+          "BBC Technology",
+          "BBC World",
+          "Engadget",
+          "Guardian Business",
+          "TechCrunch"
+        ],
+        "score": 16.349,
+        "verified": true,
+        "sensitive": false,
+        "agreement": {
+          "reported": 7,
+          "agree": 7,
+          "conflict": 0,
+          "claim": "",
+          "claim_unit": "",
+          "outlets": [
+            "Guardian World",
+            "Guardian Business",
+            "Engadget",
+            "BBC Technology",
+            "BBC World",
+            "TechCrunch",
+            "BBC Business"
+          ],
+          "conflicts": []
+        }
+      },
+      "story_url": "https://www.theguardian.com/technology/2026/nov/13/microsoft-outage-outlook-teams-word-excel-reports"
+    }
+  ],
+  "reels": [
+    {
+      "slot": "reel_1",
+      "kind": "news",
+      "category": "Technology",
+      "title": "Microsoft 'deeply sorry' for global outage after almost 24 hours of disruption",
+      "hook": "Microsoft 'deeply sorry' for global outage after almost 24 hours of disruption",
+      "beats": [
+        {
+          "role": "hook",
+          "caption": "Microsoft 'deeply sorry' for global outage after almost 24 hours of disruption",
+          "detail": "",
+          "narration": "",
+          "seconds": 4.7,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "",
+          "pose": "",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {},
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": ""
+        },
+        {
+          "role": "hook",
+          "caption": "Imagine if one switch controlled the world.",
+          "detail": "That is basically what happened with Microsoft.",
+          "narration": "Imagine if one light switch turned off power for the whole world at once.",
+          "seconds": 3.2,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "ONE SWITCH FOR EVERYTHING",
+          "pose": "walk",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "home",
+            "hat": "none",
+            "pose": "talk"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "Systems went dark for twenty four hours.",
+          "detail": "Global disruption hit businesses and travelers everywhere.",
+          "narration": "Microsoft systems went dark, causing chaos for nearly twenty four hours straight.",
+          "seconds": 3.2,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "GLOBAL TECH OUTAGE",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "server",
+            "hat": "press",
+            "pose": "alarm"
+          },
+          "stat": {},
+          "fact": "GLOBAL DISRUPTION FOR 24 HOURS",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "graphic",
+          "caption": "One failure caused a massive ripple effect.",
+          "detail": "The world depends on few tech giants.",
+          "narration": "A single tech failure rippled out, breaking systems that rely on these providers.",
+          "seconds": 3.2,
+          "graphic": "flow",
+          "data": {
+            "steps": [
+              "Tech update fails",
+              "Systems crash globally",
+              "World grinds down"
+            ]
+          },
+          "image_url": null,
+          "chapter": "A CHAIN REACTION",
+          "pose": "present",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "server",
+            "hat": "press",
+            "pose": "present"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "Microsoft is deeply sorry for the mess.",
+          "detail": "The company acknowledged the widespread disruption caused.",
+          "narration": "Microsoft has issued an apology, saying they are deeply sorry for the global mess.",
+          "seconds": 3.2,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "MICROSOFT RESPONDS",
+          "pose": "jump",
+          "say": "",
+          "plates": [
+            "story"
+          ],
+          "tone": "",
+          "scene": {
+            "set": "trading",
+            "hat": "none",
+            "pose": "nod"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "SORRY",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "This is a stark reminder for everyone.",
+          "detail": "We depend on a small group today.",
+          "narration": "Experts say this is a stark reminder of how much we rely on big tech.",
+          "seconds": 3.2,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "WHY IT MATTERS",
+          "pose": "talk",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "newsroom",
+            "hat": "none",
+            "pose": "point"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "The world feels the shake when they slip.",
+          "detail": "Reliance on big tech creates fragile systems.",
+          "narration": "When a few companies hold the keys, the whole world feels the shake when they slip.",
+          "seconds": 3.5,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "TOO BIG TO FAIL",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "newsroom",
+            "hat": "none",
+            "pose": "think"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "outro",
+          "caption": "Get the full story at headlinne.com today.",
+          "detail": "Stay informed with our AI powered app.",
+          "narration": "Get the full breakdown on these tech trends and more at headlinne dot com.",
+          "seconds": 3.2,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "GET THE FULL STORY",
+          "pose": "cta",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "newsroom",
+            "hat": "none",
+            "pose": "cheer"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        }
+      ],
+      "caption": "Microsoft 'deeply sorry' for global outage after almost 24 hours of disruption\n\nIs big tech too fragile?\n\nFollow @headlinnedotcom for a daily brief. Full story on HEADLINNE.com.\n\n#TechNews #AI #Tech #Microsoft",
+      "hashtags": [
+        "TechNews",
+        "AI",
+        "Tech",
+        "Microsoft",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-11-14T09:30:00+05:30",
+      "first_comment": "#Headlinne",
+      "sources": "BBC Technology",
+      "story_url": "https://www.bbc.co.uk/news/articles/c6rrg51rkz09o?at_medium=RSS&at_campaign=rss",
+      "dateline": "SAT 14 NOV",
+      "story": null,
+      "duration_seconds": 27.4,
+      "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-14/reels/reel_1.mp4",
+      "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-14/reels/reel_1_cover.png",
+      "audio_file": null,
+      "has_voiceover": false
+    }
+  ],
+  "story_card": {
+    "slot": "story_card",
+    "category": "Geopolitics",
+    "headline": "Trump cabinet clashes over Nvidia chip exports",
+    "standfirst": "A public dispute between top officials highlights tensions over China trade policies.",
+    "steps": [
+      {
+        "label": "What happened",
+        "text": "Treasury Secretary Scott Bessent is blaming Commerce Secretary Howard Lutnick for a major chip export"
+      },
+      {
+        "label": "How we got here",
+        "text": "Nvidia chips were exported to a firm suspected of having deep ties to China despite existing"
+      },
+      {
+        "label": "Why it matters",
+        "text": "This public finger-pointing reveals internal divisions in the administration over regulating tech trade."
+      },
+      {
+        "label": "What to watch",
+        "text": "Look for new, stricter oversight rules from the Commerce Department to address these security gaps."
+      }
+    ],
+    "caption": "Treasury Secretary Scott Bessent and Commerce Secretary Howard Lutnick are clashing over Nvidia chip exports to China.\n\nThe dispute centers on whether the Commerce Department failed to block shipments to a firm with suspicious links. This public disagreement exposes significant friction within the current administration regarding how strictly to enforce tech trade bans. It raises questions about how the U.S. will manage sensitive technology exports moving forward.\n\nShould the government prioritize strict trade enforcement or business interests when regulating tech exports?\n\nSave this one. Follow for the daily card. Full story on HEADLINNE.com.\n\n#WorldNews #Geopolitics #GlobalNews #Nvidia",
+    "hashtags": [
+      "WorldNews",
+      "Geopolitics",
+      "GlobalNews",
+      "Nvidia",
+      "TrumpAdministration",
+      "TechTrade",
+      "ChinaRelations",
+      "USPolitics",
+      "Semiconductors",
+      "ScottBessent",
+      "HowardLutnick",
+      "CommerceDepartment",
+      "TreasuryDepartment",
+      "InternationalNews",
+      "NewsExplained",
+      "Headlinne"
+    ],
+    "scheduled_time": "2026-11-14T21:30:00+05:30",
+    "first_comment": "#TrumpAdministration #TechTrade #ChinaRelations #USPolitics #Semiconductors #ScottBessent #HowardLutnick #CommerceDepartment #TreasuryDepartment #InternationalNews #NewsExplained #Headlinne",
+    "sources": "BBC World · Guardian World · Guardian Business · CNBC Finance",
+    "story_url": "https://www.bbc.co.uk/news/articles/cqvg2d1eg7zro?at_medium=RSS&at_campaign=rss",
+    "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/2783/live/a5cdb560-df6c-11f1-9892-87464bbcc2b8.jpg",
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-14/story_card/story_card.png",
+    "story": null
+  }
+}
