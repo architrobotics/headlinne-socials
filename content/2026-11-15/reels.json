@@ -1,0 +1,228 @@
+[
+  {
+    "slot": "reel_1",
+    "kind": "news",
+    "category": "Geopolitics",
+    "title": "'Can you believe it?': SpaceX catches part of its Starship rocket on return to Earth",
+    "hook": "'Can you believe it?': SpaceX catches part of its Starship rocket on return to Earth",
+    "beats": [
+      {
+        "role": "hook",
+        "caption": "'Can you believe it?': SpaceX catches part of its Starship rocket on return to Earth",
+        "detail": "",
+        "narration": "",
+        "seconds": 6.67,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "",
+        "pose": "",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {},
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": ""
+      },
+      {
+        "role": "hook",
+        "caption": "Three things happened in space.",
+        "detail": "One of them is a game changer.",
+        "narration": "Three things happened in space. The third one is the game changer.",
+        "seconds": 3.1,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "THREE SPACE UPDATES",
+        "pose": "walk",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "space",
+          "hat": "none",
+          "pose": "talk"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "SpaceX caught a rocket booster.",
+        "detail": "It happened on the return to Earth.",
+        "narration": "SpaceX just caught a giant rocket booster using massive mechanical arms.",
+        "seconds": 3.1,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "SPACEX MAKES HISTORY",
+        "pose": "point",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "space",
+          "hat": "hardhat",
+          "pose": "present"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "graphic",
+        "caption": "The catch happens in seconds.",
+        "detail": "A new way to land boosters.",
+        "narration": "It looks like this. The rocket launches, separates, and then lands right in the arms.",
+        "seconds": 3.1,
+        "graphic": "flow",
+        "data": {
+          "steps": [
+            "Rocket launches",
+            "Booster separates",
+            "Arms catch it"
+          ]
+        },
+        "image_url": null,
+        "chapter": "HOW IT WORKS",
+        "pose": "present",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "space",
+          "hat": "hardhat",
+          "pose": "point"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "They called the arms chopsticks.",
+        "detail": "A historic feat for the company.",
+        "narration": "Engineers nicknamed the capture arms chopsticks. They successfully grabbed the vehicle mid-air.",
+        "seconds": 3.1,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "THE CHOPSTICKS",
+        "pose": "jump",
+        "say": "",
+        "plates": [
+          "story"
+        ],
+        "tone": "",
+        "scene": {
+          "set": "space",
+          "hat": "hardhat",
+          "pose": "cheer"
+        },
+        "stat": {},
+        "fact": "CHOPSTICKS GRABBED THE BOOSTER",
+        "stamp": "CAUGHT",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "Faster reuse for future travel.",
+        "detail": "Efficiency is the name of the game.",
+        "narration": "This makes reusing rockets much faster. It could change how we travel to space.",
+        "seconds": 3.1,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "WHY IT MATTERS",
+        "pose": "talk",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "space",
+          "hat": "hardhat",
+          "pose": "think"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "Six sources confirm the story.",
+        "detail": "Verified by BBC, Guardian, and others.",
+        "narration": "Six independent news outlets confirmed this event. It really happened just like that.",
+        "seconds": 3.1,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "VERIFIED FACTS",
+        "pose": "point",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "newsroom",
+          "hat": "press",
+          "pose": "nod"
+        },
+        "stat": {},
+        "fact": "SIX SOURCES CONFIRM",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "outro",
+        "caption": "Get more at Headlinne.com.",
+        "detail": "Keep up with the latest news.",
+        "narration": "Get the full story and more verified news daily at Headlinne dot com.",
+        "seconds": 2.74,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "STAY UPDATED",
+        "pose": "cta",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "newsroom",
+          "hat": "press",
+          "pose": "present"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      }
+    ],
+    "caption": "'Can you believe it?': SpaceX catches part of its Starship rocket on return to Earth\n\nCould this change rocket travel?\n\nFollow @headlinnedotcom for a daily brief. Full story on HEADLINNE.com.\n\n#WorldNews #Geopolitics #GlobalNews #SpaceX",
+    "hashtags": [
+      "WorldNews",
+      "Geopolitics",
+      "GlobalNews",
+      "SpaceX",
+      "Starship",
+      "TechNews",
+      "Headlinne"
+    ],
+    "scheduled_time": "2026-11-15T09:30:00+05:30",
+    "first_comment": "#Starship #TechNews #Headlinne",
+    "sources": "BBC World · France 24 · Guardian World · The Verge +2",
+    "story_url": "https://www.bbc.co.uk/news/videos/cwlym2gy3y3eo?at_medium=RSS&at_campaign=rss",
+    "dateline": "SUN 15 NOV",
+    "story": null,
+    "duration_seconds": 28.0,
+    "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-15/reels/reel_1.mp4",
+    "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-15/reels/reel_1_cover.png",
+    "audio_file": null,
+    "has_voiceover": false
+  }
+]
