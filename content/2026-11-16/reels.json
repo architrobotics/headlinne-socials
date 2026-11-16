@@ -1,0 +1,227 @@
+[
+  {
+    "slot": "reel_1",
+    "kind": "news",
+    "category": "Geopolitics",
+    "title": "Estonia to close all border crossings with Russia after attack on drone maker",
+    "hook": "Estonia to close all border crossings with Russia after attack on drone maker",
+    "beats": [
+      {
+        "role": "hook",
+        "caption": "Estonia to close all border crossings with Russia after attack on drone maker",
+        "detail": "",
+        "narration": "",
+        "seconds": 5.0,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "",
+        "pose": "",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {},
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": ""
+      },
+      {
+        "role": "hook",
+        "caption": "Estonia is shutting down all crossings.",
+        "detail": "Effective from December 1st.",
+        "narration": "We treat borders like simple lines on a map. But Estonia just closed its entire border with Russia.",
+        "seconds": 2.9,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "BORDERS ARE CLOSING",
+        "pose": "walk",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "maproom",
+          "hat": "none",
+          "pose": "present"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "A drone factory was deliberately attacked.",
+        "detail": "Incident occurred over the weekend.",
+        "narration": "This follows a targeted sabotage attack on a drone maker inside the country over the weekend.",
+        "seconds": 2.9,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "THE SABOTAGE",
+        "pose": "point",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "lab",
+          "hat": "hardhat",
+          "pose": "alarm"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "Authorities link the attack to Russian intelligence.",
+        "detail": "Investigators found clear evidence of coordination.",
+        "narration": "Estonian authorities say the attack was ordered by Russian intelligence services to disrupt local operations.",
+        "seconds": 3.2,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "WHO IS RESPONSIBLE",
+        "pose": "present",
+        "say": "",
+        "plates": [
+          "story"
+        ],
+        "tone": "",
+        "scene": {
+          "set": "maproom",
+          "hat": "none",
+          "pose": "scan"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "graphic",
+        "caption": "The sequence of events is clear.",
+        "detail": "Steps taken by Estonian officials.",
+        "narration": "One event triggered a security review, leading to this total border closure.",
+        "seconds": 2.9,
+        "graphic": "flow",
+        "data": {
+          "steps": [
+            "Drone maker attacked",
+            "Intelligence links found",
+            "Borders shut down"
+          ]
+        },
+        "image_url": null,
+        "chapter": "THE CHAIN OF EVENTS",
+        "pose": "jump",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "maproom",
+          "hat": "none",
+          "pose": "point"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "All border crossings close December 1.",
+        "detail": "Measures are immediate and strict.",
+        "narration": "Starting December 1, no one will be able to cross between the two nations.",
+        "seconds": 2.9,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "DECEMBER DEADLINE",
+        "pose": "talk",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "maproom",
+          "hat": "none",
+          "pose": "present"
+        },
+        "stat": {},
+        "fact": "BORDER CLOSES 1 DECEMBER",
+        "stamp": "BANNED",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "Tensions rise over support for Ukraine.",
+        "detail": "PM cites clear retaliatory motives.",
+        "narration": "The Estonian Prime Minister links this hostility directly to the country's ongoing support for Ukraine.",
+        "seconds": 2.9,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "WHY IT MATTERS",
+        "pose": "point",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "parliament",
+          "hat": "none",
+          "pose": "talk"
+        },
+        "stat": {},
+        "fact": "PM LINKS ATTACK TO UKRAINE",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "outro",
+        "caption": "Get the full story at Headlinne.com.",
+        "detail": "Download the app today.",
+        "narration": "Get the full story and stay ahead of the news at Headlinne.com.",
+        "seconds": 2.9,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "STAY INFORMED",
+        "pose": "cta",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "newsroom",
+          "hat": "press",
+          "pose": "cheer"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      }
+    ],
+    "caption": "Estonia to close all border crossings with Russia after attack on drone maker\n\nWill borders stay closed?\n\nFollow @headlinnedotcom for a daily brief. Full story on HEADLINNE.com.\n\n#WorldNews #Geopolitics #GlobalNews #Estonia",
+    "hashtags": [
+      "WorldNews",
+      "Geopolitics",
+      "GlobalNews",
+      "Estonia",
+      "News",
+      "Headlinne"
+    ],
+    "scheduled_time": "2026-11-16T09:30:00+05:30",
+    "first_comment": "#News #Headlinne",
+    "sources": "Guardian World · France 24 · Al Jazeera",
+    "story_url": "https://www.theguardian.com/world/2026/nov/15/estonia-to-close-all-border-crossings-with-russia-after-attack-on-drone-maker",
+    "dateline": "MON 16 NOV",
+    "story": null,
+    "duration_seconds": 25.6,
+    "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-16/reels/reel_1.mp4",
+    "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-16/reels/reel_1_cover.png",
+    "audio_file": null,
+    "has_voiceover": false
+  }
+]
