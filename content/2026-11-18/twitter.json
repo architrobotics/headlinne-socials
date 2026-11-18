@@ -1,0 +1,107 @@
+[
+  {
+    "category": "Tech",
+    "post": "Big moves shaking up the tech world.\n• Nvidia posted strong earnings despite Jensen Huang leaving\n• California is suing OpenAI over AI safety concerns\n• Nvidia is stopping chip sales to China under new leadership HEADLINNE.com #TechNews #Nvidia",
+    "hashtags": [
+      "TechNews",
+      "Nvidia"
+    ],
+    "scheduled_time": "2026-11-18T13:00:00+05:30",
+    "kind": "news",
+    "lead": "Big moves shaking up the tech world.",
+    "items": [
+      "Nvidia posted strong earnings despite Jensen Huang leaving",
+      "California is suing OpenAI over AI safety concerns",
+      "Nvidia is stopping chip sales to China under new leadership"
+    ],
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-18/x/x_1.png",
+    "story": {
+      "title": "Nvidia says it won't reinstate Huang as firm reports bumper results",
+      "summary": "The AI chip giant reported strong quarterly earnings on Tuesday after the dramatic exit of Jensen Huang.",
+      "url": "https://www.bbc.co.uk/news/articles/cm2kl50vkwkdo?at_medium=RSS&at_campaign=rss",
+      "category": "Technology",
+      "source": "BBC Technology",
+      "tier": 1.4,
+      "published_iso": "2026-11-18T00:28:01+00:00",
+      "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/2e48/live/58880030-e2d7-11f1-99a1-253766e7ad8b.jpg",
+      "corroborating_sources": [
+        "BBC Business",
+        "BBC World",
+        "Guardian Business",
+        "The Verge"
+      ],
+      "score": 16.287,
+      "verified": true,
+      "sensitive": false,
+      "agreement": {
+        "reported": 4,
+        "agree": 4,
+        "conflict": 0,
+        "claim": "",
+        "claim_unit": "",
+        "outlets": [
+          "BBC Technology",
+          "Guardian Business",
+          "The Verge",
+          "BBC Business"
+        ],
+        "conflicts": []
+      }
+    }
+  },
+  {
+    "category": "Geopolitics",
+    "post": "Today's top global headlines\n• Nvidia's Jensen Huang will testify to Congress about security\n• The AI pioneer is now fighting viral AI-generated misinformation\n• Ukraine claims a major attack on the Crimean Bridge succeeded HEADLINNE.com #Geopolitics #Tech",
+    "hashtags": [
+      "Geopolitics",
+      "Tech"
+    ],
+    "scheduled_time": "2026-11-18T17:00:00+05:30",
+    "kind": "news",
+    "lead": "Today's top global headlines",
+    "items": [
+      "Nvidia's Jensen Huang will testify to Congress about security",
+      "The AI pioneer is now fighting viral AI-generated misinformation",
+      "Ukraine claims a major attack on the Crimean Bridge succeeded"
+    ],
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-18/x/x_2.png",
+    "story": {
+      "title": "Jensen Huang to testify before Congress on ‘potential breach of national security’",
+      "summary": "High-stakes hearing comes in wake of resignation from Nvidia after alleged affair with suspected Chinese spy Nvidia’s former CEO Jensen Huang will testify before several congressional committees on 1 December, setting the stage for a high-stakes hearing in the wake of his resignation following an affair with a suspected Chinese spy. Tim Teter, Nvidia’s general counsel, has also agreed to appear for a closed-door transcribed interview the following day, 2 December. Continue reading...",
+      "url": "https://www.theguardian.com/technology/2026/nov/17/jensen-huang-testify-congress-nvidia-affair-spy",
+      "category": "Geopolitics",
+      "source": "Guardian World",
+      "tier": 1.1,
+      "published_iso": "2026-11-17T17:58:05+00:00",
+      "image_url": "https://i.guim.co.uk/img/media/fea99f9d4b797af26b13a23bec5d015fdb40ae5a/333_0_3333_2667/master/3333.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=925e666b4367461e96fdfe14c959ef16",
+      "corroborating_sources": [
+        "Deutsche Welle",
+        "Engadget",
+        "France 24",
+        "Guardian Business",
+        "TechCrunch",
+        "The Verge"
+      ],
+      "score": 14.596,
+      "verified": true,
+      "sensitive": false,
+      "agreement": {
+        "reported": 7,
+        "agree": 2,
+        "conflict": 0,
+        "claim": "1",
+        "claim_unit": "reported",
+        "outlets": [
+          "Guardian World",
+          "Engadget",
+          "TechCrunch",
+          "Guardian Business",
+          "Deutsche Welle",
+          "The Verge",
+          "France 24"
+        ],
+        "conflicts": []
+      }
+    }
+  }
+]
