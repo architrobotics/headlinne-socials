@@ -1,0 +1,227 @@
+[
+  {
+    "slot": "reel_1",
+    "kind": "news",
+    "category": "Geopolitics",
+    "title": "Israeli military launches rare ground operation in Gaza beyond Yellow Line",
+    "hook": "Israeli military launches rare ground operation in Gaza beyond Yellow Line",
+    "beats": [
+      {
+        "role": "hook",
+        "caption": "Israeli military launches rare ground operation in Gaza beyond Yellow Line",
+        "detail": "",
+        "narration": "",
+        "seconds": 3.86,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "",
+        "pose": "",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {},
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": ""
+      },
+      {
+        "role": "hook",
+        "caption": "Here is how military planners describe a tactical operation.",
+        "detail": "Understanding the mechanics of military movement.",
+        "narration": "Here is how military planners describe a tactical ground operation.",
+        "seconds": 3.34,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "INSIDE A GROUND OPERATION",
+        "pose": "walk",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "maproom",
+          "hat": "press",
+          "pose": "present"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "Israeli troops just launched a rare ground push in Gaza.",
+        "detail": "The operation has begun.",
+        "narration": "Israeli troops just launched a rare ground push in Gaza.",
+        "seconds": 3.6,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "ISRAELI FORCES MOVE",
+        "pose": "point",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "maproom",
+          "hat": "press",
+          "pose": "point"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "They moved past the established Yellow Line to target a tunnel.",
+        "detail": "Targeting infrastructure.",
+        "narration": "They moved past the established Yellow Line to target a tunnel.",
+        "seconds": 3.86,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "BEYOND THE YELLOW LINE",
+        "pose": "present",
+        "say": "",
+        "plates": [
+          "story"
+        ],
+        "tone": "",
+        "scene": {
+          "set": "maproom",
+          "hat": "hardhat",
+          "pose": "nod"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "graphic",
+        "caption": "The military says the goal is dismantling a terror tunnel.",
+        "detail": "The operational sequence.",
+        "narration": "The military says the goal is dismantling a terror tunnel.",
+        "seconds": 3.6,
+        "graphic": "flow",
+        "data": {
+          "steps": [
+            "Military entry",
+            "Tunnel location",
+            "Dismantle site"
+          ]
+        },
+        "image_url": null,
+        "chapter": "THE MISSION",
+        "pose": "jump",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "maproom",
+          "hat": "hardhat",
+          "pose": "talk"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "Hamas condemned the move as a flagrant ceasefire violation.",
+        "detail": "Strong opposition reported.",
+        "narration": "Hamas condemned the move as a flagrant ceasefire violation.",
+        "seconds": 3.34,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "HAMAS RESPONDS",
+        "pose": "talk",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "parliament",
+          "hat": "none",
+          "pose": "alarm"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "VIOLATION",
+        "stamp_tone": "bad"
+      },
+      {
+        "role": "point",
+        "caption": "Four independent outlets confirm these details are accurate.",
+        "detail": "Multiple sources in agreement.",
+        "narration": "Four independent outlets confirm these details are accurate.",
+        "seconds": 3.07,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "VERIFIED REPORTS",
+        "pose": "point",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "newsroom",
+          "hat": "press",
+          "pose": "present"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "outro",
+        "caption": "Get the full context on this story at headlinne.com.",
+        "detail": "Stay updated.",
+        "narration": "Get the full context on this story at headlinne.com.",
+        "seconds": 3.34,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "STAY INFORMED",
+        "pose": "cta",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "newsroom",
+          "hat": "none",
+          "pose": "bounce"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      }
+    ],
+    "caption": "Israeli military launches rare ground operation in Gaza beyond Yellow Line\n\nWill this impact the ceasefire?\n\nFollow @headlinnedotcom for a daily brief. Full story on HEADLINNE.com.\n\n#WorldNews #Geopolitics #GlobalNews #Gaza",
+    "hashtags": [
+      "WorldNews",
+      "Geopolitics",
+      "GlobalNews",
+      "Gaza",
+      "MiddleEastNews",
+      "Headlinne"
+    ],
+    "scheduled_time": "2026-11-19T09:30:00+05:30",
+    "first_comment": "#MiddleEastNews #Headlinne",
+    "sources": "BBC World · Guardian World · France 24 · Al Jazeera",
+    "story_url": "https://www.bbc.co.uk/news/articles/cw8r7510degno?at_medium=RSS&at_campaign=rss",
+    "dateline": "THU 19 NOV",
+    "story": null,
+    "duration_seconds": 28.0,
+    "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-19/reels/reel_1.mp4",
+    "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-19/reels/reel_1_cover.png",
+    "audio_file": null,
+    "has_voiceover": false
+  }
+]
