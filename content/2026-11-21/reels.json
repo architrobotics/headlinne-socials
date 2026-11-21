@@ -1,0 +1,228 @@
+[
+  {
+    "slot": "reel_1",
+    "kind": "news",
+    "category": "Geopolitics",
+    "title": "Trump threatens ban on US firms building AI data centres overseas",
+    "hook": "Trump threatens ban on US firms building AI data centres overseas",
+    "beats": [
+      {
+        "role": "hook",
+        "caption": "Trump threatens ban on US firms building AI data centres overseas",
+        "detail": "",
+        "narration": "",
+        "seconds": 4.4,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "",
+        "pose": "",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {},
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": ""
+      },
+      {
+        "role": "hook",
+        "caption": "Why is restricting infrastructure on the table?",
+        "detail": "Trump suggests a new ban on data centers.",
+        "narration": "Why would a president want to stop companies from building AI data centers overseas?",
+        "seconds": 3.2,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "WHY BLOCK TECH GROWTH?",
+        "pose": "walk",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "parliament",
+          "hat": "press",
+          "pose": "present"
+        },
+        "stat": {},
+        "fact": "TRUMP THREATENS DATA CENTER BAN",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "A potential ban on overseas AI expansion.",
+        "detail": "The proposal targets international data center construction.",
+        "narration": "President Trump is threatening to block US firms from building AI data centers in other countries.",
+        "seconds": 3.2,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "THE PROPOSED BAN",
+        "pose": "point",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "parliament",
+          "hat": "press",
+          "pose": "talk"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "BANNED",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "These server farms are the engine of AI.",
+        "detail": "Infrastructure location is key for tech giants.",
+        "narration": "AI requires massive, power-hungry server farms to function. Companies often build where energy is cheaper.",
+        "seconds": 3.5,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "WHERE AI LIVES",
+        "pose": "present",
+        "say": "",
+        "plates": [
+          "story"
+        ],
+        "tone": "",
+        "scene": {
+          "set": "server",
+          "hat": "hardhat",
+          "pose": "scan"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "graphic",
+        "caption": "The proposal is short on details.",
+        "detail": "Advisors heard about the plan for the first time.",
+        "narration": "But the policy is still vague. Even Trump's own team was caught off guard by the news.",
+        "seconds": 2.9,
+        "graphic": "flow",
+        "data": {
+          "steps": [
+            "Trump proposes ban",
+            "Team is surprised",
+            "Details remain unclear"
+          ]
+        },
+        "image_url": null,
+        "chapter": "LITTLE DETAIL",
+        "pose": "jump",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "server",
+          "hat": "hardhat",
+          "pose": "think"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "Forcing infrastructure to stay domestic.",
+        "detail": "It changes where tech giants invest capital.",
+        "narration": "If enacted, this could force companies to keep their infrastructure strictly inside the United States.",
+        "seconds": 2.6,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "WHAT IT MEANS",
+        "pose": "talk",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "trading",
+          "hat": "none",
+          "pose": "point"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "A major shift in tech strategy.",
+        "detail": "The goal seems to be national control.",
+        "narration": "It is a major shift in how the US handles tech sovereignty and energy use.",
+        "seconds": 2.9,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "THE BIG PICTURE",
+        "pose": "point",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "maproom",
+          "hat": "none",
+          "pose": "present"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "outro",
+        "caption": "Keep up with tech policy news.",
+        "detail": "Verified reporting on every major headline.",
+        "narration": "We will track how this develops. Get the full story at headlinne.com.",
+        "seconds": 2.9,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "STAY INFORMED",
+        "pose": "cta",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "newsroom",
+          "hat": "none",
+          "pose": "bounce"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      }
+    ],
+    "caption": "Trump threatens ban on US firms building AI data centres overseas\n\nWill AI servers stay domestic?\n\nFollow @headlinnedotcom for a daily brief. Full story on HEADLINNE.com.\n\n#WorldNews #Geopolitics #GlobalNews #AI",
+    "hashtags": [
+      "WorldNews",
+      "Geopolitics",
+      "GlobalNews",
+      "AI",
+      "TechNews",
+      "Policy",
+      "Headlinne"
+    ],
+    "scheduled_time": "2026-11-21T09:30:00+05:30",
+    "first_comment": "#TechNews #Policy #Headlinne",
+    "sources": "BBC Technology",
+    "story_url": "https://www.bbc.co.uk/news/articles/cmde1lw9y54ko?at_medium=RSS&at_campaign=rss",
+    "dateline": "SAT 21 NOV",
+    "story": null,
+    "duration_seconds": 25.6,
+    "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-21/reels/reel_1.mp4",
+    "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-21/reels/reel_1_cover.png",
+    "audio_file": null,
+    "has_voiceover": false
+  }
+]
