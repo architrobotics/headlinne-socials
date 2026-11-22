@@ -1,0 +1,104 @@
+[
+  {
+    "category": "Geopolitics",
+    "post": "Today's top global stories\n• Mexican forces caught FBI fugitive El Chapo Isidro in Sinaloa\n• A Russian missile strike hit Zelensky's hometown, killing two\n• Ukraine reaffirmed its goal to join NATO despite ongoing attacks HEADLINNE.com #Geopolitics #WorldNews",
+    "hashtags": [
+      "Geopolitics",
+      "WorldNews"
+    ],
+    "scheduled_time": "2026-11-22T13:00:00+05:30",
+    "kind": "news",
+    "lead": "Today's top global stories",
+    "items": [
+      "Mexican forces caught FBI fugitive El Chapo Isidro in Sinaloa",
+      "A Russian missile strike hit Zelensky's hometown, killing two",
+      "Ukraine reaffirmed its goal to join NATO despite ongoing attacks"
+    ],
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-22/x/x_1.png",
+    "story": {
+      "title": "Alleged Mexican drug cartel boss ‘El Chapo Isidro’ arrested in special forces raid",
+      "summary": "Fausto Isidro Meza Flores was one of FBI’s most wanted fugitives and evaded capture for more than a decade The Mexican military captured one of the FBI’s 10 most wanted fugitives during a special forces raid in the Mexican state of Sinaloa on Friday night. Fausto Isidro Meza Flores, known as “El Chapo Isidro”, was arrested along with two other alleged leaders of his gang after a gun battle that triggered widespread panic in the city of Guasave. Continue reading...",
+      "url": "https://www.theguardian.com/world/2026/nov/21/alleged-mexican-drug-cartel-boss-el-chapo-isidro-meza-flores-arrested",
+      "category": "Geopolitics",
+      "source": "Guardian World",
+      "tier": 1.1,
+      "published_iso": "2026-11-21T17:46:55+00:00",
+      "image_url": "https://i.guim.co.uk/img/media/109833a4d1387ede241180856c6e37007aa8a6a3/264_354_897_717/master/897.jpg?width=700&quality=85&auto=format&fit=max&s=0edca5217d8c45ec717c5f45f4cba86a",
+      "corroborating_sources": [
+        "Al Jazeera",
+        "BBC World",
+        "France 24",
+        "NPR World",
+        "Sky World"
+      ],
+      "score": 13.131,
+      "verified": true,
+      "sensitive": false,
+      "agreement": {
+        "reported": 6,
+        "agree": 2,
+        "conflict": 0,
+        "claim": "10",
+        "claim_unit": "reported",
+        "outlets": [
+          "Guardian World",
+          "France 24",
+          "Al Jazeera",
+          "NPR World",
+          "BBC World",
+          "Sky World"
+        ],
+        "conflicts": []
+      }
+    }
+  },
+  {
+    "category": "Tech",
+    "post": "Today's top tech stories to know.\n• The FBI and USDA were hacked, marking the FBI's second breach lately\n• SpaceX faces military contract risks over Starshield issues in Ukraine\n• Officials are investigating the FBI database breach HEADLINNE.com #TechNews #Security",
+    "hashtags": [
+      "TechNews",
+      "Security"
+    ],
+    "scheduled_time": "2026-11-22T17:00:00+05:30",
+    "kind": "news",
+    "lead": "Today's top tech stories to know.",
+    "items": [
+      "The FBI and USDA were hacked, marking the FBI's second breach lately",
+      "SpaceX faces military contract risks over Starshield issues in Ukraine",
+      "Officials are investigating the FBI database breach"
+    ],
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-22/x/x_2.png",
+    "story": {
+      "title": "The FBI and USDA were reportedly hacked",
+      "summary": "Friday, it was reported that both the US Department of Agriculture (USDA) and the FBI were hacked. In reporting on the FBI hack, CNN noted that this is the second such attack on the agency in the last few months, this time targeting the National Crime Information Center (NCIC), which federal, state, and local law [&#8230;]",
+      "url": "https://www.theverge.com/tech/1039543/fbi-usda-hacked",
+      "category": "Technology",
+      "source": "The Verge",
+      "tier": 1.1,
+      "published_iso": "2026-11-21T17:42:27+00:00",
+      "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/23318430/akrales_220309_4977_0038.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
+      "corroborating_sources": [
+        "BBC World",
+        "France 24",
+        "TechCrunch"
+      ],
+      "score": 10.278,
+      "verified": true,
+      "sensitive": false,
+      "agreement": {
+        "reported": 4,
+        "agree": 1,
+        "conflict": 0,
+        "claim": "8,230",
+        "claim_unit": "reported",
+        "outlets": [
+          "The Verge",
+          "France 24",
+          "BBC World",
+          "TechCrunch"
+        ],
+        "conflicts": []
+      }
+    }
+  }
+]

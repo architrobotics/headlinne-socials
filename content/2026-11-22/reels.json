@@ -1,0 +1,234 @@
+[
+  {
+    "slot": "reel_1",
+    "kind": "news",
+    "category": "Geopolitics",
+    "title": "Alleged Mexican drug cartel boss ‘El Chapo Isidro’ arrested in special forces raid",
+    "hook": "Alleged Mexican drug cartel boss ‘El Chapo Isidro’ arrested in special forces raid",
+    "beats": [
+      {
+        "role": "hook",
+        "caption": "Alleged Mexican drug cartel boss ‘El Chapo Isidro’ arrested in special forces raid",
+        "detail": "",
+        "narration": "",
+        "seconds": 5.0,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "",
+        "pose": "",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {},
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": ""
+      },
+      {
+        "role": "hook",
+        "caption": "A long-hunted fugitive is finally in custody.",
+        "detail": "Decade-long evasion comes to an end.",
+        "narration": "Imagine a ghost haunting a town for a decade. Now, that ghost has finally been dragged into the light.",
+        "seconds": 3.2,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "A GHOST FINALLY CAUGHT",
+        "pose": "walk",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "street",
+          "hat": "none",
+          "pose": "present"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "Special forces arrested the cartel boss in Sinaloa.",
+        "detail": "Raid took place on Friday night.",
+        "narration": "Mexican special forces raided a home in Sinaloa on Friday. They captured Fausto Isidro Meza Flores.",
+        "seconds": 3.5,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "EL CHAPO ISIDRO ARRESTED",
+        "pose": "point",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "maproom",
+          "hat": "none",
+          "pose": "talk"
+        },
+        "stat": {},
+        "fact": "RAID IN SINALOA STATE",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "graphic",
+        "caption": "He evaded authorities for more than a decade.",
+        "detail": "Known as El Chapo Isidro.",
+        "narration": "He was on the FBI’s ten most wanted list. He managed to evade capture for over ten years.",
+        "seconds": 3.5,
+        "graphic": "timeline",
+        "data": {
+          "stops": [
+            "Fugitive status",
+            "Ten years",
+            "Friday raid"
+          ],
+          "note": "A decade of evasion ends."
+        },
+        "image_url": null,
+        "chapter": "FBI MOST WANTED LIST",
+        "pose": "present",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "maproom",
+          "hat": "press",
+          "pose": "point"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "graphic",
+        "caption": "This major arrest impacts cartel operations significantly.",
+        "detail": "High-level target taken off the board.",
+        "narration": "His arrest is a major development in the ongoing efforts to dismantle powerful drug cartel operations.",
+        "seconds": 3.2,
+        "graphic": "flow",
+        "data": {
+          "steps": [
+            "Cartel leadership",
+            "Special forces raid",
+            "Fugitive captured"
+          ]
+        },
+        "image_url": null,
+        "chapter": "WHY THIS MATTERS",
+        "pose": "jump",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "courtroom",
+          "hat": "none",
+          "pose": "think"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "The years-long search has officially come to an end.",
+        "detail": "A high-priority target is now in custody.",
+        "narration": "Authorities had been searching for him for a long time. He was a high-priority target for years.",
+        "seconds": 3.8,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "A LONG SEARCH ENDS",
+        "pose": "talk",
+        "say": "",
+        "plates": [
+          "story"
+        ],
+        "tone": "",
+        "scene": {
+          "set": "courtroom",
+          "hat": "none",
+          "pose": "nod"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "CAPTURED",
+        "stamp_tone": "good"
+      },
+      {
+        "role": "point",
+        "caption": "This report is verified by six independent sources.",
+        "detail": "Multiple global outlets confirm the arrest.",
+        "narration": "Major news outlets around the world have verified this report. It is confirmed by six independent sources.",
+        "seconds": 3.5,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "MULTIPLE SOURCES CONFIRM",
+        "pose": "point",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "newsroom",
+          "hat": "press",
+          "pose": "deliver"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "outro",
+        "caption": "Find the full story at headlinne.com today.",
+        "detail": "Trusted news for curious people.",
+        "narration": "Get the full story and keep up with global news at headlinne.com. Thanks for watching.",
+        "seconds": 3.2,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "STAY INFORMED DAILY",
+        "pose": "cta",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "newsroom",
+          "hat": "none",
+          "pose": "present"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      }
+    ],
+    "caption": "Alleged Mexican drug cartel boss ‘El Chapo Isidro’ arrested in special forces raid\n\nDoes this change the region?\n\nFollow @headlinnedotcom for a daily brief. Full story on HEADLINNE.com.\n\n#WorldNews #Geopolitics #GlobalNews #News",
+    "hashtags": [
+      "WorldNews",
+      "Geopolitics",
+      "GlobalNews",
+      "News",
+      "Mexico",
+      "Headlinne"
+    ],
+    "scheduled_time": "2026-11-22T09:30:00+05:30",
+    "first_comment": "#Mexico #Headlinne",
+    "sources": "Guardian World · France 24 · Al Jazeera · NPR World +2",
+    "story_url": "https://www.theguardian.com/world/2026/nov/21/alleged-mexican-drug-cartel-boss-el-chapo-isidro-meza-flores-arrested",
+    "dateline": "SUN 22 NOV",
+    "story": null,
+    "duration_seconds": 28.9,
+    "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-22/reels/reel_1.mp4",
+    "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-22/reels/reel_1_cover.png",
+    "audio_file": null,
+    "has_voiceover": false
+  }
+]
