@@ -1,0 +1,111 @@
+[
+  {
+    "category": "Tech",
+    "post": "Today's big moves in tech\n• Trump endorsed Jensen Huang's Nvidia return after clearing him of wrongdoing\n• Nvidia's value surged $1tn, pushing the Nasdaq up 6.5% today\n• The market rally highlights just how central Nvidia is to the AI boom HEADLINNE.com #Nvidia #TechNews",
+    "hashtags": [
+      "Nvidia",
+      "TechNews"
+    ],
+    "scheduled_time": "2026-11-24T13:00:00+05:30",
+    "kind": "news",
+    "lead": "Today's big moves in tech",
+    "items": [
+      "Trump endorsed Jensen Huang's Nvidia return after clearing him of wrongdoing",
+      "Nvidia's value surged $1tn, pushing the Nasdaq up 6.5% today",
+      "The market rally highlights just how central Nvidia is to the AI boom"
+    ],
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-24/x/x_1.png",
+    "story": {
+      "title": "Trump endorses Jensen Huang’s return to Nvidia, says US has no evidence of wrongdoing",
+      "summary": "The president cited the U.S. attorney general in defending Huang's return, while urging Nvidia to continue its export-control investigation.",
+      "url": "https://techcrunch.com/2026/11/23/trump-endorses-jensen-huangs-return-to-nvidia-says-us-has-no-evidence-of-wrongdoing/",
+      "category": "Technology",
+      "source": "TechCrunch",
+      "tier": 1.0,
+      "published_iso": "2026-11-23T15:04:01+00:00",
+      "image_url": "https://techcrunch.com/wp-content/uploads/2026/10/GettyImages-2297572109.jpg?w=1024",
+      "corroborating_sources": [
+        "France 24",
+        "The Verge"
+      ],
+      "score": 16.764,
+      "verified": true,
+      "sensitive": false,
+      "agreement": {
+        "reported": 3,
+        "agree": 3,
+        "conflict": 0,
+        "claim": "",
+        "claim_unit": "",
+        "outlets": [
+          "TechCrunch",
+          "France 24",
+          "The Verge"
+        ],
+        "conflicts": []
+      }
+    }
+  },
+  {
+    "category": "Finance",
+    "post": "Nvidia's wild day in the markets.\n• Jensen Huang is back as CEO after pressure from Trump\n• His return added $1 trillion to Nvidia's stock value\n• Tech stocks are rallying as the AI trade finds relief HEADLINNE.com #Nvidia #TechNews",
+    "hashtags": [
+      "Nvidia",
+      "TechNews"
+    ],
+    "scheduled_time": "2026-11-24T17:00:00+05:30",
+    "kind": "news",
+    "lead": "Nvidia's wild day in the markets.",
+    "items": [
+      "Jensen Huang is back as CEO after pressure from Trump",
+      "His return added $1 trillion to Nvidia's stock value",
+      "Tech stocks are rallying as the AI trade finds relief"
+    ],
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-24/x/x_2.png",
+    "story": {
+      "title": "Nvidia reinstates CEO Jensen Huang after affair with alleged spy as Trump says 'I made the deal'",
+      "summary": "Nvidia had come under pressure from President Trump to reappoint Huang, whose comeback helped add $1tn to the company's stock value.",
+      "url": "https://www.bbc.co.uk/news/articles/cq5y1k8ez407o?at_medium=RSS&at_campaign=rss",
+      "category": "Finance",
+      "source": "BBC Business",
+      "tier": 1.4,
+      "published_iso": "2026-11-23T14:51:05+00:00",
+      "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/c94d/live/cfb736f0-e78a-11f1-a5c2-c57ab9df3111.jpg",
+      "corroborating_sources": [
+        "BBC Technology",
+        "BBC World",
+        "France 24",
+        "Guardian Business",
+        "Guardian World",
+        "The Verge",
+        "Wired"
+      ],
+      "score": 16.847,
+      "verified": true,
+      "sensitive": false,
+      "agreement": {
+        "reported": 8,
+        "agree": 1,
+        "conflict": 1,
+        "claim": "1",
+        "claim_unit": "reported",
+        "outlets": [
+          "BBC Business",
+          "The Verge",
+          "France 24",
+          "Guardian Business",
+          "BBC Technology",
+          "Wired",
+          "Guardian World",
+          "BBC World"
+        ],
+        "conflicts": [
+          {
+            "outlet": "The Verge",
+            "value": "8,230"
+          }
+        ]
+      }
+    }
+  }
+]
