@@ -1,0 +1,226 @@
+[
+  {
+    "slot": "reel_1",
+    "kind": "news",
+    "category": "Technology",
+    "title": "US approves SpaceX plan to send a million data satellites to space",
+    "hook": "US approves SpaceX plan to send a million data satellites to space",
+    "beats": [
+      {
+        "role": "hook",
+        "caption": "US approves SpaceX plan to send a million data satellites to space",
+        "detail": "",
+        "narration": "",
+        "seconds": 4.7,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "",
+        "pose": "",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {},
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": ""
+      },
+      {
+        "role": "hook",
+        "caption": "SpaceX plans to launch one million new satellites.",
+        "detail": "US regulators just approved the plan.",
+        "narration": "SpaceX just got the green light to launch one million new satellites. That is basically a new atmosphere.",
+        "seconds": 3.5,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "A MILLION NEW SATELLITES",
+        "pose": "walk",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "space",
+          "hat": "none",
+          "pose": "present"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "The project aims to boost AI computing power.",
+        "detail": "Starmind is the name of the constellation.",
+        "narration": "They call this project Starmind. It is designed to handle the massive computing power that AI needs today.",
+        "seconds": 3.5,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "WHY SO MANY SATELLITES",
+        "pose": "point",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "server",
+          "hat": "none",
+          "pose": "point"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "graphic",
+        "caption": "A more efficient way to power AI.",
+        "detail": "Efficiency is the core focus.",
+        "narration": "The goal is to make AI computing cheaper and more energy efficient than it is right now.",
+        "seconds": 3.2,
+        "graphic": "flow",
+        "data": {
+          "steps": [
+            "Launch satellites",
+            "Process AI data",
+            "Cut energy costs"
+          ]
+        },
+        "image_url": null,
+        "chapter": "THE STARMIND GOAL",
+        "pose": "present",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "server",
+          "hat": "none",
+          "pose": "talk"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "Regulators have officially approved the plan.",
+        "detail": "The decision follows regulatory review.",
+        "narration": "Regulators reviewed the proposal and officially gave the go ahead for the massive constellation to begin.",
+        "seconds": 2.9,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "OFFICIAL APPROVAL GRANTED",
+        "pose": "jump",
+        "say": "",
+        "plates": [
+          "story"
+        ],
+        "tone": "",
+        "scene": {
+          "set": "board",
+          "hat": "press",
+          "pose": "nod"
+        },
+        "stat": {},
+        "fact": "US APPROVES SATELLITE CONSTELLATION",
+        "stamp": "APPROVED",
+        "stamp_tone": "good"
+      },
+      {
+        "role": "point",
+        "caption": "This project is a massive technical challenge.",
+        "detail": "It requires new ways to coordinate traffic.",
+        "narration": "Managing a million satellites is a huge technical challenge. It is unlike anything we have ever seen before.",
+        "seconds": 3.2,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "A MASSIVE UNDERTAKING",
+        "pose": "talk",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "lab",
+          "hat": "grad",
+          "pose": "think"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "This could change how we access AI.",
+        "detail": "Stay tuned for future launch updates.",
+        "narration": "We are waiting to see the launch schedule. This could change how we access AI on the go.",
+        "seconds": 3.2,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "WHAT HAPPENS NEXT",
+        "pose": "point",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "skyline",
+          "hat": "none",
+          "pose": "scan"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "outro",
+        "caption": "Catch up on the full story at headlinne.com.",
+        "detail": "Your daily AI-powered news briefing.",
+        "narration": "For more updates on the future of tech, check out headlinne.com. We keep you in the loop.",
+        "seconds": 3.5,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "GET THE FULL STORY",
+        "pose": "cta",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "newsroom",
+          "hat": "press",
+          "pose": "bounce"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      }
+    ],
+    "caption": "US approves SpaceX plan to send a million data satellites to space\n\nWill this change how you use AI?\n\nFollow @headlinnedotcom for a daily brief. Full story on HEADLINNE.com.\n\n#TechNews #AI #Tech #SpaceX",
+    "hashtags": [
+      "TechNews",
+      "AI",
+      "Tech",
+      "SpaceX",
+      "Headlinne"
+    ],
+    "scheduled_time": "2026-11-26T09:30:00+05:30",
+    "first_comment": "#Headlinne",
+    "sources": "BBC Business · Al Jazeera",
+    "story_url": "https://www.bbc.co.uk/news/articles/cwp836l8n1jgo?at_medium=RSS&at_campaign=rss",
+    "dateline": "THU 26 NOV",
+    "story": null,
+    "duration_seconds": 27.7,
+    "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-26/reels/reel_1.mp4",
+    "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-26/reels/reel_1_cover.png",
+    "audio_file": null,
+    "has_voiceover": false
+  }
+]

@@ -1,0 +1,514 @@
+{
+  "day": "2026-11-26",
+  "is_promo_day": false,
+  "is_friday": false,
+  "twitter": [
+    {
+      "category": "Tech",
+      "post": "Today's top stories in brief.\n• SpaceX got the green light to launch a million satellites for AI\n• These space data centers aim to handle massive computing needs\n• The Army safely detonated 9,700 pounds of lead with no air pollution HEADLINNE.com #TechNews #Space",
+      "hashtags": [
+        "TechNews",
+        "Space"
+      ],
+      "scheduled_time": "2026-11-26T13:00:00+05:30",
+      "kind": "news",
+      "lead": "Today's top stories in brief.",
+      "items": [
+        "SpaceX got the green light to launch a million satellites for AI",
+        "These space data centers aim to handle massive computing needs",
+        "The Army safely detonated 9,700 pounds of lead with no air pollution"
+      ],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-26/x/x_1.png",
+      "story": {
+        "title": "US approves SpaceX plan to send a million data satellites to space",
+        "summary": "The Starmind constellation aims to be the most cost and energy-efficient way to meet the growing demand for AI computing power.",
+        "url": "https://www.bbc.co.uk/news/articles/cwp836l8n1jgo?at_medium=RSS&at_campaign=rss",
+        "category": "Technology",
+        "source": "BBC Business",
+        "tier": 1.4,
+        "published_iso": "2026-11-25T17:44:51+00:00",
+        "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/fd78/live/4cbffd10-e91d-11f1-9108-c5b270b0703d.jpg",
+        "corroborating_sources": [
+          "Al Jazeera",
+          "TechCrunch",
+          "The Verge"
+        ],
+        "score": 16.237,
+        "verified": true,
+        "sensitive": false,
+        "agreement": {
+          "reported": 2,
+          "agree": 2,
+          "conflict": 0,
+          "claim": "",
+          "claim_unit": "",
+          "outlets": [
+            "BBC Business",
+            "Al Jazeera"
+          ],
+          "conflicts": []
+        }
+      }
+    },
+    {
+      "category": "Geopolitics",
+      "post": "Today's top global stories.\n• Russia's own data shows 500,000 casualties in the Ukraine war\n• The US approved SpaceX to build 1 million space data centres\n• The Army called its Iowa toxic disposal a success, despite risks HEADLINNE.com #Geopolitics #News",
+      "hashtags": [
+        "Geopolitics",
+        "News"
+      ],
+      "scheduled_time": "2026-11-26T17:00:00+05:30",
+      "kind": "news",
+      "lead": "Today's top global stories.",
+      "items": [
+        "Russia's own data shows 500,000 casualties in the Ukraine war",
+        "The US approved SpaceX to build 1 million space data centres",
+        "The Army called its Iowa toxic disposal a success, despite risks"
+      ],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-26/x/x_2.png",
+      "story": {
+        "title": "Russia's own figures show it has lost nearly 500,000 people in Ukraine war",
+        "summary": "Leaked data reveal how the full-scale invasion of Ukraine has fundamentally changed mortality patterns in Russia.",
+        "url": "https://www.bbc.co.uk/news/articles/cmx27g533zwyo?at_medium=RSS&at_campaign=rss",
+        "category": "Geopolitics",
+        "source": "BBC World",
+        "tier": 1.4,
+        "published_iso": "2026-11-25T12:21:49+00:00",
+        "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/1e4e/live/dce0d700-e8c5-11f1-99b6-a35a62fa4264.jpg",
+        "corroborating_sources": [
+          "France 24",
+          "Guardian Business"
+        ],
+        "score": 13.45,
+        "verified": true,
+        "sensitive": false,
+        "agreement": {
+          "reported": 3,
+          "agree": 1,
+          "conflict": 0,
+          "claim": "500,000 people",
+          "claim_unit": "people",
+          "outlets": [
+            "BBC World",
+            "France 24",
+            "Guardian Business"
+          ],
+          "conflicts": []
+        }
+      }
+    }
+  ],
+  "linkedin": {
+    "title": "Most news apps are designed to help you scan headlines, but they rarely help you understand the context behind them.",
+    "body": "When we built Deep Dive Mode for Headlinne, we wanted to solve a specific problem. We noticed that people often read a breaking story and still feel like they are missing the bigger picture. You get the 'what' but you lose the 'why' and the 'how it got here.'\n\nDeep Dive Mode changes the approach. Instead of just giving you another article, it pulls together the essential history and the key players involved in a story. It acts like a personal research assistant that connects the dots so you do not have to.\n\nWe believe that being informed is not about reading more articles. It is about reading the right ones and actually grasping the background. Technology should help us cut through the noise, not add to it.\n\nI am curious how you keep track of complex stories. Do you save tabs for later or just rely on your feed?",
+    "cta": "You can see how it works at HEADLINNE.com.",
+    "scheduled_time": "2026-11-26T18:00:00+05:30",
+    "kind": "product"
+  },
+  "instagram": [
+    {
+      "slot": "instagram_1",
+      "category": "Geopolitics",
+      "num_slides": 5,
+      "title": "FCC approves SpaceX plan for 1 million data centers",
+      "slides": [
+        {
+          "role": "cover",
+          "headline": "FCC approves SpaceX plan for 1 million data centers",
+          "explanation": "",
+          "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/08/reuters_6a7310f6-1785925878.jpg?resize=1920%2C1440",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-26/instagram/instagram_1/slide_1.png",
+          "subtitle": "SpaceX will deploy 1 million orbital data centers.",
+          "sources": "",
+          "index": 1,
+          "kicker": "DEVELOPING",
+          "pose": "alert",
+          "say": "Big changes for space",
+          "figure": "",
+          "unit": ""
+        },
+        {
+          "role": "scale",
+          "headline": "",
+          "explanation": "Imagine one million individual data hubs orbiting Earth. It is a massive expansion compared to the current satellite network.",
+          "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/08/reuters_6a7310f6-1785925878.jpg?resize=1920%2C1440",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-26/instagram/instagram_1/slide_2.png",
+          "subtitle": "",
+          "sources": "",
+          "index": 2,
+          "kicker": "THE SCALE",
+          "pose": "",
+          "say": "",
+          "figure": "",
+          "unit": ""
+        },
+        {
+          "role": "twist",
+          "headline": "This is more than just faster internet",
+          "explanation": "The project, called Starmind, aims to turn space into a computing network rather than just a connection tool. It shifts the focus from simple data transfer to active, orbital processing.",
+          "image_url": null,
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-26/instagram/instagram_1/slide_3.png",
+          "subtitle": "",
+          "sources": "",
+          "index": 3,
+          "kicker": "WHAT YOU DID NOT KNOW",
+          "pose": "puzzled",
+          "say": "Computing moves to orbit.",
+          "figure": "",
+          "unit": ""
+        },
+        {
+          "role": "sources",
+          "headline": "",
+          "explanation": "Multiple outlets including BBC Business and The Verge confirmed the FCC's approval, making the regulatory path clear.",
+          "image_url": null,
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-26/instagram/instagram_1/slide_4.png",
+          "subtitle": "",
+          "sources": "",
+          "index": 4,
+          "kicker": "SOURCES",
+          "pose": "puzzled",
+          "say": "3 sources agree",
+          "figure": "",
+          "unit": ""
+        },
+        {
+          "role": "cta",
+          "headline": "",
+          "explanation": "",
+          "image_url": null,
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-26/instagram/instagram_1/slide_5.png",
+          "subtitle": "Read the full breakdown on Headlinne.",
+          "sources": "",
+          "index": 5,
+          "kicker": "READ THE FULL STORY",
+          "pose": "carry",
+          "say": "Come and read it.",
+          "figure": "",
+          "unit": ""
+        }
+      ],
+      "caption": "The FCC just gave SpaceX the green light for a massive project known as Starmind.\n\nThis approval allows for the deployment of one million data centers in space, marking a significant shift in how we handle global information.\n\nInstead of just beaming data down to Earth, these centers will process information while still in orbit. It is a major upgrade to current satellite capabilities and infrastructure.\n\nDo you think moving data processing into space is the future of the internet?\n\nFollow @headlinnedotcom for a daily brief. Full story on HEADLINNE.com.\n\n#WorldNews #Geopolitics #GlobalNews #Politics",
+      "hashtags": [
+        "WorldNews",
+        "Geopolitics",
+        "GlobalNews",
+        "Politics",
+        "SpaceX",
+        "TechNews",
+        "Space",
+        "Innovation",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-11-26T16:00:00+05:30",
+      "first_comment": "#SpaceX #TechNews #Space #Innovation #Headlinne",
+      "story": {
+        "title": "US grants SpaceX approval for 1 million space data centres",
+        "summary": "Elon Musk hails FCC&#039;s approval of SpaceX&#039;s Starmind project as &#039;a great asset to America and the world.&#039;",
+        "url": "https://www.aljazeera.com/news/2026/11/25/us-grants-spacex-approval-for-1-million-space-data-centres?traffic_source=rss",
+        "category": "Geopolitics",
+        "source": "Al Jazeera",
+        "tier": 1.1,
+        "published_iso": "2026-11-25T19:13:02+00:00",
+        "image_url": "https://www.aljazeera.com/wp-content/uploads/2026/08/reuters_6a7310f6-1785925878.jpg?resize=1920%2C1440",
+        "corroborating_sources": [
+          "BBC Business",
+          "Space.com",
+          "The Verge"
+        ],
+        "score": 12.891,
+        "verified": true,
+        "sensitive": false,
+        "agreement": {
+          "reported": 4,
+          "agree": 3,
+          "conflict": 0,
+          "claim": "1,000,000",
+          "claim_unit": "reported",
+          "outlets": [
+            "Al Jazeera",
+            "The Verge",
+            "Space.com",
+            "BBC Business"
+          ],
+          "conflicts": []
+        }
+      },
+      "story_url": "https://www.aljazeera.com/news/2026/11/25/us-grants-spacex-approval-for-1-million-space-data-centres?traffic_source=rss"
+    }
+  ],
+  "reels": [
+    {
+      "slot": "reel_1",
+      "kind": "news",
+      "category": "Technology",
+      "title": "US approves SpaceX plan to send a million data satellites to space",
+      "hook": "US approves SpaceX plan to send a million data satellites to space",
+      "beats": [
+        {
+          "role": "hook",
+          "caption": "US approves SpaceX plan to send a million data satellites to space",
+          "detail": "",
+          "narration": "",
+          "seconds": 4.7,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "",
+          "pose": "",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {},
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": ""
+        },
+        {
+          "role": "hook",
+          "caption": "SpaceX plans to launch one million new satellites.",
+          "detail": "US regulators just approved the plan.",
+          "narration": "SpaceX just got the green light to launch one million new satellites. That is basically a new atmosphere.",
+          "seconds": 3.5,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "A MILLION NEW SATELLITES",
+          "pose": "walk",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "space",
+            "hat": "none",
+            "pose": "present"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "The project aims to boost AI computing power.",
+          "detail": "Starmind is the name of the constellation.",
+          "narration": "They call this project Starmind. It is designed to handle the massive computing power that AI needs today.",
+          "seconds": 3.5,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "WHY SO MANY SATELLITES",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "server",
+            "hat": "none",
+            "pose": "point"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "graphic",
+          "caption": "A more efficient way to power AI.",
+          "detail": "Efficiency is the core focus.",
+          "narration": "The goal is to make AI computing cheaper and more energy efficient than it is right now.",
+          "seconds": 3.2,
+          "graphic": "flow",
+          "data": {
+            "steps": [
+              "Launch satellites",
+              "Process AI data",
+              "Cut energy costs"
+            ]
+          },
+          "image_url": null,
+          "chapter": "THE STARMIND GOAL",
+          "pose": "present",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "server",
+            "hat": "none",
+            "pose": "talk"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "Regulators have officially approved the plan.",
+          "detail": "The decision follows regulatory review.",
+          "narration": "Regulators reviewed the proposal and officially gave the go ahead for the massive constellation to begin.",
+          "seconds": 2.9,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "OFFICIAL APPROVAL GRANTED",
+          "pose": "jump",
+          "say": "",
+          "plates": [
+            "story"
+          ],
+          "tone": "",
+          "scene": {
+            "set": "board",
+            "hat": "press",
+            "pose": "nod"
+          },
+          "stat": {},
+          "fact": "US APPROVES SATELLITE CONSTELLATION",
+          "stamp": "APPROVED",
+          "stamp_tone": "good"
+        },
+        {
+          "role": "point",
+          "caption": "This project is a massive technical challenge.",
+          "detail": "It requires new ways to coordinate traffic.",
+          "narration": "Managing a million satellites is a huge technical challenge. It is unlike anything we have ever seen before.",
+          "seconds": 3.2,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "A MASSIVE UNDERTAKING",
+          "pose": "talk",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "lab",
+            "hat": "grad",
+            "pose": "think"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "This could change how we access AI.",
+          "detail": "Stay tuned for future launch updates.",
+          "narration": "We are waiting to see the launch schedule. This could change how we access AI on the go.",
+          "seconds": 3.2,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "WHAT HAPPENS NEXT",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "skyline",
+            "hat": "none",
+            "pose": "scan"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "outro",
+          "caption": "Catch up on the full story at headlinne.com.",
+          "detail": "Your daily AI-powered news briefing.",
+          "narration": "For more updates on the future of tech, check out headlinne.com. We keep you in the loop.",
+          "seconds": 3.5,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "GET THE FULL STORY",
+          "pose": "cta",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "newsroom",
+            "hat": "press",
+            "pose": "bounce"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        }
+      ],
+      "caption": "US approves SpaceX plan to send a million data satellites to space\n\nWill this change how you use AI?\n\nFollow @headlinnedotcom for a daily brief. Full story on HEADLINNE.com.\n\n#TechNews #AI #Tech #SpaceX",
+      "hashtags": [
+        "TechNews",
+        "AI",
+        "Tech",
+        "SpaceX",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-11-26T09:30:00+05:30",
+      "first_comment": "#Headlinne",
+      "sources": "BBC Business · Al Jazeera",
+      "story_url": "https://www.bbc.co.uk/news/articles/cwp836l8n1jgo?at_medium=RSS&at_campaign=rss",
+      "dateline": "THU 26 NOV",
+      "story": null,
+      "duration_seconds": 27.7,
+      "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-26/reels/reel_1.mp4",
+      "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-26/reels/reel_1_cover.png",
+      "audio_file": null,
+      "has_voiceover": false
+    }
+  ],
+  "story_card": {
+    "slot": "story_card",
+    "category": "Geopolitics",
+    "headline": "Russia reports nearly 500,000 war casualties",
+    "standfirst": "Leaked data exposes the massive human cost of the invasion in Ukraine.",
+    "steps": [
+      {
+        "label": "What happened",
+        "text": "Leaked figures indicate Russia has lost nearly 500,000 people during its full-scale invasion of Ukraine."
+      },
+      {
+        "label": "How we got here",
+        "text": "The ongoing war has fundamentally altered mortality patterns across Russia since the invasion began."
+      },
+      {
+        "label": "Why it matters",
+        "text": "These internal numbers provide a rare, verified look at the scale of human loss from the conflict."
+      },
+      {
+        "label": "What to watch",
+        "text": "Look for further analysis on how these casualty figures impact Russia's domestic stability."
+      }
+    ],
+    "caption": "Russia has lost nearly 500,000 people in the war in Ukraine according to leaked internal data.\n\nThis figure comes from an analysis of Russian mortality patterns verified by three independent sources. It offers a stark look at the human toll of the conflict that has continued since the full-scale invasion began. We are tracking how these numbers reflect the reality on the ground.\n\nHow do you think public awareness of casualty figures changes the way a country views a war?\n\nSave this one. Follow for the daily card. Full story on HEADLINNE.com.\n\n#WorldNews #Geopolitics #GlobalNews #Russia",
+    "hashtags": [
+      "WorldNews",
+      "Geopolitics",
+      "GlobalNews",
+      "Russia",
+      "Ukraine",
+      "War",
+      "News",
+      "Conflict",
+      "Casualties",
+      "InternationalRelations",
+      "CurrentEvents",
+      "Data",
+      "Headlinne",
+      "NewsExplained"
+    ],
+    "scheduled_time": "2026-11-26T21:30:00+05:30",
+    "first_comment": "#Ukraine #War #News #Conflict #Casualties #InternationalRelations #CurrentEvents #Data #Headlinne #NewsExplained",
+    "sources": "BBC World · France 24 · Guardian Business",
+    "story_url": "https://www.bbc.co.uk/news/articles/cmx27g533zwyo?at_medium=RSS&at_campaign=rss",
+    "image_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/1e4e/live/dce0d700-e8c5-11f1-99b6-a35a62fa4264.jpg",
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-26/story_card/story_card.png",
+    "story": null
+  }
+}

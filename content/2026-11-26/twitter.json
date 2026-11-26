@@ -1,0 +1,96 @@
+[
+  {
+    "category": "Tech",
+    "post": "Today's top stories in brief.\n• SpaceX got the green light to launch a million satellites for AI\n• These space data centers aim to handle massive computing needs\n• The Army safely detonated 9,700 pounds of lead with no air pollution HEADLINNE.com #TechNews #Space",
+    "hashtags": [
+      "TechNews",
+      "Space"
+    ],
+    "scheduled_time": "2026-11-26T13:00:00+05:30",
+    "kind": "news",
+    "lead": "Today's top stories in brief.",
+    "items": [
+      "SpaceX got the green light to launch a million satellites for AI",
+      "These space data centers aim to handle massive computing needs",
+      "The Army safely detonated 9,700 pounds of lead with no air pollution"
+    ],
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-26/x/x_1.png",
+    "story": {
+      "title": "US approves SpaceX plan to send a million data satellites to space",
+      "summary": "The Starmind constellation aims to be the most cost and energy-efficient way to meet the growing demand for AI computing power.",
+      "url": "https://www.bbc.co.uk/news/articles/cwp836l8n1jgo?at_medium=RSS&at_campaign=rss",
+      "category": "Technology",
+      "source": "BBC Business",
+      "tier": 1.4,
+      "published_iso": "2026-11-25T17:44:51+00:00",
+      "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/fd78/live/4cbffd10-e91d-11f1-9108-c5b270b0703d.jpg",
+      "corroborating_sources": [
+        "Al Jazeera",
+        "TechCrunch",
+        "The Verge"
+      ],
+      "score": 16.237,
+      "verified": true,
+      "sensitive": false,
+      "agreement": {
+        "reported": 2,
+        "agree": 2,
+        "conflict": 0,
+        "claim": "",
+        "claim_unit": "",
+        "outlets": [
+          "BBC Business",
+          "Al Jazeera"
+        ],
+        "conflicts": []
+      }
+    }
+  },
+  {
+    "category": "Geopolitics",
+    "post": "Today's top global stories.\n• Russia's own data shows 500,000 casualties in the Ukraine war\n• The US approved SpaceX to build 1 million space data centres\n• The Army called its Iowa toxic disposal a success, despite risks HEADLINNE.com #Geopolitics #News",
+    "hashtags": [
+      "Geopolitics",
+      "News"
+    ],
+    "scheduled_time": "2026-11-26T17:00:00+05:30",
+    "kind": "news",
+    "lead": "Today's top global stories.",
+    "items": [
+      "Russia's own data shows 500,000 casualties in the Ukraine war",
+      "The US approved SpaceX to build 1 million space data centres",
+      "The Army called its Iowa toxic disposal a success, despite risks"
+    ],
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-26/x/x_2.png",
+    "story": {
+      "title": "Russia's own figures show it has lost nearly 500,000 people in Ukraine war",
+      "summary": "Leaked data reveal how the full-scale invasion of Ukraine has fundamentally changed mortality patterns in Russia.",
+      "url": "https://www.bbc.co.uk/news/articles/cmx27g533zwyo?at_medium=RSS&at_campaign=rss",
+      "category": "Geopolitics",
+      "source": "BBC World",
+      "tier": 1.4,
+      "published_iso": "2026-11-25T12:21:49+00:00",
+      "image_url": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/1e4e/live/dce0d700-e8c5-11f1-99b6-a35a62fa4264.jpg",
+      "corroborating_sources": [
+        "France 24",
+        "Guardian Business"
+      ],
+      "score": 13.45,
+      "verified": true,
+      "sensitive": false,
+      "agreement": {
+        "reported": 3,
+        "agree": 1,
+        "conflict": 0,
+        "claim": "500,000 people",
+        "claim_unit": "people",
+        "outlets": [
+          "BBC World",
+          "France 24",
+          "Guardian Business"
+        ],
+        "conflicts": []
+      }
+    }
+  }
+]
