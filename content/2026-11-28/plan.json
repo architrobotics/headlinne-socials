@@ -1,0 +1,522 @@
+{
+  "day": "2026-11-28",
+  "is_promo_day": false,
+  "is_friday": false,
+  "twitter": [
+    {
+      "category": "Geopolitics",
+      "post": "Today's top stories in brief\n• Canada's top court upheld a Quebec law banning religious symbols\n• Teachers and civil rights groups say the law violates their rights\n• OpenAI is suing Apple over alleged trade secret theft HEADLINNE.com #Canada #TechNews",
+      "hashtags": [
+        "Canada",
+        "TechNews"
+      ],
+      "scheduled_time": "2026-11-28T13:00:00+05:30",
+      "kind": "news",
+      "lead": "Today's top stories in brief",
+      "items": [
+        "Canada's top court upheld a Quebec law banning religious symbols",
+        "Teachers and civil rights groups say the law violates their rights",
+        "OpenAI is suing Apple over alleged trade secret theft"
+      ],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-28/x/x_1.png",
+      "story": {
+        "title": "Canada: Supreme Court largely upholds Quebec secularism bill",
+        "summary": "Quebec's government passed Bill 21 to ban religious symbols for public servants, arguing it was necessary to protect its secularist society. Critics argue the bill weakens legal protections for fundamental rights.",
+        "url": "https://www.dw.com/en/canada-supreme-court-largely-upholds-quebec-secularism-bill/a-80082571?maca=en-rss-en-world-4025-rdf",
+        "category": "Geopolitics",
+        "source": "Deutsche Welle",
+        "tier": 1.0,
+        "published_iso": "2026-11-27T20:43:00+00:00",
+        "image_url": "https://static.dw.com/image/80082604_6.jpg",
+        "corroborating_sources": [
+          "Guardian World"
+        ],
+        "score": 12.355,
+        "verified": true,
+        "sensitive": false,
+        "agreement": {
+          "reported": 2,
+          "agree": 1,
+          "conflict": 1,
+          "claim": "21",
+          "claim_unit": "reported",
+          "outlets": [
+            "Deutsche Welle",
+            "Guardian World"
+          ],
+          "conflicts": [
+            {
+              "outlet": "Guardian World",
+              "value": "6"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "category": "Finance",
+      "post": "Your quick morning finance update.\n• Norse Atlantic Airways filed for bankruptcy due to rising fuel costs\n• Unions fear 1.4 million UK workers could lose zero-hours protections\n• Centrica is pushing for urgent talks to save a major gas facility HEADLINNE.com #Business #Finance",
+      "hashtags": [
+        "Business",
+        "Finance"
+      ],
+      "scheduled_time": "2026-11-28T17:00:00+05:30",
+      "kind": "news",
+      "lead": "Your quick morning finance update.",
+      "items": [
+        "Norse Atlantic Airways filed for bankruptcy due to rising fuel costs",
+        "Unions fear 1.4 million UK workers could lose zero-hours protections",
+        "Centrica is pushing for urgent talks to save a major gas facility"
+      ],
+      "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-28/x/x_2.png",
+      "story": {
+        "title": "Norse Atlantic Airways files for bankruptcy and cancels all future flights",
+        "summary": "Norwegian airline tells customers not to come to airports after surging fuel costs caused by Iran war ruin finances Norse Atlantic Airways has filed for bankruptcy and cancelled all future flights after surging fuel costs caused by the Iran war ruined its finances. The Norwegian airline said it was entering insolvency and posted a message on its website telling customers not to come to airports – including passengers stranded away from home. Its collapse came a day after it put flights on hold with a warning that its finances were critical. Continue reading...",
+        "url": "https://www.theguardian.com/business/2026/nov/27/norse-atlantic-airways-files-for-bankruptcy-cancels-all-future-flights",
+        "category": "Finance",
+        "source": "Guardian Business",
+        "tier": 1.1,
+        "published_iso": "2026-11-27T15:40:35+00:00",
+        "image_url": "https://i.guim.co.uk/img/media/e1f07f0b2a8329b3e1557eed373d0458f8cb7e9a/71_0_3289_2633/master/3289.jpg?width=700&quality=85&auto=format&fit=max&s=1452f35dc1b0df01c30cb7af1a6eb5d5",
+        "corroborating_sources": [
+          "Al Jazeera",
+          "Deutsche Welle",
+          "Guardian World"
+        ],
+        "score": 8.907,
+        "verified": true,
+        "sensitive": false,
+        "agreement": {
+          "reported": 3,
+          "agree": 3,
+          "conflict": 0,
+          "claim": "",
+          "claim_unit": "",
+          "outlets": [
+            "Guardian Business",
+            "Deutsche Welle",
+            "Al Jazeera"
+          ],
+          "conflicts": []
+        }
+      }
+    }
+  ],
+  "linkedin": {
+    "title": "Most news apps are built to keep you scrolling until you are exhausted.",
+    "body": "That is the default model for the internet. It relies on outrage, endless notifications, and the assumption that your attention is a resource to be mined. We wanted to build something different.\n\nAt Headlinne, our philosophy is simple. We believe news should be helpful, not overwhelming. We use AI not to feed you more content, but to filter out the noise. The goal is to give you exactly what you need to understand the world, and then let you get on with your day.\n\nTrue intelligence in a news app means respecting your time. It means surfacing the facts without the fluff. It means removing the incentives to click and replacing them with the incentives to learn. A smarter news experience isn't about knowing everything. It is about knowing what matters to you.",
+    "cta": "If you are tired of the noise, you can see how we are rethinking the daily news feed at HEADLINNE.com.",
+    "scheduled_time": "2026-11-28T18:00:00+05:30",
+    "kind": "product"
+  },
+  "instagram": [
+    {
+      "slot": "instagram_1",
+      "category": "Geopolitics",
+      "num_slides": 5,
+      "title": "Canada Supreme Court upholds Quebec religious symbol ban",
+      "slides": [
+        {
+          "role": "cover",
+          "headline": "Canada Supreme Court upholds Quebec religious symbol ban",
+          "explanation": "",
+          "image_url": "https://static.dw.com/image/80082604_6.jpg",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-28/instagram/instagram_1/slide_1.png",
+          "subtitle": "The law restricts religious attire for public servants.",
+          "sources": "",
+          "index": 1,
+          "kicker": "SOURCES DISAGREE",
+          "pose": "puzzled",
+          "say": "A major legal ruling.",
+          "figure": "",
+          "unit": ""
+        },
+        {
+          "role": "scale",
+          "headline": "",
+          "explanation": "This decision impacts a wide range of public employees across Quebec. It effectively changes the dress code for teachers, police officers, and lawyers.",
+          "image_url": "https://static.dw.com/image/80082604_6.jpg",
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-28/instagram/instagram_1/slide_2.png",
+          "subtitle": "",
+          "sources": "",
+          "index": 2,
+          "kicker": "THE SCALE",
+          "pose": "",
+          "say": "",
+          "figure": "",
+          "unit": ""
+        },
+        {
+          "role": "twist",
+          "headline": "The law prioritizes secularism over some individual rights",
+          "explanation": "While the government argues this protects a secular society, critics say it weakens legal protections for fundamental rights by targeting specific religious expressions.",
+          "image_url": null,
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-28/instagram/instagram_1/slide_3.png",
+          "subtitle": "",
+          "sources": "",
+          "index": 3,
+          "kicker": "WHAT YOU DID NOT KNOW",
+          "pose": "puzzled",
+          "say": "Rights versus secular rules.",
+          "figure": "",
+          "unit": ""
+        },
+        {
+          "role": "sources",
+          "headline": "",
+          "explanation": "We compared reports from Deutsche Welle and the Guardian. While they differ on specific counts, both confirm the court's decision to uphold the bill.",
+          "image_url": null,
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-28/instagram/instagram_1/slide_4.png",
+          "subtitle": "",
+          "sources": "",
+          "index": 4,
+          "kicker": "SOURCES",
+          "pose": "puzzled",
+          "say": "1 of 2 agree",
+          "figure": "",
+          "unit": ""
+        },
+        {
+          "role": "cta",
+          "headline": "",
+          "explanation": "",
+          "image_url": null,
+          "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-28/instagram/instagram_1/slide_5.png",
+          "subtitle": "Read the full breakdown on Headlinne.",
+          "sources": "",
+          "index": 5,
+          "kicker": "READ THE FULL STORY",
+          "pose": "carry",
+          "say": "Come and read it.",
+          "figure": "",
+          "unit": ""
+        }
+      ],
+      "caption": "Quebec's Bill 21 has been a point of intense debate for years.\n\nThe law prohibits public servants in positions of authority from wearing religious symbols while on the job.\n\nNow, the Supreme Court has largely upheld the legislation. Supporters see this as a necessary step to maintain a secular state, while opponents argue it unfairly infringes on personal freedoms.\n\nThis ruling settles a significant legal chapter in Canadian constitutional law. It highlights the ongoing tension between provincial autonomy and federal human rights standards.\n\nHow do you think societies should balance secularism and religious expression?\n\nFollow @headlinnedotcom for a daily brief. Full story on HEADLINNE.com.\n\n#WorldNews #Geopolitics #GlobalNews #Politics",
+      "hashtags": [
+        "WorldNews",
+        "Geopolitics",
+        "GlobalNews",
+        "Politics",
+        "Canada",
+        "Quebec",
+        "News",
+        "Law",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-11-28T16:00:00+05:30",
+      "first_comment": "#Canada #Quebec #News #Law #Headlinne",
+      "story": {
+        "title": "Canada: Supreme Court largely upholds Quebec secularism bill",
+        "summary": "Quebec's government passed Bill 21 to ban religious symbols for public servants, arguing it was necessary to protect its secularist society. Critics argue the bill weakens legal protections for fundamental rights.",
+        "url": "https://www.dw.com/en/canada-supreme-court-largely-upholds-quebec-secularism-bill/a-80082571?maca=en-rss-en-world-4025-rdf",
+        "category": "Geopolitics",
+        "source": "Deutsche Welle",
+        "tier": 1.0,
+        "published_iso": "2026-11-27T20:43:00+00:00",
+        "image_url": "https://static.dw.com/image/80082604_6.jpg",
+        "corroborating_sources": [
+          "Guardian World"
+        ],
+        "score": 12.355,
+        "verified": true,
+        "sensitive": false,
+        "agreement": {
+          "reported": 2,
+          "agree": 1,
+          "conflict": 1,
+          "claim": "21",
+          "claim_unit": "reported",
+          "outlets": [
+            "Deutsche Welle",
+            "Guardian World"
+          ],
+          "conflicts": [
+            {
+              "outlet": "Guardian World",
+              "value": "6"
+            }
+          ]
+        }
+      },
+      "story_url": "https://www.dw.com/en/canada-supreme-court-largely-upholds-quebec-secularism-bill/a-80082571?maca=en-rss-en-world-4025-rdf"
+    }
+  ],
+  "reels": [
+    {
+      "slot": "reel_1",
+      "kind": "news",
+      "category": "Geopolitics",
+      "title": "OpenAI countersues Apple for allegedly stealing trade secrets",
+      "hook": "OpenAI countersues Apple for allegedly stealing trade secrets",
+      "beats": [
+        {
+          "role": "hook",
+          "caption": "OpenAI countersues Apple for allegedly stealing trade secrets",
+          "detail": "",
+          "narration": "",
+          "seconds": 4.45,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "",
+          "pose": "",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {},
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": ""
+        },
+        {
+          "role": "hook",
+          "caption": "New legal battles could change your tech.",
+          "detail": "Two tech giants clash over trade secrets.",
+          "narration": "If this legal fight escalates, your next AI device might be delayed. Here is the chain.",
+          "seconds": 4.07,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "TECH TITANS AT WAR",
+          "pose": "walk",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "server",
+            "hat": "none",
+            "pose": "talk"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "OpenAI countersues Apple in court.",
+          "detail": "Lawsuit filed in northern California federal court.",
+          "narration": "OpenAI just sued Apple. They claim Apple stole trade secrets and pressured their hardware suppliers.",
+          "seconds": 3.31,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "OPENAI STRIKES BACK",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "courtroom",
+            "hat": "press",
+            "pose": "present"
+          },
+          "stat": {},
+          "fact": "SUIT FILED IN CALIFORNIA",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "Apple previously sued OpenAI.",
+          "detail": "The rivalry between the two firms intensifies.",
+          "narration": "This follows Apple suing OpenAI first. They accused the company of poaching their employees.",
+          "seconds": 2.93,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "THE PREVIOUS MOVE",
+          "pose": "present",
+          "say": "",
+          "plates": [
+            "story"
+          ],
+          "tone": "",
+          "scene": {
+            "set": "courtroom",
+            "hat": "press",
+            "pose": "talk"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "graphic",
+          "caption": "A chain of accusations emerges.",
+          "detail": "The conflict spans employees and hardware.",
+          "narration": "It creates a complex web of accusations between these two massive tech giants.",
+          "seconds": 3.31,
+          "graphic": "flow",
+          "data": {
+            "steps": [
+              "Apple sues first",
+              "OpenAI countersues",
+              "Suppliers pressured"
+            ]
+          },
+          "image_url": null,
+          "chapter": "HOW IT UNFOLDS",
+          "pose": "jump",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "courtroom",
+            "hat": "press",
+            "pose": "point"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "Apple allegedly blocks OpenAI partners.",
+          "detail": "Hardware access is central to the dispute.",
+          "narration": "OpenAI says Apple is actively blocking them from working with crucial hardware partners.",
+          "seconds": 3.31,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "PRESSURE ON SUPPLIERS",
+          "pose": "talk",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "trading",
+            "hat": "none",
+            "pose": "alarm"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "BLOCKED",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "point",
+          "caption": "Both firms want the hardware.",
+          "detail": "Control of devices is the ultimate goal.",
+          "narration": "Hardware is the next frontier for AI. Both companies want to own the physical devices.",
+          "seconds": 3.31,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "WHY IT MATTERS",
+          "pose": "point",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "server",
+            "hat": "none",
+            "pose": "think"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        },
+        {
+          "role": "outro",
+          "caption": "Follow the latest updates here.",
+          "detail": "Check the app for further developments.",
+          "narration": "We are tracking this case. Get the full story and more at headlinne.com.",
+          "seconds": 3.31,
+          "graphic": "",
+          "data": {},
+          "image_url": null,
+          "chapter": "STAY UPDATED",
+          "pose": "cta",
+          "say": "",
+          "plates": [],
+          "tone": "",
+          "scene": {
+            "set": "newsroom",
+            "hat": "none",
+            "pose": "deliver"
+          },
+          "stat": {},
+          "fact": "",
+          "stamp": "",
+          "stamp_tone": "neutral"
+        }
+      ],
+      "caption": "OpenAI countersues Apple for allegedly stealing trade secrets\n\nWho wins this legal war?\n\nFollow @headlinnedotcom for a daily brief. Full story on HEADLINNE.com.\n\n#WorldNews #Geopolitics #GlobalNews #OpenAI",
+      "hashtags": [
+        "WorldNews",
+        "Geopolitics",
+        "GlobalNews",
+        "OpenAI",
+        "Apple",
+        "TechNews",
+        "Headlinne"
+      ],
+      "scheduled_time": "2026-11-28T09:30:00+05:30",
+      "first_comment": "#Apple #TechNews #Headlinne",
+      "sources": "Guardian World",
+      "story_url": "https://www.theguardian.com/technology/2026/nov/27/openai-countersues-apple-trade-secrets",
+      "dateline": "SAT 28 NOV",
+      "story": null,
+      "duration_seconds": 28.0,
+      "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-28/reels/reel_1.mp4",
+      "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-28/reels/reel_1_cover.png",
+      "audio_file": null,
+      "has_voiceover": false
+    }
+  ],
+  "story_card": {
+    "slot": "story_card",
+    "category": "Technology",
+    "headline": "Hackers are using AI to automate cyberattacks",
+    "standfirst": "Microsoft warns that state-backed groups are using new AI tools to speed up system",
+    "steps": [
+      {
+        "label": "What happened",
+        "text": "Hackers in China and North Korea are using an AI tool called ARTEX to infiltrate tech systems."
+      },
+      {
+        "label": "How we got here",
+        "text": "This framework automates common attack techniques that humans used to perform manually."
+      },
+      {
+        "label": "Why it matters",
+        "text": "The automation is so efficient that it can potentially bypass weak defenses in just minutes."
+      },
+      {
+        "label": "What to watch",
+        "text": "Security teams will need to update their defenses to counter these faster, automated threats."
+      }
+    ],
+    "caption": "Microsoft has identified state-backed hackers using the ARTEX AI tool for cyberattacks.\n\nThe report highlights an 'agentic offensive framework' that allows attackers to scale their efforts. By automating familiar techniques, these groups can find and exploit vulnerabilities much faster than before.\n\nDo you think AI tools make cyber defense harder or easier for companies?\n\nSave this one. Follow for the daily card. Full story on HEADLINNE.com.\n\n#TechNews #Tech #AI #cybersecurity",
+    "hashtags": [
+      "TechNews",
+      "Tech",
+      "AI",
+      "cybersecurity",
+      "microsoft",
+      "hacking",
+      "infosec",
+      "artex",
+      "technology",
+      "digitalprivacy",
+      "cyberattack",
+      "news",
+      "artificialintelligence",
+      "NewsExplained",
+      "Headlinne"
+    ],
+    "scheduled_time": "2026-11-28T21:30:00+05:30",
+    "first_comment": "#microsoft #hacking #infosec #artex #technology #digitalprivacy #cyberattack #news #artificialintelligence #NewsExplained #Headlinne",
+    "sources": "The Register",
+    "story_url": "https://www.theregister.com/security/2026/11/26/microsoft-hackers-in-china-n-korea-using-artex-ai-tool-to-break-into-global-tech-systems/5312433",
+    "image_url": "https://image.theregister.com/?imageId=5310524&width=800",
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-28/story_card/story_card.png",
+    "story": null
+  }
+}

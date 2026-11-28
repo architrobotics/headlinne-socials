@@ -1,0 +1,228 @@
+[
+  {
+    "slot": "reel_1",
+    "kind": "news",
+    "category": "Geopolitics",
+    "title": "OpenAI countersues Apple for allegedly stealing trade secrets",
+    "hook": "OpenAI countersues Apple for allegedly stealing trade secrets",
+    "beats": [
+      {
+        "role": "hook",
+        "caption": "OpenAI countersues Apple for allegedly stealing trade secrets",
+        "detail": "",
+        "narration": "",
+        "seconds": 4.45,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "",
+        "pose": "",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {},
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": ""
+      },
+      {
+        "role": "hook",
+        "caption": "New legal battles could change your tech.",
+        "detail": "Two tech giants clash over trade secrets.",
+        "narration": "If this legal fight escalates, your next AI device might be delayed. Here is the chain.",
+        "seconds": 4.07,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "TECH TITANS AT WAR",
+        "pose": "walk",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "server",
+          "hat": "none",
+          "pose": "talk"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "OpenAI countersues Apple in court.",
+        "detail": "Lawsuit filed in northern California federal court.",
+        "narration": "OpenAI just sued Apple. They claim Apple stole trade secrets and pressured their hardware suppliers.",
+        "seconds": 3.31,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "OPENAI STRIKES BACK",
+        "pose": "point",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "courtroom",
+          "hat": "press",
+          "pose": "present"
+        },
+        "stat": {},
+        "fact": "SUIT FILED IN CALIFORNIA",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "Apple previously sued OpenAI.",
+        "detail": "The rivalry between the two firms intensifies.",
+        "narration": "This follows Apple suing OpenAI first. They accused the company of poaching their employees.",
+        "seconds": 2.93,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "THE PREVIOUS MOVE",
+        "pose": "present",
+        "say": "",
+        "plates": [
+          "story"
+        ],
+        "tone": "",
+        "scene": {
+          "set": "courtroom",
+          "hat": "press",
+          "pose": "talk"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "graphic",
+        "caption": "A chain of accusations emerges.",
+        "detail": "The conflict spans employees and hardware.",
+        "narration": "It creates a complex web of accusations between these two massive tech giants.",
+        "seconds": 3.31,
+        "graphic": "flow",
+        "data": {
+          "steps": [
+            "Apple sues first",
+            "OpenAI countersues",
+            "Suppliers pressured"
+          ]
+        },
+        "image_url": null,
+        "chapter": "HOW IT UNFOLDS",
+        "pose": "jump",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "courtroom",
+          "hat": "press",
+          "pose": "point"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "Apple allegedly blocks OpenAI partners.",
+        "detail": "Hardware access is central to the dispute.",
+        "narration": "OpenAI says Apple is actively blocking them from working with crucial hardware partners.",
+        "seconds": 3.31,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "PRESSURE ON SUPPLIERS",
+        "pose": "talk",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "trading",
+          "hat": "none",
+          "pose": "alarm"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "BLOCKED",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "point",
+        "caption": "Both firms want the hardware.",
+        "detail": "Control of devices is the ultimate goal.",
+        "narration": "Hardware is the next frontier for AI. Both companies want to own the physical devices.",
+        "seconds": 3.31,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "WHY IT MATTERS",
+        "pose": "point",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "server",
+          "hat": "none",
+          "pose": "think"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      },
+      {
+        "role": "outro",
+        "caption": "Follow the latest updates here.",
+        "detail": "Check the app for further developments.",
+        "narration": "We are tracking this case. Get the full story and more at headlinne.com.",
+        "seconds": 3.31,
+        "graphic": "",
+        "data": {},
+        "image_url": null,
+        "chapter": "STAY UPDATED",
+        "pose": "cta",
+        "say": "",
+        "plates": [],
+        "tone": "",
+        "scene": {
+          "set": "newsroom",
+          "hat": "none",
+          "pose": "deliver"
+        },
+        "stat": {},
+        "fact": "",
+        "stamp": "",
+        "stamp_tone": "neutral"
+      }
+    ],
+    "caption": "OpenAI countersues Apple for allegedly stealing trade secrets\n\nWho wins this legal war?\n\nFollow @headlinnedotcom for a daily brief. Full story on HEADLINNE.com.\n\n#WorldNews #Geopolitics #GlobalNews #OpenAI",
+    "hashtags": [
+      "WorldNews",
+      "Geopolitics",
+      "GlobalNews",
+      "OpenAI",
+      "Apple",
+      "TechNews",
+      "Headlinne"
+    ],
+    "scheduled_time": "2026-11-28T09:30:00+05:30",
+    "first_comment": "#Apple #TechNews #Headlinne",
+    "sources": "Guardian World",
+    "story_url": "https://www.theguardian.com/technology/2026/nov/27/openai-countersues-apple-trade-secrets",
+    "dateline": "SAT 28 NOV",
+    "story": null,
+    "duration_seconds": 28.0,
+    "video_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-28/reels/reel_1.mp4",
+    "cover_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-28/reels/reel_1_cover.png",
+    "audio_file": null,
+    "has_voiceover": false
+  }
+]

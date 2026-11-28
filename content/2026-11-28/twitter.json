@@ -1,0 +1,100 @@
+[
+  {
+    "category": "Geopolitics",
+    "post": "Today's top stories in brief\n• Canada's top court upheld a Quebec law banning religious symbols\n• Teachers and civil rights groups say the law violates their rights\n• OpenAI is suing Apple over alleged trade secret theft HEADLINNE.com #Canada #TechNews",
+    "hashtags": [
+      "Canada",
+      "TechNews"
+    ],
+    "scheduled_time": "2026-11-28T13:00:00+05:30",
+    "kind": "news",
+    "lead": "Today's top stories in brief",
+    "items": [
+      "Canada's top court upheld a Quebec law banning religious symbols",
+      "Teachers and civil rights groups say the law violates their rights",
+      "OpenAI is suing Apple over alleged trade secret theft"
+    ],
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-28/x/x_1.png",
+    "story": {
+      "title": "Canada: Supreme Court largely upholds Quebec secularism bill",
+      "summary": "Quebec's government passed Bill 21 to ban religious symbols for public servants, arguing it was necessary to protect its secularist society. Critics argue the bill weakens legal protections for fundamental rights.",
+      "url": "https://www.dw.com/en/canada-supreme-court-largely-upholds-quebec-secularism-bill/a-80082571?maca=en-rss-en-world-4025-rdf",
+      "category": "Geopolitics",
+      "source": "Deutsche Welle",
+      "tier": 1.0,
+      "published_iso": "2026-11-27T20:43:00+00:00",
+      "image_url": "https://static.dw.com/image/80082604_6.jpg",
+      "corroborating_sources": [
+        "Guardian World"
+      ],
+      "score": 12.355,
+      "verified": true,
+      "sensitive": false,
+      "agreement": {
+        "reported": 2,
+        "agree": 1,
+        "conflict": 1,
+        "claim": "21",
+        "claim_unit": "reported",
+        "outlets": [
+          "Deutsche Welle",
+          "Guardian World"
+        ],
+        "conflicts": [
+          {
+            "outlet": "Guardian World",
+            "value": "6"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "category": "Finance",
+    "post": "Your quick morning finance update.\n• Norse Atlantic Airways filed for bankruptcy due to rising fuel costs\n• Unions fear 1.4 million UK workers could lose zero-hours protections\n• Centrica is pushing for urgent talks to save a major gas facility HEADLINNE.com #Business #Finance",
+    "hashtags": [
+      "Business",
+      "Finance"
+    ],
+    "scheduled_time": "2026-11-28T17:00:00+05:30",
+    "kind": "news",
+    "lead": "Your quick morning finance update.",
+    "items": [
+      "Norse Atlantic Airways filed for bankruptcy due to rising fuel costs",
+      "Unions fear 1.4 million UK workers could lose zero-hours protections",
+      "Centrica is pushing for urgent talks to save a major gas facility"
+    ],
+    "image_file": "/home/runner/work/headlinne-socials/headlinne-socials/content/2026-11-28/x/x_2.png",
+    "story": {
+      "title": "Norse Atlantic Airways files for bankruptcy and cancels all future flights",
+      "summary": "Norwegian airline tells customers not to come to airports after surging fuel costs caused by Iran war ruin finances Norse Atlantic Airways has filed for bankruptcy and cancelled all future flights after surging fuel costs caused by the Iran war ruined its finances. The Norwegian airline said it was entering insolvency and posted a message on its website telling customers not to come to airports – including passengers stranded away from home. Its collapse came a day after it put flights on hold with a warning that its finances were critical. Continue reading...",
+      "url": "https://www.theguardian.com/business/2026/nov/27/norse-atlantic-airways-files-for-bankruptcy-cancels-all-future-flights",
+      "category": "Finance",
+      "source": "Guardian Business",
+      "tier": 1.1,
+      "published_iso": "2026-11-27T15:40:35+00:00",
+      "image_url": "https://i.guim.co.uk/img/media/e1f07f0b2a8329b3e1557eed373d0458f8cb7e9a/71_0_3289_2633/master/3289.jpg?width=700&quality=85&auto=format&fit=max&s=1452f35dc1b0df01c30cb7af1a6eb5d5",
+      "corroborating_sources": [
+        "Al Jazeera",
+        "Deutsche Welle",
+        "Guardian World"
+      ],
+      "score": 8.907,
+      "verified": true,
+      "sensitive": false,
+      "agreement": {
+        "reported": 3,
+        "agree": 3,
+        "conflict": 0,
+        "claim": "",
+        "claim_unit": "",
+        "outlets": [
+          "Guardian Business",
+          "Deutsche Welle",
+          "Al Jazeera"
+        ],
+        "conflicts": []
+      }
+    }
+  }
+]
